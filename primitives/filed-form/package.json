@@ -60,7 +60,7 @@
     }
   },
   "dependencies": {
-    "@radix-ui/react-slot": "1.2.3",
+    "@radix-ui/react-slot": "1.2.4",
     "@skyroc/type-utils": "workspace:*",
     "@skyroc/utils": "workspace:*"
   },
