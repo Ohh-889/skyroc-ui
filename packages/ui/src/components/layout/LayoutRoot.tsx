@@ -1,0 +1,97 @@
+import type { CSSProperties } from 'react';
+import { useMemo, useState } from 'react';
+
+import { themeSizeRatio } from '@/constants/theme';
+import { useMediaQuery } from '@/hooks/use-media-query';
+import { cn } from '@/lib/utils';
+
+import { LayoutContext } from './context';
+import { layoutVariants } from './layout-variants';
+import type { LayoutRootProps } from './types';
+
+const LayoutRoot = ({
+  children,
+  collapsedSidebarWidth = 50,
+  collapsible,
+  defaultOpen = false,
+  onOpenChange,
+  open: controlledOpen,
+  side,
+  sidebarWidth = 240,
+  size = 'md',
+  variant,
+  ...props
+}: LayoutRootProps) => {
+  const isMobile = useMediaQuery({ maxWidth: 768 });
+  const [openMobile, setOpenMobile] = useState(false);
+  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+
+  // Support controlled and uncontrolled mode
+  const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
+
+  const handleOpenChange = (value: boolean) => {
+    if (controlledOpen === undefined) {
+      setInternalOpen(value);
+    }
+    onOpenChange?.(value);
+  };
+
+  const state = useMemo(() => {
+    return open ? 'expanded' : 'collapsed';
+  }, [open]);
+
+  const { root } = layoutVariants({ variant });
+  const mergedCls = cn(root(), props.className);
+
+  const style = useMemo(() => {
+    const sidebarWidthValue = (sidebarWidth * themeSizeRatio[size]) / 16;
+    const collapsedSidebarWidthValue = (collapsedSidebarWidth * themeSizeRatio[size]) / 16;
+    return {
+      '--sidebar-width': `${sidebarWidthValue}rem`,
+      '--sidebar-width-icon': `${collapsedSidebarWidthValue}rem`
+    } as CSSProperties;
+  }, [sidebarWidth, collapsedSidebarWidth, size]);
+
+  const dataCollapsible = useMemo(() => {
+    return state === 'collapsed' ? collapsible : '';
+  }, [collapsible, state]);
+
+  const renderChildren = typeof children === 'function' ? children({ open }) : children;
+
+  return (
+    <LayoutContext.Provider
+      value={{
+        collapsedSidebarWidth,
+        isMobile,
+        onOpenChange: handleOpenChange,
+        onOpenMobileChange: (value: boolean) => {
+          setOpenMobile(value);
+        },
+        open,
+        openMobile,
+        sidebarWidth,
+        state,
+        toggleSidebar: () => {
+          if (isMobile) {
+            setOpenMobile(!openMobile);
+          } else {
+            handleOpenChange(!open);
+          }
+        }
+      }}
+    >
+      <div
+        className={mergedCls}
+        data-collapsible={dataCollapsible}
+        data-side={side}
+        data-state={state}
+        data-variant={variant}
+        style={style}
+      >
+        {renderChildren}
+      </div>
+    </LayoutContext.Provider>
+  );
+};
+
+export default LayoutRoot;
