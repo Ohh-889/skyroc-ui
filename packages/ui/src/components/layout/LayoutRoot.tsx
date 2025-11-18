@@ -1,3 +1,4 @@
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import type { CSSProperties } from 'react';
 import { useMemo, useState } from 'react';
 
@@ -24,14 +25,20 @@ const LayoutRoot = ({
 }: LayoutRootProps) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
   const [openMobile, setOpenMobile] = useState(false);
-  const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  // const [internalOpen, setInternalOpen] = useState(defaultOpen);
+  const [open, setOpen] = useControllableState({
+    caller: 'layout',
+    defaultProp: defaultOpen,
+    onChange: onOpenChange,
+    prop: controlledOpen
+  });
 
   // Support controlled and uncontrolled mode
-  const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
+  // const open = controlledOpen !== undefined ? controlledOpen : internalOpen;
 
   const handleOpenChange = (value: boolean) => {
     if (controlledOpen === undefined) {
-      setInternalOpen(value);
+      setOpen(value);
     }
     onOpenChange?.(value);
   };
