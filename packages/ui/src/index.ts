@@ -52,6 +52,8 @@ export * from './components/keyboard-key';
 
 export * from './components/label';
 
+export * from './components/layout';
+
 export * from './components/popover';
 
 export * from './components/progress';
