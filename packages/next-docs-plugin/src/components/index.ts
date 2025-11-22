@@ -8,6 +8,5 @@ export { default as Demo } from './Demo';
 
 export { default as InstallDependencies } from './InstallDependencies';
 
-export { default as LiveDemo } from './LiveDemo';
 
 export { DemoComponentsProvider, useDemoComponents } from './DemoScope';

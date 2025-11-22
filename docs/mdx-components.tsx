@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
-import { Code, ComponentPreview, Demo, InstallDependencies, LiveDemo } from '@skyroc/next-docs-plugin';
+import { Code, ComponentPreview, Demo, InstallDependencies } from '@skyroc/next-docs-plugin';
 
 import { H1, H2, H3, H4, H5, H6 } from '@/m-components/heading';
 
@@ -18,7 +18,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h5: H5,
     h6: H6,
     InstallDependencies,
-    LiveDemo,
     pre: Pre
   };
 }
