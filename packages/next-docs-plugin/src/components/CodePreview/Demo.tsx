@@ -27,8 +27,6 @@ export default async function Demo({ children, src, title }: DemoProps) {
     return <div className="text-red-500">Demo 组件需要 src 属性</div>;
   }
 
-  console.log('children', children);
-
 
   // 读取源代码
   const code = await readSourceCode(src);

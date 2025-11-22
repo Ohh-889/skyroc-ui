@@ -4,9 +4,7 @@ export { default as ComponentPreview } from './ComponentPreview';
 
 export { default as CopyButton } from './CopyButton';
 
-export { default as Demo } from './Demo';
-
 export { default as InstallDependencies } from './InstallDependencies';
 
-
-export { DemoComponentsProvider, useDemoComponents } from './DemoScope';
+// CodePreview exports
+export { Demo, DemoComponentsProvider, useDemoComponents, LiveCodePreview } from './CodePreview';
