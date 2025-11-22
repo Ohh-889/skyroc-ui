@@ -22,17 +22,22 @@ interface DemoProps {
  *
  * 会自动读取源代码并提供实时编辑预览功能
  */
-export default async function Demo({ children, highlight, src, title }: DemoProps) {
+export default async function Demo({ children, src, title }: DemoProps) {
   if (!src) {
     return <div className="text-red-500">Demo 组件需要 src 属性</div>;
   }
+
+  console.log('children', children);
+
 
   // 读取源代码
   const code = await readSourceCode(src);
 
   return (
     <Suspense fallback={<div className="p-6 text-sm text-gray-400">Loading...</div>}>
-      <LiveCodePreview code={code} title={title} />
+      <LiveCodePreview code={code} title={title}>
+        {children}
+      </LiveCodePreview>
     </Suspense>
   );
 }
@@ -63,10 +68,3 @@ function resolvePath(src: string): string {
   return path.resolve(process.cwd(), src);
 }
 
-/**
- * 获取文件语言类型
- */
-function getLanguage(src: string): string {
-  const ext = path.extname(src).slice(1);
-  return ['tsx', 'jsx', 'ts', 'js'].includes(ext) ? ext : 'tsx';
-}

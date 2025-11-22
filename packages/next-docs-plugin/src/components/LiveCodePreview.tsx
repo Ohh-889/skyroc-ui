@@ -10,6 +10,7 @@ import { cn } from '../lib/cn';
 interface LiveCodePreviewProps {
   code: string;
   title?: string;
+  children?: React.ReactNode;
 }
 
 // 简单的代码编辑器
@@ -93,6 +94,14 @@ function LivePreview({ code }: { code: string }) {
         cleanCode = cleanCode.replace(/export\s+default\s+/, '');
       }
 
+      // 简单的JSX转换提示
+      if (cleanCode.includes('<')) {
+        // 检测JSX语法并给出友好提示
+        setError('此编辑器暂不支持JSX语法的实时编译。\n\n建议:\n1. 使用普通的JavaScript\n2. 使用 React.createElement API\n3. 或在"预览"模式下查看原始效果');
+        setComponent(null);
+        return;
+      }
+
       // 添加 React hooks
       const executeCode = `
         const { useState, useEffect, useCallback, useMemo, useRef } = React;
@@ -115,9 +124,9 @@ function LivePreview({ code }: { code: string }) {
   if (error) {
     return (
       <div className="flex min-h-[200px] items-center justify-center p-6">
-        <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-200">
-          <div className="font-medium">编译错误</div>
-          <div className="mt-1 font-mono text-xs">{error}</div>
+        <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-200">
+          <div className="font-medium mb-2">💡 编辑器提示</div>
+          <div className="mt-1 whitespace-pre-line text-xs">{error}</div>
         </div>
       </div>
     );
@@ -136,7 +145,7 @@ function LivePreview({ code }: { code: string }) {
   );
 }
 
-export function LiveCodePreview({ code: initialCode, title }: LiveCodePreviewProps) {
+export function LiveCodePreview({ code: initialCode, title, children }: LiveCodePreviewProps) {
   const [mode, setMode] = useState<'preview' | 'code' | 'split'>('preview');
   const [code, setCode] = useState(initialCode);
   const [copied, setCopied] = useState(false);
@@ -257,7 +266,7 @@ export function LiveCodePreview({ code: initialCode, title }: LiveCodePreviewPro
               </div>
             )}
           >
-            <LivePreview code={code} />
+            <div className="p-6">{code}</div>
           </ErrorBoundary>
         )}
 
