@@ -4,8 +4,10 @@ import { Check, Code2, Copy, Eye, Maximize2, Minimize2, RotateCcw } from 'lucide
 import { useCallback, useEffect, useState } from 'react';
 import { ErrorBoundary } from 'react-error-boundary';
 import * as React from 'react';
+import * as Babel from '@babel/standalone';
 
 import { cn } from '../lib/cn';
+import { createRequire, getDemoScope, useDemoComponents } from './DemoScope';
 
 interface LiveCodePreviewProps {
   code: string;
@@ -64,93 +66,18 @@ function CodeEditor({
   );
 }
 
-// 实时编译和渲染组件
-function LivePreview({ code }: { code: string }) {
-  const [Component, setComponent] = useState<React.ComponentType | null>(null);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    try {
-      // 清理代码
-      let cleanCode = code.trim();
-
-      // 提取 import 语句中的组件名称
-      const imports: Record<string, any> = {};
-      const importRegex = /import\s*{([^}]+)}\s*from\s*['"]([^'"]+)['"]/g;
-      let match;
-
-      while ((match = importRegex.exec(cleanCode)) !== null) {
-        const componentNames = match[1].split(',').map(n => n.trim());
-        // 这里简化处理，实际应该动态加载组件
-        // 暂时跳过，让用户自己处理组件
-      }
-
-      // 移除 import 语句
-      cleanCode = cleanCode.replace(/import\s+.*?from\s+['"].*?['"];?\s*/g, '');
-
-      // 提取默认导出的组件
-      const exportMatch = cleanCode.match(/export\s+default\s+function\s+(\w+)/);
-      if (exportMatch) {
-        cleanCode = cleanCode.replace(/export\s+default\s+/, '');
-      }
-
-      // 简单的JSX转换提示
-      if (cleanCode.includes('<')) {
-        // 检测JSX语法并给出友好提示
-        setError('此编辑器暂不支持JSX语法的实时编译。\n\n建议:\n1. 使用普通的JavaScript\n2. 使用 React.createElement API\n3. 或在"预览"模式下查看原始效果');
-        setComponent(null);
-        return;
-      }
-
-      // 添加 React hooks
-      const executeCode = `
-        const { useState, useEffect, useCallback, useMemo, useRef } = React;
-        ${cleanCode}
-        return ${exportMatch ? exportMatch[1] : 'Demo'};
-      `;
-
-      // 创建函数并执行
-      const componentFactory = new Function('React', executeCode);
-      const GeneratedComponent = componentFactory(React);
-
-      setComponent(() => GeneratedComponent);
-      setError(null);
-    } catch (err: any) {
-      setError(err.message);
-      setComponent(null);
-    }
-  }, [code]);
-
-  if (error) {
-    return (
-      <div className="flex min-h-[200px] items-center justify-center p-6">
-        <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-200">
-          <div className="font-medium mb-2">💡 编辑器提示</div>
-          <div className="mt-1 whitespace-pre-line text-xs">{error}</div>
-        </div>
-      </div>
-    );
-  }
-
-  if (!Component) {
-    return (
-      <div className="flex min-h-[200px] items-center justify-center p-6 text-sm text-gray-400">加载中...</div>
-    );
-  }
-
-  return (
-    <div className="p-6">
-      <Component />
-    </div>
-  );
-}
 
 export function LiveCodePreview({ code: initialCode, title, children }: LiveCodePreviewProps) {
   const [mode, setMode] = useState<'preview' | 'code' | 'split'>('preview');
   const [code, setCode] = useState(initialCode);
   const [copied, setCopied] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [liveComponent, setLiveComponent] = useState<React.ComponentType | null>(null);
+  const [compileError, setCompileError] = useState<string | null>(null);
   const hasChanged = code !== initialCode;
+
+  // 从 Context 获取组件
+  const contextComponents = useDemoComponents();
 
   const handleCopy = useCallback(async () => {
     await navigator.clipboard.writeText(code);
@@ -161,6 +88,96 @@ export function LiveCodePreview({ code: initialCode, title, children }: LiveCode
   const handleReset = useCallback(() => {
     setCode(initialCode);
   }, [initialCode]);
+
+  // 实时编译代码 - 参考 dumi 的做法
+  useEffect(() => {
+    // 只在分屏模式下编译
+    if (!code || mode !== 'split') {
+      setLiveComponent(null);
+      setCompileError(null);
+      return;
+    }
+
+    let mounted = true;
+
+    const compileCode = async () => {
+      try {
+        // 使用 Babel 编译 JSX/TSX 代码
+        // 使用 classic runtime 而不是 automatic,这样更容易注入依赖
+        const transformResult = Babel.transform(code, {
+          filename: 'demo.tsx',
+          presets: [
+            ['react', { runtime: 'classic' }],
+            ['typescript', { isTSX: true, allExtensions: true }]
+          ]
+        });
+
+        if (!transformResult.code) {
+          throw new Error('Babel 编译失败');
+        }
+
+        if (!mounted) return;
+
+        let transformedCode = transformResult.code;
+
+        // 移除 import 语句
+        transformedCode = transformedCode.replace(/import\s+.*?from\s+['"].*?['"];?\s*/g, '');
+
+        // 移除 export default 并替换为 return
+        transformedCode = transformedCode.replace(/export\s+default\s+/g, 'return ');
+
+        // 获取作用域,注入自定义组件(从 Context 获取)
+        const scope = getDemoScope(contextComponents);
+
+        const require = createRequire(scope);
+
+        // 添加 require 函数到作用域
+        // 重要: 添加 React.createElement 作为全局函数
+        const fullScope = {
+          ...scope,
+          require,
+          console,
+          // Babel classic runtime 需要这些
+          React: scope.React,
+          // 确保 createElement 可用
+          _jsx: scope.React.createElement,
+          _jsxs: scope.React.createElement,
+          _Fragment: scope.React.Fragment
+        };
+
+        // 创建函数并执行
+        const scopeKeys = Object.keys(fullScope);
+        const scopeValues = Object.values(fullScope);
+
+        const componentFactory = new Function(...scopeKeys, transformedCode);
+        const GeneratedComponent = componentFactory(...scopeValues);
+
+        if (!mounted) return;
+
+        if (GeneratedComponent) {
+          setLiveComponent(() => GeneratedComponent);
+          setCompileError(null);
+        } else {
+          throw new Error('未找到导出的组件');
+        }
+      } catch (err: any) {
+        if (!mounted) return;
+        console.error('编译错误:', err);
+        setCompileError(err.message || '编译失败');
+        setLiveComponent(null);
+      }
+    };
+
+    // 添加延迟,避免频繁编译
+    const timer = setTimeout(() => {
+      compileCode();
+    }, 300);
+
+    return () => {
+      mounted = false;
+      clearTimeout(timer);
+    };
+  }, [code, mode, contextComponents]);
 
   return (
     <div
@@ -266,7 +283,7 @@ export function LiveCodePreview({ code: initialCode, title, children }: LiveCode
               </div>
             )}
           >
-            <div className="p-6">{code}</div>
+            <div className="p-6">{children}</div>
           </ErrorBoundary>
         )}
 
@@ -278,20 +295,36 @@ export function LiveCodePreview({ code: initialCode, title, children }: LiveCode
 
         {mode === 'split' && (
           <div className="grid grid-cols-2 divide-x divide-gray-200 dark:divide-gray-800">
-            <div className="min-h-[300px]">
+            <div className="min-h-[400px]">
               <CodeEditor value={code} onChange={setCode} className="h-full" />
             </div>
             <ErrorBoundary
               fallbackRender={({ error }) => (
-                <div className="flex min-h-[300px] items-center justify-center p-6">
+                <div className="flex min-h-[400px] items-center justify-center p-6">
                   <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800 dark:border-red-900 dark:bg-red-950 dark:text-red-200">
                     <div className="font-medium">渲染错误</div>
-                    <div className="mt-1 font-mono text-xs">{error.message}</div>
+                    <div className="mt-1 font-mono text-xs whitespace-pre-wrap">{error.message}</div>
                   </div>
                 </div>
               )}
             >
-              <LivePreview code={code} />
+              <div className="relative p-6">
+                {compileError ? (
+                  <div className="rounded-lg border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-200">
+                    <div className="font-medium mb-2">💡 编译提示</div>
+                    <div className="whitespace-pre-wrap text-xs">{compileError}</div>
+                    <div className="mt-2 text-xs">
+                      提示: 请检查代码语法,确保导入的组件在项目中可用
+                    </div>
+                  </div>
+                ) : liveComponent ? (
+                  <React.Suspense fallback={<div className="text-sm text-gray-400">加载中...</div>}>
+                    {React.createElement(liveComponent)}
+                  </React.Suspense>
+                ) : (
+                  <div className="text-sm text-gray-400">等待编译...</div>
+                )}
+              </div>
             </ErrorBoundary>
           </div>
         )}

@@ -3,6 +3,7 @@ import { Inter } from 'next/font/google';
 
 import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
+import { ClientDemoComponentsProvider } from '@/lib/demo-components-provider';
 
 const inter = Inter({
   display: 'swap',
@@ -34,7 +35,9 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="system"
         >
-          {children}
+          <ClientDemoComponentsProvider>
+            {children}
+          </ClientDemoComponentsProvider>
         </ThemeProvider>
       </body>
     </html>
