@@ -5,7 +5,7 @@ import path from 'node:path';
 
 import { Suspense } from 'react';
 
-import { DemoFrame } from './DemoFrame';
+import { LiveCodePreview } from './LiveCodePreview';
 
 interface DemoProps {
   children?: React.ReactNode;
@@ -15,16 +15,12 @@ interface DemoProps {
 }
 
 /**
- * Demo 组件 - 通过 rehype 插件编译时处理
+ * Demo 组件 - 实时代码预览
  *
  * 使用方式：
  * <Demo src="@/demos/button-basic.tsx" title="基础按钮" />
  *
- * 编译后会变成：
- * import ButtonBasic from '@/demos/button-basic.tsx';
- * <Demo src="@/demos/button-basic.tsx" title="基础按钮">
- *   <ButtonBasic />
- * </Demo>
+ * 会自动读取源代码并提供实时编辑预览功能
  */
 export default async function Demo({ children, highlight, src, title }: DemoProps) {
   if (!src) {
@@ -33,37 +29,11 @@ export default async function Demo({ children, highlight, src, title }: DemoProp
 
   // 读取源代码
   const code = await readSourceCode(src);
-  const filename = path.basename(src);
 
   return (
-    <DemoFrame
-      code={code}
-      filename={filename}
-      highlight={highlight}
-      lang={getLanguage(src)}
-      title={title ?? filename}
-      exportFiles={{
-        'index.html': `<!doctype html><html><body><div id="root"></div><script type="module" src="src/App.tsx"></script></body></html>`,
-        'package.json': JSON.stringify(
-          {
-            dependencies: { react: '^19.0.0', 'react-dom': '^19.0.0' },
-            devDependencies: { typescript: '^5.5.0', vite: '^5.0.0' },
-            name: 'demo',
-            private: true,
-            scripts: { build: 'tsc && vite build', dev: 'vite', preview: 'vite preview' },
-            type: 'module'
-          },
-          null,
-          2
-        ),
-        'src/App.tsx': code
-      }}
-      preview={
-        <Suspense fallback={<div className="p-6 text-sm text-muted-foreground">Loading...</div>}>{children}</Suspense>
-      }
-    >
-      {children}
-    </DemoFrame>
+    <Suspense fallback={<div className="p-6 text-sm text-gray-400">Loading...</div>}>
+      <LiveCodePreview code={code} title={title} />
+    </Suspense>
   );
 }
 
