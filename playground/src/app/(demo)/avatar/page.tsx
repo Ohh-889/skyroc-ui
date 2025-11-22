@@ -2,9 +2,9 @@ import Image from 'next/image';
 import type { ThemeSize } from 'skyroc-ui';
 import { Avatar, Card } from 'skyroc-ui';
 
-const soybeanUiRsc = 'https://soybean-ui.com/logo.svg';
+const skyrocUiRsc = 'https://assets.skyroc.me/asset/logo.svg';
 
-const soybeanSrc = 'https://soybeanjs-1300612522.cos.ap-guangzhou.myqcloud.com/uPic/logo.png';
+const skyrocSrc = 'https://assets.skyroc.me/asset/logo.png';
 
 const sizes: ThemeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
 
@@ -17,15 +17,15 @@ const AvatarPage = () => {
       >
         <div className="flex gap-[12px]">
           <Avatar
-            alt="Soybean UI"
+            alt="Skyroc UI"
             fallback="CN"
-            src={soybeanUiRsc}
+            src={skyrocUiRsc}
           />
 
           <Avatar
-            alt="Soybean UI"
+            alt="Skyroc UI"
             classNames={{ fallback: 'bg-foreground ' }}
-            src={soybeanUiRsc}
+            src={skyrocUiRsc}
             fallback={
               <Image
                 alt="Vercel logomark"
@@ -50,10 +50,10 @@ const AvatarPage = () => {
               key={size}
             >
               <Avatar
-                alt="Soybean UI"
-                fallback="SOY"
+                alt="Skyroc UI"
+                fallback="SKY"
                 size={size}
-                src={soybeanSrc}
+                src={skyrocSrc}
               />
               <p>{size}</p>
             </div>

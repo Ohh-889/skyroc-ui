@@ -46,7 +46,7 @@ export interface PrimitiveProps {
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    *
-   * Read our [Composition](https://www.soybean-ui.com/docs/guides/composition) guide for more details.
+   * Read our [Composition](https://www.skyroc-ui.com/docs/guides/composition) guide for more details.
    */
   asChild?: boolean;
 }

@@ -39,10 +39,10 @@ export const items2: BreadcrumbItem[] = [
     value: 'react'
   },
   {
-    href: 'https://soybean-ui.com',
-    label: 'SoybeanUI',
+    href: 'https://ui-play.skyroc.me',
+    label: 'SkyrocUI',
     target: '_blank',
-    value: 'soybean-ui'
+    value: 'skyroc-ui'
   }
 ];
 

@@ -1,7 +1,7 @@
 import { generateCSSVars, generateGlobalStyles } from './generate';
-import type { SoybeanUIPluginOptions } from './types';
+import type { SkyrocUIPluginOptions } from './types';
 
-export function skyrocUITheme(options: SoybeanUIPluginOptions) {
+export function skyrocUITheme(options: SkyrocUIPluginOptions) {
   const { globals = true, ...theme } = options;
 
   const cssVars = generateCSSVars(theme || {});

@@ -9,7 +9,7 @@ const HoverCardWithArrow = () => {
       <HoverCard
         showArrow
         classNames={{ content: 'w-64' }}
-        trigger={<Button variant="link">@soybeanjs</Button>}
+        trigger={<Button variant="link">@skyroc</Button>}
       >
         <div className="flex justify-between space-x-4">
           <Avatar
@@ -18,8 +18,8 @@ const HoverCardWithArrow = () => {
           />
 
           <div className="space-y-1">
-            <h4 className="text-sm font-semibold">@soybeanjs</h4>
-            <p className="text-sm">SoybeanJS is a front-end technology team, built by Soybean.</p>
+            <h4 className="text-sm font-semibold">@skyroc</h4>
+            <p className="text-sm">Skyroc is a front-end technology team, built by Skyroc.</p>
           </div>
         </div>
       </HoverCard>

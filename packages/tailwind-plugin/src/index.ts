@@ -4,7 +4,7 @@ import { generateCSSVars } from './generate';
 import { presetSkyrocUI } from './presets';
 import themes from './theme.json';
 import { skyrocUITheme } from './themePresets';
-import type { SoybeanUIPluginOptions, ThemeColorKey, ThemeConfig, ThemeConfigColor, ThemeOptions } from './types';
+import type { SkyrocUIPluginOptions, ThemeColorKey, ThemeConfig, ThemeConfigColor, ThemeOptions } from './types';
 
 export const builtinColors = themes.map(theme => theme.name) as ThemeConfigColor[];
 
@@ -19,13 +19,13 @@ export const builtinColorMap = themes.reduce(
 export const builtinRadiuses = [0, 0.3, 0.5, 0.75, 1] as const;
 
 /**
- * The UnoCSS preset for Soybean UI.
+ * The UnoCSS preset for Skyroc UI.
  *
  * @param options - The options for the preset.
  * @param globals - Whether to generate global variables, like *.border-color, body.color, body.background.
  */
-export const soybeanUIPlugin = plugin.withOptions(
-  (options: SoybeanUIPluginOptions = {}) =>
+export const skyrocUIPlugin = plugin.withOptions(
+  (options: SkyrocUIPluginOptions = {}) =>
     ({ addBase, addUtilities }) => {
       addUtilities(presetSkyrocUI());
 
@@ -180,4 +180,4 @@ export { generateCSSVars, presetSkyrocUI, skyrocUITheme };
 
 export type { ThemeColorKey, ThemeConfig, ThemeConfigColor, ThemeOptions };
 
-export default soybeanUIPlugin;
+export default skyrocUIPlugin;

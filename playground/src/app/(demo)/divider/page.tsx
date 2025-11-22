@@ -15,7 +15,7 @@ function DividerDemo() {
 
       <Card title="Vertical">
         <div className="flex-center h-5 space-x-4">
-          <div>Soybean</div>
+          <div>Skyroc</div>
           <Divider orientation="vertical" />
           <div>UI</div>
           <Divider orientation="vertical" />

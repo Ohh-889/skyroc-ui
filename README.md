@@ -1,8 +1,8 @@
-# Soybean React UI
+# Skyroc UI
 
 <div align="center">
 
-![Soybean React UI](https://img.shields.io/badge/Soybean-React%20UI-blue.svg)
+![Skyroc UI](https://img.shields.io/badge/Skyroc-UI-blue.svg)
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.8.2-blue.svg)
 ![React](https://img.shields.io/badge/React-19.1.0-blue.svg)
@@ -71,7 +71,7 @@ npm install @skyroc-ui/tailwind-plugin
 在 `tailwind.config.js` 中配置：
 
 ```js
-import { soybeanUIPlugin } from '@skyroc-ui/tailwind-plugin'
+import { skyrocUIPlugin } from '@skyroc-ui/tailwind-plugin'
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -79,7 +79,7 @@ export default {
     './src/**/*.{js,ts,jsx,tsx}',
     './node_modules/skyroc-ui/dist/**/*.{js,ts,jsx,tsx}'
   ],
-  plugins: [soybeanUIPlugin()]
+  plugins: [skyrocUIPlugin()]
 }
 ```
 
@@ -92,7 +92,7 @@ function App() {
   return (
     <Card>
       <Card.Header>
-        <Card.Title>欢迎使用 Soybean React UI</Card.Title>
+        <Card.Title>欢迎使用 Skyroc UI</Card.Title>
       </Card.Header>
       <Card.Content className="space-y-4">
         <Input placeholder="请输入内容" />
@@ -168,7 +168,7 @@ npm run dev
 
 ## 🎨 主题定制
 
-Soybean React UI 支持灵活的主题定制：
+Skyroc UI 支持灵活的主题定制：
 
 ### 颜色系统
 

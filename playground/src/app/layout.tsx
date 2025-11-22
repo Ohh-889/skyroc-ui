@@ -21,7 +21,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   description: 'skyroc-ui playground',
-  title: 'Soybean React UI'
+  title: 'Skyroc UI'
 };
 
 export default async function RootLayout({
@@ -61,7 +61,7 @@ export default async function RootLayout({
           >
             <Card
               className="h-full max-sm:h-auto"
-              title="Soybean UI Components"
+              title="Skyroc UI Components"
               extra={
                 <div className="flex items-center gap-3">
                   <Popover

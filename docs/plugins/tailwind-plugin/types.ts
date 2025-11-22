@@ -127,6 +127,6 @@ export type ThemeColorKey =
   | Extract<ThemeCSSVarKey, 'destructive' | 'primary' | 'secondary'>
   | Extract<FeedbackColorOfThemeCssVarKey, 'carbon' | 'info' | 'success' | 'warning'>;
 
-export interface SoybeanUIPluginOptions extends ThemeOptions {
+export interface SkyrocUIPluginOptions extends ThemeOptions {
   globals?: boolean;
 }

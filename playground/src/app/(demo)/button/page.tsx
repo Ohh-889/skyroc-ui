@@ -228,7 +228,7 @@ const DemoButton = () => {
         title="Link"
       >
         <div className="flex flex-wrap gap-12px">
-          <SButtonLink href="https://soybeanjs.cn">soybeanjs.cn</SButtonLink>
+          <SButtonLink href="https://skyroc-ui.com">skyroc-ui.com</SButtonLink>
         </div>
       </Card> */}
 
