@@ -1,6 +1,39 @@
 # Changelog
 
 
+## [skyroc-ui](https://github.com/Ohh-889/skyroc-ui/compare/vskyroc-ui@0.0.4...skyroc-ui) (2025-10-13)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- **skyroc-ui**: ✨ enhance package metadata and add comprehensive README documentation in English and Chinese &nbsp;-&nbsp; by @SkyRoc1 [<samp>(bf7e0)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/bf7e085)
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- update versioning format in configuration and workflow to use 'v-' prefix for tags &nbsp;-&nbsp; by @SkyRoc1 [<samp>(55b02)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/55b020d)
+- **other**: 💄 update package name extraction logic to handle scoped packages correctly &nbsp;-&nbsp; by @SkyRoc1 [<samp>(62f1c)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/62f1c37)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- **@skyroc/cli**:
+  - update release workflow and package.json configuration &nbsp;-&nbsp; by @SkyRoc1 [<samp>(10bb6)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/10bb6c4)
+  - update release workflow to include id-token permission &nbsp;-&nbsp; by @SkyRoc1 [<samp>(662d0)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/662d0e8)
+
+### &nbsp;&nbsp;&nbsp;🤖 CI
+
+- **other**:
+  - update versioning format in configuration and workflow to remove 'v-' prefix for tags &nbsp;-&nbsp; by @SkyRoc1 [<samp>(1749f)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/1749fbd)
+  - 👷 correct package name extraction in release workflow &nbsp;-&nbsp; by @SkyRoc1 [<samp>(612ba)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/612ba54)
+  - 👷 refine package name extraction logic in release workflow &nbsp;-&nbsp; by @SkyRoc1 [<samp>(32cea)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/32cead0)
+  - 👷 update package name handling in changelog generation &nbsp;-&nbsp; by @SkyRoc1 [<samp>(25331)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/253310f)
+  - 👷 improve package name extraction logic for scoped packages &nbsp;-&nbsp; by @SkyRoc1 [<samp>(fef43)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/fef432d)
+  - improve package name extraction logic for scoped packages &nbsp;-&nbsp; by @SkyRoc1 [<samp>(3adb7)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/3adb7f2)
+  - enhance safe package name handling for changelog generation &nbsp;-&nbsp; by @SkyRoc1 [<samp>(a3b67)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/a3b6792)
+  - simplify package name extraction logic in release workflow &nbsp;-&nbsp; by @SkyRoc1 [<samp>(4680f)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/4680fa8)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![SkyRoc1](https://github.com/SkyRoc1.png?size=48)](https://github.com/SkyRoc1)&nbsp;&nbsp;
+
 ## [@skyroc-cli](https://github.com/Ohh-889/skyroc-ui/compare/vskyroc-ui@0.0.4...@skyroc-cli) (2025-10-13)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features

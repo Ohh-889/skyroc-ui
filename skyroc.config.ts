@@ -83,7 +83,7 @@ export default defineConfig({
         console.log(`📝 Generating changelog for tag: ${tag}`);
 
         // Execute changelog command in the root directory with the tag parameter
-        execSync2(`pnpm sr changelog --tag ${safePkgName}`, {
+        execSync2(`pnpm sr changelog --tag ${tag}`, {
           cwd: process.cwd(),
           env: { ...process.env, CHANGELOG_TAG: tag },
           stdio: 'inherit'
