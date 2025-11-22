@@ -1,5 +1,5 @@
 import type { MDXComponents } from 'mdx/types';
-import { Code, ComponentPreview, Demo, InstallDependencies, LiveDemo } from 'skyroc-next-docs-plugin';
+import { Code, ComponentPreview, Demo, InstallDependencies, LiveDemo } from '@skyroc/next-docs-plugin';
 
 import { H1, H2, H3, H4, H5, H6 } from '@/m-components/heading';
 
@@ -10,7 +10,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     ...components,
     code: Code,
     ComponentPreview,
-    Demo, // 使用增强版 Demo（支持 registry）
+    Demo, // 使用增强版 Demo（支持实时预览）
     h1: H1,
     h2: H2,
     h3: H3,

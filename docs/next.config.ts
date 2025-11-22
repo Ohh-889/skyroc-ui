@@ -2,15 +2,18 @@ import createMDX from '@next/mdx';
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true
-  },
   images: {
-    domains: ['picsum.photos'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      }
+    ],
     unoptimized: true
   },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
+  reactCompiler: true,
   typescript: {
     ignoreBuildErrors: true
   }
@@ -35,7 +38,7 @@ const withMDX = createMDX({
     remarkPlugins: [
       'remark-gfm',
       [
-        'skyroc-next-docs-plugin',
+        '@skyroc/next-docs-plugin',
         {
           isRemark: true
         }

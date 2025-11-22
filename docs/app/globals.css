@@ -2,7 +2,7 @@
 @import "tw-animate-css";
 @import "../styles/mdx.css";
 
-@source '../node_modules/skyroc-next-docs-plugin/dist';
+@source '../node_modules/@skyroc/next-docs-plugin/dist';
 @plugin "tailwindcss-animate";
 @plugin "../plugins/tailwind-plugin";
 
