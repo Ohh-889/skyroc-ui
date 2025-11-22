@@ -14,6 +14,9 @@
     "paths": {
       "@/*": [
         "./*"
+      ],
+      "@ui/*": [
+        "../packages/ui/src/components/*"
       ]
     },
     "resolveJsonModule": true,

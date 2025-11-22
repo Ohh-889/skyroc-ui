@@ -1,11 +1,20 @@
-import { Button } from '@/components/button';
+import { Button } from '@ui/button';
+
+const colors = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'] as const;
 
 export default function Demo() {
   return (
     <div className="flex gap-4">
-      <Button>默认按钮</Button>
-      <Button variant="primary">主要按钮</Button>
-      <Button variant="outline">次要按钮</Button>
+       <div className="flex flex-wrap gap-[12px]">
+          {colors.map(color => (
+            <Button
+              color={color}
+              key={color}
+            >
+              {color}
+            </Button>
+          ))}
+        </div>
     </div>
   );
 }
