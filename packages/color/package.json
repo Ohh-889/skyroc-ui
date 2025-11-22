@@ -1,7 +1,7 @@
 {
   "name": "@skyroc/color",
   "type": "module",
-  "version": "0.0.1-alpha",
+  "version": "0.0.1",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "main": "./dist/index.cjs",
@@ -39,7 +39,8 @@
     "colord": "2.9.3"
   },
   "devDependencies": {
+    "eslint": "catalog:",
     "tsup": "8.5.1",
-    "typescript": "5.9.3"
+    "typescript": "catalog:"
   }
 }

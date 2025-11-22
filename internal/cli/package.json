@@ -13,8 +13,16 @@
   "repository": {
     "url": "https://github.com/Ohh-889/skyroc-ui.git"
   },
-
-  "keywords": ["cli", "git", "commit", "changelog", "release", "version", "npm", "skyroc"],
+  "keywords": [
+    "cli",
+    "git",
+    "commit",
+    "changelog",
+    "release",
+    "version",
+    "npm",
+    "skyroc"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "main": "./dist/index.cjs",
@@ -46,7 +54,10 @@
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "types": "./src/index.ts",
-  "files": ["dist", "README.md"],
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsdown",
     "build:watch": "unbuild --stub",
@@ -59,16 +70,16 @@
     "bumpp": "9.9.2",
     "c12": "2.0.1",
     "cac": "6.7.14",
-    "consola": "3.3.0",
+    "consola": "catalog:",
     "enquirer": "2.4.1",
     "execa": "9.5.2",
     "gitmojis": "3.14.0",
-    "kolorist": "1.8.0",
+    "kolorist": "catalog:",
     "npm-check-updates": "17.1.12",
-    "rimraf": "6.0.1",
+    "rimraf": "catalog:",
     "yargs": "17.7.2"
   },
   "devDependencies": {
-    "tsdown": "0.16.6"
+    "tsdown": "catalog:"
   }
 }

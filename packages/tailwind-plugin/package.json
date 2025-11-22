@@ -10,16 +10,20 @@
   },
   "typesVersions": {
     "*": {
-      "*": ["./src/*"]
+      "*": [
+        "./src/*"
+      ]
     }
   },
-  "files": ["./dist"],
+  "files": [
+    "./dist"
+  ],
   "scripts": {
     "build": "tsup"
   },
   "dependencies": {
     "@skyroc/color": "workspace:*",
     "@unocss/core": "66.3.2",
-    "tailwindcss": "4.1.17"
+    "tailwindcss": "catalog:"
   }
 }

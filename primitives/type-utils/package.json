@@ -10,7 +10,13 @@
   },
   "license": "MIT",
   "homepage": "https://github.com/Ohh-889/skyroc-ui/tree/master/primitives/type-utils",
-  "keywords": ["typescript", "utility-types", "type-utils", "form-types", "path-types"],
+  "keywords": [
+    "typescript",
+    "utility-types",
+    "type-utils",
+    "form-types",
+    "path-types"
+  ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "main": "./dist/index.cjs",
@@ -40,12 +46,16 @@
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "types": "./src/index.ts",
-  "files": ["README.zh.md", "dist", "README.md"],
+  "files": [
+    "README.zh.md",
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "build": "tsdown"
   },
   "devDependencies": {
-    "tsdown": "0.16.6",
-    "typescript": "5.8.2"
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
   }
 }

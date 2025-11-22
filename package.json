@@ -3,7 +3,6 @@
   "type": "module",
   "version": "0.0.1",
   "private": true,
-  "packageManager": "pnpm@9.0.0",
   "engines": {
     "node": ">=18"
   },
@@ -43,6 +42,7 @@
     "eslint-plugin-react-refresh": "0.4.20",
     "eslint-plugin-sort": "4.0.0",
     "prettier": "3.6.0",
+    "prettier-plugin-json-sort": "^0.0.2",
     "tailwindcss": "4.1.11",
     "tsdown": "0.16.6",
     "tsup": "8.5.0",
