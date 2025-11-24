@@ -48,12 +48,12 @@
     "zod": "4.0.17"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
+    "@eslint/eslintrc": "catalog:",
     "@opennextjs/cloudflare": "1.11.0",
     "@skyroc/tailwind-plugin": "workspace:*",
     "@tailwindcss/postcss": "catalog:",
     "eslint": "catalog:",
-    "eslint-config-next": "16.0.0",
+    "eslint-config-next": "catalog:",
     "tailwindcss": "catalog:",
     "tailwindcss-animate": "catalog:",
     "tsx": "catalog:",

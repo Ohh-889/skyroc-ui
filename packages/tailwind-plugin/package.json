@@ -23,7 +23,7 @@
   },
   "dependencies": {
     "@skyroc/color": "workspace:*",
-    "@unocss/core": "66.3.2",
+    "@unocss/core": "catalog:",
     "tailwindcss": "catalog:"
   }
 }
