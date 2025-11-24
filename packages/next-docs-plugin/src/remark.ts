@@ -53,8 +53,6 @@ export default function rehypeCodeMeta() {
         Object.entries(parsed.attrs).map(([k, v]) => [`data-${k}`, v === true ? '' : v])
       );
 
-      console.log('dataAttrs', node);
-
       parent.properties = {
         ...node.properties,
         ...dataAttrs,
@@ -65,8 +63,6 @@ export default function rehypeCodeMeta() {
         ...node.properties,
         ...dataAttrs
       };
-
-      console.log('node3343', parent);
     });
   };
 }

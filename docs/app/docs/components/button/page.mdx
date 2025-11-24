@@ -1,190 +1,198 @@
-export const metadata = {
-  title: 'Button 按钮',
-  description: '按钮用于触发一个操作'
-};
-
-Button 按钮
+# Button 按钮
 
 按钮用于开始一个即时操作。
 
-导入
+## 导入
 
 ```tsx
-``
+import { Button, ButtonGroup, ButtonIcon } from 'skyroc-ui';
+```
 
 ## 基础用法
 
-<ComponentPreview code={`import { Button } from '@skyroc/ui';
+### 颜色
 
-export default function Demo() {
-  return <Button>默认按钮</Button>;
-}`}>
-  <Button>默认按钮</Button>
-</ComponentPreview>
+按钮提供 8 种主题颜色。
 
-## 按钮变体
+<Demo src="@playground/button/modules/ButtonColor" title="按钮颜色" />
 
-提供多种视觉样式的按钮。
+### 变体
 
-<ComponentPreview code={`import { Button } from '@skyroc/ui';
+按钮提供 8 种视觉变体样式。
 
-export default function Demo() {
-  return (
-    <div className="flex flex-wrap gap-4">
-      <Button variant="default">Default</Button>
-      <Button variant="primary">Primary</Button>
-      <Button variant="destructive">Destructive</Button>
-      <Button variant="outline">Outline</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="ghost">Ghost</Button>
-      <Button variant="link">Link</Button>
-    </div>
-  );
-}`}>
-  <div className="flex flex-wrap gap-4">
-    <Button variant="default">Default</Button>
-    <Button variant="primary">Primary</Button>
-    <Button variant="destructive">Destructive</Button>
-    <Button variant="outline">Outline</Button>
-    <Button variant="secondary">Secondary</Button>
-    <Button variant="ghost">Ghost</Button>
-    <Button variant="link">Link</Button>
-  </div>
-</ComponentPreview>
+<Demo src="@playground/button/modules/ButtonVariant" title="按钮变体" />
 
-## 按钮尺寸
+### 尺寸
 
-提供四种不同尺寸的按钮。
+按钮提供 6 种尺寸大小：`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
 
-<ComponentPreview code={`import { Button } from '@skyroc/ui';
+<Demo src="@playground/button/modules/ButtonSize" title="按钮尺寸" />
 
-export default function Demo() {
-  return (
-    <div className="flex items-center gap-4">
-      <Button size="sm">Small</Button>
-      <Button size="default">Default</Button>
-      <Button size="lg">Large</Button>
-      <Button size="icon">⭐</Button>
-    </div>
-  );
-}`}>
-  <div className="flex items-center gap-4">
-    <Button size="sm">Small</Button>
-    <Button size="default">Default</Button>
-    <Button size="lg">Large</Button>
-    <Button size="icon">⭐</Button>
-  </div>
-</ComponentPreview>
+### 形状
 
-## 禁用状态
+按钮提供多种形状：`auto`（默认）、`rounded`（完全圆角）、`square`（正方形）、`circle`（圆形）。
 
-使用 `disabled` 属性来禁用按钮。
+<Demo src="@playground/button/modules/ButtonShape" title="按钮形状" />
 
-<ComponentPreview code={`import { Button } from '@skyroc/ui';
+### 阴影
 
-export default function Demo() {
-  return (
-    <div className="flex gap-4">
-      <Button disabled>Disabled Button</Button>
-      <Button variant="primary" disabled>Disabled Primary</Button>
-    </div>
-  );
-}`}>
-  <div className="flex gap-4">
-    <Button disabled>Disabled Button</Button>
-    <Button variant="primary" disabled>Disabled Primary</Button>
-  </div>
-</ComponentPreview>
+按钮提供 4 种阴影层级：`none`、`sm`、`md`、`lg`。
 
-## 加载状态
+<Demo src="@playground/button/modules/ButtonShadow" title="按钮阴影" />
 
-显示加载中的按钮状态。
+### 插槽
 
-<ComponentPreview code={`import { Button } from '@skyroc/ui';
-import { Loader2 } from 'lucide-react';
+按钮支持 `leading` 和 `trailing` 插槽，可以在按钮前后添加图标或其他内容。
 
-export default function Demo() {
-  return (
-    <Button disabled>
-      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-      Loading...
-    </Button>
-  );
-}`}>
-  <Button disabled>
-    <span className="mr-2 inline-block h-4 w-4 animate-spin rounded-full border-2 border-solid border-current border-r-transparent"></span>
-    Loading...
-  </Button>
-</ComponentPreview>
+<Demo src="@playground/button/modules/ButtonSlot" title="按钮插槽" />
 
-## 带图标的按钮
+### 禁用状态
 
-在按钮中添加图标元素。
+通过 `disabled` 属性禁用按钮。
 
-<ComponentPreview code={`import { Button } from '@skyroc/ui';
-import { Mail, Download, ArrowRight } from 'lucide-react';
+<Demo src="@playground/button/modules/ButtonDisabled" title="禁用按钮" />
 
-export default function Demo() {
-  return (
-    <div className="flex gap-4">
-      <Button>
-        <Mail className="mr-2 h-4 w-4" />
-        Login with Email
-      </Button>
-      <Button variant="outline">
-        <Download className="mr-2 h-4 w-4" />
-        Download
-      </Button>
-      <Button variant="primary">
-        Get Started
-        <ArrowRight className="ml-2 h-4 w-4" />
-      </Button>
-    </div>
-  );
-}`}>
-  <div className="flex gap-4">
-    <Button>
-      📧 Login with Email
-    </Button>
-    <Button variant="outline">
-      ⬇️ Download
-    </Button>
-    <Button variant="primary">
-      Get Started →
-    </Button>
-  </div>
-</ComponentPreview>
+### 加载状态
+
+通过 `loading` 属性显示加载状态，加载时按钮会自动禁用。
+
+<Demo src="@playground/button/modules/ButtonLoading" title="加载按钮" />
+
+## ButtonGroup 按钮组
+
+### 水平按钮组
+
+将多个按钮组合在一起，中间的按钮会自动合并边框。
+
+<Demo src="@playground/button/modules/ButtonGroupDemo:ButtonGroupHorizontal" title="水平按钮组" />
+
+### 垂直按钮组
+
+通过 `orientation="vertical"` 创建垂直排列的按钮组。
+
+<Demo src="@playground/button/modules/ButtonGroupDemo:ButtonGroupVertical" title="垂直按钮组" />
+
+## ButtonIcon 图标按钮
+
+### 基础用法
+
+图标按钮默认使用 `ghost` 变体，适合只显示图标的场景。
+
+<Demo src="@playground/button/modules/ButtonIconDemo:ButtonIconBasic" title="图标按钮" />
+
+### 自适应内容
+
+通过 `fitContent` 属性控制按钮是否自适应内容大小。
+
+<Demo src="@playground/button/modules/ButtonIconDemo:ButtonIconFitContent" title="自适应图标按钮" />
 
 ## API
 
 ### Button Props
 
 | 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| variant | `default` | 'primary' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'` | `'default'` | 按钮样式变体 |
-| size | `default` | 'sm' | 'lg' | 'icon'` | `'default'` | 按钮尺寸 |
-| disabled | `boolean` | `false` | 是否禁用 |
-| className | `string` | - | 自定义类名 |
-| children | `React.ReactNode` | - | 按钮内容 |
+|------|------|--------|------|
+| color | `'primary' \| 'destructive' \| 'success' \| 'warning' \| 'info' \| 'carbon' \| 'secondary' \| 'accent'` | `'primary'` | 按钮颜色 |
+| variant | `'solid' \| 'pure' \| 'plain' \| 'outline' \| 'dashed' \| 'soft' \| 'ghost' \| 'link'` | `'solid'` | 按钮变体 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 按钮尺寸 |
+| shape | `'auto' \| 'rounded' \| 'square' \| 'circle'` | `'auto'` | 按钮形状 |
+| shadow | `'none' \| 'sm' \| 'md' \| 'lg'` | `'sm'` | 阴影大小 |
+| fitContent | `boolean` | `false` | 是否自适应内容 |
+| loading | `boolean` | `false` | 加载状态 |
+| disabled | `boolean` | `false` | 禁用状态 |
+| leading | `ReactNode` | - | 前置内容（图标等） |
+| trailing | `ReactNode` | - | 后置内容（图标等） |
+| asChild | `boolean` | `false` | 作为子元素渲染（使用 Radix UI Slot） |
+
+### ButtonGroup Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| orientation | `'horizontal' \| 'vertical'` | `'horizontal'` | 按钮组方向 |
+
+### ButtonIcon Props
+
+继承 `Button` 的所有属性，并有以下特殊默认值：
+
+| 属性 | 默认值 | 说明 |
+|------|--------|------|
+| color | `'accent'` | 图标按钮默认颜色 |
+| variant | `'ghost'` | 图标按钮默认变体 |
+| shape | `'square'` | 图标按钮默认形状 |
+| fitContent | `true` | 图标按钮默认自适应内容 |
+
+额外属性：
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| icon | `string` | - | 图标名称（使用 Icon 组件） |
+| iconProps | `IconProps` | - | 传递给 Icon 组件的属性 |
+
+## 变体说明
+
+### solid（实心）
+默认样式，有背景色和文字颜色对比。
+
+### pure（纯净）
+有边框和背景，适合表单场景。
+
+### plain（朴素）
+有边框无背景，鼠标悬浮时边框和文字改变颜色。
+
+### outline（描边）
+有边框和颜色，背景透明。
+
+### dashed（虚线）
+虚线边框，适合次要操作。
+
+### soft（柔和）
+浅色背景，无边框。
+
+### ghost（幽灵）
+完全透明背景，鼠标悬浮时显示背景。
+
+### link（链接）
+类似文本链接，带下划线效果。
+
+## 颜色系统
+
+按钮支持主题色系统：
+
+- **primary** - 主要操作
+- **destructive** - 危险/删除操作
+- **success** - 成功/确认操作
+- **warning** - 警告操作
+- **info** - 信息提示
+- **carbon** - 深色主题
+- **secondary** - 次要操作
+- **accent** - 强调色
 
 ## 最佳实践
 
-### 语义化
+### 使用场景
 
-使用合适的变体来表达不同的操作语义：
+- **solid** - 主要操作按钮
+- **outline** - 次要操作按钮
+- **ghost** - 工具栏按钮
+- **link** - 内联操作
 
-- **Primary**：主要操作，每个区域最多一个
-- **Default**：次要操作
-- **Destructive**：危险操作，如删除、注销
-- **Ghost**：轻量级操作
-- **Link**：导航类操作
+### 颜色选择
 
-### 无障碍
+- **primary** - 主要操作（提交、保存）
+- **destructive** - 删除、取消订阅等危险操作
+- **success** - 确认、完成
+- **warning** - 需要谨慎的操作
 
-- 确保按钮有明确的文本说明
-- 为图标按钮添加 `aria-label`
-- 使用 `disabled` 而非视觉样式来禁用按钮
+### 尺寸选择
 
-### 性能
+- **xs/sm** - 表格行内操作、标签
+- **md** - 默认尺寸，适合大多数场景
+- **lg/xl** - 重要的号召性操作（CTA）
+- **2xl** - 大型页面的主要操作
 
-按钮组件已经过优化，但在列表中大量使用时，考虑使用 `React.memo` 包裹。
+## 注意事项
+
+1. 加载状态（`loading`）会自动禁用按钮
+2. `fitContent` 设为 `true` 时，按钮会自适应内容大小
+3. `shape` 为 `square` 或 `circle` 时，建议只放图标
+4. 使用 `asChild` 可以将按钮样式应用到其他组件上

@@ -9,7 +9,8 @@
     "moduleResolution": "bundler",
     "paths": {
       "@/*": ["./*"],
-      "@ui/*": ["../packages/ui/src/components/*"]
+      "@ui/*": ["../packages/ui/src/components/*"],
+      "@playground/*": ["../playground/src/app/(demo)/*"]
     },
     "resolveJsonModule": true,
     "allowJs": true,

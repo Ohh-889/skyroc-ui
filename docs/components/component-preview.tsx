@@ -4,8 +4,8 @@ import { useState } from 'react';
 import { Code, Eye } from 'lucide-react';
 
 interface ComponentPreviewProps {
-  children: React.ReactNode
-  code?: string
+  children: React.ReactNode;
+  code?: string;
 }
 
 export const ComponentPreview = ({ children, code }: ComponentPreviewProps) => {
