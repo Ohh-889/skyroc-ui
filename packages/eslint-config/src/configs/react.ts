@@ -59,12 +59,16 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
 
         'react-hooks/rules-of-hooks': 'error',
 
+        'antfu/top-level-function': 'off',
+
         ...reactHooksConfig.configs.recommended.rules,
 
         // React JSX rules
         ...pluginReact.configs.recommended.rules,
         'react/destructuring-assignment': ['warn', 'always'],
-
+        'react/jsx-boolean-value': ['warn', 'never'],
+        'react/jsx-closing-bracket-location': ['warn', 'tag-aligned'],
+        'react/jsx-closing-tag-location': 'warn',
         'react/function-component-definition': [
           'error',
           {
@@ -72,9 +76,6 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
             unnamedComponents: 'arrow-function', // 匿名组件使用箭头函数
           },
         ],
-        'react/jsx-boolean-value': ['warn', 'never'],
-        'react/jsx-closing-bracket-location': ['warn', 'tag-aligned'],
-        'react/jsx-closing-tag-location': 'warn',
         'react/jsx-curly-brace-presence': [
           'warn',
           {
@@ -86,15 +87,8 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
         'react/jsx-curly-newline': ['warn', { multiline: 'consistent', singleline: 'consistent' }],
         'react/jsx-equals-spacing': ['warn', 'never'],
         'react/jsx-fragments': ['warn', 'syntax'],
-        'react/jsx-indent': [
-          'warn',
-          'tab',
-          {
-            checkAttributes: true,
-            indentLogicalExpressions: true,
-          },
-        ],
-        'react/jsx-indent-props': ['warn', [2, 'first']],
+        'react/jsx-indent': 'off',
+        'react/jsx-indent-props': 'off',
         'react/jsx-max-props-per-line': 'warn',
         'react/jsx-newline': ['warn', { allowMultilines: true, prevent: true }],
         'react/jsx-no-constructed-context-values': 'warn',
@@ -117,7 +111,7 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
             shorthandFirst: true,
           },
         ],
-        'react/jsx-space-before-closing': ['warn', 'always'],
+        'react/jsx-tag-spacing': ['warn'],
         // react runtime
         'react/jsx-uses-react': 'off',
         'react/react-in-jsx-scope': 'off',

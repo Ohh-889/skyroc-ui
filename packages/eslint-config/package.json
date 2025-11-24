@@ -49,8 +49,8 @@
   "module": "./src/index.ts",
   "types": "./src/index.ts",
   "files": [
-    "README.md",
-    "dist"
+    "dist",
+    "README.md"
   ],
   "scripts": {
     "build": "tsdown",
@@ -59,8 +59,6 @@
   },
   "peerDependencies": {
     "@next/eslint-plugin-next": ">=15.0.0",
-    "@typescript-eslint/eslint-plugin": ">=8.0.0",
-    "@typescript-eslint/parser": ">=8.0.0",
     "@unocss/eslint-config": ">=0.60.0",
     "eslint": ">=9.10.0",
     "eslint-plugin-erasable-syntax-only": ">=0.4.0",
@@ -75,12 +73,6 @@
   },
   "peerDependenciesMeta": {
     "@next/eslint-plugin-next": {
-      "optional": true
-    },
-    "@typescript-eslint/eslint-plugin": {
-      "optional": true
-    },
-    "@typescript-eslint/parser": {
       "optional": true
     },
     "@unocss/eslint-config": {
@@ -120,9 +112,12 @@
     "@eslint/js": "^9.39.0",
     "@eslint/markdown": "^7.5.1",
     "@stylistic/eslint-plugin": "^5.6.1",
+    "@typescript-eslint/eslint-plugin": "^8.46.0",
+    "@typescript-eslint/parser": "^8.46.0",
     "@vitest/eslint-plugin": "^1.4.3",
     "eslint-config-flat-gitignore": "^2.1.0",
     "eslint-flat-config-utils": "^0.4.0",
+    "eslint-mdx": "^3.6.2",
     "eslint-merge-processors": "^0.1.0",
     "eslint-parser-plain": "^0.1.1",
     "eslint-plugin-antfu": "^3.1.1",
@@ -131,6 +126,7 @@
     "eslint-plugin-import-x": "^4.16.1",
     "eslint-plugin-jsdoc": "^61.4.1",
     "eslint-plugin-jsonc": "^2.21.0",
+    "eslint-plugin-mdx": "^3.6.2",
     "eslint-plugin-n": "^17.23.0",
     "eslint-plugin-no-only-tests": "^3.3.0",
     "eslint-plugin-perfectionist": "^4.15.1",
@@ -150,8 +146,6 @@
   },
   "devDependencies": {
     "@next/eslint-plugin-next": "^15.2.4",
-    "@typescript-eslint/eslint-plugin": "^8.46.0",
-    "@typescript-eslint/parser": "^8.46.0",
     "@types/eslint": "^9.6.1",
     "@types/eslint-plugin-tailwindcss": "^3.17.0",
     "@types/node": "^22.15.3",

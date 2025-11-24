@@ -9,6 +9,7 @@ export async function tailwindcss(options: OptionsTailwindCSS = {}): Promise<Fla
     cssFilesRefreshRate = 5000,
     enable = true,
     overrides = {},
+    config = false,
     removeDuplicates = true,
     skipClassAttribute = false,
     tags = [],
@@ -29,6 +30,7 @@ export async function tailwindcss(options: OptionsTailwindCSS = {}): Promise<Fla
         tailwindcss: pluginTailwindcss,
       },
       rules: {
+        ...(pluginTailwindcss.configs.recommended.rules as any),
         // 强制 class 属性按照推荐的顺序排列
         'tailwindcss/classnames-order': 'warn',
         // 强制执行比标准的 Tailwind CSS 类更短的替代方案
@@ -46,6 +48,7 @@ export async function tailwindcss(options: OptionsTailwindCSS = {}): Promise<Fla
       settings: {
         tailwindcss: {
           callees,
+          config,
           classRegex,
           cssFiles,
           cssFilesRefreshRate,

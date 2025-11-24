@@ -242,6 +242,7 @@ export interface OptionsTailwindCSS extends OptionsOverrides {
    */
   callees?: string[]
 
+  config?: string | boolean
   /**
    * Regex to match class attributes
    * @default "^class(Name)?$"
