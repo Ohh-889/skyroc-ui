@@ -12,7 +12,7 @@ export default function Demo() {
               key={color}
             >
               {color}
-            </Button>
+             </Button>
           ))}
         </div>
     </div>

@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
+
   "description": "skyroc-ui is an ui library like shadcn for React.",
   "author": {
     "name": "Ohh",
@@ -17,12 +18,7 @@
   "bugs": {
     "url": "https://github.com/Ohh-889/skyroc-ui/issues"
   },
-  "keywords": [
-    "UI",
-    "tailwind-css",
-    "shadcn-ui",
-    "react"
-  ],
+  "keywords": ["UI", "tailwind-css", "shadcn-ui", "react"],
   "scripts": {
     "build": "next build",
     "build:ui": "pnpm --filter skyroc-ui build",

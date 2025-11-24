@@ -23,7 +23,7 @@ const Code: FC<
 
   const isBlock = className?.includes('hljs') || Boolean(language);
 
-  function getContent(event: MouseEvent<HTMLButtonElement>) {
+   function getContent(event: MouseEvent<HTMLButtonElement>) {
     const container = event.currentTarget.closest('.code-block');
     return container?.querySelector('pre code')?.textContent ?? '';
   }
@@ -48,10 +48,11 @@ const Code: FC<
               // 行号支持
             ]
           : [
-              // inline code 样式
-              'inline rounded-md  bg-muted/40 px-[0.3em] py-[0.15em]',
+              // inline code 样式 - 内容自适应宽度
+              'inline-block rounded-md px-[0.3em] py-[0.15em]',
               'font-mono text-[0.875em] leading-normal text-foreground/90',
-              'dark:bg-neutral-800 dark:border-neutral-700'
+              'bg-muted/40 dark:bg-neutral-800 dark:border-neutral-700',
+              'whitespace-nowrap'
             ],
         className
       )}
