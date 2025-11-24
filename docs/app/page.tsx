@@ -10,7 +10,7 @@ const Home = () => {
       <main className="relative overflow-hidden">
         {/* Hero Section */}
         <section className="relative px-6 pt-24 pb-32 sm:pt-32 sm:pb-40">
-          <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.100),white)] opacity-20 dark:bg-[radial-gradient(45rem_50rem_at_top,theme(colors.indigo.950),theme(colors.gray.900))]" />
+          <div className="absolute inset-0 -z-10 bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-100),white)] opacity-20 dark:bg-[radial-gradient(45rem_50rem_at_top,var(--color-indigo-950),var(--color-gray-900))]" />
 
           <div className="mx-auto max-w-5xl text-center">
             <div className="bg-muted mb-8 inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-sm font-medium">
@@ -18,11 +18,11 @@ const Home = () => {
               <span>现代化 React 组件库</span>
             </div>
 
-            <h1 className="from-foreground to-foreground/70 mb-6 bg-gradient-to-r bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-7xl">
+            <h1 className="from-foreground to-foreground/70 mb-6 bg-linear-to-r bg-clip-text text-5xl font-bold tracking-tight text-transparent sm:text-7xl">
               优雅、简洁
               <br />
 
-              <span className="bg-gradient-to-r from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)] bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)] bg-clip-text text-transparent">
                 Skyroc UI
               </span>
             </h1>
@@ -57,7 +57,7 @@ const Home = () => {
           <div className="mx-auto max-w-6xl">
             <div className="grid gap-8 md:grid-cols-3">
               <div className="border-border bg-background rounded-2xl border p-8 transition-shadow hover:shadow-lg">
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-gradient-to-br from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)]">
+                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-linear-to-br from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)]">
                   <Zap className="size-6 text-white" />
                 </div>
 
@@ -69,7 +69,7 @@ const Home = () => {
               </div>
 
               <div className="border-border bg-background rounded-2xl border p-8 transition-shadow hover:shadow-lg">
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-gradient-to-br from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)]">
+                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-linear-to-br from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)]">
                   <Package className="size-6 text-white" />
                 </div>
 
@@ -81,7 +81,7 @@ const Home = () => {
               </div>
 
               <div className="border-border bg-background rounded-2xl border p-8 transition-shadow hover:shadow-lg">
-                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-gradient-to-br from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)]">
+                <div className="mb-4 flex size-12 items-center justify-center rounded-lg bg-linear-to-br from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)]">
                   <Sparkles className="size-6 text-white" />
                 </div>
 

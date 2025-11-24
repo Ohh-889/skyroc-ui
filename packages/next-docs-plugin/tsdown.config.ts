@@ -6,7 +6,7 @@ export default defineConfig({
   },
   clean: true,
   dts: true,
-  entry: ['src/index.ts'],
+  entry: ['src/index.ts', 'src/remark.ts'],
   external: ['node:path'],
   minify: false,
   platform: 'neutral',

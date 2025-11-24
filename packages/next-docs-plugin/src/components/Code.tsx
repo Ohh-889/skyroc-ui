@@ -8,7 +8,7 @@ const Code: FC<
   HTMLAttributes<HTMLElement> & {
     'data-copy'?: boolean
     'data-language'?: string
-    'data-show-line-numbers'?: boolean
+    'data-show-line-numbers'?: ''
   }
 > = (rest) => {
   const {
@@ -32,6 +32,7 @@ const Code: FC<
       dir="ltr"
       {...props}
       style={{ display: 'grid' }}
+      data-show-line-numbers={showLineNumbers}
       className={cn(
         'font-mono text-[13px] leading-relaxed',
         'justify-between items-center flex-wrap',
@@ -43,7 +44,7 @@ const Code: FC<
             'bg-transparent',
             'selection:bg-muted selection:text-foreground',
             'before:hidden after:hidden',
-            showLineNumbers && '[counter-reset:line]',
+            showLineNumbers==='' && '[counter-reset:line]',
             // 行号支持
           ]
           : [

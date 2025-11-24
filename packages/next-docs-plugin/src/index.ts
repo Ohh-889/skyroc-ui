@@ -11,25 +11,6 @@ export const pascal = (str) => {
   return parts.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('')
 }
 
-function parseMeta(meta) {
-  // 支持：title="Demo.tsx" {1,3-5} wrap noNumbers
-  const res = { attrs: {}, highlight: '' }
-  if (!meta)
-    return res
-  // highlight 语法：{1,3-5}
-  const m = meta.match(/\{([^}]+)\}/)
-  if (m)
-    res.highlight = m[1]
-  // 其它键值对 & flag
-  const kv = meta.replace(/\{[^}]+\}/, '').trim()
-  const re = /(\w+)(?:=(?:"([^"]+)"|(\S+)))?/g
-  let t
-  while ((t = re.exec(kv))) {
-    const [, key, qv, uv] = t
-    res.attrs[key] = qv ?? uv ?? true
-  }
-  return res
-}
 
 export default function rehypeCodeMeta(opt: { isRemark?: boolean } = {}) {
   const { isRemark = false } = opt

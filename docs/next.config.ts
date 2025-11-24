@@ -6,17 +6,17 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'picsum.photos',
-      },
+        hostname: 'picsum.photos'
+      }
     ],
-    unoptimized: true,
+    unoptimized: true
   },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
   reactCompiler: true,
   typescript: {
-    ignoreBuildErrors: true,
-  },
+    ignoreBuildErrors: true
+  }
 }
 
 const withMDX = createMDX({
@@ -30,21 +30,23 @@ const withMDX = createMDX({
           keepBackground: false,
           theme: {
             dark: 'github-dark',
-            light: 'github-light',
+            light: 'github-light'
           },
-        },
+          showLineNumbers: true
+        }
       ],
+      '@skyroc/next-docs-plugin/remark'
     ],
     remarkPlugins: [
       'remark-gfm',
       [
         '@skyroc/next-docs-plugin',
         {
-          isRemark: true,
-        },
-      ],
-    ],
-  },
+          isRemark: true
+        }
+      ]
+    ]
+  }
 })
 
 export default withMDX(nextConfig)

@@ -4,8 +4,8 @@ export default skyroc({
   next: true,
   react: true,
   tailwindcss: {
-    config: false,
+    config: false
   },
   markdown: true,
-  pnpm: true,
+  pnpm: true
 })
