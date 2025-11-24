@@ -1,5 +1,5 @@
 import type { DetailedHTMLProps, TableHTMLAttributes } from 'react'
-import { cn } from '@/lib/utils'
+import cn from 'clsx'
 
 type TableProps = DetailedHTMLProps<TableHTMLAttributes<HTMLTableElement>, HTMLTableElement>
 

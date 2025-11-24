@@ -3,7 +3,7 @@
 import type { FC, HTMLAttributes, ReactNode } from 'react'
 import cn from 'clsx'
 import { WrapText } from 'lucide-react'
-import { Button } from 'skyroc-ui'
+import { Button } from '@/components/button'
 import CopyButton from './CopyButton'
 
 /* -------------------- ToggleWordWrapButton -------------------- */

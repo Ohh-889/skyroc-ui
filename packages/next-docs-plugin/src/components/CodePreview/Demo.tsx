@@ -1,5 +1,3 @@
-'use server'
-
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import { Suspense } from 'react'

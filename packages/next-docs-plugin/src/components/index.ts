@@ -10,3 +10,7 @@ export { default as InstallDependencies } from './InstallDependencies'
 export { Demo, DemoComponentsProvider, useDemoComponents, LiveCodePreview } from './CodePreview'
 
 export { H1, H2, H3, H4, H5, H6 } from './heading'
+
+export { Pre, ToggleWordWrapButton } from './Pre'
+
+export { Table, THead, TBody, TR, TH, TD } from './Table'
