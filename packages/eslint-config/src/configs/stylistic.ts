@@ -51,14 +51,17 @@ export async function stylistic(options: StylisticOptions = {}): Promise<FlatCon
 
         ...(lessOpinionated
           ? {
-              curly: ['error', 'all'],
-            }
+            curly: ['error', 'all'],
+          }
           : {
-              'antfu/curly': 'error',
-              'antfu/if-newline': 'error',
-              'antfu/top-level-function': 'error',
-            }),
+            'antfu/curly': 'error',
+            'antfu/if-newline': 'error',
+            'antfu/top-level-function': 'error',
+          }),
 
+        'no-multiple-empty-lines': 'warn',
+        'style/indent': ['warn', 2],
+        'style/no-trailing-spaces': 'warn',
         'style/generator-star-spacing': ['error', { after: true, before: false }],
         'style/yield-star-spacing': ['error', { after: true, before: false }],
 

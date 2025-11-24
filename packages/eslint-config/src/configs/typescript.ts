@@ -1,3 +1,4 @@
+import process from 'node:process'
 import type { Linter } from 'eslint'
 import type {
   FlatConfigItem,
@@ -9,7 +10,6 @@ import type {
   OptionsTypeScriptParserOptions,
   OptionsTypeScriptWithTypes,
 } from '../types'
-import process from 'node:process'
 import { pluginAntfu } from '../plugins'
 import { interopDefault, renameRules } from '../utils'
 import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../utils/globs'
@@ -79,12 +79,12 @@ export async function typescript(
           sourceType: 'module',
           ...(typeAware
             ? {
-                projectService: {
-                  allowDefaultProject: ['./*.js'],
-                  defaultProject: tsconfigPath,
-                },
-                tsconfigRootDir: process.cwd(),
-              }
+              projectService: {
+                allowDefaultProject: ['./*.js'],
+                defaultProject: tsconfigPath,
+              },
+              tsconfigRootDir: process.cwd(),
+            }
             : {}),
           ...(parserOptions as any),
         },
@@ -155,47 +155,47 @@ export async function typescript(
 
         ...(type === 'lib'
           ? {
-              'ts/explicit-function-return-type': [
-                'error',
-                {
-                  allowExpressions: true,
-                  allowHigherOrderFunctions: true,
-                  allowIIFEs: true,
-                },
-              ],
-            }
+            'ts/explicit-function-return-type': [
+              'error',
+              {
+                allowExpressions: true,
+                allowHigherOrderFunctions: true,
+                allowIIFEs: true,
+              },
+            ],
+          }
           : {}),
         ...overrides,
       },
     },
     ...(isTypeAware
       ? [
-          {
-            files: filesTypeAware,
-            ignores: ignoresTypeAware,
-            name: 'skyroc/typescript/rules-type-aware',
-            rules: {
-              ...typeAwareRules,
-              ...overridesTypeAware,
-            },
+        {
+          files: filesTypeAware,
+          ignores: ignoresTypeAware,
+          name: 'skyroc/typescript/rules-type-aware',
+          rules: {
+            ...typeAwareRules,
+            ...overridesTypeAware,
           },
-        ]
+        },
+      ]
       : []),
     ...(erasableOnly
       ? [
-          {
-            name: 'skyroc/typescript/erasable-syntax-only',
-            plugins: {
-              'erasable-syntax-only': await interopDefault(import('eslint-plugin-erasable-syntax-only')),
-            },
-            rules: {
-              'erasable-syntax-only/enums': 'error',
-              'erasable-syntax-only/import-aliases': 'error',
-              'erasable-syntax-only/namespaces': 'error',
-              'erasable-syntax-only/parameter-properties': 'error',
-            } as Record<string, Linter.RuleEntry>,
+        {
+          name: 'skyroc/typescript/erasable-syntax-only',
+          plugins: {
+            'erasable-syntax-only': await interopDefault(import('eslint-plugin-erasable-syntax-only')),
           },
-        ]
+          rules: {
+            'erasable-syntax-only/enums': 'error',
+            'erasable-syntax-only/import-aliases': 'error',
+            'erasable-syntax-only/namespaces': 'error',
+            'erasable-syntax-only/parameter-properties': 'error',
+          } as Record<string, Linter.RuleEntry>,
+        },
+      ]
       : []),
   ]
 }

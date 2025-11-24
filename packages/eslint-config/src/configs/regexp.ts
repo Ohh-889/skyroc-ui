@@ -1,5 +1,5 @@
-import type { FlatConfigItem, OptionsOverrides, OptionsRegExp } from '../types'
 import { configs } from 'eslint-plugin-regexp'
+import type { FlatConfigItem, OptionsOverrides, OptionsRegExp } from '../types'
 
 export async function regexp(options: OptionsRegExp & OptionsOverrides = {}): Promise<FlatConfigItem[]> {
   const config = configs['flat/recommended'] as FlatConfigItem

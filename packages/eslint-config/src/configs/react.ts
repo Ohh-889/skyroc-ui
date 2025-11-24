@@ -1,5 +1,5 @@
-import type { FlatConfigItem, OptionsReact } from '../types'
 import { isPackageExists } from 'local-pkg'
+import type { FlatConfigItem, OptionsReact } from '../types'
 import { ensurePackages, interopDefault } from '../utils'
 import { GLOB_SRC } from '../utils/globs'
 
@@ -136,33 +136,33 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
             allowExportNames: [
               ...(isUsingNext
                 ? [
-                    'dynamic',
-                    'dynamicParams',
-                    'revalidate',
-                    'fetchCache',
-                    'runtime',
-                    'preferredRegion',
-                    'maxDuration',
-                    'config',
-                    'generateStaticParams',
-                    'metadata',
-                    'generateMetadata',
-                    'viewport',
-                    'generateViewport',
-                  ]
+                  'dynamic',
+                  'dynamicParams',
+                  'revalidate',
+                  'fetchCache',
+                  'runtime',
+                  'preferredRegion',
+                  'maxDuration',
+                  'config',
+                  'generateStaticParams',
+                  'metadata',
+                  'generateMetadata',
+                  'viewport',
+                  'generateViewport',
+                ]
                 : []),
               ...(isUsingRemix || isUsingReactRouter
                 ? [
-                    'meta',
-                    'links',
-                    'headers',
-                    'loader',
-                    'action',
-                    'clientLoader',
-                    'clientAction',
-                    'handle',
-                    'shouldRevalidate',
-                  ]
+                  'meta',
+                  'links',
+                  'headers',
+                  'loader',
+                  'action',
+                  'clientLoader',
+                  'clientAction',
+                  'handle',
+                  'shouldRevalidate',
+                ]
                 : []),
             ],
           },

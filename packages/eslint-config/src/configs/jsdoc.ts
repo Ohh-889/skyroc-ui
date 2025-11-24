@@ -29,9 +29,9 @@ export async function jsdoc(options: OptionsStylistic = {}): Promise<FlatConfigI
 
         ...(stylistic
           ? {
-              'jsdoc/check-alignment': 'warn',
-              'jsdoc/multiline-blocks': 'warn',
-            }
+            'jsdoc/check-alignment': 'warn',
+            'jsdoc/multiline-blocks': 'warn',
+          }
           : {}),
       },
     },

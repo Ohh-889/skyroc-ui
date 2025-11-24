@@ -308,13 +308,82 @@ export interface OptionsVue extends OptionsFiles, OptionsOverrides {
   vueVersion?: 2 | 3
 }
 
-export interface SkryocESLintConfig {
+export interface OptionsFormatter {
   /**
-   * Enable gitignore support.
+   * Format CSS files
    *
    * @default true
    */
-  gitignore?: boolean
+  css?: boolean
+
+  /**
+   * Format HTML files
+   *
+   * @default true
+   */
+  html?: boolean
+
+  /**
+   * Format JSON files
+   *
+   * @default true
+   */
+  json?: boolean
+
+  /**
+   * Format Markdown files
+   *
+   * @default false
+   */
+  markdown?: boolean
+
+  /**
+   * Format TOML files
+   *
+   * @default false
+   */
+  toml?: boolean
+
+  /**
+   * Format YAML files
+   *
+   * @default false
+   */
+  yaml?: boolean
+}
+
+export interface SkryocESLintConfig extends OptionsComponentExts {
+  /**
+   * Enable auto renaming of plugins
+   *
+   * @default true
+   */
+  autoRenamePlugins?: boolean
+  /**
+   * Whether to run in editor environment
+   *
+   * @default undefined
+   */
+  isInEditor?: boolean
+
+  unicorn?: boolean | OptionsUnicorn
+
+  /**
+   * Enable formatter support for various file types
+   *
+   * @default true
+   */
+  formatter?: boolean | OptionsFormatter
+
+  /**
+   * Enable gitignore support.
+   *
+   * Passing an object to configure the options.
+   *
+   * @default true
+   * @see https://github.com/antfu/eslint-config-flat-gitignore
+   */
+  gitignore?: boolean | FlatGitignoreOptions
 
   /**
    * Glob patterns to ignore
@@ -322,6 +391,29 @@ export interface SkryocESLintConfig {
    * @default []
    */
   ignores?: string[]
+
+  /**
+   * Global overrides for all configurations
+   */
+  overrides?: {
+    javascript?: Linter.RulesRecord
+    jsdoc?: Linter.RulesRecord
+    jsonc?: Linter.RulesRecord
+    markdown?: Linter.RulesRecord
+    next?: Linter.RulesRecord
+    react?: Linter.RulesRecord
+    reactNative?: Linter.RulesRecord
+    regexp?: Linter.RulesRecord
+    stylistic?: Linter.RulesRecord
+    tailwindcss?: Linter.RulesRecord
+    test?: Linter.RulesRecord
+    toml?: Linter.RulesRecord
+    typescript?: Linter.RulesRecord
+    unicorn?: Linter.RulesRecord
+    unocss?: Linter.RulesRecord
+    vue?: Linter.RulesRecord
+    yaml?: Linter.RulesRecord
+  }
 
   /**
    * Enable JSDoc rules

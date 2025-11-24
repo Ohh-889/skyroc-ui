@@ -1,5 +1,5 @@
-import type { FlatConfigItem, OptionsIsInEditor, OptionsOverrides } from '../types'
 import globals from 'globals'
+import type { FlatConfigItem, OptionsIsInEditor, OptionsOverrides } from '../types'
 import { pluginAntfu, pluginUnusedImports } from '../plugins'
 
 export async function javascript(options: OptionsIsInEditor & OptionsOverrides = {}): Promise<FlatConfigItem[]> {
