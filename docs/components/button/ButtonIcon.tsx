@@ -1,9 +1,7 @@
-import { forwardRef } from 'react';
-
-import { Icon } from '../icon';
-
-import Button from './Button';
-import type { ButtonIconProps } from './types';
+import { forwardRef } from 'react'
+import { Icon } from '../icon'
+import Button from './Button'
+import type { ButtonIconProps } from './types'
 
 const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>((props, ref) => {
   const {
@@ -15,7 +13,7 @@ const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>((props, ref) =
     shape = 'square',
     variant = 'ghost',
     ...rest
-  } = props;
+  } = props
 
   return (
     <Button
@@ -33,9 +31,9 @@ const ButtonIcon = forwardRef<HTMLButtonElement, ButtonIconProps>((props, ref) =
         />
       )}
     </Button>
-  );
-});
+  )
+})
 
-ButtonIcon.displayName = 'ButtonIcon';
+ButtonIcon.displayName = 'ButtonIcon'
 
-export default ButtonIcon;
+export default ButtonIcon

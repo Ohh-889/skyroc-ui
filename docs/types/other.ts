@@ -1,40 +1,40 @@
-import { type ClassValue } from 'clsx';
-import type { ReactNode } from 'react';
+import type { ReactNode } from 'react'
+import type { ClassValue } from 'clsx'
 
-export type ThemeColor = 'accent' | 'carbon' | 'destructive' | 'info' | 'primary' | 'secondary' | 'success' | 'warning';
+export type ThemeColor = 'accent' | 'carbon' | 'destructive' | 'info' | 'primary' | 'secondary' | 'success' | 'warning'
 
-export type ThemeSize = '2xl' | 'lg' | 'md' | 'sm' | 'xl' | 'xs';
+export type ThemeSize = '2xl' | 'lg' | 'md' | 'sm' | 'xl' | 'xs'
 
-export type ThemeOrientation = 'horizontal' | 'vertical';
+export type ThemeOrientation = 'horizontal' | 'vertical'
 
-export type ThemeAlign = 'center' | 'end' | 'start';
+export type ThemeAlign = 'center' | 'end' | 'start'
 
-export type ThemeSide = 'bottom' | 'left' | 'right' | 'top';
+export type ThemeSide = 'bottom' | 'left' | 'right' | 'top'
 
-export type ClassValueProp = {
+export interface ClassValueProp {
   /** class name */
-  className?: ClassValue;
-};
+  className?: ClassValue
+}
 
-export type AsTag =
-  | 'a'
-  | 'button'
-  | 'div'
-  | 'form'
-  | 'h2'
-  | 'h3'
-  | 'img'
-  | 'input'
-  | 'label'
-  | 'li'
-  | 'nav'
-  | 'ol'
-  | 'p'
-  | 'span'
-  | 'svg'
-  | 'ul'
-  | 'template'
-  | ({} & string);
+export type AsTag
+  = | 'a'
+    | 'button'
+    | 'div'
+    | 'form'
+    | 'h2'
+    | 'h3'
+    | 'img'
+    | 'input'
+    | 'label'
+    | 'li'
+    | 'nav'
+    | 'ol'
+    | 'p'
+    | 'span'
+    | 'svg'
+    | 'ul'
+    | 'template'
+    | ({} & string)
 
 export interface PrimitiveProps {
   /**
@@ -42,34 +42,34 @@ export interface PrimitiveProps {
    *
    * @defaultValue 'div'
    */
-  as?: AsTag | ReactNode;
+  as?: AsTag | ReactNode
   /**
    * Change the default rendered element for the one passed as a child, merging their props and behavior.
    *
    * Read our [Composition](https://www.skyroc-ui.com/docs/guides/composition) guide for more details.
    */
-  asChild?: boolean;
+  asChild?: boolean
 }
 
 export type BaseNodeProps<T> = Omit<T, 'className'> & {
-  className?: ClassValue;
-  size?: ThemeSize;
-};
+  className?: ClassValue
+  size?: ThemeSize
+}
 
 export type BaseProps<T> = T & {
-  className?: ClassValue;
-  size?: ThemeSize;
-};
+  className?: ClassValue
+  size?: ThemeSize
+}
 
-export type PropsSlot = {
-  leading?: ReactNode;
-  trailing?: ReactNode;
-};
+export interface PropsSlot {
+  leading?: ReactNode
+  trailing?: ReactNode
+}
 
 export type BaseComponentProps<T extends keyof React.JSX.IntrinsicElements> = BaseNodeProps<
   React.ComponentPropsWithRef<T>
->;
+>
 
-export type AcceptableValue = string | number | bigint | Record<string, any> | null;
+export type AcceptableValue = string | number | bigint | Record<string, any> | null
 
-export type { ClassValue };
+export type { ClassValue }

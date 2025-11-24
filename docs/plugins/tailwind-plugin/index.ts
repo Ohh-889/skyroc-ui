@@ -1,22 +1,20 @@
-import plugin from 'tailwindcss/plugin';
+import plugin from 'tailwindcss/plugin'
+import { generateCSSVars } from './generate'
+import { presetSkyrocUI } from './presets'
+import themes from './theme.json'
+import { skyrocUITheme } from './themePresets'
+import type { SkyrocUIPluginOptions, ThemeColorKey, ThemeConfig, ThemeConfigColor, ThemeOptions } from './types'
 
-import { generateCSSVars } from './generate';
-import { presetSkyrocUI } from './presets';
-import themes from './theme.json';
-import { skyrocUITheme } from './themePresets';
-import type { SkyrocUIPluginOptions, ThemeColorKey, ThemeConfig, ThemeConfigColor, ThemeOptions } from './types';
-
-export const builtinColors = themes.map(theme => theme.name) as ThemeConfigColor[];
+export const builtinColors = themes.map(theme => theme.name) as ThemeConfigColor[]
 
 export const builtinColorMap = themes.reduce(
   (acc, theme) => {
-    acc[theme.name as ThemeConfigColor] = theme.cssVars.light.primary;
-    return acc;
+    acc[theme.name as ThemeConfigColor] = theme.cssVars.light.primary
+    return acc
   },
-  {} as Record<ThemeConfigColor, string>
-);
-
-export const builtinRadiuses = [0, 0.3, 0.5, 0.75, 1] as const;
+  {} as Record<ThemeConfigColor, string>,
+)
+export const builtinRadiuses = [0, 0.3, 0.5, 0.75, 1] as const
 
 /**
  * The UnoCSS preset for Skyroc UI.
@@ -27,9 +25,9 @@ export const builtinRadiuses = [0, 0.3, 0.5, 0.75, 1] as const;
 export const skyrocUIPlugin = plugin.withOptions(
   (options: SkyrocUIPluginOptions = {}) =>
     ({ addBase, addUtilities }) => {
-      addUtilities(presetSkyrocUI());
+      addUtilities(presetSkyrocUI())
 
-      addBase(skyrocUITheme(options));
+      addBase(skyrocUITheme(options))
     },
   () => ({
     theme: {
@@ -38,16 +36,16 @@ export const skyrocUIPlugin = plugin.withOptions(
           lg: 'var(--radius)',
           md: 'calc(var(--radius) - 2px)',
           sm: 'calc(var(--radius) - 4px)',
-          xl: 'calc(var(--radius) + 4px)'
+          xl: 'calc(var(--radius) + 4px)',
         },
         colors: {
-          accent: {
+          'accent': {
             DEFAULT: 'hsl(var(--accent))',
-            foreground: 'hsl(var(--accent-foreground))'
+            foreground: 'hsl(var(--accent-foreground))',
           },
-          background: 'hsl(var(--background))',
-          border: 'hsl(var(--border))',
-          carbon: {
+          'background': 'hsl(var(--background))',
+          'border': 'hsl(var(--border))',
+          'carbon': {
             50: 'hsl(var(--carbon-50))',
             100: 'hsl(var(--carbon-100))',
             200: 'hsl(var(--carbon-200))',
@@ -60,13 +58,13 @@ export const skyrocUIPlugin = plugin.withOptions(
             900: 'hsl(var(--carbon-900))',
             950: 'hsl(var(--carbon-950))',
             DEFAULT: 'hsl(var(--carbon))',
-            foreground: 'hsl(var(--carbon-foreground))'
+            foreground: 'hsl(var(--carbon-foreground))',
           },
-          card: {
+          'card': {
             DEFAULT: 'hsl(var(--card))',
-            foreground: 'hsl(var(--card-foreground))'
+            foreground: 'hsl(var(--card-foreground))',
           },
-          destructive: {
+          'destructive': {
             50: 'hsl(var(--destructive-50))',
             100: 'hsl(var(--destructive-100))',
             200: 'hsl(var(--destructive-200))',
@@ -79,10 +77,10 @@ export const skyrocUIPlugin = plugin.withOptions(
             900: 'hsl(var(--destructive-900))',
             950: 'hsl(var(--destructive-950))',
             DEFAULT: 'hsl(var(--destructive))',
-            foreground: 'hsl(var(--destructive-foreground))'
+            foreground: 'hsl(var(--destructive-foreground))',
           },
-          foreground: 'hsl(var(--foreground))',
-          info: {
+          'foreground': 'hsl(var(--foreground))',
+          'info': {
             50: 'hsl(var(--info-50))',
             100: 'hsl(var(--info-100))',
             200: 'hsl(var(--info-200))',
@@ -95,19 +93,19 @@ export const skyrocUIPlugin = plugin.withOptions(
             900: 'hsl(var(--info-900))',
             950: 'hsl(var(--info-950))',
             DEFAULT: 'hsl(var(--info))',
-            foreground: 'hsl(var(--info-foreground))'
+            foreground: 'hsl(var(--info-foreground))',
           },
-          input: 'hsl(var(--input))',
-          muted: {
+          'input': 'hsl(var(--input))',
+          'muted': {
             DEFAULT: 'hsl(var(--muted))',
-            foreground: 'hsl(var(--muted-foreground))'
+            foreground: 'hsl(var(--muted-foreground))',
           },
-          popover: {
+          'popover': {
             DEFAULT: 'hsl(var(--popover))',
-            foreground: 'hsl(var(--popover-foreground))'
+            foreground: 'hsl(var(--popover-foreground))',
           },
           // 示例部分（你也可以写一个生成器函数自动输出完整变量映射）
-          primary: {
+          'primary': {
             50: 'hsl(var(--primary-50))',
             100: 'hsl(var(--primary-100))',
             200: 'hsl(var(--primary-200))',
@@ -120,12 +118,12 @@ export const skyrocUIPlugin = plugin.withOptions(
             900: 'hsl(var(--primary-900))',
             950: 'hsl(var(--primary-950))',
             DEFAULT: 'hsl(var(--primary))',
-            foreground: 'hsl(var(--primary-foreground))'
+            foreground: 'hsl(var(--primary-foreground))',
           },
-          ring: 'hsl(var(--ring))',
-          secondary: {
+          'ring': 'hsl(var(--ring))',
+          'secondary': {
             DEFAULT: 'hsl(var(--secondary))',
-            foreground: 'hsl(var(--secondary-foreground))'
+            foreground: 'hsl(var(--secondary-foreground))',
           },
           'sidebar-accent': 'hsl(var(--sidebar-accent))',
           'sidebar-accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
@@ -135,7 +133,7 @@ export const skyrocUIPlugin = plugin.withOptions(
           'sidebar-primary': 'hsl(var(--sidebar-primary))',
           'sidebar-primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
           'sidebar-ring': 'hsl(var(--sidebar-ring))',
-          success: {
+          'success': {
             50: 'hsl(var(--success-50))',
             100: 'hsl(var(--success-100))',
             200: 'hsl(var(--success-200))',
@@ -148,9 +146,9 @@ export const skyrocUIPlugin = plugin.withOptions(
             900: 'hsl(var(--success-900))',
             950: 'hsl(var(--success-950))',
             DEFAULT: 'hsl(var(--success))',
-            foreground: 'hsl(var(--success-foreground))'
+            foreground: 'hsl(var(--success-foreground))',
           },
-          warning: {
+          'warning': {
             50: 'hsl(var(--warning-50))',
             100: 'hsl(var(--warning-100))',
             200: 'hsl(var(--warning-200))',
@@ -163,21 +161,21 @@ export const skyrocUIPlugin = plugin.withOptions(
             900: 'hsl(var(--warning-900))',
             950: 'hsl(var(--warning-950))',
             DEFAULT: 'hsl(var(--warning))',
-            foreground: 'hsl(var(--warning-foreground))'
-          }
+            foreground: 'hsl(var(--warning-foreground))',
+          },
         },
         fontSize: {
           '2xs': ['0.625rem', '0.75rem'],
           '3xs': ['0.5rem', '0.625rem'],
-          '4xs': ['0.375rem', '0.5rem']
-        }
-      }
-    }
-  })
-);
+          '4xs': ['0.375rem', '0.5rem'],
+        },
+      },
+    },
+  }),
+)
 
-export { generateCSSVars, presetSkyrocUI, skyrocUITheme };
+export { generateCSSVars, presetSkyrocUI, skyrocUITheme }
 
-export type { ThemeColorKey, ThemeConfig, ThemeConfigColor, ThemeOptions };
+export type { ThemeColorKey, ThemeConfig, ThemeConfigColor, ThemeOptions }
 
-export default skyrocUIPlugin;
+export default skyrocUIPlugin

@@ -23,10 +23,10 @@
 
 ```tsx
 // docs/demos/button-basic.tsx
-import { Button } from '@/components/button';
+import { Button } from '@/components/button'
 
-export default function Demo() {
-  return <Button>点击我</Button>;
+export const Demo = () => {
+  return <Button>点击我</Button>
 }
 ```
 
@@ -36,7 +36,7 @@ export default function Demo() {
 // docs/lib/demo-registry.ts
 export const demoRegistry = {
   'button-basic': '@/demos/button-basic.tsx',
-} as const;
+} as const
 ```
 
 ### 3. 在 MDX 中使用
@@ -54,6 +54,7 @@ export const demoRegistry = {
 ```
 
 **优点：**
+
 - 简洁
 - 统一管理
 - TypeScript 自动提示
@@ -65,6 +66,7 @@ export const demoRegistry = {
 ```
 
 **适用于：**
+
 - 一次性演示
 - 不需要复用
 
@@ -87,7 +89,7 @@ export const demoRegistry = {
   files={[
     { src: '@/demos/multi/App.tsx', title: 'App' },
     { src: '@/demos/multi/Button.tsx', title: 'Button' },
-    { src: '@/demos/multi/utils.ts', title: 'Utils' }
+    { src: '@/demos/multi/utils.ts', title: 'Utils' },
   ]}
   entry="@/demos/multi/App.tsx"
   title="多文件示例"
@@ -98,18 +100,18 @@ export const demoRegistry = {
 
 ```tsx
 // demos/counter.tsx
-import { Button } from '@/components/button';
-import { useState } from 'react';
+import { useState } from 'react'
+import { Button } from '@/components/button'
 
-export default function Demo() {
-  const [count, setCount] = useState(0);
+export const Demo = () => {
+  const [count, setCount] = useState(0)
 
   return (
     <div className="space-y-4">
       <div className="text-2xl">{count}</div>
       <Button onClick={() => setCount(c => c + 1)}>+1</Button>
     </div>
-  );
+  )
 }
 ```
 
@@ -117,24 +119,24 @@ export default function Demo() {
 
 ```tsx
 // demos/animated.tsx
-import { Button } from '@/components/button';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import { Button } from '@/components/button'
 
-export default function Demo() {
+export const Demo = () => {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
     >
       <Button>动画按钮</Button>
     </motion.div>
-  );
+  )
 }
 ```
 
 ## 📁 项目结构
 
-```
+```text
 docs/
 ├── demos/                      # 所有 demo 文件
 │   ├── button-basic.tsx
@@ -157,18 +159,19 @@ docs/
 
 ```tsx
 // packages/next-docs-plugin/src/components/Demo.tsx
-const Preview = lazy(() => import(`${src}`));
-const code = await readFile(src);
+const Preview = lazy(() => import(`${src}`))
+const code = await readFile(src)
 
 return (
   <DemoFrame
     code={code}
     preview={<Preview />}
   />
-);
+)
 ```
 
 **原理：**
+
 1. 服务端读取源代码文件
 2. 使用 `lazy` 动态导入组件
 3. 自动代码分割，按需加载
@@ -176,17 +179,17 @@ return (
 
 ### Registry 类型安全
 
-```ts
+```tsx
 export const demoRegistry = {
   'button-basic': '@/demos/button-basic.tsx',
   'button-variants': '@/demos/button-variants.tsx',
-} as const;
+} as const
 
-export type DemoKey = keyof typeof demoRegistry;
+export type DemoKey = keyof typeof demoRegistry
 
 // 使用时有 TypeScript 提示
-<Demo demo="button-basic" />  // ✅ 类型安全
-<Demo demo="invalid-key" />   // ❌ TypeScript 报错
+// <Demo demo="button-basic" /> ✅ 类型安全
+// <Demo demo="invalid-key" /> ❌ TypeScript 报错
 ```
 
 ## 🚀 性能优势
@@ -205,7 +208,7 @@ export type DemoKey = keyof typeof demoRegistry;
 
 ### 加载性能
 
-```
+```text
 LiveDemo:
   下载 Babel → 解析代码 → 编译 → 执行 → 渲染
   总耗时: ~250ms
@@ -235,14 +238,14 @@ Demo:
 ## 🎉 开始使用
 
 查看实际效果：
+
 ```bash
 cd docs
 pnpm dev
 ```
 
-访问: http://localhost:3000/docs/components/button-new
+访问: [http://localhost:3000/docs/components/button-new](http://localhost:3000/docs/components/button-new)
 
 ---
 
 **Skyroc UI** - 简洁、优雅、高性能的文档体验
-

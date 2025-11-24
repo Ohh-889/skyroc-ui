@@ -7,7 +7,7 @@
     "build": "next build",
     "build:index": "tsx scripts/build-flexsearch-index.ts",
     "dev": "next dev --turbopack",
-    "lint": "next lint",
+    "lint": "eslint . --fix",
     "sr": "ui-kit init",
     "start": "next start"
   },
@@ -35,7 +35,9 @@
     "unist-util-visit": "catalog:"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "^15.2.4",
     "@skyroc/color": "workspace:*",
+    "@skyroc/eslint-config": "workspace:*",
     "@skyroc/next-docs-plugin": "workspace:*",
     "@tailwindcss/postcss": "catalog:",
     "@types/jsdom": "21.1.7",
@@ -43,7 +45,14 @@
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "@unocss/core": "66.3.2",
     "babel-plugin-react-compiler": "^1.0.0",
+    "eslint": "^9.39.0",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "^7.0.0",
+    "eslint-plugin-react-native": "^5.0.0",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "eslint-plugin-tailwindcss": "4.0.0-beta.0",
     "jsdom": "26.1.0",
     "tailwindcss": "catalog:",
     "tsx": "catalog:",

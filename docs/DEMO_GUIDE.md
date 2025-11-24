@@ -7,10 +7,11 @@
 ### ❌ 旧方案：LiveDemo（运行时编译）
 
 ```tsx
-<LiveDemo code={`...`} />
+<LiveDemo code="..." />
 ```
 
 **缺点：**
+
 - 客户端引入完整 Babel (~2MB)
 - 运行时编译，性能差
 - 使用 `new Function`，有安全隐患
@@ -23,6 +24,7 @@
 ```
 
 **优点：**
+
 - ✓ 零运行时开销
 - ✓ 真实的 TypeScript 文件
 - ✓ 完整的类型检查
@@ -37,14 +39,15 @@
 
 ```tsx
 // demos/button-basic.tsx
-import { Button } from '@/components/button';
+import { Button } from '@/components/button'
 
-export default function Demo() {
-  return <Button>点击我</Button>;
+export const Demo = () => {
+  return <Button>点击我</Button>
 }
 ```
 
 **规范：**
+
 - 文件名使用 kebab-case：`button-basic.tsx`
 - 必须 `export default` 一个组件
 - 可以正常导入任何依赖
@@ -57,15 +60,15 @@ export default function Demo() {
 export const demoRegistry = {
   'button-basic': '@/demos/button-basic.tsx',
   // ...
-} as const;
+} as const
 ```
 
 ### 3. 在 MDX 中使用
 
 ```mdx
-# Button 组件
+Button 组件
 
-## 基础用法
+基础用法
 
 <Demo demo="button-basic" title="基础按钮" />
 ```
@@ -79,6 +82,7 @@ export const demoRegistry = {
 ```
 
 **优点：**
+
 - 简洁，易于维护
 - 统一管理所有 demo
 - 自动提示（TypeScript）
@@ -90,6 +94,7 @@ export const demoRegistry = {
 ```
 
 **适用场景：**
+
 - 临时演示
 - 不需要复用的 demo
 
@@ -100,7 +105,7 @@ export const demoRegistry = {
   files={[
     { src: '@/demos/multi/App.tsx', title: 'App' },
     { src: '@/demos/multi/Button.tsx', title: 'Button' },
-    { src: '@/demos/multi/utils.ts', title: 'Utils' }
+    { src: '@/demos/multi/utils.ts', title: 'Utils' },
   ]}
   entry="@/demos/multi/App.tsx"
   title="多文件示例"
@@ -108,6 +113,7 @@ export const demoRegistry = {
 ```
 
 **特性：**
+
 - Tab 切换多个文件
 - 指定入口文件用于预览
 - 查看完整项目结构
@@ -145,22 +151,29 @@ Demo 可以包含状态、事件处理等：
 
 ```tsx
 // demos/counter.tsx
-import { Button } from '@/components/button';
-import { useState } from 'react';
+import { useState } from 'react'
+import { Button } from '@/components/button'
 
-export default function Demo() {
-  const [count, setCount] = useState(0);
+export const Demo = () => {
+  const [count, setCount] = useState(0)
 
   return (
     <div className="space-y-4">
       <div className="text-2xl font-bold">{count}</div>
+
       <div className="flex gap-2">
         <Button onClick={() => setCount(c => c + 1)}>+1</Button>
         <Button onClick={() => setCount(c => c - 1)}>-1</Button>
-        <Button variant="outline" onClick={() => setCount(0)}>重置</Button>
+
+        <Button
+          variant="outline"
+          onClick={() => setCount(0)}
+        >
+          重置
+        </Button>
       </div>
     </div>
-  );
+  )
 }
 ```
 
@@ -170,24 +183,24 @@ export default function Demo() {
 
 ```tsx
 // demos/with-library.tsx
-import { Button } from '@/components/button';
-import { motion } from 'framer-motion';
+import { motion } from 'framer-motion'
+import { Button } from '@/components/button'
 
-export default function Demo() {
+export const Demo = () => {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
+      initial={{ opacity: 0 }}
     >
       <Button>Animated Button</Button>
     </motion.div>
-  );
+  )
 }
 ```
 
 ## 🗂️ 目录结构
 
-```
+```text
 docs/
 ├── demos/                    # 所有 demo 文件
 │   ├── button-basic.tsx
@@ -208,10 +221,11 @@ docs/
 Demo 组件使用 React 的 `lazy` 自动进行代码分割：
 
 ```tsx
-const Preview = lazy(() => import('@/demos/button-basic.tsx'));
+const Preview = lazy(() => import('@/demos/button-basic.tsx'))
 ```
 
 **好处：**
+
 - 只有查看 Demo 时才加载代码
 - 减小首次加载体积
 - 更快的页面渲染
@@ -221,12 +235,14 @@ const Preview = lazy(() => import('@/demos/button-basic.tsx'));
 ### 从 ComponentPreview 迁移
 
 **旧代码：**
-```mdx
+
+```tsx
 <ComponentPreview code={`import { Button } from '@skyroc/ui';
 
 export default function Demo() {
   return <Button>Click</Button>;
-}`}>
+}`}
+>
   <Button>Click</Button>
 </ComponentPreview>
 ```
@@ -236,6 +252,7 @@ export default function Demo() {
 1. 创建 demo 文件 `demos/button-example.tsx`
 2. 注册到 registry
 3. 使用：
+
 ```mdx
 <Demo demo="button-example" />
 ```
@@ -243,8 +260,12 @@ export default function Demo() {
 ### 从 LiveDemo 迁移
 
 **旧代码：**
+
 ```tsx
-<LiveDemo code={code} lang="tsx" />
+<LiveDemo
+  code={code}
+  lang="tsx"
+/>
 ```
 
 **新代码：**
@@ -257,6 +278,7 @@ export default function Demo() {
 ### Q: Demo 不显示？
 
 **A:** 检查：
+
 1. Demo 文件是否正确 export default
 2. Registry 中路径是否正确
 3. 是否有 TypeScript 错误
@@ -264,6 +286,7 @@ export default function Demo() {
 ### Q: 如何调试 Demo？
 
 **A:** Demo 是普通的 React 组件，可以：
+
 1. 直接在 demos/ 文件中添加 console.log
 2. 使用 React DevTools
 3. 检查浏览器控制台
@@ -271,28 +294,31 @@ export default function Demo() {
 ### Q: 可以使用 Hooks 吗？
 
 **A:** 可以！Demo 就是普通组件：
+
 ```tsx
-export default function Demo() {
-  const [state, setState] = useState(0);
-  useEffect(() => { ... }, []);
-  return ...;
+export const Demo = () => {
+  const [state, setState] = useState(0)
+  useEffect(() => { }, [])
+  return () => {}
 }
 ```
 
 ### Q: 如何共享代码？
 
 **A:** 创建共享的 utils：
+
 ```tsx
 // demos/utils/common.tsx
-export const sharedStyles = "...";
-
 // demos/button-basic.tsx
-import { sharedStyles } from './utils/common';
+import { sharedStyles } from './utils/common'
+
+export const sharedStyles = '...'
 ```
 
 ## 📚 示例参考
 
 查看现有 demos：
+
 - `demos/button-*.tsx` - 按钮示例
 - `demos/input-*.tsx` - 输入框示例
 - `demos/card-*.tsx` - 卡片示例
@@ -300,4 +326,3 @@ import { sharedStyles } from './utils/common';
 ---
 
 **享受编写文档的乐趣！** 🎉
-

@@ -1,10 +1,8 @@
-import type { MDXComponents } from 'mdx/types';
-import { Code, ComponentPreview, Demo, InstallDependencies } from '@skyroc/next-docs-plugin';
-
-import { H1, H2, H3, H4, H5, H6 } from '@/m-components/heading';
-import { Table, THead, TBody, TR, TH, TD } from '@/m-components/table';
-
-import { Pre } from './m-components/pre';
+import type { MDXComponents } from 'mdx/types'
+import { Code, ComponentPreview, Demo, InstallDependencies } from '@skyroc/next-docs-plugin'
+import { H1, H2, H3, H4, H5, H6 } from '@/m-components/heading'
+import { Table, THead, TBody, TR, TH, TD } from '@/m-components/table'
+import { Pre } from './m-components/pre'
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -25,6 +23,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     tbody: TBody,
     tr: TR,
     th: TH,
-    td: TD
-  };
+    td: TD,
+  }
 }

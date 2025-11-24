@@ -1,5 +1,5 @@
-import createMDX from '@next/mdx';
-import type { NextConfig } from 'next';
+import createMDX from '@next/mdx'
+import type { NextConfig } from 'next'
 
 const nextConfig: NextConfig = {
   images: {
@@ -7,17 +7,17 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'picsum.photos',
-      }
+      },
     ],
-    unoptimized: true
+    unoptimized: true,
   },
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   reactStrictMode: true,
   reactCompiler: true,
   typescript: {
-    ignoreBuildErrors: true
-  }
-};
+    ignoreBuildErrors: true,
+  },
+}
 
 const withMDX = createMDX({
   options: {
@@ -30,21 +30,21 @@ const withMDX = createMDX({
           keepBackground: false,
           theme: {
             dark: 'github-dark',
-            light: 'github-light'
-          }
-        }
-      ]
+            light: 'github-light',
+          },
+        },
+      ],
     ],
     remarkPlugins: [
       'remark-gfm',
       [
         '@skyroc/next-docs-plugin',
         {
-          isRemark: true
-        }
-      ]
-    ]
-  }
-});
+          isRemark: true,
+        },
+      ],
+    ],
+  },
+})
 
-export default withMDX(nextConfig);
+export default withMDX(nextConfig)

@@ -1,15 +1,16 @@
-import { Button } from '@/components/button';
+import { Button } from '@/components/button'
 
-export default function Demo() {
+const Demo = () => {
   return (
     <div className="flex gap-4">
       <Button disabled>Disabled Button</Button>
+
       <Button
         disabled
-        variant="primary"
       >
         Disabled Primary
       </Button>
+
       <Button
         disabled
         variant="outline"
@@ -17,5 +18,7 @@ export default function Demo() {
         Disabled Outline
       </Button>
     </div>
-  );
+  )
 }
+
+export default Demo

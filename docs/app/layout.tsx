@@ -1,29 +1,28 @@
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-
-import './globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
-import { ClientDemoComponentsProvider } from '@/lib/demo-components-provider';
+import type { Metadata } from 'next'
+import { Inter } from 'next/font/google'
+import './globals.css'
+import { ThemeProvider } from '@/components/theme-provider'
+import { ClientDemoComponentsProvider } from '@/lib/demo-components-provider'
 
 const inter = Inter({
   display: 'swap',
   subsets: ['latin'],
-  variable: '--font-inter'
-});
+  variable: '--font-inter',
+})
 
 export const metadata: Metadata = {
   description: 'A modern, elegant React UI component library',
   title: {
     default: 'Skyroc UI - Modern React Components',
-    template: '%s | Skyroc UI'
-  }
-};
+    template: '%s | Skyroc UI',
+  },
+}
 
-export default function RootLayout({
-  children
+const RootLayout = ({
+  children,
 }: Readonly<{
-  children: React.ReactNode;
-}>) {
+  children: React.ReactNode
+}>) => {
   return (
     <html
       suppressHydrationWarning
@@ -41,5 +40,7 @@ export default function RootLayout({
         </ThemeProvider>
       </body>
     </html>
-  );
+  )
 }
+
+export default RootLayout

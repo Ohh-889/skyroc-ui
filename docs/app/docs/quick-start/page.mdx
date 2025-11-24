@@ -1,9 +1,8 @@
-
-# 快速开始
+快速开始
 
 本指南将帮助你快速上手 Skyroc UI。
 
-## 创建项目
+创建项目
 
 首先，创建一个新的 React 项目（如果你还没有的话）：
 
@@ -17,14 +16,14 @@ npx create-next-app@latest my-app
 cd my-app
 ```
 
-## 安装依赖
+安装依赖
 
 ```bash
 npm install @skyroc/ui
 npm install -D tailwindcss postcss autoprefixer
 ```
 
-## 配置 Tailwind
+配置 Tailwind
 
 初始化 Tailwind CSS：
 
@@ -61,32 +60,34 @@ export default {
 @tailwind utilities;
 ```
 
-## 使用组件
+使用组件
 
 现在你可以开始使用组件了：
 
 ```tsx
-import { Button, Card } from '@skyroc/ui';
+import { Button, Card } from '@skyroc/ui'
 
 export default function App() {
   return (
-    <div className="min-h-screen flex items-center justify-center p-8">
+    <div className="flex min-h-screen items-center justify-center p-8">
       <Card className="max-w-md p-6">
-        <h1 className="text-2xl font-bold mb-4">欢迎使用 Skyroc UI</h1>
+        <h1 className="mb-4 text-2xl font-bold">欢迎使用 Skyroc UI</h1>
+
         <p className="text-muted-foreground mb-6">
           这是一个使用 Skyroc UI 构建的示例应用。
         </p>
+
         <div className="flex gap-3">
           <Button variant="primary">主要按钮</Button>
           <Button variant="outline">次要按钮</Button>
         </div>
       </Card>
     </div>
-  );
+  )
 }
 ```
 
-## 主题配置
+主题配置
 
 Skyroc UI 支持深色模式。你可以使用 `next-themes` 或其他主题切换方案：
 
@@ -99,17 +100,20 @@ import { ThemeProvider } from 'next-themes'
 
 function App({ Component, pageProps }) {
   return (
-    <ThemeProvider attribute="class" defaultTheme="system">
+    <ThemeProvider
+      attribute="class"
+      defaultTheme="system"
+    >
       <Component {...pageProps} />
     </ThemeProvider>
   )
 }
 ```
 
-## 下一步
+下一步
 
-- 查看 [组件文档](/docs/components/button) 了解所有可用组件
-- 探索各个组件的 API 和示例
-- 根据你的需求定制主题
+查看 [组件文档](/docs/components/button) 了解所有可用组件
+探索各个组件的 API 和示例
+根据你的需求定制主题
 
 祝你使用愉快！🎉

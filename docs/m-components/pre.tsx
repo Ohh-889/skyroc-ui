@@ -1,36 +1,37 @@
-'use client';
+'use client'
 
-import cn from 'clsx';
-import { Check, Copy, WrapText } from 'lucide-react';
-import { type FC, type HTMLAttributes, type MouseEvent, type ReactNode, useEffect, useState } from 'react';
-
-import type { ButtonProps } from '@/components/button';
-import { Button } from '@/components/button';
+import { type FC, type HTMLAttributes, type MouseEvent, type ReactNode, useEffect, useState } from 'react'
+import cn from 'clsx'
+import { Check, Copy, WrapText } from 'lucide-react'
+import type { ButtonProps } from '@/components/button'
+import { Button } from '@/components/button'
 
 /* -------------------- CopyToClipboard -------------------- */
-export const CopyToClipboard: FC<ButtonProps> = props => {
-  const [isCopied, setIsCopied] = useState(false);
+export const CopyToClipboard: FC<ButtonProps> = (props) => {
+  const [isCopied, setIsCopied] = useState(false)
 
   useEffect(() => {
-    if (!isCopied) return () => {};
-    const timer = setTimeout(() => setIsCopied(false), 2000);
-    return () => clearTimeout(timer);
-  }, [isCopied]);
+    if (!isCopied)
+      return () => {}
+    const timer = setTimeout(() => setIsCopied(false), 2000)
+    return () => clearTimeout(timer)
+  }, [isCopied])
 
   const handleClick = async (event: MouseEvent<HTMLButtonElement>) => {
-    const container = event.currentTarget.closest('.code-block');
-    const content = container?.querySelector('pre code')?.textContent ?? '';
+    const container = event.currentTarget.closest('.code-block')
+    const content = container?.querySelector('pre code')?.textContent ?? ''
     try {
-      await navigator.clipboard.writeText(content);
-      setIsCopied(true);
-    } catch {
-      console.error('Failed to copy!');
+      await navigator.clipboard.writeText(content)
+      setIsCopied(true)
     }
-  };
+    catch {
+      console.error('Failed to copy!')
+    }
+  }
 
   return (
     <Button
-      className="flex items-center gap-1 rounded-md border border-border/50 bg-transparent hover:bg-muted"
+      className="border-border/50 hover:bg-muted flex items-center gap-1 rounded-md border bg-transparent"
       size="sm"
       title="复制代码"
       variant="outline"
@@ -39,19 +40,20 @@ export const CopyToClipboard: FC<ButtonProps> = props => {
     >
       {isCopied ? <Check size={16} /> : <Copy size={16} />}
     </Button>
-  );
-};
+  )
+}
 
 /* -------------------- ToggleWordWrapButton -------------------- */
 function toggleWordWrap() {
-  const htmlDataset = document.documentElement.dataset;
-  if ('nextraWordWrap' in htmlDataset) delete htmlDataset.nextraWordWrap;
-  else htmlDataset.nextraWordWrap = '';
+  const htmlDataset = document.documentElement.dataset
+  if ('nextraWordWrap' in htmlDataset)
+    delete htmlDataset.nextraWordWrap
+  else htmlDataset.nextraWordWrap = ''
 }
 
 export const ToggleWordWrapButton: FC<{ children?: ReactNode }> = ({ children }) => (
   <Button
-    className="flex items-center gap-1 rounded-md border border-border/50 bg-transparent hover:bg-muted"
+    className="border-border/50 hover:bg-muted flex items-center gap-1 rounded-md border bg-transparent"
     size="sm"
     title="切换自动换行"
     variant="outline"
@@ -59,18 +61,18 @@ export const ToggleWordWrapButton: FC<{ children?: ReactNode }> = ({ children })
   >
     {children ?? <WrapText size={16} />}
   </Button>
-);
+)
 
 /* -------------------- Pre 组件 -------------------- */
 export interface PreProps extends HTMLAttributes<HTMLPreElement> {
-  'data-copy'?: '';
-  'data-filename'?: string;
-  'data-language'?: string;
-  'data-word-wrap'?: '';
-  icon?: ReactNode;
+  'data-copy'?: ''
+  'data-filename'?: string
+  'data-language'?: string
+  'data-word-wrap'?: ''
+  'icon'?: ReactNode
 }
 
-export const Pre: FC<PreProps> = rest => {
+export const Pre: FC<PreProps> = (rest) => {
   const {
     children,
     className,
@@ -80,33 +82,36 @@ export const Pre: FC<PreProps> = rest => {
     'data-word-wrap': hasWordWrap,
     icon,
     ...props
-  } = rest;
+  } = rest
 
-  const copyButton = copy === '' && <CopyToClipboard />;
+  const copyButton = copy === '' && <CopyToClipboard />
 
   return (
     <div className="code-block relative my-6 w-full">
       {/* 文件名栏 */}
-      {filename && (
-        <div
-          className={cn(
-            'flex items-center justify-between gap-2 rounded-t-md border border-border/50 border-b-0',
-            'bg-gray-100 dark:bg-neutral-900 px-4 py-2 text-xs text-gray-700 dark:text-gray-200'
-          )}
-        >
-          <div className="flex items-center gap-2 min-w-0">
-            {icon}
-            <span className="truncate">{filename}</span>
+      {filename
+        ? (
+          <div
+            className={cn(
+              'border-border/50 flex items-center justify-between gap-2 rounded-t-md border border-b-0',
+              'bg-gray-100 px-4 py-2 text-xs text-gray-700 dark:bg-neutral-900 dark:text-gray-200',
+            )}
+          >
+            <div className="flex min-w-0 items-center gap-2">
+              {icon}
+              <span className="truncate">{filename}</span>
+            </div>
+
+            {copyButton}
           </div>
-          {copyButton}
-        </div>
-      )}
+        )
+        : null}
 
       {/* 代码区 */}
       <div
         className={cn(
-          'relative group rounded-b-md border border-border/50 bg-white dark:bg-black',
-          filename ? 'rounded-t-none' : 'rounded-md'
+          'group border-border/50 relative rounded-b-md border bg-white dark:bg-black',
+          filename ? 'rounded-t-none' : 'rounded-md',
         )}
       >
         {/* hover 按钮区 */}
@@ -114,7 +119,7 @@ export const Pre: FC<PreProps> = rest => {
           className={cn(
             'absolute right-3 flex gap-2 transition-opacity',
             'opacity-0 group-hover:opacity-100 focus-within:opacity-100',
-            filename ? 'top-3' : 'top-3'
+            filename ? 'top-3' : 'top-3',
           )}
         >
           {hasWordWrap === '' && <ToggleWordWrapButton />}
@@ -123,10 +128,10 @@ export const Pre: FC<PreProps> = rest => {
 
         <pre
           className={cn(
-            'overflow-x-auto p-4 text-sm leading-relaxed subpixel-antialiased not-prose',
-            'bg-transparent text-foreground dark:text-foreground/90',
+            'not-prose overflow-x-auto p-4 text-sm leading-relaxed subpixel-antialiased',
+            'text-foreground dark:text-foreground/90 bg-transparent',
             'font-mono',
-            className
+            className,
           )}
           {...props}
         >
@@ -134,5 +139,5 @@ export const Pre: FC<PreProps> = rest => {
         </pre>
       </div>
     </div>
-  );
-};
+  )
+}
