@@ -1,6 +1,6 @@
-import type { BaseNodeProps, PrimitiveProps, ThemeColor, ThemeOrientation } from '@/types/other'
-import type { IconProps } from '../icon'
-import type { ButtonShadow, ButtonShape, ButtonVariant } from './button-variants'
+import type { BaseNodeProps, PrimitiveProps, ThemeColor, ThemeOrientation } from '@/types/other';
+import type { IconProps } from '../icon';
+import type { ButtonShadow, ButtonShape, ButtonVariant } from './button-variants';
 
 export interface ButtonProps extends PrimitiveProps, BaseNodeProps<React.ButtonHTMLAttributes<HTMLButtonElement>> {
   color?: ThemeColor
@@ -22,4 +22,4 @@ export interface ButtonIconProps extends ButtonProps {
   iconProps?: Omit<IconProps, 'icon'>
 }
 
-export type { ButtonShadow, ButtonShape, ButtonVariant }
+export type { ButtonShadow, ButtonShape, ButtonVariant };

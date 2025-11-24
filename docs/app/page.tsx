@@ -1,6 +1,6 @@
-import { ArrowRight, Package, Sparkles, Zap } from 'lucide-react'
-import Link from 'next/link'
-import { Navbar } from '@/components/navbar'
+import { ArrowRight, Package, Sparkles, Zap } from 'lucide-react';
+import Link from 'next/link';
+import { Navbar } from '@/components/navbar';
 
 const Home = () => {
   return (
@@ -141,7 +141,7 @@ const Home = () => {
         </div>
       </footer>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

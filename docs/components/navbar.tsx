@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { Github, Menu, Moon, Sun } from 'lucide-react'
-import Link from 'next/link'
-import { useTheme } from 'next-themes'
+import { useState } from 'react';
+import { Github, Menu, Moon, Sun } from 'lucide-react';
+import Link from 'next/link';
+import { useTheme } from 'next-themes';
 
 export const Navbar = () => {
-  const { setTheme, theme } = useTheme()
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const { setTheme, theme } = useTheme();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
     <nav className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
@@ -92,5 +92,5 @@ export const Navbar = () => {
         )
         : null}
     </nav>
-  )
-}
+  );
+};

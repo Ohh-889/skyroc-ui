@@ -1,4 +1,4 @@
-import { Button } from '@/components/button'
+import { Button } from '@/components/button';
 
 const Demo = () => {
   return (
@@ -7,7 +7,7 @@ const Demo = () => {
       <Button variant="outline">⬇️ Download</Button>
       <Button>Get Started →</Button>
     </div>
-  )
-}
+  );
+};
 
-export default Demo
+export default Demo;

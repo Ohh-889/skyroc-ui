@@ -10,7 +10,7 @@ const Demo = () => {
         <p className="text-sm">一套精心设计的 React 组件库，助力你快速构建优雅的现代化 Web 应用。</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Demo
+export default Demo;

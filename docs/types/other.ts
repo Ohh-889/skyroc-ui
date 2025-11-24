@@ -1,15 +1,15 @@
-import type { ReactNode } from 'react'
-import type { ClassValue } from 'clsx'
+import type { ReactNode } from 'react';
+import type { ClassValue } from 'clsx';
 
-export type ThemeColor = 'accent' | 'carbon' | 'destructive' | 'info' | 'primary' | 'secondary' | 'success' | 'warning'
+export type ThemeColor = 'accent' | 'carbon' | 'destructive' | 'info' | 'primary' | 'secondary' | 'success' | 'warning';
 
-export type ThemeSize = '2xl' | 'lg' | 'md' | 'sm' | 'xl' | 'xs'
+export type ThemeSize = '2xl' | 'lg' | 'md' | 'sm' | 'xl' | 'xs';
 
-export type ThemeOrientation = 'horizontal' | 'vertical'
+export type ThemeOrientation = 'horizontal' | 'vertical';
 
-export type ThemeAlign = 'center' | 'end' | 'start'
+export type ThemeAlign = 'center' | 'end' | 'start';
 
-export type ThemeSide = 'bottom' | 'left' | 'right' | 'top'
+export type ThemeSide = 'bottom' | 'left' | 'right' | 'top';
 
 export interface ClassValueProp {
   /** class name */
@@ -34,7 +34,7 @@ export type AsTag
     | 'svg'
     | 'ul'
     | 'template'
-    | ({} & string)
+    | ({} & string);
 
 export interface PrimitiveProps {
   /**
@@ -54,12 +54,12 @@ export interface PrimitiveProps {
 export type BaseNodeProps<T> = Omit<T, 'className'> & {
   className?: ClassValue
   size?: ThemeSize
-}
+};
 
 export type BaseProps<T> = T & {
   className?: ClassValue
   size?: ThemeSize
-}
+};
 
 export interface PropsSlot {
   leading?: ReactNode
@@ -68,8 +68,8 @@ export interface PropsSlot {
 
 export type BaseComponentProps<T extends keyof React.JSX.IntrinsicElements> = BaseNodeProps<
   React.ComponentPropsWithRef<T>
->
+>;
 
-export type AcceptableValue = string | number | bigint | Record<string, any> | null
+export type AcceptableValue = string | number | bigint | Record<string, any> | null;
 
-export type { ClassValue }
+export type { ClassValue };

@@ -1,9 +1,9 @@
-import { forwardRef } from 'react'
-import { Slot } from '@radix-ui/react-slot'
-import { Loader2 } from 'lucide-react'
-import { cn } from '@/lib/utils'
-import { buttonVariants } from './button-variants'
-import type { ButtonProps } from './types'
+import { forwardRef } from 'react';
+import { Slot } from '@radix-ui/react-slot';
+import { Loader2 } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { buttonVariants } from './button-variants';
+import type { ButtonProps } from './types';
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
   const {
@@ -21,13 +21,13 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
     trailing,
     variant,
     ...rest
-  } = props
+  } = props;
 
-  const isDisabled = loading || disabled
+  const isDisabled = loading || disabled;
 
-  const Comp = asChild ? Slot : 'button'
+  const Comp = asChild ? Slot : 'button';
 
-  const mergedCls = cn(buttonVariants({ color, fitContent, shadow, size, shape, variant }), className)
+  const mergedCls = cn(buttonVariants({ color, fitContent, shadow, size, shape, variant }), className);
 
   if (asChild) {
     return (
@@ -39,7 +39,7 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       >
         {children}
       </Comp>
-    )
+    );
   }
 
   return (
@@ -53,9 +53,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>((props, ref) => {
       {children}
       {trailing}
     </Comp>
-  )
-})
+  );
+});
 
-Button.displayName = 'Button'
+Button.displayName = 'Button';
 
-export default Button
+export default Button;

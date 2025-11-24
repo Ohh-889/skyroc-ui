@@ -1,5 +1,5 @@
-import createMDX from '@next/mdx'
-import type { NextConfig } from 'next'
+import createMDX from '@next/mdx';
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   images: {
@@ -17,7 +17,7 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true
   }
-}
+};
 
 const withMDX = createMDX({
   options: {
@@ -47,6 +47,6 @@ const withMDX = createMDX({
       ]
     ]
   }
-})
+});
 
-export default withMDX(nextConfig)
+export default withMDX(nextConfig);

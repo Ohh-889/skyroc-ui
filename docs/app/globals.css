@@ -12,7 +12,6 @@
   --color-brand-active: hsl(237 100% 65%);
 }
 
-
 * {
   border-color: hsl(var(--border));
 }

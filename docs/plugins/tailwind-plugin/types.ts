@@ -1,8 +1,8 @@
-import type { DeepPartial } from '@unocss/core'
-import type { PluginCreator } from 'tailwindcss/plugin'
+import type { DeepPartial } from '@unocss/core';
+import type { PluginCreator } from 'tailwindcss/plugin';
 
-export type HslColorString = `${number} ${number}% ${number}%`
-export type PluginOptions = Parameters<PluginCreator>[0]
+export type HslColorString = `${number} ${number}% ${number}%`;
+export type PluginOptions = Parameters<PluginCreator>[0];
 export interface ThemeCSSVars {
   'accent': HslColorString
   'accent-foreground': HslColorString
@@ -25,7 +25,7 @@ export interface ThemeCSSVars {
   'secondary-foreground': HslColorString
 }
 
-export type ThemeCSSVarKey = keyof ThemeCSSVars
+export type ThemeCSSVarKey = keyof ThemeCSSVars;
 
 export interface FeedbackColorOfThemeCssVars {
   'carbon': HslColorString
@@ -38,7 +38,7 @@ export interface FeedbackColorOfThemeCssVars {
   'warning-foreground': HslColorString
 }
 
-export type FeedbackColorOfThemeCssVarKey = keyof FeedbackColorOfThemeCssVars
+export type FeedbackColorOfThemeCssVarKey = keyof FeedbackColorOfThemeCssVars;
 
 export interface SidebarColorOfThemeCssVars {
   'sidebar-accent': HslColorString
@@ -51,7 +51,7 @@ export interface SidebarColorOfThemeCssVars {
   'sidebar-ring': HslColorString
 }
 
-export type SidebarColorOfThemeCssVarKey = keyof SidebarColorOfThemeCssVars
+export type SidebarColorOfThemeCssVarKey = keyof SidebarColorOfThemeCssVars;
 
 export interface ThemeCSSVarsVariant {
   dark: ThemeCSSVars
@@ -82,7 +82,7 @@ export type ThemeConfigColor
     | 'stone'
     | 'violet'
     | 'yellow'
-    | 'zinc'
+    | 'zinc';
 
 export interface ThemeConfig<T = ThemeConfigColor> {
   cssVars: {
@@ -96,7 +96,7 @@ export interface ThemeConfig<T = ThemeConfigColor> {
 export type ColorOptions
   = | ThemeConfigColor
     | ThemeCSSVarsVariant
-    | ({ base: ThemeConfigColor } & DeepPartial<ThemeCSSVarsVariant>)
+    | ({ base: ThemeConfigColor } & DeepPartial<ThemeCSSVarsVariant>);
 
 export interface ThemeOptions {
   /**
@@ -125,7 +125,7 @@ export interface ThemeOptions {
 
 export type ThemeColorKey
   = | Extract<ThemeCSSVarKey, 'destructive' | 'primary' | 'secondary'>
-    | Extract<FeedbackColorOfThemeCssVarKey, 'carbon' | 'info' | 'success' | 'warning'>
+    | Extract<FeedbackColorOfThemeCssVarKey, 'carbon' | 'info' | 'success' | 'warning'>;
 
 export interface SkyrocUIPluginOptions extends ThemeOptions {
   globals?: boolean

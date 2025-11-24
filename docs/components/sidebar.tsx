@@ -1,17 +1,17 @@
-'use client'
+'use client';
 
-import { ChevronRight } from 'lucide-react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+import { ChevronRight } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 
 const navigation = [
   {
     items: [
       { href: '/docs', title: '介绍' },
       { href: '/docs/installation', title: '安装' },
-      { href: '/docs/quick-start', title: '快速开始' },
+      { href: '/docs/quick-start', title: '快速开始' }
     ],
-    title: '开始',
+    title: '开始'
   },
   {
     items: [
@@ -25,14 +25,14 @@ const navigation = [
       { href: '/docs/components/dialog', title: 'Dialog 对话框' },
       { href: '/docs/components/checkbox', title: 'Checkbox 复选框' },
       { href: '/docs/components/select', title: 'Select 选择器' },
-      { href: '/docs/components/switch', title: 'Switch 开关' },
+      { href: '/docs/components/switch', title: 'Switch 开关' }
     ],
-    title: '组件',
-  },
-]
+    title: '组件'
+  }
+];
 
 export const Sidebar = () => {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <aside className="border-border/40 bg-background sticky top-16 hidden h-[calc(100vh-4rem)] w-64 shrink-0 overflow-y-auto border-r py-8 md:block">
@@ -43,7 +43,7 @@ export const Sidebar = () => {
 
             <ul className="space-y-1">
               {section.items.map((item) => {
-                const isActive = pathname === item.href
+                const isActive = pathname === item.href;
                 return (
                   <li key={item.href}>
                     <Link
@@ -58,12 +58,12 @@ export const Sidebar = () => {
                       <span className={isActive ? '' : 'ml-6'}>{item.title}</span>
                     </Link>
                   </li>
-                )
+                );
               })}
             </ul>
           </div>
         ))}
       </nav>
     </aside>
-  )
-}
+  );
+};

@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { Code, Eye } from 'lucide-react'
+import { useState } from 'react';
+import { Code, Eye } from 'lucide-react';
 
 interface ComponentPreviewProps {
   children: React.ReactNode
@@ -9,7 +9,7 @@ interface ComponentPreviewProps {
 }
 
 export const ComponentPreview = ({ children, code }: ComponentPreviewProps) => {
-  const [showCode, setShowCode] = useState(false)
+  const [showCode, setShowCode] = useState(false);
 
   return (
     <div className="border-border my-6 overflow-hidden rounded-lg border">
@@ -53,5 +53,5 @@ export const ComponentPreview = ({ children, code }: ComponentPreviewProps) => {
           </div>
         )}
     </div>
-  )
-}
+  );
+};

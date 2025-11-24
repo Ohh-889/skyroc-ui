@@ -1,12 +1,12 @@
-import { forwardRef } from 'react'
-import { cn } from '@/lib/utils'
-import { buttonGroupVariants } from './button-group-variants'
-import type { ButtonGroupProps } from './types'
+import { forwardRef } from 'react';
+import { cn } from '@/lib/utils';
+import { buttonGroupVariants } from './button-group-variants';
+import type { ButtonGroupProps } from './types';
 
 const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) => {
-  const { children, className, orientation, ...rest } = props
+  const { children, className, orientation, ...rest } = props;
 
-  const mergedCls = cn(buttonGroupVariants({ orientation }), className)
+  const mergedCls = cn(buttonGroupVariants({ orientation }), className);
 
   return (
     <div
@@ -16,9 +16,9 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) =>
     >
       {children}
     </div>
-  )
-})
+  );
+});
 
-ButtonGroup.displayName = 'ButtonGroup'
+ButtonGroup.displayName = 'ButtonGroup';
 
-export default ButtonGroup
+export default ButtonGroup;

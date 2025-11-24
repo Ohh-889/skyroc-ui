@@ -1,4 +1,4 @@
-import { Button } from '@/components/button'
+import { Button } from '@/components/button';
 
 const Demo = () => {
   return (
@@ -18,7 +18,7 @@ const Demo = () => {
         Disabled Outline
       </Button>
     </div>
-  )
-}
+  );
+};
 
-export default Demo
+export default Demo;

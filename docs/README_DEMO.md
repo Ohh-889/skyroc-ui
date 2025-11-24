@@ -23,11 +23,11 @@
 
 ```tsx
 // docs/demos/button-basic.tsx
-import { Button } from '@/components/button'
+import { Button } from '@/components/button';
 
 export const Demo = () => {
-  return <Button>点击我</Button>
-}
+  return <Button>点击我</Button>;
+};
 ```
 
 ### 2. 注册到 Registry
@@ -36,13 +36,13 @@ export const Demo = () => {
 // docs/lib/demo-registry.ts
 export const demoRegistry = {
   'button-basic': '@/demos/button-basic.tsx',
-} as const
+} as const;
 ```
 
 ### 3. 在 MDX 中使用
 
 ```mdx
-<Demo demo="button-basic" title="基础按钮" />
+<Demo demo="button-basic" title="基础按钮" />;
 ```
 
 ## 💡 两种使用方式
@@ -50,7 +50,7 @@ export const demoRegistry = {
 ### 方式一：Registry（推荐）
 
 ```mdx
-<Demo demo="button-basic" title="基础按钮" />
+<Demo demo="button-basic" title="基础按钮" />;
 ```
 
 **优点：**
@@ -62,7 +62,7 @@ export const demoRegistry = {
 ### 方式二：直接路径
 
 ```mdx
-<Demo src="@/demos/custom-demo.tsx" title="自定义演示" />
+<Demo src="@/demos/custom-demo.tsx" title="自定义演示" />;
 ```
 
 **适用于：**
@@ -79,7 +79,7 @@ export const demoRegistry = {
   demo="button-basic"
   highlight="3-5,7"
   title="高亮特定行"
-/>
+/>;;;;;;;;;;
 ```
 
 ### 2. 多文件 Demo
@@ -89,38 +89,38 @@ export const demoRegistry = {
   files={[
     { src: '@/demos/multi/App.tsx', title: 'App' },
     { src: '@/demos/multi/Button.tsx', title: 'Button' },
-    { src: '@/demos/multi/utils.ts', title: 'Utils' },
+    { src: '@/demos/multi/utils.ts', title: 'Utils' }
   ]}
   entry="@/demos/multi/App.tsx"
   title="多文件示例"
-/>
+/>;
 ```
 
 ### 3. 带状态的组件
 
 ```tsx
 // demos/counter.tsx
-import { useState } from 'react'
-import { Button } from '@/components/button'
+import { useState } from 'react';
+import { Button } from '@/components/button';
 
 export const Demo = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="space-y-4">
       <div className="text-2xl">{count}</div>
       <Button onClick={() => setCount(c => c + 1)}>+1</Button>
     </div>
-  )
-}
+  );
+};
 ```
 
 ### 4. 使用第三方库
 
 ```tsx
 // demos/animated.tsx
-import { motion } from 'framer-motion'
-import { Button } from '@/components/button'
+import { motion } from 'framer-motion';
+import { Button } from '@/components/button';
 
 export const Demo = () => {
   return (
@@ -130,8 +130,8 @@ export const Demo = () => {
     >
       <Button>动画按钮</Button>
     </motion.div>
-  )
-}
+  );
+};
 ```
 
 ## 📁 项目结构
@@ -159,15 +159,15 @@ docs/
 
 ```tsx
 // packages/next-docs-plugin/src/components/Demo.tsx
-const Preview = lazy(() => import(`${src}`))
-const code = await readFile(src)
+const Preview = lazy(() => import(`${src}`));
+const code = await readFile(src);
 
 return (
   <DemoFrame
     code={code}
     preview={<Preview />}
   />
-)
+);
 ```
 
 **原理：**
@@ -183,9 +183,9 @@ return (
 export const demoRegistry = {
   'button-basic': '@/demos/button-basic.tsx',
   'button-variants': '@/demos/button-variants.tsx',
-} as const
+} as const;
 
-export type DemoKey = keyof typeof demoRegistry
+export type DemoKey = keyof typeof demoRegistry;
 
 // 使用时有 TypeScript 提示
 // <Demo demo="button-basic" /> ✅ 类型安全

@@ -1,6 +1,6 @@
-import { Button } from '@ui/button'
+import { Button } from '@ui/button';
 
-const colors = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'] as const
+const colors = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'] as const;
 
 const Demo = () => {
   return (
@@ -16,7 +16,7 @@ const Demo = () => {
         ))}
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Demo
+export default Demo;

@@ -8,7 +8,7 @@
 <LiveDemo
   code="...长代码..."
   lang="tsx"
-/>
+/>;
 ```
 
 **缺点：**
@@ -23,7 +23,7 @@
 ### Demo（新方案）的优势
 
 ```tsx
-<Demo demo="button-basic" />
+<Demo demo="button-basic" />;
 ```
 
 **优点：**
@@ -47,7 +47,7 @@
 export default function Demo() {
   return <Button>Click me</Button>;
 }`}
-/>
+/>;
 ```
 
 **操作：**
@@ -57,11 +57,11 @@ export default function Demo() {
 
 ```tsx
 // docs/demos/button-basic.tsx
-import { Button } from '@/components/button'
+import { Button } from '@/components/button';
 
 export const Demo = () => {
-  return <Button>Click me</Button>
-}
+  return <Button>Click me</Button>;
+};
 ```
 
 ### 步骤 2：注册到 Registry
@@ -72,7 +72,7 @@ export const Demo = () => {
 export const demoRegistry = {
   'button-basic': '@/demos/button-basic.tsx',
   // ... 其他 demos
-} as const
+} as const;
 ```
 
 ### 步骤 3：更新 MDX
@@ -80,7 +80,7 @@ export const demoRegistry = {
 **之后：**
 
 ```mdx
-<Demo demo="button-basic" title="基础按钮" />
+<Demo demo="button-basic" title="基础按钮" />;;;;;;;;;;
 ```
 
 ## 🔄 实际案例
@@ -102,7 +102,7 @@ export default function Demo() {
   );
 }`}
   lang="tsx"
-/>
+/>;
 ```
 
 **迁移后：**
@@ -110,7 +110,7 @@ export default function Demo() {
 1. 创建 `demos/badge-variants.tsx`：
 
 ```tsx
-import { Badge } from '@/components/badge'
+import { Badge } from '@/components/badge';
 
 export const Demo = () => {
   return (
@@ -118,8 +118,8 @@ export const Demo = () => {
       <Badge>Default</Badge>
       <Badge variant="secondary">Secondary</Badge>
     </div>
-  )
-}
+  );
+};
 ```
 
 2.注册：
@@ -127,13 +127,13 @@ export const Demo = () => {
 ```ts
 export const demoRegistry = {
   'badge-variants': '@/demos/badge-variants.tsx',
-} as const
+} as const;
 ```
 
 3.使用：
 
 ```mdx
-<Demo demo="badge-variants" title="徽章变体" />
+<Demo demo="badge-variants" title="徽章变体" />;;;;;;;;;;
 ```
 
 ### 案例 2：带状态的组件
@@ -153,18 +153,18 @@ export default function Demo() {
     </div>
   );
 }`}
-/>
+/>;
 ```
 
 **迁移后：**
 
 ```tsx
 // demos/counter-demo.tsx
-import { useState } from 'react'
-import { Button } from '@/components/button'
+import { useState } from 'react';
+import { Button } from '@/components/button';
 
 export const Demo = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="space-y-4">
@@ -175,8 +175,8 @@ export const Demo = () => {
 
       <Button onClick={() => setCount(c => c + 1)}>+1</Button>
     </div>
-  )
-}
+  );
+};
 ```
 
 ### 案例 3：使用外部库
@@ -185,8 +185,8 @@ export const Demo = () => {
 
 ```tsx
 // demos/animated-button.tsx
-import { motion } from 'framer-motion'
-import { Button } from '@/components/button'
+import { motion } from 'framer-motion';
+import { Button } from '@/components/button';
 
 export const Demo = () => {
   return (
@@ -196,8 +196,8 @@ export const Demo = () => {
     >
       <Button>Animated Button</Button>
     </motion.div>
-  )
-}
+  );
+};
 ```
 
 这在 LiveDemo 中是不可能的！
@@ -211,31 +211,31 @@ export const Demo = () => {
 ```
 
 ```ts
-import { readFileSync, writeFileSync } from 'node:fs'
-import { glob } from 'glob'
+import { readFileSync, writeFileSync } from 'node:fs';
+import { glob } from 'glob';
 
 // 扫描所有 .mdx 文件
-const files = glob.sync('app/docs/**/*.mdx')
+const files = glob.sync('app/docs/**/*.mdx');
 
 files.forEach((file) => {
-  const content = readFileSync(file, 'utf-8')
+  const content = readFileSync(file, 'utf-8');
 
   // 提取 LiveDemo 代码块
-  const regex = /<LiveDemo\s+code=\{`([^`]+)`\}/g
-  let match
-  let index = 0
+  const regex = /<LiveDemo\s+code=\{`([^`]+)`\}/g;
+  let match;
+  let index = 0;
 
   // eslint-disable-next-line no-cond-assign
   while ((match = regex.exec(content)) !== null) {
-    const code = match[1]
-    const demoName = `${file.split('/').pop()?.replace('.mdx', '')}-${index}`
+    const code = match[1];
+    const demoName = `${file.split('/').pop()?.replace('.mdx', '')}-${index}`;
     // 保存到 demos/
-    writeFileSync(`demos/${demoName}.tsx`, code)
+    writeFileSync(`demos/${demoName}.tsx`, code);
 
-    console.log(`提取: ${demoName}`)
-    index++
+    console.log(`提取: ${demoName}`);
+    index++;
   }
-})
+});
 ```
 
 ## 📊 性能对比
@@ -270,9 +270,9 @@ A: 创建共享工具文件：
 ```tsx
 // demos/utils/common.ts
 // demos/button-basic.tsx
-import { buttonStyles } from './utils/common'
+import { buttonStyles } from './utils/common';
 
-export const buttonStyles = '...'
+export const buttonStyles = '...';
 ```
 
 ### Q: 可以在 demo 中使用 console.log 调试吗？

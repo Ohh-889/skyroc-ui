@@ -1,20 +1,20 @@
-'use client'
+'use client';
 
-import { Icon as IconifyIcon } from '@iconify/react'
-import type { IconProps } from './types'
+import { Icon as IconifyIcon } from '@iconify/react';
+import type { IconProps } from './types';
 
 const Icon = (props: IconProps) => {
-  const { height = '1.25em', width = '1.25em', ...rest } = props
+  const { height = '1.25em', width = '1.25em', ...rest } = props;
 
   const mergedProps = {
     height,
     width,
-    ...rest,
-  }
+    ...rest
+  };
 
-  return <IconifyIcon {...mergedProps} />
-}
+  return <IconifyIcon {...mergedProps} />;
+};
 
-Icon.displayName = 'Icon'
+Icon.displayName = 'Icon';
 
-export default Icon
+export default Icon;

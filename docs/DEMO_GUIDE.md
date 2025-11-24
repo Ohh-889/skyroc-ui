@@ -7,7 +7,7 @@
 ### ❌ 旧方案：LiveDemo（运行时编译）
 
 ```tsx
-<LiveDemo code="..." />
+<LiveDemo code="..." />;
 ```
 
 **缺点：**
@@ -20,7 +20,7 @@
 ### ✅ 新方案：Demo（构建时方案）
 
 ```tsx
-<Demo demo="button-basic" />
+<Demo demo="button-basic" />;
 ```
 
 **优点：**
@@ -39,11 +39,11 @@
 
 ```tsx
 // demos/button-basic.tsx
-import { Button } from '@/components/button'
+import { Button } from '@/components/button';
 
 export const Demo = () => {
-  return <Button>点击我</Button>
-}
+  return <Button>点击我</Button>;
+};
 ```
 
 **规范：**
@@ -60,25 +60,25 @@ export const Demo = () => {
 export const demoRegistry = {
   'button-basic': '@/demos/button-basic.tsx',
   // ...
-} as const
+} as const;
 ```
 
 ### 3. 在 MDX 中使用
 
-```mdx
+```tsx
 Button 组件
 
 基础用法
 
-<Demo demo="button-basic" title="基础按钮" />
+<Demo demo="button-basic" title="基础按钮" />;
 ```
 
 ## 🔧 使用方式
 
 ### 方式一：使用 Registry（推荐）
 
-```mdx
-<Demo demo="button-basic" title="基础按钮" />
+```tsx
+<Demo demo="button-basic" title="基础按钮" />;
 ```
 
 **优点：**
@@ -89,8 +89,8 @@ Button 组件
 
 ### 方式二：直接路径
 
-```mdx
-<Demo src="@/demos/button-basic.tsx" title="基础按钮" />
+```tsx
+<Demo src="@/demos/button-basic.tsx" title="基础按钮" />;
 ```
 
 **适用场景：**
@@ -100,16 +100,16 @@ Button 组件
 
 ### 方式三：多文件 Demo
 
-```mdx
+```tsx
 <Demo
   files={[
     { src: '@/demos/multi/App.tsx', title: 'App' },
     { src: '@/demos/multi/Button.tsx', title: 'Button' },
-    { src: '@/demos/multi/utils.ts', title: 'Utils' },
+    { src: '@/demos/multi/utils.ts', title: 'Utils' }
   ]}
   entry="@/demos/multi/App.tsx"
   title="多文件示例"
-/>
+/>;
 ```
 
 **特性：**
@@ -142,7 +142,7 @@ Button 组件
   demo="button-basic"
   highlight="3-5,7"
   title="高亮示例"
-/>
+/>;;;;;;;;;;
 ```
 
 ### 复杂交互
@@ -151,11 +151,11 @@ Demo 可以包含状态、事件处理等：
 
 ```tsx
 // demos/counter.tsx
-import { useState } from 'react'
-import { Button } from '@/components/button'
+import { useState } from 'react';
+import { Button } from '@/components/button';
 
 export const Demo = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
 
   return (
     <div className="space-y-4">
@@ -173,8 +173,8 @@ export const Demo = () => {
         </Button>
       </div>
     </div>
-  )
-}
+  );
+};
 ```
 
 ### 使用第三方库
@@ -183,8 +183,8 @@ export const Demo = () => {
 
 ```tsx
 // demos/with-library.tsx
-import { motion } from 'framer-motion'
-import { Button } from '@/components/button'
+import { motion } from 'framer-motion';
+import { Button } from '@/components/button';
 
 export const Demo = () => {
   return (
@@ -194,8 +194,8 @@ export const Demo = () => {
     >
       <Button>Animated Button</Button>
     </motion.div>
-  )
-}
+  );
+};
 ```
 
 ## 🗂️ 目录结构
@@ -221,7 +221,7 @@ docs/
 Demo 组件使用 React 的 `lazy` 自动进行代码分割：
 
 ```tsx
-const Preview = lazy(() => import('@/demos/button-basic.tsx'))
+const Preview = lazy(() => import('@/demos/button-basic.tsx'));
 ```
 
 **好处：**
@@ -244,7 +244,7 @@ export default function Demo() {
 }`}
 >
   <Button>Click</Button>
-</ComponentPreview>
+</ComponentPreview>;
 ```
 
 **新代码：**
@@ -254,7 +254,7 @@ export default function Demo() {
 3. 使用：
 
 ```mdx
-<Demo demo="button-example" />
+<Demo demo="button-example" />;;;;;;;;;;
 ```
 
 ### 从 LiveDemo 迁移
@@ -265,7 +265,7 @@ export default function Demo() {
 <LiveDemo
   code={code}
   lang="tsx"
-/>
+/>;
 ```
 
 **新代码：**
@@ -297,10 +297,10 @@ export default function Demo() {
 
 ```tsx
 export const Demo = () => {
-  const [state, setState] = useState(0)
-  useEffect(() => { }, [])
-  return () => {}
-}
+  const [state, setState] = useState(0);
+  useEffect(() => { }, []);
+  return () => {};
+};
 ```
 
 ### Q: 如何共享代码？
@@ -310,9 +310,9 @@ export const Demo = () => {
 ```tsx
 // demos/utils/common.tsx
 // demos/button-basic.tsx
-import { sharedStyles } from './utils/common'
+import { sharedStyles } from './utils/common';
 
-export const sharedStyles = '...'
+export const sharedStyles = '...';
 ```
 
 ## 📚 示例参考

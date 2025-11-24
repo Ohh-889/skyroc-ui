@@ -1,6 +1,6 @@
-import { mergeDeep } from '@unocss/core'
-import { colord, generateColorPalette } from '@skyroc/color'
-import themes from './theme.json'
+import { mergeDeep } from '@unocss/core';
+import { colord, generateColorPalette } from '@skyroc/color';
+import themes from './theme.json';
 import type {
   ColorOptions,
   FeedbackColorOfThemeCssVarKey,
@@ -12,12 +12,12 @@ import type {
   ThemeCSSVars,
   ThemeCSSVarsVariant,
   ThemeConfig,
-  ThemeOptions,
-} from './types'
+  ThemeOptions
+} from './types';
 
-const builtinThemes = themes as ThemeConfig[]
+const builtinThemes = themes as ThemeConfig[];
 
-type CSSVarKey = ThemeCSSVarKey | FeedbackColorOfThemeCssVarKey | SidebarColorOfThemeCssVarKey
+type CSSVarKey = ThemeCSSVarKey | FeedbackColorOfThemeCssVarKey | SidebarColorOfThemeCssVarKey;
 
 const themeCSSVarKeys: CSSVarKey[] = [
   'background',
@@ -54,68 +54,68 @@ const themeCSSVarKeys: CSSVarKey[] = [
   'sidebar-primary',
   'sidebar-primary-foreground',
   'sidebar-accent',
-  'sidebar-accent-foreground',
-]
+  'sidebar-accent-foreground'
+];
 
-const themeColorKeys: CSSVarKey[] = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon']
+const themeColorKeys: CSSVarKey[] = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon'];
 
 function getRadiusCSSVars(radius: number) {
-  return `--radius: ${radius}rem;`
+  return `--radius: ${radius}rem;`;
 }
 
 function getRadiusCSSVarsStyles(radius: number) {
-  const radiusCSS = getRadiusCSSVars(radius)
+  const radiusCSS = getRadiusCSSVars(radius);
 
-  return radiusCSS
+  return radiusCSS;
 }
 
 export function generateGlobalStyles() {
   return {
     '*': {
-      borderColor: 'hsl(var(--border))',
+      borderColor: 'hsl(var(--border))'
     },
     '.lucide': {
       height: '1.25em',
-      width: '1.25em',
+      width: '1.25em'
     },
     'body': {
       background: 'hsl(var(--background))',
-      color: 'hsl(var(--foreground))',
-    },
-  }
+      color: 'hsl(var(--foreground))'
+    }
+  };
 }
 
 function getBuiltInTheme(name: string): ThemeCSSVarsVariant {
-  const theme = builtinThemes.find(t => t.name === name)
+  const theme = builtinThemes.find(t => t.name === name);
 
   if (!theme) {
-    throw new Error(`Unknown color: ${name}`)
+    throw new Error(`Unknown color: ${name}`);
   }
 
   return {
     name,
-    ...theme.cssVars,
-  }
+    ...theme.cssVars
+  };
 }
 
 function getColorTheme(color: ColorOptions): ThemeCSSVarsVariant {
-  let light: ThemeCSSVars
-  let dark: ThemeCSSVars
-  let name: string
+  let light: ThemeCSSVars;
+  let dark: ThemeCSSVars;
+  let name: string;
 
   if (typeof color === 'string') {
     name = color;
-    ({ dark, light } = getBuiltInTheme(color))
+    ({ dark, light } = getBuiltInTheme(color));
   }
   else if ('base' in color) {
     name = color.base;
-    ({ dark, light } = mergeDeep(getBuiltInTheme(color.base), color))
+    ({ dark, light } = mergeDeep(getBuiltInTheme(color.base), color));
   }
   else {
     name = color.name;
-    ({ dark, light } = color)
+    ({ dark, light } = color);
   }
-  return { dark, light, name }
+  return { dark, light, name };
 }
 
 function createBuiltinFeedbackColorTheme() {
@@ -128,7 +128,7 @@ function createBuiltinFeedbackColorTheme() {
       'success': '140 79% 45%',
       'success-foreground': '0 0% 100%',
       'warning': '37 91% 55%',
-      'warning-foreground': '0 0% 100%',
+      'warning-foreground': '0 0% 100%'
     },
     light: {
       'carbon': '240 4% 16%',
@@ -138,38 +138,38 @@ function createBuiltinFeedbackColorTheme() {
       'success': '140 79% 45%',
       'success-foreground': '0 0% 100%',
       'warning': '37 91% 55%',
-      'warning-foreground': '0 0% 100%',
-    },
-  }
+      'warning-foreground': '0 0% 100%'
+    }
+  };
 
-  return feedbackColor
+  return feedbackColor;
 }
 
 function getColorCSSVars(color: FeedbackColorOfThemeCssVars): Record<string, string> {
-  const result: Record<string, string> = {}
+  const result: Record<string, string> = {};
 
   for (const [item, value] of Object.entries(color)) {
-    const key = item as CSSVarKey
+    const key = item as CSSVarKey;
 
     if (!themeCSSVarKeys.includes(key)) {
-      continue
+      continue;
     }
 
-    result[`--${key}`] = value // 原始变量，如 "--primary": "220 90% 55%"
+    result[`--${key}`] = value; // 原始变量，如 "--primary": "220 90% 55%"
 
     if (themeColorKeys.includes(key)) {
-      const hsl = `hsl(${value.split(' ').join(', ')})`
+      const hsl = `hsl(${value.split(' ').join(', ')})`;
 
-      const colorPalette = generateColorPalette(hsl) // { 100: "#f0f", 200: "#e0e", ... }
+      const colorPalette = generateColorPalette(hsl); // { 100: "#f0f", 200: "#e0e", ... }
 
       for (const [num, hex] of Object.entries(colorPalette)) {
-        const { h, l, s } = colord(hex).toHsl()
-        result[`--${key}-${num}`] = `${h} ${s}% ${l}%` // "--primary-100": "220 90% 95%"
+        const { h, l, s } = colord(hex).toHsl();
+        result[`--${key}-${num}`] = `${h} ${s}% ${l}%`; // "--primary-100": "220 90% 95%"
       }
     }
   }
 
-  return result
+  return result;
 }
 
 function createBuiltinSidebarColorTheme() {
@@ -182,7 +182,7 @@ function createBuiltinSidebarColorTheme() {
       'sidebar-foreground': '240 4.8% 95.9%',
       'sidebar-primary': '236.9 100% 69.61%',
       'sidebar-primary-foreground': '0 0% 100%',
-      'sidebar-ring': '217.2 91.2% 59.8%',
+      'sidebar-ring': '217.2 91.2% 59.8%'
     },
     light: {
       'sidebar-accent': '240 4.8% 95.9%',
@@ -192,11 +192,11 @@ function createBuiltinSidebarColorTheme() {
       'sidebar-foreground': '240 5.3% 26.1%',
       'sidebar-primary': '236.9 100% 69.61%',
       'sidebar-primary-foreground': '0 0% 98%',
-      'sidebar-ring': '217.2 91.2% 59.8%',
-    },
-  }
+      'sidebar-ring': '217.2 91.2% 59.8%'
+    }
+  };
 
-  return sidebarColor
+  return sidebarColor;
 }
 
 export function generateCSSVars(theme: ThemeOptions, onlyOne = true): object {
@@ -205,41 +205,41 @@ export function generateCSSVars(theme: ThemeOptions, onlyOne = true): object {
     darkSelector = '.dark',
     feedbackColor = createBuiltinFeedbackColorTheme(),
     radius = 0.5,
-    sidebar = createBuiltinSidebarColorTheme(),
-  } = theme
+    sidebar = createBuiltinSidebarColorTheme()
+  } = theme;
 
   if (!color) {
     if (radius) {
       return {
-        root: getRadiusCSSVarsStyles(radius),
-      }
+        root: getRadiusCSSVarsStyles(radius)
+      };
     }
   }
   else {
-    const { dark, light, name } = getColorTheme(color)
+    const { dark, light, name } = getColorTheme(color);
 
-    const themeName = !onlyOne && name
+    const themeName = !onlyOne && name;
 
-    const addThemeName = themeName && themeName !== 'default'
+    const addThemeName = themeName && themeName !== 'default';
 
-    const themeSelector = addThemeName ? `.theme-${themeName}` : ':root'
+    const themeSelector = addThemeName ? `.theme-${themeName}` : ':root';
 
-    const darkThemeSelector = addThemeName ? `.theme-${themeName}${darkSelector}` : darkSelector
+    const darkThemeSelector = addThemeName ? `.theme-${themeName}${darkSelector}` : darkSelector;
 
-    const darkThemeCSSVars = getColorCSSVars({ ...feedbackColor.dark, ...dark, ...sidebar.dark })
+    const darkThemeCSSVars = getColorCSSVars({ ...feedbackColor.dark, ...dark, ...sidebar.dark });
 
-    const lightThemeCSSVars = getColorCSSVars({ ...feedbackColor.light, ...light, ...sidebar.light })
+    const lightThemeCSSVars = getColorCSSVars({ ...feedbackColor.light, ...light, ...sidebar.light });
 
     return {
       [themeSelector]: {
         ...lightThemeCSSVars,
-        '--radius': `${radius}rem`,
+        '--radius': `${radius}rem`
       },
       [darkThemeSelector]: {
-        ...darkThemeCSSVars,
-      },
-    }
+        ...darkThemeCSSVars
+      }
+    };
   }
 
-  return {}
+  return {};
 }

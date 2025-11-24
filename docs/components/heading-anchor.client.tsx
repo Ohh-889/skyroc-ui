@@ -1,14 +1,14 @@
-'use client'
+'use client';
 
-import { Link } from 'lucide-react'
+import { Link } from 'lucide-react';
 
 export const HeadingAnchor = ({ id }: { id: string }) => {
   const handleClick = () => {
-    const url = new URL(window.location.href)
-    url.hash = id
-    window.history.pushState({}, '', url)
-    navigator.clipboard.writeText(url.href)
-  }
+    const url = new URL(window.location.href);
+    url.hash = id;
+    window.history.pushState({}, '', url);
+    navigator.clipboard.writeText(url.href);
+  };
 
   return (
     <a
@@ -19,5 +19,5 @@ export const HeadingAnchor = ({ id }: { id: string }) => {
     >
       <Link className="text-muted-foreground size-4 transition-colors hover:text-[hsl(237,100%,70%)]" />
     </a>
-  )
-}
+  );
+};

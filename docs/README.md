@@ -91,18 +91,18 @@ docs/
 在 `app/docs/` 下创建新的 `.mdx` 文件：
 
 ```ts
-组件名称
+组件名称;
 
-组件说明
+组件说明;
 
-基础用法
+基础用法;
 
 // import { Component } from '@skyroc/ui'
 
 export const metadata = {
   title: '组件名称',
   description: '组件描述',
-}
+};
 ```
 
 ### 添加组件预览
@@ -110,7 +110,7 @@ export const metadata = {
 使用 `ComponentPreview` 组件：
 
 ```tsx
-import { ComponentPreview } from '@/components/component-preview'
+import { ComponentPreview } from '@/components/component-preview';
 
 <ComponentPreview code={`import { Button } from '@skyroc/ui';
 
@@ -119,7 +119,7 @@ export default function Demo() {
 }`}
 >
   <Button>Click me</Button>
-</ComponentPreview>
+</ComponentPreview>;
 ```
 
 ### 更新侧边栏导航
@@ -135,7 +135,7 @@ const navigation = [
       { title: '新组件', href: '/docs/components/new-component' }
     ]
   },
-]
+];
 ```
 
 ## 🛠️ 技术栈

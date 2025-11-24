@@ -1,11 +1,11 @@
 export function isSymbol(value: any): value is symbol {
-  return Boolean(value) && value.constructor === Symbol
+  return Boolean(value) && value.constructor === Symbol;
 }
 
-export const isArray = Array.isArray
+export const isArray = Array.isArray;
 
 export function isObject(value: any): value is object {
-  return Boolean(value) && value.constructor === Object
+  return Boolean(value) && value.constructor === Object;
 }
 
 /**
@@ -17,37 +17,37 @@ export function isObject(value: any): value is object {
  * @returns {boolean} result
  */
 export function isPrimitive(value: any): boolean {
-  return value === undefined || value === null || (typeof value !== 'object' && typeof value !== 'function')
+  return value === undefined || value === null || (typeof value !== 'object' && typeof value !== 'function');
 }
 
 // eslint-disable-next-line ts/no-unsafe-function-type
 export function isFunction(value: any): value is Function {
-  return Boolean(value && value.constructor && value.call && value.apply)
+  return Boolean(value && value.constructor && value.call && value.apply);
 }
 
 export function isString(value: any): value is string {
-  return typeof value === 'string'
+  return typeof value === 'string';
 }
 
 export function isNumber(value: any): value is number {
   try {
-    return Number(value) === value
+    return Number(value) === value;
   }
   catch {
-    return false
+    return false;
   }
 }
 
 export function isInt(value: any): value is number {
-  return isNumber(value) && value % 1 === 0
+  return isNumber(value) && value % 1 === 0;
 }
 
 export function isFloat(value: any): value is number {
-  return isNumber(value) && value % 1 !== 0
+  return isNumber(value) && value % 1 !== 0;
 }
 
 export function isDate(value: any): value is Date {
-  return Object.prototype.toString.call(value) === '[object Date]'
+  return Object.prototype.toString.call(value) === '[object Date]';
 }
 
 /**
@@ -57,62 +57,62 @@ export function isDate(value: any): value is Date {
  */
 export function isPromise(value: any): value is Promise<any> {
   if (!value)
-    return false
+    return false;
   if (!value.then)
-    return false
+    return false;
   if (!isFunction(value.then))
-    return false
-  return true
+    return false;
+  return true;
 }
 
 export function isEmpty(value: any) {
   if (value === true || value === false)
-    return true
+    return true;
   if (value === null || value === undefined)
-    return true
+    return true;
   if (isNumber(value))
-    return value === 0
+    return value === 0;
   if (isDate(value))
-    return Number.isNaN(value.getTime())
+    return Number.isNaN(value.getTime());
   if (isFunction(value))
-    return false
+    return false;
   if (isSymbol(value))
-    return false
-  const length = (value as any).length
+    return false;
+  const length = (value as any).length;
   if (isNumber(length))
-    return length === 0
-  const size = (value as any).size
+    return length === 0;
+  const size = (value as any).size;
   if (isNumber(size))
-    return size === 0
-  const keys = Object.keys(value).length
-  return keys === 0
+    return size === 0;
+  const keys = Object.keys(value).length;
+  return keys === 0;
 }
 
 export function isEqual<TType>(x: TType, y: TType): boolean {
   if (Object.is(x, y))
-    return true
+    return true;
   if (x instanceof Date && y instanceof Date) {
-    return x.getTime() === y.getTime()
+    return x.getTime() === y.getTime();
   }
   if (x instanceof RegExp && y instanceof RegExp) {
-    return x.toString() === y.toString()
+    return x.toString() === y.toString();
   }
   if (typeof x !== 'object' || x === null || typeof y !== 'object' || y === null) {
-    return false
+    return false;
   }
-  const keysX = Reflect.ownKeys(x as unknown as object) as (keyof typeof x)[]
-  const keysY = Reflect.ownKeys(y as unknown as object)
+  const keysX = Reflect.ownKeys(x as unknown as object) as (keyof typeof x)[];
+  const keysY = Reflect.ownKeys(y as unknown as object);
   if (keysX.length !== keysY.length)
-    return false
+    return false;
   for (let i = 0; i < keysX.length; i += 1) {
     if (!Reflect.has(y as unknown as object, keysX[i]))
-      return false
+      return false;
     if (!isEqual(x[keysX[i]], y[keysX[i]]))
-      return false
+      return false;
   }
-  return true
+  return true;
 }
 
 export function isBlankString(value: unknown | undefined) {
-  return typeof value === 'string' && value === ''
+  return typeof value === 'string' && value === '';
 }

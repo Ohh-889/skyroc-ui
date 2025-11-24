@@ -7,7 +7,7 @@ const Demo = () => {
         type="text"
       />
     </div>
-  )
-}
+  );
+};
 
-export default Demo
+export default Demo;
