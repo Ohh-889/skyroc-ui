@@ -1,30 +1,30 @@
-import type { FlatConfigItem, OptionsFiles, OptionsOverrides, OptionsStylistic } from '../types'
-import { interopDefault } from '../utils'
-import { GLOB_YAML } from '../utils/globs'
+import type { FlatConfigItem, OptionsFiles, OptionsOverrides, OptionsStylistic } from '../types';
+import { interopDefault } from '../utils';
+import { GLOB_YAML } from '../utils/globs';
 
 export async function yaml(
-  options: OptionsOverrides & OptionsStylistic & OptionsFiles = {},
+  options: OptionsOverrides & OptionsStylistic & OptionsFiles = {}
 ): Promise<FlatConfigItem[]> {
-  const { files = [GLOB_YAML], overrides = {}, stylistic = true } = options
+  const { files = [GLOB_YAML], overrides = {}, stylistic = true } = options;
 
-  const { indent = 2, quotes = 'single' } = typeof stylistic === 'boolean' ? {} : stylistic
+  const { indent = 2, quotes = 'single' } = typeof stylistic === 'boolean' ? {} : stylistic;
 
   const [pluginYaml, parserYaml] = await Promise.all([
     interopDefault(import('eslint-plugin-yml')),
-    interopDefault(import('yaml-eslint-parser')),
-  ] as const)
+    interopDefault(import('yaml-eslint-parser'))
+  ] as const);
 
   return [
     {
       name: 'skyroc/yaml/setup',
       plugins: {
-        yaml: pluginYaml,
-      },
+        yaml: pluginYaml
+      }
     },
     {
       files,
       languageOptions: {
-        parser: parserYaml,
+        parser: parserYaml
       },
       name: 'skyroc/yaml/rules',
       rules: {
@@ -51,12 +51,12 @@ export async function yaml(
             'yaml/key-spacing': 'error',
             'yaml/no-tab-indent': 'error',
             'yaml/quotes': ['error', { avoidEscape: true, prefer: quotes === 'backtick' ? 'single' : quotes }],
-            'yaml/spaced-comment': 'error',
+            'yaml/spaced-comment': 'error'
           }
           : {}),
 
-        ...overrides,
-      },
+        ...overrides
+      }
     },
     {
       files: ['pnpm-workspace.yaml'],
@@ -83,16 +83,16 @@ export async function yaml(
               'onlyBuiltDependenciesFile',
               'packageExtensions',
               'peerDependencyRules',
-              'supportedArchitectures',
+              'supportedArchitectures'
             ],
-            pathPattern: '^$',
+            pathPattern: '^$'
           },
           {
             order: { type: 'asc' },
-            pathPattern: '.*',
-          },
-        ],
-      },
-    },
-  ]
+            pathPattern: '.*'
+          }
+        ]
+      }
+    }
+  ];
 }

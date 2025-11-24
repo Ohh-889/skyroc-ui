@@ -1,12 +1,12 @@
-import type { FlatConfigItem } from '../types'
-import { pluginNode } from '../plugins'
+import type { FlatConfigItem } from '../types';
+import { pluginNode } from '../plugins';
 
 export async function node(): Promise<FlatConfigItem[]> {
   return [
     {
       name: 'antfu/node/rules',
       plugins: {
-        node: pluginNode,
+        node: pluginNode
       },
       rules: {
         'node/handle-callback-err': ['error', '^(err|error)$'],
@@ -16,8 +16,8 @@ export async function node(): Promise<FlatConfigItem[]> {
         'node/prefer-global/process': 'off',
         'node/no-path-concat': 'error',
         'node/prefer-global/buffer': ['error', 'never'],
-        'node/process-exit-as-throw': 'error',
-      },
-    },
-  ]
+        'node/process-exit-as-throw': 'error'
+      }
+    }
+  ];
 }

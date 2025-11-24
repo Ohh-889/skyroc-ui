@@ -1,4 +1,4 @@
-import type { FlatConfigItem } from '../types'
+import type { FlatConfigItem } from '../types';
 
 /**
  * Sort package.json
@@ -15,8 +15,8 @@ export async function sortPackageJson(): Promise<FlatConfigItem[]> {
           'error',
           {
             order: { type: 'asc' },
-            pathPattern: '^files$',
-          },
+            pathPattern: '^files$'
+          }
         ],
         'jsonc/sort-keys': [
           'error',
@@ -66,29 +66,29 @@ export async function sortPackageJson(): Promise<FlatConfigItem[]> {
               'husky',
               'simple-git-hooks',
               'lint-staged',
-              'eslintConfig',
+              'eslintConfig'
             ],
-            pathPattern: '^$',
+            pathPattern: '^$'
           },
           {
             order: { type: 'asc' },
-            pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$',
+            pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$'
           },
           {
             order: { type: 'asc' },
-            pathPattern: '^(?:resolutions|overrides|pnpm.overrides)$',
+            pathPattern: '^(?:resolutions|overrides|pnpm.overrides)$'
           },
           {
             order: { type: 'asc' },
-            pathPattern: '^workspaces\\.catalog$',
+            pathPattern: '^workspaces\\.catalog$'
           },
           {
             order: { type: 'asc' },
-            pathPattern: '^workspaces\\.catalogs\\.[^.]+$',
+            pathPattern: '^workspaces\\.catalogs\\.[^.]+$'
           },
           {
             order: ['types', 'import', 'require', 'default'],
-            pathPattern: '^exports.*$',
+            pathPattern: '^exports.*$'
           },
           {
             order: [
@@ -102,14 +102,14 @@ export async function sortPackageJson(): Promise<FlatConfigItem[]> {
               'post-checkout',
               'post-merge',
               'pre-push',
-              'pre-auto-gc',
+              'pre-auto-gc'
             ],
-            pathPattern: '^(?:gitHooks|husky|simple-git-hooks)$',
-          },
-        ],
-      },
-    },
-  ]
+            pathPattern: '^(?:gitHooks|husky|simple-git-hooks)$'
+          }
+        ]
+      }
+    }
+  ];
 }
 /**
  * Sort tsconfig.json
@@ -127,7 +127,7 @@ export function sortTsconfig(): FlatConfigItem[] {
           'error',
           {
             order: ['extends', 'compilerOptions', 'references', 'files', 'include', 'exclude'],
-            pathPattern: '^$',
+            pathPattern: '^$'
           },
           {
             order: [
@@ -229,12 +229,12 @@ export function sortTsconfig(): FlatConfigItem[] {
               'erasableSyntaxOnly',
               /* Completeness */
               'skipDefaultLibCheck',
-              'skipLibCheck',
+              'skipLibCheck'
             ],
-            pathPattern: '^compilerOptions$',
-          },
-        ],
-      },
-    },
-  ]
+            pathPattern: '^compilerOptions$'
+          }
+        ]
+      }
+    }
+  ];
 }

@@ -1,30 +1,30 @@
-import { isPackageExists } from 'local-pkg'
-import type { FlatConfigItem, OptionsReact } from '../types'
-import { ensurePackages, interopDefault } from '../utils'
-import { GLOB_SRC } from '../utils/globs'
+import { isPackageExists } from 'local-pkg';
+import type { FlatConfigItem, OptionsReact } from '../types';
+import { ensurePackages, interopDefault } from '../utils';
+import { GLOB_SRC } from '../utils/globs';
 
-const ReactRefreshAllowConstantExportPackages = ['vite']
-const RemixPackages = ['@remix-run/node', '@remix-run/react', '@remix-run/serve', '@remix-run/dev']
-const ReactRouterPackages = ['@react-router/node', '@react-router/react', '@react-router/serve', '@react-router/dev']
-const NextJsPackages = ['next']
+const ReactRefreshAllowConstantExportPackages = ['vite'];
+const RemixPackages = ['@remix-run/node', '@remix-run/react', '@remix-run/serve', '@remix-run/dev'];
+const ReactRouterPackages = ['@react-router/node', '@react-router/react', '@react-router/serve', '@react-router/dev'];
+const NextJsPackages = ['next'];
 
 export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[]> {
-  const { files = [GLOB_SRC], overrides = {} } = options
+  const { files = [GLOB_SRC], overrides = {} } = options;
 
-  await ensurePackages(['eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-react-refresh'])
+  await ensurePackages(['eslint-plugin-react', 'eslint-plugin-react-hooks', 'eslint-plugin-react-refresh']);
 
   const [pluginReact, pluginReactHooks, pluginReactRefresh] = await Promise.all([
     interopDefault(import('eslint-plugin-react')),
     interopDefault(import('eslint-plugin-react-hooks')),
-    interopDefault(import('eslint-plugin-react-refresh')),
-  ] as const)
+    interopDefault(import('eslint-plugin-react-refresh'))
+  ] as const);
 
-  const isAllowConstantExport = ReactRefreshAllowConstantExportPackages.some(i => isPackageExists(i))
-  const isUsingRemix = RemixPackages.some(i => isPackageExists(i))
-  const isUsingReactRouter = ReactRouterPackages.some(i => isPackageExists(i))
-  const isUsingNext = NextJsPackages.some(i => isPackageExists(i))
+  const isAllowConstantExport = ReactRefreshAllowConstantExportPackages.some(i => isPackageExists(i));
+  const isUsingRemix = RemixPackages.some(i => isPackageExists(i));
+  const isUsingReactRouter = ReactRouterPackages.some(i => isPackageExists(i));
+  const isUsingNext = NextJsPackages.some(i => isPackageExists(i));
 
-  const reactHooksConfig = pluginReactHooks as any
+  const reactHooksConfig = pluginReactHooks as any;
 
   return [
     {
@@ -32,18 +32,18 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
       plugins: {
         'react': pluginReact,
         'react-hooks': pluginReactHooks,
-        'react-refresh': pluginReactRefresh,
-      },
+        'react-refresh': pluginReactRefresh
+      }
     },
     {
       files,
       languageOptions: {
         parserOptions: {
           ecmaFeatures: {
-            jsx: true,
-          },
+            jsx: true
+          }
         },
-        sourceType: 'module',
+        sourceType: 'module'
       },
       name: 'skyroc/react/rules',
       rules: {
@@ -51,8 +51,8 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
         'react/hook-use-state': [
           'error',
           {
-            allowDestructuredState: true,
-          },
+            allowDestructuredState: true
+          }
         ],
         // recommended rules react-hooks
         'react-hooks/exhaustive-deps': 'warn',
@@ -73,16 +73,16 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
           'error',
           {
             namedComponents: 'arrow-function', // 命名组件使用函数声明
-            unnamedComponents: 'arrow-function', // 匿名组件使用箭头函数
-          },
+            unnamedComponents: 'arrow-function' // 匿名组件使用箭头函数
+          }
         ],
         'react/jsx-curly-brace-presence': [
           'warn',
           {
             children: 'never',
             propElementValues: 'always',
-            props: 'never',
-          },
+            props: 'never'
+          }
         ],
         'react/jsx-curly-newline': ['warn', { multiline: 'consistent', singleline: 'consistent' }],
         'react/jsx-equals-spacing': ['warn', 'never'],
@@ -98,8 +98,8 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
         'react/jsx-one-expression-per-line': [
           'warn',
           {
-            allow: 'single-child',
-          },
+            allow: 'single-child'
+          }
         ],
         'react/jsx-props-no-multi-spaces': 'warn',
         'react/jsx-sort-props': [
@@ -108,8 +108,8 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
             callbacksLast: true,
             ignoreCase: true,
             multiline: 'last',
-            shorthandFirst: true,
-          },
+            shorthandFirst: true
+          }
         ],
         'react/jsx-tag-spacing': ['warn'],
         // react runtime
@@ -119,8 +119,8 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
           'error',
           {
             component: true,
-            html: true,
-          },
+            html: true
+          }
         ],
         // React Refresh rules
         'react-refresh/only-export-components': [
@@ -142,7 +142,7 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
                   'metadata',
                   'generateMetadata',
                   'viewport',
-                  'generateViewport',
+                  'generateViewport'
                 ]
                 : []),
               ...(isUsingRemix || isUsingReactRouter
@@ -155,15 +155,15 @@ export async function react(options: OptionsReact = {}): Promise<FlatConfigItem[
                   'clientLoader',
                   'clientAction',
                   'handle',
-                  'shouldRevalidate',
+                  'shouldRevalidate'
                 ]
-                : []),
-            ],
-          },
+                : [])
+            ]
+          }
         ],
 
-        ...overrides,
-      },
-    },
-  ]
+        ...overrides
+      }
+    }
+  ];
 }

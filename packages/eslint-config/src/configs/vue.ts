@@ -1,29 +1,29 @@
-import { mergeProcessors } from 'eslint-merge-processors'
+import { mergeProcessors } from 'eslint-merge-processors';
 import type {
   FlatConfigItem,
   OptionsFiles,
   OptionsHasTypeScript,
   OptionsOverrides,
   OptionsStylistic,
-  OptionsVue,
-} from '../types'
-import { interopDefault } from '../utils'
-import { GLOB_VUE } from '../utils/globs'
+  OptionsVue
+} from '../types';
+import { interopDefault } from '../utils';
+import { GLOB_VUE } from '../utils/globs';
 
 export async function vue(
-  options: OptionsVue & OptionsHasTypeScript & OptionsOverrides & OptionsStylistic & OptionsFiles = {},
+  options: OptionsVue & OptionsHasTypeScript & OptionsOverrides & OptionsStylistic & OptionsFiles = {}
 ): Promise<FlatConfigItem[]> {
-  const { files = [GLOB_VUE], overrides = {}, stylistic = true, vueVersion = 3 } = options
+  const { files = [GLOB_VUE], overrides = {}, stylistic = true, vueVersion = 3 } = options;
 
-  const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {})
+  const sfcBlocks = options.sfcBlocks === true ? {} : (options.sfcBlocks ?? {});
 
-  const { indent = 2 } = typeof stylistic === 'boolean' ? {} : stylistic
+  const { indent = 2 } = typeof stylistic === 'boolean' ? {} : stylistic;
 
   const [pluginVue, parserVue, processorVueBlocks] = await Promise.all([
     interopDefault(import('eslint-plugin-vue')),
     interopDefault(import('vue-eslint-parser')),
-    interopDefault(import('eslint-processor-vue-blocks')),
-  ] as const)
+    interopDefault(import('eslint-processor-vue-blocks'))
+  ] as const);
 
   return [
     {
@@ -44,13 +44,13 @@ export async function vue(
           toRef: 'readonly',
           toRefs: 'readonly',
           watch: 'readonly',
-          watchEffect: 'readonly',
-        },
+          watchEffect: 'readonly'
+        }
       },
       name: 'skyroc/vue/setup',
       plugins: {
-        vue: pluginVue,
-      },
+        vue: pluginVue
+      }
     },
     {
       files,
@@ -58,12 +58,12 @@ export async function vue(
         parser: parserVue,
         parserOptions: {
           ecmaFeatures: {
-            jsx: true,
+            jsx: true
           },
           extraFileExtensions: ['.vue'],
           parser: options.typescript ? ((await interopDefault(import('@typescript-eslint/parser'))) as any) : null,
-          sourceType: 'module',
-        },
+          sourceType: 'module'
+        }
       },
       name: 'skyroc/vue/rules',
       processor:
@@ -75,9 +75,9 @@ export async function vue(
               ...sfcBlocks,
               blocks: {
                 styles: true,
-                ...sfcBlocks.blocks,
-              },
-            }),
+                ...sfcBlocks.blocks
+              }
+            })
           ]),
       rules: {
         ...(pluginVue.configs.base.rules as any),
@@ -86,7 +86,7 @@ export async function vue(
           ? {
             ...(pluginVue.configs['vue2-essential'].rules as any),
             ...(pluginVue.configs['vue2-strongly-recommended'].rules as any),
-            ...(pluginVue.configs['vue2-recommended'].rules as any),
+            ...(pluginVue.configs['vue2-recommended'].rules as any)
           }
           : {
             ...(pluginVue.configs['flat/essential']
@@ -97,7 +97,7 @@ export async function vue(
               .reduce((acc, c) => ({ ...acc, ...c }), {}) as any),
             ...(pluginVue.configs['flat/recommended']
               .map(c => c.rules)
-              .reduce((acc, c) => ({ ...acc, ...c }), {}) as any),
+              .reduce((acc, c) => ({ ...acc, ...c }), {}) as any)
           }),
 
         'antfu/no-top-level-await': 'off',
@@ -107,8 +107,8 @@ export async function vue(
         'vue/block-order': [
           'error',
           {
-            order: ['script', 'template', 'style'],
-          },
+            order: ['script', 'template', 'style']
+          }
         ],
         'vue/component-name-in-template-casing': ['error', 'PascalCase'],
         'vue/component-options-name-casing': ['error', 'PascalCase'],
@@ -118,8 +118,8 @@ export async function vue(
         'vue/define-macros-order': [
           'error',
           {
-            order: ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots'],
-          },
+            order: ['defineOptions', 'defineProps', 'defineEmits', 'defineSlots']
+          }
         ],
         'vue/dot-location': ['error', 'property'],
         'vue/dot-notation': ['error', { allowKeywords: true }],
@@ -144,8 +144,8 @@ export async function vue(
           'always',
           {
             avoidQuotes: true,
-            ignoreConstructors: false,
-          },
+            ignoreConstructors: false
+          }
         ],
         'vue/prefer-separate-static-class': 'error',
         'vue/prefer-template': 'error',
@@ -164,8 +164,8 @@ export async function vue(
               'error',
               {
                 multiline: 'always',
-                singleline: 'always',
-              },
+                singleline: 'always'
+              }
             ],
             'vue/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
             'vue/comma-dangle': ['error', 'always-multiline'],
@@ -175,8 +175,8 @@ export async function vue(
               'error',
               'always',
               {
-                exceptions: ['-'],
-              },
+                exceptions: ['-']
+              }
             ],
             'vue/key-spacing': ['error', { afterColon: true, beforeColon: false }],
             'vue/keyword-spacing': ['error', { after: true, before: true }],
@@ -187,12 +187,12 @@ export async function vue(
             'vue/padding-line-between-blocks': ['error', 'always'],
             'vue/quote-props': ['error', 'consistent-as-needed'],
             'vue/space-in-parens': ['error', 'never'],
-            'vue/template-curly-spacing': 'error',
+            'vue/template-curly-spacing': 'error'
           }
           : {}),
 
-        ...overrides,
-      },
-    },
-  ]
+        ...overrides
+      }
+    }
+  ];
 }

@@ -1,5 +1,5 @@
-import type { FlatConfigItem, OptionsTailwindCSS } from '../types'
-import { ensurePackages, interopDefault } from '../utils'
+import type { FlatConfigItem, OptionsTailwindCSS } from '../types';
+import { ensurePackages, interopDefault } from '../utils';
 
 export async function tailwindcss(options: OptionsTailwindCSS = {}): Promise<FlatConfigItem[]> {
   const {
@@ -13,21 +13,21 @@ export async function tailwindcss(options: OptionsTailwindCSS = {}): Promise<Fla
     removeDuplicates = true,
     skipClassAttribute = false,
     tags = [],
-    whitelist = [],
-  } = options
+    whitelist = []
+  } = options;
 
   if (!enable)
-    return []
+    return [];
 
-  await ensurePackages(['eslint-plugin-tailwindcss'])
+  await ensurePackages(['eslint-plugin-tailwindcss']);
 
-  const pluginTailwindcss = await interopDefault(import('eslint-plugin-tailwindcss'))
+  const pluginTailwindcss = await interopDefault(import('eslint-plugin-tailwindcss'));
 
   const configs: FlatConfigItem[] = [
     {
       name: 'skyroc:tailwindcss',
       plugins: {
-        tailwindcss: pluginTailwindcss,
+        tailwindcss: pluginTailwindcss
       },
       rules: {
         ...(pluginTailwindcss.configs.recommended.rules as any),
@@ -43,7 +43,7 @@ export async function tailwindcss(options: OptionsTailwindCSS = {}): Promise<Fla
         'tailwindcss/no-custom-classname': 'off',
         // 禁止不必要的任意值
         'tailwindcss/no-unnecessary-arbitrary-value': 'off',
-        ...overrides,
+        ...overrides
       },
       settings: {
         tailwindcss: {
@@ -55,11 +55,11 @@ export async function tailwindcss(options: OptionsTailwindCSS = {}): Promise<Fla
           removeDuplicates,
           skipClassAttribute,
           tags,
-          whitelist,
-        },
-      },
-    },
-  ]
+          whitelist
+        }
+      }
+    }
+  ];
 
-  return configs
+  return configs;
 }

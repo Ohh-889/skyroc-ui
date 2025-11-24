@@ -1,14 +1,14 @@
-import type { FlatConfigItem, OptionsStylistic } from '../types'
-import { interopDefault } from '../utils'
+import type { FlatConfigItem, OptionsStylistic } from '../types';
+import { interopDefault } from '../utils';
 
 export async function jsdoc(options: OptionsStylistic = {}): Promise<FlatConfigItem[]> {
-  const { stylistic = true } = options
+  const { stylistic = true } = options;
 
   return [
     {
       name: 'skyroc/jsdoc/rules',
       plugins: {
-        jsdoc: await interopDefault(import('eslint-plugin-jsdoc')),
+        jsdoc: await interopDefault(import('eslint-plugin-jsdoc'))
       },
       rules: {
         'jsdoc/check-access': 'warn',
@@ -30,10 +30,10 @@ export async function jsdoc(options: OptionsStylistic = {}): Promise<FlatConfigI
         ...(stylistic
           ? {
             'jsdoc/check-alignment': 'warn',
-            'jsdoc/multiline-blocks': 'warn',
+            'jsdoc/multiline-blocks': 'warn'
           }
-          : {}),
-      },
-    },
-  ]
+          : {})
+      }
+    }
+  ];
 }

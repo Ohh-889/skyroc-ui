@@ -1,32 +1,32 @@
-import type { FlatConfigItem, OptionsReactNative } from '../types'
-import { ensurePackages, interopDefault } from '../utils'
-import { GLOB_SRC } from '../utils/globs'
+import type { FlatConfigItem, OptionsReactNative } from '../types';
+import { ensurePackages, interopDefault } from '../utils';
+import { GLOB_SRC } from '../utils/globs';
 
 export async function reactNative(options: OptionsReactNative = {}): Promise<FlatConfigItem[]> {
-  const { files = [GLOB_SRC], overrides = {} } = options
+  const { files = [GLOB_SRC], overrides = {} } = options;
 
-  await ensurePackages(['eslint-plugin-react-native'])
+  await ensurePackages(['eslint-plugin-react-native']);
 
-  const pluginReactNative = await interopDefault(import('eslint-plugin-react-native'))
+  const pluginReactNative = await interopDefault(import('eslint-plugin-react-native'));
 
   return [
     {
       name: 'skyroc/react-native/setup',
       plugins: {
-        'react-native': pluginReactNative,
-      },
+        'react-native': pluginReactNative
+      }
     },
     {
       files,
       languageOptions: {
         globals: {
-          ...pluginReactNative.environments?.['react-native']?.globals,
+          ...pluginReactNative.environments?.['react-native']?.globals
         },
         parserOptions: {
           ecmaFeatures: {
-            jsx: true,
-          },
-        },
+            jsx: true
+          }
+        }
       },
       name: 'skyroc/react-native/rules',
       rules: {
@@ -36,8 +36,8 @@ export async function reactNative(options: OptionsReactNative = {}): Promise<Fla
         'react-native/no-unused-styles': 'error',
         'react-native/sort-styles': 'off',
         'react-native/split-platform-components': 'warn',
-        ...overrides,
-      },
-    },
-  ]
+        ...overrides
+      }
+    }
+  ];
 }

@@ -1,36 +1,36 @@
-import type { FlatConfigItem, OptionsFiles, OptionsIsInEditor, OptionsOverrides } from '../types'
-import { interopDefault } from '../utils'
-import { GLOB_TESTS } from '../utils/globs'
+import type { FlatConfigItem, OptionsFiles, OptionsIsInEditor, OptionsOverrides } from '../types';
+import { interopDefault } from '../utils';
+import { GLOB_TESTS } from '../utils/globs';
 
 // Hold the reference so we don't redeclare the plugin on each call
-let _pluginTest: any
+let _pluginTest: any;
 
 export async function test(
-  options: OptionsFiles & OptionsIsInEditor & OptionsOverrides = {},
+  options: OptionsFiles & OptionsIsInEditor & OptionsOverrides = {}
 ): Promise<FlatConfigItem[]> {
-  const { files = GLOB_TESTS, isInEditor = false, overrides = {} } = options
+  const { files = GLOB_TESTS, isInEditor = false, overrides = {} } = options;
 
   const [pluginVitest, pluginNoOnlyTests] = await Promise.all([
     interopDefault(import('@vitest/eslint-plugin')),
     // @ts-expect-error missing types
-    interopDefault(import('eslint-plugin-no-only-tests')),
-  ] as const)
+    interopDefault(import('eslint-plugin-no-only-tests'))
+  ] as const);
 
   _pluginTest ??= {
     ...pluginVitest,
     rules: {
       ...pluginVitest.rules,
       // extend `test/no-only-tests` rule
-      ...pluginNoOnlyTests.rules,
-    },
-  }
+      ...pluginNoOnlyTests.rules
+    }
+  };
 
   return [
     {
       name: 'skyroc/test/setup',
       plugins: {
-        test: _pluginTest,
-      },
+        test: _pluginTest
+      }
     },
     {
       files,
@@ -49,11 +49,11 @@ export async function test(
           'antfu/no-top-level-await': 'off',
           'no-unused-expressions': 'off',
           'node/prefer-global/process': 'off',
-          'ts/explicit-function-return-type': 'off',
+          'ts/explicit-function-return-type': 'off'
         },
 
-        ...overrides,
-      },
-    },
-  ]
+        ...overrides
+      }
+    }
+  ];
 }

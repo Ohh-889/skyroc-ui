@@ -1,21 +1,21 @@
-import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors'
-import * as parserMdx from 'eslint-mdx'
-import type { FlatConfigItem, OptionsComponentExts, OptionsFiles, OptionsOverrides } from '../types'
-import { interopDefault, parserPlain } from '../utils'
-import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_IN_MARKDOWN } from '../utils/globs'
+import { mergeProcessors, processorPassThrough } from 'eslint-merge-processors';
+import * as parserMdx from 'eslint-mdx';
+import type { FlatConfigItem, OptionsComponentExts, OptionsFiles, OptionsOverrides } from '../types';
+import { interopDefault, parserPlain } from '../utils';
+import { GLOB_MARKDOWN, GLOB_MARKDOWN_CODE, GLOB_MARKDOWN_IN_MARKDOWN } from '../utils/globs';
 export async function markdown(
-  options: OptionsFiles & OptionsComponentExts & OptionsOverrides = {},
+  options: OptionsFiles & OptionsComponentExts & OptionsOverrides = {}
 ): Promise<FlatConfigItem[]> {
   const {
     componentExts = [],
-    overrides = {},
-  } = options
+    overrides = {}
+  } = options;
 
   // markdown (.md)
-  const markdownPlugin = await interopDefault(import('@eslint/markdown'))
+  const markdownPlugin = await interopDefault(import('@eslint/markdown'));
 
   // mdx (.mdx)
-  const mdxPlugin = await interopDefault(import('eslint-plugin-mdx'))
+  const mdxPlugin = await interopDefault(import('eslint-plugin-mdx'));
 
   return [
 
@@ -28,8 +28,8 @@ export async function markdown(
       name: 'skyroc/markdown/setup',
       plugins: {
         markdown: markdownPlugin,
-        mdx: mdxPlugin,
-      },
+        mdx: mdxPlugin
+      }
     },
 
     //
@@ -43,8 +43,8 @@ export async function markdown(
       ignores: [GLOB_MARKDOWN_IN_MARKDOWN],
       processor: mergeProcessors([markdownPlugin.processors!.markdown, processorPassThrough]),
       languageOptions: {
-        parser: parserPlain, // Markdown 本体不解析 JS，只检查代码块
-      },
+        parser: parserPlain // Markdown 本体不解析 JS，只检查代码块
+      }
     },
 
     //
@@ -60,9 +60,9 @@ export async function markdown(
         parser: parserMdx, // ← 🔥 MDX 解析器（最关键）
         parserOptions: {
           ecmaVersion: 'latest',
-          sourceType: 'module',
-        },
-      },
+          sourceType: 'module'
+        }
+      }
     },
 
     //
@@ -75,8 +75,8 @@ export async function markdown(
       files: [GLOB_MARKDOWN_CODE, ...componentExts.map(ext => `${GLOB_MARKDOWN}/**/*.${ext}`)],
       languageOptions: {
         parserOptions: {
-          ecmaFeatures: { impliedStrict: true },
-        },
+          ecmaFeatures: { impliedStrict: true }
+        }
       },
       rules: {
         // 这里全部禁用，否则代码块里的示例会被当成真实业务代码 lint
@@ -109,8 +109,8 @@ export async function markdown(
         'unused-imports/no-unused-imports': 'off',
         'unused-imports/no-unused-vars': 'off',
 
-        ...overrides,
-      },
-    },
-  ]
+        ...overrides
+      }
+    }
+  ];
 }

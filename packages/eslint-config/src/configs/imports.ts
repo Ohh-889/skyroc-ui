@@ -1,8 +1,8 @@
-import type { FlatConfigItem } from '../types'
-import { interopDefault } from '../utils'
+import type { FlatConfigItem } from '../types';
+import { interopDefault } from '../utils';
 
 export async function imports(overrides: Record<string, any> = {}) {
-  const pluginImport = await interopDefault(import('eslint-plugin-import-x'))
+  const pluginImport = await interopDefault(import('eslint-plugin-import-x'));
 
   const externalVue = [
     'vite',
@@ -26,10 +26,10 @@ export async function imports(overrides: Record<string, any> = {}) {
     '@soy-ui/**',
     'soybean-ui',
     '@soybean-ui/**',
-    '@soybeanjs/**',
-  ]
-  const externalReact = ['react', 'react-dom', 'react-router-dom', 'react-query', 'react-i18next', 'antd']
-  const externalCommon = ['axios', 'es-toolkit', 'date-fns', 'dayjs', 'lodash-es', '@tanstack/**', 'zod', 'valibot']
+    '@soybeanjs/**'
+  ];
+  const externalReact = ['react', 'react-dom', 'react-router-dom', 'react-query', 'react-i18next', 'antd'];
+  const externalCommon = ['axios', 'es-toolkit', 'date-fns', 'dayjs', 'lodash-es', '@tanstack/**', 'zod', 'valibot'];
   const internals = [
     '@/constant',
     '@/constant/**',
@@ -76,25 +76,25 @@ export async function imports(overrides: Record<string, any> = {}) {
     '@/style',
     '@/assets',
     '@/assets/**',
-    '@/**',
-  ]
+    '@/**'
+  ];
 
   const externalGroups = [...externalVue, ...externalReact, ...externalCommon].map(item => ({
     group: 'external' as const,
     pattern: item,
-    position: 'before' as const,
-  }))
+    position: 'before' as const
+  }));
 
   const internalGroups = internals.map(item => ({
     group: 'internal' as const,
     pattern: item,
-    position: 'before' as const,
-  }))
+    position: 'before' as const
+  }));
 
   const configs: FlatConfigItem[] = [
     {
       plugins: {
-        import: pluginImport,
+        import: pluginImport
       },
       rules: {
         'import/first': 'error',
@@ -109,13 +109,13 @@ export async function imports(overrides: Record<string, any> = {}) {
             'groups': ['builtin', 'external', 'internal', 'parent', 'sibling', 'index'],
             'newlines-between': 'never',
             'pathGroups': [...externalGroups, ...internalGroups],
-            'pathGroupsExcludedImportTypes': [],
-          },
+            'pathGroupsExcludedImportTypes': []
+          }
         ],
-        ...overrides,
-      },
-    },
-  ]
+        ...overrides
+      }
+    }
+  ];
 
-  return configs
+  return configs;
 }

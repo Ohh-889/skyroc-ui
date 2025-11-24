@@ -1,14 +1,14 @@
-import type { FlatConfigItem, OptionsUnicorn } from '../types'
-import { pluginUnicorn } from '../plugins'
+import type { FlatConfigItem, OptionsUnicorn } from '../types';
+import { pluginUnicorn } from '../plugins';
 
 export async function unicorn(options: OptionsUnicorn = {}): Promise<FlatConfigItem[]> {
-  const { allRecommended = false, overrides = {} } = options
+  const { allRecommended = false, overrides = {} } = options;
 
   return [
     {
       name: 'skyroc/unicorn/rules',
       plugins: {
-        unicorn: pluginUnicorn,
+        unicorn: pluginUnicorn
       },
       rules: {
         ...(allRecommended
@@ -28,10 +28,10 @@ export async function unicorn(options: OptionsUnicorn = {}): Promise<FlatConfigI
             'unicorn/prefer-number-properties': 'error',
             'unicorn/prefer-string-starts-ends-with': 'error',
             'unicorn/prefer-type-error': 'error',
-            'unicorn/throw-new-error': 'error',
+            'unicorn/throw-new-error': 'error'
           }),
-        ...overrides,
-      },
-    },
-  ]
+        ...overrides
+      }
+    }
+  ];
 }

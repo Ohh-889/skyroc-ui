@@ -1,5 +1,5 @@
-import type { FlatConfigItem } from '../types'
-import { GLOB_SRC, GLOB_SRC_EXT } from '../utils/globs'
+import type { FlatConfigItem } from '../types';
+import { GLOB_SRC, GLOB_SRC_EXT } from '../utils/globs';
 
 export async function disables(): Promise<FlatConfigItem[]> {
   return [
@@ -9,24 +9,24 @@ export async function disables(): Promise<FlatConfigItem[]> {
       rules: {
         'antfu/no-top-level-await': 'off',
         'no-console': 'off',
-        'ts/explicit-function-return-type': 'off',
-      },
+        'ts/explicit-function-return-type': 'off'
+      }
     },
     {
       files: [`**/cli/${GLOB_SRC}`, `**/cli.${GLOB_SRC_EXT}`],
       name: 'skyroc/disables/cli',
       rules: {
         'antfu/no-top-level-await': 'off',
-        'no-console': 'off',
-      },
+        'no-console': 'off'
+      }
     },
     {
       files: ['**/bin/**/*', `**/bin.${GLOB_SRC_EXT}`],
       name: 'skyroc/disables/bin',
       rules: {
         'antfu/no-import-dist': 'off',
-        'antfu/no-import-node-modules-by-path': 'off',
-      },
+        'antfu/no-import-node-modules-by-path': 'off'
+      }
     },
     {
       files: ['**/*.d.?([cm])ts'],
@@ -34,15 +34,15 @@ export async function disables(): Promise<FlatConfigItem[]> {
       rules: {
         'eslint-comments/no-unlimited-disable': 'off',
         'no-restricted-syntax': 'off',
-        'unused-imports/no-unused-vars': 'off',
-      },
+        'unused-imports/no-unused-vars': 'off'
+      }
     },
     {
       files: ['**/*.js', '**/*.cjs'],
       name: 'skyroc/disables/cjs',
       rules: {
-        'ts/no-require-imports': 'off',
-      },
+        'ts/no-require-imports': 'off'
+      }
     },
     {
       files: [`**/*.config.${GLOB_SRC_EXT}`, `**/*.config.*.${GLOB_SRC_EXT}`],
@@ -50,8 +50,8 @@ export async function disables(): Promise<FlatConfigItem[]> {
       rules: {
         'antfu/no-top-level-await': 'off',
         'no-console': 'off',
-        'ts/explicit-function-return-type': 'off',
-      },
-    },
-  ]
+        'ts/explicit-function-return-type': 'off'
+      }
+    }
+  ];
 }

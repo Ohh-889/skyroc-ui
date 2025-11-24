@@ -1,10 +1,10 @@
-import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin'
-import type { ParserOptions } from '@typescript-eslint/parser'
-import type { Linter } from 'eslint'
-import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks'
-import type { BuiltInParserName, LiteralUnion, RequiredOptions } from 'prettier'
+import type { StylisticCustomizeOptions } from '@stylistic/eslint-plugin';
+import type { ParserOptions } from '@typescript-eslint/parser';
+import type { Linter } from 'eslint';
+import type { Options as VueBlocksOptions } from 'eslint-processor-vue-blocks';
+import type { BuiltInParserName, LiteralUnion, RequiredOptions } from 'prettier';
 
-export type Rules = Record<string, Linter.RuleEntry<any> | undefined>
+export type Rules = Record<string, Linter.RuleEntry<any> | undefined>;
 
 export interface BaseOptions {
   /**
@@ -71,7 +71,7 @@ export interface BaseOptions {
 export type RuleBaseOptions<T = NonNullable<unknown>> = T & {
   /** The glob patterns to lint */
   files?: string[]
-}
+};
 
 export type VueOptions = RuleBaseOptions<{
   /**
@@ -80,19 +80,19 @@ export type VueOptions = RuleBaseOptions<{
    * @default 3
    */
   version?: 2 | 3
-}>
+}>;
 
-export type OnDemandRuleKey = 'react' | 'react-native' | 'vue'
+export type OnDemandRuleKey = 'react' | 'react-native' | 'vue';
 
-export type OnDemandRuleOptions = Partial<Record<Exclude<OnDemandRuleKey, 'vue'>, RuleBaseOptions | boolean>>
+export type OnDemandRuleOptions = Partial<Record<Exclude<OnDemandRuleKey, 'vue'>, RuleBaseOptions | boolean>>;
 
 export type Options = Partial<BaseOptions> & {
   vue?: VueOptions | boolean
 } & OnDemandRuleOptions & {
   unocss?: boolean
-}
+};
 
-export type Awaitable<T> = T | Promise<T>
+export type Awaitable<T> = T | Promise<T>;
 /**
  * An updated version of ESLint's `Linter.Config`, which provides autocompletion
  * for `rules` and relaxes type limitations for `plugins` and `rules`, because
@@ -112,11 +112,11 @@ export type FlatConfigItem = Omit<Linter.Config, 'plugins' | 'rules'> & {
    * specified, these rule configurations are only available to the matching files.
    */
   rules?: Rules
-}
+};
 
-export type PrettierCustomParser = 'astro' | 'jsdoc-parser' | 'svelte' | 'toml'
+export type PrettierCustomParser = 'astro' | 'jsdoc-parser' | 'svelte' | 'toml';
 
-export type PrettierParser = BuiltInParserName | PrettierCustomParser
+export type PrettierParser = BuiltInParserName | PrettierCustomParser;
 
 export interface OptionsFiles {
   files?: string[]
@@ -125,7 +125,7 @@ export interface PrettierOptions extends RequiredOptions {
   parser: LiteralUnion<PrettierParser>
 }
 
-export type PartialPrettierExtendedOptions = Partial<PrettierOptions>
+export type PartialPrettierExtendedOptions = Partial<PrettierOptions>;
 
 export interface OptionsUnocss {
   enable?: boolean

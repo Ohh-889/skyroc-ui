@@ -1,13 +1,13 @@
-import type { FlatConfigItem, OptionsOverrides, StylisticConfig } from '../types'
-import { pluginAntfu } from '../plugins'
-import { interopDefault } from '../utils'
+import type { FlatConfigItem, OptionsOverrides, StylisticConfig } from '../types';
+import { pluginAntfu } from '../plugins';
+import { interopDefault } from '../utils';
 
 export const StylisticConfigDefaults: StylisticConfig = {
   indent: 2,
   jsx: true,
   quotes: 'single',
   semi: false
-}
+};
 
 export interface StylisticOptions extends StylisticConfig, OptionsOverrides {
   lessOpinionated?: boolean
@@ -24,9 +24,9 @@ export async function stylistic(options: StylisticOptions = {}): Promise<FlatCon
   } = {
     ...StylisticConfigDefaults,
     ...options
-  }
+  };
 
-  const pluginStylistic = await interopDefault(import('@stylistic/eslint-plugin'))
+  const pluginStylistic = await interopDefault(import('@stylistic/eslint-plugin'));
 
   const config = pluginStylistic.configs.customize({
     indent,
@@ -34,7 +34,7 @@ export async function stylistic(options: StylisticOptions = {}): Promise<FlatCon
     pluginName: 'style',
     quotes,
     semi
-  }) as FlatConfigItem
+  }) as FlatConfigItem;
 
   return [
     {
@@ -61,6 +61,7 @@ export async function stylistic(options: StylisticOptions = {}): Promise<FlatCon
 
         'no-multiple-empty-lines': 'warn',
         'style/comma-dangle': ['warn', 'never'],
+        'style/semi': ['warn', 'always'],
         'style/indent': ['warn', 2],
         'style/no-trailing-spaces': 'warn',
         'style/generator-star-spacing': ['error', { after: true, before: false }],
@@ -69,5 +70,5 @@ export async function stylistic(options: StylisticOptions = {}): Promise<FlatCon
         ...overrides
       }
     }
-  ]
+  ];
 }

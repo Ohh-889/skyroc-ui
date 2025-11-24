@@ -1,5 +1,5 @@
-import type { FlatConfigItem } from '../types'
-import { pluginPerfectionist } from '../plugins'
+import type { FlatConfigItem } from '../types';
+import { pluginPerfectionist } from '../plugins';
 
 /**
  * Perfectionist plugin for props and items sorting.
@@ -11,11 +11,11 @@ export async function perfectionist(): Promise<FlatConfigItem[]> {
     {
       name: 'skyroc/perfectionist/setup',
       plugins: {
-        perfectionist: pluginPerfectionist,
+        perfectionist: pluginPerfectionist
       },
       rules: {
 
-      },
-    },
-  ]
+      }
+    }
+  ];
 }

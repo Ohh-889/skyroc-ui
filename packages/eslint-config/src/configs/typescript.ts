@@ -1,5 +1,5 @@
-import process from 'node:process'
-import type { Linter } from 'eslint'
+import process from 'node:process';
+import type { Linter } from 'eslint';
 import type {
   FlatConfigItem,
   OptionsComponentExts,
@@ -8,11 +8,11 @@ import type {
   OptionsProjectType,
   OptionsTypeScriptErasableOnly,
   OptionsTypeScriptParserOptions,
-  OptionsTypeScriptWithTypes,
-} from '../types'
-import { pluginAntfu } from '../plugins'
-import { interopDefault, renameRules } from '../utils'
-import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../utils/globs'
+  OptionsTypeScriptWithTypes
+} from '../types';
+import { pluginAntfu } from '../plugins';
+import { interopDefault, renameRules } from '../utils';
+import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../utils/globs';
 
 export async function typescript(
   options: OptionsFiles
@@ -21,7 +21,7 @@ export async function typescript(
     & OptionsTypeScriptWithTypes
     & OptionsTypeScriptParserOptions
     & OptionsProjectType
-    & OptionsTypeScriptErasableOnly = {},
+    & OptionsTypeScriptErasableOnly = {}
 ): Promise<FlatConfigItem[]> {
   const {
     componentExts = [],
@@ -29,15 +29,15 @@ export async function typescript(
     overrides = {},
     overridesTypeAware = {},
     parserOptions = {},
-    type = 'app',
-  } = options
+    type = 'app'
+  } = options;
 
-  const files = options.files ?? [GLOB_TS, GLOB_TSX, ...componentExts.map(ext => `**/*.${ext}`)]
+  const files = options.files ?? [GLOB_TS, GLOB_TSX, ...componentExts.map(ext => `**/*.${ext}`)];
 
-  const filesTypeAware = options.filesTypeAware ?? [GLOB_TS, GLOB_TSX]
-  const ignoresTypeAware = options.ignoresTypeAware ?? [`${GLOB_MARKDOWN}/**`, GLOB_ASTRO_TS]
-  const tsconfigPath = options?.tsconfigPath ? options.tsconfigPath : undefined
-  const isTypeAware = Boolean(tsconfigPath)
+  const filesTypeAware = options.filesTypeAware ?? [GLOB_TS, GLOB_TSX];
+  const ignoresTypeAware = options.ignoresTypeAware ?? [`${GLOB_MARKDOWN}/**`, GLOB_ASTRO_TS];
+  const tsconfigPath = options?.tsconfigPath ? options.tsconfigPath : undefined;
+  const isTypeAware = Boolean(tsconfigPath);
 
   const typeAwareRules: FlatConfigItem['rules'] = {
     'dot-notation': 'off',
@@ -60,13 +60,13 @@ export async function typescript(
     'ts/return-await': ['error', 'in-try-catch'],
     'ts/strict-boolean-expressions': ['error', { allowNullableBoolean: true, allowNullableObject: true }],
     'ts/switch-exhaustiveness-check': 'error',
-    'ts/unbound-method': 'error',
-  }
+    'ts/unbound-method': 'error'
+  };
 
   const [pluginTs, parserTs] = await Promise.all([
     interopDefault(import('@typescript-eslint/eslint-plugin')),
-    interopDefault(import('@typescript-eslint/parser')),
-  ] as const)
+    interopDefault(import('@typescript-eslint/parser'))
+  ] as const);
 
   function makeParser(typeAware: boolean, fs: string[], ignores?: string[]): FlatConfigItem {
     return {
@@ -81,16 +81,16 @@ export async function typescript(
             ? {
               projectService: {
                 allowDefaultProject: ['./*.js'],
-                defaultProject: tsconfigPath,
+                defaultProject: tsconfigPath
               },
-              tsconfigRootDir: process.cwd(),
+              tsconfigRootDir: process.cwd()
             }
             : {}),
-          ...(parserOptions as any),
-        },
+          ...(parserOptions as any)
+        }
       },
-      name: `skyroc/typescript/${typeAware ? 'type-aware-parser' : 'parser'}`,
-    }
+      name: `skyroc/typescript/${typeAware ? 'type-aware-parser' : 'parser'}`
+    };
   }
 
   return [
@@ -99,8 +99,8 @@ export async function typescript(
       name: 'skyroc/typescript/setup',
       plugins: {
         skyroc: pluginAntfu,
-        ts: pluginTs as any,
-      },
+        ts: pluginTs as any
+      }
     },
     // assign type-aware parser for type-aware files and type-unaware parser for the rest
     ...(isTypeAware
@@ -123,8 +123,8 @@ export async function typescript(
           {
             disallowTypeAnnotations: false,
             fixStyle: 'separate-type-imports',
-            prefer: 'type-imports',
-          },
+            prefer: 'type-imports'
+          }
         ],
 
         'ts/method-signature-style': ['error', 'property'], // https://www.totaltypescript.com/method-shorthand-syntax-considered-harmful
@@ -143,8 +143,8 @@ export async function typescript(
           {
             allowShortCircuit: true,
             allowTaggedTemplates: true,
-            allowTernary: true,
-          },
+            allowTernary: true
+          }
         ],
         'ts/no-unused-vars': 'off',
         'ts/no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
@@ -160,13 +160,13 @@ export async function typescript(
               {
                 allowExpressions: true,
                 allowHigherOrderFunctions: true,
-                allowIIFEs: true,
-              },
-            ],
+                allowIIFEs: true
+              }
+            ]
           }
           : {}),
-        ...overrides,
-      },
+        ...overrides
+      }
     },
     ...(isTypeAware
       ? [
@@ -176,9 +176,9 @@ export async function typescript(
           name: 'skyroc/typescript/rules-type-aware',
           rules: {
             ...typeAwareRules,
-            ...overridesTypeAware,
-          },
-        },
+            ...overridesTypeAware
+          }
+        }
       ]
       : []),
     ...(erasableOnly
@@ -186,16 +186,16 @@ export async function typescript(
         {
           name: 'skyroc/typescript/erasable-syntax-only',
           plugins: {
-            'erasable-syntax-only': await interopDefault(import('eslint-plugin-erasable-syntax-only')),
+            'erasable-syntax-only': await interopDefault(import('eslint-plugin-erasable-syntax-only'))
           },
           rules: {
             'erasable-syntax-only/enums': 'error',
             'erasable-syntax-only/import-aliases': 'error',
             'erasable-syntax-only/namespaces': 'error',
-            'erasable-syntax-only/parameter-properties': 'error',
-          } as Record<string, Linter.RuleEntry>,
-        },
+            'erasable-syntax-only/parameter-properties': 'error'
+          } as Record<string, Linter.RuleEntry>
+        }
       ]
-      : []),
-  ]
+      : [])
+  ];
 }

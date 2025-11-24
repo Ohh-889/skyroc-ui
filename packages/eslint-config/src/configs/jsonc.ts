@@ -1,30 +1,30 @@
-import type { FlatConfigItem, OptionsFiles, OptionsOverrides, OptionsStylistic } from '../types'
-import { interopDefault } from '../utils'
-import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../utils/globs'
+import type { FlatConfigItem, OptionsFiles, OptionsOverrides, OptionsStylistic } from '../types';
+import { interopDefault } from '../utils';
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../utils/globs';
 
 export async function jsonc(
-  options: OptionsFiles & OptionsStylistic & OptionsOverrides = {},
+  options: OptionsFiles & OptionsStylistic & OptionsOverrides = {}
 ): Promise<FlatConfigItem[]> {
-  const { files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC], overrides = {}, stylistic = true } = options
+  const { files = [GLOB_JSON, GLOB_JSON5, GLOB_JSONC], overrides = {}, stylistic = true } = options;
 
-  const { indent = 2 } = typeof stylistic === 'boolean' ? {} : stylistic
+  const { indent = 2 } = typeof stylistic === 'boolean' ? {} : stylistic;
 
   const [pluginJsonc, parserJsonc] = await Promise.all([
     interopDefault(import('eslint-plugin-jsonc')),
-    interopDefault(import('jsonc-eslint-parser')),
-  ] as const)
+    interopDefault(import('jsonc-eslint-parser'))
+  ] as const);
 
   return [
     {
       name: 'skyroc/jsonc/setup',
       plugins: {
-        jsonc: pluginJsonc as any,
-      },
+        jsonc: pluginJsonc as any
+      }
     },
     {
       files,
       languageOptions: {
-        parser: parserJsonc,
+        parser: parserJsonc
       },
       name: 'skyroc/jsonc/rules',
       rules: {
@@ -66,12 +66,12 @@ export async function jsonc(
             'jsonc/object-curly-spacing': ['error', 'always'],
             'jsonc/object-property-newline': ['error', { allowAllPropertiesOnSameLine: true }],
             'jsonc/quote-props': 'error',
-            'jsonc/quotes': 'error',
+            'jsonc/quotes': 'error'
           }
           : {}),
 
-        ...overrides,
-      },
-    },
-  ]
+        ...overrides
+      }
+    }
+  ];
 }

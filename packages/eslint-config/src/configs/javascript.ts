@@ -1,9 +1,9 @@
-import globals from 'globals'
-import type { FlatConfigItem, OptionsIsInEditor, OptionsOverrides } from '../types'
-import { pluginAntfu, pluginUnusedImports } from '../plugins'
+import globals from 'globals';
+import type { FlatConfigItem, OptionsIsInEditor, OptionsOverrides } from '../types';
+import { pluginAntfu, pluginUnusedImports } from '../plugins';
 
 export async function javascript(options: OptionsIsInEditor & OptionsOverrides = {}): Promise<FlatConfigItem[]> {
-  const { isInEditor = false, overrides = {} } = options
+  const { isInEditor = false, overrides = {} } = options;
 
   return [
     {
@@ -15,27 +15,27 @@ export async function javascript(options: OptionsIsInEditor & OptionsOverrides =
           ...globals.node,
           document: 'readonly',
           navigator: 'readonly',
-          window: 'readonly',
+          window: 'readonly'
         },
         parserOptions: {
           ecmaFeatures: {
-            jsx: true,
+            jsx: true
           },
           ecmaVersion: 'latest',
-          sourceType: 'module',
+          sourceType: 'module'
         },
-        sourceType: 'module',
+        sourceType: 'module'
       },
       linterOptions: {
-        reportUnusedDisableDirectives: true,
+        reportUnusedDisableDirectives: true
       },
-      name: 'antfu/javascript/setup',
+      name: 'antfu/javascript/setup'
     },
     {
       name: 'antfu/javascript/rules',
       plugins: {
         'antfu': pluginAntfu,
-        'unused-imports': pluginUnusedImports,
+        'unused-imports': pluginUnusedImports
       },
       rules: {
         'accessor-pairs': ['error', { enforceForClassMembers: true, setWithoutGet: true }],
@@ -101,7 +101,7 @@ export async function javascript(options: OptionsIsInEditor & OptionsOverrides =
         'no-restricted-globals': [
           'error',
           { message: 'Use `globalThis` instead.', name: 'global' },
-          { message: 'Use `globalThis` instead.', name: 'self' },
+          { message: 'Use `globalThis` instead.', name: 'self' }
         ],
         'no-restricted-properties': [
           'error',
@@ -109,7 +109,7 @@ export async function javascript(options: OptionsIsInEditor & OptionsOverrides =
           { message: 'Use `Object.defineProperty` instead.', property: '__defineGetter__' },
           { message: 'Use `Object.defineProperty` instead.', property: '__defineSetter__' },
           { message: 'Use `Object.getOwnPropertyDescriptor` instead.', property: '__lookupGetter__' },
-          { message: 'Use `Object.getOwnPropertyDescriptor` instead.', property: '__lookupSetter__' },
+          { message: 'Use `Object.getOwnPropertyDescriptor` instead.', property: '__lookupSetter__' }
         ],
         'no-restricted-syntax': ['error', 'TSEnumDeclaration[const=true]', 'TSExportAssignment'],
         'no-self-assign': ['error', { props: true }],
@@ -134,8 +134,8 @@ export async function javascript(options: OptionsIsInEditor & OptionsOverrides =
           {
             allowShortCircuit: true,
             allowTaggedTemplates: true,
-            allowTernary: true,
-          },
+            allowTernary: true
+          }
         ],
         'no-unused-vars': [
           'error',
@@ -143,8 +143,8 @@ export async function javascript(options: OptionsIsInEditor & OptionsOverrides =
             args: 'none',
             caughtErrors: 'none',
             ignoreRestSiblings: true,
-            vars: 'all',
-          },
+            vars: 'all'
+          }
         ],
         'no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
         'no-useless-backreference': 'error',
@@ -161,23 +161,23 @@ export async function javascript(options: OptionsIsInEditor & OptionsOverrides =
           'always',
           {
             avoidQuotes: true,
-            ignoreConstructors: false,
-          },
+            ignoreConstructors: false
+          }
         ],
         'one-var': ['error', { initialized: 'never' }],
         'prefer-arrow-callback': [
           'error',
           {
             allowNamedFunctions: false,
-            allowUnboundThis: true,
-          },
+            allowUnboundThis: true
+          }
         ],
         'prefer-const': [
           isInEditor ? 'warn' : 'error',
           {
             destructuring: 'all',
-            ignoreReadBeforeAssign: true,
-          },
+            ignoreReadBeforeAssign: true
+          }
         ],
         'prefer-exponentiation-operator': 'error',
         'prefer-promise-reject-errors': 'error',
@@ -195,16 +195,16 @@ export async function javascript(options: OptionsIsInEditor & OptionsOverrides =
             argsIgnorePattern: '^_',
             ignoreRestSiblings: true,
             vars: 'all',
-            varsIgnorePattern: '^_',
-          },
+            varsIgnorePattern: '^_'
+          }
         ],
         'use-isnan': ['error', { enforceForIndexOf: true, enforceForSwitchCase: true }],
         'valid-typeof': ['error', { requireStringLiterals: true }],
         'vars-on-top': 'error',
         'yoda': ['error', 'never'],
 
-        ...overrides,
-      },
-    },
-  ]
+        ...overrides
+      }
+    }
+  ];
 }
