@@ -5,15 +5,15 @@ import { ButtonIcon } from '@/components/button';
 import { Segment } from '@/components/segment';
 
 interface PreviewHeaderProps {
-  title?: string
-  hasChanged: boolean
-  mode: 'preview' | 'code' | 'split'
-  copied: boolean
-  isFullscreen: boolean
-  onModeChange: (mode: 'preview' | 'code' | 'split') => void
-  onReset: () => void
-  onCopy: () => void
-  onToggleFullscreen: () => void
+  title?: string;
+  hasChanged: boolean;
+  mode: 'preview' | 'code' | 'split';
+  copied: boolean;
+  isFullscreen: boolean;
+  onModeChange: (mode: 'preview' | 'code' | 'split') => void;
+  onReset: () => void;
+  onCopy: () => void;
+  onToggleFullscreen: () => void;
 }
 
 const tabs = [

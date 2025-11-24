@@ -1,10 +1,10 @@
 'use client';
 
 interface ErrorMessageProps {
-  title: string
-  message: string
-  type?: 'error' | 'warning'
-  tip?: string
+  title: string;
+  message: string;
+  type?: 'error' | 'warning';
+  tip?: string;
 }
 
 /**

@@ -8,14 +8,14 @@ import { Segment } from '@/components/segment';
 import { highlightCode } from '../lib/shiki';
 
 interface Props {
-  children: React.ReactNode
+  children: React.ReactNode;
 
-  code: string
-  height?: number | string
-  lang?: string
-  name: string
-  tabs?: { label: string, value: string }[]
-  title?: string
+  code: string;
+  height?: number | string;
+  lang?: string;
+  name: string;
+  tabs?: { label: string; value: string }[];
+  title?: string;
 }
 
 const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang = 'tsx', name, tabs, title }) => {

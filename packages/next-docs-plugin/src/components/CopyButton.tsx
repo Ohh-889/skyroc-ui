@@ -7,8 +7,8 @@ import type { ButtonIconProps } from '@/components/button';
 import { ButtonIcon } from '@/components/button';
 
 interface CopyButtonProps extends ButtonIconProps {
-  content?: string
-  getContent?: (event: MouseEvent<HTMLButtonElement>) => string
+  content?: string;
+  getContent?: (event: MouseEvent<HTMLButtonElement>) => string;
 }
 
 /* -------------------- CopyToClipboard -------------------- */

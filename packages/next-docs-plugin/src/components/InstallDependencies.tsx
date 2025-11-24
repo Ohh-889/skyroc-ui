@@ -5,7 +5,7 @@ import { Tabs } from '@/components/tabs';
 import CopyButton from './CopyButton';
 
 interface InstallDependenciesProps {
-  pkg: string
+  pkg: string;
 }
 
 const PACKAGE_MANAGERS = ['npm', 'pnpm', 'yarn', 'bun'] as const;

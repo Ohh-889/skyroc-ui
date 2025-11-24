@@ -7,17 +7,17 @@ import { CodeEditor } from './CodeEditor';
 import { ErrorMessage } from './ErrorMessage';
 
 interface PreviewContentProps {
-  mode: 'preview' | 'code' | 'split'
-  isFullscreen: boolean
-  children?: React.ReactNode
+  mode: 'preview' | 'code' | 'split';
+  isFullscreen: boolean;
+  children?: React.ReactNode;
   // 代码模式
-  highlightedHtml: string
-  isLoading: boolean
+  highlightedHtml: string;
+  isLoading: boolean;
   // 分屏模式
-  code: string
-  onCodeChange: (code: string) => void
-  liveComponent: React.ComponentType | null
-  compileError: string | null
+  code: string;
+  onCodeChange: (code: string) => void;
+  liveComponent: React.ComponentType | null;
+  compileError: string | null;
 }
 
 /**

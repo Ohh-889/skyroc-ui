@@ -4,9 +4,9 @@ import { useEffect, useState } from 'react';
 import { cn } from '../../lib/cn';
 
 interface CodeEditorProps {
-  value: string
-  onChange: (value: string) => void
-  className?: string
+  value: string;
+  onChange: (value: string) => void;
+  className?: string;
 }
 
 /**

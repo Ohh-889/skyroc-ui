@@ -4,10 +4,10 @@ import { Suspense } from 'react';
 import { LiveCodePreview } from './LiveCodePreview';
 
 interface DemoProps {
-  children?: React.ReactNode
-  highlight?: string
-  src?: string
-  title?: string
+  children?: React.ReactNode;
+  highlight?: string;
+  src?: string;
+  title?: string;
 }
 
 /**

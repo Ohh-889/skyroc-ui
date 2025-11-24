@@ -1,7 +1,7 @@
 export interface Prefs {
-  numbers: boolean
-  tab: 'code' | 'preview'
-  wrap: boolean
+  numbers: boolean;
+  tab: 'code' | 'preview';
+  wrap: boolean;
 }
 
 const KEY = '__demo_prefs__';

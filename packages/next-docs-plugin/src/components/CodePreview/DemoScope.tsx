@@ -52,8 +52,8 @@ export const DemoComponentsProvider = ({
   children,
   components = {}
 }: {
-  children: React.ReactNode
-  components?: Record<string, any>
+  children: React.ReactNode;
+  components?: Record<string, any>;
 }): React.ReactElement => {
   return (
     <DemoComponentsContext value={components}>

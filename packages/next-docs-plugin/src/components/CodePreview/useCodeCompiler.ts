@@ -3,15 +3,15 @@ import * as Babel from '@babel/standalone';
 import { createRequire, getDemoScope } from './DemoScope';
 
 interface UseCodeCompilerOptions {
-  code: string
-  enabled: boolean
-  contextComponents: Record<string, any>
+  code: string;
+  enabled: boolean;
+  contextComponents: Record<string, any>;
 }
 
 interface UseCodeCompilerResult {
-  component: React.ComponentType | null
-  error: string | null
-  isCompiling: boolean
+  component: React.ComponentType | null;
+  error: string | null;
+  isCompiling: boolean;
 }
 
 /**

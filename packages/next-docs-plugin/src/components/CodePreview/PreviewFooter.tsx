@@ -1,7 +1,7 @@
 'use client';
 
 interface PreviewFooterProps {
-  lineCount: number
+  lineCount: number;
 }
 
 /**

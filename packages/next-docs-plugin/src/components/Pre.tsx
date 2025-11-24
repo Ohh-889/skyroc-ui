@@ -28,11 +28,11 @@ export const ToggleWordWrapButton: FC<{ children?: ReactNode }> = ({ children })
 
 /* -------------------- Pre 组件 -------------------- */
 export interface PreProps extends HTMLAttributes<HTMLPreElement> {
-  'data-copy'?: ''
-  'data-filename'?: string
-  'data-language'?: string
-  'data-word-wrap'?: ''
-  'icon'?: ReactNode
+  'data-copy'?: '';
+  'data-filename'?: string;
+  'data-language'?: string;
+  'data-word-wrap'?: '';
+  'icon'?: ReactNode;
 }
 
 export const Pre: FC<PreProps> = (rest) => {

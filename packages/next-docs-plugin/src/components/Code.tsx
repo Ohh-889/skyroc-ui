@@ -5,9 +5,9 @@ import cn from 'clsx';
 import CopyButton from './CopyButton';
 
 type CodeProps = HTMLAttributes<HTMLElement> & {
-  'data-copy'?: boolean
-  'data-language'?: string
-  'data-show-line-numbers'?: ''
+  'data-copy'?: boolean;
+  'data-language'?: string;
+  'data-show-line-numbers'?: '';
 };
 
 const Code: FC<CodeProps> = (rest) => {

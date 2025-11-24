@@ -10,9 +10,9 @@ import { PreviewHeader } from './PreviewHeader';
 import { useCodeCompiler } from './useCodeCompiler';
 
 interface LiveCodePreviewProps {
-  code: string
-  title?: string
-  children?: React.ReactNode
+  code: string;
+  title?: string;
+  children?: React.ReactNode;
 }
 
 /**
