@@ -1,5 +1,4 @@
 import plugin from 'tailwindcss/plugin';
-
 import { generateCSSVars } from './generate';
 import { presetSkyrocUI } from './presets';
 import themes from './theme.json';
@@ -41,13 +40,13 @@ export const skyrocUIPlugin = plugin.withOptions(
           xl: 'calc(var(--radius) + 4px)'
         },
         colors: {
-          accent: {
+          'accent': {
             DEFAULT: 'hsl(var(--accent))',
             foreground: 'hsl(var(--accent-foreground))'
           },
-          background: 'hsl(var(--background))',
-          border: 'hsl(var(--border))',
-          carbon: {
+          'background': 'hsl(var(--background))',
+          'border': 'hsl(var(--border))',
+          'carbon': {
             50: 'hsl(var(--carbon-50))',
             100: 'hsl(var(--carbon-100))',
             200: 'hsl(var(--carbon-200))',
@@ -62,11 +61,11 @@ export const skyrocUIPlugin = plugin.withOptions(
             DEFAULT: 'hsl(var(--carbon))',
             foreground: 'hsl(var(--carbon-foreground))'
           },
-          card: {
+          'card': {
             DEFAULT: 'hsl(var(--card))',
             foreground: 'hsl(var(--card-foreground))'
           },
-          destructive: {
+          'destructive': {
             50: 'hsl(var(--destructive-50))',
             100: 'hsl(var(--destructive-100))',
             200: 'hsl(var(--destructive-200))',
@@ -81,8 +80,8 @@ export const skyrocUIPlugin = plugin.withOptions(
             DEFAULT: 'hsl(var(--destructive))',
             foreground: 'hsl(var(--destructive-foreground))'
           },
-          foreground: 'hsl(var(--foreground))',
-          info: {
+          'foreground': 'hsl(var(--foreground))',
+          'info': {
             50: 'hsl(var(--info-50))',
             100: 'hsl(var(--info-100))',
             200: 'hsl(var(--info-200))',
@@ -97,17 +96,17 @@ export const skyrocUIPlugin = plugin.withOptions(
             DEFAULT: 'hsl(var(--info))',
             foreground: 'hsl(var(--info-foreground))'
           },
-          input: 'hsl(var(--input))',
-          muted: {
+          'input': 'hsl(var(--input))',
+          'muted': {
             DEFAULT: 'hsl(var(--muted))',
             foreground: 'hsl(var(--muted-foreground))'
           },
-          popover: {
+          'popover': {
             DEFAULT: 'hsl(var(--popover))',
             foreground: 'hsl(var(--popover-foreground))'
           },
           // 示例部分（你也可以写一个生成器函数自动输出完整变量映射）
-          primary: {
+          'primary': {
             50: 'hsl(var(--primary-50))',
             100: 'hsl(var(--primary-100))',
             200: 'hsl(var(--primary-200))',
@@ -122,8 +121,8 @@ export const skyrocUIPlugin = plugin.withOptions(
             DEFAULT: 'hsl(var(--primary))',
             foreground: 'hsl(var(--primary-foreground))'
           },
-          ring: 'hsl(var(--ring))',
-          secondary: {
+          'ring': 'hsl(var(--ring))',
+          'secondary': {
             DEFAULT: 'hsl(var(--secondary))',
             foreground: 'hsl(var(--secondary-foreground))'
           },
@@ -135,7 +134,7 @@ export const skyrocUIPlugin = plugin.withOptions(
           'sidebar-primary': 'hsl(var(--sidebar-primary))',
           'sidebar-primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
           'sidebar-ring': 'hsl(var(--sidebar-ring))',
-          success: {
+          'success': {
             50: 'hsl(var(--success-50))',
             100: 'hsl(var(--success-100))',
             200: 'hsl(var(--success-200))',
@@ -150,7 +149,7 @@ export const skyrocUIPlugin = plugin.withOptions(
             DEFAULT: 'hsl(var(--success))',
             foreground: 'hsl(var(--success-foreground))'
           },
-          warning: {
+          'warning': {
             50: 'hsl(var(--warning-50))',
             100: 'hsl(var(--warning-100))',
             200: 'hsl(var(--warning-200))',

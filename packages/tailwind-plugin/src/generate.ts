@@ -1,6 +1,5 @@
-import { colord, generateColorPalette } from '@skyroc/color';
 import { mergeDeep } from '@unocss/core';
-
+import { colord, generateColorPalette } from '@skyroc/color';
 import themes from './theme.json';
 import type {
   ColorOptions,
@@ -79,7 +78,7 @@ export function generateGlobalStyles() {
       height: '1.25em',
       width: '1.25em'
     },
-    body: {
+    'body': {
       background: 'hsl(var(--background))',
       color: 'hsl(var(--foreground))'
     }
@@ -107,10 +106,12 @@ function getColorTheme(color: ColorOptions): ThemeCSSVarsVariant {
   if (typeof color === 'string') {
     name = color;
     ({ dark, light } = getBuiltInTheme(color));
-  } else if ('base' in color) {
+  }
+  else if ('base' in color) {
     name = color.base;
     ({ dark, light } = mergeDeep(getBuiltInTheme(color.base), color));
-  } else {
+  }
+  else {
     name = color.name;
     ({ dark, light } = color);
   }
@@ -120,23 +121,23 @@ function getColorTheme(color: ColorOptions): ThemeCSSVarsVariant {
 function createBuiltinFeedbackColorTheme() {
   const feedbackColor: FeedbackColorOfThemeCssVarsVariant = {
     dark: {
-      carbon: '220 14.3% 95.9%',
+      'carbon': '220 14.3% 95.9%',
       'carbon-foreground': '220.9 39.3% 11%',
-      info: '215 100% 54%',
+      'info': '215 100% 54%',
       'info-foreground': '0 0% 100%',
-      success: '140 79% 45%',
+      'success': '140 79% 45%',
       'success-foreground': '0 0% 100%',
-      warning: '37 91% 55%',
+      'warning': '37 91% 55%',
       'warning-foreground': '0 0% 100%'
     },
     light: {
-      carbon: '240 4% 16%',
+      'carbon': '240 4% 16%',
       'carbon-foreground': '0 0% 98%',
-      info: '215 100% 54%',
+      'info': '215 100% 54%',
       'info-foreground': '0 0% 100%',
-      success: '140 79% 45%',
+      'success': '140 79% 45%',
       'success-foreground': '0 0% 100%',
-      warning: '37 91% 55%',
+      'warning': '37 91% 55%',
       'warning-foreground': '0 0% 100%'
     }
   };
@@ -151,7 +152,6 @@ function getColorCSSVars(color: FeedbackColorOfThemeCssVars): Record<string, str
     const key = item as CSSVarKey;
 
     if (!themeCSSVarKeys.includes(key)) {
-      // eslint-disable-next-line no-continue
       continue;
     }
 
@@ -214,7 +214,8 @@ export function generateCSSVars(theme: ThemeOptions, onlyOne = true): object {
         root: getRadiusCSSVarsStyles(radius)
       };
     }
-  } else {
+  }
+  else {
     const { dark, light, name } = getColorTheme(color);
 
     const themeName = !onlyOne && name;
@@ -230,7 +231,6 @@ export function generateCSSVars(theme: ThemeOptions, onlyOne = true): object {
     const lightThemeCSSVars = getColorCSSVars({ ...feedbackColor.light, ...light, ...sidebar.light });
 
     return {
-      // eslint-disable-next-line sort/object-properties
       [themeSelector]: {
         ...lightThemeCSSVars,
         '--radius': `${radius}rem`
