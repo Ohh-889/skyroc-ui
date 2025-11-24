@@ -1,5 +1,4 @@
 import type { RadioGroupProps } from 'skyroc-ui';
-
 import RadioColor from './modules/RadioColor';
 import RadioDisabledAll from './modules/RadioDisabledAll';
 import RadioDisabledItem from './modules/RadioDisabledItem';
@@ -16,13 +15,9 @@ const RadioPage = () => {
   return (
     <div className="flex-c gap-4">
       <RadioColor items={items} />
-
       <RadioVertical items={items} />
-
       <RadioDisabledItem />
-
       <RadioDisabledAll items={items} />
-
       <RadioSize items={items} />
     </div>
   );

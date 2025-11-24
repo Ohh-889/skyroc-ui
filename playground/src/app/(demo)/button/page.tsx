@@ -1,5 +1,5 @@
-import { Loader, Minus, Pause, Plus, SkipBack, SkipForward } from 'lucide-react';
 import React from 'react';
+import { Loader, Minus, Pause, Plus, SkipBack, SkipForward } from 'lucide-react';
 import { Button, ButtonGroup, ButtonIcon, Card } from 'skyroc-ui';
 
 const colors = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'] as const;
@@ -80,6 +80,7 @@ const DemoButton = () => {
           >
             rounded
           </Button>
+
           <div className="flex-c-center">
             <Button
               fitContent
@@ -89,8 +90,10 @@ const DemoButton = () => {
             >
               <Minus />
             </Button>
+
             <div className="text-[12px] text-[#666]">square</div>
           </div>
+
           <div className="flex-c-center">
             <Button
               fitContent
@@ -100,8 +103,10 @@ const DemoButton = () => {
             >
               <Plus />
             </Button>
+
             <div className="text-[12px] text-[#666]">circle</div>
           </div>
+
           <div className="flex-c-center">
             <Button
               fitContent
@@ -111,12 +116,15 @@ const DemoButton = () => {
             >
               <Plus />
             </Button>
+
             <div className="text-[12px] text-[#666]">square</div>
           </div>
+
           <div className="flex-c-center">
             <ButtonIcon shape="circle">
               <Minus />
             </ButtonIcon>
+
             <div className="text-[12px] text-[#666]">circle</div>
           </div>
         </div>
@@ -183,6 +191,7 @@ const DemoButton = () => {
           >
             disabled
           </Button>
+
           <Button
             disabled
             color="success"
@@ -190,6 +199,7 @@ const DemoButton = () => {
           >
             disabled
           </Button>
+
           <Button
             disabled
             color="warning"
@@ -212,6 +222,7 @@ const DemoButton = () => {
           >
             Loading...
           </Button>
+
           <Button
             loading
             color="warning"
@@ -241,9 +252,11 @@ const DemoButton = () => {
             <Button variant="outline">
               <SkipBack />
             </Button>
+
             <Button variant="outline">
               <Pause />
             </Button>
+
             <Button variant="outline">
               <SkipForward />
             </Button>
@@ -256,6 +269,7 @@ const DemoButton = () => {
             >
               <SkipBack />
             </Button>
+
             <Button
               color="destructive"
               variant="outline"
@@ -275,9 +289,11 @@ const DemoButton = () => {
             <ButtonIcon variant="dashed">
               <SkipBack />
             </ButtonIcon>
+
             <ButtonIcon variant="dashed">
               <Pause />
             </ButtonIcon>
+
             <ButtonIcon variant="dashed">
               <SkipForward />
             </ButtonIcon>
@@ -293,9 +309,11 @@ const DemoButton = () => {
           <ButtonIcon>
             <SkipBack />
           </ButtonIcon>
+
           <ButtonIcon>
             <SkipForward />
           </ButtonIcon>
+
           <ButtonIcon>
             <Pause />
           </ButtonIcon>
@@ -306,16 +324,18 @@ const DemoButton = () => {
         split
         title="Button Icon: fitContent"
       >
-        <div className="flex flex-wrap gap-12px">
+        <div className="gap-12px flex flex-wrap">
           <ButtonIcon className="p-0.5 text-xl">
             <SkipBack />
           </ButtonIcon>
+
           <ButtonIcon
             fitContent
             className="p-0.5 text-xl"
           >
             <SkipForward />
           </ButtonIcon>
+
           <ButtonIcon
             fitContent
             className="p-0.5 text-xl"

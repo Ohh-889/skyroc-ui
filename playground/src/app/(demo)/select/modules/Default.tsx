@@ -19,7 +19,7 @@ const Default = () => {
       split
       title="Default"
     >
-      <div className="w-[240px] lt-sm:w-auto">
+      <div className="lt-sm:w-auto w-[240px]">
         <Select
           items={fruits}
           triggerProps={{

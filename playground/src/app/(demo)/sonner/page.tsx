@@ -16,8 +16,7 @@ const SonnerPage = () => {
 
             description: 'This is a description',
             duration: 3000
-          })
-        }
+          })}
       >
         Click me
       </button>

@@ -2,11 +2,11 @@
 
 import { Button, Card, Form, FormComputedField, FormField, Input, useForm } from 'skyroc-ui';
 
-type FormValues = {
-  price: number;
-  quantity: number;
-  total: number;
-};
+interface FormValues {
+  price: number
+  quantity: number
+  total: number
+}
 
 const ComputedDemo = () => {
   const [form] = useForm<FormValues>();
@@ -23,7 +23,7 @@ const ComputedDemo = () => {
       title="Computed"
     >
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
       >
         <FormField
@@ -44,7 +44,7 @@ const ComputedDemo = () => {
           deps={['price', 'quantity']}
           label="Total"
           name="total"
-          compute={get => {
+          compute={(get) => {
             return Number(get('price')) * Number(get('quantity')) || 0;
           }}
         >

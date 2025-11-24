@@ -1,9 +1,8 @@
 import { Accordion, Card } from 'skyroc-ui';
-
 import CustomIcon from './modules/CustomIcon';
 import { items, sizes } from './modules/shared';
 
-function AccordionDemo() {
+const AccordionDemo = () => {
   return (
     <div className="flex-c gap-4">
       <Card
@@ -59,7 +58,7 @@ function AccordionDemo() {
         split
         title="Size"
       >
-        <div className="gap-4 flex flex-wrap justify-between">
+        <div className="flex flex-wrap justify-between gap-4">
           {sizes.map(size => (
             <Card
               split
@@ -79,6 +78,6 @@ function AccordionDemo() {
       </Card>
     </div>
   );
-}
+};
 
 export default AccordionDemo;

@@ -19,7 +19,7 @@ const DisabledOption = () => {
       split
       title="Disabled Option"
     >
-      <div className="w-[240px] lt-sm:w-auto">
+      <div className="lt-sm:w-auto w-[240px]">
         <Select
           items={fruits}
           triggerProps={{

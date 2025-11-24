@@ -11,7 +11,7 @@ export const items: AccordionItemData[] = [
     value: '1'
   },
   {
-    children: "Yes. It's unstyled by default, giving you freedom over the look and feel.",
+    children: 'Yes. It\'s unstyled by default, giving you freedom over the look and feel.',
     leading: <Rocket />,
     title: 'Is it unstyled?',
     value: '2'

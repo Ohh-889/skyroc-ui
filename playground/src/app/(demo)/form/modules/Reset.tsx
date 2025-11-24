@@ -3,11 +3,11 @@
 import React from 'react';
 import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
 
-type Inputs = {
-  info: { city: string; company: string };
-  password: string;
-  username: string;
-};
+interface Inputs {
+  info: { city: string, company: string }
+  password: string
+  username: string
+}
 
 const initialValues = {
   info: {
@@ -30,7 +30,7 @@ const Reset = () => {
   return (
     <Card title="Reset">
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
         initialValues={initialValues}
       >

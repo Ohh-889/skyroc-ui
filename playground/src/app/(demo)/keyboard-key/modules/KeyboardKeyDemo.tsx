@@ -11,10 +11,12 @@ const KeyboardKeyDemo = () => {
           value={['command', 'k']}
           variant="solid"
         />
+
         <KeyboardKey
           value={['shift', 's']}
           variant="outline"
         />
+
         <KeyboardKey
           value={['ctrl', 'alt', 'a']}
           variant="ghost"

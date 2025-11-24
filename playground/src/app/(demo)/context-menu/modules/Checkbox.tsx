@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Card, ContextMenuCheckbox } from 'skyroc-ui';
-
 import { menus2 } from '../../dropdown-menu/modules/shared';
 
 const Checkbox = () => {
@@ -18,7 +17,7 @@ const Checkbox = () => {
         items={menus2}
         onChecksChange={setChecks}
       >
-        <div className="h-50 w-80 flex max-sm:w-auto items-center justify-center border rounded-md border-dashed text-sm">
+        <div className="flex h-50 w-80 items-center justify-center rounded-md border border-dashed text-sm max-sm:w-auto">
           Right click here
         </div>
       </ContextMenuCheckbox>

@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Card, ContextMenuRadio } from 'skyroc-ui';
-
 import { menus3 } from '../../dropdown-menu/modules/shared';
 
 const Radio = () => {
@@ -18,7 +17,7 @@ const Radio = () => {
         value={value}
         onValueChange={setValue}
       >
-        <div className="h-50 max-sm:w-auto w-80 flex items-center justify-center border rounded-md border-dashed text-sm">
+        <div className="flex h-50 w-80 items-center justify-center rounded-md border border-dashed text-sm max-sm:w-auto">
           Right click here
         </div>
       </ContextMenuRadio>

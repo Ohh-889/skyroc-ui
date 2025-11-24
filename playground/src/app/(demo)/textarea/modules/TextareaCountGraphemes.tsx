@@ -1,7 +1,7 @@
 'use client';
 
-import GraphemeSplitter from 'grapheme-splitter';
 import { useState } from 'react';
+import GraphemeSplitter from 'grapheme-splitter';
 import { Card, Textarea } from 'skyroc-ui';
 import type { TextareaProps } from 'skyroc-ui';
 

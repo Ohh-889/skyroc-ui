@@ -1,5 +1,4 @@
 import { Card, Command } from 'skyroc-ui';
-
 import { items } from './shared';
 
 const DefaultDemo = () => {
@@ -9,7 +8,7 @@ const DefaultDemo = () => {
       title="Command"
     >
       <Command
-        className="border rounded-lg shadow-md"
+        className="rounded-lg border shadow-md"
         items={items}
       />
     </Card>

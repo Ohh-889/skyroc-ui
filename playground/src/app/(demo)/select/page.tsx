@@ -10,17 +10,11 @@ const SelectPage = () => {
   return (
     <div className="flex-c gap-4">
       <Default />
-
       <DefaultValue />
-
       <AllSeparator />
-
       <GroupOption />
-
       <PositionItemAligned />
-
       <Disabled />
-
       <DisabledOption />
     </div>
   );

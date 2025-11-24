@@ -10,7 +10,12 @@ const TextCustomCount = () => {
     >
       <Textarea
         showCount
-        countRender={count => <span className="text-[red]">count is {count}</span>}
+        countRender={count => (
+          <span className="text-[red]">
+            count is
+            {count}
+          </span>
+        )}
       />
     </Card>
   );

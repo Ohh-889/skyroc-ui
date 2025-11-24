@@ -82,7 +82,7 @@ const ChipPage = () => {
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-3 mt-6">
+        <div className="mt-6 flex flex-wrap gap-3">
           {sizes.map(size => (
             <div key={size}>
               <Chip

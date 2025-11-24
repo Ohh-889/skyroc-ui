@@ -4,11 +4,11 @@
 import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 // Form field types
-type Inputs = {
-  age: number;
-  email: string;
-  username: string;
-};
+interface Inputs {
+  age: number
+  email: string
+  username: string
+}
 
 const initialValues: Inputs = {
   age: 0,
@@ -22,7 +22,7 @@ const ValidateMessagesDemo = () => {
   return (
     <Card title="Form with custom validateMessages">
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
         initialValues={initialValues}
         validateMessages={{

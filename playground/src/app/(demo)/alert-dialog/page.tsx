@@ -16,14 +16,14 @@ const AlertDialogPage = () => {
               <AlertDialogCancel key="cancel">Cancel</AlertDialogCancel>,
               <AlertDialogAction key="action">Confirm</AlertDialogAction>
             ]}
-            trigger={
+            trigger={(
               <Button
                 color="destructive"
                 variant="outline"
               >
                 Show Dialog
               </Button>
-            }
+            )}
           >
             <p>This action will delete all data</p>
           </AlertDialog>
@@ -37,14 +37,14 @@ const AlertDialogPage = () => {
             footer={<AlertDialogAction key="action">Confirm</AlertDialogAction>}
             title="Congratulations"
             type="success"
-            trigger={
+            trigger={(
               <Button
                 color="success"
                 variant="outline"
               >
                 Show Dialog
               </Button>
-            }
+            )}
           >
             <p>You have successfully completed the task</p>
           </AlertDialog>
@@ -61,14 +61,14 @@ const AlertDialogPage = () => {
               <AlertDialogCancel key="cancel">Cancel</AlertDialogCancel>,
               <AlertDialogAction key="action">Confirm</AlertDialogAction>
             ]}
-            trigger={
+            trigger={(
               <Button
                 color="warning"
                 variant="outline"
               >
                 Show Dialog
               </Button>
-            }
+            )}
           >
             <p>Be careful with this action</p>
           </AlertDialog>
@@ -82,14 +82,14 @@ const AlertDialogPage = () => {
             footer={<AlertDialogAction key="action">Confirm</AlertDialogAction>}
             title="Information"
             type="info"
-            trigger={
+            trigger={(
               <Button
                 color="info"
                 variant="outline"
               >
                 Show Dialog
               </Button>
-            }
+            )}
           >
             <p>Here is some information for you</p>
           </AlertDialog>

@@ -20,37 +20,21 @@ const FormPage = () => {
   return (
     <div className="flex-c gap-4">
       <Default />
-
       <List />
-
       <UseForm />
-
       <ComputedDemo />
-
       <FieldChange />
-
       <Validate />
-
       <ValidateWarning />
-
       <ZodResolver />
-
       <AsyncValidatorResolver />
-
       <UseWatch />
-
       <UseSelector />
-
       <Reset />
-
       <Preserve />
-
       <Middleware />
-
       <UndoRedo />
-
       <CustomValidateMessages />
-
       <ClearDestroy />
     </div>
   );

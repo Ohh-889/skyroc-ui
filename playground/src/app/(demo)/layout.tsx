@@ -1,11 +1,9 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-
-import Link from 'next/link';
 import React from 'react';
+import Link from 'next/link';
 import { Card } from 'skyroc-ui';
-
 import DemoTabs from './modules/DemoTabs';
 import DemoTitle from './modules/DemoTitle';
 
@@ -24,14 +22,15 @@ function getComponentDirectories() {
       }));
 
     return componentDirs;
-  } catch (error) {
+  }
+  catch (error) {
     console.error('failed to read the component directory:', error);
 
     return [{ children: null, label: 'Button', value: 'button' }];
   }
 }
 
-function DemoLayout({ children }: { children: React.ReactNode }) {
+const DemoLayout = ({ children }: { children: React.ReactNode }) => {
   const componentTabs = getComponentDirectories();
 
   return (
@@ -47,6 +46,6 @@ function DemoLayout({ children }: { children: React.ReactNode }) {
       </Card>
     </>
   );
-}
+};
 
 export default DemoLayout;

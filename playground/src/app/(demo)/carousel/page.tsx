@@ -1,5 +1,4 @@
 import { Card, Carousel } from 'skyroc-ui';
-
 import PluginDemo from './modules/PluginDemo';
 
 const CarouselPage = () => {
@@ -17,7 +16,7 @@ const CarouselPage = () => {
           >
             {index => (
               <Card className="size-full">
-                <div className="size-full flex-center">{index}</div>
+                <div className="flex-center size-full">{index}</div>
               </Card>
             )}
           </Carousel>
@@ -39,7 +38,7 @@ const CarouselPage = () => {
           >
             {index => (
               <Card className="size-full">
-                <div className="size-full flex-center">{index}</div>
+                <div className="flex-center size-full">{index}</div>
               </Card>
             )}
           </Carousel>

@@ -13,14 +13,15 @@ const DrawerDafultDemo = () => {
         classNames={{
           contentBody: 'mx-auto max-w-sm w-full'
         }}
-        footer={
+        footer={(
           <>
             <DrawerClose asChild>
               <Button variant="plain">Cancel</Button>
             </DrawerClose>
+
             <Button>Submit</Button>
           </>
-        }
+        )}
       >
         <p>
           This is a basic drawer with a title and description.

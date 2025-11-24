@@ -1,10 +1,9 @@
 'use client';
 
-import { Component, Dock, Home } from 'lucide-react';
 import { useState } from 'react';
+import { Component, Dock, Home } from 'lucide-react';
 import type { BreadcrumbItem, SelectProps, ThemeSize } from 'skyroc-ui';
 import { Breadcrumb, Button, ButtonGroup, Layout, LayoutTrigger, Select } from 'skyroc-ui';
-
 import type { LayoutCollapsible, LayoutSide, LayoutVariant } from '@/components/layout/layout-variants';
 
 const DemoLayout = () => {
@@ -103,6 +102,7 @@ const DemoLayout = () => {
       <div className="flex-y-center justify-end gap-2">
         <ButtonGroup>
           <Button variant="pure">side</Button>
+
           <Select
             items={sides}
             value={side}
@@ -113,8 +113,10 @@ const DemoLayout = () => {
             onValueChange={setSide}
           />
         </ButtonGroup>
+
         <ButtonGroup>
           <Button variant="pure">variant</Button>
+
           <Select
             items={variants}
             value={variant}
@@ -125,8 +127,10 @@ const DemoLayout = () => {
             onValueChange={setVariant}
           />
         </ButtonGroup>
+
         <ButtonGroup>
           <Button variant="pure">collapsible</Button>
+
           <Select
             items={collapsibles}
             value={collapsible}
@@ -137,8 +141,10 @@ const DemoLayout = () => {
             onValueChange={setCollapsible}
           />
         </ButtonGroup>
+
         <ButtonGroup>
           <Button variant="pure">size</Button>
+
           <Select
             items={sizes}
             value={size}
@@ -150,20 +156,21 @@ const DemoLayout = () => {
           />
         </ButtonGroup>
       </div>
-      <div className='h-120 w-full border border-border border-solid"'>
+
+      <div className='border-border border-solid" h-120 w-full border'>
         <Layout
+          defaultOpen
           collapsible={collapsible as LayoutCollapsible}
-          defaultOpen={true}
           side={side as LayoutSide}
           sidebar={<div className="group p-2">sidebar</div>}
           size={size as ThemeSize}
           variant={variant as LayoutVariant}
-          header={
-            <div className="w-full flex items-center gap-2 px-4">
+          header={(
+            <div className="flex w-full items-center gap-2 px-4">
               <LayoutTrigger size={size as ThemeSize} />
               <Breadcrumb items={breadcrumbItems} />
             </div>
-          }
+          )}
           ui={{
             header: 'h-12'
           }}

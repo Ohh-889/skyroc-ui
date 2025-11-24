@@ -3,7 +3,6 @@
   "type": "module",
   "version": "0.1.0",
   "private": true,
-
   "description": "skyroc-ui is an ui library like shadcn for React.",
   "author": {
     "name": "Ohh",
@@ -27,7 +26,7 @@
     "dev": "pnpm run dev:ui && pnpm run dev:playground",
     "dev:playground": "next dev --turbopack",
     "dev:ui": "pnpm --filter skyroc-ui dev",
-    "lint": "next lint",
+    "lint": "eslint . --fix",
     "lint:pkg": "eslint ./package.json --fix",
     "preview": "opennextjs-cloudflare build && opennextjs-cloudflare preview",
     "start": "next start",
@@ -49,15 +48,24 @@
   },
   "devDependencies": {
     "@eslint/eslintrc": "catalog:",
+    "@next/eslint-plugin-next": "catalog:",
     "@opennextjs/cloudflare": "1.11.0",
+    "@skyroc/eslint-config": "workspace:*",
     "@skyroc/tailwind-plugin": "workspace:*",
     "@tailwindcss/postcss": "catalog:",
+    "@typescript-eslint/eslint-plugin": "catalog:",
+    "@typescript-eslint/parser": "catalog:",
     "eslint": "catalog:",
-    "eslint-config-next": "catalog:",
+    "eslint-plugin-react": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-react-native": "catalog:",
+    "eslint-plugin-react-refresh": "catalog:",
+    "eslint-plugin-tailwindcss": "catalog:",
     "tailwindcss": "catalog:",
     "tailwindcss-animate": "catalog:",
     "tsx": "catalog:",
     "tw-animate-css": "catalog:",
+    "typescript": "catalog:",
     "wrangler": "4.24.3"
   }
 }

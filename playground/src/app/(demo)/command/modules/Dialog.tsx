@@ -3,7 +3,6 @@
 import { useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import { Card, Command, CommandDialog, KeyboardKey } from 'skyroc-ui';
-
 import { items } from './shared';
 
 const CommandDialogDemo = () => {
@@ -23,6 +22,7 @@ const CommandDialogDemo = () => {
       title="Dialog Command"
     >
       <KeyboardKey value={['command', 'j']} />
+
       <CommandDialog
         open={open}
         onOpenChange={setOpen}

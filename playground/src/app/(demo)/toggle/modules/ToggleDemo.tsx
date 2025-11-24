@@ -9,7 +9,7 @@ const ToggleDemo = () => {
       split
       title="Variant"
     >
-      <div className="flex gap-12px">
+      <div className="gap-12px flex">
         {variants.map(variant => (
           <Toggle
             key={variant}

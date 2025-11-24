@@ -4,7 +4,6 @@ import { useMemo } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import type { DropdownMenuProps } from 'skyroc-ui';
 import { Card, ContextMenu, toast } from 'skyroc-ui';
-
 import { menus } from '../../dropdown-menu/modules/shared';
 
 function useMenuShortcuts(items: DropdownMenuProps['items'], callback: (key: string, label: string) => void) {
@@ -12,18 +11,20 @@ function useMenuShortcuts(items: DropdownMenuProps['items'], callback: (key: str
 
   /** 1) 递归收集所有带 shortcut 的条目（保持稳定顺序即可） */
   const shortcutItems = useMemo(() => {
-    const list: Array<{ key: string; label: string }> = [];
+    const list: Array<{ key: string, label: string }> = [];
 
     const walk = (arr: typeof items) => {
-      arr.forEach(item => {
-        if (!item) return;
+      arr.forEach((item) => {
+        if (!item)
+          return;
         if ('shortcut' in item && item.shortcut) {
           const key = Array.isArray(item.shortcut)
             ? item.shortcut.map(k => (isMacOS && k === 'command' ? 'meta' : k)).join('+')
             : item.shortcut;
           list.push({ key, label: item.label as string });
         }
-        if ('children' in item && item.children) walk(item.children);
+        if ('children' in item && item.children)
+          walk(item.children);
       });
     };
 
@@ -36,7 +37,7 @@ function useMenuShortcuts(items: DropdownMenuProps['items'], callback: (key: str
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useHotkeys(
       key,
-      e => {
+      (e) => {
         e.preventDefault();
 
         callback(key, label);
@@ -63,7 +64,7 @@ const DefaultDropdownMenuDemo = () => {
       title="Dropdown Menu"
     >
       <ContextMenu items={menus}>
-        <div className="h-50 w-80 max-sm:w-auto flex items-center justify-center border rounded-md border-dashed text-sm">
+        <div className="flex h-50 w-80 items-center justify-center rounded-md border border-dashed text-sm max-sm:w-auto">
           Right click here
         </div>
       </ContextMenu>

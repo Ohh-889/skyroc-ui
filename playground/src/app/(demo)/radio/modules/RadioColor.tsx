@@ -3,9 +3,9 @@ import { Card, RadioGroup } from 'skyroc-ui';
 
 const colors: ThemeColor[] = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'];
 
-type Props = {
-  items: RadioGroupProps['items'];
-};
+interface Props {
+  items: RadioGroupProps['items']
+}
 
 const RadioColor = (props: Props) => {
   const { items } = props;

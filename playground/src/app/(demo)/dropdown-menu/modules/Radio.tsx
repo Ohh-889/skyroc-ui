@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Button, Card, DropdownMenuRadio } from 'skyroc-ui';
-
 import { menus3 } from './shared';
 
 const Radio = () => {

@@ -9,7 +9,7 @@ const WithFooter = () => {
       <Dialog
         title="Dialog Title"
         trigger={<Button variant="outline">Open</Button>}
-        footer={
+        footer={(
           <>
             <DialogClose asChild>
               <Button variant="plain">Cancel</Button>
@@ -17,7 +17,7 @@ const WithFooter = () => {
 
             <Button>Confirm</Button>
           </>
-        }
+        )}
       >
         <div>Dialog Content</div>
       </Dialog>

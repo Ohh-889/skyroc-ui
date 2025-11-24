@@ -6,7 +6,7 @@ const aligns: ThemeAlign[] = ['start', 'center', 'end'];
 
 const borders: DividerBorder[] = ['solid', 'dashed', 'dotted'];
 
-function DividerDemo() {
+const DividerDemo = () => {
   return (
     <div className="flex-c gap-4">
       <Card title="Horizontal">
@@ -63,6 +63,6 @@ function DividerDemo() {
       </Card>
     </div>
   );
-}
+};
 
 export default DividerDemo;

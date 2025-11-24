@@ -1,28 +1,25 @@
 'use client';
 
-/* eslint-disable no-promise-executor-return */
-
 import { useEffect } from 'react';
 import { Button, Card, Form, FormField, useFieldError, useForm } from 'skyroc-ui';
-
 import { DemoInput } from './DemoComponents';
 import { showToastCode } from './toast';
 
-type Inputs = {
-  age: number;
-  bio: string;
-  birthday: string;
-  favoriteColor: string;
-  nickname: string;
-  password: string;
-  password2: string;
-  pin: string;
-  role: string;
-  username: string;
-  username2: string;
-  website: string;
-  workEmail: string;
-};
+interface Inputs {
+  age: number
+  bio: string
+  birthday: string
+  favoriteColor: string
+  nickname: string
+  password: string
+  password2: string
+  pin: string
+  role: string
+  username: string
+  username2: string
+  website: string
+  workEmail: string
+}
 
 const Validate = () => {
   const [form] = useForm<Inputs>();
@@ -44,12 +41,12 @@ const Validate = () => {
   return (
     <Card title="Validate Fields">
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
-        onFinish={values => {
+        onFinish={(values) => {
           showToastCode('You submitted the following values success Validate', values);
         }}
-        onFinishFailed={errInfo => {
+        onFinishFailed={(errInfo) => {
           showToastCode('You failed to submit the form failed Validate', errInfo);
         }}
       >
@@ -86,7 +83,7 @@ const Validate = () => {
           rules={[
             {
               message: 'Password must be at least 8 characters and contain at least one letter and one number',
-              pattern: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
+              pattern: /^(?=.*[A-Z])(?=.*\d)[A-Z\d]{8,}$/i
             }
           ]}
         >
@@ -292,12 +289,14 @@ const Validate = () => {
           >
             Validate Nickname
           </Button>
+
           <Button
             type="button"
             onClick={validateUsername2}
           >
             Validate Username2
           </Button>
+
           <Button type="submit">Submit</Button>
         </div>
       </Form>

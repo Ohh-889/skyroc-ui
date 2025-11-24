@@ -10,7 +10,7 @@ const sizes: ThemeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
 
 const AvatarPage = () => {
   return (
-    <div className="flex gap-4 flex-col">
+    <div className="flex flex-col gap-4">
       <Card
         split
         title="Default"
@@ -26,7 +26,7 @@ const AvatarPage = () => {
             alt="Skyroc UI"
             classNames={{ fallback: 'bg-foreground ' }}
             src={skyrocUiRsc}
-            fallback={
+            fallback={(
               <Image
                 alt="Vercel logomark"
                 className="dark:invert"
@@ -34,7 +34,7 @@ const AvatarPage = () => {
                 src="/vercel.svg"
                 width={20}
               />
-            }
+            )}
           />
         </div>
       </Card>
@@ -43,7 +43,7 @@ const AvatarPage = () => {
         split
         title="Sizes"
       >
-        <div className="flex gap-[12px] flex-wrap">
+        <div className="flex flex-wrap gap-[12px]">
           {sizes.map(size => (
             <div
               className="flex-c-center"
@@ -55,6 +55,7 @@ const AvatarPage = () => {
                 size={size}
                 src={skyrocSrc}
               />
+
               <p>{size}</p>
             </div>
           ))}

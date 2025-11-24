@@ -1,9 +1,8 @@
 'use client';
 
-import { AArrowDownIcon, Minus, Plus } from 'lucide-react';
 import { useState } from 'react';
+import { AArrowDownIcon, Minus, Plus } from 'lucide-react';
 import { Accordion, Card } from 'skyroc-ui';
-
 import { items2 } from './shared';
 
 const CustomIcon = () => {

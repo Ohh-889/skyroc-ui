@@ -1,5 +1,4 @@
 import { Card, Label, ToggleGroup } from 'skyroc-ui';
-
 import { items } from './shared';
 
 const ToggleGroupMulti = () => {
@@ -11,7 +10,7 @@ const ToggleGroupMulti = () => {
       <ToggleGroup
         items={items}
         type="multiple"
-        itemRender={item => {
+        itemRender={(item) => {
           return <Label>{item.label}</Label>;
         }}
       />

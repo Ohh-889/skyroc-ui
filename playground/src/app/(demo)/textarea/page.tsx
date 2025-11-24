@@ -8,13 +8,9 @@ const TextareaPage = () => {
   return (
     <div className="flex flex-col gap-4">
       <TextareaDemo />
-
       <TextareaCountGraphemes />
-
       <TextCustomCount />
-
       <TextareaMaxlength />
-
       <TextareaSize />
     </div>
   );

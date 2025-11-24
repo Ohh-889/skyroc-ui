@@ -1,7 +1,6 @@
 'use client';
 
 import { Button, Card, DropdownMenu } from 'skyroc-ui';
-
 import { menus } from './shared';
 
 const WithArrow = () => {

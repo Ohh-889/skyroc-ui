@@ -1,7 +1,7 @@
 'use client';
 
-import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
 import { z } from 'zod';
+import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 // Define Zod Schema
 const zodSchema = z.object({
@@ -12,13 +12,13 @@ const zodSchema = z.object({
   username: z.string().min(3, 'username is not valid')
 });
 
-type Inputs = {
-  email: string;
+interface Inputs {
+  email: string
   info: {
-    password: string;
-  };
-  username: string;
-};
+    password: string
+  }
+  username: string
+}
 
 const initialValues: Inputs = {
   email: '',
@@ -34,7 +34,7 @@ const ZodResolverDemo = () => {
   return (
     <Card title="Form with ZodResolver">
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
         initialValues={initialValues}
         schema={zodSchema}

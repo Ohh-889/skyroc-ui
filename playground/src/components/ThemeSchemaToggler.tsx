@@ -1,7 +1,7 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import { useEffect, useState } from 'react';
+import { useTheme } from 'next-themes';
 import { Icon, Switch } from 'skyroc-ui';
 
 const ThemeSchemaToggler = () => {
@@ -19,7 +19,8 @@ const ThemeSchemaToggler = () => {
     setIsMounted(true);
   }, []);
 
-  if (!isMounted) return null;
+  if (!isMounted)
+    return null;
 
   return (
     <Switch

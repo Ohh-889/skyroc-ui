@@ -1,7 +1,6 @@
 'use client';
 
 import { Button, Card, Checkbox, Form, FormField, Input, RadioGroup, Select, Switch, useForm } from 'skyroc-ui';
-
 import { showToastCode } from './toast';
 
 const genderItems = [
@@ -15,13 +14,13 @@ const cities = [
   { label: 'Guangzhou', value: 'guangzhou' }
 ];
 
-type FormValues = {
-  city: string;
-  gender: 'female' | 'male';
-  hobbies: string[];
-  remember: boolean;
-  username: string;
-};
+interface FormValues {
+  city: string
+  gender: 'female' | 'male'
+  hobbies: string[]
+  remember: boolean
+  username: string
+}
 
 const Default = () => {
   const [form] = useForm<FormValues>();
@@ -32,12 +31,12 @@ const Default = () => {
       title="Form"
     >
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
-        onFinish={values => {
+        onFinish={(values) => {
           showToastCode('You submitted the following values', values);
         }}
-        onFinishFailed={errors => {
+        onFinishFailed={(errors) => {
           showToastCode('You failed to submit the form', errors);
         }}
         onValuesChange={(changedValues, values) => {

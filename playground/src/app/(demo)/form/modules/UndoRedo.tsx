@@ -2,11 +2,11 @@
 
 import { Button, Card, Form, FormField, FormList, Input, useForm, useUndoRedo } from 'skyroc-ui';
 
-type Inputs = {
-  email: string;
-  tags: string[];
-  username: string;
-};
+interface Inputs {
+  email: string
+  tags: string[]
+  username: string
+}
 
 const initialValues: Inputs = {
   email: 'test@example.com',
@@ -38,7 +38,7 @@ const UseFormWithUndoRedo = () => {
   return (
     <Card title="UseForm with Undo/Redo">
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
         initialValues={initialValues}
       >
@@ -75,7 +75,7 @@ const UseFormWithUndoRedo = () => {
           )}
         </FormList>
 
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex flex-wrap gap-2">
           <Button
             type="button"
             onClick={setUsername}

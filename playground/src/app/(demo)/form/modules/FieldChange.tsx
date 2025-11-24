@@ -11,9 +11,9 @@ const FieldChange = () => {
       title="Field Change"
     >
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
-        onFieldsChange={changedFields => {
+        onFieldsChange={(changedFields) => {
           /**
            * onFieldsChange(changedFields, allFields)
            *

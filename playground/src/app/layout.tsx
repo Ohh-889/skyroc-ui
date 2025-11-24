@@ -4,7 +4,6 @@ import '../css/globals.css';
 import Link from 'next/link';
 import { ThemeProvider } from 'next-themes';
 import { ButtonIcon, Card, Icon, Popover, Sonner } from 'skyroc-ui';
-
 import ThemeCustomize from '../components/ThemeCustomize';
 import ThemeSchemaToggler from '../components/ThemeSchemaToggler';
 import config from '../config';
@@ -27,7 +26,7 @@ export const metadata: Metadata = {
 export default async function RootLayout({
   children
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html
@@ -47,6 +46,7 @@ export default async function RootLayout({
           }}
         />
       </head>
+
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         id="app"
@@ -62,18 +62,18 @@ export default async function RootLayout({
             <Card
               className="h-full max-sm:h-auto"
               title="Skyroc UI Components"
-              extra={
+              extra={(
                 <div className="flex items-center gap-3">
                   <Popover
                     align="end"
                     classNames={{ content: 'z-15' }}
                     side="bottom"
-                    trigger={
+                    trigger={(
                       <ButtonIcon
                         icon="lucide:swatch-book"
                         size="lg"
                       />
-                    }
+                    )}
                   >
                     <ThemeCustomize />
                   </Popover>
@@ -93,7 +93,7 @@ export default async function RootLayout({
 
                   <ThemeSchemaToggler />
                 </div>
-              }
+              )}
             >
               {children}
             </Card>

@@ -2,22 +2,21 @@
 
 import type { FormInstance } from 'skyroc-ui';
 import { Button, Card, Form, FormField, Input, useForm, useSelector } from 'skyroc-ui';
-
 import { showToastCode } from './toast';
 
-type Inputs = {
-  confirmPassword: string;
+interface Inputs {
+  confirmPassword: string
   info: {
-    age: number;
+    age: number
     familyInfo: {
-      phone: string;
-    };
-    gender: string;
-    hobbies: string;
-  };
-  password: string;
-  username: string;
-};
+      phone: string
+    }
+    gender: string
+    hobbies: string
+  }
+  password: string
+  username: string
+}
 
 const SelectorEffect = ({ form }: { form: FormInstance<Inputs> }) => {
   // 1. Single-field selection: only listen to username
@@ -25,7 +24,7 @@ const SelectorEffect = ({ form }: { form: FormInstance<Inputs> }) => {
 
   // 2. Multi-field combination: watch password & confirmPassword
   const passwordsMatch = useSelector(
-    get => {
+    (get) => {
       const pass = get('password');
       const confirm = get('confirmPassword');
       return pass && confirm && pass === confirm;
@@ -94,7 +93,7 @@ const UseSelectorDemo = () => {
   return (
     <Card title="UseSelector Demo">
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
         initialValues={initialValues}
       >
@@ -133,31 +132,35 @@ const UseSelectorDemo = () => {
           <Input />
         </FormField>
 
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex flex-wrap gap-2">
           <Button
             type="button"
             onClick={setValues}
           >
             Set Values
           </Button>
+
           <Button
             type="button"
             onClick={setWrongConfirm}
           >
             Set Wrong Confirm
           </Button>
+
           <Button
             type="button"
             onClick={setPhone}
           >
             Set Phone
           </Button>
+
           <Button
             type="button"
             onClick={getSummary}
           >
             Get All Values
           </Button>
+
           <Button type="submit">Submit</Button>
         </div>
       </Form>

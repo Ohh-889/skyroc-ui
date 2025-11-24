@@ -9,7 +9,7 @@ const InputSize = () => {
       split
       title="Size"
     >
-      <div className="w-320px flex-c-stretch gap-3 lt-sm:w-auto">
+      <div className="w-320px flex-c-stretch lt-sm:w-auto gap-3">
         {sizes.map(size => (
           <div key={size}>
             <div>{size}</div>

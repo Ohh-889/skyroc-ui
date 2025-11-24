@@ -5,7 +5,7 @@ import type { FormAction } from 'skyroc-ui';
 import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 // ============ Analytics Middleware (logging/tracking) ============
-function analyticsMiddleware({ getState }: { dispatch: (a: FormAction) => void; getState: () => any }) {
+function analyticsMiddleware({ getState }: { dispatch: (a: FormAction) => void, getState: () => any }) {
   return (next: (a: FormAction) => void) => (action: FormAction) => {
     // the action before the middleware
     console.log('[middleware] before', action, 'state:', getState());
@@ -24,11 +24,11 @@ function analyticsMiddleware({ getState }: { dispatch: (a: FormAction) => void; 
 }
 
 // ============ Form field types ============
-type Inputs = {
-  confirmPassword: string;
-  password: string;
-  username: string;
-};
+interface Inputs {
+  confirmPassword: string
+  password: string
+  username: string
+}
 
 const initialValues: Inputs = {
   confirmPassword: '123456',
@@ -47,7 +47,7 @@ const UseFormWithMiddleware = () => {
   return (
     <Card title="UseForm with Middleware (Sync Password)">
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
         initialValues={initialValues}
       >
@@ -72,7 +72,7 @@ const UseFormWithMiddleware = () => {
           <Input />
         </FormField>
 
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex flex-wrap gap-2">
           <Button type="submit">Submit</Button>
           <Button onClick={() => form.setFieldValue('username', 'ohh-889')}>Set Username</Button>
         </div>

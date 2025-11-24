@@ -19,7 +19,6 @@ import {
 import Link from 'next/link';
 import type { DropdownMenuCheckboxProps, DropdownMenuProps, DropdownMenuRadioProps } from 'skyroc-ui';
 import { toast } from 'skyroc-ui';
-
 import config from '../../../../config';
 
 export const menus: DropdownMenuProps['items'] = [
@@ -61,7 +60,7 @@ export const menus: DropdownMenuProps['items'] = [
       </Link>
     ),
     leading: <Github />,
-    trailing: <ArrowUpRight className="shrink-0 self-start text-muted-foreground size-3 -ml-2" />
+    trailing: <ArrowUpRight className="text-muted-foreground -ml-2 size-3 shrink-0 self-start" />
   },
   {
     children: [

@@ -2,25 +2,24 @@
 
 import type { FormInstance } from 'skyroc-ui';
 import { Button, Card, Form, FormField, Input, useFieldState, useForm } from 'skyroc-ui';
-
 import { showToastCode } from './toast';
 
-type Inputs = {
-  confirmPassword: string;
+interface Inputs {
+  confirmPassword: string
   info: {
-    age: number;
+    age: number
     familyInfo: {
-      phone: string;
-    };
-    gender: string;
-    hobbies: string;
-  };
-  password: string;
-  username: string;
-};
+      phone: string
+    }
+    gender: string
+    hobbies: string
+  }
+  password: string
+  username: string
+}
 
 interface StateEffectProps {
-  form: FormInstance<Inputs>;
+  form: FormInstance<Inputs>
 }
 
 const StateEffect = (props: StateEffectProps) => {
@@ -115,7 +114,7 @@ const UseForm = () => {
   return (
     <Card title="UseForm">
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
         initialValues={initialValues}
       >
@@ -168,67 +167,77 @@ const UseForm = () => {
           <Input />
         </FormField>
 
-        <div className="flex gap-2 flex-wrap">
+        <div className="flex flex-wrap gap-2">
           <Button
             type="button"
             onClick={getValues}
           >
             Get Values
           </Button>
+
           <Button
             type="button"
             onClick={getInfoValues}
           >
             Get Info Values
           </Button>
+
           <Button
             type="button"
             onClick={getInfoAge}
           >
             Get Info Age
           </Button>
+
           <Button
             type="button"
             onClick={getInfoFamilyInfo}
           >
             Get Info Family Info
           </Button>
+
           <Button
             type="button"
             onClick={setInfoAge}
           >
             Set Info Age
           </Button>
+
           <Button
             type="button"
             onClick={setInfoFamilyInfo}
           >
             Set Info Family Info
           </Button>
+
           <Button
             type="button"
             onClick={setInfo}
           >
             Set Info
           </Button>
+
           <Button
             type="button"
             onClick={setValues}
           >
             Set Values
           </Button>
+
           <Button
             type="button"
             onClick={reset}
           >
             Reset
           </Button>
+
           <Button
             type="button"
             onClick={resetInfo}
           >
             Reset Info
           </Button>
+
           <Button type="submit">Submit</Button>
         </div>
       </Form>

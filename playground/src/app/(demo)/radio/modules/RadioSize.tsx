@@ -1,9 +1,9 @@
 import { Card, RadioGroup } from 'skyroc-ui';
 import type { RadioGroupProps, ThemeSize } from 'skyroc-ui';
 
-type Props = {
-  items: RadioGroupProps['items'];
-};
+interface Props {
+  items: RadioGroupProps['items']
+}
 
 const sizes: ThemeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
 

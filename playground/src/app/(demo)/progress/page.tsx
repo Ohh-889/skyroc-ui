@@ -5,7 +5,6 @@ const ProgressPage = () => {
   return (
     <div className="flex-c gap-4">
       <Color />
-
       <Size />
     </div>
   );

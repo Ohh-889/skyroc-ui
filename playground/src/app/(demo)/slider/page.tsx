@@ -6,9 +6,7 @@ const SliderPage = () => {
   return (
     <div className="flex-c gap-4">
       <SliderColor />
-
       <SliderVertical />
-
       <SliderSize />
     </div>
   );

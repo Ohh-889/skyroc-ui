@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
-
 import { showToastCode } from './toast';
 
 const Preserve = () => {
@@ -22,41 +21,45 @@ const Preserve = () => {
 
   return (
     <Card title="Preserve">
-      {load && (
-        <Form
-          className="w-[480px] max-sm:w-full space-y-4"
-          form={form}
-          onFinish={values => {
-            showToastCode('You submitted the following values', values);
-          }}
-          onFinishFailed={errors => {
-            showToastCode('You failed to submit the form', errors);
-          }}
-        >
-          {show && (
-            <FormField
-              label="Username"
-              name="username"
-            >
-              <Input placeholder="Username" />
-            </FormField>
-          )}
-
-          <FormField
-            label="Password"
-            name="password"
-            preserve={false}
+      {load
+        ? (
+          <Form
+            className="w-[480px] space-y-4 max-sm:w-full"
+            form={form}
+            onFinish={(values) => {
+              showToastCode('You submitted the following values', values);
+            }}
+            onFinishFailed={(errors) => {
+              showToastCode('You failed to submit the form', errors);
+            }}
           >
-            <Input placeholder="Password" />
-          </FormField>
+            {show
+              ? (
+                <FormField
+                  label="Username"
+                  name="username"
+                >
+                  <Input placeholder="Username" />
+                </FormField>
+              )
+              : null}
 
-          <div className="flex gap-x-2">
-            <Button onClick={toggle}>Toggle</Button>
-            <Button type="submit">Submit</Button>
-            <Button onClick={toggleLoad}>Toggle Load</Button>
-          </div>
-        </Form>
-      )}
+            <FormField
+              label="Password"
+              name="password"
+              preserve={false}
+            >
+              <Input placeholder="Password" />
+            </FormField>
+
+            <div className="flex gap-x-2">
+              <Button onClick={toggle}>Toggle</Button>
+              <Button type="submit">Submit</Button>
+              <Button onClick={toggleLoad}>Toggle Load</Button>
+            </div>
+          </Form>
+        )
+        : null}
     </Card>
   );
 };

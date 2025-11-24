@@ -22,7 +22,7 @@ const ControlState = () => {
       <Dialog
         open={open}
         title="Dialog Title"
-        footer={
+        footer={(
           <>
             <Button
               variant="plain"
@@ -30,17 +30,18 @@ const ControlState = () => {
             >
               Cancel
             </Button>
+
             <Button onClick={closeDialog}>Confirm</Button>
           </>
-        }
-        trigger={
+        )}
+        trigger={(
           <Button
             variant="outline"
             onClick={openDialog}
           >
             Open
           </Button>
-        }
+        )}
         onOpenChange={setOpen}
       >
         <div>Dialog Content</div>

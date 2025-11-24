@@ -11,12 +11,16 @@ const TooltipDemo = () => {
       split
       title="Tooltip Position"
     >
-      {sides.map(side => {
+      {sides.map((side) => {
         return (
           <div key={side}>
-            <div className="py-[12px] text-[18px] font-medium">Side: {side}</div>
+            <div className="py-[12px] text-[18px] font-medium">
+              Side:
+              {side}
+            </div>
+
             <div className="flex flex-wrap gap-[12px]">
-              {aligns.map(align => {
+              {aligns.map((align) => {
                 return (
                   <Tooltip
                     content="Tooltip content"
@@ -26,7 +30,10 @@ const TooltipDemo = () => {
                       side
                     }}
                   >
-                    <Button variant="plain">align:{align}</Button>
+                    <Button variant="plain">
+                      align:
+                      {align}
+                    </Button>
                   </Tooltip>
                 );
               })}

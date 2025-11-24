@@ -13,11 +13,11 @@ const descriptor: Record<string, RuleItem | RuleItem[]> = {
 
 const validator = new Schema(descriptor);
 
-type Inputs = {
-  email: string;
+interface Inputs {
+  email: string
 
-  username: string;
-};
+  username: string
+}
 
 const initialValues: Inputs = {
   email: '',
@@ -25,7 +25,8 @@ const initialValues: Inputs = {
 };
 
 function normalizeKeys(name?: string | string[]): string[] | undefined {
-  if (!name) return undefined;
+  if (!name)
+    return undefined;
   if (typeof name === 'string') {
     return [name];
   }
@@ -38,7 +39,8 @@ async function asyncValidatorResolver(state: Inputs, name: string | string[] | u
       keys: normalizeKeys(name)
     });
     return []; // ✅ 校验通过
-  } catch (err: any) {
+  }
+  catch (err: any) {
     // ❌ 校验失败
     return (
       err.errors?.map((e: any) => ({
@@ -55,7 +57,7 @@ const AsyncValidatorDemo = () => {
   return (
     <Card title="Form with AsyncValidator (function resolver)">
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
         initialValues={initialValues}
         schema={asyncValidatorResolver} // ✅ 非标准库 → 传函数

@@ -15,14 +15,15 @@ const AutoClose = () => {
           onEscapeKeyDown: e => e.preventDefault(),
           onPointerDownOutside: e => e.preventDefault()
         }}
-        footer={
+        footer={(
           <>
             <DialogClose>
               <Button variant="plain">Cancel</Button>
             </DialogClose>
+
             <Button>Confirm</Button>
           </>
-        }
+        )}
       >
         <div>Dialog Content</div>
       </Dialog>

@@ -9,7 +9,7 @@ const SliderColor = () => {
       split
       title="Color"
     >
-      <div className="w-[480px] flex flex-c-stretch gap-6 max-sm:w-auto">
+      <div className="flex-c-stretch flex w-[480px] gap-6 max-sm:w-auto">
         {colors.map(color => (
           <Slider
             color={color}

@@ -2,9 +2,9 @@ import React from 'react';
 import { Card, Divider, ScrollArea } from 'skyroc-ui';
 
 interface Artwork {
-  art: string;
-  artist: string;
-  id: string;
+  art: string
+  artist: string
+  id: string
 }
 
 const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
@@ -27,7 +27,7 @@ const works: Artwork[] = [
   }
 ];
 
-function ScrollAreaDemo() {
+const ScrollAreaDemo = () => {
   return (
     <div className="flex-c gap-4">
       <Card
@@ -35,7 +35,7 @@ function ScrollAreaDemo() {
         title="Vertical"
       >
         <ScrollArea
-          className="border rounded-md h-72 w-48"
+          className="h-72 w-48 rounded-md border"
           orientation="vertical"
         >
           <div className="p-4">
@@ -44,7 +44,6 @@ function ScrollAreaDemo() {
             {tags.map(tag => (
               <div key={tag}>
                 <div className="text-sm">{tag}</div>
-
                 <Divider className="my-2" />
               </div>
             ))}
@@ -57,23 +56,24 @@ function ScrollAreaDemo() {
         title="Horizontal"
       >
         <ScrollArea
-          className="border rounded-md w-96 whitespace-nowrap"
+          className="w-96 rounded-md border whitespace-nowrap"
           orientation="horizontal"
         >
-          <div className="flex p-4 space-x-4 w-max">
+          <div className="flex w-max space-x-4 p-4">
             {works.map(work => (
               <div key={work.id}>
                 <figure className="shrink-0">
-                  <div className="rounded-md overflow-hidden">
+                  <div className="overflow-hidden rounded-md">
                     <img
                       alt={`Photo by ${work.artist}`}
-                      className="object-cover aspect-[3/4] h-56 w-36"
+                      className="aspect-[3/4] h-56 w-36 object-cover"
                       src={work.art}
                     />
                   </div>
-                  <figcaption className="text-xs pt-2 text-muted-foreground">
+
+                  <figcaption className="text-muted-foreground pt-2 text-xs">
                     Photo by
-                    <span className="font-semibold text-foreground">{work.artist}</span>
+                    <span className="text-foreground font-semibold">{work.artist}</span>
                   </figcaption>
                 </figure>
               </div>
@@ -83,6 +83,6 @@ function ScrollAreaDemo() {
       </Card>
     </div>
   );
-}
+};
 
 export default ScrollAreaDemo;

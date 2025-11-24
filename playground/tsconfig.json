@@ -3,23 +3,14 @@
     "incremental": true,
     "target": "ES2017",
     "jsx": "react-jsx",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "paths": {
-      "@/*": [
-        "../packages/ui/src/*"
-      ]
+      "@/*": ["../packages/ui/src/*"]
     },
     "resolveJsonModule": true,
-    "types": [
-      "./cloudflare-env.d.ts",
-      "node"
-    ],
+    "types": ["./cloudflare-env.d.ts", "node"],
     "allowJs": true,
     "strict": true,
     "noEmit": true,
@@ -39,7 +30,5 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

@@ -1,5 +1,4 @@
 import { Card } from 'skyroc-ui';
-
 import AutoClose from './modules/AutoClose';
 import ControlState from './modules/ControlState';
 import DefaultDemo from './modules/DefaultDemo';

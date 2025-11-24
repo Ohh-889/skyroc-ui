@@ -25,7 +25,7 @@ const GroupOption = () => {
       split
       title="Group Option"
     >
-      <div className="w-[240px] lt-sm:w-auto">
+      <div className="lt-sm:w-auto w-[240px]">
         <Select
           items={items}
           triggerProps={{

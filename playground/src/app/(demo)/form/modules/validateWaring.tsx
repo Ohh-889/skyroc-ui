@@ -2,15 +2,14 @@
 
 import { useEffect } from 'react';
 import { Button, Card, Form, FormField, useFieldState, useForm } from 'skyroc-ui';
-
 import { DemoInput } from './DemoComponents';
 import { showToastCode } from './toast';
 
-type Inputs = {
-  age: number;
-  email: string;
-  username: string;
-};
+interface Inputs {
+  age: number
+  email: string
+  username: string
+}
 
 const ValidateOnlyDemo = () => {
   const [form] = useForm<Inputs>();
@@ -31,7 +30,7 @@ const ValidateOnlyDemo = () => {
   return (
     <Card title="Validate Only Demo">
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
       >
         <FormField

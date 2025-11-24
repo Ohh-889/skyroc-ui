@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import { Button, Card, DropdownMenuCheckbox } from 'skyroc-ui';
-
 import { menus2 } from './shared';
 
 const Checkbox = () => {

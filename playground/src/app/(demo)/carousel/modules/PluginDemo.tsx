@@ -17,8 +17,8 @@ const PluginDemo = () => {
           opts={{ loop: true }}
           plugins={[Autoplay({ delay: 2000 })]}
         >
-          <Card className="w-[310px] h-[310px]">
-            <div className="size-full flex-col flex-center">
+          <Card className="h-[310px] w-[310px]">
+            <div className="flex-center size-full flex-col">
               <Image
                 alt="1"
                 height={260}
@@ -26,15 +26,15 @@ const PluginDemo = () => {
                 width={260}
               />
 
-              <span className="text-sm mt-1 font-semibold">1</span>
+              <span className="mt-1 text-sm font-semibold">1</span>
             </div>
           </Card>
 
           <Card
-            className="w-[310px] h-[310px]"
+            className="h-[310px] w-[310px]"
             title="2"
           >
-            <div className="size-full flex-center flex-col">
+            <div className="flex-center size-full flex-col">
               <Image
                 alt="1"
                 height={260}
@@ -42,15 +42,15 @@ const PluginDemo = () => {
                 width={260}
               />
 
-              <span className="text-sm mt-1 font-semibold">2</span>
+              <span className="mt-1 text-sm font-semibold">2</span>
             </div>
           </Card>
 
           <Card
-            className="w-[310px] h-[310px]"
+            className="h-[310px] w-[310px]"
             title="3"
           >
-            <div className="size-full flex-center flex-col">
+            <div className="flex-center size-full flex-col">
               <Image
                 alt="1"
                 height={260}
@@ -58,15 +58,15 @@ const PluginDemo = () => {
                 width={260}
               />
 
-              <span className="text-sm mt-1 font-semibold">3</span>
+              <span className="mt-1 text-sm font-semibold">3</span>
             </div>
           </Card>
 
           <Card
-            className="w-[310px] h-[310px]"
+            className="h-[310px] w-[310px]"
             title="4"
           >
-            <div className="size-full flex-center flex-col">
+            <div className="flex-center size-full flex-col">
               <Image
                 alt="1"
                 height={260}
@@ -74,15 +74,15 @@ const PluginDemo = () => {
                 width={260}
               />
 
-              <span className="text-sm mt-1 font-semibold">4</span>
+              <span className="mt-1 text-sm font-semibold">4</span>
             </div>
           </Card>
 
           <Card
-            className="w-[310px] h-[310px]"
+            className="h-[310px] w-[310px]"
             title="5"
           >
-            <span className="font-semibold size-full flex-center text-4xl">5</span>
+            <span className="flex-center size-full text-4xl font-semibold">5</span>
           </Card>
         </Carousel>
       </div>

@@ -1,5 +1,5 @@
-import { Rocket, Terminal, TriangleAlert, X } from 'lucide-react';
 import React from 'react';
+import { Rocket, Terminal, TriangleAlert, X } from 'lucide-react';
 import { Alert, type AlertVariant, ButtonIcon, Card, type ThemeColor, type ThemeSize } from 'skyroc-ui';
 
 const colors: ThemeColor[] = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'];
@@ -13,7 +13,7 @@ const AlertPage = () => {
         split
         title="Color"
       >
-        <div className="flex flex-c-stretch gap-[12px]">
+        <div className="flex-c-stretch flex gap-[12px]">
           {colors.map(color => (
             <Alert
               color={color}
@@ -29,7 +29,7 @@ const AlertPage = () => {
         split
         title="Variant"
       >
-        <div className="flex flex-c-stretch gap-[12px]">
+        <div className="flex-c-stretch flex gap-[12px]">
           {variants.map((variant, index) => (
             <Alert
               color={colors[index]}
@@ -75,14 +75,14 @@ const AlertPage = () => {
           icon={<TriangleAlert />}
           title="Error"
           variant="ghost"
-          trailing={
+          trailing={(
             <ButtonIcon
               fitContent={false}
               variant="ghost"
             >
               <X />
             </ButtonIcon>
-          }
+          )}
         />
       </Card>
 
@@ -90,7 +90,7 @@ const AlertPage = () => {
         split
         title="Size"
       >
-        <div className="flex flex-c-stretch gap-[12px]">
+        <div className="flex-c-stretch flex gap-[12px]">
           {sizes.map((size, index) => (
             <Alert
               color={colors[index]}

@@ -6,7 +6,7 @@ const ToggleDisabled = () => {
       split
       title="Disabled"
     >
-      <div className="flex flex-wrap gap-12px">
+      <div className="gap-12px flex flex-wrap">
         <Toggle
           disabled
           size="md"
@@ -14,6 +14,7 @@ const ToggleDisabled = () => {
         >
           disabled
         </Toggle>
+
         <Toggle
           disabled
           size="md"

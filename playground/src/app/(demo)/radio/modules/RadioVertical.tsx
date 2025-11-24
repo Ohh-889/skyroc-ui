@@ -1,9 +1,9 @@
 import type { RadioGroupProps } from 'skyroc-ui';
 import { Card, RadioGroup } from 'skyroc-ui';
 
-type Props = {
-  items: RadioGroupProps['items'];
-};
+interface Props {
+  items: RadioGroupProps['items']
+}
 
 const RadioVertical = (props: Props) => {
   const { items } = props;

@@ -2,12 +2,12 @@
 
 import { ButtonIcon, Card, Form, FormField, FormList, Input, useForm } from 'skyroc-ui';
 
-type FormValues = {
+interface FormValues {
   users: {
-    age: number;
-    name: string;
-  }[];
-};
+    age: number
+    name: string
+  }[]
+}
 
 const List = () => {
   const [form] = useForm<FormValues>();
@@ -18,7 +18,7 @@ const List = () => {
       title="List"
     >
       <Form
-        className="w-[480px] max-sm:w-full space-y-4"
+        className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
       >
         <FormList
@@ -32,7 +32,7 @@ const List = () => {
             <div>
               {fields.map(({ key, name }, index) => (
                 <div
-                  className="flex gap-x-2 items-center"
+                  className="flex items-center gap-x-2"
                   key={key}
                 >
                   <FormField
@@ -51,7 +51,7 @@ const List = () => {
                     <Input placeholder={`Enter ${name}.age`} />
                   </FormField>
 
-                  <div className="flex gap-x-2 mt-6">
+                  <div className="mt-6 flex gap-x-2">
                     <ButtonIcon
                       icon="ant-design:plus-outlined"
                       variant="ghost"
@@ -63,9 +63,10 @@ const List = () => {
                 </div>
               ))}
 
-              <div className="flex gap-x-2 mt-4 items-center">
-                <div className="flex gap-x-2px items-center">
+              <div className="mt-4 flex items-center gap-x-2">
+                <div className="gap-x-2px flex items-center">
                   <div className="text-sm text-gray-500">replace 0:</div>
+
                   <ButtonIcon
                     icon="ant-design:swap-outlined"
                     variant="ghost"
@@ -73,8 +74,9 @@ const List = () => {
                   />
                 </div>
 
-                <div className="flex gap-x-2px items-center">
+                <div className="gap-x-2px flex items-center">
                   <div className="text-sm text-gray-500">move 0 to 1: </div>
+
                   <ButtonIcon
                     icon="ant-design:arrow-up-outlined"
                     variant="ghost"
@@ -82,8 +84,9 @@ const List = () => {
                   />
                 </div>
 
-                <div className="flex gap-x-2px items-center">
+                <div className="gap-x-2px flex items-center">
                   <div className="text-sm text-gray-500">swap 0 and 1: </div>
+
                   <ButtonIcon
                     icon="ant-design:retweet-outlined"
                     variant="ghost"
@@ -103,7 +106,7 @@ const List = () => {
             <div>
               {fields.map(({ key, name }, index) => (
                 <div
-                  className="flex gap-x-2 items-center"
+                  className="flex items-center gap-x-2"
                   key={key}
                 >
                   <FormField
@@ -112,7 +115,8 @@ const List = () => {
                   >
                     <Input placeholder={`Enter ${name}`} />
                   </FormField>
-                  <div className="flex gap-x-2 mt-6">
+
+                  <div className="mt-6 flex gap-x-2">
                     <ButtonIcon
                       icon="ant-design:plus-outlined"
                       variant="ghost"

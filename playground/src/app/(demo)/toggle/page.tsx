@@ -6,9 +6,7 @@ const TogglePage = () => {
   return (
     <div className="flex-c gap-4">
       <ToggleDemo />
-
       <ToggleSize />
-
       <ToggleDisabled />
     </div>
   );

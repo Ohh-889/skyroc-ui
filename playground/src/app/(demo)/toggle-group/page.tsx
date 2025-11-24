@@ -5,7 +5,6 @@ const ToggleGroupPage = () => {
   return (
     <div className="flex-c gap-4">
       <ToggleGroupSingle />
-
       <ToggleGroupMulti />
     </div>
   );
