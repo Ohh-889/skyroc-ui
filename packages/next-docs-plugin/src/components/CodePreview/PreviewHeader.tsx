@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import { Check, Code2, Columns2, Copy, Eye, Maximize2, Minimize2, RotateCcw } from 'lucide-react'
-import { ButtonIcon } from '@/components/button'
-import { Segment } from '@/components/segment'
+import { Check, Code2, Columns2, Copy, Eye, Maximize2, Minimize2, RotateCcw } from 'lucide-react';
+import { ButtonIcon } from '@/components/button';
+import { Segment } from '@/components/segment';
 
 interface PreviewHeaderProps {
   title?: string
@@ -24,7 +24,7 @@ const tabs = [
         预览
       </span>
     ),
-    value: 'preview',
+    value: 'preview'
   },
   {
     label: (
@@ -33,7 +33,7 @@ const tabs = [
         代码
       </span>
     ),
-    value: 'code',
+    value: 'code'
   },
   {
     label: (
@@ -42,9 +42,9 @@ const tabs = [
         实时预览
       </span>
     ),
-    value: 'split',
-  },
-]
+    value: 'split'
+  }
+];
 
 /**
  * 预览组件的头部
@@ -58,7 +58,7 @@ export const PreviewHeader = ({
   onModeChange,
   onReset,
   onCopy,
-  onToggleFullscreen,
+  onToggleFullscreen
 }: PreviewHeaderProps) => {
   return (
     <div className="flex items-center justify-between border-b border-border bg-background px-5 py-3.5">
@@ -112,5 +112,5 @@ export const PreviewHeader = ({
         </div>
       </div>
     </div>
-  )
-}
+  );
+};

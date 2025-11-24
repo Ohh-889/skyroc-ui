@@ -1,13 +1,13 @@
-'use client'
+'use client';
 
-import { useCallback, useEffect, useState } from 'react'
-import { cn } from '../../lib/cn'
-import { highlightCode } from '../../lib/shiki'
-import { useDemoComponents } from './DemoScope'
-import { PreviewContent } from './PreviewContent'
-import { PreviewFooter } from './PreviewFooter'
-import { PreviewHeader } from './PreviewHeader'
-import { useCodeCompiler } from './useCodeCompiler'
+import { useCallback, useEffect, useState } from 'react';
+import { cn } from '../../lib/cn';
+import { highlightCode } from '../../lib/shiki';
+import { useDemoComponents } from './DemoScope';
+import { PreviewContent } from './PreviewContent';
+import { PreviewFooter } from './PreviewFooter';
+import { PreviewHeader } from './PreviewHeader';
+import { useCodeCompiler } from './useCodeCompiler';
 
 interface LiveCodePreviewProps {
   code: string
@@ -21,68 +21,68 @@ interface LiveCodePreviewProps {
  */
 export const LiveCodePreview = ({ code: initialCode, title, children }: LiveCodePreviewProps) => {
   // 状态管理
-  const [mode, setMode] = useState<'preview' | 'code' | 'split'>('preview')
-  const [code, setCode] = useState(initialCode)
-  const [isFullscreen, setIsFullscreen] = useState(false)
-  const [copied, setCopied] = useState(false)
-  const [highlightedHtml, setHighlightedHtml] = useState('')
-  const [isLoading, setIsLoading] = useState(false)
+  const [mode, setMode] = useState<'preview' | 'code' | 'split'>('preview');
+  const [code, setCode] = useState(initialCode);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [copied, setCopied] = useState(false);
+  const [highlightedHtml, setHighlightedHtml] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const hasChanged = code !== initialCode
-  const contextComponents = useDemoComponents()
+  const hasChanged = code !== initialCode;
+  const contextComponents = useDemoComponents();
 
   // 编译代码（仅在分屏模式下）
   const { component: liveComponent, error: compileError } = useCodeCompiler({
     code,
     enabled: mode === 'split',
-    contextComponents,
-  })
+    contextComponents
+  });
 
   // 复制代码
   const handleCopy = useCallback(async () => {
     // 代码模式使用 initialCode（不可变），分屏模式使用当前 code
-    const codeToCopy = mode === 'code' ? initialCode : code
-    await navigator.clipboard.writeText(codeToCopy)
-    setCopied(true)
-  }, [code, initialCode, mode])
+    const codeToCopy = mode === 'code' ? initialCode : code;
+    await navigator.clipboard.writeText(codeToCopy);
+    setCopied(true);
+  }, [code, initialCode, mode]);
 
   // 重置代码
   const handleReset = useCallback(() => {
-    setCode(initialCode)
-  }, [initialCode])
+    setCode(initialCode);
+  }, [initialCode]);
 
   // 切换全屏
   const handleToggleFullscreen = useCallback(() => {
-    setIsFullscreen(prev => !prev)
-  }, [])
+    setIsFullscreen(prev => !prev);
+  }, []);
 
   // 复制状态自动清除
   useEffect(() => {
     if (!copied)
-      return
-    const timer = setTimeout(() => setCopied(false), 1200)
-    return () => clearTimeout(timer)
-  }, [copied])
+      return;
+    const timer = setTimeout(() => setCopied(false), 1200);
+    return () => clearTimeout(timer);
+  }, [copied]);
 
   // 代码模式下高亮代码（使用 initialCode）
   useEffect(() => {
     if (mode !== 'code')
-      return
+      return;
 
-    let canceled = false
-    setIsLoading(true)
+    let canceled = false;
+    setIsLoading(true);
 
     highlightCode(initialCode, 'tsx').then((result) => {
       if (!canceled) {
-        setHighlightedHtml(result)
-        setIsLoading(false)
+        setHighlightedHtml(result);
+        setIsLoading(false);
       }
-    })
+    });
 
     return () => {
-      canceled = true
-    }
-  }, [initialCode, mode])
+      canceled = true;
+    };
+  }, [initialCode, mode]);
 
   return (
     <div
@@ -93,7 +93,7 @@ export const LiveCodePreview = ({ code: initialCode, title, children }: LiveCode
         // 暗色模式：深色背景，更深的边框
         'dark:bg-zinc-900 dark:border-zinc-800',
         // 全屏模式
-        isFullscreen && 'fixed inset-6 z-50 m-0 shadow-2xl',
+        isFullscreen && 'fixed inset-6 z-50 m-0 shadow-2xl'
       )}
     >
       {/* 头部 */}
@@ -135,5 +135,5 @@ export const LiveCodePreview = ({ code: initialCode, title, children }: LiveCode
         )
         : null}
     </div>
-  )
-}
+  );
+};

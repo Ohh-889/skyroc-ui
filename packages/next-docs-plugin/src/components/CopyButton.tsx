@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import type { FC, MouseEvent } from 'react'
-import { Check, Copy } from 'lucide-react'
-import type { ButtonIconProps } from '@/components/button'
-import { ButtonIcon } from '@/components/button'
+import { useEffect, useState } from 'react';
+import type { FC, MouseEvent } from 'react';
+import { Check, Copy } from 'lucide-react';
+import type { ButtonIconProps } from '@/components/button';
+import { ButtonIcon } from '@/components/button';
 
 interface CopyButtonProps extends ButtonIconProps {
   content?: string
@@ -13,28 +13,28 @@ interface CopyButtonProps extends ButtonIconProps {
 
 /* -------------------- CopyToClipboard -------------------- */
 const CopyButton: FC<CopyButtonProps> = (props) => {
-  const { content, getContent, ...rest } = props
+  const { content, getContent, ...rest } = props;
 
-  const [isCopied, setIsCopied] = useState(false)
+  const [isCopied, setIsCopied] = useState(false);
 
   useEffect(() => {
     if (!isCopied)
-      return () => {}
-    const timer = setTimeout(() => setIsCopied(false), 2000)
-    return () => clearTimeout(timer)
-  }, [isCopied])
+      return () => {};
+    const timer = setTimeout(() => setIsCopied(false), 2000);
+    return () => clearTimeout(timer);
+  }, [isCopied]);
 
   const handleClick = async (event: MouseEvent<HTMLButtonElement>) => {
-    const copyContent = content || getContent?.(event) || ''
+    const copyContent = content || getContent?.(event) || '';
 
     try {
-      await navigator.clipboard.writeText(copyContent)
-      setIsCopied(true)
+      await navigator.clipboard.writeText(copyContent);
+      setIsCopied(true);
     }
     catch {
-      console.error('Failed to copy!')
+      console.error('Failed to copy!');
     }
-  }
+  };
 
   return (
     <ButtonIcon
@@ -44,7 +44,7 @@ const CopyButton: FC<CopyButtonProps> = (props) => {
     >
       {isCopied ? <Check size={16} /> : <Copy size={16} />}
     </ButtonIcon>
-  )
-}
+  );
+};
 
-export default CopyButton
+export default CopyButton;

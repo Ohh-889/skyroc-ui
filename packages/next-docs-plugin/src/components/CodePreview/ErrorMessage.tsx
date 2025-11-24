@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 interface ErrorMessageProps {
   title: string
@@ -11,7 +11,7 @@ interface ErrorMessageProps {
  * 错误/警告提示组件
  */
 export const ErrorMessage = ({ title, message, type = 'error', tip }: ErrorMessageProps) => {
-  const isError = type === 'error'
+  const isError = type === 'error';
 
   return (
     <div
@@ -86,5 +86,5 @@ export const ErrorMessage = ({ title, message, type = 'error', tip }: ErrorMessa
         )
         : null}
     </div>
-  )
-}
+  );
+};

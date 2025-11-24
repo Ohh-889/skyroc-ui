@@ -759,6 +759,24 @@ importers:
       '@types/react-dom':
         specifier: 'catalog:'
         version: 19.1.1(@types/react@19.1.0)
+      eslint:
+        specifier: 'catalog:'
+        version: 9.39.0(jiti@2.6.1)
+      eslint-plugin-react:
+        specifier: 'catalog:'
+        version: 7.37.5(eslint@9.39.0(jiti@2.6.1))
+      eslint-plugin-react-hooks:
+        specifier: 'catalog:'
+        version: 7.0.0(eslint@9.39.0(jiti@2.6.1))
+      eslint-plugin-react-native:
+        specifier: 'catalog:'
+        version: 5.0.0(eslint@9.39.0(jiti@2.6.1))
+      eslint-plugin-react-refresh:
+        specifier: 'catalog:'
+        version: 0.4.24(eslint@9.39.0(jiti@2.6.1))
+      eslint-plugin-tailwindcss:
+        specifier: 'catalog:'
+        version: 4.0.0-beta.0(tailwindcss@4.1.17)
       mdast-util-mdxjs-esm:
         specifier: 2.0.1
         version: 2.0.1

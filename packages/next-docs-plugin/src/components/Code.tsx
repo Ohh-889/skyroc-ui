@@ -1,8 +1,8 @@
-'use client'
+'use client';
 
-import type { FC, HTMLAttributes, MouseEvent } from 'react'
-import cn from 'clsx'
-import CopyButton from './CopyButton'
+import type { FC, HTMLAttributes, MouseEvent } from 'react';
+import cn from 'clsx';
+import CopyButton from './CopyButton';
 
 const Code: FC<
   HTMLAttributes<HTMLElement> & {
@@ -18,21 +18,21 @@ const Code: FC<
     'data-language': language,
     'data-show-line-numbers': showLineNumbers,
     ...props
-  } = rest
+  } = rest;
 
-  const isBlock = className?.includes('hljs') || Boolean(language)
+  const isBlock = className?.includes('hljs') || Boolean(language);
 
   function getContent(event: MouseEvent<HTMLButtonElement>) {
-    const container = event.currentTarget.closest('.code-block')
-    return container?.querySelector('pre code')?.textContent ?? ''
+    const container = event.currentTarget.closest('.code-block');
+    return container?.querySelector('pre code')?.textContent ?? '';
   }
 
   return (
     <code
       dir="ltr"
       {...props}
-      style={{ display: 'grid' }}
       data-show-line-numbers={showLineNumbers}
+      style={{ display: 'grid' }}
       className={cn(
         'font-mono text-[13px] leading-relaxed',
         'justify-between items-center flex-wrap',
@@ -44,7 +44,7 @@ const Code: FC<
             'bg-transparent',
             'selection:bg-muted selection:text-foreground',
             'before:hidden after:hidden',
-            showLineNumbers==='' && '[counter-reset:line]',
+            showLineNumbers === '' && '[counter-reset:line]'
             // 行号支持
           ]
           : [
@@ -52,15 +52,15 @@ const Code: FC<
             'inline-block rounded-md px-[0.3em] py-[0.15em]',
             'font-mono text-[0.875em] leading-normal text-foreground/90',
             'bg-muted/40 dark:bg-neutral-800 dark:border-neutral-700',
-            'whitespace-nowrap',
+            'whitespace-nowrap'
           ],
-        className,
+        className
       )}
     >
       {children}
       {copy ? <CopyButton getContent={getContent} /> : null}
     </code>
-  )
-}
+  );
+};
 
-export default Code
+export default Code;

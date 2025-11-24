@@ -1,19 +1,19 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import { Tabs } from '@/components/tabs'
-import CopyButton from './CopyButton'
+import { useState } from 'react';
+import { Tabs } from '@/components/tabs';
+import CopyButton from './CopyButton';
 
 interface InstallDependenciesProps {
   pkg: string
 }
 
-const PACKAGE_MANAGERS = ['npm', 'pnpm', 'yarn', 'bun'] as const
+const PACKAGE_MANAGERS = ['npm', 'pnpm', 'yarn', 'bun'] as const;
 
 const InstallDependencies = (props: InstallDependenciesProps) => {
-  const { pkg } = props
+  const { pkg } = props;
 
-  const [activePackageManager, setActivePackageManager] = useState<string>(PACKAGE_MANAGERS[0])
+  const [activePackageManager, setActivePackageManager] = useState<string>(PACKAGE_MANAGERS[0]);
 
   const items = PACKAGE_MANAGERS.map(manager => ({
     children: () => (
@@ -32,8 +32,8 @@ const InstallDependencies = (props: InstallDependenciesProps) => {
       </div>
     ),
     label: manager,
-    value: manager,
-  }))
+    value: manager
+  }));
 
   return (
     <Tabs
@@ -43,7 +43,7 @@ const InstallDependencies = (props: InstallDependenciesProps) => {
       value={activePackageManager}
       onValueChange={setActivePackageManager}
     />
-  )
-}
+  );
+};
 
-export default InstallDependencies
+export default InstallDependencies;

@@ -1,10 +1,10 @@
-'use client'
+'use client';
 
-import * as React from 'react'
-import { ErrorBoundary } from 'react-error-boundary'
-import { cn } from '../../lib/cn'
-import { CodeEditor } from './CodeEditor'
-import { ErrorMessage } from './ErrorMessage'
+import * as React from 'react';
+import { ErrorBoundary } from 'react-error-boundary';
+import { cn } from '../../lib/cn';
+import { CodeEditor } from './CodeEditor';
+import { ErrorMessage } from './ErrorMessage';
 
 interface PreviewContentProps {
   mode: 'preview' | 'code' | 'split'
@@ -32,11 +32,11 @@ export const PreviewContent = ({
   code,
   onCodeChange,
   liveComponent,
-  compileError,
+  compileError
 }: PreviewContentProps) => {
   // 分屏模式使用固定高度，其他模式自适应
-  const splitHeightClass = isFullscreen ? 'h-[calc(100vh-200px)]' : 'h-[calc(100vh-380px)]'
-  const codeMaxHeightClass = isFullscreen ? 'max-h-[calc(100vh-200px)]' : 'max-h-[calc(100vh-380px)]'
+  const splitHeightClass = isFullscreen ? 'h-[calc(100vh-200px)]' : 'h-[calc(100vh-380px)]';
+  const codeMaxHeightClass = isFullscreen ? 'max-h-[calc(100vh-200px)]' : 'max-h-[calc(100vh-380px)]';
 
   return (
     <div className="relative bg-background">
@@ -62,7 +62,7 @@ export const PreviewContent = ({
         <div className="relative bg-muted/30">
           <div className={cn(
             'code-viewer overflow-auto p-4 font-mono text-sm leading-relaxed not-prose show-line-numbers',
-            codeMaxHeightClass,
+            codeMaxHeightClass
           )}
           >
             <div
@@ -137,5 +137,5 @@ export const PreviewContent = ({
         </div>
       )}
     </div>
-  )
-}
+  );
+};

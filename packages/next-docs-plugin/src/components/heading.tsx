@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import type { ComponentProps, FC } from 'react'
-import cn from 'clsx'
+import type { ComponentProps, FC } from 'react';
+import cn from 'clsx';
 
 const createHeading = (Tag: `h${1 | 2 | 3 | 4 | 5 | 6}`): FC<ComponentProps<typeof Tag>> => {
   const Heading = ({ children, className, id, ...props }: ComponentProps<typeof Tag>) => {
@@ -19,11 +19,11 @@ const createHeading = (Tag: `h${1 | 2 | 3 | 4 | 5 | 6}`): FC<ComponentProps<type
             h6: cn(
               'mt-6 mb-2 text-sm md:text-base',
               'leading-[1.6] font-semibold',
-              'text-muted-foreground tracking-wider uppercase',
-            ),
+              'text-muted-foreground tracking-wider uppercase'
+            )
           }[Tag],
-          className,
-        )
+          className
+        );
 
     return (
       <Tag
@@ -33,15 +33,15 @@ const createHeading = (Tag: `h${1 | 2 | 3 | 4 | 5 | 6}`): FC<ComponentProps<type
       >
         {children}
       </Tag>
-    )
-  }
+    );
+  };
 
-  return Heading
-}
+  return Heading;
+};
 
-export const H1 = createHeading('h1')
-export const H2 = createHeading('h2')
-export const H3 = createHeading('h3')
-export const H4 = createHeading('h4')
-export const H5 = createHeading('h5')
-export const H6 = createHeading('h6')
+export const H1 = createHeading('h1');
+export const H2 = createHeading('h2');
+export const H3 = createHeading('h3');
+export const H4 = createHeading('h4');
+export const H5 = createHeading('h5');
+export const H6 = createHeading('h6');

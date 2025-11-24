@@ -1,21 +1,20 @@
-import path from 'node:path'
-import { visit } from 'unist-util-visit'
+import path from 'node:path';
+import { visit } from 'unist-util-visit';
 
-export * from './components'
+export * from './components';
 
 // 保留 pascal 工具
 export const pascal = (str) => {
-  const parts = str?.split(/[.\-\s_]/).map(x => x.toLowerCase()) ?? []
+  const parts = str?.split(/[.\-\s_]/).map(x => x.toLowerCase()) ?? [];
   if (parts.length === 0)
-    return ''
-  return parts.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('')
-}
-
+    return '';
+  return parts.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('');
+};
 
 export default function rehypeCodeMeta(opt: { isRemark?: boolean } = {}) {
-  const { isRemark = false } = opt
+  const { isRemark = false } = opt;
 
-  console.log('isRemark', isRemark)
+  console.log('isRemark', isRemark);
   return (tree) => {
     // if (isRemark) {
     //   console.log('tree', tree.children[0]);
@@ -42,37 +41,37 @@ export default function rehypeCodeMeta(opt: { isRemark?: boolean } = {}) {
     //   });
     // }
 
-    const importDecls = []
-    const demoComponents = new Set()
+    const importDecls = [];
+    const demoComponents = new Set();
 
     visit(tree, 'mdxJsxFlowElement', (node, index, parent) => {
       if (node.name !== 'Demo')
-        return
+        return;
 
-      const srcAttr = node.attributes?.find(attr => attr.name === 'src')
+      const srcAttr = node.attributes?.find(attr => attr.name === 'src');
       if (!srcAttr)
-        return
+        return;
 
-      const src = String(srcAttr.value)
+      const src = String(srcAttr.value);
 
       // 生成唯一的组件名
-      const basename = path.basename(src, path.extname(src))
-      let componentName = pascal(basename)
+      const basename = path.basename(src, path.extname(src));
+      let componentName = pascal(basename);
 
       // 确保组件名唯一
-      let counter = 1
-      const originalName = componentName
+      let counter = 1;
+      const originalName = componentName;
       while (demoComponents.has(componentName)) {
-        componentName = `${originalName}${counter}`
-        counter++
+        componentName = `${originalName}${counter}`;
+        counter++;
       }
-      demoComponents.add(componentName)
+      demoComponents.add(componentName);
 
       // 添加 import 声明
-      importDecls.push(`import ${componentName} from '${src}';`)
+      importDecls.push(`import ${componentName} from '${src}';`);
 
       // 获取其他属性
-      const otherAttrs = node.attributes?.filter(attr => attr.name !== 'src') || []
+      const otherAttrs = node.attributes?.filter(attr => attr.name !== 'src') || [];
 
       // 替换为带子组件的 Demo
       parent.children[index] = {
@@ -83,14 +82,14 @@ export default function rehypeCodeMeta(opt: { isRemark?: boolean } = {}) {
             children: [],
             data: { _mdxExplicitJsx: true },
             name: componentName,
-            type: 'mdxJsxFlowElement',
-          },
+            type: 'mdxJsxFlowElement'
+          }
         ],
         data: { _mdxExplicitJsx: true },
         name: 'Demo',
-        type: 'mdxJsxFlowElement',
-      }
-    })
+        type: 'mdxJsxFlowElement'
+      };
+    });
 
     // 在文档开头插入所有 import 声明
     if (importDecls.length > 0) {
@@ -106,23 +105,23 @@ export default function rehypeCodeMeta(opt: { isRemark?: boolean } = {}) {
                 specifiers: [
                   {
                     local: { name: 'ButtonBasic', type: 'Identifier' },
-                    type: 'ImportDefaultSpecifier',
-                  },
+                    type: 'ImportDefaultSpecifier'
+                  }
                 ],
-                type: 'ImportDeclaration',
-              },
+                type: 'ImportDeclaration'
+              }
             ],
-            type: 'Program',
-          },
+            type: 'Program'
+          }
         },
         type: 'mdxjsEsm',
-        value: importDecls.join('\n'),
-      }
+        value: importDecls.join('\n')
+      };
 
       // 插入到开头（在所有现有内容之前）
-      tree.children.unshift(importNode)
+      tree.children.unshift(importNode);
 
       // console.log('🔥 AST 已更新，children 数量:', tree);
     }
-  }
+  };
 }

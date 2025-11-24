@@ -1,8 +1,9 @@
-import skyroc from '@skyroc/eslint-config'
+import skyroc from '@skyroc/eslint-config';
 
 export default skyroc(
   {
     tailwindcss: false,
-    typescript: true,
-  },
-)
+    react: true,
+    typescript: true
+  }
+);

@@ -1,7 +1,7 @@
-'use client'
+'use client';
 
-import { useEffect, useState } from 'react'
-import { cn } from '../../lib/cn'
+import { useEffect, useState } from 'react';
+import { cn } from '../../lib/cn';
 
 interface CodeEditorProps {
   value: string
@@ -13,11 +13,11 @@ interface CodeEditorProps {
  * 简单的代码编辑器组件
  */
 export const CodeEditor = ({ value, onChange, className }: CodeEditorProps) => {
-  const [lineCount, setLineCount] = useState(1)
+  const [lineCount, setLineCount] = useState(1);
 
   useEffect(() => {
-    setLineCount(value.split('\n').length)
-  }, [value])
+    setLineCount(value.split('\n').length);
+  }, [value]);
 
   return (
     <div className={cn('flex overflow-hidden font-mono text-[13px] bg-background', className)}>
@@ -42,17 +42,17 @@ export const CodeEditor = ({ value, onChange, className }: CodeEditorProps) => {
         onChange={e => onChange(e.target.value)}
         onKeyDown={(e) => {
           if (e.key === 'Tab') {
-            e.preventDefault()
-            const start = e.currentTarget.selectionStart
-            const end = e.currentTarget.selectionEnd
-            const newValue = `${value.substring(0, start)}  ${value.substring(end)}`
-            onChange(newValue)
+            e.preventDefault();
+            const start = e.currentTarget.selectionStart;
+            const end = e.currentTarget.selectionEnd;
+            const newValue = `${value.substring(0, start)}  ${value.substring(end)}`;
+            onChange(newValue);
             setTimeout(() => {
-              e.currentTarget.selectionStart = e.currentTarget.selectionEnd = start + 2
-            }, 0)
+              e.currentTarget.selectionStart = e.currentTarget.selectionEnd = start + 2;
+            }, 0);
           }
         }}
       />
     </div>
-  )
-}
+  );
+};

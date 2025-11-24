@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 interface PreviewFooterProps {
   lineCount: number
@@ -23,5 +23,5 @@ export const PreviewFooter = ({ lineCount }: PreviewFooterProps) => {
         </span>
       </div>
     </div>
-  )
-}
+  );
+};

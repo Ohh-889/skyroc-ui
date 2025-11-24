@@ -1,11 +1,11 @@
-'use client'
+'use client';
 
-import React, { useEffect, useState } from 'react'
-import cn from 'clsx'
-import { AnimatePresence, motion } from 'framer-motion'
-import { Check, Copy } from 'lucide-react'
-import { Segment } from '@/components/segment'
-import { highlightCode } from '../lib/shiki'
+import React, { useEffect, useState } from 'react';
+import cn from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Check, Copy } from 'lucide-react';
+import { Segment } from '@/components/segment';
+import { highlightCode } from '../lib/shiki';
 
 interface Props {
   children: React.ReactNode
@@ -19,38 +19,38 @@ interface Props {
 }
 
 const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang = 'tsx', name, tabs, title }) => {
-  const [active, setActive] = useState(tabs?.[0]?.value ?? 'preview')
-  const [copied, setCopied] = useState(false)
-  const [html, setHtml] = useState('')
-  const [isLoading, setIsLoading] = useState(true)
+  const [active, setActive] = useState(tabs?.[0]?.value ?? 'preview');
+  const [copied, setCopied] = useState(false);
+  const [html, setHtml] = useState('');
+  const [isLoading, setIsLoading] = useState(true);
 
   // 异步高亮
   useEffect(() => {
-    let canceled = false
-    setIsLoading(true)
+    let canceled = false;
+    setIsLoading(true);
     highlightCode(code, lang).then((result) => {
-      console.log('result', result)
+      console.log('result', result);
 
       if (!canceled) {
-        setHtml(result)
-        setIsLoading(false)
+        setHtml(result);
+        setIsLoading(false);
       }
-    })
+    });
     return () => {
-      canceled = true
-    }
-  }, [code, lang])
+      canceled = true;
+    };
+  }, [code, lang]);
 
   const handleCopy = async () => {
     try {
-      await navigator.clipboard.writeText(code.trim())
-      setCopied(true)
-      setTimeout(() => setCopied(false), 1500)
+      await navigator.clipboard.writeText(code.trim());
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1500);
     }
     catch {
-      console.error('Copy failed')
+      console.error('Copy failed');
     }
-  }
+  };
 
   return (
     <div className="my-8 overflow-hidden prose rounded-lg border border-border/50 bg-background/50 shadow-sm">
@@ -63,7 +63,7 @@ const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang 
           items={
             tabs ?? [
               { label: 'Preview', value: 'preview' },
-              { label: 'Code', value: 'code' },
+              { label: 'Code', value: 'code' }
             ]
           }
           onValueChange={setActive}
@@ -98,7 +98,7 @@ const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang 
               title="Copy code"
               className={cn(
                 'absolute right-3 top-3 z-10 p-1.5 rounded-md border border-border/50',
-                'bg-muted/30 hover:bg-muted text-muted-foreground hover:text-foreground',
+                'bg-muted/30 hover:bg-muted text-muted-foreground hover:text-foreground'
               )}
               onClick={handleCopy}
             >
@@ -110,7 +110,7 @@ const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang 
               dangerouslySetInnerHTML={{ __html: html }}
               className={cn(
                 'h-[calc(100vh-380px)] overflow-auto',
-                '[&_pre]:m-0 [&_pre]:whitespace-pre [&_code]:whitespace-pre',
+                '[&_pre]:m-0 [&_pre]:whitespace-pre [&_code]:whitespace-pre'
               )}
             />
 
@@ -125,7 +125,7 @@ const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang 
         )}
       </AnimatePresence>
     </div>
-  )
-}
+  );
+};
 
-export default ComponentPreview
+export default ComponentPreview;
