@@ -7,8 +7,19 @@
     "source.organizeImports": "never"
   },
   "eslint.useFlatConfig": true,
+  "editor.guides.bracketPairs": "active",
   "editor.formatOnSave": false,
-  "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "json", "jsonc"],
+  "eslint.validate": [
+    "html",
+    "css",
+    "scss",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "jsonc"
+  ],
   "files.watcherExclude": {
     "**/.git/objects/**": true,
     "**/.git/subtree-cache/**": true,
