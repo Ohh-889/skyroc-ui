@@ -1,7 +1,6 @@
 'use client';
 
 import { Dialog } from '../dialog';
-
 import SheetContent from './SheetContent';
 import type { SheetProps } from './types';
 

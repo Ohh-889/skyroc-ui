@@ -4,13 +4,13 @@ import type { FC, HTMLAttributes, MouseEvent } from 'react';
 import cn from 'clsx';
 import CopyButton from './CopyButton';
 
-const Code: FC<
-  HTMLAttributes<HTMLElement> & {
-    'data-copy'?: boolean
-    'data-language'?: string
-    'data-show-line-numbers'?: ''
-  }
-> = (rest) => {
+type CodeProps = HTMLAttributes<HTMLElement> & {
+  'data-copy'?: boolean
+  'data-language'?: string
+  'data-show-line-numbers'?: ''
+};
+
+const Code: FC<CodeProps> = (rest) => {
   const {
     children,
     className,

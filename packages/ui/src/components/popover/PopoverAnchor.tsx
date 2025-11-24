@@ -1,7 +1,5 @@
 import { Anchor } from '@radix-ui/react-popover';
-
 import { cn } from '@/lib/utils';
-
 import { popoverVariants } from './popover-varianst';
 import type { PopoverAnchorProps } from './types';
 

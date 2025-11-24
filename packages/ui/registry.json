@@ -58,7 +58,10 @@
         }
       ],
       "name": "style",
-      "registryDependencies": ["https://ui-play.skyroc.me/r/utils.json", "https://ui-play.skyroc.me/r/types.json"],
+      "registryDependencies": [
+        "https://ui-play.skyroc.me/r/utils.json",
+        "https://ui-play.skyroc.me/r/types.json"
+      ],
       "type": "registry:style"
     },
     {
@@ -238,7 +241,10 @@
         }
       ],
       "name": "alert-dialog",
-      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json", "https://ui-play.skyroc.me/r/button.json"],
+      "registryDependencies": [
+        "https://ui-play.skyroc.me/r/style.json",
+        "https://ui-play.skyroc.me/r/button.json"
+      ],
       "title": "Alert Dialog",
       "type": "registry:block",
       "dependencies": ["@radix-ui/react-alert-dialog", "@radix-ui/react-slot"]
@@ -442,7 +448,10 @@
         }
       ],
       "name": "button",
-      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json", "https://ui-play.skyroc.me/r/icon.json"],
+      "registryDependencies": [
+        "https://ui-play.skyroc.me/r/style.json",
+        "https://ui-play.skyroc.me/r/icon.json"
+      ],
       "title": "Button",
       "type": "registry:block",
       "dependencies": ["@radix-ui/react-slot"]
@@ -559,7 +568,10 @@
         }
       ],
       "name": "carousel",
-      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json", "https://ui-play.skyroc.me/r/button.json"],
+      "registryDependencies": [
+        "https://ui-play.skyroc.me/r/style.json",
+        "https://ui-play.skyroc.me/r/button.json"
+      ],
       "title": "Carousel",
       "type": "registry:block",
       "dependencies": ["embla-carousel-react"]

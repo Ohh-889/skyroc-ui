@@ -1,7 +1,6 @@
-import { Image } from '@radix-ui/react-avatar';
 import type { ElementRef } from 'react';
 import { forwardRef } from 'react';
-
+import { Image } from '@radix-ui/react-avatar';
 import AvatarFallback from './AvatarFallback';
 import AvatarImage from './AvatarImage';
 import AvatarRoot from './AvatarRoot';

@@ -1,8 +1,6 @@
-import { Slot } from '@radix-ui/react-slot';
 import { forwardRef } from 'react';
-
+import { Slot } from '@radix-ui/react-slot';
 import { cn } from '@/lib/utils';
-
 import { breadcrumbVariants } from './breadcrumb-variants';
 import type { BreadcrumbLinkProps } from './types';
 

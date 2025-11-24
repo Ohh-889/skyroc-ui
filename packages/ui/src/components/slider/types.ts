@@ -4,9 +4,7 @@ import type {
   SliderThumbProps as _SliderThumbProps,
   SliderTrackProps as _SliderTrackProps
 } from '@radix-ui/react-slider';
-
 import type { BaseNodeProps, ClassValue, ThemeColor } from '@/types/other';
-
 import type { SliderSlots } from './slider-variants';
 
 export interface SliderRangeProps extends BaseNodeProps<_SliderRangeProps> {

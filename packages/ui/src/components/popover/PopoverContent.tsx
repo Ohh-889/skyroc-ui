@@ -1,9 +1,7 @@
-import { Content } from '@radix-ui/react-popover';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import { Content } from '@radix-ui/react-popover';
 import { cn } from '@/lib/utils';
-
 import { popoverVariants } from './popover-varianst';
 import type { PopoverContentProps } from './types';
 

@@ -2,14 +2,12 @@ import type {
   AccordionContentProps as _AccordionContentProps,
   AccordionHeaderProps as _AccordionHeaderProps,
   AccordionItemProps as _AccordionItemProps,
-  // eslint-disable-next-line sort-imports
+
   AccordionMultipleProps,
   AccordionSingleProps,
   AccordionTriggerProps as _AccordionTriggerProps
 } from '@radix-ui/react-accordion';
-
 import type { BaseNodeProps, ClassValue, PropsSlot, ThemeSize } from '@/types/other';
-
 import type { AccordionSlots } from './accordion-variants';
 
 /** The ui of the accordion. */

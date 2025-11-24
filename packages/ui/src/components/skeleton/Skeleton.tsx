@@ -1,9 +1,8 @@
 import { cn } from '@/lib/utils';
-
 import { skeletonVariants } from './skeleton-variants';
 import type { SkeletonProps } from './types';
 
-function Skeleton(props: SkeletonProps) {
+const Skeleton = (props: SkeletonProps) => {
   const { className, ...rest } = props;
 
   const mergedCls = cn(skeletonVariants(), className);
@@ -15,6 +14,6 @@ function Skeleton(props: SkeletonProps) {
       {...rest}
     />
   );
-}
+};
 
 export default Skeleton;

@@ -1,5 +1,5 @@
-export const SELF_REGISTRY_DEPENDENCIES =
-  process.argv[2] === 'dev' ? 'http://localhost:3001/r' : 'https://ui-play.skyroc.me/r';
+export const SELF_REGISTRY_DEPENDENCIES
+  = process.argv[2] === 'dev' ? 'http://localhost:3001/r' : 'https://ui-play.skyroc.me/r';
 
 export const getSelfRegistryDependencies = (name: string) => {
   return `${SELF_REGISTRY_DEPENDENCIES}/${name}.json`;
@@ -9,10 +9,10 @@ export const registryComponentsDependencies: Record<
   string,
   { dependencies: string[]; registryDependencies?: string[] }
 > = {
-  accordion: {
+  'accordion': {
     dependencies: ['@radix-ui/react-accordion', '@radix-ui/react-slot']
   },
-  alert: {
+  'alert': {
     dependencies: ['@radix-ui/react-slot']
   },
   'alert-dialog': {
@@ -22,39 +22,39 @@ export const registryComponentsDependencies: Record<
   'aspect-ratio': {
     dependencies: ['@radix-ui/react-aspect-ratio']
   },
-  avatar: {
+  'avatar': {
     dependencies: ['@radix-ui/react-avatar']
   },
-  breadcrumb: {
+  'breadcrumb': {
     dependencies: ['@radix-ui/react-slot']
   },
-  button: {
+  'button': {
     dependencies: ['@radix-ui/react-slot'],
     registryDependencies: [getSelfRegistryDependencies('icon')]
   },
-  carousel: {
+  'carousel': {
     dependencies: ['embla-carousel-react'],
     registryDependencies: [getSelfRegistryDependencies('button')]
   },
-  checkbox: {
+  'checkbox': {
     dependencies: ['@radix-ui/react-checkbox']
   },
-  divider: {
+  'divider': {
     dependencies: ['@radix-ui/react-separator']
   },
-  icon: {
+  'icon': {
     dependencies: ['@iconify/react']
   },
-  label: {
+  'label': {
     dependencies: ['@radix-ui/react-label']
   },
   'scroll-area': {
     dependencies: ['@radix-ui/react-scroll-area']
   },
-  sonner: {
+  'sonner': {
     dependencies: ['sonner', 'next-themes']
   },
-  tabs: {
+  'tabs': {
     dependencies: ['@radix-ui/react-tabs', '@radix-ui/react-compose-refs']
   }
 } as const;

@@ -1,8 +1,6 @@
-import { ChevronRight } from 'lucide-react';
 import { forwardRef } from 'react';
-
+import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
 import { breadcrumbVariants } from './breadcrumb-variants';
 import type { BreadcrumbSeparatorProps } from './types';
 

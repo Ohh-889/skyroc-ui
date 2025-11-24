@@ -1,7 +1,5 @@
 import { Group } from '@radix-ui/react-context-menu';
-
 import MenuCheckboxGroup from '../menu/MenuCheckboxGroup';
-
 import ContextMenuCheckboxItem from './ContextMenuCheckboxItem';
 import ContextMenuLabel from './ContextMenuLabel';
 import ContextMenuSeparator from './ContextMenuSeparator';

@@ -1,7 +1,5 @@
 import { CommandGroup as _CommandGroup } from 'cmdk';
-
 import { cn } from '@/lib/utils';
-
 import { commandVariants } from './command-variants';
 import type { CommandGroupProps } from './types';
 
@@ -20,8 +18,7 @@ const CommandGroup = (props: CommandGroupProps) => {
       className={mergedClass}
       data-slot="command-group"
     >
-      {heading && <div className={mergedLabelClass}>{heading}</div>}
-
+      {heading ? <div className={mergedLabelClass}>{heading}</div> : null}
       {children}
     </_CommandGroup>
   );

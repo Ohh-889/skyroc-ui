@@ -1,7 +1,5 @@
 import { Sub } from '@radix-ui/react-dropdown-menu';
-
 import MenuOption from '../menu/MenuOption';
-
 import DropdownMenuItem from './DropdownMenuItem';
 import DropdownMenuLabel from './DropdownMenuLabel';
 import DropdownMenuSeparator from './DropdownMenuSeparator';

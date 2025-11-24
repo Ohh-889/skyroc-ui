@@ -1,8 +1,6 @@
 import { Icon, Trigger, Value } from '@radix-ui/react-select';
 import { ChevronsUpDown } from 'lucide-react';
-
 import { cn } from '@/lib/utils';
-
 import { selectVariants } from './select-variants';
 import type { SelectTriggerProps } from './types';
 

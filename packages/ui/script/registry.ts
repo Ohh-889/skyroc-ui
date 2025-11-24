@@ -1,8 +1,6 @@
 import { exec } from 'node:child_process';
 import fs from 'node:fs/promises';
-
 import { rimraf } from 'rimraf';
-
 import { getSelfRegistryDependencies } from './constants';
 import { registerType } from './registry-type';
 import { getRegistryUi } from './registry-ui';
@@ -24,7 +22,7 @@ const registry = {
         '@import "tw-animate-css"': {},
         '@plugin "../plugins/tailwind-plugin"': {},
         '@plugin "tailwindcss-animate"': {},
-        html: {
+        'html': {
           'overflow-x': 'hidden'
         },
         'html,body,#app': {
@@ -100,10 +98,11 @@ async function buildRegistry() {
   return new Promise((resolve, reject) => {
     const process = exec(`pnpm build:registry`);
 
-    process.on('exit', code => {
+    process.on('exit', (code) => {
       if (code === 0) {
         resolve(undefined);
-      } else {
+      }
+      else {
         reject(new Error(`Process exited with code ${code}`));
       }
     });
@@ -126,7 +125,8 @@ async function main() {
     lintFile(targetPath);
 
     console.log('✅ Registry build completed');
-  } catch (error) {
+  }
+  catch (error) {
     console.error('❌ Build failed with error:');
     console.error(error);
     if (error instanceof Error) {

@@ -1,9 +1,8 @@
+import { forwardRef } from 'react';
 import type { Content } from '@radix-ui/react-alert-dialog';
 import { AlertDialog as AlertDialogRoot, Portal, Trigger } from '@radix-ui/react-alert-dialog';
 import { Slot } from '@radix-ui/react-slot';
 import { CircleAlert, CircleCheck, CircleX, Info } from 'lucide-react';
-import { forwardRef } from 'react';
-
 import AlertDialogContent from './AlertDialogContent';
 import AlertDialogDescription from './AlertDialogDescription';
 import AlertDialogFooter from './AlertDialogFooter';
@@ -64,26 +63,30 @@ const AlertDialog = forwardRef<React.ElementRef<typeof Content>, AlertDialogProp
               {title}
             </AlertDialogTitle>
 
-            {description && (
-              <AlertDialogDescription
-                className={classNames?.description}
-                size={size}
-              >
-                {description}
-              </AlertDialogDescription>
-            )}
+            {description
+              ? (
+                <AlertDialogDescription
+                  className={classNames?.description}
+                  size={size}
+                >
+                  {description}
+                </AlertDialogDescription>
+              )
+              : null}
           </AlertDialogHeader>
 
           {children}
 
-          {footer && (
-            <AlertDialogFooter
-              className={classNames?.footer}
-              size={size}
-            >
-              {footer}
-            </AlertDialogFooter>
-          )}
+          {footer
+            ? (
+              <AlertDialogFooter
+                className={classNames?.footer}
+                size={size}
+              >
+                {footer}
+              </AlertDialogFooter>
+            )
+            : null}
         </AlertDialogContent>
       </Portal>
     </AlertDialogRoot>

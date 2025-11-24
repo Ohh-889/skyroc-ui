@@ -1,7 +1,5 @@
 import { forwardRef } from 'react';
-
 import { cn } from '@/lib/utils';
-
 import { cardVariants } from './card-variants';
 import type { CardHeaderProps } from './types';
 

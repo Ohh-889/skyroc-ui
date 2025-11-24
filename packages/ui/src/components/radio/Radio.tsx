@@ -1,5 +1,4 @@
 import RadioLabel from '../label/Label';
-
 import RadioGroupItem from './RadioGroupItem';
 import RadioIndicator from './RadioIndicator';
 import RadioRoot from './RadioRoot';
@@ -15,8 +14,8 @@ const Radio = (props: RadioProps) => {
     >
       <RadioGroupItem
         color={color}
-        value={value}
         id={id || value}
+        value={value}
         {...rest}
         size={size}
       >
@@ -26,15 +25,17 @@ const Radio = (props: RadioProps) => {
         />
       </RadioGroupItem>
 
-      {label && (
-        <RadioLabel
-          className={classNames?.label}
-          htmlFor={id || value}
-          size={size}
-        >
-          {label}
-        </RadioLabel>
-      )}
+      {label
+        ? (
+          <RadioLabel
+            className={classNames?.label}
+            htmlFor={id || value}
+            size={size}
+          >
+            {label}
+          </RadioLabel>
+        )
+        : null}
     </RadioRoot>
   );
 };

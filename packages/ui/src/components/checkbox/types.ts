@@ -2,9 +2,7 @@ import type {
   CheckboxIndicatorProps as _CheckboxIndicatorProps,
   CheckboxProps as _CheckboxRootProps
 } from '@radix-ui/react-checkbox';
-
 import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeColor } from '@/types/other';
-
 import type { CheckboxSlots } from './checkbox-variants';
 
 export type CheckboxUi = Partial<Record<CheckboxSlots, ClassValue>>;

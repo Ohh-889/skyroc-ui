@@ -1,8 +1,6 @@
-import { Check, Minus } from 'lucide-react';
 import React, { forwardRef } from 'react';
-
+import { Check, Minus } from 'lucide-react';
 import CheckboxLabel from '../label/Label';
-
 import CheckboxControl from './CheckboxControl';
 import CheckboxIndicator from './CheckboxIndicator';
 import CheckboxRoot from './CheckboxRoot';
@@ -31,14 +29,16 @@ const Checkbox = forwardRef<HTMLDivElement, CheckboxProps>((props, ref) => {
         </CheckboxIndicator>
       </CheckboxControl>
 
-      {children && (
-        <CheckboxLabel
-          className={classNames?.label}
-          htmlFor={rest.id}
-        >
-          {children}
-        </CheckboxLabel>
-      )}
+      {children
+        ? (
+          <CheckboxLabel
+            className={classNames?.label}
+            htmlFor={rest.id}
+          >
+            {children}
+          </CheckboxLabel>
+        )
+        : null}
     </CheckboxRoot>
   );
 });

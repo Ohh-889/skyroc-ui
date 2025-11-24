@@ -1,10 +1,8 @@
-import type { Root } from '@radix-ui/react-tabs';
 import { forwardRef } from 'react';
-
+import type { Root } from '@radix-ui/react-tabs';
 import SegmentList from '../tabs/TabsList';
 import SegmentRoot from '../tabs/TabsRoot';
 import SegmentTrigger from '../tabs/TabsTrigger';
-
 import type { SegmentOptionData, SegmentProps } from './types';
 
 const Segment = forwardRef<React.ComponentRef<typeof Root>, SegmentProps<SegmentOptionData>>((props, ref) => {

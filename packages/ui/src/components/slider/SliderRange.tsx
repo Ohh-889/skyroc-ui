@@ -1,7 +1,5 @@
 import { Range } from '@radix-ui/react-slider';
-
 import { cn } from '@/lib/utils';
-
 import { sliderVariants } from './slider-variants';
 import type { SliderRangeProps } from './types';
 

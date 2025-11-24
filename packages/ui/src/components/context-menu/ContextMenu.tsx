@@ -1,5 +1,4 @@
 import { Root, Trigger } from '@radix-ui/react-context-menu';
-
 import ContextMenuContent from './ContextMenuContent';
 import ContextMenuOption from './ContextMenuOption';
 import type { ContextMenuProps } from './types';

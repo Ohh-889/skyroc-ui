@@ -1,8 +1,6 @@
-import { ScrollAreaCorner } from '@radix-ui/react-scroll-area';
 import { forwardRef } from 'react';
-
+import { ScrollAreaCorner } from '@radix-ui/react-scroll-area';
 import { cn } from '@/lib/utils';
-
 import ScrollAreaRoot from './ScrollAreaRoot';
 import ScrollAreaScrollbar from './ScrollAreaScrollbar';
 import ScrollAreaThumb from './ScrollAreaThumb';

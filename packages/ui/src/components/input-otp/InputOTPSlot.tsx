@@ -1,10 +1,8 @@
 'use client';
 
-import { OTPInputContext } from 'input-otp';
 import { useContext } from 'react';
-
+import { OTPInputContext } from 'input-otp';
 import { cn } from '@/lib/utils';
-
 import { inputOTPVariants } from './input-otp-variants';
 import type { InputOTPSlotProps } from './types';
 
@@ -32,11 +30,13 @@ const InputOTPSlot = (props: InputOTPSlotProps) => {
     >
       {mask && char ? '●' : char}
 
-      {hasFakeCaret && (
-        <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
-          <div className="h-4 w-px animate-caret-blink bg-foreground duration-1000" />
-        </div>
-      )}
+      {hasFakeCaret
+        ? (
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <div className="animate-caret-blink bg-foreground h-4 w-px duration-1000" />
+          </div>
+        )
+        : null}
     </div>
   );
 };

@@ -1,7 +1,5 @@
 import { Sub } from '@radix-ui/react-context-menu';
-
 import MenuOption from '../menu/MenuOption';
-
 import ContextMenuItem from './ContextMenuItem';
 import ContextMenuLabel from './ContextMenuLabel';
 import ContextMenuSeparator from './ContextMenuSeparator';

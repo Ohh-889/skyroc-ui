@@ -1,9 +1,7 @@
 'use client';
 
 import { Icon as IconifyIcon } from '@iconify/react';
-
 import { useComponentConfig } from '../config-provider/context';
-
 import type { IconProps } from './types';
 
 const Icon = (props: IconProps) => {

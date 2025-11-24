@@ -1,6 +1,5 @@
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
 import CollapsibleContent from './CollapsibleContent';
 import CollapsibleRoot from './CollapsibleRoot';
 import type { CollapsibleProps } from './types';

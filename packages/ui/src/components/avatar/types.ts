@@ -3,9 +3,7 @@ import type {
   AvatarImageProps as _AvatarImageProps,
   AvatarProps as _AvatarRootProps
 } from '@radix-ui/react-avatar';
-
 import type { BaseNodeProps, ClassValue } from '@/types/other';
-
 import type { AvatarSlots } from './avatar-variants';
 
 export type AvatarUi = Partial<Record<AvatarSlots, ClassValue>>;

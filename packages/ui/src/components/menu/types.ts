@@ -1,3 +1,4 @@
+import type { ComponentType, ElementType, ReactNode } from 'react';
 import type {
   MenuArrowProps as _MenuArrowProps,
   MenuCheckboxItemProps as _MenuCheckboxItemProps,
@@ -12,10 +13,7 @@ import type {
   MenuSubContentProps as _MenuSubContentProps,
   MenuSubTriggerProps as _MenuSubTriggerProps
 } from '@radix-ui/react-menu';
-import type { ComponentType, ElementType, ReactNode } from 'react';
-
 import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeSize } from '@/types/other';
-
 import type { MenuSlots } from './menu-variants';
 
 export type MenuClassNames = Partial<Record<MenuSlots, ClassValue>>;
@@ -25,10 +23,10 @@ export type MenuArrowProps = BaseNodeProps<_MenuArrowProps> & {
   component?: ElementType<MenuArrowProps>;
 };
 
-export type MenuCheckboxGroupItemProps =
-  | MenuLabelOption
-  | MenuSeparatorOption
-  | (Omit<MenuCheckboxItemProps, 'children'> & {
+export type MenuCheckboxGroupItemProps
+  = | MenuLabelOption
+    | MenuSeparatorOption
+    | (Omit<MenuCheckboxItemProps, 'children'> & {
       label?: ReactNode;
     });
 
@@ -158,10 +156,10 @@ export interface MenuRadioItemProps extends BaseNodeProps<_MenuRadioItemProps> {
   type?: 'item';
 }
 
-export type MenuRadioItemOptionProps =
-  | MenuLabelOption
-  | MenuSeparatorOption
-  | (Omit<MenuRadioItemProps, 'children'> & {
+export type MenuRadioItemOptionProps
+  = | MenuLabelOption
+    | MenuSeparatorOption
+    | (Omit<MenuRadioItemProps, 'children'> & {
       label?: ReactNode;
     });
 

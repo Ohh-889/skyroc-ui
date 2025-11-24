@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-
 import { inputOTPVariants } from './input-otp-variants';
 import type { InputOTPGroupProps } from './types';
 

@@ -40,10 +40,11 @@ const Layout = ({
         ui={ui}
         variant={variant}
       >
-        {typeof sidebar === 'function' ? (
-          props => (
+        {typeof sidebar === 'function'
+          ? props => (
             <>
               {sidebar(props)}
+
               <LayoutRail
                 className={ui?.rail}
                 collapsible={collapsible}
@@ -52,18 +53,20 @@ const Layout = ({
               />
             </>
           )
-        ) : (
-          <>
-            {sidebar}
-            <LayoutRail
-              className={ui?.rail}
-              collapsible={collapsible}
-              side={side}
-              variant={variant}
-            />
-          </>
-        )}
+          : (
+            <>
+              {sidebar}
+
+              <LayoutRail
+                className={ui?.rail}
+                collapsible={collapsible}
+                side={side}
+                variant={variant}
+              />
+            </>
+          )}
       </LayoutSidebar>
+
       <LayoutMain
         className={ui?.main}
         collapsible={collapsible}

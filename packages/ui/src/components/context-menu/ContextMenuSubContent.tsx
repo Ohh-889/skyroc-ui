@@ -1,7 +1,5 @@
 import { Group, Portal, SubContent } from '@radix-ui/react-context-menu';
-
 import MenuSubContent from '../menu/MenuSubContent';
-
 import type { ContextMenuSubContentProps } from './types';
 
 const ContextMenuSubContent = (props: ContextMenuSubContentProps) => {

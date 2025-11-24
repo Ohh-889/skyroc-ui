@@ -1,9 +1,8 @@
 'use client';
 
+import { useId } from 'react';
 import type { AllPathsKeys } from '@skyroc/form';
 import { Field, useFieldError } from '@skyroc/form';
-import { useId } from 'react';
-
 import FormDescription from './FormDescription';
 import FormItem from './FormItem';
 import FormLabel from './FormLable';
@@ -57,23 +56,27 @@ const FormField = <Values = any,>(props: FormFieldProps<Values>) => {
         {children}
       </Component>
 
-      {description && (
-        <FormDescription
-          className={classNames?.description}
-          id={formDescriptionId}
-        >
-          {description}
-        </FormDescription>
-      )}
+      {description
+        ? (
+          <FormDescription
+            className={classNames?.description}
+            id={formDescriptionId}
+          >
+            {description}
+          </FormDescription>
+        )
+        : null}
 
-      {hasError && (
-        <FormMessage
-          className={classNames?.message}
-          id={formMessageId}
-        >
-          {errors[0]}
-        </FormMessage>
-      )}
+      {hasError
+        ? (
+          <FormMessage
+            className={classNames?.message}
+            id={formMessageId}
+          >
+            {errors[0]}
+          </FormMessage>
+        )
+        : null}
     </FormItem>
   );
 };

@@ -1,5 +1,4 @@
 import { forwardRef } from 'react';
-
 import ChipContent from './ChipContent';
 import ChipRoot from './ChipRoot';
 import type { ChipProps } from './types';
@@ -15,16 +14,18 @@ const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
     >
       {children}
 
-      {open && (
-        <ChipContent
-          className={classNames?.content}
-          color={color}
-          position={position}
-          size={size}
-        >
-          {content}
-        </ChipContent>
-      )}
+      {open
+        ? (
+          <ChipContent
+            className={classNames?.content}
+            color={color}
+            position={position}
+            size={size}
+          >
+            {content}
+          </ChipContent>
+        )
+        : null}
     </ChipRoot>
   );
 });

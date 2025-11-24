@@ -1,3 +1,4 @@
+import type { ComponentPropsWithoutRef, ReactNode } from 'react';
 import type {
   Command,
   CommandEmpty,
@@ -7,12 +8,8 @@ import type {
   CommandRoot,
   CommandSeparator
 } from 'cmdk';
-import type { ComponentPropsWithoutRef, ReactNode } from 'react';
-
 import type { BaseComponentProps, BaseNodeProps, ClassValue, PropsSlot, ThemeSize } from '@/types/other';
-
 import type { DialogClassNames, DialogProps } from '../dialog';
-
 import type { CommandSlots } from './command-variants';
 
 export type CommandClassNames = Partial<Record<CommandSlots, ClassValue>>;
@@ -58,11 +55,11 @@ export type CommandItemOptionProps = Omit<CommandItemProps, 'children'> & {
 
 export type CommandOptionData = CommandGroupOptionProps | CommandSeparatorOptionProps | CommandItemOptionProps;
 
-export type CommandOptionProps = {
+export interface CommandOptionProps {
   classNames?: CommandClassNames;
   item: CommandOptionData;
   size?: ThemeSize;
-};
+}
 
 export interface CommandProps extends CommandRootProps {
   classNames?: CommandClassNames;

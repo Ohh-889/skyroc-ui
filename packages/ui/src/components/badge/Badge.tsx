@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-
 import { badgeVariants } from './badge-variants';
 import type { BadgeProps } from './types';
 

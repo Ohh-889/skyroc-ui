@@ -1,9 +1,7 @@
-import { RadioGroup } from '@radix-ui/react-context-menu';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import { RadioGroup } from '@radix-ui/react-context-menu';
 import MenuRadioGroup from '../menu/MenuRadioGroup';
-
 import ContextMenuLabel from './ContextMenuLabel';
 import ContextMenuRadioItem from './ContextMenuRadioItem';
 import ContextMenuSeparator from './ContextMenuSeparator';

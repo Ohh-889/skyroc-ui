@@ -1,9 +1,7 @@
-import { ItemIndicator as _ItemIndicator } from '@radix-ui/react-menu';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import { ItemIndicator as _ItemIndicator } from '@radix-ui/react-menu';
 import { cn } from '@/lib';
-
 import { menuVariants } from './menu-variants';
 import type { MenuItemIndicatorProps } from './types';
 

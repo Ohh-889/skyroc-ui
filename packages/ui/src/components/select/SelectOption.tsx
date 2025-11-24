@@ -1,5 +1,4 @@
 import { Group } from '@radix-ui/react-select';
-
 import SelectItem from './SelectItem';
 import SelectLabel from './SelectLabel';
 import SelectSeparator from './SelectSeparator';

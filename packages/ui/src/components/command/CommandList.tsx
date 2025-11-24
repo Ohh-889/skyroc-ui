@@ -1,7 +1,5 @@
 import { CommandList as _CommandList } from 'cmdk';
-
 import { cn } from '@/lib/utils';
-
 import { commandVariants } from './command-variants';
 import type { CommandListProps } from './types';
 

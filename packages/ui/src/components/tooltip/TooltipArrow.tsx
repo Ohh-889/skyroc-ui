@@ -1,7 +1,5 @@
 import { Arrow } from '@radix-ui/react-tooltip';
-
 import { cn } from '@/lib/utils';
-
 import { tooltipVariants } from './tooltip-variants';
 import type { TooltipArrowProps } from './types';
 

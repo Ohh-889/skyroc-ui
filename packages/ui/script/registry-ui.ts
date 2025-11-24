@@ -1,8 +1,6 @@
 import path from 'node:path';
-
 import fg from 'fast-glob';
-import { type Registry } from 'shadcn/registry';
-
+import type { Registry } from 'shadcn/registry';
 import { getSelfRegistryDependencies, registryComponentsDependencies } from './constants';
 
 const COMPONENTS_DIR = 'src/components';
@@ -23,10 +21,11 @@ function getGroupedComponents(): Record<string, string[]> {
     const group = segments[2]; // 如 'accordion'
     const name = segments[3]; // 文件名
 
-    // eslint-disable-next-line no-continue
-    if (!group || !name) continue;
+    if (!group || !name)
+      continue;
 
-    if (!grouped[group]) grouped[group] = [];
+    if (!grouped[group])
+      grouped[group] = [];
     grouped[group].push(name);
   }
 

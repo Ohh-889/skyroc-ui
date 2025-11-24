@@ -1,7 +1,5 @@
 import { Children, forwardRef } from 'react';
-
 import { isFunction } from '@/lib/typed';
-
 import CarouselContent from './CarouselContent';
 import CarouselItem from './CarouselItem';
 import CarouselNext from './CarouselNext';
@@ -23,8 +21,8 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
         classNames={classNames}
         size={size}
       >
-        {counts &&
-          Array.from({ length: counts }).map((_, index) => (
+        {counts
+          ? Array.from({ length: counts }).map((_, index) => (
             <CarouselItem
               className={classNames?.item}
               key={index}
@@ -32,7 +30,8 @@ const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
             >
               {isFunction(children) ? children(index) : Children.toArray(children)[index]}
             </CarouselItem>
-          ))}
+          ))
+          : null}
       </CarouselContent>
 
       <CarouselNext

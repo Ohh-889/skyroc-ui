@@ -4,9 +4,7 @@ import type {
   TabsProps as _TabsRootProps,
   TabsTriggerProps as _TabsTriggerProps
 } from '@radix-ui/react-tabs';
-
 import type { BaseProps, ClassValue, ThemeOrientation } from '@/types/other';
-
 import type { TabsFill, TabsSlots } from './tabs-variants';
 
 export interface IndicatorStyle {
@@ -40,8 +38,8 @@ export type TabsOptionData = Pick<TabsTriggerProps, 'disabled'> & {
   value: string;
 };
 
-export type TabsProps<T extends TabsOptionData> = TabsRootProps &
-  TabsListProps & {
+export type TabsProps<T extends TabsOptionData> = TabsRootProps
+  & TabsListProps & {
     classNames?: TabsUi;
     enableIndicator?: boolean;
     forceMountContent?: true;

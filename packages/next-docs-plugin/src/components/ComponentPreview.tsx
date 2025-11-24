@@ -29,8 +29,6 @@ const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang 
     let canceled = false;
     setIsLoading(true);
     highlightCode(code, lang).then((result) => {
-      console.log('result', result);
-
       if (!canceled) {
         setHtml(result);
         setIsLoading(false);

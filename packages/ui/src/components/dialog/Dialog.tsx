@@ -1,10 +1,9 @@
 'use client';
 
-import type { Content } from '@radix-ui/react-dialog';
-import { Portal, Root, Trigger } from '@radix-ui/react-dialog';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import type { Content } from '@radix-ui/react-dialog';
+import { Portal, Root, Trigger } from '@radix-ui/react-dialog';
 import DialogClose from './DialogClose';
 import DialogContent from './DialogContent';
 import DialogDescription from './DialogDescription';
@@ -67,14 +66,16 @@ const Dialog = forwardRef<ComponentRef<typeof Content>, DialogProps>((props, ref
               {title}
             </DialogTitle>
 
-            {description && (
-              <DialogDescription
-                className={classNames?.description}
-                size={size}
-              >
-                {description}
-              </DialogDescription>
-            )}
+            {description
+              ? (
+                <DialogDescription
+                  className={classNames?.description}
+                  size={size}
+                >
+                  {description}
+                </DialogDescription>
+              )
+              : null}
           </DialogHeader>
 
           <DialogClose
@@ -87,14 +88,16 @@ const Dialog = forwardRef<ComponentRef<typeof Content>, DialogProps>((props, ref
 
           {children}
 
-          {footer && (
-            <DialogFooter
-              className={classNames?.footer}
-              size={size}
-            >
-              {footer}
-            </DialogFooter>
-          )}
+          {footer
+            ? (
+              <DialogFooter
+                className={classNames?.footer}
+                size={size}
+              >
+                {footer}
+              </DialogFooter>
+            )
+            : null}
         </ContentComponent>
       </Portal>
     </Root>

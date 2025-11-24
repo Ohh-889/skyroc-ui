@@ -3,9 +3,7 @@ import type {
   HoverCardContentProps as _HoverCardContentProps,
   HoverCardProps as _HoverCardProps
 } from '@radix-ui/react-hover-card';
-
 import type { BaseNodeProps, ClassValue } from '@/types/other';
-
 import type { HoverCardSlots } from './hover-card-variants';
 
 export type HoverCardClassNames = Partial<Record<HoverCardSlots, ClassValue>>;

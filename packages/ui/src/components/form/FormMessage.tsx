@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-
 import { formVariants } from './form-variants';
 import type { FormMessageProps } from './types';
 
@@ -12,7 +11,8 @@ const FormMessage = (props: FormMessageProps) => {
 
   const body = error?.length ? error[0] : props.children;
 
-  if (!body) return null;
+  if (!body)
+    return null;
 
   return (
     <p

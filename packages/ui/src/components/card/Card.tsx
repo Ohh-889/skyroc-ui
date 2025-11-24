@@ -1,9 +1,6 @@
 import React, { isValidElement } from 'react';
-
 import { cn } from '@/lib/utils';
-
 import { If } from '../if';
-
 import { CardContent } from './CardContent';
 import { CardFooter } from './CardFooter';
 import { CardHeader } from './CardHeader';
@@ -61,6 +58,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => 
                 size={size}
               >
                 {titleLeading}
+
                 <If
                   condition={!isValidElement(title)}
                   fallback={title}
@@ -72,6 +70,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => 
                     {title}
                   </CardTitle>
                 </If>
+
                 {titleTrailing}
               </CardTitleRoot>
             </If>

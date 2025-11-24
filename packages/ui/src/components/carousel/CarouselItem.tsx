@@ -1,9 +1,7 @@
 'use client';
 
 import { forwardRef } from 'react';
-
 import { cn } from '@/lib/utils';
-
 import { carouselVariants } from './carousel-variants';
 import { useCarousel } from './context';
 import type { CarouselItemProps } from './types';

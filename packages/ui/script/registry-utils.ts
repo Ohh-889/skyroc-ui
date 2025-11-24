@@ -1,4 +1,4 @@
-import { type Registry } from 'shadcn/registry';
+import type { Registry } from 'shadcn/registry';
 
 export const registryUtils: Registry['items'][number] = {
   dependencies: ['clsx', 'tailwind-merge'],

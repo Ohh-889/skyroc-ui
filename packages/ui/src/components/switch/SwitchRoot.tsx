@@ -1,9 +1,7 @@
-import { Switch } from '@radix-ui/react-switch';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import { Switch } from '@radix-ui/react-switch';
 import { cn } from '@/lib/utils';
-
 import { switchVariants } from './switch-varianst';
 import type { SwitchRootProps } from './types';
 

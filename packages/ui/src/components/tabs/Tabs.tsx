@@ -1,6 +1,5 @@
 'use client';
 import { forwardRef } from 'react';
-
 import TabsContent from './TabsContent';
 import TabsList from './TabsList';
 import Root from './TabsRoot';
@@ -58,6 +57,7 @@ const Tabs = forwardRef<React.ElementRef<typeof Root>, TabsProps<TabsOptionData>
           </TabsTrigger>
         ))}
       </TabsList>
+
       {items.map(item => (
         <TabsContent
           className={classNames?.content}

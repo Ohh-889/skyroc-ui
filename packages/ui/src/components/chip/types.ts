@@ -1,5 +1,4 @@
 import type { BaseComponentProps, ClassValue, ThemeColor, ThemeSize } from '@/types/other';
-
 import type { ChipPosition, ChipSlots } from './chip-variants';
 
 export type ChipRootProps = BaseComponentProps<'div'>;
@@ -14,7 +13,7 @@ export type ChipUi = Partial<Record<ChipSlots, ClassValue>>;
 
 export interface ChipProps
   extends Omit<ChipRootProps, 'color' | 'content'>,
-    Pick<ChipContentProps, 'color' | 'position' | 'size'> {
+  Pick<ChipContentProps, 'color' | 'position' | 'size'> {
   classNames?: ChipUi;
   content?: React.ReactNode;
   open?: boolean;

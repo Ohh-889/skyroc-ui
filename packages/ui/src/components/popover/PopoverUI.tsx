@@ -1,8 +1,7 @@
-import type { Content } from '@radix-ui/react-popover';
-import { Close, Portal, Root, Trigger } from '@radix-ui/react-popover';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import type { Content } from '@radix-ui/react-popover';
+import { Close, Portal, Root, Trigger } from '@radix-ui/react-popover';
 import PopoverAnchor from './PopoverAnchor';
 import PopoverArrow from './PopoverArrow';
 import PopoverContent from './PopoverContent';
@@ -50,17 +49,18 @@ const PopoverUI = forwardRef<ComponentRef<typeof Content>, PopoverProps>((props,
           size={size}
         >
           {children}
+          {closeIcon ? <Close asChild>{closeIcon}</Close> : null}
 
-          {closeIcon && <Close asChild>{closeIcon}</Close>}
-
-          {showArrow && (
-            <PopoverArrow
-              className={classNames?.arrow}
-              height={arrowHeight}
-              size={size}
-              width={arrowWidth}
-            />
-          )}
+          {showArrow
+            ? (
+              <PopoverArrow
+                className={classNames?.arrow}
+                height={arrowHeight}
+                size={size}
+                width={arrowWidth}
+              />
+            )
+            : null}
         </PopoverContent>
       </Portal>
     </Root>

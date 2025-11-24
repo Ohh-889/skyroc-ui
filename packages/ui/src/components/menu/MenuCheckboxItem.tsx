@@ -1,13 +1,10 @@
-import { CheckboxItem as _CheckboxItem } from '@radix-ui/react-menu';
-import { Check } from 'lucide-react';
 import type { ComponentRef } from 'react';
 import { forwardRef, isValidElement } from 'react';
-
+import { CheckboxItem as _CheckboxItem } from '@radix-ui/react-menu';
+import { Check } from 'lucide-react';
 import { withClassName } from '@/lib/compose-props';
 import { cn } from '@/lib/utils';
-
 import MenuShortcut from '../menu/MenuShortcut';
-
 import MenuItemIndicator from './MenuItemIndicator';
 import { menuVariants } from './menu-variants';
 import type { MenuCheckboxItemProps } from './types';
@@ -45,18 +42,18 @@ const MenuCheckboxItem = forwardRef<ComponentRef<typeof _CheckboxItem>, MenuChec
       </IndicatorComponent>
 
       {isValidElement(leading) ? withClassName(leading, itemIcon()) : leading}
-
       {children}
-
       {trailing}
 
-      {shortcut && (
-        <MenuShortcut
-          className={classNames?.shortcut}
-          size={size}
-          value={shortcut}
-        />
-      )}
+      {shortcut
+        ? (
+          <MenuShortcut
+            className={classNames?.shortcut}
+            size={size}
+            value={shortcut}
+          />
+        )
+        : null}
     </CheckboxItem>
   );
 });

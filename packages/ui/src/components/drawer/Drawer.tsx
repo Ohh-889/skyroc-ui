@@ -1,9 +1,7 @@
 import { type ComponentRef, forwardRef } from 'react';
 import type { Content } from 'vaul';
 import { Root as _Root } from 'vaul';
-
 import { DialogFooter, DialogHeader, DialogTrigger } from '../dialog';
-
 import DrawerClose from './DrawerClose';
 import DrawerContent from './DrawerContent';
 import DrawerDescription from './DrawerDescription';
@@ -55,23 +53,27 @@ const Drawer = forwardRef<ComponentRef<typeof Content>, DrawerProps>((props, ref
           </DrawerDescription>
         </DialogHeader>
 
-        {showClose && (
-          <DrawerClose
-            className={classNames?.close}
-            size={size}
-          />
-        )}
+        {showClose
+          ? (
+            <DrawerClose
+              className={classNames?.close}
+              size={size}
+            />
+          )
+          : null}
 
         {children}
 
-        {footer && (
-          <DialogFooter
-            className={classNames?.footer || '!flex-col-reverse'}
-            size={size}
-          >
-            {footer}
-          </DialogFooter>
-        )}
+        {footer
+          ? (
+            <DialogFooter
+              className={classNames?.footer || '!flex-col-reverse'}
+              size={size}
+            >
+              {footer}
+            </DialogFooter>
+          )
+          : null}
       </DrawerContent>
     </_Root>
   );

@@ -1,8 +1,7 @@
 'use client';
 
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { type ChangeEvent, forwardRef } from 'react';
-
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import TextareaContent from './TextareaContent';
 import TextareaCount from './TextareaCount';
 import TextareaRoot from './TextareaRoot';
@@ -50,17 +49,19 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>((props, ref) => 
         {...rest}
       />
 
-      {showCount && (
-        <TextareaCount
-          className={classNames?.count}
-          countGraphemes={countGraphemes}
-          maxLength={maxLength}
-          size={size}
-          value={_value}
-        >
-          {countRender}
-        </TextareaCount>
-      )}
+      {showCount
+        ? (
+          <TextareaCount
+            className={classNames?.count}
+            countGraphemes={countGraphemes}
+            maxLength={maxLength}
+            size={size}
+            value={_value}
+          >
+            {countRender}
+          </TextareaCount>
+        )
+        : null}
     </TextareaRoot>
   );
 });

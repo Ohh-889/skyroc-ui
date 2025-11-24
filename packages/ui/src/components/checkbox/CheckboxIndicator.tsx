@@ -1,8 +1,6 @@
-import { Indicator } from '@radix-ui/react-checkbox';
 import React from 'react';
-
+import { Indicator } from '@radix-ui/react-checkbox';
 import { cn } from '@/lib/utils';
-
 import { checkboxVariants } from './checkbox-variants';
 import type { CheckboxIndicatorProps } from './types';
 

@@ -1,6 +1,5 @@
 'use client';
 import { createContext, useContext } from 'react';
-
 import type { CarouselContextProps } from './types';
 
 export const CarouselContext = createContext<CarouselContextProps | null>(null);

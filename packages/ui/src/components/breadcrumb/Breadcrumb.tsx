@@ -2,7 +2,6 @@
 
 import type { Ref } from 'react';
 import { Fragment, forwardRef } from 'react';
-
 import BreadcrumbEllipsis from './BreadcrumbEllipsis';
 import BreadcrumbItemContent from './BreadcrumbItem';
 import BreadcrumbLink from './BreadcrumbLink';
@@ -18,15 +17,18 @@ type EllipsisProps<T extends BreadcrumbItem> = Pick<
 >;
 
 const Ellipsis = <T extends BreadcrumbItem>({ className, ellipsisIcon, items, renderEllipsis }: EllipsisProps<T>) => {
-  if (!renderEllipsis) return <BreadcrumbEllipsis className={className}>{ellipsisIcon}</BreadcrumbEllipsis>;
+  if (!renderEllipsis)
+    return <BreadcrumbEllipsis className={className}>{ellipsisIcon}</BreadcrumbEllipsis>;
 
   return renderEllipsis(items);
 };
 
 function renderBreadcrumbContent<T extends BreadcrumbItem>(item: T, renderItem: BreadcrumbProps<T>['renderItem']) {
-  if (renderItem) return renderItem(item);
+  if (renderItem)
+    return renderItem(item);
 
-  if (item.href) return <BreadcrumbLink {...item}>{item.label}</BreadcrumbLink>;
+  if (item.href)
+    return <BreadcrumbLink {...item}>{item.label}</BreadcrumbLink>;
 
   return <BreadcrumbPage {...item}>{item.label}</BreadcrumbPage>;
 }
@@ -55,7 +57,8 @@ const Breadcrumb = <T extends BreadcrumbItem>(props: BreadcrumbProps<T>, ref: Re
   const ellipsisItems = computedEllipsisRange ? items.slice(computedEllipsisRange[0], computedEllipsisRange[1]) : [];
 
   function getItemsFilterEllipsis() {
-    if (!computedEllipsisRange) return items;
+    if (!computedEllipsisRange)
+      return items;
 
     const [start, end] = computedEllipsisRange;
 
@@ -66,7 +69,8 @@ const Breadcrumb = <T extends BreadcrumbItem>(props: BreadcrumbProps<T>, ref: Re
     /** when the item count is greater than 4, we will show ellipsis */
     const MIN_ITEM_COUNT_WITH_ELLIPSIS = 5;
 
-    if (!ellipsis || items.length < MIN_ITEM_COUNT_WITH_ELLIPSIS) return null;
+    if (!ellipsis || items.length < MIN_ITEM_COUNT_WITH_ELLIPSIS)
+      return null;
 
     if (ellipsis === true) {
       return [1, items.length - 2];
@@ -103,17 +107,20 @@ const Breadcrumb = <T extends BreadcrumbItem>(props: BreadcrumbProps<T>, ref: Re
 
           return (
             <Fragment key={item.value}>
-              {isEllipsis && (
-                <>
-                  <Ellipsis<T>
-                    className={classNames?.ellipsis}
-                    ellipsisIcon={ellipsisIcon}
-                    items={ellipsisItems}
-                    renderEllipsis={renderEllipsis}
-                  />
-                  {separator || <BreadcrumbSeparator className={classNames?.separator} />}
-                </>
-              )}
+              {isEllipsis
+                ? (
+                  <>
+                    <Ellipsis<T>
+                      className={classNames?.ellipsis}
+                      ellipsisIcon={ellipsisIcon}
+                      items={ellipsisItems}
+                      renderEllipsis={renderEllipsis}
+                    />
+
+                    {separator || <BreadcrumbSeparator className={classNames?.separator} />}
+                  </>
+                )
+                : null}
 
               <BreadcrumbItemContent
                 className={classNames?.item}
@@ -121,13 +128,11 @@ const Breadcrumb = <T extends BreadcrumbItem>(props: BreadcrumbProps<T>, ref: Re
                 onClick={() => handleItemClick?.(item)}
               >
                 {item.leading}
-
                 {renderBreadcrumbContent(item, renderItem)}
-
                 {item.trailing}
               </BreadcrumbItemContent>
 
-              {isShowSeparator && (separator || <BreadcrumbSeparator className={classNames?.separator} />)}
+              {isShowSeparator ? separator || <BreadcrumbSeparator className={classNames?.separator} /> : null}
             </Fragment>
           );
         })}

@@ -63,6 +63,17 @@ export async function stylistic(options: StylisticOptions = {}): Promise<FlatCon
         'style/comma-dangle': ['warn', 'never'],
         'style/semi': ['warn', 'always'],
         'style/indent': ['warn', 2],
+        'style/member-delimiter-style': ['warn', {
+          multiline: {
+            delimiter: 'semi',
+            requireLast: true
+          },
+          singleline: {
+            delimiter: 'semi',
+            requireLast: false
+          },
+          multilineDetection: 'brackets'
+        }],
         'style/no-trailing-spaces': 'warn',
         'style/generator-star-spacing': ['error', { after: true, before: false }],
         'style/yield-star-spacing': ['error', { after: true, before: false }],

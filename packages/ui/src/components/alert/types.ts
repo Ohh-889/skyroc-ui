@@ -1,5 +1,4 @@
 import type { BaseNodeProps, ClassValue, PropsSlot, ThemeColor } from '@/types/other';
-
 import type { AlertSlots, AlertVariant } from './alert-variants';
 
 export type AlertDescriptionProps = BaseNodeProps<React.ComponentProps<'div'>>;

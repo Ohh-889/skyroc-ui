@@ -1,6 +1,5 @@
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
 import SliderRange from './SliderRange';
 import SliderRoot from './SliderRoot';
 import SliderThumb from './SliderThumb';

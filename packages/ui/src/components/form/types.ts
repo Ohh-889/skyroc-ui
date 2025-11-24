@@ -1,10 +1,7 @@
-import type { ComputedFieldProps, FieldProps } from '@skyroc/form';
 import type { ComponentProps, ElementType, ReactNode } from 'react';
-
+import type { ComputedFieldProps, FieldProps } from '@skyroc/form';
 import type { BaseNodeProps, ClassValue } from '@/types/other';
-
 import type { LabelProps } from '../label/types';
-
 import type { FormSlots } from './form-variants';
 
 type FormClassNames = Partial<Record<FormSlots, ClassValue>>;
@@ -28,8 +25,8 @@ type FormSharedProps = BaseNodeProps<{
   label?: ReactNode;
 }>;
 
-export type FormFieldProps<Values = any> = FieldProps<Values> &
-  FormSharedProps & {
+export type FormFieldProps<Values = any> = FieldProps<Values>
+  & FormSharedProps & {
     component?: ElementType;
   };
 

@@ -1,7 +1,5 @@
 import { Content } from '@radix-ui/react-dialog';
-
 import { cn } from '@/lib/utils';
-
 import { sheetVariants } from './sheet-variants';
 import type { SheetContentProps } from './types';
 

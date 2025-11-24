@@ -1,12 +1,9 @@
 'use client';
 
-import { ChevronRight } from 'lucide-react';
 import { forwardRef } from 'react';
-
+import { ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
 import { ButtonIcon } from '../button';
-
 import { carouselVariants } from './carousel-variants';
 import { useCarousel } from './context';
 import type { CarouselNextProps } from './types';

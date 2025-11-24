@@ -1,5 +1,4 @@
 import React from 'react';
-
 import DividerLabel from './DividerLabel';
 import DividerRoot from './DividerRoot';
 import type { DividerProps } from './types';

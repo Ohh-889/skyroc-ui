@@ -1,8 +1,6 @@
-import { Header } from '@radix-ui/react-accordion';
 import { forwardRef } from 'react';
-
+import { Header } from '@radix-ui/react-accordion';
 import { cn } from '@/lib/utils';
-
 import { accordionVariants } from './accordion-variants';
 import type { AccordionHeaderProps } from './types';
 

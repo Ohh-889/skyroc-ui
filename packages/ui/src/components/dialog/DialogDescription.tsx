@@ -1,9 +1,7 @@
-import { Description as _Description } from '@radix-ui/react-dialog';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import { Description as _Description } from '@radix-ui/react-dialog';
 import { cn } from '@/lib/utils';
-
 import { dialogVariants } from './dialog-variants';
 import type { DialogDescriptionProps } from './types';
 

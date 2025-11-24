@@ -17,23 +17,23 @@ export const keyboardKeyVariants = tv({
         group: 'gap-2',
         item: 'gap-1.5 h-8 min-w-8 px-1.5 text-lg'
       },
-      lg: {
+      'lg': {
         group: 'gap-1.5',
         item: 'gap-1 h-6 min-w-6 px-1 text-sm'
       },
-      md: {
+      'md': {
         group: 'gap-1.25',
         item: 'gap-0.75 h-5 min-w-5 px-0.75 text-xs'
       },
-      sm: {
+      'sm': {
         group: 'gap-1',
         item: 'gap-0.625 h-4.5 min-w-4.5 px-0.625 text-2xs'
       },
-      xl: {
+      'xl': {
         group: 'gap-1.75',
         item: 'gap-1.25 h-7 min-w-7 px-1.25 text-base'
       },
-      xs: {
+      'xs': {
         group: 'gap-0.75',
         item: 'gap-0.5 h-4 min-w-4 px-0.5 text-3xs'
       }

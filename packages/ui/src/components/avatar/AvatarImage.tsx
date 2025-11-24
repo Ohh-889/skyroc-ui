@@ -1,9 +1,7 @@
-import { Image } from '@radix-ui/react-avatar';
 import type { ElementRef } from 'react';
 import { forwardRef } from 'react';
-
+import { Image } from '@radix-ui/react-avatar';
 import { cn } from '@/lib/utils';
-
 import { avatarVariants } from './avatar-variants';
 import type { AvatarImageProps } from './types';
 

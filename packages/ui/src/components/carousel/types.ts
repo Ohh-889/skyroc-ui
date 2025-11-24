@@ -1,10 +1,7 @@
 import type useEmblaCarousel from 'embla-carousel-react';
-import { type UseEmblaCarouselType } from 'embla-carousel-react';
-
+import type { UseEmblaCarouselType } from 'embla-carousel-react';
 import type { BaseComponentProps, ClassValue } from '@/types/other';
-
 import type { ButtonProps } from '../button';
-
 import type { CarouselSlots } from './carousel-variants';
 
 export type CarouselApi = UseEmblaCarouselType[1];
@@ -12,12 +9,12 @@ export type UseCarouselParameters = Parameters<typeof useEmblaCarousel>;
 export type CarouselOptions = UseCarouselParameters[0];
 export type CarouselPlugin = UseCarouselParameters[1];
 
-export type CarouselRootType = {
+export interface CarouselRootType {
   opts?: CarouselOptions;
   orientation?: 'horizontal' | 'vertical';
   plugins?: CarouselPlugin;
   setApi?: (api: CarouselApi) => void;
-};
+}
 
 export type CarouselContextProps = {
   api: ReturnType<typeof useEmblaCarousel>[1];

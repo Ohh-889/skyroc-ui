@@ -1,10 +1,8 @@
-import { Item, ItemIndicator, ItemText } from '@radix-ui/react-select';
-import { Check } from 'lucide-react';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import { Item, ItemIndicator, ItemText } from '@radix-ui/react-select';
+import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
-
 import { selectVariants } from './select-variants';
 import type { SelectItemProps } from './types';
 
@@ -26,9 +24,7 @@ const SelectItem = forwardRef<ComponentRef<typeof Item>, SelectItemProps>((props
       ref={ref}
     >
       {leading}
-
       <ItemText data-slot="select-item-text">{children}</ItemText>
-
       {trailing}
 
       <ItemIndicator

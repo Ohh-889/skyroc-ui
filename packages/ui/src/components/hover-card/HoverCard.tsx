@@ -1,7 +1,6 @@
-import { Root, Trigger } from '@radix-ui/react-hover-card';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import { Root, Trigger } from '@radix-ui/react-hover-card';
 import HoverCardArrow from './HoverCardArrow';
 import HoverCardContent from './HoverCardContent';
 import type { HoverCardProps } from './types';
@@ -27,12 +26,14 @@ const HoverCard = forwardRef<ComponentRef<typeof HoverCardContent>, HoverCardPro
       >
         {children}
 
-        {showArrow && (
-          <HoverCardArrow
-            {...arrowProps}
-            className={classNames?.arrow}
-          />
-        )}
+        {showArrow
+          ? (
+            <HoverCardArrow
+              {...arrowProps}
+              className={classNames?.arrow}
+            />
+          )
+          : null}
       </HoverCardContent>
     </Root>
   );

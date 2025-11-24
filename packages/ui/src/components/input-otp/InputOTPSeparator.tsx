@@ -1,7 +1,5 @@
 import { Minus } from 'lucide-react';
-
 import { cn } from '@/lib/utils';
-
 import { inputOTPVariants } from './input-otp-variants';
 import type { InputOTPSeparatorProps } from './types';
 

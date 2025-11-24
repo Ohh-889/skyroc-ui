@@ -1,11 +1,9 @@
 'use client';
 
-import useEmblaCarousel from 'embla-carousel-react';
 import { forwardRef, useCallback, useEffect, useState } from 'react';
 import type { KeyboardEvent } from 'react';
-
+import useEmblaCarousel from 'embla-carousel-react';
 import { cn } from '@/lib/utils';
-
 import { carouselVariants } from './carousel-variants';
 import { CarouselContext } from './context';
 import type { CarouselApi, CarouselRootProps } from './types';
@@ -53,7 +51,8 @@ const Carousel = forwardRef<HTMLDivElement, CarouselRootProps>((props, ref) => {
       if (event.key === prevKey) {
         event.preventDefault();
         scrollPrev();
-      } else if (event.key === nextKey) {
+      }
+      else if (event.key === nextKey) {
         event.preventDefault();
         scrollNext();
       }
@@ -79,7 +78,6 @@ const Carousel = forwardRef<HTMLDivElement, CarouselRootProps>((props, ref) => {
     api.on('reInit', onSelect);
     api.on('select', onSelect);
 
-    // eslint-disable-next-line consistent-return
     return () => {
       api?.off('select', onSelect);
     };

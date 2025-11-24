@@ -1,9 +1,7 @@
 'use client';
 
 import { Group } from '@radix-ui/react-dropdown-menu';
-
 import MenuCheckboxGroup from '../menu/MenuCheckboxGroup';
-
 import DropdownMenuCheckboxItem from './DropdownMenuCheckboxItem';
 import DropdownMenuLabel from './DropdownMenuLabel';
 import DropdownMenuSeparator from './DropdownMenuSeparator';

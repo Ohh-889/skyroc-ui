@@ -1,7 +1,5 @@
 import { Label } from '@radix-ui/react-dropdown-menu';
-
 import MenuLabel from '../menu/MenuLabel';
-
 import type { DropdownMenuLabelProps } from './types';
 
 const DropdownMenuLabel = (props: DropdownMenuLabelProps) => {

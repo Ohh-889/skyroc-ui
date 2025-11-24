@@ -1,11 +1,8 @@
-import { Close as _Close } from '@radix-ui/react-dialog';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import { Close as _Close } from '@radix-ui/react-dialog';
 import { cn } from '@/lib/utils';
-
 import { ButtonIcon } from '../button';
-
 import { dialogVariants } from './dialog-variants';
 import type { DialogCloseProps } from './types';
 

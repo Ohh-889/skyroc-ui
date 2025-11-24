@@ -15,11 +15,11 @@ export const inputVariants = tv({
   variants: {
     size: {
       '2xl': 'h-12 px-4 text-xl file:py-2',
-      lg: 'h-9 px-3 text-base file:py-1.25',
-      md: 'h-8 px-2.5 text-sm file:py-1.25',
-      sm: 'h-7 px-2 text-xs file:py-1.25',
-      xl: 'h-10 px-3.5 text-lg file:py-1.25',
-      xs: 'h-6 px-1.5 text-2xs file:py-1.25'
+      'lg': 'h-9 px-3 text-base file:py-1.25',
+      'md': 'h-8 px-2.5 text-sm file:py-1.25',
+      'sm': 'h-7 px-2 text-xs file:py-1.25',
+      'xl': 'h-10 px-3.5 text-lg file:py-1.25',
+      'xs': 'h-6 px-1.5 text-2xs file:py-1.25'
     }
   }
 });

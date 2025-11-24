@@ -1,7 +1,5 @@
 import React from 'react';
-
 import { cn } from '@/lib/utils';
-
 import { cardVariants } from './card-variants';
 import type { CardTitleRootProps } from './types';
 

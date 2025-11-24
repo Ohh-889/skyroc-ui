@@ -1,7 +1,5 @@
 import { Item } from '@radix-ui/react-dropdown-menu';
-
 import MenuItem from '../menu/MenuItem';
-
 import type { DropdownMenuItemProps } from './types';
 
 const DropdownMenuItem = (props: DropdownMenuItemProps) => {

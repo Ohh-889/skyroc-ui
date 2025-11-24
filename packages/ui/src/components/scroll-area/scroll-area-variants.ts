@@ -109,11 +109,11 @@ export const scrollAreaVariants = tv({
     },
     size: {
       '2xl': {},
-      lg: {},
-      md: {},
-      sm: {},
-      xl: {},
-      xs: {}
+      'lg': {},
+      'md': {},
+      'sm': {},
+      'xl': {},
+      'xs': {}
     }
   }
 });

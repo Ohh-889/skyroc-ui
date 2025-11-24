@@ -1,7 +1,5 @@
 import { forwardRef } from 'react';
-
 import { cn } from '@/lib/utils';
-
 import { textareaVariants } from './textarea-variants';
 import type { TextareaContentProps } from './types';
 

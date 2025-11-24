@@ -1,7 +1,5 @@
 import type { ThemeOptions } from '@skyroc/tailwind-plugin';
-
 import type { ThemeSize } from '@/types/other';
-
 import type { AccordionProps } from '../accordion/types';
 import type { AlertProps } from '../alert';
 import type { IconProps } from '../icon';
@@ -16,11 +14,11 @@ export interface ConfigProps extends ComponentConfig {
   theme?: ThemeOptions;
 }
 
-export type ComponentConfig = {
+export interface ComponentConfig {
   accordion?: AccordionConfig;
   alert?: AlertConfig;
   icon?: IconConfig;
-};
+}
 
 export type AccordionConfig = Pick<AccordionProps, 'className' | 'classNames' | 'dir' | 'size' | 'triggerIcon'>;
 

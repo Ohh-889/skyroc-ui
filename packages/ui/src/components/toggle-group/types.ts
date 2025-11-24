@@ -1,13 +1,11 @@
+import type { ReactNode } from 'react';
 import type {
   // eslint-disable-next-line sort/import-members
   ToggleGroupMultipleProps,
   ToggleGroupSingleProps,
   ToggleGroupItemProps as _ToggleGroupItemProps
 } from '@radix-ui/react-toggle-group';
-import type { ReactNode } from 'react';
-
 import type { BaseNodeProps, ClassValue } from '@/types/other';
-
 import type { ToggleProps } from '../toggle';
 import type { ToggleSlots } from '../toggle/toggle-variants';
 

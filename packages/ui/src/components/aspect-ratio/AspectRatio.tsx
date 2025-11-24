@@ -1,8 +1,6 @@
-import { Root } from '@radix-ui/react-aspect-ratio';
 import { forwardRef } from 'react';
-
+import { Root } from '@radix-ui/react-aspect-ratio';
 import { cn } from '@/lib/utils';
-
 import type { AspectRatioProps } from './types';
 
 const AspectRatio = forwardRef<React.ElementRef<typeof Root>, AspectRatioProps>((props, ref) => {

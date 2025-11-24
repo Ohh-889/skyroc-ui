@@ -1,9 +1,6 @@
 import type { ReactNode } from 'react';
-
 import type { BaseNodeProps, ClassValue, ThemeSize } from '@/types/other';
-
 import type { SheetSide } from '../sheet';
-
 import type { LayoutCollapsible, LayoutSide, LayoutSlots, LayoutVariant } from './layout-variants';
 
 export type LayoutMainProps = Pick<BaseNodeProps<'main'>, 'className'> & {
@@ -32,11 +29,11 @@ export type LayoutRailProps = Pick<BaseNodeProps<'div'>, 'className'> & {
 
 type LayoutUi = Partial<Record<LayoutSlots, ClassValue>>;
 
-export type LayoutSidebarChildrenProps = {
+export interface LayoutSidebarChildrenProps {
   collapsed: boolean;
   collapsedWidth?: number;
   size?: ThemeSize;
-};
+}
 
 export type LayoutSidebarProps = Pick<BaseNodeProps<'div'>, 'className'> & {
   children?: ReactNode | ((props: LayoutSidebarChildrenProps) => ReactNode);
@@ -51,9 +48,9 @@ export type LayoutTriggerProps = Omit<BaseNodeProps<React.ComponentPropsWithRef<
   size?: ThemeSize;
 };
 
-export type LayoutRootChildrenProps = {
+export interface LayoutRootChildrenProps {
   open: boolean;
-};
+}
 
 export type LayoutRootProps = Pick<BaseNodeProps<'div'>, 'className'> & {
   children?: ReactNode | ((props: LayoutRootChildrenProps) => ReactNode);
@@ -88,7 +85,7 @@ export type LayoutProps = Omit<LayoutRootProps, 'children'> & {
 };
 
 type SidebarState = 'collapsed' | 'expanded';
-export type LayoutContextType = {
+export interface LayoutContextType {
   collapsedSidebarWidth?: number;
   isMobile: boolean;
   onOpenChange: (open: boolean) => void;
@@ -98,4 +95,4 @@ export type LayoutContextType = {
   sidebarWidth?: number;
   state: SidebarState;
   toggleSidebar: () => void;
-};
+}

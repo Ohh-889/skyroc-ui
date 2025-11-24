@@ -1,7 +1,5 @@
 import { CheckboxItem } from '@radix-ui/react-context-menu';
-
 import MenuCheckboxItem from '../menu/MenuCheckboxItem';
-
 import ContextMenuItemIndicator from './ContextMenuItemIndicator';
 import type { ContextMenuCheckboxItemProps } from './types';
 

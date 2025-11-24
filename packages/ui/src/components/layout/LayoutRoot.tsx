@@ -1,11 +1,9 @@
-import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import type { CSSProperties } from 'react';
 import { useMemo, useState } from 'react';
-
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { themeSizeRatio } from '@/constants/theme';
 import { useMediaQuery } from '@/hooks/use-media-query';
 import { cn } from '@/lib/utils';
-
 import { LayoutContext } from './context';
 import { layoutVariants } from './layout-variants';
 import type { LayoutRootProps } from './types';
@@ -81,7 +79,8 @@ const LayoutRoot = ({
         toggleSidebar: () => {
           if (isMobile) {
             setOpenMobile(!openMobile);
-          } else {
+          }
+          else {
             handleOpenChange(!open);
           }
         }

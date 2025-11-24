@@ -1,11 +1,9 @@
 'use client';
 
-import type { Root } from '@radix-ui/react-accordion';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import type { Root } from '@radix-ui/react-accordion';
 import { useComponentConfig } from '../config-provider/context';
-
 import AccordionUI from './AccordionUI';
 import type { AccordionProps } from './types';
 

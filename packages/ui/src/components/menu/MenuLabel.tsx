@@ -1,10 +1,8 @@
-import { Label as _Label } from '@radix-ui/react-menu';
 import type { ComponentRef } from 'react';
 import { forwardRef, isValidElement } from 'react';
-
+import { Label as _Label } from '@radix-ui/react-menu';
 import { withClassName } from '@/lib/compose-props';
 import { cn } from '@/lib/utils';
-
 import { menuVariants } from './menu-variants';
 import type { MenuLabelProps } from './types';
 
@@ -22,9 +20,7 @@ const MenuLabel = forwardRef<ComponentRef<typeof _Label>, MenuLabelProps>((props
       {...rest}
     >
       {isValidElement(leading) ? withClassName(leading, itemIcon()) : leading}
-
       {children}
-
       {trailing}
     </Label>
   );

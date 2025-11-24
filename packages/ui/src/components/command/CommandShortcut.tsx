@@ -1,8 +1,6 @@
 import { cn } from '@/lib/utils';
-
 import KeyboardKey from '../keyboard-key/KeyboardKey';
 import type { KeyboardKeyValue } from '../keyboard-key/types';
-
 import { commandVariants } from './command-variants';
 import type { CommandShortcutProps } from './types';
 

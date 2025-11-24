@@ -1,7 +1,5 @@
 import { cn } from '@/lib/utils';
-
 import Label from '../label/Label';
-
 import { formVariants } from './form-variants';
 import type { FormLabelProps } from './types';
 

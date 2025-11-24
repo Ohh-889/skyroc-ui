@@ -1,7 +1,5 @@
 import { forwardRef } from 'react';
-
 import { cn } from '@/lib/utils';
-
 import { chipVariants } from './chip-variants';
 import type { ChipRootProps } from './types';
 

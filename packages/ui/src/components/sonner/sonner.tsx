@@ -1,10 +1,9 @@
 'use client';
 
-import { useTheme } from 'next-themes';
 import type { CSSProperties } from 'react';
+import { useTheme } from 'next-themes';
 import type { ToasterProps } from 'sonner';
 import { Toaster as Sonner } from 'sonner';
-
 import { cn } from '@/lib/utils';
 
 const css = {
@@ -16,26 +15,25 @@ const css = {
   '--normal-text': 'hsl(var(--foreground))',
   '--success-text': 'hsl(var(--success))',
   '--warning-text': 'hsl(var(--warning))',
-  pointerEvents: 'auto'
+  'pointerEvents': 'auto'
 };
 
-const toastVariants =
-  '!border-border !bg-card !text-card-foreground !shadow-[0_4px_6px_-1px_rgb(0_0_0_/_0.1),_0_2px_4px_-2px_rgb(0_0_0_/_0.1)] group  !opacity-100';
+const toastVariants
+  = '!border-border !bg-card !text-card-foreground !shadow-[0_4px_6px_-1px_rgb(0_0_0_/_0.1),_0_2px_4px_-2px_rgb(0_0_0_/_0.1)] group  !opacity-100';
 
-const actionButton =
-  '!inline-flex  justify-center  px-2  gap-1 leading-5  whitespace-nowrap   focus-visible:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50 !bg-primary !text-primary-foreground ';
+const actionButton
+  = '!inline-flex  justify-center  px-2  gap-1 leading-5  whitespace-nowrap   focus-visible:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50 !bg-primary !text-primary-foreground ';
 
-const cancelButton =
-  '!inline-flex  justify-center px-2  gap-1 leading-5  whitespace-nowrap   focus-visible:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50 !border !border-border !bg-background !text-foreground active:shadow-[0_4px_6px_-1px_rgb(0_0_0_/_0.1),_0_2px_4px_-2px_rgb(0_0_0_/_0.1)]';
+const cancelButton
+  = '!inline-flex  justify-center px-2  gap-1 leading-5  whitespace-nowrap   focus-visible:shadow-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary disabled:pointer-events-none disabled:opacity-50 !border !border-border !bg-background !text-foreground active:shadow-[0_4px_6px_-1px_rgb(0_0_0_/_0.1),_0_2px_4px_-2px_rgb(0_0_0_/_0.1)]';
 
 const description = 'text-xs !text-muted-foreground';
 
-const icon =
-  'group-data-[type=success]:text-success group-data-[type=info]:text-info group-data-[type=warning]:text-warning group-data-[type=error]:text-error';
+const icon
+  = 'group-data-[type=success]:text-success group-data-[type=info]:text-info group-data-[type=warning]:text-warning group-data-[type=error]:text-error';
 
 const title = 'text-sm font-medium';
 
-// eslint-disable-next-line complexity
 const Toaster = (props: ToasterProps) => {
   const { theme = 'system' } = useTheme();
 

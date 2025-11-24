@@ -1,9 +1,6 @@
 import { PanelLeft } from 'lucide-react';
-
 import { cn } from '@/lib/utils';
-
 import { ButtonIcon } from '../button';
-
 import { useLayoutContext } from './context';
 import { layoutVariants } from './layout-variants';
 import type { LayoutTriggerProps } from './types';

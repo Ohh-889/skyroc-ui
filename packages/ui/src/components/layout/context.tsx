@@ -1,5 +1,4 @@
 import { createContext, useContext } from 'react';
-
 import type { LayoutContextType } from './types';
 
 export const LayoutContext = createContext<LayoutContextType | null>(null);

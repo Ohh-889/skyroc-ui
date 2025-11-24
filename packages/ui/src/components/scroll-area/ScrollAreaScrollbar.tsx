@@ -1,8 +1,6 @@
-import { Scrollbar } from '@radix-ui/react-scroll-area';
 import { forwardRef } from 'react';
-
+import { Scrollbar } from '@radix-ui/react-scroll-area';
 import { cn } from '@/lib/utils';
-
 import { scrollAreaVariants } from './scroll-area-variants';
 import type { ScrollAreaScrollbarProps } from './types';
 

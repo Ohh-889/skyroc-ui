@@ -1,7 +1,5 @@
 import { Group, Portal, SubContent } from '@radix-ui/react-dropdown-menu';
-
 import MenuSubContent from '../menu/MenuSubContent';
-
 import type { DropdownMenuSubContentProps } from './types';
 
 const DropdownMenuSubContent = (props: DropdownMenuSubContentProps) => {

@@ -1,8 +1,6 @@
-import { Root } from '@radix-ui/react-tabs';
 import { forwardRef } from 'react';
-
+import { Root } from '@radix-ui/react-tabs';
 import { cn } from '@/lib/utils';
-
 import { tabsVariants } from './tabs-variants';
 import type { TabsRootProps } from './types';
 

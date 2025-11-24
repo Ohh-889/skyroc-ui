@@ -1,5 +1,4 @@
 import type { BaseNodeProps, ThemeColor } from '@/types/other';
-
 import type { BadgeShape, BadgeVariant } from './badge-variants';
 
 export interface BadgeProps extends BaseNodeProps<React.ComponentProps<'div'>> {

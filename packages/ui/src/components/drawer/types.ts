@@ -1,7 +1,5 @@
 import type { ContentProps, DialogProps } from 'vaul';
-
 import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeSize } from '@/types/other';
-
 import type {
   DialogCloseProps,
   DialogDescriptionProps,
@@ -10,7 +8,6 @@ import type {
   DialogTitleProps
 } from '../dialog';
 import type { DialogSlots } from '../dialog/dialog-variants';
-
 import type { DrawerSlots } from './drawer-variants';
 
 export type DrawerClassNames = Partial<Record<DrawerSlots | DialogSlots, ClassValue>>;

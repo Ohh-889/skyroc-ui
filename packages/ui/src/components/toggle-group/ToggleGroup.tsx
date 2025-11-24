@@ -1,5 +1,4 @@
 import { isFunction } from '@/lib/typed';
-
 import ToggleGroupItem from './ToggleGroupItem';
 import ToggleGroupRoot from './ToggleGroupRoot';
 import type { ToggleGroupProps } from './types';
@@ -13,7 +12,7 @@ const ToggleGroup = (props: ToggleGroupProps) => {
       className={[classNames?.groupRoot, className]}
       size={size}
     >
-      {items.map(item => {
+      {items.map((item) => {
         const { label, ...restItem } = item;
 
         return (

@@ -1,5 +1,4 @@
 import { Root, Trigger } from '@radix-ui/react-tooltip';
-
 import TooltipArrow from './TooltipArrow';
 import TooltipContent from './TooltipContent';
 import type { TooltipProps } from './types';
@@ -18,12 +17,14 @@ const Tooltip = (props: TooltipProps) => {
       >
         {content}
 
-        {showArrow && (
-          <TooltipArrow
-            className={classNames?.arrow}
-            size={size}
-          />
-        )}
+        {showArrow
+          ? (
+            <TooltipArrow
+              className={classNames?.arrow}
+              size={size}
+            />
+          )
+          : null}
       </TooltipContent>
     </Root>
   );

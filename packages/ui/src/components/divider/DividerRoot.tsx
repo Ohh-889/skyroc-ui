@@ -1,8 +1,6 @@
-import { Root } from '@radix-ui/react-separator';
 import React from 'react';
-
+import { Root } from '@radix-ui/react-separator';
 import { cn } from '@/lib/utils';
-
 import { dividerVariants } from './divider-variants';
 import type { DividerRootProps } from './types';
 

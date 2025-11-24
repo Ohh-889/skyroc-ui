@@ -19,23 +19,23 @@ export const tooltipVariants = tv({
         arrow: 'text-lg',
         content: 'px-4.5 py-2.5 text-xl'
       },
-      lg: {
+      'lg': {
         arrow: 'text-sm',
         content: 'px-3.5 py-1.75 text-base'
       },
-      md: {
+      'md': {
         arrow: 'text-xs',
         content: 'px-3 py-1.5 text-sm'
       },
-      sm: {
+      'sm': {
         arrow: 'text-2xs',
         content: 'px-2.5 py-1.25 text-xs'
       },
-      xl: {
+      'xl': {
         arrow: 'text-base',
         content: 'px-4 py-2 text-lg'
       },
-      xs: {
+      'xs': {
         arrow: 'text-3xs',
         content: 'px-2 py-1 text-2xs'
       }

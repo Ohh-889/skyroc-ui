@@ -1,8 +1,6 @@
-import { Overlay } from '@radix-ui/react-alert-dialog';
 import { forwardRef } from 'react';
-
+import { Overlay } from '@radix-ui/react-alert-dialog';
 import { cn } from '@/lib/utils';
-
 import { dialogVariants } from './alert-dialog-variants';
 import type { AlertDialogOverlayProps } from './types';
 

@@ -1,8 +1,6 @@
 import type { ReactElement } from 'react';
 import { cloneElement } from 'react';
-
 import type { ClassValue } from '@/types/other';
-
 import { cn } from './utils';
 
 export type AnyProps = Record<string, any>;
@@ -11,7 +9,6 @@ export function mergeProps(slotProps: AnyProps, childProps: AnyProps) {
   // all child props should override
   const overrideProps = { ...childProps };
 
-  // eslint-disable-next-line guard-for-in
   for (const propName in childProps) {
     const slotPropValue = slotProps[propName];
     const childPropValue = childProps[propName];
@@ -34,7 +31,8 @@ export function mergeProps(slotProps: AnyProps, childProps: AnyProps) {
     // if it's `style`, we merge them
     else if (propName === 'style') {
       overrideProps[propName] = { ...slotPropValue, ...childPropValue };
-    } else if (propName === 'className') {
+    }
+    else if (propName === 'className') {
       overrideProps[propName] = [slotPropValue, childPropValue].filter(Boolean).join(' ');
     }
   }

@@ -1,10 +1,7 @@
 import type { CSSProperties } from 'react';
-
 import { cn } from '@/lib/utils';
-
 import { DialogOverlay, DialogPortal, DialogRoot } from '../dialog';
 import { SheetContent } from '../sheet';
-
 import { useLayoutContext } from './context';
 import { layoutVariants } from './layout-variants';
 import type { LayoutMobileProps } from './types';
@@ -25,6 +22,7 @@ const LayoutMobile = (props: LayoutMobileProps) => {
     >
       <DialogPortal>
         <DialogOverlay />
+
         <SheetContent
           className={mergedCls.root}
           side={side}

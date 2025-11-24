@@ -49,7 +49,7 @@ npm install @skyroc/tailwind-plugin
 在 `tailwind.config.js` 中配置：
 
 ```js
-import { skyroc } from '@skyroc/tailwind-plugin'
+import { skyroc } from '@skyroc/tailwind-plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -58,27 +58,28 @@ export default {
     './node_modules/skyroc-ui/dist/**/*.{js,ts,jsx,tsx}'
   ],
   plugins: [skyroc()]
-}
+};
 ```
 
 ## 🚀 快速开始
 
 ```tsx
-import { Button, Card, Input } from 'skyroc-ui'
+import { Button, Card, Input } from 'skyroc-ui';
 
-function App() {
+const App = () => {
   return (
     <Card>
       <Card.Header>
         <Card.Title>欢迎使用 Skyroc UI</Card.Title>
       </Card.Header>
+
       <Card.Content className="space-y-4">
         <Input placeholder="请输入内容" />
         <Button>提交</Button>
       </Card.Content>
     </Card>
-  )
-}
+  );
+};
 ```
 
 ## 🧩 组件
@@ -204,4 +205,3 @@ pnpm lint
 如果这个项目对你有帮助，请给它一个 ⭐️！
 
 </div>
-

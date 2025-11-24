@@ -1,7 +1,5 @@
-import { Command as _Command } from 'cmdk';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
 import CommandEmpty from './CommandEmpty';
 import CommandInput from './CommandInput';
 import CommandList from './CommandList';

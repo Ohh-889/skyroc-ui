@@ -1,8 +1,6 @@
-import { Slot } from '@radix-ui/react-slot';
 import { forwardRef } from 'react';
-
+import { Slot } from '@radix-ui/react-slot';
 import { cn } from '@/lib/utils';
-
 import AlertDescription from './AlertDescription';
 import AlertRoot from './AlertRoot';
 import AlertTitle from './AlertTitle';
@@ -45,23 +43,27 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
         className={classNames?.wrapper}
         size={size}
       >
-        {title && (
-          <AlertTitle
-            className={classNames?.title}
-            size={size}
-          >
-            {title}
-          </AlertTitle>
-        )}
+        {title
+          ? (
+            <AlertTitle
+              className={classNames?.title}
+              size={size}
+            >
+              {title}
+            </AlertTitle>
+          )
+          : null}
 
-        {description && (
-          <AlertDescription
-            className={classNames?.description}
-            size={size}
-          >
-            {description}
-          </AlertDescription>
-        )}
+        {description
+          ? (
+            <AlertDescription
+              className={classNames?.description}
+              size={size}
+            >
+              {description}
+            </AlertDescription>
+          )
+          : null}
 
         {children}
       </AlertWrapper>

@@ -1,25 +1,23 @@
 import type { ReactNode } from 'react';
-
 import type { ClassValue, ClassValueProp, ThemeSize } from '@/types/other';
-
 import type { CardSlots } from './card-variants';
 
 export interface CardRootProps
   extends ClassValueProp,
-    Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   size?: ThemeSize;
   split?: boolean;
 }
 
 export interface CardHeaderProps
   extends ClassValueProp,
-    Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   size?: ThemeSize;
 }
 
 export interface CardTitleRootProps
   extends ClassValueProp,
-    Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   leading?: React.ReactNode;
   size?: ThemeSize;
   trailing?: React.ReactNode;
@@ -27,19 +25,19 @@ export interface CardTitleRootProps
 
 export interface CardTitleProps
   extends ClassValueProp,
-    Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   size?: ThemeSize;
 }
 
 export interface CardFooterProps
   extends ClassValueProp,
-    Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   size?: ThemeSize;
 }
 
 export interface CardContentProps
   extends ClassValueProp,
-    Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
+  Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   /**
    * If true, the content will be flex-grow and overflow-hidden
    *

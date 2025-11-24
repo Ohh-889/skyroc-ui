@@ -69,6 +69,7 @@
     "build:components": "tsdown",
     "build:registry": "shadcn build -o ../../playground/public/r",
     "dev": "tsx script/fix-pkg.ts dev",
+    "lint": "eslint . --fix",
     "pgk:prod": "tsx script/fix-pkg.ts prod",
     "registry": "tsx script/registry.ts"
   },
@@ -121,10 +122,18 @@
     "vaul": "1.1.2"
   },
   "devDependencies": {
+    "@next/eslint-plugin-next": "catalog:",
+    "@skyroc/eslint-config": "workspace:*",
     "@turbo/gen": "2.5.0",
     "@types/node": "catalog:",
     "@types/react": "catalog:",
     "@types/react-dom": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-react": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-react-native": "catalog:",
+    "eslint-plugin-react-refresh": "catalog:",
+    "eslint-plugin-tailwindcss": "catalog:",
     "fast-glob": "3.3.3",
     "rimraf": "catalog:",
     "shadcn": "3.5.0",

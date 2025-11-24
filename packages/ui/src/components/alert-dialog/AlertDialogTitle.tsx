@@ -1,8 +1,6 @@
-import { Title } from '@radix-ui/react-alert-dialog';
 import { forwardRef } from 'react';
-
+import { Title } from '@radix-ui/react-alert-dialog';
 import { cn } from '@/lib/utils';
-
 import { dialogVariants } from './alert-dialog-variants';
 import type { AlertDialogTitleProps } from './types';
 

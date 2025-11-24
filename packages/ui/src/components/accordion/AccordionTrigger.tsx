@@ -1,10 +1,8 @@
+import { forwardRef } from 'react';
 import { Trigger } from '@radix-ui/react-accordion';
 import { Slot } from '@radix-ui/react-slot';
 import { ChevronDown } from 'lucide-react';
-import { forwardRef } from 'react';
-
 import { cn } from '@/lib/utils';
-
 import { accordionVariants } from './accordion-variants';
 import type { AccordionTriggerProps } from './types';
 
@@ -26,11 +24,8 @@ const AccordionTrigger = forwardRef<React.ElementRef<typeof Trigger>, AccordionT
       {...rest}
     >
       <Slot className={leadingIcon}>{leading}</Slot>
-
       {children}
-
       {trailing}
-
       <Slot className={iconCls}>{icon || <ChevronDown />}</Slot>
     </Trigger>
   );

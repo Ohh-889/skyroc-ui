@@ -1,12 +1,10 @@
+import type { ReactNode } from 'react';
 import type {
   RadioGroupIndicatorProps as _RadioGroupIndicatorProps,
   RadioGroupItemProps as _RadioGroupItemProps,
   RadioGroupProps as _RadioGroupProps
 } from '@radix-ui/react-radio-group';
-import type { ReactNode } from 'react';
-
 import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeColor } from '@/types/other';
-
 import type { RadioSlots } from './radio-variants';
 
 export type RadioClassNames = Partial<Record<RadioSlots, ClassValue>>;

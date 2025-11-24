@@ -1,7 +1,5 @@
 import { RadioItem } from '@radix-ui/react-dropdown-menu';
-
 import MenuRadioItem from '../menu/MenuRadioItem';
-
 import DropdownMenuItemIndicator from './DropdownMenuItemIndicator';
 import type { DropdownMenuRadioItemProps } from './types';
 

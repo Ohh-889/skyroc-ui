@@ -1,7 +1,6 @@
 'use client';
 
 import { cn } from '@/lib';
-
 import { keyboardKeyVariants } from './keyboard-key-variants';
 import type { KeyboardKeyProps } from './types';
 import { useKeyboardKey } from './use-keyboard-key';

@@ -1,7 +1,5 @@
 import { Root } from '@radix-ui/react-toggle';
-
 import { cn } from '@/lib/utils';
-
 import { toggleVariants } from './toggle-variants';
 import type { ToggleProps } from './types';
 

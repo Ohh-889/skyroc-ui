@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-
 import { textareaVariants } from './textarea-variants';
 import type { TextareaCountProps } from './types';
 

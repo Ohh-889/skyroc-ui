@@ -1,22 +1,8 @@
-import type {
-  ContextMenuCheckboxItemProps as _ContextMenuCheckboxItemProps,
-  ContextMenuGroupProps as _ContextMenuGroupProps,
-  ContextMenuItemIndicatorProps as _ContextMenuItemIndicatorProps,
-  ContextMenuLabelProps as _ContextMenuLabelProps,
-  ContextMenuPortalProps as _ContextMenuPortalProps,
-  ContextMenuProps as _ContextMenuProps,
-  ContextMenuRadioGroupProps as _ContextMenuRadioGroupProps,
-  ContextMenuRadioItemProps as _ContextMenuRadioItemProps,
-  ContextMenuSeparatorProps as _ContextMenuSeparatorProps,
-  ContextMenuSub as _ContextMenuSub,
-  ContextMenuSubContentProps as _ContextMenuSubContentProps,
-  ContextMenuSubProps as _ContextMenuSubProps,
-  ContextMenuSubTriggerProps as _ContextMenuSubTriggerProps
-} from '@radix-ui/react-context-menu';
 import type { ReactNode } from 'react';
-
+import type {
+  ContextMenuProps as _ContextMenuProps
+} from '@radix-ui/react-context-menu';
 import type { BaseNodeProps } from '@/types/other';
-
 import type {
   MenuArrowProps,
   MenuCheckboxGroupProps,
@@ -68,7 +54,7 @@ export type ContextMenuCheckboxGroupProps = Omit<
 
 export interface ContextMenuCheckboxProps
   extends Omit<ContextMenuCheckboxGroupProps, 'dir'>,
-    BaseNodeProps<_ContextMenuProps> {
+  BaseNodeProps<_ContextMenuProps> {
   contentProps?: Omit<ContextMenuContentProps, 'arrowClass' | 'className'>;
 }
 
@@ -82,7 +68,7 @@ export type ContextMenuRadioGroupProps = Omit<
 
 export interface ContextMenuRadioProps
   extends Omit<ContextMenuRadioGroupProps, 'dir'>,
-    BaseNodeProps<_ContextMenuProps> {
+  BaseNodeProps<_ContextMenuProps> {
   contentProps?: Omit<ContextMenuContentProps, 'arrowClass' | 'className'>;
 }
 

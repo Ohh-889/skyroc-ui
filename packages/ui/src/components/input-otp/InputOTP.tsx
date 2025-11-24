@@ -1,6 +1,5 @@
 import type { ComponentRef } from 'react';
 import { Fragment, forwardRef } from 'react';
-
 import InputOTPGroup from './InputOTPGroup';
 import InputOTPSeparator from './InputOTPSeparator';
 import InputOTPSlot from './InputOTPSlot';
@@ -34,14 +33,16 @@ const InputOTP = forwardRef<ComponentRef<typeof InputOtpRoot>, InputOTPProps>((p
               size={size}
             />
 
-            {isSeparator && index !== inputCount - 1 && (
-              <InputOTPSeparator
-                className={classNames?.separator}
-                size={size}
-              >
-                {separator}
-              </InputOTPSeparator>
-            )}
+            {isSeparator && index !== inputCount - 1
+              ? (
+                <InputOTPSeparator
+                  className={classNames?.separator}
+                  size={size}
+                >
+                  {separator}
+                </InputOTPSeparator>
+              )
+              : null}
           </Fragment>
         ))}
       </InputOTPGroup>

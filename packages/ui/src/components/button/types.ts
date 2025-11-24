@@ -1,9 +1,6 @@
 import type { ComponentProps } from 'react';
-
 import type { BaseNodeProps, PrimitiveProps, ThemeColor, ThemeOrientation } from '@/types/other';
-
 import type { IconProps } from '../icon';
-
 import type { ButtonShadow, ButtonShape, ButtonVariant } from './button-variants';
 
 export interface ButtonProps extends PrimitiveProps, BaseNodeProps<ComponentProps<'button'>> {

@@ -1,7 +1,5 @@
 import { Separator } from '@radix-ui/react-select';
-
 import { cn } from '@/lib/utils';
-
 import { selectVariants } from './select-variants';
 import type { SelectSeparatorProps } from './types';
 

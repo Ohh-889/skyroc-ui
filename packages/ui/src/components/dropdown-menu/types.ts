@@ -1,22 +1,8 @@
-import type {
-  DropdownMenuCheckboxItemProps as _DropdownMenuCheckboxItemProps,
-  DropdownMenuGroupProps as _DropdownMenuGroupProps,
-  DropdownMenuItemIndicatorProps as _DropdownMenuItemIndicatorProps,
-  DropdownMenuLabelProps as _DropdownMenuLabelProps,
-  DropdownMenuPortalProps as _DropdownMenuPortalProps,
-  DropdownMenuProps as _DropdownMenuProps,
-  DropdownMenuRadioGroupProps as _DropdownMenuRadioGroupProps,
-  DropdownMenuRadioItemProps as _DropdownMenuRadioItemProps,
-  DropdownMenuSeparatorProps as _DropdownMenuSeparatorProps,
-  DropdownMenuSub as _DropdownMenuSub,
-  DropdownMenuSubContentProps as _DropdownMenuSubContentProps,
-  DropdownMenuSubProps as _DropdownMenuSubProps,
-  DropdownMenuSubTriggerProps as _DropdownMenuSubTriggerProps
-} from '@radix-ui/react-dropdown-menu';
 import type { ReactNode } from 'react';
-
+import type {
+  DropdownMenuProps as _DropdownMenuProps
+} from '@radix-ui/react-dropdown-menu';
 import type { BaseNodeProps } from '@/types/other';
-
 import type {
   MenuArrowProps,
   MenuCheckboxGroupProps,
@@ -68,7 +54,7 @@ export type DropdownMenuCheckboxGroupProps = Omit<
 
 export interface DropdownMenuCheckboxProps
   extends Omit<DropdownMenuCheckboxGroupProps, 'dir'>,
-    BaseNodeProps<_DropdownMenuProps> {
+  BaseNodeProps<_DropdownMenuProps> {
   contentProps?: Omit<DropdownMenuContentProps, 'arrowClass' | 'className'>;
 }
 
@@ -82,7 +68,7 @@ export type DropdownMenuRadioGroupProps = Omit<
 
 export interface DropdownMenuRadioProps
   extends Omit<DropdownMenuRadioGroupProps, 'dir'>,
-    BaseNodeProps<_DropdownMenuProps> {
+  BaseNodeProps<_DropdownMenuProps> {
   contentProps?: Omit<DropdownMenuContentProps, 'arrowClass' | 'className'>;
 }
 

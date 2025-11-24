@@ -1,5 +1,4 @@
 import { Root, Trigger } from '@radix-ui/react-context-menu';
-
 import ContextMenuCheckboxGroup from './ContextMenuCheckboxGroup';
 import ContextMenuContent from './ContextMenuContent';
 import type { ContextMenuCheckboxProps } from './types';

@@ -1,5 +1,4 @@
 import { DialogClose, DialogContent, DialogOverlay, DialogPortal, DialogRoot } from '../dialog';
-
 import type { CommandDialogProps } from './types';
 
 const CommandDialog = (props: CommandDialogProps) => {
@@ -19,7 +18,6 @@ const CommandDialog = (props: CommandDialogProps) => {
           className={className || classNames?.content}
         >
           <DialogClose className={classNames?.close} />
-
           {children}
         </DialogContent>
       </DialogPortal>

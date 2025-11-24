@@ -1,8 +1,6 @@
-import { Item } from '@radix-ui/react-accordion';
 import { forwardRef } from 'react';
-
+import { Item } from '@radix-ui/react-accordion';
 import { cn } from '@/lib/utils';
-
 import { accordionVariants } from './accordion-variants';
 import type { AccordionItemProps } from './types';
 

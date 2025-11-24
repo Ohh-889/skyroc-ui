@@ -6,9 +6,7 @@ import type {
   AlertDialogProps as _AlertDialogProps,
   AlertDialogTitleProps as _AlertDialogTitleProps
 } from '@radix-ui/react-alert-dialog';
-
 import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeColor } from '@/types/other';
-
 import type { DialogSlots } from './alert-dialog-variants';
 
 export type AlertDialogUi = Partial<Record<DialogSlots, ClassValue>> & {
@@ -29,9 +27,9 @@ export interface AlertDialogOverlayProps extends BaseNodeProps<_AlertDialogOverl
 
 export interface AlertDialogTitleProps extends BaseNodeProps<_AlertDialogTitleProps> {}
 
-export type AlertDialogProps = BaseNodeProps<_AlertDialogProps> &
-  AlertDialogContentProps &
-  _AlertDialogPortalProps & {
+export type AlertDialogProps = BaseNodeProps<_AlertDialogProps>
+  & AlertDialogContentProps
+  & _AlertDialogPortalProps & {
     classNames?: AlertDialogUi;
     description?: string;
     disabledPortal?: boolean;

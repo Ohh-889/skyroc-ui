@@ -1,17 +1,15 @@
+import type { ComponentType } from 'react';
 import type {
   DialogCloseProps as _DialogCloseProps,
   DialogContentProps as _DialogContentProps,
   DialogDescriptionProps as _DialogDescriptionProps,
   DialogOverlayProps as _DialogOverlayProps,
-  // eslint-disable-next-line sort-imports
+
   DialogPortalProps,
   DialogProps as _DialogProps,
   DialogTitleProps as _DialogTitleProps
 } from '@radix-ui/react-dialog';
-import type { ComponentType } from 'react';
-
 import type { BaseComponentProps, BaseNodeProps, ClassValue } from '@/types/other';
-
 import type { DialogSlots } from './dialog-variants';
 
 export type DialogClassNames = Partial<Record<DialogSlots, ClassValue>>;

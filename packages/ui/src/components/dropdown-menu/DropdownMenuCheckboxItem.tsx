@@ -1,7 +1,5 @@
 import { CheckboxItem } from '@radix-ui/react-dropdown-menu';
-
 import MenuCheckboxItem from '../menu/MenuCheckboxItem';
-
 import DropdownMenuItemIndicator from './DropdownMenuItemIndicator';
 import type { DropdownMenuCheckboxItemProps } from './types';
 

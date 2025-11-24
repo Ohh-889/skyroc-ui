@@ -1,3 +1,4 @@
+import type { ReactNode } from 'react';
 import type {
   SelectContentProps as _SelectContentProps,
   SelectItemProps as _SelectItemProps,
@@ -7,10 +8,7 @@ import type {
   SelectTriggerProps as _SelectTriggerProps,
   SelectValueProps as _SelectValueProps
 } from '@radix-ui/react-select';
-import type { ReactNode } from 'react';
-
 import type { BaseNodeProps, ClassValue, PropsSlot, ThemeSize } from '@/types/other';
-
 import type { SelectSlots } from './select-variants';
 
 export type SelectClassNames = Partial<Record<SelectSlots, ClassValue>>;
@@ -32,8 +30,8 @@ export interface SelectSeparatorProps extends BaseNodeProps<_SelectSeparatorProp
 
 export interface SelectTriggerProps
   extends BaseNodeProps<_SelectTriggerProps>,
-    Pick<_SelectValueProps, 'placeholder'>,
-    PropsSlot {
+  Pick<_SelectValueProps, 'placeholder'>,
+  PropsSlot {
   classNames?: Pick<SelectClassNames, 'selectedValue' | 'trigger' | 'triggerIcon'>;
   triggerIcon?: React.ReactNode;
 }
@@ -63,7 +61,7 @@ export interface SelectOptionProps extends Pick<SelectItemProps, 'indicatorIcon'
 
 export interface SelectProps
   extends BaseNodeProps<Omit<_SelectProps, 'children'>>,
-    Pick<SelectItemProps, 'indicatorIcon'> {
+  Pick<SelectItemProps, 'indicatorIcon'> {
   classNames?: SelectClassNames;
   contentProps?: Omit<SelectContentProps, 'children'>;
   items: SelectOptionData[];

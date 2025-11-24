@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 
-type MediaQueryConfig = {
+interface MediaQueryConfig {
   devicePixelRatio?: number;
   maxHeight?: number;
   maxWidth?: number;
@@ -10,22 +10,32 @@ type MediaQueryConfig = {
   pointerType?: 'coarse' | 'fine';
   prefersColorScheme?: 'dark' | 'light';
   prefersReducedMotion?: boolean;
-};
+}
 
 const buildMediaQuery = (config: MediaQueryConfig | string): string => {
-  if (typeof config === 'string') return config;
+  if (typeof config === 'string')
+    return config;
 
   const conditions: string[] = [];
 
-  if (config.minWidth) conditions.push(`(min-width: ${config.minWidth}px)`);
-  if (config.maxWidth) conditions.push(`(max-width: ${config.maxWidth}px)`);
-  if (config.minHeight) conditions.push(`(min-height: ${config.minHeight}px)`);
-  if (config.maxHeight) conditions.push(`(max-height: ${config.maxHeight}px)`);
-  if (config.orientation) conditions.push(`(orientation: ${config.orientation})`);
-  if (config.prefersColorScheme) conditions.push(`(prefers-color-scheme: ${config.prefersColorScheme})`);
-  if (config.prefersReducedMotion) conditions.push('(prefers-reduced-motion: reduce)');
-  if (config.devicePixelRatio) conditions.push(`(-webkit-min-device-pixel-ratio: ${config.devicePixelRatio})`);
-  if (config.pointerType) conditions.push(`(pointer: ${config.pointerType})`);
+  if (config.minWidth)
+    conditions.push(`(min-width: ${config.minWidth}px)`);
+  if (config.maxWidth)
+    conditions.push(`(max-width: ${config.maxWidth}px)`);
+  if (config.minHeight)
+    conditions.push(`(min-height: ${config.minHeight}px)`);
+  if (config.maxHeight)
+    conditions.push(`(max-height: ${config.maxHeight}px)`);
+  if (config.orientation)
+    conditions.push(`(orientation: ${config.orientation})`);
+  if (config.prefersColorScheme)
+    conditions.push(`(prefers-color-scheme: ${config.prefersColorScheme})`);
+  if (config.prefersReducedMotion)
+    conditions.push('(prefers-reduced-motion: reduce)');
+  if (config.devicePixelRatio)
+    conditions.push(`(-webkit-min-device-pixel-ratio: ${config.devicePixelRatio})`);
+  if (config.pointerType)
+    conditions.push(`(pointer: ${config.pointerType})`);
 
   return conditions.join(' and ');
 };
@@ -90,7 +100,8 @@ export const useMediaQuery = (config: MediaQueryConfig | string) => {
     // 使用新旧两种 API 以确保最大兼容性
     if (mediaQuery.addEventListener) {
       mediaQuery.addEventListener('change', handler);
-    } else {
+    }
+    else {
       // 兼容旧版浏览器
       mediaQuery.addListener(handler);
     }
@@ -99,7 +110,8 @@ export const useMediaQuery = (config: MediaQueryConfig | string) => {
     return () => {
       if (mediaQuery.removeEventListener) {
         mediaQuery.removeEventListener('change', handler);
-      } else {
+      }
+      else {
         // 兼容旧版浏览器
         mediaQuery.removeListener(handler);
       }
@@ -122,7 +134,8 @@ export const useMediaQuery = (config: MediaQueryConfig | string) => {
  */
 export const removePx = (value: string | number): number => {
   // 如果已经是数字，直接返回
-  if (typeof value === 'number') return value;
+  if (typeof value === 'number')
+    return value;
 
   // 如果是空字符串，抛出错误
   if (!value) {
@@ -152,11 +165,11 @@ export const removePx = (value: string | number): number => {
 export const breakpointsTokens = {
   // desktop-lg => @media (min-width: 1280px) { ... }
   '2xl': '1536px', // tablet => @media (min-width: 768px) { ... }
-  lg: '1024px', // mobile => @media (min-width: 576px) { ... }
-  md: '768px', // mobile => @media (min-width: 0px) { ... }
-  sm: '576px', // desktop => @media (min-width: 1024px) { ... }
-  xl: '1280px',
-  xs: '375px' // desktop-xl => @media (min-width: 1536px) { ... }
+  'lg': '1024px', // mobile => @media (min-width: 576px) { ... }
+  'md': '768px', // mobile => @media (min-width: 0px) { ... }
+  'sm': '576px', // desktop => @media (min-width: 1024px) { ... }
+  'xl': '1280px',
+  'xs': '375px' // desktop-xl => @media (min-width: 1536px) { ... }
 };
 
 type Breakpoints = typeof breakpointsTokens;

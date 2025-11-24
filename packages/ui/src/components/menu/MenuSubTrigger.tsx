@@ -1,11 +1,9 @@
-import { SubTrigger as _SubTrigger } from '@radix-ui/react-menu';
-import { ChevronRight } from 'lucide-react';
 import type { ComponentRef } from 'react';
 import { forwardRef, isValidElement } from 'react';
-
+import { SubTrigger as _SubTrigger } from '@radix-ui/react-menu';
+import { ChevronRight } from 'lucide-react';
 import { withClassName } from '@/lib/compose-props';
 import { cn } from '@/lib/utils';
-
 import { menuVariants } from './menu-variants';
 import type { MenuSubTriggerProps } from './types';
 
@@ -35,11 +33,8 @@ const MenuSubTrigger = forwardRef<ComponentRef<typeof _SubTrigger>, MenuSubTrigg
       {...rest}
     >
       {isValidElement(leading) ? withClassName(leading, itemIcon()) : leading}
-
       {children}
-
       {trailing}
-
       {triggerIcon || <ChevronRight className={mergedTrailingIconCls} />}
     </SubTrigger>
   );

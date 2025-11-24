@@ -1,5 +1,5 @@
-import { type ClassValue } from 'clsx';
 import type { ReactNode } from 'react';
+import type { ClassValue } from 'clsx';
 
 export type ThemeColor = 'accent' | 'carbon' | 'destructive' | 'info' | 'primary' | 'secondary' | 'success' | 'warning';
 
@@ -11,30 +11,30 @@ export type ThemeAlign = 'center' | 'end' | 'start';
 
 export type ThemeSide = 'bottom' | 'left' | 'right' | 'top';
 
-export type ClassValueProp = {
+export interface ClassValueProp {
   /** class name */
   className?: ClassValue;
-};
+}
 
-export type AsTag =
-  | 'a'
-  | 'button'
-  | 'div'
-  | 'form'
-  | 'h2'
-  | 'h3'
-  | 'img'
-  | 'input'
-  | 'label'
-  | 'li'
-  | 'nav'
-  | 'ol'
-  | 'p'
-  | 'span'
-  | 'svg'
-  | 'ul'
-  | 'template'
-  | ({} & string);
+export type AsTag
+  = | 'a'
+    | 'button'
+    | 'div'
+    | 'form'
+    | 'h2'
+    | 'h3'
+    | 'img'
+    | 'input'
+    | 'label'
+    | 'li'
+    | 'nav'
+    | 'ol'
+    | 'p'
+    | 'span'
+    | 'svg'
+    | 'ul'
+    | 'template'
+    | ({} & string);
 
 export interface PrimitiveProps {
   /**
@@ -61,10 +61,10 @@ export type BaseProps<T> = T & {
   size?: ThemeSize;
 };
 
-export type PropsSlot = {
+export interface PropsSlot {
   leading?: ReactNode;
   trailing?: ReactNode;
-};
+}
 
 export type BaseComponentProps<T extends keyof React.JSX.IntrinsicElements> = BaseNodeProps<
   React.ComponentPropsWithRef<T>

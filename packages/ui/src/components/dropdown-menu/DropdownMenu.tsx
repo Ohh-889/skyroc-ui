@@ -1,5 +1,4 @@
 import { Root, Trigger } from '@radix-ui/react-dropdown-menu';
-
 import DropdownMenuContent from './DropdownMenuContent';
 import DropdownMenuOption from './DropdownMenuOption';
 import type { DropdownMenuProps } from './types';

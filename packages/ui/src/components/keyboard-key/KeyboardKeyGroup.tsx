@@ -1,7 +1,5 @@
 import { Fragment } from 'react';
-
 import { cn } from '@/lib/utils';
-
 import KeyboardKey from './KeyboardKey';
 import { keyboardKeyVariants } from './keyboard-key-variants';
 import type { KeyboardKeyGroupProps } from './types';
@@ -32,7 +30,7 @@ const KeyboardKeyGroup = (props: KeyboardKeyGroupProps) => {
             variant={variant}
           />
 
-          {separator && index !== values.length - 1 && <span className={separatorMergedCls}>{separator}</span>}
+          {separator && index !== values.length - 1 ? <span className={separatorMergedCls}>{separator}</span> : null}
         </Fragment>
       ))}
     </div>

@@ -5,7 +5,6 @@ import type {
   ScrollAreaViewportProps as _ScrollAreaViewportProps
 } from '@radix-ui/react-scroll-area';
 import type { BaseNodeProps, ClassValue } from '@/types/other';
-
 import type { ScrollAreaSlots } from './scroll-area-variants';
 
 export type ScrollAreaUi = Partial<Record<ScrollAreaSlots, ClassValue>>;
@@ -20,7 +19,7 @@ export interface ScrollAreaViewportProps extends BaseNodeProps<_ScrollAreaViewpo
 
 export interface ScrollAreaProps
   extends ScrollAreaRootProps,
-    Omit<ScrollAreaScrollbarProps, 'dir'>,
-    Omit<ScrollAreaViewportProps, 'dir'> {
+  Omit<ScrollAreaScrollbarProps, 'dir'>,
+  Omit<ScrollAreaViewportProps, 'dir'> {
   classNames?: ScrollAreaUi;
 }

@@ -1,9 +1,7 @@
-import { Content, Portal } from '@radix-ui/react-tooltip';
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
+import { Content, Portal } from '@radix-ui/react-tooltip';
 import { cn } from '@/lib/utils';
-
 import { tooltipVariants } from './tooltip-variants';
 import type { TooltipContentProps } from './types';
 

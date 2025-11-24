@@ -1,9 +1,6 @@
 import { Root } from '@radix-ui/react-toggle-group';
-
 import { cn } from '@/lib/utils';
-
 import { toggleVariants } from '../toggle/toggle-variants';
-
 import type { ToggleGroupRootProps } from './types';
 
 const ToggleGroupRoot = (props: ToggleGroupRootProps) => {

@@ -1,5 +1,4 @@
 import fs from 'node:fs';
-
 import { getPath, lintFile } from './shared';
 
 // eslint-disable-next-line n/prefer-global/process
@@ -24,7 +23,8 @@ if (mode === 'dev') {
       import: './src/index.ts'
     }
   };
-} else if (mode === 'prod') {
+}
+else if (mode === 'prod') {
   pkg.exports = {
     '.': {
       import: './dist/index.js',
@@ -50,7 +50,8 @@ try {
   console.log(`✅ "exports" field has been updated to "${mode}" mode.`);
 
   lintFile(pkgPath);
-} catch (error) {
+}
+catch (error) {
   console.error(`❌ Failed to write package.json: ${error}`);
   // eslint-disable-next-line n/prefer-global/process
   process.exit(1);

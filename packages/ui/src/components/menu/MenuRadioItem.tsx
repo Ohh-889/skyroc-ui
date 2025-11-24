@@ -1,13 +1,10 @@
-import { RadioItem as _RadioItem } from '@radix-ui/react-dropdown-menu';
-import { CircleSmall } from 'lucide-react';
 import type { ComponentRef } from 'react';
 import { forwardRef, isValidElement } from 'react';
-
+import { RadioItem as _RadioItem } from '@radix-ui/react-dropdown-menu';
+import { CircleSmall } from 'lucide-react';
 import { withClassName } from '@/lib/compose-props';
 import { cn } from '@/lib/utils';
-
 import MenuShortcut from '../menu/MenuShortcut';
-
 import DropdownMenuItemIndicator from './MenuItemIndicator';
 import { menuVariants } from './menu-variants';
 import type { MenuRadioItemProps } from './types';
@@ -47,18 +44,18 @@ const MenuRadioItem = forwardRef<ComponentRef<typeof _RadioItem>, MenuRadioItemP
       </IndicatorComponent>
 
       {isValidElement(leading) ? withClassName(leading, itemIcon()) : leading}
-
       {children}
-
       {trailing}
 
-      {shortcut && (
-        <MenuShortcut
-          className={classNames?.shortcut}
-          size={size}
-          value={shortcut}
-        />
-      )}
+      {shortcut
+        ? (
+          <MenuShortcut
+            className={classNames?.shortcut}
+            size={size}
+            value={shortcut}
+          />
+        )
+        : null}
     </RadioItem>
   );
 });

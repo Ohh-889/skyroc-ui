@@ -1,6 +1,5 @@
-import type { Root } from '@radix-ui/react-accordion';
 import { forwardRef } from 'react';
-
+import type { Root } from '@radix-ui/react-accordion';
 import AccordionContent from './AccordionContent';
 import AccordionHeader from './AccordionHeader';
 import AccordionItem from './AccordionItem';

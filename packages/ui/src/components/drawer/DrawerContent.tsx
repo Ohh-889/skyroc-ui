@@ -1,9 +1,7 @@
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { Content, Portal } from 'vaul';
-
 import { cn } from '@/lib/utils';
-
 import DrawerContentBody from './DrawerContentBody';
 import DrawerKnob from './DrawerKnob';
 import DrawerOverlay from './DrawerOverlay';
@@ -29,7 +27,6 @@ const DrawerContent = forwardRef<ComponentRef<typeof Content>, DrawerContentProp
       >
         <DrawerContentBody className={classNames?.contentBody}>
           <DrawerKnob className={classNames?.knob} />
-
           {children}
         </DrawerContentBody>
       </Content>

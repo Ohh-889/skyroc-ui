@@ -1,7 +1,5 @@
 import { Thumb } from '@radix-ui/react-slider';
-
 import { cn } from '@/lib/utils';
-
 import { sliderVariants } from './slider-variants';
 import type { SliderThumbProps } from './types';
 

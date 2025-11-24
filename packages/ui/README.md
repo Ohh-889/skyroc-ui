@@ -49,7 +49,7 @@ npm install @skyroc/tailwind-plugin
 Configure in your `tailwind.config.js`:
 
 ```js
-import { skyroc } from '@skyroc/tailwind-plugin'
+import { skyroc } from '@skyroc/tailwind-plugin';
 
 /** @type {import('tailwindcss').Config} */
 export default {
@@ -58,27 +58,28 @@ export default {
     './node_modules/skyroc-ui/dist/**/*.{js,ts,jsx,tsx}'
   ],
   plugins: [skyroc()]
-}
+};
 ```
 
 ## 🚀 Quick Start
 
 ```tsx
-import { Button, Card, Input } from 'skyroc-ui'
+import { Button, Card, Input } from 'skyroc-ui';
 
-function App() {
+const App = () => {
   return (
     <Card>
       <Card.Header>
         <Card.Title>Welcome to Skyroc UI</Card.Title>
       </Card.Header>
+
       <Card.Content className="space-y-4">
         <Input placeholder="Enter your text" />
         <Button>Submit</Button>
       </Card.Content>
     </Card>
-  )
-}
+  );
+};
 ```
 
 ## 🧩 Components
@@ -204,4 +205,3 @@ Made with ❤️ by [Ohh](https://github.com/Ohh-889)
 If this project helps you, please give it a ⭐️!
 
 </div>
-

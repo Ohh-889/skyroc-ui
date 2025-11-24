@@ -1,6 +1,5 @@
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-
 import SwitchRoot from './SwitchRoot';
 import SwitchThumb from './SwitchThumb';
 import type { SwitchProps } from './types';

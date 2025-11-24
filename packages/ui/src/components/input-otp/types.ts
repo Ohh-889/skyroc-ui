@@ -1,7 +1,5 @@
 import type { RenderProps } from 'input-otp';
-
 import type { BaseComponentProps, ClassValue, ThemeSize } from '@/types/other';
-
 import type { InputOTPSlots } from './input-otp-variants';
 
 type OverrideProps<T, R> = Omit<T, keyof R> & R;
@@ -29,16 +27,16 @@ export type InputOTPGroupProps = BaseComponentProps<'div'> & {
   separate?: boolean;
 };
 
-export type InputOTPRootProps = OTPInputRootBaseProps &
-  (
+export type InputOTPRootProps = OTPInputRootBaseProps
+  & (
     | {
-        children?: never;
-        render: InputOTPRenderFn;
-      }
+      children?: never;
+      render: InputOTPRenderFn;
+    }
     | {
-        children: React.ReactNode;
-        render?: never;
-      }
+      children: React.ReactNode;
+      render?: never;
+    }
   );
 
 export interface InputOTPSeparatorProps extends BaseComponentProps<'div'> {}

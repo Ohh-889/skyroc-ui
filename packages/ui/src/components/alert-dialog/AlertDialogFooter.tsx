@@ -1,7 +1,5 @@
 import { forwardRef } from 'react';
-
 import { cn } from '@/lib/utils';
-
 import { dialogVariants } from './alert-dialog-variants';
 import type { AlertDialogFooterProps } from './types';
 

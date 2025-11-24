@@ -1,37 +1,35 @@
 import type { ReactNode } from 'react';
-
 import type { BaseComponentProps, ClassValue } from '@/types/other';
-
 import type { KeyboardKeySlots, KeyboardKeyVariant } from './keyboard-key-variants';
 
-export type BuiltinKeyboardKey =
-  | 'alt'
-  | 'arrowdown'
-  | 'arrowleft'
-  | 'arrowright'
-  | 'arrowup'
-  | 'backspace'
-  | 'capslock'
-  | 'command'
-  | 'ctrl'
-  | 'delete'
-  | 'end'
-  | 'enter'
-  | 'escape'
-  | 'home'
-  | 'meta'
-  | 'option'
-  | 'pagedown'
-  | 'pageup'
-  | 'shift'
-  | 'tab'
-  | 'win';
+export type BuiltinKeyboardKey
+  = | 'alt'
+    | 'arrowdown'
+    | 'arrowleft'
+    | 'arrowright'
+    | 'arrowup'
+    | 'backspace'
+    | 'capslock'
+    | 'command'
+    | 'ctrl'
+    | 'delete'
+    | 'end'
+    | 'enter'
+    | 'escape'
+    | 'home'
+    | 'meta'
+    | 'option'
+    | 'pagedown'
+    | 'pageup'
+    | 'shift'
+    | 'tab'
+    | 'win';
 
-export type SpecificKeyboardKeyMap = {
+export interface SpecificKeyboardKeyMap {
   alt: string;
   ctrl: string;
   meta: string;
-};
+}
 
 export type KeyboardKeyValue = BuiltinKeyboardKey | (string & {});
 

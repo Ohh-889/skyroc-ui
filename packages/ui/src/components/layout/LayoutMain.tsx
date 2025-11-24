@@ -1,5 +1,4 @@
 import { cn } from '@/lib/utils';
-
 import { layoutVariants } from './layout-variants';
 import type { LayoutMainProps } from './types';
 

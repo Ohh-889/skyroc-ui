@@ -1,8 +1,6 @@
 import { cn } from '@/lib';
-
 import type { KeyboardKeyValue } from '../keyboard-key';
 import { KeyboardKey } from '../keyboard-key';
-
 import { menuVariants } from './menu-variants';
 import type { MenuShortcutProps } from './types';
 
