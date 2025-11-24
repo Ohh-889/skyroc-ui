@@ -1,6 +1,6 @@
-'use client';
+'use client'
 
-import * as React from 'react';
+import * as React from 'react'
 
 /**
  * DemoScope - 为实时预览提供组件作用域
@@ -10,7 +10,7 @@ import * as React from 'react';
  */
 
 // 导出 React 相关
-export { React };
+export { React }
 
 // 导出常用的 React Hooks
 export const {
@@ -21,19 +21,19 @@ export const {
   useRef,
   useContext,
   useReducer,
-  useId
-} = React;
+  useId,
+} = React
 
 // JSX Runtime (用于 Babel 编译后的代码)
-export const jsx = React.createElement;
-export const jsxs = React.createElement;
-export const Fragment = React.Fragment;
+export const jsx = React.createElement
+export const jsxs = React.createElement
+export const Fragment = React.Fragment
 
 /**
  * Demo 组件上下文
  * 用于在应用中注入自定义组件
  */
-const DemoComponentsContext = React.createContext<Record<string, any>>({});
+const DemoComponentsContext = React.createContext<Record<string, any>>({})
 
 /**
  * DemoComponentsProvider - 提供 Demo 组件的上下文
@@ -48,25 +48,25 @@ const DemoComponentsContext = React.createContext<Record<string, any>>({});
  * </DemoComponentsProvider>
  * ```
  */
-export function DemoComponentsProvider({
+export const DemoComponentsProvider = ({
   children,
-  components = {}
+  components = {},
 }: {
-  children: React.ReactNode;
-  components?: Record<string, any>;
-}): React.ReactElement {
+  children: React.ReactNode
+  components?: Record<string, any>
+}): React.ReactElement => {
   return (
     <DemoComponentsContext value={components}>
       {children}
     </DemoComponentsContext>
-  );
+  )
 }
 
 /**
  * 使用 Demo 组件的 Hook
  */
 export function useDemoComponents(): Record<string, any> {
-  return React.useContext(DemoComponentsContext);
+  return React.useContext(DemoComponentsContext)
 }
 
 /**
@@ -90,8 +90,8 @@ export function getDemoScope(customComponents: Record<string, any> = {}) {
     jsxs,
     Fragment,
     // 合并自定义组件
-    ...customComponents
-  };
+    ...customComponents,
+  }
 }
 
 /**
@@ -102,34 +102,33 @@ export function createRequire(scope: Record<string, any>): (moduleName: string) 
   return (moduleName: string): any => {
     // 处理常见的模块导入
     if (moduleName === 'react') {
-      return { default: React, ...React };
+      return { default: React, ...React }
     }
 
     // 处理本地组件导入
     // 例如: '@/components/button' -> scope.Button
-    const parts = moduleName.split('/');
-    const componentName = parts[parts.length - 1];
+    const parts = moduleName.split('/')
+    const componentName = parts[parts.length - 1]
 
     // 首字母大写作为组件名
-    const capitalizedName = componentName.charAt(0).toUpperCase() + componentName.slice(1);
+    const capitalizedName = componentName.charAt(0).toUpperCase() + componentName.slice(1)
 
     if (scope[capitalizedName]) {
       return {
         default: scope[capitalizedName],
-        [capitalizedName]: scope[capitalizedName]
-      };
+        [capitalizedName]: scope[capitalizedName],
+      }
     }
 
     // 尝试原始名称
     if (scope[componentName]) {
       return {
         default: scope[componentName],
-        [componentName]: scope[componentName]
-      };
+        [componentName]: scope[componentName],
+      }
     }
 
-    console.warn(`模块 "${moduleName}" 未找到,返回空对象`);
-    return {};
-  };
+    console.warn(`模块 "${moduleName}" 未找到,返回空对象`)
+    return {}
+  }
 }
-

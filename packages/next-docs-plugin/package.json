@@ -33,12 +33,11 @@
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsdown",
-    "dev": "tsdown --watch"
+    "dev": "tsdown --watch",
+    "lint": "eslint . --fix"
   },
   "peerDependencies": {
     "@types/react": "*",
@@ -69,6 +68,7 @@
     "unist-util-visit": "catalog:"
   },
   "devDependencies": {
+    "@skyroc/eslint-config": "workspace:*",
     "@types/babel__standalone": "^7.1.9",
     "@types/estree": "1.0.8",
     "@types/hast": "3.0.4",

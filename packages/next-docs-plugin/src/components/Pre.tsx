@@ -1,16 +1,17 @@
-'use client';
+'use client'
 
-import cn from 'clsx';
-import { Check, Copy, WrapText } from 'lucide-react';
-import { type FC, type HTMLAttributes, type MouseEvent, type ReactNode, useEffect, useState } from 'react';
-import type { ButtonProps } from 'skyroc-ui';
-import { Button } from 'skyroc-ui';
+import type { FC, HTMLAttributes, ReactNode } from 'react'
+import cn from 'clsx'
+import { WrapText } from 'lucide-react'
+import { Button } from 'skyroc-ui'
+import CopyButton from './CopyButton'
 
 /* -------------------- ToggleWordWrapButton -------------------- */
 function toggleWordWrap() {
-  const htmlDataset = document.documentElement.dataset;
-  if ('nextraWordWrap' in htmlDataset) delete htmlDataset.nextraWordWrap;
-  else htmlDataset.nextraWordWrap = '';
+  const htmlDataset = document.documentElement.dataset
+  if ('nextraWordWrap' in htmlDataset)
+    delete htmlDataset.nextraWordWrap
+  else htmlDataset.nextraWordWrap = ''
 }
 
 export const ToggleWordWrapButton: FC<{ children?: ReactNode }> = ({ children }) => (
@@ -23,18 +24,18 @@ export const ToggleWordWrapButton: FC<{ children?: ReactNode }> = ({ children })
   >
     {children ?? <WrapText size={16} />}
   </Button>
-);
+)
 
 /* -------------------- Pre 组件 -------------------- */
 export interface PreProps extends HTMLAttributes<HTMLPreElement> {
-  'data-copy'?: '';
-  'data-filename'?: string;
-  'data-language'?: string;
-  'data-word-wrap'?: '';
-  icon?: ReactNode;
+  'data-copy'?: ''
+  'data-filename'?: string
+  'data-language'?: string
+  'data-word-wrap'?: ''
+  'icon'?: ReactNode
 }
 
-export const Pre: FC<PreProps> = rest => {
+export const Pre: FC<PreProps> = (rest) => {
   const {
     children,
     className,
@@ -44,33 +45,36 @@ export const Pre: FC<PreProps> = rest => {
     'data-word-wrap': hasWordWrap,
     icon,
     ...props
-  } = rest;
+  } = rest
 
-  const copyButton = copy === '' && <CopyToClipboard />;
+  const copyButton = copy === '' && <CopyButton />
 
   return (
     <div className="code-block relative my-6 w-full">
       {/* 文件名栏 */}
-      {filename && (
-        <div
-          className={cn(
-            'flex items-center justify-between gap-2 rounded-t-md border border-border/50 border-b-0',
-            'bg-gray-100 dark:bg-neutral-900 px-4 py-2 text-xs text-gray-700 dark:text-gray-200'
-          )}
-        >
-          <div className="flex items-center gap-2 min-w-0">
-            {icon}
-            <span className="truncate">{filename}</span>
+      {filename
+        ? (
+          <div
+            className={cn(
+              'flex items-center justify-between gap-2 rounded-t-md border border-border/50 border-b-0',
+              'bg-gray-100 dark:bg-neutral-900 px-4 py-2 text-xs text-gray-700 dark:text-gray-200',
+            )}
+          >
+            <div className="flex items-center gap-2 min-w-0">
+              {icon}
+              <span className="truncate">{filename}</span>
+            </div>
+
+            {copyButton}
           </div>
-          {copyButton}
-        </div>
-      )}
+        )
+        : null}
 
       {/* 代码区 */}
       <div
         className={cn(
           'relative group rounded-b-md border border-border/50 bg-white dark:bg-black',
-          filename ? 'rounded-t-none' : 'rounded-md'
+          filename ? 'rounded-t-none' : 'rounded-md',
         )}
       >
         {/* hover 按钮区 */}
@@ -78,7 +82,7 @@ export const Pre: FC<PreProps> = rest => {
           className={cn(
             'absolute right-3 flex gap-2 transition-opacity',
             'opacity-0 group-hover:opacity-100 focus-within:opacity-100',
-            filename ? 'top-3' : 'top-3'
+            filename ? 'top-3' : 'top-3',
           )}
         >
           {hasWordWrap === '' && <ToggleWordWrapButton />}
@@ -90,7 +94,7 @@ export const Pre: FC<PreProps> = rest => {
             'overflow-x-auto p-4 text-sm leading-relaxed subpixel-antialiased not-prose',
             'bg-transparent text-foreground dark:text-foreground/90',
             'font-mono',
-            className
+            className,
           )}
           {...props}
         >
@@ -98,5 +102,5 @@ export const Pre: FC<PreProps> = rest => {
         </pre>
       </div>
     </div>
-  );
-};
+  )
+}

@@ -1,18 +1,17 @@
-import { useEffect, useState } from 'react';
-import * as Babel from '@babel/standalone';
-
-import { createRequire, getDemoScope } from './DemoScope';
+import { useEffect, useState } from 'react'
+import * as Babel from '@babel/standalone'
+import { createRequire, getDemoScope } from './DemoScope'
 
 interface UseCodeCompilerOptions {
-  code: string;
-  enabled: boolean;
-  contextComponents: Record<string, any>;
+  code: string
+  enabled: boolean
+  contextComponents: Record<string, any>
 }
 
 interface UseCodeCompilerResult {
-  component: React.ComponentType | null;
-  error: string | null;
-  isCompiling: boolean;
+  component: React.ComponentType | null
+  error: string | null
+  isCompiling: boolean
 }
 
 /**
@@ -22,22 +21,22 @@ interface UseCodeCompilerResult {
 export function useCodeCompiler({
   code,
   enabled,
-  contextComponents
+  contextComponents,
 }: UseCodeCompilerOptions): UseCodeCompilerResult {
-  const [component, setComponent] = useState<React.ComponentType | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [isCompiling, setIsCompiling] = useState(false);
+  const [component, setComponent] = useState<React.ComponentType | null>(null)
+  const [error, setError] = useState<string | null>(null)
+  const [isCompiling, setIsCompiling] = useState(false)
 
   useEffect(() => {
     if (!enabled || !code) {
-      setComponent(null);
-      setError(null);
-      setIsCompiling(false);
-      return;
+      setComponent(null)
+      setError(null)
+      setIsCompiling(false)
+      return
     }
 
-    let mounted = true;
-    setIsCompiling(true);
+    let mounted = true
+    setIsCompiling(true)
 
     const compileCode = async () => {
       try {
@@ -47,27 +46,28 @@ export function useCodeCompiler({
           filename: 'demo.tsx',
           presets: [
             ['react', { runtime: 'classic' }],
-            ['typescript', { isTSX: true, allExtensions: true }]
-          ]
-        });
+            ['typescript', { isTSX: true, allExtensions: true }],
+          ],
+        })
 
         if (!transformResult.code) {
-          throw new Error('Babel 编译失败');
+          throw new Error('Babel 编译失败')
         }
 
-        if (!mounted) return;
+        if (!mounted)
+          return
 
-        let transformedCode = transformResult.code;
+        let transformedCode = transformResult.code
 
         // 移除 import 语句
-        transformedCode = transformedCode.replace(/import\s+.*?from\s+['"].*?['"];?\s*/g, '');
+        transformedCode = transformedCode.replace(/import\s+(?:\S.*?)??from\s+['"].*?['"];?\s*/g, '')
 
         // 移除 export default 并替换为 return
-        transformedCode = transformedCode.replace(/export\s+default\s+/g, 'return ');
+        transformedCode = transformedCode.replace(/export\s+default\s+/g, 'return ')
 
         // 获取作用域,注入自定义组件(从 Context 获取)
-        const scope = getDemoScope(contextComponents);
-        const require = createRequire(scope);
+        const scope = getDemoScope(contextComponents)
+        const require = createRequire(scope)
 
         // 添加 require 函数到作用域
         // 重要: 添加 React.createElement 作为全局函数
@@ -80,51 +80,55 @@ export function useCodeCompiler({
           // 确保 createElement 可用
           _jsx: scope.React.createElement,
           _jsxs: scope.React.createElement,
-          _Fragment: scope.React.Fragment
-        };
+          _Fragment: scope.React.Fragment,
+        }
 
         // 创建函数并执行
-        const scopeKeys = Object.keys(fullScope);
-        const scopeValues = Object.values(fullScope);
+        const scopeKeys = Object.keys(fullScope)
+        const scopeValues = Object.values(fullScope)
 
-        const componentFactory = new Function(...scopeKeys, transformedCode);
-        const GeneratedComponent = componentFactory(...scopeValues);
+        const componentFactory = new Function(...scopeKeys, transformedCode)
+        const GeneratedComponent = componentFactory(...scopeValues)
 
-        if (!mounted) return;
+        if (!mounted)
+          return
 
         if (GeneratedComponent) {
-          setComponent(() => GeneratedComponent);
-          setError(null);
-        } else {
-          throw new Error('未找到导出的组件');
+          setComponent(() => GeneratedComponent)
+          setError(null)
         }
-      } catch (err: any) {
-        if (!mounted) return;
-        console.error('编译错误:', err);
-        setError(err.message || '编译失败');
-        setComponent(null);
-      } finally {
-        if (mounted) {
-          setIsCompiling(false);
+        else {
+          throw new Error('未找到导出的组件')
         }
       }
-    };
+      catch (err: any) {
+        if (!mounted)
+          return
+        console.error('编译错误:', err)
+        setError(err.message || '编译失败')
+        setComponent(null)
+      }
+      finally {
+        if (mounted) {
+          setIsCompiling(false)
+        }
+      }
+    }
 
     // 添加延迟,避免频繁编译
     const timer = setTimeout(() => {
-      compileCode();
-    }, 300);
+      compileCode()
+    }, 300)
 
     return () => {
-      mounted = false;
-      clearTimeout(timer);
-    };
-  }, [code, enabled, contextComponents]);
+      mounted = false
+      clearTimeout(timer)
+    }
+  }, [code, enabled, contextComponents])
 
   return {
     component,
     error,
-    isCompiling
-  };
+    isCompiling,
+  }
 }
-

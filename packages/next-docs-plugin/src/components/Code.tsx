@@ -1,17 +1,16 @@
-'use client';
+'use client'
 
-import cn from 'clsx';
-import type { FC, HTMLAttributes, MouseEvent } from 'react';
-
-import CopyButton from './CopyButton';
+import type { FC, HTMLAttributes, MouseEvent } from 'react'
+import cn from 'clsx'
+import CopyButton from './CopyButton'
 
 const Code: FC<
   HTMLAttributes<HTMLElement> & {
-    'data-copy'?: boolean;
-    'data-language'?: string;
-    'data-show-line-numbers'?: boolean;
+    'data-copy'?: boolean
+    'data-language'?: string
+    'data-show-line-numbers'?: boolean
   }
-> = rest => {
+> = (rest) => {
   const {
     children,
     className,
@@ -19,13 +18,13 @@ const Code: FC<
     'data-language': language,
     'data-show-line-numbers': showLineNumbers,
     ...props
-  } = rest;
+  } = rest
 
-  const isBlock = className?.includes('hljs') || Boolean(language);
+  const isBlock = className?.includes('hljs') || Boolean(language)
 
-   function getContent(event: MouseEvent<HTMLButtonElement>) {
-    const container = event.currentTarget.closest('.code-block');
-    return container?.querySelector('pre code')?.textContent ?? '';
+  function getContent(event: MouseEvent<HTMLButtonElement>) {
+    const container = event.currentTarget.closest('.code-block')
+    return container?.querySelector('pre code')?.textContent ?? ''
   }
 
   return (
@@ -40,28 +39,27 @@ const Code: FC<
 
         isBlock
           ? [
-              'block w-full whitespace-pre break-words',
-              'bg-transparent',
-              'selection:bg-muted selection:text-foreground',
-              'before:hidden after:hidden',
-              showLineNumbers && '[counter-reset:line]'
-              // 行号支持
-            ]
+            'block w-full whitespace-pre break-words',
+            'bg-transparent',
+            'selection:bg-muted selection:text-foreground',
+            'before:hidden after:hidden',
+            showLineNumbers && '[counter-reset:line]',
+            // 行号支持
+          ]
           : [
-              // inline code 样式 - 内容自适应宽度
-              'inline-block rounded-md px-[0.3em] py-[0.15em]',
-              'font-mono text-[0.875em] leading-normal text-foreground/90',
-              'bg-muted/40 dark:bg-neutral-800 dark:border-neutral-700',
-              'whitespace-nowrap'
-            ],
-        className
+            // inline code 样式 - 内容自适应宽度
+            'inline-block rounded-md px-[0.3em] py-[0.15em]',
+            'font-mono text-[0.875em] leading-normal text-foreground/90',
+            'bg-muted/40 dark:bg-neutral-800 dark:border-neutral-700',
+            'whitespace-nowrap',
+          ],
+        className,
       )}
     >
       {children}
-
-      {copy && <CopyButton getContent={getContent} />}
+      {copy ? <CopyButton getContent={getContent} /> : null}
     </code>
-  );
-};
+  )
+}
 
-export default Code;
+export default Code

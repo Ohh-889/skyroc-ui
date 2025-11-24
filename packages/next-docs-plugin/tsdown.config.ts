@@ -1,8 +1,8 @@
-import { defineConfig } from 'tsdown';
+import { defineConfig } from 'tsdown'
 
 export default defineConfig({
   alias: {
-    '@': '../ui/src'
+    '@': '../ui/src',
   },
   clean: true,
   dts: true,
@@ -12,5 +12,5 @@ export default defineConfig({
   platform: 'neutral',
   shims: true,
   sourcemap: false,
-  unbundle: true
-});
+  unbundle: true,
+})

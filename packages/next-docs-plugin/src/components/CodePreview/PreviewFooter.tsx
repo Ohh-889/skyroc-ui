@@ -1,13 +1,13 @@
-'use client';
+'use client'
 
 interface PreviewFooterProps {
-  lineCount: number;
+  lineCount: number
 }
 
 /**
  * 预览组件的页脚
  */
-export function PreviewFooter({ lineCount }: PreviewFooterProps) {
+export const PreviewFooter = ({ lineCount }: PreviewFooterProps) => {
   return (
     <div className="border-t border-border bg-muted/50 px-5 py-2.5">
       <div className="flex items-center justify-between text-xs">
@@ -15,11 +15,13 @@ export function PreviewFooter({ lineCount }: PreviewFooterProps) {
           <span className="inline-flex h-1.5 w-1.5 rounded-full bg-emerald-500 dark:bg-emerald-400" />
           修改代码后立即看到效果
         </span>
+
         <span className="font-mono text-muted-foreground">
-          {lineCount} 行
+          {lineCount}
+          {' '}
+          行
         </span>
       </div>
     </div>
-  );
+  )
 }
-

@@ -738,6 +738,9 @@ importers:
         specifier: 'catalog:'
         version: 5.0.0
     devDependencies:
+      '@skyroc/eslint-config':
+        specifier: workspace:*
+        version: link:../eslint-config
       '@types/babel__standalone':
         specifier: ^7.1.9
         version: 7.1.9
