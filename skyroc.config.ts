@@ -40,6 +40,7 @@ export default defineConfig({
     ['create-skyroc', 'create skyroc-ui project'],
     ['@skyroc/cli', 'CLI for skyroc-ui'],
     ['skyroc-ui-docs', 'Docs for skyroc-ui'],
+    ['@skyroc/eslint-config', 'ESLint config for skyroc-ui'],
     ['other', 'other changes']
   ],
   releaseOptions: options => {
