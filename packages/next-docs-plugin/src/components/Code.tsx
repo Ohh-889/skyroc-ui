@@ -32,7 +32,6 @@ const Code: FC<CodeProps> = (rest) => {
       dir="ltr"
       {...props}
       data-show-line-numbers={showLineNumbers}
-      style={{ display: 'grid' }}
       className={cn(
         'font-mono text-[13px] leading-relaxed',
         'justify-between items-center flex-wrap',

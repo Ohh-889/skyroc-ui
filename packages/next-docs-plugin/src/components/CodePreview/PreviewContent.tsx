@@ -53,7 +53,9 @@ export const PreviewContent = ({
             </div>
           )}
         >
-          <div className="p-8">{children}</div>
+          <div className="flex items-center justify-center p-8">
+            {children}
+          </div>
         </ErrorBoundary>
       )}
 
