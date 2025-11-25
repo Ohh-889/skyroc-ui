@@ -1,5 +1,31 @@
 import type { MDXComponents } from 'mdx/types';
-import { Code, ComponentPreview, Demo, InstallDependencies, H1, H2, H3, H4, H5, H6, Table, THead, TBody, TR, TH, TD, Pre } from '@skyroc/next-docs-plugin';
+import {
+  Code,
+  ComponentPreview,
+  Demo,
+  InstallDependencies,
+  H1,
+  H2,
+  H3,
+  H4,
+  H5,
+  H6,
+  Table,
+  THead,
+  TBody,
+  TR,
+  TH,
+  TD,
+  Pre,
+  VariantShowcase,
+  UL,
+  LI,
+  OL,
+  FeatureCard,
+  FeatureGrid,
+  Callout,
+  TypeList
+} from '@skyroc/next-docs-plugin';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
@@ -20,6 +46,14 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     tbody: TBody,
     tr: TR,
     th: TH,
-    td: TD
+    td: TD,
+    ul: UL,
+    li: LI,
+    ol: OL,
+    VariantShowcase,
+    FeatureCard,
+    FeatureGrid,
+    Callout,
+    TypeList
   };
 }

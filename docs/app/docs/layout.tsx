@@ -8,7 +8,7 @@ const DocsLayout = ({ children }: { children: React.ReactNode }) => {
 
       <div className="flex flex-1">
         <Sidebar />
-        <main className="max-w-4xl flex-1 px-6 py-8 md:px-12 md:py-12">{children}</main>
+        <main className="m-auto  flex-1 px-6 py-8">{children}</main>
       </div>
     </div>
   );

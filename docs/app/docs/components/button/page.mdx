@@ -1,6 +1,66 @@
+export const BUTTON_VARIANTS = [
+  {
+    name: 'solid',
+    title: 'Solid（实心）',
+    description: '默认样式，有背景色和文字颜色对比，适合主要操作按钮，具有最强的视觉层级。'
+  },
+  {
+    name: 'pure',
+    title: 'Pure（纯净）',
+    description: '有边框和背景，整体风格简洁纯净，适合表单场景和需要清晰边界的界面。'
+  },
+  {
+    name: 'plain',
+    title: 'Plain（朴素）',
+    description: '有边框无背景，鼠标悬浮时边框和文字改变颜色，适合次要操作和简约界面。'
+  },
+  {
+    name: 'outline',
+    title: 'Outline（描边）',
+    description: '有边框和颜色，背景透明，常用于次要操作按钮，与实心按钮形成良好对比。'
+  },
+  {
+    name: 'dashed',
+    title: 'Dashed（虚线）',
+    description: '虚线边框，适合次要操作或添加类操作，给人轻量和非永久的视觉暗示。'
+  },
+  {
+    name: 'soft',
+    title: 'Soft（柔和）',
+    description: '浅色背景，无边框，柔和的视觉效果，适合需要低调但又有区分度的场景。'
+  },
+  {
+    name: 'ghost',
+    title: 'Ghost（幽灵）',
+    description: '完全透明背景，鼠标悬浮时显示背景，常用于工具栏按钮和图标按钮。'
+  },
+  {
+    name: 'link',
+    title: 'Link（链接）',
+    description: '类似文本链接，带下划线效果，适合内联操作和不需要明显按钮样式的场景。'
+  }
+];
+
+export const BUTTON_COLORS = [
+  { name: 'primary', label: 'Primary', description: '主要操作，如提交、保存' },
+  { name: 'destructive', label: 'Destructive', description: '危险操作，如删除、取消订阅' },
+  { name: 'success', label: 'Success', description: '成功操作，如确认、完成' },
+  { name: 'warning', label: 'Warning', description: '警告操作，需要谨慎处理' },
+  { name: 'info', label: 'Info', description: '信息提示' },
+  { name: 'carbon', label: 'Carbon', description: '深色主题' },
+  { name: 'secondary', label: 'Secondary', description: '次要操作' },
+  { name: 'accent', label: 'Accent', description: '强调色' }
+];
+
+import { Button, ButtonGroup, ButtonIcon } from '@ui/button';
+
 # Button 按钮
 
-按钮用于开始一个即时操作。
+按钮用于触发即时操作，是用户界面中最常用的交互元素。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-slot', 'lucide-react']} />
 
 ## 导入
 
@@ -12,13 +72,13 @@ import { Button, ButtonGroup, ButtonIcon } from 'skyroc-ui';
 
 ### 颜色
 
-按钮提供 8 种主题颜色。
+按钮提供 8 种主题颜色，每种颜色都有其特定的语义和使用场景。
 
 <Demo src="@playground/button/modules/ButtonColor" title="按钮颜色" />
 
 ### 变体
 
-按钮提供 8 种视觉变体样式。
+按钮提供 8 种视觉变体样式，可以满足不同的设计需求和视觉层级。
 
 <Demo src="@playground/button/modules/ButtonVariant" title="按钮变体" />
 
@@ -36,11 +96,11 @@ import { Button, ButtonGroup, ButtonIcon } from 'skyroc-ui';
 
 ### 阴影
 
-按钮提供 4 种阴影层级：`none`、`sm`、`md`、`lg`。
+按钮提供 4 种阴影层级：`none`、`sm`、`md`、`lg`，用于增强按钮的视觉层次。
 
 <Demo src="@playground/button/modules/ButtonShadow" title="按钮阴影" />
 
-### 插槽
+### 前后插槽
 
 按钮支持 `leading` 和 `trailing` 插槽，可以在按钮前后添加图标或其他内容。
 
@@ -48,21 +108,41 @@ import { Button, ButtonGroup, ButtonIcon } from 'skyroc-ui';
 
 ### 禁用状态
 
-通过 `disabled` 属性禁用按钮。
+通过 `disabled` 属性禁用按钮，禁用后按钮不可点击且样式变灰。
 
 <Demo src="@playground/button/modules/ButtonDisabled" title="禁用按钮" />
 
 ### 加载状态
 
-通过 `loading` 属性显示加载状态，加载时按钮会自动禁用。
+通过 `loading` 属性显示加载状态，加载时按钮会自动禁用并显示加载图标。
 
 <Demo src="@playground/button/modules/ButtonLoading" title="加载按钮" />
+
+### 内容自适应
+
+通过 `fitContent` 属性控制按钮是否自适应内容大小，适合只包含图标的场景。
+
+```tsx
+<Button fitContent>
+  <Icon icon="heart" />
+</Button>
+```
+
+### 作为其他组件
+
+通过 `asChild` 属性，可以将按钮样式应用到其他组件上，如链接。
+
+```tsx
+<Button asChild>
+  <a href="/docs">文档</a>
+</Button>
+```
 
 ## ButtonGroup 按钮组
 
 ### 水平按钮组
 
-将多个按钮组合在一起，中间的按钮会自动合并边框。
+将多个按钮组合在一起，中间的按钮会自动合并边框，形成统一的视觉效果。
 
 <Demo src="@playground/button/modules/ButtonGroupDemo:ButtonGroupHorizontal" title="水平按钮组" />
 
@@ -76,7 +156,7 @@ import { Button, ButtonGroup, ButtonIcon } from 'skyroc-ui';
 
 ### 基础用法
 
-图标按钮默认使用 `ghost` 变体，适合只显示图标的场景。
+图标按钮默认使用 `ghost` 变体，适合只显示图标的场景，常用于工具栏。
 
 <Demo src="@playground/button/modules/ButtonIconDemo:ButtonIconBasic" title="图标按钮" />
 
@@ -86,18 +166,45 @@ import { Button, ButtonGroup, ButtonIcon } from 'skyroc-ui';
 
 <Demo src="@playground/button/modules/ButtonIconDemo:ButtonIconFitContent" title="自适应图标按钮" />
 
+## 变体说明
+
+<VariantShowcase variants={BUTTON_VARIANTS}>
+  {BUTTON_VARIANTS.map((variant) => (
+    <Button key={variant.name} variant={variant.name}>{variant.title}</Button>
+  ))}
+</VariantShowcase>
+
+## 颜色系统
+
+按钮支持完整的主题色系统，每种颜色都有明确的语义：
+
+<div className="not-prose my-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+    {BUTTON_COLORS.map((color) => (
+      <div key={color.name} className="p-4 rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
+        <div className="mb-3">
+          <Button color={color.name} size="sm" className="w-full">
+            {color.label}
+          </Button>
+        </div>
+        <p className="text-xs text-gray-600 dark:text-gray-400">{color.description}</p>
+      </div>
+    ))}
+  </div>
+</div>
+
 ## API
 
 ### Button Props
 
 | 属性 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
-| color | `'primary' \| 'destructive' \| 'success' \| 'warning' \| 'info' \| 'carbon' \| 'secondary' \| 'accent'` | `'primary'` | 按钮颜色 |
-| variant | `'solid' \| 'pure' \| 'plain' \| 'outline' \| 'dashed' \| 'soft' \| 'ghost' \| 'link'` | `'solid'` | 按钮变体 |
-| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 按钮尺寸 |
+| color | `'primary' \| 'destructive' \| 'success' \| 'warning' \| 'info' \| 'carbon' \| 'secondary' \| 'accent'` | `'primary'` | 按钮颜色主题 |
+| variant | `'solid' \| 'pure' \| 'plain' \| 'outline' \| 'dashed' \| 'soft' \| 'ghost' \| 'link'` | `'solid'` | 按钮变体样式 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 按钮尺寸大小 |
 | shape | `'auto' \| 'rounded' \| 'square' \| 'circle'` | `'auto'` | 按钮形状 |
-| shadow | `'none' \| 'sm' \| 'md' \| 'lg'` | `'sm'` | 阴影大小 |
-| fitContent | `boolean` | `false` | 是否自适应内容 |
+| shadow | `'none' \| 'sm' \| 'md' \| 'lg'` | `'sm'` | 阴影层级 |
+| fitContent | `boolean` | `false` | 是否自适应内容大小 |
 | loading | `boolean` | `false` | 加载状态 |
 | disabled | `boolean` | `false` | 禁用状态 |
 | leading | `ReactNode` | - | 前置内容（图标等） |
@@ -108,7 +215,7 @@ import { Button, ButtonGroup, ButtonIcon } from 'skyroc-ui';
 
 | 属性 | 类型 | 默认值 | 说明 |
 |------|------|--------|------|
-| orientation | `'horizontal' \| 'vertical'` | `'horizontal'` | 按钮组方向 |
+| orientation | `'horizontal' \| 'vertical'` | `'horizontal'` | 按钮组排列方向 |
 
 ### ButtonIcon Props
 
@@ -128,71 +235,53 @@ import { Button, ButtonGroup, ButtonIcon } from 'skyroc-ui';
 | icon | `string` | - | 图标名称（使用 Icon 组件） |
 | iconProps | `IconProps` | - | 传递给 Icon 组件的属性 |
 
-## 变体说明
+## 使用指南
 
-### solid（实心）
-默认样式，有背景色和文字颜色对比。
+### 何时使用
 
-### pure（纯净）
-有边框和背景，适合表单场景。
+- 需要触发即时操作时，如提交表单、打开对话框等
+- 需要明确的用户交互入口
+- 需要在界面中突出某个操作
 
-### plain（朴素）
-有边框无背景，鼠标悬浮时边框和文字改变颜色。
+### 变体选择建议
 
-### outline（描边）
-有边框和颜色，背景透明。
+- **Solid** - 主要操作按钮，最高优先级，一个页面最好只有一个
+- **Outline** - 次要操作按钮，与 Solid 搭配使用
+- **Ghost** - 工具栏按钮、图标按钮，最低视觉权重
+- **Link** - 内联操作，不需要明显按钮样式的场景
+- **Dashed** - 添加、上传等非永久性操作
+- **Soft** - 需要柔和视觉效果的场景
 
-### dashed（虚线）
-虚线边框，适合次要操作。
+### 颜色使用建议
 
-### soft（柔和）
-浅色背景，无边框。
+- **Primary** - 主要操作（提交、保存、确认）
+- **Destructive** - 危险操作（删除、取消、拒绝）
+- **Success** - 成功、完成类操作
+- **Warning** - 需要谨慎的操作
+- **Info** - 信息类操作
+- **Secondary** - 次要操作
+- **Accent** - 需要强调但不属于主要操作的场景
 
-### ghost（幽灵）
-完全透明背景，鼠标悬浮时显示背景。
+### 尺寸使用建议
 
-### link（链接）
-类似文本链接，带下划线效果。
-
-## 颜色系统
-
-按钮支持主题色系统：
-
-- **primary** - 主要操作
-- **destructive** - 危险/删除操作
-- **success** - 成功/确认操作
-- **warning** - 警告操作
-- **info** - 信息提示
-- **carbon** - 深色主题
-- **secondary** - 次要操作
-- **accent** - 强调色
-
-## 最佳实践
-
-### 使用场景
-
-- **solid** - 主要操作按钮
-- **outline** - 次要操作按钮
-- **ghost** - 工具栏按钮
-- **link** - 内联操作
-
-### 颜色选择
-
-- **primary** - 主要操作（提交、保存）
-- **destructive** - 删除、取消订阅等危险操作
-- **success** - 确认、完成
-- **warning** - 需要谨慎的操作
-
-### 尺寸选择
-
-- **xs/sm** - 表格行内操作、标签
+- **xs/sm** - 表格行内操作、标签、紧凑型界面
 - **md** - 默认尺寸，适合大多数场景
-- **lg/xl** - 重要的号召性操作（CTA）
-- **2xl** - 大型页面的主要操作
+- **lg/xl** - 重要的号召性操作（CTA）、表单提交
+- **2xl** - 大型页面的主要操作、营销页面
 
 ## 注意事项
 
-1. 加载状态（`loading`）会自动禁用按钮
-2. `fitContent` 设为 `true` 时，按钮会自适应内容大小
-3. `shape` 为 `square` 或 `circle` 时，建议只放图标
-4. 使用 `asChild` 可以将按钮样式应用到其他组件上
+1. **加载状态** - `loading` 为 `true` 时会自动禁用按钮并显示加载图标
+2. **禁用状态** - 禁用的按钮不可点击，且 `opacity` 降低为 50%
+3. **焦点管理** - 所有按钮都支持键盘焦点和焦点环（focus ring）
+4. **形状与内容** - `square` 或 `circle` 形状时，建议只放图标
+5. **自适应内容** - `fitContent` 为 `true` 时，按钮会根据内容大小自适应
+6. **语义化** - 使用 `asChild` 时要注意保持语义化，如链接应该用 `<a>` 标签
+
+## 无障碍
+
+- 按钮支持键盘访问（Space/Enter 键触发）
+- 禁用的按钮会添加 `disabled` 属性
+- 加载状态的按钮会自动禁用，防止重复提交
+- 所有按钮都有明确的焦点指示器
+- 建议为图标按钮添加 `aria-label` 属性以提供文本描述

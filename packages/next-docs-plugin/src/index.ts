@@ -1,7 +1,7 @@
 import path from 'node:path';
 import { visit } from 'unist-util-visit';
 
-export * from './components';
+export * from '@skyroc/next-docs-themes';
 
 // 保留 pascal 工具
 export const pascal = (str) => {
@@ -53,6 +53,11 @@ export default function rehypeCodeMeta() {
         const colonIndex = srcValue.indexOf(':');
         src = srcValue.substring(0, colonIndex);
         namedExport = srcValue.substring(colonIndex + 1);
+      }
+
+      // 添加 .tsx 扩展名（如果没有扩展名）
+      if (!path.extname(src)) {
+        src = `${src}.tsx`;
       }
 
       // 从文件路径生成组件名（例：button-basic.tsx -> ButtonBasic）

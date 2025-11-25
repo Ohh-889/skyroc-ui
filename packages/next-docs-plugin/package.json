@@ -59,17 +59,9 @@
     }
   },
   "dependencies": {
-    "@babel/standalone": "^7.28.5",
-    "clsx": "catalog:",
+    "@skyroc/next-docs-themes": "workspace:*",
     "estree-util-value-to-estree": "3.4.0",
-    "framer-motion": "^12.23.22",
-    "lucide-react": "catalog:",
-    "react-error-boundary": "^6.0.0",
-    "react-icons": "^5.5.0",
-    "shiki": "catalog:",
-    "skyroc-ui": "workspace:*",
     "slash": "5.1.0",
-    "tailwind-merge": "catalog:",
     "unist-util-visit": "catalog:"
   },
   "devDependencies": {

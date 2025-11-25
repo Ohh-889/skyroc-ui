@@ -47,8 +47,8 @@ body {
 }
 
 .prose p {
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
   color: hsl(var(--muted-foreground));
   line-height: 1.75;
 }
