@@ -1,0 +1,84 @@
+{
+  "name": "@skyroc/next-docs-themes",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Theme components for Skyroc Next.js documentation",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "main": "./dist/index.js",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+      ".": {
+        "import": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.js"
+        },
+        "require": {
+          "types": "./dist/index.d.ts",
+          "default": "./dist/index.js"
+        }
+      }
+    }
+  },
+  "sideEffects": false,
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "lint": "eslint . --fix"
+  },
+  "peerDependencies": {
+    "@types/react": "*",
+    "@types/react-dom": "*",
+    "react": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc",
+    "react-dom": "^16.8 || ^17.0 || ^18.0 || ^19.0 || ^19.0.0-rc"
+  },
+  "peerDependenciesMeta": {
+    "@types/react": {
+      "optional": true
+    },
+    "@types/react-dom": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@babel/standalone": "^7.28.5",
+    "clsx": "catalog:",
+    "framer-motion": "^12.23.22",
+    "lucide-react": "catalog:",
+    "react-error-boundary": "^6.0.0",
+    "react-icons": "^5.5.0",
+    "shiki": "catalog:",
+    "skyroc-ui": "workspace:*",
+    "tailwind-merge": "catalog:"
+  },
+  "devDependencies": {
+    "@skyroc/eslint-config": "workspace:*",
+    "@types/babel__standalone": "^7.1.9",
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "eslint": "catalog:",
+    "eslint-plugin-react": "catalog:",
+    "eslint-plugin-react-hooks": "catalog:",
+    "eslint-plugin-react-native": "catalog:",
+    "eslint-plugin-react-refresh": "catalog:",
+    "eslint-plugin-tailwindcss": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "tsdown": "catalog:",
+    "typescript": "catalog:"
+  }
+}

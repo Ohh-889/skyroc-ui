@@ -1,0 +1,64 @@
+'use client';
+
+import type { FC, HTMLAttributes, MouseEvent } from 'react';
+import cn from 'clsx';
+import CopyButton from './CopyButton';
+
+type CodeProps = HTMLAttributes<HTMLElement> & {
+  'data-copy'?: boolean;
+  'data-language'?: string;
+  'data-show-line-numbers'?: '';
+};
+
+const Code: FC<CodeProps> = (rest) => {
+  const {
+    children,
+    className,
+    'data-copy': copy,
+    'data-language': language,
+    'data-show-line-numbers': showLineNumbers,
+    ...props
+  } = rest;
+
+  const isBlock = className?.includes('hljs') || Boolean(language);
+
+  function getContent(event: MouseEvent<HTMLButtonElement>) {
+    const container = event.currentTarget.closest('.code-block');
+    return container?.querySelector('pre code')?.textContent ?? '';
+  }
+
+  return (
+    <code
+      dir="ltr"
+      {...props}
+      data-show-line-numbers={showLineNumbers}
+      className={cn(
+        'font-mono text-[13px] leading-relaxed',
+        'justify-between items-center flex-wrap',
+        'text-gray-800 dark:text-gray-100',
+
+        isBlock
+          ? [
+            'block w-full whitespace-pre break-words',
+            'bg-transparent',
+            'selection:bg-muted selection:text-foreground',
+            'before:hidden after:hidden',
+            showLineNumbers === '' && '[counter-reset:line]'
+            // 行号支持
+          ]
+          : [
+            // inline code 样式 - 内容自适应宽度
+            'inline-block flex-wrap rounded-md px-[0.3em] py-[0.15em] ',
+            'font-mono text-[0.875em] leading-normal text-foreground/90',
+            'bg-muted/40 dark:bg-neutral-800 dark:border-neutral-700'
+          ],
+        className
+      )}
+    >
+      {children}
+      {copy ? <CopyButton getContent={getContent} /> : null}
+    </code>
+  );
+};
+
+export default Code;
