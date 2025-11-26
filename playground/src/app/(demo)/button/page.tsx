@@ -1,8 +1,10 @@
 import { Card } from 'skyroc-ui';
 import ButtonColor from './modules/ButtonColor';
 import ButtonDisabled from './modules/ButtonDisabled';
-import { ButtonGroupHorizontal, ButtonGroupVertical } from './modules/ButtonGroupDemo';
-import { ButtonIconBasic, ButtonIconFitContent } from './modules/ButtonIconDemo';
+import ButtonGroupHorizontal from './modules/ButtonGroupHorizontal';
+import ButtonGroupVertical from './modules/ButtonGroupVertical';
+import ButtonIconBasic from './modules/ButtonIconBasic';
+import ButtonIconFitContent from './modules/ButtonIconFitContent';
 import ButtonLoading from './modules/ButtonLoading';
 import ButtonShape from './modules/ButtonShape';
 import ButtonShadow from './modules/ButtonShadow';
