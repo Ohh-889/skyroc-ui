@@ -1,10 +1,10 @@
-import React from 'react';
-import { Rocket, Terminal, TriangleAlert, X } from 'lucide-react';
-import { Alert, type AlertVariant, ButtonIcon, Card, type ThemeColor, type ThemeSize } from 'skyroc-ui';
-
-const colors: ThemeColor[] = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'];
-const variants: AlertVariant[] = ['solid', 'pure', 'outline', 'soft', 'ghost'];
-const sizes: ThemeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
+import { Card } from 'skyroc-ui';
+import AlertColor from './modules/AlertColor';
+import AlertComplete from './modules/AlertComplete';
+import AlertWithDescription from './modules/AlertDescription';
+import AlertWithIcon from './modules/AlertIcon';
+import AlertSizeDemo from './modules/AlertSize';
+import AlertVariantDemo from './modules/AlertVariant';
 
 const AlertPage = () => {
   return (
@@ -13,94 +13,42 @@ const AlertPage = () => {
         split
         title="Color"
       >
-        <div className="flex-c-stretch flex gap-[12px]">
-          {colors.map(color => (
-            <Alert
-              color={color}
-              icon={<Terminal />}
-              key={color}
-              title={color}
-            />
-          ))}
-        </div>
+        <AlertColor />
       </Card>
 
       <Card
         split
         title="Variant"
       >
-        <div className="flex-c-stretch flex gap-[12px]">
-          {variants.map((variant, index) => (
-            <Alert
-              color={colors[index]}
-              icon={<Terminal />}
-              key={variant}
-              title={variant}
-              variant={variant}
-            />
-          ))}
-        </div>
+        <AlertVariantDemo />
       </Card>
 
       <Card
         split
-        title="With description"
+        title="With Description"
       >
-        <Alert
-          description="You can add components to your app using the cli."
-          title="Heads up!"
-          variant="pure"
-        />
+        <AlertWithDescription />
       </Card>
 
       <Card
         split
         title="With Icon"
       >
-        <Alert
-          color="success"
-          icon={<Rocket />}
-          title="Flighting !!!"
-          variant="outline"
-        />
+        <AlertWithIcon />
       </Card>
 
       <Card
         split
-        title="With description and icon"
+        title="Complete Example"
       >
-        <Alert
-          color="destructive"
-          description="Your session has expired. Please log in again."
-          icon={<TriangleAlert />}
-          title="Error"
-          variant="ghost"
-          trailing={(
-            <ButtonIcon
-              fitContent={false}
-              variant="ghost"
-            >
-              <X />
-            </ButtonIcon>
-          )}
-        />
+        <AlertComplete />
       </Card>
 
       <Card
         split
         title="Size"
       >
-        <div className="flex-c-stretch flex gap-[12px]">
-          {sizes.map((size, index) => (
-            <Alert
-              color={colors[index]}
-              key={size}
-              size={size}
-              title={`Size: ${size}`}
-              variant="soft"
-            />
-          ))}
-        </div>
+        <AlertSizeDemo />
       </Card>
     </div>
   );

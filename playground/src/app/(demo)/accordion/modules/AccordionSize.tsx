@@ -1,14 +1,13 @@
-import { Card } from 'skyroc-ui';
-import { Accordion } from 'skyroc-ui';
+import { Card, Accordion } from 'skyroc-ui';
 import { items, sizes } from './shared';
 
 const AccordionSize = () => {
   return (
-    <div className="flex flex-wrap justify-between gap-4">
+    <div className="flex flex-wrap justify-start gap-x-8 gap-y-4">
       {sizes.map(size => (
         <Card
           split
-          className="basis-[48%] max-sm:basis-[100%]"
+          className="basis-[48%] max-sm:basis-full"
           key={size}
           title={size}
         >

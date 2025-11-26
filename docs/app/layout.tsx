@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider } from '@/components/theme-provider';
-import { ClientDemoComponentsProvider } from '@/lib/demo-components-provider';
+import { ThemeProvider } from '@docs/components/theme-provider';
+import { ClientDemoComponentsProvider } from '@docs/lib/demo-components-provider';
 
 const inter = Inter({
   display: 'swap',

@@ -1,5 +1,5 @@
-import { Navbar } from '@/components/navbar';
-import { Sidebar } from '@/components/sidebar';
+import { Navbar } from '@docs/components/navbar';
+import { Sidebar } from '@docs/components/sidebar';
 
 const DocsLayout = ({ children }: { children: React.ReactNode }) => {
   return (

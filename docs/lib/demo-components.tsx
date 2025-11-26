@@ -7,7 +7,7 @@
  * 这些组件会被注入到 DemoScope 中,供实时编译使用
  */
 
-import { Button, ButtonGroup, ButtonIcon } from '@/components/button';
+import * as skyrocUI from 'skyroc-ui';
 
 /**
  * 获取所有可用的 Demo 组件
@@ -15,9 +15,7 @@ import { Button, ButtonGroup, ButtonIcon } from '@/components/button';
 export function getDemoComponents() {
   return {
     // Button 相关组件
-    Button,
-    ButtonGroup,
-    ButtonIcon
+    ...skyrocUI
 
     // 可以在这里添加更多组件
     // Input,

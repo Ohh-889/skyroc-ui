@@ -1,119 +1,208 @@
-export const metadata = {
-  title: 'Alert 警告',
-  description: '警告提示，用于向用户展示重要信息'
-};
+# Alert 警告提示
 
-Alert 警告
+警告提示用于向用户显示重要的提示信息,支持多种视觉样式和语义化的颜色。
 
-用于向用户显示重要的提示信息。
+## 安装
 
-导入
+Alert 组件是内置组件,无需额外安装依赖。
 
-```tsx
-``
+## 导入
+
+```ts copy
+import { Alert } from 'skyroc-ui';
+```
 
 ## 基础用法
 
-<ComponentPreview code={`import { Alert, AlertTitle, AlertDescription } from '@skyroc/ui';
+### 颜色
 
-export default function Demo() {
-  return (
-    <Alert>
-      <AlertTitle>提示</AlertTitle>
-      <AlertDescription>这是一条重要的提示信息。</AlertDescription>
-    </Alert>
-  );
-}`}>
-  <div className="w-full max-w-lg rounded-lg border border-blue-200 bg-blue-50 p-4 text-blue-900 dark:border-blue-900 dark:bg-blue-950 dark:text-blue-100">
-    <h5 className="mb-1 font-medium leading-none tracking-tight">提示</h5>
-    <div className="text-sm opacity-90">这是一条重要的提示信息。</div>
-  </div>
-</ComponentPreview>
+警告提示提供 8 种主题颜色,每种颜色都有其特定的语义和使用场景。
 
-## 不同类型
+<Demo src="@playground/alert/modules/AlertColor" title="警告提示颜色" />
 
-提供多种类型的警告提示。
+### 变体
 
-<ComponentPreview code={`import { Alert, AlertDescription } from '@skyroc/ui';
+警告提示提供 5 种视觉变体样式,可以满足不同的设计需求和视觉层级。
 
-export default function Demo() {
-  return (
-    <div className="space-y-4">
-      <Alert variant="default">
-        <AlertDescription>默认提示信息</AlertDescription>
-      </Alert>
-      <Alert variant="destructive">
-        <AlertDescription>错误或危险操作警告</AlertDescription>
-      </Alert>
-    </div>
-  );
-}`}>
-  <div className="w-full max-w-lg space-y-4">
-    <div className="rounded-lg border border-border bg-background p-4">
-      <div className="text-sm">默认提示信息</div>
-    </div>
-    <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-900 dark:border-red-900 dark:bg-red-950 dark:text-red-100">
-      <div className="text-sm">错误或危险操作警告</div>
-    </div>
-  </div>
-</ComponentPreview>
+<Demo src="@playground/alert/modules/AlertVariant" title="警告提示变体" />
 
-## 带图标
+### 带描述
 
-<ComponentPreview code={`import { Alert, AlertTitle, AlertDescription } from '@skyroc/ui';
-import { AlertCircle, CheckCircle } from 'lucide-react';
+通过 `description` 属性可以添加详细的描述信息。
 
-export default function Demo() {
-  return (
-    <div className="space-y-4">
-      <Alert>
-        <CheckCircle className="h-4 w-4" />
-        <AlertTitle>成功</AlertTitle>
-        <AlertDescription>操作已成功完成！</AlertDescription>
-      </Alert>
-      <Alert variant="destructive">
-        <AlertCircle className="h-4 w-4" />
-        <AlertTitle>错误</AlertTitle>
-        <AlertDescription>发生了一些问题，请稍后重试。</AlertDescription>
-      </Alert>
-    </div>
-  );
-}`}>
-  <div className="w-full max-w-lg space-y-4">
-    <div className="rounded-lg border border-green-200 bg-green-50 p-4 text-green-900 dark:border-green-900 dark:bg-green-950 dark:text-green-100">
-      <div className="flex gap-2">
-        <span>✓</span>
-        <div>
-          <h5 className="mb-1 font-medium leading-none tracking-tight">成功</h5>
-          <div className="text-sm opacity-90">操作已成功完成！</div>
-        </div>
-      </div>
-    </div>
-    <div className="rounded-lg border border-red-200 bg-red-50 p-4 text-red-900 dark:border-red-900 dark:bg-red-950 dark:text-red-100">
-      <div className="flex gap-2">
-        <span>⚠</span>
-        <div>
-          <h5 className="mb-1 font-medium leading-none tracking-tight">错误</h5>
-          <div className="text-sm opacity-90">发生了一些问题，请稍后重试。</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</ComponentPreview>
+<Demo src="@playground/alert/modules/AlertDescription" title="带描述的警告提示" />
+
+### 带图标
+
+通过 `icon` 属性可以添加自定义图标,增强视觉识别度。
+
+<Demo src="@playground/alert/modules/AlertIcon" title="带图标的警告提示" />
+
+### 完整示例
+
+结合标题、描述、图标和操作按钮的完整示例。
+
+<Demo src="@playground/alert/modules/AlertComplete" title="完整示例" />
+
+### 尺寸
+
+警告提示提供 6 种尺寸大小:`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
+
+<Demo src="@playground/alert/modules/AlertSize" title="警告提示尺寸" />
+
+## 变体说明
+
+Alert 提供了 5 种视觉变体:
+
+- **Solid（实心）** - 有纯色背景和对比文字,视觉冲击力最强,适合重要警告
+- **Pure（纯净）** - 白色背景带边框,简洁清爽,适合常规提示
+- **Outline（描边）** - 有边框和颜色,背景透明,适合不那么紧急的提示
+- **Soft（柔和）** - 浅色背景,无边框,视觉柔和,适合辅助信息
+- **Ghost（幽灵）** - 半透明背景,最轻量的视觉样式,适合次要提示
 
 ## API
 
 ### Alert Props
 
 | 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| variant | `'default' | 'destructive'` | `'default'` | 警告类型 |
-| className | `string` | - | 自定义类名 |
+|------|------|--------|------|
+| title | `ReactNode` | - | 警告标题 |
+| description | `ReactNode` | - | 警告描述内容 |
+| icon | `ReactNode` | - | 自定义图标 |
+| color | `'primary' \| 'destructive' \| 'success' \| 'warning' \| 'info' \| 'carbon' \| 'secondary' \| 'accent'` | `'primary'` | 警告颜色主题 |
+| variant | `'solid' \| 'pure' \| 'outline' \| 'soft' \| 'ghost'` | `'ghost'` | 警告变体样式 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 警告尺寸大小 |
+| leading | `ReactNode` | - | 前置内容 |
+| trailing | `ReactNode` | - | 后置内容（如关闭按钮） |
+| classNames | `AlertClassNames` | - | 自定义各部分的样式类名 |
+| className | `ClassValue` | - | 根容器自定义类名 |
 
-### AlertTitle
+### AlertClassNames
 
-警告标题组件。
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| root | `ClassValue` | 根容器样式 |
+| icon | `ClassValue` | 图标样式 |
+| wrapper | `ClassValue` | 内容包裹器样式 |
+| title | `ClassValue` | 标题样式 |
+| description | `ClassValue` | 描述内容样式 |
+| action | `ClassValue` | 操作区域样式 |
+| close | `ClassValue` | 关闭按钮样式 |
 
-### AlertDescription
+## 使用指南
 
-警告描述内容组件。
+### 何时使用
+
+- 需要向用户展示重要信息时
+- 页面级别的通知消息
+- 操作成功或失败的反馈
+- 需要用户注意的系统状态变化
+- 表单验证结果提示
+
+### 颜色使用建议
+
+- **Primary** - 一般信息提示
+- **Success** - 操作成功、完成提示
+- **Warning** - 警告信息、需要注意的内容
+- **Destructive** - 错误信息、危险操作警告
+- **Info** - 补充说明、帮助信息
+- **Carbon** - 深色主题的提示
+- **Secondary** - 次要信息
+- **Accent** - 需要强调的特殊信息
+
+### 变体选择建议
+
+- **Solid** - 最高优先级的警告,如严重错误、重要成功提示
+- **Pure** - 标准提示,适合大多数场景
+- **Outline** - 信息性提示,不需要太强烈的视觉
+- **Soft** - 辅助信息、次要提示
+- **Ghost** - 最轻量的提示,不干扰主要内容
+
+### 尺寸使用建议
+
+- **xs/sm** - 紧凑型界面、内联提示、表单验证提示
+- **md** - 默认尺寸,适合大多数场景
+- **lg/xl** - 页面级重要提示、营销信息
+- **2xl** - 全屏提示、引导页面的重要消息
+
+## 注意事项
+
+1. **语义化使用颜色** - 根据信息类型选择合适的颜色,保持一致性
+2. **避免过多使用** - 页面中不要同时展示太多警告提示,会降低重要信息的识别度
+3. **提供关闭方式** - 对于非关键信息,建议提供关闭按钮让用户可以关闭提示
+4. **简洁明了** - 标题要简短,描述要清晰,避免过长的文本
+5. **图标选择** - 图标应该与提示内容相关,增强语义化
+6. **位置合理** - 根据提示的重要程度和关联内容选择合适的位置
+
+## 无障碍
+
+- 使用语义化的 HTML 结构
+- 颜色不是唯一的信息传达方式,配合图标和文字
+- 确保文字与背景有足够的对比度
+- 重要提示应该在页面加载时就可见,不依赖交互触发
+- 关闭按钮应该有清晰的可访问名称
+
+## 最佳实践
+
+### 成功提示
+
+```tsx
+<Alert
+  color="success"
+  icon={<CheckCircle />}
+  title="操作成功"
+  description="您的更改已保存。"
+  variant="soft"
+/>
+```
+
+### 错误提示
+
+```tsx
+<Alert
+  color="destructive"
+  icon={<XCircle />}
+  title="操作失败"
+  description="网络连接错误,请检查您的网络设置后重试。"
+  variant="solid"
+/>
+```
+
+### 警告提示
+
+```tsx
+<Alert
+  color="warning"
+  icon={<AlertTriangle />}
+  title="注意"
+  description="此操作不可撤销,请谨慎操作。"
+  variant="outline"
+/>
+```
+
+### 信息提示
+
+```tsx
+<Alert
+  color="info"
+  icon={<Info />}
+  title="提示"
+  description="点击右上角可以查看更多选项。"
+  variant="ghost"
+/>
+```
+
+### 可关闭的提示
+
+```tsx
+<Alert
+  color="primary"
+  title="新功能上线"
+  description="我们刚刚发布了一些新功能,快来体验吧!"
+  trailing={
+    <ButtonIcon variant="ghost" onClick={() => {/* 关闭逻辑 */}}>
+      <X />
+    </ButtonIcon>
+  }
+/>
+```

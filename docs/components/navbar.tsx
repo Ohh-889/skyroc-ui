@@ -10,14 +10,14 @@ export const Navbar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <nav className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
+    <nav className="border-border/40 bg-background/95 supports-backdrop-filter:bg-background/60 sticky top-0 z-50 w-full border-b backdrop-blur">
       <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6">
         <div className="flex items-center gap-8">
           <Link
             className="flex items-center gap-2 text-lg font-semibold tracking-tight"
             href="/"
           >
-            <div className="flex size-8 items-center justify-center rounded-lg bg-gradient-to-br from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)]">
+            <div className="flex size-8 items-center justify-center rounded-lg bg-linear-to-br from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)]">
               <span className="text-sm font-bold text-white">S</span>
             </div>
 

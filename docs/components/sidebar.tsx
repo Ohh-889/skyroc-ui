@@ -16,11 +16,11 @@ const navigation = [
   {
     items: [
       { href: '/docs/components/accordion', title: 'Accordion 手风琴' },
+      { href: '/docs/components/alert', title: 'Alert 警告' },
       { href: '/docs/components/button', title: 'Button 按钮' },
       { href: '/docs/components/input', title: 'Input 输入框' },
       { href: '/docs/components/card', title: 'Card 卡片' },
       { href: '/docs/components/badge', title: 'Badge 徽章' },
-      { href: '/docs/components/alert', title: 'Alert 警告' },
       { href: '/docs/components/avatar', title: 'Avatar 头像' },
       { href: '/docs/components/dialog', title: 'Dialog 对话框' },
       { href: '/docs/components/checkbox', title: 'Checkbox 复选框' },
