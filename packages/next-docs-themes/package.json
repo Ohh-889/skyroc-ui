@@ -1,5 +1,5 @@
 {
-  "name": "next-docs-themes",
+  "name": "@skyroc/next-docs-themes",
   "type": "module",
   "version": "0.0.1",
   "private": false,
@@ -53,6 +53,8 @@
     "@skyroc/eslint-config": "workspace:*",
     "@types/babel__standalone": "^7.1.9",
     "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
     "eslint": "catalog:",
     "eslint-plugin-react": "catalog:",
     "eslint-plugin-react-hooks": "catalog:",

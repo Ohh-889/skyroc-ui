@@ -25,7 +25,7 @@ import {
   FeatureGrid,
   Callout,
   TypeList
-} from '@skyroc/next-docs-plugin';
+} from '@skyroc/next-docs-themes';
 
 export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {

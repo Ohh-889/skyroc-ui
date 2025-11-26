@@ -16,15 +16,21 @@ function toggleWordWrap() {
 }
 
 export const ToggleWordWrapButton = (props: ButtonProps) => {
-  const { size, ...rest } = props;
+  const { size = 'sm', title = '切换自动换行', className, children, ...rest } = props;
 
   return (
     <Button
-      title="切换自动换行"
+      size={size}
+      title={title}
       variant="outline"
+      className={cn(
+        'border-border/50 hover:bg-muted flex items-center gap-1 rounded-md border bg-transparent',
+        className
+      )}
       onClick={toggleWordWrap}
+      {...rest}
     >
-      <WrapText size={16} />
+      {children ?? <WrapText size={16} />}
     </Button>
   );
 };
