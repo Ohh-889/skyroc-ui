@@ -1,0 +1,174 @@
+export const ASPECT_RATIO_VARIANTS = [
+  {
+    name: '1:1',
+    title: '1:1 (正方形)',
+    description: '适用于头像、产品缩略图、Instagram 风格的图片展示，是社交媒体中最常见的比例之一。'
+  },
+  {
+    name: '4:3',
+    title: '4:3 (标准)',
+    description: '传统电视和显示器比例，适用于传统媒体内容、幻灯片演示和经典摄影作品。'
+  },
+  {
+    name: '16:9',
+    title: '16:9 (宽屏)',
+    description: '现代显示器和视频的标准比例，适用于 YouTube、Netflix 等平台，是最通用的视频比例。'
+  },
+  {
+    name: '21:9',
+    title: '21:9 (超宽屏)',
+    description: '电影院常用比例，适用于电影内容和横向全景展示，能提供更沉浸的视觉体验。'
+  },
+  {
+    name: '3:2',
+    title: '3:2 (相机)',
+    description: '单反相机常用比例，适用于摄影作品展示，35mm 胶片的经典比例。'
+  },
+  {
+    name: '9:16',
+    title: '9:16 (竖屏)',
+    description: '移动端竖屏比例，适用于 TikTok、Instagram Stories 等短视频平台。'
+  }
+];
+
+import { AspectRatio } from 'skyroc-ui';
+
+# AspectRatio 宽高比
+
+AspectRatio 组件用于在响应式布局中保持元素的宽高比例，常用于图片、视频等媒体内容的展示。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-aspect-ratio']} />
+
+## 导入
+
+```ts copy
+import { AspectRatio } from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 基本示例
+
+使用 `ratio` 属性设置宽高比，组件会自动保持该比例。
+
+<Demo src="@playground/aspect-ratio/modules/AspectRatioBasic" title="基本用法" />
+
+### 不同比例
+
+AspectRatio 支持任意比例，以下是一些常用的宽高比。
+
+<Demo src="@playground/aspect-ratio/modules/AspectRatioVariants" title="不同比例" />
+
+### 视频嵌入
+
+AspectRatio 特别适合用于响应式视频嵌入，确保视频在不同屏幕尺寸下保持正确的比例。
+
+<Demo src="@playground/aspect-ratio/modules/AspectRatioVideo" title="视频嵌入" />
+
+### 常用比例
+
+以下是一些常用的宽高比及其使用场景：
+
+<VariantShowcase variants={ASPECT_RATIO_VARIANTS} columns={2}>
+  {ASPECT_RATIO_VARIANTS.map((variant) => {
+    const ratio = variant.name === '1:1' ? 1 :
+                  variant.name === '4:3' ? 4/3 :
+                  variant.name === '16:9' ? 16/9 :
+                  variant.name === '21:9' ? 21/9 :
+                  variant.name === '3:2' ? 3/2 :
+                  variant.name === '9:16' ? 9/16 : 1;
+
+    return (
+      <AspectRatio key={variant.name} ratio={ratio} className="overflow-hidden rounded-md">
+        <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-blue-500 to-purple-600 text-white">
+          <span className="text-sm font-semibold">ratio={`{${variant.name.replace(':', '/')}}`}</span>
+        </div>
+      </AspectRatio>
+    );
+  })}
+</VariantShowcase>
+
+## API
+
+### AspectRatio Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| ratio | `number` | `1` | 宽高比例，例如 16/9、4/3 等 |
+| className | `string` | - | 自定义样式类名 |
+| children | `ReactNode` | - | 子元素内容 |
+
+## 使用指南
+
+### 何时使用
+
+- 需要在响应式布局中保持固定的宽高比
+- 展示图片、视频等媒体内容
+- 嵌入第三方内容（如 YouTube 视频、地图等）
+- 创建统一的内容网格布局
+
+### 最佳实践
+
+1. **图片优化** - 配合 `object-cover` 或 `object-contain` 类名使用，确保图片正确填充
+2. **响应式设计** - 外层容器使用相对宽度（如 `w-full`），让组件自适应父容器
+3. **加载状态** - 可以添加背景色或骨架屏，改善加载体验
+4. **溢出处理** - 使用 `overflow-hidden` 和 `rounded` 类名控制内容溢出和圆角
+
+### 示例代码
+
+#### 图片展示
+
+```tsx
+<div className="w-full max-w-[600px]">
+  <AspectRatio ratio={16 / 9} className="bg-muted overflow-hidden rounded-md">
+    <img
+      src="/path/to/image.jpg"
+      alt="描述"
+      className="h-full w-full object-cover"
+    />
+  </AspectRatio>
+</div>
+```
+
+#### 视频嵌入
+
+```tsx
+<AspectRatio ratio={16 / 9} className="overflow-hidden rounded-md">
+  <iframe
+    src="https://www.youtube.com/embed/VIDEO_ID"
+    className="h-full w-full"
+    allowFullScreen
+  />
+</AspectRatio>
+```
+
+#### 自定义内容
+
+```tsx
+<AspectRatio ratio={1} className="bg-linear-to-br from-purple-500 to-pink-500">
+  <div className="flex h-full w-full items-center justify-center text-white">
+    <h2>自定义内容</h2>
+  </div>
+</AspectRatio>
+```
+
+## 注意事项
+
+1. **比例计算** - `ratio` 值为宽度除以高度，例如 16:9 的比例应写为 `16/9` 或 `1.778`
+2. **容器宽度** - AspectRatio 根据容器宽度计算高度，确保父容器有明确的宽度
+3. **子元素定位** - 子元素会被设置为 `absolute` 定位，需要使用 `h-full w-full` 填充整个容器
+4. **性能考虑** - 对于大量使用的场景，建议配合懒加载使用
+
+## 无障碍
+
+- 为图片添加 `alt` 属性提供替代文本
+- 为视频添加 `title` 属性说明内容
+- 确保嵌入的内容支持键盘导航
+- 考虑为媒体内容提供文字说明或字幕
+
+## 技术说明
+
+AspectRatio 组件基于 [Radix UI](https://www.radix-ui.com/docs/primitives/components/aspect-ratio) 构建，使用 CSS padding-top 技巧实现宽高比保持，兼容性好且性能优秀。
+
