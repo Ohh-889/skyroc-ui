@@ -1,23 +1,23 @@
-import type { BaseComponentProps, ClassValue, PropsSlot } from '@/types/shared';
+import type { HTMLComponentProps, ClassValue, SlotProps } from '@/types/shared';
 import type { BreadcrumbSlots } from './breadcrumb-variants';
 
-export type BreadcrumbEllipsisProps = BaseComponentProps<'span'>;
+export type BreadcrumbEllipsisProps = HTMLComponentProps<'span'>;
 
-export type BreadcrumbItemProps = BaseComponentProps<'li'>;
+export type BreadcrumbItemProps = HTMLComponentProps<'li'>;
 
-export type BreadcrumbLinkProps = BaseComponentProps<'a'> & {
+export type BreadcrumbLinkProps = HTMLComponentProps<'a'> & {
   asChild?: boolean;
 };
 
-export type BreadcrumbListProps = BaseComponentProps<'ol'>;
+export type BreadcrumbListProps = HTMLComponentProps<'ol'>;
 
-export type BreadcrumbPageProps = BaseComponentProps<'span'>;
+export type BreadcrumbPageProps = HTMLComponentProps<'span'>;
 
-export type BreadcrumbRootProps = BaseComponentProps<'nav'>;
+export type BreadcrumbRootProps = HTMLComponentProps<'nav'>;
 
-export type BreadcrumbSeparatorProps = BaseComponentProps<'li'>;
+export type BreadcrumbSeparatorProps = HTMLComponentProps<'li'>;
 
-export interface BreadcrumbItem extends BreadcrumbLinkProps, PropsSlot {
+export interface BreadcrumbItem extends BreadcrumbLinkProps, SlotProps {
   className?: ClassValue;
   label: React.ReactNode;
   value: string;

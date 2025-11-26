@@ -4,7 +4,7 @@ import type {
   TabsProps as _TabsRootProps,
   TabsTriggerProps as _TabsTriggerProps
 } from '@radix-ui/react-tabs';
-import type { BaseProps, ClassValue, ThemeOrientation } from '@/types/shared';
+import type { StyledComponentProps, ClassValue, ThemeOrientation } from '@/types/shared';
 import type { TabsFill, TabsSlots } from './tabs-variants';
 
 export interface IndicatorStyle {
@@ -14,21 +14,21 @@ export interface IndicatorStyle {
 
 export type TabsUi = Partial<Record<TabsSlots, ClassValue>>;
 
-export interface TabsRootProps extends BaseProps<Omit<_TabsRootProps, 'className'>> {
+export interface TabsRootProps extends StyledComponentProps<Omit<_TabsRootProps, 'className'>> {
   fill?: TabsFill;
 }
 
-export interface TabsListProps extends BaseProps<Omit<_TabsListProps, 'className'>>, Pick<_TabsRootProps, 'value'> {
+export interface TabsListProps extends StyledComponentProps<Omit<_TabsListProps, 'className'>>, Pick<_TabsRootProps, 'value'> {
   classNames?: Pick<TabsUi, 'indicator' | 'indicatorRoot'>;
   enableIndicator?: boolean;
   orientation?: ThemeOrientation;
 }
 
-export interface TabsTriggerProps extends BaseProps<Omit<_TabsTriggerProps, 'className'>> {
+export interface TabsTriggerProps extends StyledComponentProps<Omit<_TabsTriggerProps, 'className'>> {
   enableIndicator?: boolean;
 }
 
-export interface TabsContentProps extends BaseProps<Omit<_TabsContentProps, 'className'>> {
+export interface TabsContentProps extends StyledComponentProps<Omit<_TabsContentProps, 'className'>> {
   orientation?: ThemeOrientation;
 }
 

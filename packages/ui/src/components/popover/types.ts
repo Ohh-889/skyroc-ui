@@ -6,14 +6,14 @@ import type {
   PopoverContentProps as _PopoverContentProps,
   PopoverProps as _PopoverProps
 } from '@radix-ui/react-popover';
-import type { BaseNodeProps, ClassValue } from '@/types/shared';
+import type { StyledComponentProps, ClassValue } from '@/types/shared';
 import type { PopoverSlots } from './popover-varianst';
 
 export type PopoverClassNames = Partial<Record<PopoverSlots, ClassValue>>;
 
-export type PopoverArrowProps = BaseNodeProps<_PopoverArrowProps>;
+export type PopoverArrowProps = StyledComponentProps<_PopoverArrowProps>;
 
-export type PopoverContentProps = BaseNodeProps<_PopoverContentProps>;
+export type PopoverContentProps = StyledComponentProps<_PopoverContentProps>;
 
 export type PopoverProps = _PopoverProps
   & Pick<PopoverPortalProps, 'container' | 'forceMount'>
@@ -28,4 +28,4 @@ export type PopoverProps = _PopoverProps
     trigger?: React.ReactNode;
   };
 
-export type PopoverAnchorProps = BaseNodeProps<_PopoverAnchorProps>;
+export type PopoverAnchorProps = StyledComponentProps<_PopoverAnchorProps>;

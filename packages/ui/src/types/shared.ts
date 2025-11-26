@@ -91,32 +91,3 @@ export type AcceptableValue = string | number | bigint | Record<string, any> | n
 
 /** Re-export ClassValue from clsx */
 export type { ClassValue };
-
-// ==================== Deprecated (kept for backwards compatibility) ====================
-
-/** @deprecated Use `HTMLTag` instead */
-export type AsTag = HTMLTag;
-
-/** @deprecated Use `StyledComponentProps` instead */
-export type BaseNodeProps<T = Record<string, never>> = StyledComponentProps<T>;
-
-/** @deprecated Use `StyledComponentProps` instead */
-export type BaseProps<T> = T & {
-  className?: ClassValue;
-  size?: ThemeSize;
-};
-
-/** @deprecated Use `WithClassName` instead */
-export interface ClassValueProp {
-  /** class name */
-  className?: ClassValue;
-}
-
-/** @deprecated Use `SlotProps` instead */
-export interface PropsSlot {
-  leading?: ReactNode;
-  trailing?: ReactNode;
-}
-
-/** @deprecated Use `HTMLComponentProps` instead */
-export type BaseComponentProps<T extends keyof React.JSX.IntrinsicElements> = HTMLComponentProps<T>;

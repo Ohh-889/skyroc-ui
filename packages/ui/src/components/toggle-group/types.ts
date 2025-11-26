@@ -5,13 +5,13 @@ import type {
   ToggleGroupSingleProps,
   ToggleGroupItemProps as _ToggleGroupItemProps
 } from '@radix-ui/react-toggle-group';
-import type { BaseNodeProps, ClassValue } from '@/types/shared';
+import type { StyledComponentProps, ClassValue } from '@/types/shared';
 import type { ToggleProps } from '../toggle';
 import type { ToggleSlots } from '../toggle/toggle-variants';
 
-export type ToggleGroupRootProps = BaseNodeProps<ToggleGroupMultipleProps> | BaseNodeProps<ToggleGroupSingleProps>;
+export type ToggleGroupRootProps = StyledComponentProps<ToggleGroupMultipleProps> | StyledComponentProps<ToggleGroupSingleProps>;
 
-export type ToggleGroupItemProps = BaseNodeProps<_ToggleGroupItemProps> & {
+export type ToggleGroupItemProps = StyledComponentProps<_ToggleGroupItemProps> & {
   variant?: ToggleProps['variant'];
 };
 

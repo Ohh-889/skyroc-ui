@@ -1,6 +1,6 @@
 import type useEmblaCarousel from 'embla-carousel-react';
 import type { UseEmblaCarouselType } from 'embla-carousel-react';
-import type { BaseComponentProps, ClassValue } from '@/types/shared';
+import type { HTMLComponentProps, ClassValue } from '@/types/shared';
 import type { ButtonProps } from '../button';
 import type { CarouselSlots } from './carousel-variants';
 
@@ -27,17 +27,17 @@ export type CarouselContextProps = {
 
 export type CarouselUi = Partial<Record<CarouselSlots, ClassValue>>;
 
-export type CarouselContentProps = BaseComponentProps<'div'> & {
+export type CarouselContentProps = HTMLComponentProps<'div'> & {
   classNames?: Pick<CarouselUi, 'content' | 'contentWrapper'>;
 };
 
-export type CarouselItemProps = BaseComponentProps<'div'>;
+export type CarouselItemProps = HTMLComponentProps<'div'>;
 
 export type CarouselNextProps = ButtonProps;
 
 export type CarouselPreviousProps = ButtonProps;
 
-export type CarouselRootProps = BaseComponentProps<'div'> & CarouselRootType;
+export type CarouselRootProps = HTMLComponentProps<'div'> & CarouselRootType;
 
 export type CarouselPropsWithoutChildren = Omit<CarouselRootProps, 'children'> & {
   classNames?: CarouselUi;

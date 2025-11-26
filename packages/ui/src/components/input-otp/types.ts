@@ -1,10 +1,10 @@
 import type { RenderProps } from 'input-otp';
-import type { BaseComponentProps, ClassValue, ThemeSize } from '@/types/shared';
+import type { HTMLComponentProps, ClassValue, ThemeSize } from '@/types/shared';
 import type { InputOTPSlots } from './input-otp-variants';
 
 type OverrideProps<T, R> = Omit<T, keyof R> & R;
 
-type OTPInputRootBaseProps = OverrideProps<
+type OTPInputRootStyledComponentProps = OverrideProps<
   React.InputHTMLAttributes<HTMLInputElement>,
   {
     className?: ClassValue;
@@ -23,11 +23,11 @@ type OTPInputRootBaseProps = OverrideProps<
 
 type InputOTPRenderFn = (props: RenderProps) => React.ReactNode;
 
-export type InputOTPGroupProps = BaseComponentProps<'div'> & {
+export type InputOTPGroupProps = HTMLComponentProps<'div'> & {
   separate?: boolean;
 };
 
-export type InputOTPRootProps = OTPInputRootBaseProps
+export type InputOTPRootProps = OTPInputRootStyledComponentProps
   & (
     | {
       children?: never;
@@ -39,9 +39,9 @@ export type InputOTPRootProps = OTPInputRootBaseProps
     }
   );
 
-export interface InputOTPSeparatorProps extends BaseComponentProps<'div'> {}
+export interface InputOTPSeparatorProps extends HTMLComponentProps<'div'> {}
 
-export interface InputOTPSlotProps extends BaseComponentProps<'div'> {
+export interface InputOTPSlotProps extends HTMLComponentProps<'div'> {
   index: number;
   mask?: boolean;
   separate?: boolean;
@@ -49,7 +49,7 @@ export interface InputOTPSlotProps extends BaseComponentProps<'div'> {
 
 export type InputOTPClassNames = Partial<Record<InputOTPSlots, ClassValue>>;
 
-export type InputOTPProps = Omit<OTPInputRootBaseProps, 'maxLength' | 'separate'> & {
+export type InputOTPProps = Omit<OTPInputRootStyledComponentProps, 'maxLength' | 'separate'> & {
   classNames?: InputOTPClassNames;
   inputCount?: number;
   mask?: boolean;

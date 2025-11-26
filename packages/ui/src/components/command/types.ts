@@ -8,33 +8,33 @@ import type {
   CommandRoot,
   CommandSeparator
 } from 'cmdk';
-import type { BaseComponentProps, BaseNodeProps, ClassValue, PropsSlot, ThemeSize } from '@/types/shared';
+import type { HTMLComponentProps, StyledComponentProps, ClassValue, SlotProps, ThemeSize } from '@/types/shared';
 import type { DialogClassNames, DialogProps } from '../dialog';
 import type { CommandSlots } from './command-variants';
 
 export type CommandClassNames = Partial<Record<CommandSlots, ClassValue>>;
 
-export type CommandEmptyProps = BaseNodeProps<ComponentPropsWithoutRef<typeof CommandEmpty>>;
+export type CommandEmptyProps = StyledComponentProps<ComponentPropsWithoutRef<typeof CommandEmpty>>;
 
-export type CommandGroupProps = BaseNodeProps<ComponentPropsWithoutRef<(typeof Command)['Group']>> & {
+export type CommandGroupProps = StyledComponentProps<ComponentPropsWithoutRef<(typeof Command)['Group']>> & {
   classNames?: Pick<CommandClassNames, 'group' | 'groupLabel'>;
 };
 
-export type CommandInputProps = BaseNodeProps<Omit<ComponentPropsWithoutRef<typeof CommandInput>, 'size'>> & {
+export type CommandInputProps = StyledComponentProps<Omit<ComponentPropsWithoutRef<typeof CommandInput>, 'size'>> & {
   classNames?: Pick<CommandClassNames, 'input' | 'inputIcon' | 'inputWrapper'>;
-} & PropsSlot;
+} & SlotProps;
 
-export type CommandItemProps = BaseNodeProps<ComponentPropsWithoutRef<typeof CommandItem>> & {
+export type CommandItemProps = StyledComponentProps<ComponentPropsWithoutRef<typeof CommandItem>> & {
   shortcut?: string | string[];
-} & PropsSlot;
+} & SlotProps;
 
-export type CommandListProps = BaseNodeProps<ComponentPropsWithoutRef<typeof CommandList>>;
+export type CommandListProps = StyledComponentProps<ComponentPropsWithoutRef<typeof CommandList>>;
 
-export type CommandRootProps = BaseNodeProps<ComponentPropsWithoutRef<typeof CommandRoot>>;
+export type CommandRootProps = StyledComponentProps<ComponentPropsWithoutRef<typeof CommandRoot>>;
 
-export type CommandSeparatorProps = BaseNodeProps<ComponentPropsWithoutRef<typeof CommandSeparator>>;
+export type CommandSeparatorProps = StyledComponentProps<ComponentPropsWithoutRef<typeof CommandSeparator>>;
 
-export type CommandShortcutProps = BaseComponentProps<'div'> & {
+export type CommandShortcutProps = HTMLComponentProps<'div'> & {
   value?: string | string[];
 };
 

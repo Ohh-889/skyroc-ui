@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import type {
   DropdownMenuProps as _DropdownMenuProps
 } from '@radix-ui/react-dropdown-menu';
-import type { BaseNodeProps } from '@/types/shared';
+import type { StyledComponentProps } from '@/types/shared';
 import type {
   MenuArrowProps,
   MenuCheckboxGroupProps,
@@ -54,7 +54,7 @@ export type DropdownMenuCheckboxGroupProps = Omit<
 
 export interface DropdownMenuCheckboxProps
   extends Omit<DropdownMenuCheckboxGroupProps, 'dir'>,
-  BaseNodeProps<_DropdownMenuProps> {
+  StyledComponentProps<_DropdownMenuProps> {
   contentProps?: Omit<DropdownMenuContentProps, 'arrowClass' | 'className'>;
 }
 
@@ -68,11 +68,11 @@ export type DropdownMenuRadioGroupProps = Omit<
 
 export interface DropdownMenuRadioProps
   extends Omit<DropdownMenuRadioGroupProps, 'dir'>,
-  BaseNodeProps<_DropdownMenuProps> {
+  StyledComponentProps<_DropdownMenuProps> {
   contentProps?: Omit<DropdownMenuContentProps, 'arrowClass' | 'className'>;
 }
 
-export interface DropdownMenuProps extends BaseNodeProps<_DropdownMenuProps>, MenuCommonProps {
+export interface DropdownMenuProps extends StyledComponentProps<_DropdownMenuProps>, MenuCommonProps {
   children?: ReactNode;
   contentProps?: Omit<DropdownMenuContentProps, 'children'>;
   items: DropdownMenuOptionProps['item'][];

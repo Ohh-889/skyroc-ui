@@ -1,9 +1,9 @@
 import type { ReactNode } from 'react';
-import type { BaseNodeProps, ClassValue, ThemeSize } from '@/types/shared';
+import type { StyledComponentProps, ClassValue, ThemeSize } from '@/types/shared';
 import type { SheetSide } from '../sheet';
 import type { LayoutCollapsible, LayoutSide, LayoutSlots, LayoutVariant } from './layout-variants';
 
-export type LayoutMainProps = Pick<BaseNodeProps<'main'>, 'className'> & {
+export type LayoutMainProps = Pick<StyledComponentProps<'main'>, 'className'> & {
   children?: ReactNode;
   collapsible?: LayoutCollapsible;
   variant?: LayoutVariant;
@@ -11,17 +11,17 @@ export type LayoutMainProps = Pick<BaseNodeProps<'main'>, 'className'> & {
 
 export type LayoutClassNames = Partial<Record<LayoutSlots, ClassValue>>;
 
-export type LayoutHeaderProps = Pick<BaseNodeProps<'header'>, 'className'> & {
+export type LayoutHeaderProps = Pick<StyledComponentProps<'header'>, 'className'> & {
   children?: ReactNode;
 };
 
-export type LayoutMobileProps = Pick<BaseNodeProps<'div'>, 'className'> & {
+export type LayoutMobileProps = Pick<StyledComponentProps<'div'>, 'className'> & {
   children?: ReactNode;
   rootClassName?: ClassValue;
   side?: SheetSide;
 };
 
-export type LayoutRailProps = Pick<BaseNodeProps<'div'>, 'className'> & {
+export type LayoutRailProps = Pick<StyledComponentProps<'div'>, 'className'> & {
   collapsible?: LayoutCollapsible;
   side?: LayoutSide;
   variant?: LayoutVariant;
@@ -35,7 +35,7 @@ export interface LayoutSidebarChildrenProps {
   size?: ThemeSize;
 }
 
-export type LayoutSidebarProps = Pick<BaseNodeProps<'div'>, 'className'> & {
+export type LayoutSidebarProps = Pick<StyledComponentProps<'div'>, 'className'> & {
   children?: ReactNode | ((props: LayoutSidebarChildrenProps) => ReactNode);
   collapsible?: LayoutCollapsible;
   side?: LayoutSide;
@@ -44,7 +44,7 @@ export type LayoutSidebarProps = Pick<BaseNodeProps<'div'>, 'className'> & {
   variant?: LayoutVariant;
 };
 
-export type LayoutTriggerProps = Omit<BaseNodeProps<React.ComponentPropsWithRef<'button'>>, 'color' | 'size'> & {
+export type LayoutTriggerProps = Omit<StyledComponentProps<React.ComponentPropsWithRef<'button'>>, 'color' | 'size'> & {
   size?: ThemeSize;
 };
 
@@ -52,7 +52,7 @@ export interface LayoutRootChildrenProps {
   open: boolean;
 }
 
-export type LayoutRootProps = Pick<BaseNodeProps<'div'>, 'className'> & {
+export type LayoutRootProps = Pick<StyledComponentProps<'div'>, 'className'> & {
   children?: ReactNode | ((props: LayoutRootChildrenProps) => ReactNode);
   /** The width of the sidebar when it's collapsed. */
   collapsedSidebarWidth?: number;

@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import type {
   ContextMenuProps as _ContextMenuProps
 } from '@radix-ui/react-context-menu';
-import type { BaseNodeProps } from '@/types/shared';
+import type { StyledComponentProps } from '@/types/shared';
 import type {
   MenuArrowProps,
   MenuCheckboxGroupProps,
@@ -54,7 +54,7 @@ export type ContextMenuCheckboxGroupProps = Omit<
 
 export interface ContextMenuCheckboxProps
   extends Omit<ContextMenuCheckboxGroupProps, 'dir'>,
-  BaseNodeProps<_ContextMenuProps> {
+  StyledComponentProps<_ContextMenuProps> {
   contentProps?: Omit<ContextMenuContentProps, 'arrowClass' | 'className'>;
 }
 
@@ -68,11 +68,11 @@ export type ContextMenuRadioGroupProps = Omit<
 
 export interface ContextMenuRadioProps
   extends Omit<ContextMenuRadioGroupProps, 'dir'>,
-  BaseNodeProps<_ContextMenuProps> {
+  StyledComponentProps<_ContextMenuProps> {
   contentProps?: Omit<ContextMenuContentProps, 'arrowClass' | 'className'>;
 }
 
-export interface ContextMenuProps extends BaseNodeProps<_ContextMenuProps>, MenuCommonProps {
+export interface ContextMenuProps extends StyledComponentProps<_ContextMenuProps>, MenuCommonProps {
   children?: ReactNode;
   contentProps?: Omit<ContextMenuContentProps, 'children'>;
   items: ContextMenuOptionProps['item'][];

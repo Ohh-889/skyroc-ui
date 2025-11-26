@@ -1,5 +1,5 @@
 import type { ContentProps, DialogProps } from 'vaul';
-import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeSize } from '@/types/shared';
+import type { HTMLComponentProps, StyledComponentProps, ClassValue, ThemeSize } from '@/types/shared';
 import type {
   DialogCloseProps,
   DialogDescriptionProps,
@@ -12,15 +12,15 @@ import type { DrawerSlots } from './drawer-variants';
 
 export type DrawerClassNames = Partial<Record<DrawerSlots | DialogSlots, ClassValue>>;
 
-export type DrawerContentProps = BaseNodeProps<ContentProps> & {
+export type DrawerContentProps = StyledComponentProps<ContentProps> & {
   classNames?: Pick<DrawerClassNames, 'content' | 'contentBody' | 'knob' | 'overlay'>;
 };
 
-export type DrawerContentBodyProps = BaseComponentProps<'div'>;
+export type DrawerContentBodyProps = HTMLComponentProps<'div'>;
 
-export type DrawerFooterProps = BaseComponentProps<'div'>;
+export type DrawerFooterProps = HTMLComponentProps<'div'>;
 
-export type DrawerKnobProps = BaseComponentProps<'div'>;
+export type DrawerKnobProps = HTMLComponentProps<'div'>;
 
 export type DrawerOverlayProps = Omit<DialogOverlayProps, 'component'>;
 

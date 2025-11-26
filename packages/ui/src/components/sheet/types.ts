@@ -1,10 +1,10 @@
 import type { DialogContentProps } from '@radix-ui/react-dialog';
-import type { BaseNodeProps, ClassValue } from '@/types/shared';
+import type { StyledComponentProps, ClassValue } from '@/types/shared';
 import type { DialogSlots as SheetSlots } from '../dialog/dialog-variants';
 import type { DialogProps } from '../dialog/types';
 import type { SheetSide } from './sheet-variants';
 
-export interface SheetContentProps extends BaseNodeProps<DialogContentProps> {
+export interface SheetContentProps extends StyledComponentProps<DialogContentProps> {
   side?: SheetSide;
 }
 

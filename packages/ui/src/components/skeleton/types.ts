@@ -1,3 +1,3 @@
-import type { BaseComponentProps } from '@/types/shared';
+import type { HTMLComponentProps } from '@/types/shared';
 
-export type SkeletonProps = BaseComponentProps<'div'>;
+export type SkeletonProps = HTMLComponentProps<'div'>;

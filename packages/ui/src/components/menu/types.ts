@@ -13,13 +13,13 @@ import type {
   MenuSubContentProps as _MenuSubContentProps,
   MenuSubTriggerProps as _MenuSubTriggerProps
 } from '@radix-ui/react-menu';
-import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeSize } from '@/types/shared';
+import type { HTMLComponentProps, StyledComponentProps, ClassValue, ThemeSize } from '@/types/shared';
 import type { MenuSlots } from './menu-variants';
 
 export type MenuClassNames = Partial<Record<MenuSlots, ClassValue>>;
 
 // MenuArrow
-export type MenuArrowProps = BaseNodeProps<_MenuArrowProps> & {
+export type MenuArrowProps = StyledComponentProps<_MenuArrowProps> & {
   component?: ElementType<MenuArrowProps>;
 };
 
@@ -30,7 +30,7 @@ export type MenuCheckboxGroupItemProps
       label?: ReactNode;
     });
 
-export interface MenuCheckboxGroupProps extends MenuCommonProps, BaseNodeProps<_MenuGroupProps> {
+export interface MenuCheckboxGroupProps extends MenuCommonProps, StyledComponentProps<_MenuGroupProps> {
   checks?: string[];
   component?: ElementType<MenuCheckboxItemProps>;
   groupComponent?: ElementType;
@@ -40,7 +40,7 @@ export interface MenuCheckboxGroupProps extends MenuCommonProps, BaseNodeProps<_
   separatorComponent?: ElementType<MenuSeparatorProps>;
 }
 
-export interface MenuCheckboxItemProps extends BaseNodeProps<_MenuCheckboxItemProps> {
+export interface MenuCheckboxItemProps extends StyledComponentProps<_MenuCheckboxItemProps> {
   classNames?: Pick<MenuClassNames, 'item' | 'itemIndicator' | 'shortcut'>;
   component?: ElementType<_MenuCheckboxItemProps>;
   indicatorComponent?: ElementType<MenuItemIndicatorProps>;
@@ -50,7 +50,7 @@ export interface MenuCheckboxItemProps extends BaseNodeProps<_MenuCheckboxItemPr
   trailing?: ReactNode;
 }
 
-export type MenuContentProps = BaseNodeProps<_MenuContentProps> & {
+export type MenuContentProps = StyledComponentProps<_MenuContentProps> & {
   arrowClass?: ClassValue;
   arrowComponent?: ElementType<MenuArrowProps>;
   component?: ElementType<MenuContentProps>;
@@ -59,7 +59,7 @@ export type MenuContentProps = BaseNodeProps<_MenuContentProps> & {
 };
 
 // MenuItem
-export interface MenuItemProps extends BaseNodeProps<_MenuItemProps> {
+export interface MenuItemProps extends StyledComponentProps<_MenuItemProps> {
   classNames?: Pick<MenuClassNames, 'item' | 'shortcut'>;
   component?: ComponentType<_MenuItemProps>;
   leading?: ReactNode;
@@ -67,12 +67,12 @@ export interface MenuItemProps extends BaseNodeProps<_MenuItemProps> {
   trailing?: ReactNode;
 }
 
-export interface MenuItemIndicatorProps extends BaseNodeProps<_MenuItemIndicatorProps> {
+export interface MenuItemIndicatorProps extends StyledComponentProps<_MenuItemIndicatorProps> {
   component?: ComponentType<_MenuItemIndicatorProps>;
 }
 
 // MenuLabel
-export interface MenuLabelProps extends BaseNodeProps<_MenuLabelProps> {
+export interface MenuLabelProps extends StyledComponentProps<_MenuLabelProps> {
   classNames?: Pick<MenuClassNames, 'itemIcon' | 'label'>;
   component?: ElementType<MenuLabelProps>;
   leading?: ReactNode;
@@ -120,24 +120,24 @@ export interface MenuOptionProps extends MenuCommonProps {
 }
 
 // MenuSeparator
-export type MenuSeparatorProps = BaseNodeProps<_MenuSeparatorProps> & {
+export type MenuSeparatorProps = StyledComponentProps<_MenuSeparatorProps> & {
   component?: ElementType<MenuSeparatorProps>;
 };
 
 // MenuShortcut
-export type MenuShortcutProps = BaseComponentProps<'div'> & {
+export type MenuShortcutProps = HTMLComponentProps<'div'> & {
   value?: string | string[];
 };
 
 // MenuSubContent
-export type MenuSubContentProps = BaseNodeProps<_MenuSubContentProps> & {
+export type MenuSubContentProps = StyledComponentProps<_MenuSubContentProps> & {
   component?: ElementType<MenuSubContentProps>;
   groupComponent?: ElementType<MenuSubContentProps>;
   portalComponent?: ElementType<MenuSubContentProps>;
 };
 
 // MenuSubTrigger
-export interface MenuSubTriggerProps extends BaseNodeProps<_MenuSubTriggerProps> {
+export interface MenuSubTriggerProps extends StyledComponentProps<_MenuSubTriggerProps> {
   classNames?: Pick<MenuClassNames, 'subTriggerIcon'>;
   component?: ElementType<MenuSubTriggerProps>;
   leading?: ReactNode;
@@ -145,7 +145,7 @@ export interface MenuSubTriggerProps extends BaseNodeProps<_MenuSubTriggerProps>
   triggerIcon?: ReactNode;
 }
 
-export interface MenuRadioItemProps extends BaseNodeProps<_MenuRadioItemProps> {
+export interface MenuRadioItemProps extends StyledComponentProps<_MenuRadioItemProps> {
   classNames?: Pick<MenuClassNames, 'item' | 'itemIndicator' | 'radioIndicatorIcon' | 'shortcut'>;
   component?: ElementType<_MenuRadioItemProps>;
   indicatorComponent?: ElementType<MenuItemIndicatorProps>;
@@ -163,7 +163,7 @@ export type MenuRadioItemOptionProps
       label?: ReactNode;
     });
 
-export interface MenuRadioGroupProps extends MenuCommonProps, BaseNodeProps<_MenuRadioGroupProps> {
+export interface MenuRadioGroupProps extends MenuCommonProps, StyledComponentProps<_MenuRadioGroupProps> {
   component?: ElementType<MenuRadioItemProps>;
   groupComponent?: ElementType;
   items: MenuRadioItemOptionProps[];

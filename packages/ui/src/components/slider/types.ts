@@ -4,20 +4,20 @@ import type {
   SliderThumbProps as _SliderThumbProps,
   SliderTrackProps as _SliderTrackProps
 } from '@radix-ui/react-slider';
-import type { BaseNodeProps, ClassValue, ThemeColor } from '@/types/shared';
+import type { StyledComponentProps, ClassValue, ThemeColor } from '@/types/shared';
 import type { SliderSlots } from './slider-variants';
 
-export interface SliderRangeProps extends BaseNodeProps<_SliderRangeProps> {
+export interface SliderRangeProps extends StyledComponentProps<_SliderRangeProps> {
   color?: ThemeColor;
 }
 
-export interface SliderRootProps extends BaseNodeProps<_SliderProps> {}
+export interface SliderRootProps extends StyledComponentProps<_SliderProps> {}
 
-export interface SliderThumbProps extends BaseNodeProps<_SliderThumbProps> {
+export interface SliderThumbProps extends StyledComponentProps<_SliderThumbProps> {
   color?: ThemeColor;
 }
 
-export interface SliderTrackProps extends BaseNodeProps<_SliderTrackProps> {
+export interface SliderTrackProps extends StyledComponentProps<_SliderTrackProps> {
   color?: ThemeColor;
 }
 

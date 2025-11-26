@@ -1,22 +1,22 @@
 import type { ReactNode } from 'react';
-import type { ClassValue, ClassValueProp, ThemeSize } from '@/types/shared';
+import type { ClassValue, WithClassName, ThemeSize } from '@/types/shared';
 import type { CardSlots } from './card-variants';
 
 export interface CardRootProps
-  extends ClassValueProp,
+  extends WithClassName,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   size?: ThemeSize;
   split?: boolean;
 }
 
 export interface CardHeaderProps
-  extends ClassValueProp,
+  extends WithClassName,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   size?: ThemeSize;
 }
 
 export interface CardTitleRootProps
-  extends ClassValueProp,
+  extends WithClassName,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   leading?: React.ReactNode;
   size?: ThemeSize;
@@ -24,19 +24,19 @@ export interface CardTitleRootProps
 }
 
 export interface CardTitleProps
-  extends ClassValueProp,
+  extends WithClassName,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   size?: ThemeSize;
 }
 
 export interface CardFooterProps
-  extends ClassValueProp,
+  extends WithClassName,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   size?: ThemeSize;
 }
 
 export interface CardContentProps
-  extends ClassValueProp,
+  extends WithClassName,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
   /**
    * If true, the content will be flex-grow and overflow-hidden

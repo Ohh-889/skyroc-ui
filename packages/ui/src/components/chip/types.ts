@@ -1,9 +1,9 @@
-import type { BaseComponentProps, ClassValue, ThemeColor, ThemeSize } from '@/types/shared';
+import type { HTMLComponentProps, ClassValue, ThemeColor, ThemeSize } from '@/types/shared';
 import type { ChipPosition, ChipSlots } from './chip-variants';
 
-export type ChipRootProps = BaseComponentProps<'div'>;
+export type ChipRootProps = HTMLComponentProps<'div'>;
 
-export interface ChipContentProps extends BaseComponentProps<'span'> {
+export interface ChipContentProps extends HTMLComponentProps<'span'> {
   color?: ThemeColor;
   position?: ChipPosition;
   size?: ThemeSize;

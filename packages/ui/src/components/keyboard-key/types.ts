@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { BaseComponentProps, ClassValue } from '@/types/shared';
+import type { HTMLComponentProps, ClassValue } from '@/types/shared';
 import type { KeyboardKeySlots, KeyboardKeyVariant } from './keyboard-key-variants';
 
 export type BuiltinKeyboardKey
@@ -34,7 +34,7 @@ export interface SpecificKeyboardKeyMap {
 export type KeyboardKeyValue = BuiltinKeyboardKey | (string & {});
 
 export interface KeyboardKeyProps<T extends KeyboardKeyValue | KeyboardKeyValue[] = KeyboardKeyValue>
-  extends Omit<BaseComponentProps<'div'>, 'children'> {
+  extends Omit<HTMLComponentProps<'div'>, 'children'> {
   children?: (values: string[]) => React.ReactNode;
   value?: T | string[];
   variant?: KeyboardKeyVariant;

@@ -8,30 +8,30 @@ import type {
   SelectTriggerProps as _SelectTriggerProps,
   SelectValueProps as _SelectValueProps
 } from '@radix-ui/react-select';
-import type { BaseNodeProps, ClassValue, PropsSlot, ThemeSize } from '@/types/shared';
+import type { StyledComponentProps, ClassValue, SlotProps, ThemeSize } from '@/types/shared';
 import type { SelectSlots } from './select-variants';
 
 export type SelectClassNames = Partial<Record<SelectSlots, ClassValue>>;
 
-export interface SelectContentProps extends BaseNodeProps<_SelectContentProps> {
+export interface SelectContentProps extends StyledComponentProps<_SelectContentProps> {
   classNames?: Pick<SelectClassNames, 'content' | 'scrollDownButton' | 'scrollUpButton' | 'viewport'>;
   scrollDownButton?: React.ReactNode;
   scrollUpButton?: React.ReactNode;
 }
 
-export interface SelectItemProps extends BaseNodeProps<_SelectItemProps>, PropsSlot {
+export interface SelectItemProps extends StyledComponentProps<_SelectItemProps>, SlotProps {
   classNames?: Pick<SelectClassNames, 'item' | 'itemIndicator'>;
   indicatorIcon?: React.ReactNode;
 }
 
-export interface SelectLabelProps extends BaseNodeProps<_SelectLabelProps> {}
+export interface SelectLabelProps extends StyledComponentProps<_SelectLabelProps> {}
 
-export interface SelectSeparatorProps extends BaseNodeProps<_SelectSeparatorProps> {}
+export interface SelectSeparatorProps extends StyledComponentProps<_SelectSeparatorProps> {}
 
 export interface SelectTriggerProps
-  extends BaseNodeProps<_SelectTriggerProps>,
+  extends StyledComponentProps<_SelectTriggerProps>,
   Pick<_SelectValueProps, 'placeholder'>,
-  PropsSlot {
+  SlotProps {
   classNames?: Pick<SelectClassNames, 'selectedValue' | 'trigger' | 'triggerIcon'>;
   triggerIcon?: React.ReactNode;
 }
@@ -60,7 +60,7 @@ export interface SelectOptionProps extends Pick<SelectItemProps, 'indicatorIcon'
 }
 
 export interface SelectProps
-  extends BaseNodeProps<Omit<_SelectProps, 'children'>>,
+  extends StyledComponentProps<Omit<_SelectProps, 'children'>>,
   Pick<SelectItemProps, 'indicatorIcon'> {
   classNames?: SelectClassNames;
   contentProps?: Omit<SelectContentProps, 'children'>;

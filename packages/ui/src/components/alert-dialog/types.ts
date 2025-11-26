@@ -6,31 +6,31 @@ import type {
   AlertDialogProps as _AlertDialogProps,
   AlertDialogTitleProps as _AlertDialogTitleProps
 } from '@radix-ui/react-alert-dialog';
-import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeColor } from '@/types/shared';
+import type { ClassValue, HTMLComponentProps, StyledComponentProps, ThemeColor } from '@/types/shared';
 import type { DialogSlots } from './alert-dialog-variants';
 
-export type AlertDialogUi = Partial<Record<DialogSlots, ClassValue>> & {
+export type AlertDialogClassNames = Partial<Record<DialogSlots, ClassValue>> & {
   icon?: string;
 };
 
 export type AlertType = Extract<ThemeColor, 'destructive' | 'info' | 'success' | 'warning'>;
 
-export interface AlertDialogContentProps extends BaseNodeProps<_AlertDialogContentProps> {}
+export interface AlertDialogContentProps extends StyledComponentProps<_AlertDialogContentProps> {}
 
-export interface AlertDialogDescriptionProps extends BaseNodeProps<_AlertDialogDescriptionProps> {}
+export interface AlertDialogDescriptionProps extends StyledComponentProps<_AlertDialogDescriptionProps> {}
 
-export type AlertDialogFooterProps = BaseComponentProps<'div'>;
+export type AlertDialogFooterProps = HTMLComponentProps<'div'>;
 
-export type AlertDialogHeaderProps = BaseComponentProps<'div'>;
+export type AlertDialogHeaderProps = HTMLComponentProps<'div'>;
 
-export interface AlertDialogOverlayProps extends BaseNodeProps<_AlertDialogOverlayProps> {}
+export interface AlertDialogOverlayProps extends StyledComponentProps<_AlertDialogOverlayProps> {}
 
-export interface AlertDialogTitleProps extends BaseNodeProps<_AlertDialogTitleProps> {}
+export interface AlertDialogTitleProps extends StyledComponentProps<_AlertDialogTitleProps> {}
 
-export type AlertDialogProps = BaseNodeProps<_AlertDialogProps>
+export type AlertDialogProps = StyledComponentProps<_AlertDialogProps>
   & AlertDialogContentProps
   & _AlertDialogPortalProps & {
-    classNames?: AlertDialogUi;
+    classNames?: AlertDialogClassNames;
     description?: string;
     disabledPortal?: boolean;
     footer?: React.ReactNode;
