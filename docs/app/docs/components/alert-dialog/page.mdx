@@ -1,0 +1,343 @@
+export const ALERT_DIALOG_TYPES = [
+  {
+    name: 'destructive',
+    title: 'Destructive（破坏性）',
+    description: '用于危险操作的确认对话框，如删除、取消等不可逆操作。'
+  },
+  {
+    name: 'success',
+    title: 'Success（成功）',
+    description: '用于展示成功信息的对话框，如操作完成、任务成功等。'
+  },
+  {
+    name: 'warning',
+    title: 'Warning（警告）',
+    description: '用于警告用户的对话框，提示用户需要注意的操作。'
+  },
+  {
+    name: 'info',
+    title: 'Info（信息）',
+    description: '用于展示一般信息的对话框，如提示、说明等。'
+  }
+];
+
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, Button } from 'skyroc-ui';
+
+# AlertDialog 警告对话框
+
+警告对话框用于向用户显示需要确认的重要信息，通常用于危险操作的二次确认或重要信息的提示。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-alert-dialog', 'lucide-react']} />
+
+## 导入
+
+```ts copy
+import { 
+  AlertDialog, 
+  AlertDialogAction, 
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  AlertDialogTitle
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 类型
+
+AlertDialog 提供 4 种类型，每种类型都有其特定的语义和使用场景。
+
+<Demo src="@playground/alert-dialog/modules/AlertDialogTypes" title="对话框类型" />
+
+### 破坏性对话框
+
+用于危险操作的二次确认，如删除数据、取消订阅等不可逆操作。
+
+<Demo src="@playground/alert-dialog/modules/AlertDialogDestructive" title="破坏性对话框" />
+
+### 成功对话框
+
+用于展示成功信息，如操作完成、任务成功等。
+
+<Demo src="@playground/alert-dialog/modules/AlertDialogSuccess" title="成功对话框" />
+
+### 警告对话框
+
+用于警告用户需要注意的操作或信息。
+
+<Demo src="@playground/alert-dialog/modules/AlertDialogWarning" title="警告对话框" />
+
+### 信息对话框
+
+用于展示一般信息、提示或说明。
+
+<Demo src="@playground/alert-dialog/modules/AlertDialogInformation" title="信息对话框" />
+
+### 尺寸
+
+AlertDialog 提供 6 种尺寸大小：`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
+
+<Demo src="@playground/alert-dialog/modules/AlertDialogSize" title="对话框尺寸" />
+
+### 自定义图标
+
+通过 `icon` 属性可以自定义对话框的图标。
+
+<Demo src="@playground/alert-dialog/modules/AlertDialogCustomIcon" title="自定义图标" />
+
+### 带描述
+
+通过 `description` 属性可以添加详细的描述信息。
+
+<Demo src="@playground/alert-dialog/modules/AlertDialogWithDescription" title="带描述的对话框" />
+
+## 类型说明
+
+<div className="not-prose my-6">
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    {ALERT_DIALOG_TYPES.map((type) => (
+      <div key={type.name} className="p-4 rounded-lg border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950">
+        <h3 className="text-base font-semibold mb-2">{type.title}</h3>
+        <p className="text-xs text-gray-600 dark:text-gray-400 mb-3">{type.description}</p>
+        <AlertDialog
+          title="示例标题"
+          type={type.name}
+          footer={[
+            <AlertDialogCancel key="cancel">取消</AlertDialogCancel>,
+            <AlertDialogAction key="action">确认</AlertDialogAction>
+          ]}
+          trigger={(
+            <Button color={type.name} variant="outline" size="sm" className="w-full">
+              查看示例
+            </Button>
+          )}
+        >
+          <p>这是一个 {type.title} 对话框的示例内容。</p>
+        </AlertDialog>
+      </div>
+    ))}
+  </div>
+</div>
+
+## API
+
+### AlertDialog Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| type | `'destructive' \| 'success' \| 'warning' \| 'info'` | - | 对话框类型，决定图标和语义 |
+| title | `ReactNode` | - | 对话框标题 |
+| description | `string` | - | 对话框描述 |
+| icon | `ReactNode` | - | 自定义图标（覆盖 type 的默认图标） |
+| trigger | `ReactNode` | - | 触发对话框的元素 |
+| footer | `ReactNode` | - | 底部操作区域，通常包含按钮 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 对话框尺寸 |
+| classNames | `AlertDialogClassNames` | - | 自定义各部分的样式类名 |
+| className | `ClassValue` | - | 内容容器自定义类名 |
+| open | `boolean` | - | 控制对话框打开状态（受控模式） |
+| onOpenChange | `(open: boolean) => void` | - | 打开状态改变时的回调 |
+| forceMountPortal | `true` | - | 强制挂载 Portal |
+| forceMountOverlay | `true` | - | 强制挂载遮罩层 |
+
+### AlertDialogAction Props
+
+继承 `button` 元素的所有属性。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| asChild | `boolean` | `false` | 作为子元素渲染（使用 Radix UI Slot） |
+
+### AlertDialogCancel Props
+
+继承 `button` 元素的所有属性。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| asChild | `boolean` | `false` | 作为子元素渲染（使用 Radix UI Slot） |
+
+### AlertDialogClassNames
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| overlay | `ClassValue` | 遮罩层样式 |
+| content | `ClassValue` | 内容容器样式 |
+| header | `ClassValue` | 头部区域样式 |
+| title | `ClassValue` | 标题样式 |
+| description | `ClassValue` | 描述样式 |
+| footer | `ClassValue` | 底部操作区域样式 |
+| icon | `string` | 图标样式 |
+
+## 组合式 API
+
+如果需要更灵活的布局，可以使用组合式 API：
+
+```tsx
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogOverlay,
+  AlertDialogTitle,
+  AlertDialogTrigger
+} from 'skyroc-ui';
+import { Button } from 'skyroc-ui';
+
+export default function Demo() {
+  return (
+    <AlertDialog>
+      <AlertDialogTrigger asChild>
+        <Button color="destructive" variant="outline">
+          删除账户
+        </Button>
+      </AlertDialogTrigger>
+      
+      <AlertDialogPortal>
+        <AlertDialogOverlay />
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>确认删除账户？</AlertDialogTitle>
+            <AlertDialogDescription>
+              此操作不可撤销。这将永久删除您的账户并从我们的服务器中删除您的数据。
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          
+          <AlertDialogFooter>
+            <AlertDialogCancel>取消</AlertDialogCancel>
+            <AlertDialogAction>确认删除</AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialogPortal>
+    </AlertDialog>
+  );
+}
+```
+
+## 使用指南
+
+### 何时使用
+
+- 需要用户确认重要或危险操作时（如删除、取消订阅）
+- 需要向用户展示重要信息并要求确认
+- 需要打断用户当前操作以获取响应
+- 操作结果需要用户知晓并确认
+
+### 类型选择建议
+
+- **Destructive** - 危险操作（删除、取消、拒绝）
+- **Success** - 操作成功提示（完成、保存成功）
+- **Warning** - 警告信息（需要注意的操作）
+- **Info** - 一般信息提示（说明、帮助）
+
+### 尺寸使用建议
+
+- **xs/sm** - 简单的确认对话框、移动端
+- **md** - 默认尺寸，适合大多数场景
+- **lg/xl** - 包含较多内容的对话框
+- **2xl** - 复杂内容、长文本说明
+
+### 按钮配置建议
+
+- **取消 + 确认** - 适合需要用户选择的场景（删除、修改等）
+- **仅确认** - 适合纯信息展示（成功提示、通知等）
+
+## 注意事项
+
+1. **语义化使用** - 根据操作性质选择合适的类型，保持一致性
+2. **标题简洁** - 使用简短清晰的标题，如"确认删除？"而不是"您确定要删除这个项目吗？"
+3. **描述清晰** - 在 children 或 description 中说明操作的后果
+4. **按钮文案** - 使用动词开头，明确表达操作，如"删除"而不是"是"
+5. **避免滥用** - 不要对所有操作都使用确认对话框，只对重要操作使用
+6. **焦点管理** - 对话框打开时焦点会自动移动到对话框内，关闭后返回触发元素
+
+## 无障碍
+
+- 对话框打开时，焦点会自动移动到内容区域
+- 支持 `Esc` 键关闭对话框
+- 对话框打开时，背景内容不可交互
+- 点击遮罩层可以关闭对话框（可配置）
+- 使用 `role="alertdialog"` 语义化标签
+- 支持键盘导航（Tab、Shift+Tab）
+- 关闭后焦点返回触发元素
+
+## 最佳实践
+
+### 删除确认
+
+```tsx
+<AlertDialog
+  title="确认删除？"
+  type="destructive"
+  footer={[
+    <AlertDialogCancel key="cancel">取消</AlertDialogCancel>,
+    <AlertDialogAction key="action">删除</AlertDialogAction>
+  ]}
+  trigger={<Button color="destructive">删除</Button>}
+>
+  <p>此操作不可撤销。这将永久删除该项目。</p>
+</AlertDialog>
+```
+
+### 成功提示
+
+```tsx
+<AlertDialog
+  title="操作成功"
+  type="success"
+  footer={<AlertDialogAction>知道了</AlertDialogAction>}
+  trigger={<Button color="success">提交</Button>}
+>
+  <p>您的更改已保存成功。</p>
+</AlertDialog>
+```
+
+### 警告提示
+
+```tsx
+<AlertDialog
+  title="注意"
+  type="warning"
+  description="此操作可能会影响现有数据"
+  footer={[
+    <AlertDialogCancel key="cancel">取消</AlertDialogCancel>,
+    <AlertDialogAction key="action">继续</AlertDialogAction>
+  ]}
+  trigger={<Button color="warning">执行操作</Button>}
+>
+  <p>请确保您已经备份了重要数据。</p>
+</AlertDialog>
+```
+
+### 信息提示
+
+```tsx
+<AlertDialog
+  title="提示"
+  type="info"
+  footer={<AlertDialogAction>知道了</AlertDialogAction>}
+  trigger={<Button color="info">查看详情</Button>}
+>
+  <p>这里是详细的说明信息。</p>
+</AlertDialog>
+```
+
+## 与 Dialog 的区别
+
+- **AlertDialog** - 用于需要用户响应的重要信息，自动捕获焦点，默认阻止点击外部关闭
+- **Dialog** - 用于一般性内容展示，可以包含表单等复杂内容，交互更灵活
+
+选择建议：
+- 需要用户明确响应 → 使用 AlertDialog
+- 展示表单或复杂内容 → 使用 Dialog
+- 危险操作确认 → 使用 AlertDialog
+- 查看详情或编辑 → 使用 Dialog
+

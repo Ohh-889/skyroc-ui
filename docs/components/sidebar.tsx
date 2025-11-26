@@ -18,6 +18,7 @@ const navigation = [
       { href: '/docs/components/accordion', title: 'Accordion 手风琴' },
       { href: '/docs/components/alert', title: 'Alert 警告' },
       { href: '/docs/components/aspect-ratio', title: 'AspectRatio 宽高比' },
+      { href: '/docs/components/alert-dialog', title: 'AlertDialog 警告对话框' },
       { href: '/docs/components/avatar', title: 'Avatar 头像' },
       { href: '/docs/components/badge', title: 'Badge 徽章' },
       { href: '/docs/components/button', title: 'Button 按钮' },
