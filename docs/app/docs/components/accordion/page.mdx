@@ -1,0 +1,198 @@
+import { Accordion } from '@ui/accordion';
+
+# Accordion 折叠面板
+
+折叠面板用于在有限空间内展示大量内容,用户可以点击展开或收起特定区域的内容。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-accordion']} />
+
+## 导入
+
+```ts copy
+import { Accordion } from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 单选模式
+
+单选模式下,一次只能展开一个面板。通过 `type="single"` 设置为单选模式。
+
+<Demo src="@playground/accordion/modules/AccordionSingle" title="单选折叠面板" />
+
+### 单选可折叠
+
+通过添加 `collapsible` 属性,允许关闭所有面板。
+
+<Demo src="@playground/accordion/modules/AccordionSingleCollapsible" title="可折叠单选面板" />
+
+### 多选模式
+
+多选模式下,可以同时展开多个面板。通过 `type="multiple"` 设置为多选模式。
+
+<Demo src="@playground/accordion/modules/AccordionMultiple" title="多选折叠面板" />
+
+### 尺寸
+
+折叠面板提供 6 种尺寸大小:`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
+
+<Demo src="@playground/accordion/modules/AccordionSize" title="折叠面板尺寸" />
+
+### 前后插槽
+
+折叠面板支持在标题前后添加图标或其他内容。
+
+- `leading` - 标题前置内容
+- `trailing` - 标题后置内容
+
+<Demo src="@playground/accordion/modules/AccordionSlot" title="折叠面板插槽" />
+
+### 自定义图标
+
+可以自定义折叠面板的展开/收起图标。
+
+- `triggerIcon` - 自定义触发器图标(默认为向下箭头)
+- `triggerLeading` - 触发器前置图标
+- `triggerTrailing` - 触发器后置图标
+
+<Demo src="@playground/accordion/modules/AccordionCustomIcon" title="自定义图标" />
+
+### 自定义样式
+
+通过 `classNames` 属性可以自定义折叠面板各部分的样式。
+
+<Demo src="@playground/accordion/modules/AccordionCustom" title="自定义样式" />
+
+### 禁用状态
+
+可以通过 `disabled` 属性禁用特定的面板项。
+
+```tsx
+const items = [
+  {
+    title: '标题 1',
+    children: '内容 1',
+    value: '1'
+  },
+  {
+    title: '标题 2 (禁用)',
+    children: '内容 2',
+    value: '2',
+    disabled: true
+  }
+];
+
+<Accordion items={items} type="single" />
+```
+
+## 受控组件
+
+可以通过 `value` 和 `onValueChange` 属性控制折叠面板的展开状态。
+
+```tsx
+const [value, setValue] = useState('1');
+
+// 单选模式
+<Accordion
+  items={items}
+  type="single"
+  value={value}
+  onValueChange={setValue}
+/>
+
+// 多选模式
+const [values, setValues] = useState(['1', '2']);
+
+<Accordion
+  items={items}
+  type="multiple"
+  value={values}
+  onValueChange={setValues}
+/>
+```
+
+## API
+
+### Accordion Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| items | `AccordionItemData[]` | - | 折叠面板项数据数组 |
+| type | `'single' \| 'multiple'` | - | 折叠模式,单选或多选 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 折叠面板尺寸 |
+| collapsible | `boolean` | `false` | 是否可以折叠所有面板(仅单选模式) |
+| disabled | `boolean` | `false` | 是否禁用整个折叠面板 |
+| value | `string \| string[]` | - | 受控模式下的展开值 |
+| defaultValue | `string \| string[]` | - | 非受控模式下的默认展开值 |
+| onValueChange | `(value: string \| string[]) => void` | - | 展开值变化时的回调函数 |
+| triggerIcon | `ReactNode` | - | 自定义触发器图标 |
+| triggerLeading | `ReactNode` | - | 触发器前置内容 |
+| triggerTrailing | `ReactNode` | - | 触发器后置内容 |
+| classNames | `AccordionClassNames` | - | 自定义各部分的样式类名 |
+| dir | `'ltr' \| 'rtl'` | - | 文本方向 |
+
+### AccordionItemData
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| value | `string` | - | 面板项的唯一标识 |
+| title | `ReactNode` | - | 面板标题 |
+| children | `ReactNode` | - | 面板内容 |
+| disabled | `boolean` | `false` | 是否禁用该面板项 |
+| leading | `ReactNode` | - | 标题前置内容 |
+| trailing | `ReactNode` | - | 标题后置内容 |
+
+### AccordionClassNames
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| root | `ClassValue` | 根容器样式 |
+| item | `ClassValue` | 面板项容器样式 |
+| header | `ClassValue` | 面板头部样式 |
+| trigger | `ClassValue` | 触发器按钮样式 |
+| content | `ClassValue` | 面板内容样式 |
+| triggerIcon | `ClassValue` | 触发器图标样式 |
+| triggerLeadingIcon | `ClassValue` | 触发器前置图标样式 |
+
+## 使用指南
+
+### 何时使用
+
+- 需要在有限空间内展示大量信息时
+- 内容具有层级关系,需要分组展示
+- 用户只需要关注部分内容,可以按需展开
+- FAQ 常见问题列表
+- 设置项分组
+
+### 单选 vs 多选
+
+- **单选模式** - 适合用户一次只需要查看一个内容块的场景,如 FAQ、步骤说明
+- **多选模式** - 适合用户可能需要对比多个内容块的场景,如设置面板、配置选项
+
+### 尺寸选择建议
+
+- **xs/sm** - 紧凑型界面、侧边栏、移动端
+- **md** - 默认尺寸,适合大多数场景
+- **lg/xl/2xl** - 内容丰富的页面、重要的信息展示
+
+## 注意事项
+
+1. **value 唯一性** - 每个面板项的 `value` 必须唯一,用于标识和控制面板状态
+2. **受控与非受控** - 如果提供了 `value` 属性,必须同时提供 `onValueChange` 回调
+3. **单选模式的 collapsible** - 只在 `type="single"` 时有效,允许关闭所有面板
+4. **动画性能** - 面板内容使用 CSS 动画,大量内容时注意性能优化
+5. **嵌套使用** - 可以嵌套使用折叠面板,但要注意层级关系和样式冲突
+
+## 无障碍
+
+- 基于 [Radix UI Accordion](https://www.radix-ui.com/primitives/docs/components/accordion) 构建,完全符合 WAI-ARIA 标准
+- 支持键盘访问:
+  - `Space/Enter` - 展开/收起当前面板
+  - `Tab` - 在面板标题间切换焦点
+  - `Home/End` - 跳转到第一个/最后一个面板
+  - `ArrowDown/ArrowUp` - 移动焦点到下一个/上一个面板
+- 禁用的面板项会添加 `disabled` 属性,无法获得焦点
+- 触发器按钮有明确的焦点指示器
+- 使用 `aria-expanded` 属性指示面板展开状态

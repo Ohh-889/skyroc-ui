@@ -15,6 +15,7 @@ const navigation = [
   },
   {
     items: [
+      { href: '/docs/components/accordion', title: 'Accordion 手风琴' },
       { href: '/docs/components/button', title: 'Button 按钮' },
       { href: '/docs/components/input', title: 'Input 输入框' },
       { href: '/docs/components/card', title: 'Card 卡片' },

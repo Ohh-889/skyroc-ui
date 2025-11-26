@@ -1,80 +1,62 @@
-import { Accordion, Card } from 'skyroc-ui';
-import CustomIcon from './modules/CustomIcon';
-import { items, sizes } from './modules/shared';
+import { Card } from 'skyroc-ui';
+import AccordionCustom from './modules/AccordionCustom';
+import AccordionCustomIcon from './modules/AccordionCustomIcon';
+import AccordionMultiple from './modules/AccordionMultiple';
+import AccordionSingle from './modules/AccordionSingle';
+import AccordionSingleCollapsible from './modules/AccordionSingleCollapsible';
+import AccordionSize from './modules/AccordionSize';
+import AccordionSlot from './modules/AccordionSlot';
 
 const AccordionDemo = () => {
   return (
     <div className="flex-c gap-4">
       <Card
         split
-        title="Single Collapse"
+        title="Single"
       >
-        <Accordion
-          collapsible
-          items={items}
-          type="single"
-        />
+        <AccordionSingle />
       </Card>
 
       <Card
         split
-        title="Single Collapse (always open one)"
+        title="Single Collapsible"
       >
-        <Accordion
-          items={items}
-          type="single"
-        />
+        <AccordionSingleCollapsible />
       </Card>
 
       <Card
         split
-        title="Multi Collapse"
+        title="Multiple"
       >
-        <Accordion
-          items={items}
-          type="multiple"
-        />
+        <AccordionMultiple />
+      </Card>
+
+      <Card
+        split
+        title="Slot"
+      >
+        <AccordionSlot />
+      </Card>
+
+      <Card
+        split
+        title="Custom Icon"
+      >
+        <AccordionCustomIcon />
       </Card>
 
       <Card
         split
         title="Custom Styling"
       >
-        <Accordion
-          collapsible
-          items={items}
-          type="single"
-          classNames={{
-            content: 'px-3 leading-8',
-            item: 'border-b-0',
-            trigger: `mb-2 rounded-md px-3 text-left underline-offset-2 data-[state=closed]:(bg-muted/50 no-underline) data-[state=open]:(bg-secondary-foreground/20 underline hover:bg-secondary-foreground/20 hover:underline) hover:bg-muted`
-          }}
-        />
+        <AccordionCustom />
       </Card>
-
-      <CustomIcon />
 
       <Card
         split
         title="Size"
       >
-        <div className="flex flex-wrap justify-between gap-4">
-          {sizes.map(size => (
-            <Card
-              split
-              className="basis-[48%] max-sm:basis-[100%]"
-              key={size}
-              title={size}
-            >
-              <Accordion
-                collapsible
-                items={items}
-                size={size}
-                type="single"
-              />
-            </Card>
-          ))}
-        </div>
+        <AccordionSize />
       </Card>
     </div>
   );

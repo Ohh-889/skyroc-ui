@@ -1,0 +1,24 @@
+'use client';
+
+import { useState } from 'react';
+import { AArrowDownIcon, Minus, Plus } from 'lucide-react';
+import { Accordion } from 'skyroc-ui';
+import { items2 } from './shared';
+
+const AccordionCustomIcon = () => {
+  const [value, setValue] = useState('1');
+
+  return (
+    <Accordion
+      items={items2}
+      triggerIcon={<AArrowDownIcon />}
+      triggerLeading={<Minus />}
+      triggerTrailing={<Plus />}
+      type="single"
+      value={value}
+      onValueChange={setValue}
+    />
+  );
+};
+
+export default AccordionCustomIcon;

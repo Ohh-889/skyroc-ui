@@ -7,21 +7,21 @@ import type {
   AccordionSingleProps,
   AccordionTriggerProps as _AccordionTriggerProps
 } from '@radix-ui/react-accordion';
-import type { BaseNodeProps, ClassValue, PropsSlot, ThemeSize } from '@/types/shared';
+import type { ClassValue, SlotProps, StyledComponentProps, ThemeSize } from '@/types/shared';
 import type { AccordionSlots } from './accordion-variants';
 
 /** The ui of the accordion. */
 export type AccordionClassNames = Partial<Record<AccordionSlots, ClassValue>>;
 
-export type AccordionRootProps = BaseNodeProps<AccordionSingleProps> | BaseNodeProps<AccordionMultipleProps>;
+export type AccordionRootProps = StyledComponentProps<AccordionSingleProps> | StyledComponentProps<AccordionMultipleProps>;
 
-export interface AccordionHeaderProps extends BaseNodeProps<_AccordionHeaderProps> {}
+export interface AccordionHeaderProps extends StyledComponentProps<_AccordionHeaderProps> {}
 
-export interface AccordionContentProps extends BaseNodeProps<_AccordionContentProps> {}
+export interface AccordionContentProps extends StyledComponentProps<_AccordionContentProps> {}
 
-export interface AccordionItemProps extends BaseNodeProps<_AccordionItemProps> {}
+export interface AccordionItemProps extends StyledComponentProps<_AccordionItemProps> {}
 
-export interface AccordionTriggerProps extends BaseNodeProps<_AccordionTriggerProps>, PropsSlot {
+export interface AccordionTriggerProps extends StyledComponentProps<_AccordionTriggerProps>, SlotProps {
   /** The ui of the accordion trigger. */
   classNames?: Pick<AccordionClassNames, 'triggerIcon' | 'triggerLeadingIcon'>;
   icon?: React.ReactNode;
