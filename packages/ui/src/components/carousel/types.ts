@@ -1,6 +1,6 @@
 import type useEmblaCarousel from 'embla-carousel-react';
 import type { UseEmblaCarouselType } from 'embla-carousel-react';
-import type { BaseComponentProps, ClassValue } from '@/types/other';
+import type { BaseComponentProps, ClassValue } from '@/types/shared';
 import type { ButtonProps } from '../button';
 import type { CarouselSlots } from './carousel-variants';
 

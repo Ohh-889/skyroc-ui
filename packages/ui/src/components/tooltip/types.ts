@@ -3,7 +3,7 @@ import type {
   TooltipContentProps as _TooltipContentProps,
   TooltipProps as _TooltipProps
 } from '@radix-ui/react-tooltip';
-import type { BaseNodeProps, ClassValue, ThemeAlign, ThemeSide } from '@/types/other';
+import type { BaseNodeProps, ClassValue, ThemeAlign, ThemeSide } from '@/types/shared';
 import type { TooltipSlots } from './tooltip-variants';
 
 export type TooltipClassNames = Partial<Record<TooltipSlots, ClassValue>>;

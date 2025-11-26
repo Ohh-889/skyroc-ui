@@ -1,4 +1,4 @@
-import type { BaseComponentProps, ClassValue, ThemeColor, ThemeSize } from '@/types/other';
+import type { BaseComponentProps, ClassValue, ThemeColor, ThemeSize } from '@/types/shared';
 import type { ChipPosition, ChipSlots } from './chip-variants';
 
 export type ChipRootProps = BaseComponentProps<'div'>;

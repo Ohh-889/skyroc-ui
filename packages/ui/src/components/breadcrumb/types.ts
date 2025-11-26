@@ -1,4 +1,4 @@
-import type { BaseComponentProps, ClassValue, PropsSlot } from '@/types/other';
+import type { BaseComponentProps, ClassValue, PropsSlot } from '@/types/shared';
 import type { BreadcrumbSlots } from './breadcrumb-variants';
 
 export type BreadcrumbEllipsisProps = BaseComponentProps<'span'>;

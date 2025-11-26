@@ -1,6 +1,6 @@
 import type { ReactElement } from 'react';
 import { cloneElement } from 'react';
-import type { ClassValue } from '@/types/other';
+import type { ClassValue } from '@/types/shared';
 import { cn } from './utils';
 
 export type AnyProps = Record<string, any>;

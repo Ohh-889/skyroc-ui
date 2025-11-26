@@ -2,7 +2,7 @@ import type {
   CollapsibleContentProps as _CollapsibleContentProps,
   CollapsibleProps as _CollapsibleRootProps
 } from '@radix-ui/react-collapsible';
-import type { BaseNodeProps, ClassValue } from '@/types/other';
+import type { BaseNodeProps, ClassValue } from '@/types/shared';
 import type { CollapsibleSlots } from './collapsible-variants';
 
 export type CollapsibleRootProps = BaseNodeProps<Omit<_CollapsibleRootProps, 'content'>>;

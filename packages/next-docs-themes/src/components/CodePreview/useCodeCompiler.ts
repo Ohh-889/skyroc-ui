@@ -88,6 +88,7 @@ export function useCodeCompiler({
         const scopeValues = Object.values(fullScope);
 
         const componentFactory = new Function(...scopeKeys, transformedCode);
+
         const GeneratedComponent = componentFactory(...scopeValues);
 
         if (!mounted)

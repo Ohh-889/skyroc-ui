@@ -54,13 +54,13 @@ interface VariantShowcaseProps {
  * </VariantShowcase>
  * ```
  */
-export default function VariantShowcase({
+const VariantShowcase = ({
   variants,
   renderItem,
   children,
   className = '',
   columns = 2
-}: VariantShowcaseProps) {
+}: VariantShowcaseProps) => {
   // 将 children 转换为数组以便索引访问
   const childrenArray = React.Children.toArray(children);
 
@@ -111,4 +111,6 @@ export default function VariantShowcase({
       </div>
     </div>
   );
-}
+};
+
+export default VariantShowcase;

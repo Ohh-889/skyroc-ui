@@ -1,9 +1,9 @@
 import type { ComponentProps } from 'react';
-import type { BaseNodeProps, PrimitiveProps, ThemeColor, ThemeOrientation } from '@/types/other';
+import type { PrimitiveProps, StyledComponentProps, ThemeColor, ThemeOrientation } from '@/types/shared';
 import type { IconProps } from '../icon';
 import type { ButtonShadow, ButtonShape, ButtonVariant } from './button-variants';
 
-export interface ButtonProps extends PrimitiveProps, Omit<ComponentProps<'button'>, 'className'>, BaseNodeProps {
+export interface ButtonProps extends PrimitiveProps, StyledComponentProps<ComponentProps<'button'>> {
   color?: ThemeColor;
   fitContent?: boolean;
   leading?: React.ReactNode;
@@ -14,7 +14,7 @@ export interface ButtonProps extends PrimitiveProps, Omit<ComponentProps<'button
   variant?: ButtonVariant;
 }
 
-export interface ButtonGroupProps extends BaseNodeProps<React.HTMLAttributes<HTMLDivElement>> {
+export interface ButtonGroupProps extends StyledComponentProps<React.HTMLAttributes<HTMLDivElement>> {
   orientation?: ThemeOrientation;
 }
 

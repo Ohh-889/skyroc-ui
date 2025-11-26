@@ -5,7 +5,7 @@ import type {
   ToggleGroupSingleProps,
   ToggleGroupItemProps as _ToggleGroupItemProps
 } from '@radix-ui/react-toggle-group';
-import type { BaseNodeProps, ClassValue } from '@/types/other';
+import type { BaseNodeProps, ClassValue } from '@/types/shared';
 import type { ToggleProps } from '../toggle';
 import type { ToggleSlots } from '../toggle/toggle-variants';
 

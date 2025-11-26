@@ -16,7 +16,6 @@ interface TypeListProps {
  */
 export const TypeList: FC<TypeListProps> = ({
   types,
-  maxPerRow = 4,
   className
 }) => {
   return (

@@ -1,5 +1,5 @@
 import type { ThemeOptions } from '@skyroc/tailwind-plugin';
-import type { ThemeSize } from '@/types/other';
+import type { ThemeSize } from '@/types/shared';
 import type { AccordionProps } from '../accordion/types';
 import type { AlertProps } from '../alert';
 import type { IconProps } from '../icon';

@@ -4,7 +4,7 @@ import type {
   TabsProps as _TabsRootProps,
   TabsTriggerProps as _TabsTriggerProps
 } from '@radix-ui/react-tabs';
-import type { BaseProps, ClassValue, ThemeOrientation } from '@/types/other';
+import type { BaseProps, ClassValue, ThemeOrientation } from '@/types/shared';
 import type { TabsFill, TabsSlots } from './tabs-variants';
 
 export interface IndicatorStyle {

@@ -8,7 +8,7 @@ import type {
   SelectTriggerProps as _SelectTriggerProps,
   SelectValueProps as _SelectValueProps
 } from '@radix-ui/react-select';
-import type { BaseNodeProps, ClassValue, PropsSlot, ThemeSize } from '@/types/other';
+import type { BaseNodeProps, ClassValue, PropsSlot, ThemeSize } from '@/types/shared';
 import type { SelectSlots } from './select-variants';
 
 export type SelectClassNames = Partial<Record<SelectSlots, ClassValue>>;

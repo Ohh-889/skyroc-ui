@@ -1,25 +1,23 @@
 {
   "compilerOptions": {
+    "incremental": true,
     "target": "ESNext",
     "jsx": "react-jsx",
-    "lib": ["ESNext", "DOM"],
-    "useDefineForClassFields": true,
-    "baseUrl": ".",
-    "module": "ESNext",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "module": "esnext",
     "moduleResolution": "bundler",
+    "paths": {
+      "@/*": ["../ui/src/*"]
+    },
     "resolveJsonModule": true,
     "types": ["node"],
-    "allowImportingTsExtensions": true,
-    /* Linting */
+    "allowJs": true,
     "strict": true,
-    "strictNullChecks": true,
-    "noUnusedLocals": false,
     "noEmit": true,
-    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "skipLibCheck": true
   },
   "include": ["**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "dist"]
+  "exclude": ["node_modules"]
 }

@@ -8,7 +8,7 @@ import type {
   CommandRoot,
   CommandSeparator
 } from 'cmdk';
-import type { BaseComponentProps, BaseNodeProps, ClassValue, PropsSlot, ThemeSize } from '@/types/other';
+import type { BaseComponentProps, BaseNodeProps, ClassValue, PropsSlot, ThemeSize } from '@/types/shared';
 import type { DialogClassNames, DialogProps } from '../dialog';
 import type { CommandSlots } from './command-variants';
 

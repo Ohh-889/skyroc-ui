@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { BaseComponentProps, ClassValue } from '@/types/other';
+import type { BaseComponentProps, ClassValue } from '@/types/shared';
 import type { TextareaSlots } from './textarea-variants';
 
 export interface TextareaContentProps extends BaseComponentProps<'textarea'> {}

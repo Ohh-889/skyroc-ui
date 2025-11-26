@@ -1,5 +1,5 @@
 import type { SeparatorProps as _SeparatorProps } from '@radix-ui/react-separator';
-import type { BaseNodeProps, ClassValue, PropsSlot, ThemeAlign, ThemeOrientation } from '@/types/other';
+import type { BaseNodeProps, ClassValue, PropsSlot, ThemeAlign, ThemeOrientation } from '@/types/shared';
 import type { DividerBorder, DividerSlots } from './divider-variants';
 
 export interface DividerRootProps extends BaseNodeProps<_SeparatorProps> {

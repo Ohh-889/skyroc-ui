@@ -1,5 +1,5 @@
 import type { RenderProps } from 'input-otp';
-import type { BaseComponentProps, ClassValue, ThemeSize } from '@/types/other';
+import type { BaseComponentProps, ClassValue, ThemeSize } from '@/types/shared';
 import type { InputOTPSlots } from './input-otp-variants';
 
 type OverrideProps<T, R> = Omit<T, keyof R> & R;

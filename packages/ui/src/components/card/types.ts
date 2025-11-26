@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { ClassValue, ClassValueProp, ThemeSize } from '@/types/other';
+import type { ClassValue, ClassValueProp, ThemeSize } from '@/types/shared';
 import type { CardSlots } from './card-variants';
 
 export interface CardRootProps

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import cn from 'clsx';
 import { AnimatePresence, motion } from 'framer-motion';
 import { Check, Copy } from 'lucide-react';
-import { Segment } from '@ui/components/segment';
+import { Segment } from 'skyroc-ui';
 import { highlightCode } from '../lib/shiki';
 
 interface Props {

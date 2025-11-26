@@ -9,7 +9,7 @@ import type {
   DialogProps as _DialogProps,
   DialogTitleProps as _DialogTitleProps
 } from '@radix-ui/react-dialog';
-import type { BaseComponentProps, BaseNodeProps, ClassValue } from '@/types/other';
+import type { BaseComponentProps, BaseNodeProps, ClassValue } from '@/types/shared';
 import type { DialogSlots } from './dialog-variants';
 
 export type DialogClassNames = Partial<Record<DialogSlots, ClassValue>>;

@@ -6,7 +6,7 @@ import type {
   PopoverContentProps as _PopoverContentProps,
   PopoverProps as _PopoverProps
 } from '@radix-ui/react-popover';
-import type { BaseNodeProps, ClassValue } from '@/types/other';
+import type { BaseNodeProps, ClassValue } from '@/types/shared';
 import type { PopoverSlots } from './popover-varianst';
 
 export type PopoverClassNames = Partial<Record<PopoverSlots, ClassValue>>;

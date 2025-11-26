@@ -13,7 +13,7 @@ import type {
   MenuSubContentProps as _MenuSubContentProps,
   MenuSubTriggerProps as _MenuSubTriggerProps
 } from '@radix-ui/react-menu';
-import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeSize } from '@/types/other';
+import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeSize } from '@/types/shared';
 import type { MenuSlots } from './menu-variants';
 
 export type MenuClassNames = Partial<Record<MenuSlots, ClassValue>>;

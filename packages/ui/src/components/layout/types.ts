@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import type { BaseNodeProps, ClassValue, ThemeSize } from '@/types/other';
+import type { BaseNodeProps, ClassValue, ThemeSize } from '@/types/shared';
 import type { SheetSide } from '../sheet';
 import type { LayoutCollapsible, LayoutSide, LayoutSlots, LayoutVariant } from './layout-variants';
 

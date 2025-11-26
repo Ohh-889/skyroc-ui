@@ -4,7 +4,7 @@ import type {
   ScrollAreaThumbProps as _ScrollAreaThumbProps,
   ScrollAreaViewportProps as _ScrollAreaViewportProps
 } from '@radix-ui/react-scroll-area';
-import type { BaseNodeProps, ClassValue } from '@/types/other';
+import type { BaseNodeProps, ClassValue } from '@/types/shared';
 import type { ScrollAreaSlots } from './scroll-area-variants';
 
 export type ScrollAreaUi = Partial<Record<ScrollAreaSlots, ClassValue>>;

@@ -1,3 +1,3 @@
-import type { BaseComponentProps } from '@/types/other';
+import type { BaseComponentProps } from '@/types/shared';
 
 export type SkeletonProps = BaseComponentProps<'div'>;

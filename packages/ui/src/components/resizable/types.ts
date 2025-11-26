@@ -1,6 +1,6 @@
 import type { ComponentProps } from 'react';
 import type { PanelGroupProps as _PanelGroupProps, PanelResizeHandle } from 'react-resizable-panels';
-import type { BaseNodeProps, ClassValue } from '@/types/other';
+import type { BaseNodeProps, ClassValue } from '@/types/shared';
 import type { ResizableSlots } from './resizable-variants';
 
 export type ResizableClassNames = Partial<Record<ResizableSlots, ClassValue>>;

@@ -4,7 +4,7 @@ import type {
   RadioGroupItemProps as _RadioGroupItemProps,
   RadioGroupProps as _RadioGroupProps
 } from '@radix-ui/react-radio-group';
-import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeColor } from '@/types/other';
+import type { BaseComponentProps, BaseNodeProps, ClassValue, ThemeColor } from '@/types/shared';
 import type { RadioSlots } from './radio-variants';
 
 export type RadioClassNames = Partial<Record<RadioSlots, ClassValue>>;
