@@ -1,51 +1,50 @@
 import path from 'node:path';
+import type { Root, RootContent } from 'mdast';
 import { visit } from 'unist-util-visit';
 
-export * from '@skyroc/next-docs-themes';
-
-// 保留 pascal 工具
-export const pascal = (str) => {
+// Utility function to convert strings to PascalCase
+export function pascal(str: string) {
   const parts = str?.split(/[.\-\s_]/).map(x => x.toLowerCase()) ?? [];
   if (parts.length === 0)
     return '';
   return parts.map(s => s.charAt(0).toUpperCase() + s.slice(1)).join('');
-};
+}
 
 /**
- * MDX 插件：自动处理 <Demo> 组件
+ * MDX Plugin: Auto-process <Demo> components
  *
- * 功能：
- * 1. 扫描 MDX 文件中的所有 <Demo src="..." /> 标签
- * 2. 为每个 Demo 自动生成 import 语句
- * 3. 将导入的组件作为 children 注入到 Demo 组件中
+ * Features:
+ * 1. Scan all <Demo src="..." /> tags in MDX files
+ * 2. Auto-generate import statements for each Demo
+ * 3. Inject imported components as children into Demo components
  *
- * 示例转换：
- * 输入：<Demo src="@/demos/button-basic.tsx" title="基础按钮" />
- * 输出：
+ * Example transformation:
+ * Input: <Demo src="@/demos/button-basic.tsx" title="Basic Button" />
+ * Output:
  *   import ButtonBasic from '@/demos/button-basic.tsx';
- *   <Demo src="@/demos/button-basic.tsx" title="基础按钮">
+ *   <Demo src="@/demos/button-basic.tsx" title="Basic Button">
  *     <ButtonBasic />
  *   </Demo>
  */
 export default function rehypeCodeMeta() {
-  return (tree) => {
-    // 用于收集所有需要导入的组件信息
-    const demoComponents = new Set<string>(); // 已使用的组件名集合（确保唯一性）
-    const importMap = new Map<string, string>(); // componentName -> {src, namedExport} 的映射（用于生成 AST）
+  return (tree: Root) => {
+    // Collect information for all components to be imported
+    const demoComponents = new Set<string>(); // Set of used component names (ensure uniqueness)
+    const importMap = new Map<string, string>(); // componentName -> {src, namedExport} mapping (for AST generation)
 
-    // 第一步：遍历所有 <Demo> 标签，收集信息并转换节点
-    visit(tree, 'mdxJsxFlowElement', (node, index, parent) => {
+    // Step 1: Traverse all <Demo> tags, collect info and transform nodes
+    visit(tree, 'mdxJsxFlowElement', (node: any, index, parent) => {
       if (node.name !== 'Demo')
         return;
 
-      const srcAttr = node.attributes?.find(attr => attr.name === 'src');
+      const srcAttr = node.attributes?.find((attr: any) => attr.name === 'src');
       if (!srcAttr)
         return;
 
-      // 确保获取字符串值（srcAttr.value 可能是对象或字符串）
+      // Ensure we get a string value (srcAttr.value could be an object or string)
       const srcValue = typeof srcAttr.value === 'string' ? srcAttr.value : String(srcAttr.value);
 
-      // 处理子组件引用，例如：@playground/button/modules/ButtonGroupDemo:ButtonGroupHorizontal
+      // Handle child component references, e.g.: @playground/button/modules/ButtonGroupDemo:ButtonGroupHorizontal
       let src = srcValue;
       let namedExport: string | undefined;
 
@@ -55,18 +54,18 @@ export default function rehypeCodeMeta() {
         namedExport = srcValue.substring(colonIndex + 1);
       }
 
-      // 添加 .tsx 扩展名（如果没有扩展名）
+      // Add .tsx extension if no extension present
       if (!path.extname(src)) {
         src = `${src}.tsx`;
       }
 
-      // 从文件路径生成组件名（例：button-basic.tsx -> ButtonBasic）
-      // 如果是命名导出，直接使用导出名；否则从文件名生成
+      // Generate component name from file path (e.g.: button-basic.tsx -> ButtonBasic)
+      // If named export, use export name directly; otherwise generate from filename
       const basename = path.basename(src, path.extname(src));
       let componentName = namedExport || pascal(basename);
 
-      // 处理重名情况：如果组件名已存在，添加数字后缀
-      // 例如：ButtonBasic -> ButtonBasic1 -> ButtonBasic2
+      // Handle name collisions: if component name exists, add numeric suffix
+      // e.g.: ButtonBasic -> ButtonBasic1 -> ButtonBasic2
       let counter = 1;
       const originalName = componentName;
       while (demoComponents.has(componentName)) {
@@ -75,14 +74,14 @@ export default function rehypeCodeMeta() {
       }
       demoComponents.add(componentName);
 
-      // 存储组件名、路径和导出类型的映射关系
+      // Store mapping of component name, path, and export type
       importMap.set(componentName, JSON.stringify({ src, namedExport }));
 
-      // 保留除 src 之外的其他属性（如 title, highlight 等）
+      // Keep all attributes except src (e.g. title, highlight, etc.)
       const otherAttrs = node.attributes?.filter((attr: any) => attr.name !== 'src') || [];
 
-      // 转换节点：将 <Demo src="..." /> 转换为 <Demo src="..."><Component /></Demo>
-      // 这样 Demo 组件就能通过 children 接收到实际的组件实例
+      // Transform node: convert <Demo src="..." /> to <Demo src="..."><Component /></Demo>
+      // This way Demo component can receive the actual component instance via children
       parent.children[index!] = {
         attributes: [{ name: 'src', type: 'mdxJsxAttribute', value: src }, ...otherAttrs],
         children: [
@@ -100,14 +99,14 @@ export default function rehypeCodeMeta() {
       };
     });
 
-    // 第二步：在文档开头插入所有 import 声明
+    // Step 2: Insert all import declarations at the beginning of the document
     if (importMap.size > 0) {
-      // 为每个 Demo 组件生成 ESTree ImportDeclaration AST 节点
-      // ESTree 是 JavaScript AST 的标准格式
+      // Generate ESTree ImportDeclaration AST nodes for each Demo component
+      // ESTree is the standard format for JavaScript AST
       const imports = [];
 
-      // 按 src 分组，合并同一个文件的命名导出
-      // 例如：import { A, B } from 'path' 而不是两个 import { A } 和 import { B }
+      // Group by src, merge named exports from the same file
+      // e.g.: import { A, B } from 'path' instead of two separate import { A } and import { B }
       const groupedBySrc = new Map<string, { defaultExports: string[]; namedExports: Array<{ imported: string; local: string }> }>();
 
       for (const [componentName, importInfo] of importMap) {
@@ -127,11 +126,11 @@ export default function rehypeCodeMeta() {
         }
       }
 
-      // 生成 import 语句
+      // Generate import statements
       for (const [src, { defaultExports, namedExports }] of groupedBySrc) {
         const specifiers = [];
 
-        // 添加默认导出（每个文件只能有一个默认导出）
+        // Add default export (each file can only have one default export)
         if (defaultExports.length > 0) {
           specifiers.push({
             local: { name: defaultExports[0], type: 'Identifier' },
@@ -139,7 +138,7 @@ export default function rehypeCodeMeta() {
           });
         }
 
-        // 添加命名导出（可以有多个）
+        // Add named exports (can have multiple)
         for (const { imported, local } of namedExports) {
           specifiers.push({
             imported: { name: imported, type: 'Identifier' },
@@ -148,8 +147,8 @@ export default function rehypeCodeMeta() {
           });
         }
 
-        // 生成 import 声明
-        // 例如：import ButtonColor, { A, B } from '@playground/button/modules/ButtonIconDemo';
+        // Generate import declaration
+        // e.g.: import ButtonColor, { A, B } from '@playground/button/modules/ButtonIconDemo';
         imports.push({
           source: {
             raw: `'${src}'`,
@@ -161,7 +160,7 @@ export default function rehypeCodeMeta() {
         });
       }
 
-      // 生成 import 语句的字符串形式（用于 value 字段）
+      // Generate import statements in string form (for the value field)
       const importStrings: string[] = [];
       for (const [src, { defaultExports, namedExports }] of groupedBySrc) {
         const parts: string[] = [];
@@ -178,21 +177,21 @@ export default function rehypeCodeMeta() {
         importStrings.push(`import ${parts.join(', ')} from '${src}';`);
       }
 
-      // 创建 MDX ESM import 节点
-      // MDX 使用 mdxjsEsm 节点类型来表示 ESM import/export 语句
-      const importNode = {
+      // Create MDX ESM import node
+      // MDX uses mdxjsEsm node type to represent ESM import/export statements
+      const importNode: RootContent = {
         data: {
           estree: {
-            body: imports, // 所有的 import 声明
+            body: imports, // All import declarations
             type: 'Program'
           }
         },
         type: 'mdxjsEsm',
-        value: importStrings.join('\n') // import 语句的字符串形式
-      };
+        value: importStrings.join('\n') // String form of import statements
+      } as any;
 
-      // 将 import 节点插入到 AST 树的开头
-      // 这样生成的代码中，所有 import 都会在文档最开始
+      // Insert import node at the beginning of the AST tree
+      // This way all imports will be at the start of the generated code
       tree.children.unshift(importNode);
     }
   };
