@@ -68,7 +68,7 @@ export const PreviewContent = ({
           )}
           >
             <div
-              className="[&_code]:whitespace-pre [&_pre]:m-0 [&_pre]:!bg-transparent [&_pre]:whitespace-pre"
+              className="w-fit min-w-full [&_code]:whitespace-pre [&_pre]:m-0 [&_pre]:!bg-transparent [&_pre]:whitespace-pre"
               dangerouslySetInnerHTML={{ __html: highlightedHtml }}
             />
           </div>

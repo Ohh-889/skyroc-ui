@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useState } from 'react';
 import { cn } from '../../lib/cn';
 import { highlightCode } from '../../lib/shiki';
+import type { DependencyModule, NpmImport } from './dependencyResolver';
 import { useDemoComponents } from './DemoScope';
 import { PreviewContent } from './PreviewContent';
 import { PreviewFooter } from './PreviewFooter';
@@ -13,13 +14,15 @@ interface LiveCodePreviewProps {
   code: string;
   title?: string;
   children?: React.ReactNode;
+  dependencies?: DependencyModule[];
+  mainFileNpmImports?: NpmImport[];
 }
 
 /**
  * 实时代码预览组件
  * 支持三种模式：预览、代码、分屏
  */
-export const LiveCodePreview = ({ code: initialCode, title, children }: LiveCodePreviewProps) => {
+export const LiveCodePreview = ({ code: initialCode, title, children, dependencies = [], mainFileNpmImports = [] }: LiveCodePreviewProps) => {
   // 状态管理
   const [mode, setMode] = useState<'preview' | 'code' | 'split'>('preview');
   const [code, setCode] = useState(initialCode);
@@ -35,7 +38,9 @@ export const LiveCodePreview = ({ code: initialCode, title, children }: LiveCode
   const { component: liveComponent, error: compileError } = useCodeCompiler({
     code,
     enabled: mode === 'split',
-    contextComponents
+    contextComponents,
+    dependencies,
+    mainFileNpmImports
   });
 
   // 复制代码
