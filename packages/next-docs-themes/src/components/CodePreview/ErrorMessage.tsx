@@ -69,8 +69,8 @@ export const ErrorMessage = ({ title, message, type = 'error', tip }: ErrorMessa
       <div
         className={
           isError
-            ? 'mt-2 whitespace-pre-wrap font-mono text-xs text-red-800 dark:text-red-200'
-            : 'whitespace-pre-wrap font-mono text-xs text-amber-800 dark:text-amber-200'
+            ? 'mt-2 font-mono text-xs whitespace-pre-wrap text-red-800 dark:text-red-200'
+            : 'font-mono text-xs whitespace-pre-wrap text-amber-800 dark:text-amber-200'
         }
       >
         {message}

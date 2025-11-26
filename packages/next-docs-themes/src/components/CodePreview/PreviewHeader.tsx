@@ -1,8 +1,7 @@
 'use client';
 
 import { Check, Code2, Columns2, Copy, Eye, Maximize2, Minimize2, RotateCcw } from 'lucide-react';
-import { ButtonIcon } from '@ui/components/button';
-import { Segment } from '@ui/components/segment';
+import { ButtonIcon, Segment } from 'skyroc-ui';
 
 interface PreviewHeaderProps {
   title?: string;
@@ -61,13 +60,13 @@ export const PreviewHeader = ({
   onToggleFullscreen
 }: PreviewHeaderProps) => {
   return (
-    <div className="flex items-center justify-between border-b border-border bg-background px-5 py-3.5">
+    <div className="border-border bg-background flex items-center justify-between border-b px-5 py-3.5">
       <div className="flex items-center gap-3">
-        <div className="text-sm font-semibold text-foreground">{title || 'Demo'}</div>
+        <div className="text-foreground text-sm font-semibold">{title || 'Demo'}</div>
 
         {hasChanged
           ? (
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-700 ring-1 ring-inset ring-amber-600/20 dark:bg-amber-500/10 dark:text-amber-400 dark:ring-amber-500/30">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-0.5 text-xs font-medium text-amber-700 ring-1 ring-amber-600/20 ring-inset dark:bg-amber-500/10 dark:text-amber-400 dark:ring-amber-500/30">
               <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-amber-600 dark:bg-amber-400" />
               已修改
             </span>
@@ -82,7 +81,7 @@ export const PreviewHeader = ({
           onValueChange={value => onModeChange(value as 'preview' | 'code' | 'split')}
         />
 
-        <div className="h-4 w-px bg-border" />
+        <div className="bg-border h-4 w-px" />
 
         <div className="flex items-center gap-1.5">
           {hasChanged

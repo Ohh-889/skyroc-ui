@@ -18,7 +18,7 @@ interface DemoProps {
  *
  * 会自动读取源代码并提供实时编辑预览功能
  */
-export default async function Demo({ children, src, title }: DemoProps) {
+export const Demo = async ({ children, src, title }: DemoProps) => {
   if (!src) {
     return <div className="text-red-500">Demo 组件需要 src 属性</div>;
   }
@@ -36,7 +36,7 @@ export default async function Demo({ children, src, title }: DemoProps) {
       </LiveCodePreview>
     </Suspense>
   );
-}
+};
 
 /**
  * 读取源代码文件
@@ -75,3 +75,5 @@ function resolvePath(src: string): string {
   }
   return path.resolve(process.cwd(), src);
 }
+
+export default Demo;

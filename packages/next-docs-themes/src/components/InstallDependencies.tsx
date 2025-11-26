@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Tabs } from '@ui/components/tabs';
+import { Tabs } from 'skyroc-ui';
 import CopyButton from './CopyButton';
 
 interface InstallDependenciesProps {
@@ -17,7 +17,7 @@ const InstallDependencies = (props: InstallDependenciesProps) => {
 
   const items = PACKAGE_MANAGERS.map(manager => ({
     children: () => (
-      <div className="h-10 flex-y-center justify-between gap-2 border rounded-md pl-3 pr-1.5">
+      <div className="flex-y-center h-10 justify-between gap-2 rounded-md border pr-1.5 pl-3">
         <code className="text-sm">
           $
           {' '}
@@ -28,7 +28,7 @@ const InstallDependencies = (props: InstallDependenciesProps) => {
           {pkg}
         </code>
 
-        <CopyButton content={`${manager} add ${props.pkg}`} />
+        <CopyButton content={`${manager} add ${pkg}`} />
       </div>
     ),
     label: manager,

@@ -75,32 +75,33 @@ export default function VariantShowcase({
       <div className={`grid ${gridCols[columns]} gap-6`}>
         {variants.map((variant, index) => (
           <div
+            className="group relative rounded-xl border border-gray-200 bg-white p-6 shadow-sm transition-all duration-200 hover:border-blue-300 hover:shadow-md dark:border-gray-800 dark:bg-gray-950 dark:hover:border-blue-700"
             key={variant.name}
-            className="group relative rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-950 p-6 shadow-sm transition-all duration-200 hover:shadow-md hover:border-blue-300 dark:hover:border-blue-700"
           >
             {/* 装饰性渐变背景 */}
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-50/50 to-purple-50/50 dark:from-blue-950/20 dark:to-purple-950/20 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
+            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-blue-50/50 to-purple-50/50 opacity-0 transition-opacity duration-200 group-hover:opacity-100 dark:from-blue-950/20 dark:to-purple-950/20" />
 
             {/* 内容容器 */}
             <div className="relative z-10">
               {/* 标题和徽章 */}
-              <div className="flex items-center gap-3 mb-3">
+              <div className="mb-3 flex items-center gap-3">
                 <h4 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                   {variant.title}
                 </h4>
-                <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-100 dark:bg-blue-900/50 text-blue-800 dark:text-blue-300">
+
+                <span className="inline-flex items-center rounded-full bg-blue-100 px-2.5 py-0.5 text-xs font-medium text-blue-800 dark:bg-blue-900/50 dark:text-blue-300">
                   {variant.name}
                 </span>
               </div>
 
               {/* 描述文本 */}
-              <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
+              <p className="mb-4 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                 {variant.description}
               </p>
 
               {/* 示例展示 */}
-              <div className="pt-4 border-t border-gray-100 dark:border-gray-800">
-                <div className="flex items-center justify-center gap-2 p-4 rounded-lg bg-gray-50 dark:bg-gray-900/50">
+              <div className="border-t border-gray-100 pt-4 dark:border-gray-800">
+                <div className="flex items-center justify-center gap-2 rounded-lg bg-gray-50 p-4 dark:bg-gray-900/50">
                   {renderItem ? renderItem(variant, index) : childrenArray[index]}
                 </div>
               </div>

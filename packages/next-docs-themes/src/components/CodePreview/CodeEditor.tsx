@@ -20,12 +20,12 @@ export const CodeEditor = ({ value, onChange, className }: CodeEditorProps) => {
   }, [value]);
 
   return (
-    <div className={cn('flex overflow-hidden font-mono text-[13px] bg-background', className)}>
+    <div className={cn('bg-background flex overflow-hidden font-mono text-[13px]', className)}>
       {/* 行号 */}
-      <div className="select-none border-r border-border bg-muted/50 px-3 py-4 text-right text-muted-foreground">
+      <div className="border-border bg-muted/50 text-muted-foreground border-r px-3 py-4 text-right select-none">
         {Array.from({ length: lineCount }, (_, i) => (
           <div
-            className="leading-6 transition-colors hover:text-foreground"
+            className="hover:text-foreground leading-6 transition-colors"
             key={i}
           >
             {i + 1}
@@ -35,7 +35,7 @@ export const CodeEditor = ({ value, onChange, className }: CodeEditorProps) => {
 
       {/* 编辑区 */}
       <textarea
-        className="flex-1 resize-none bg-background px-4 py-4 leading-6 text-foreground outline-none placeholder:text-muted-foreground"
+        className="bg-background text-foreground placeholder:text-muted-foreground flex-1 resize-none px-4 py-4 leading-6 outline-none"
         spellCheck={false}
         style={{ tabSize: 2 }}
         value={value}

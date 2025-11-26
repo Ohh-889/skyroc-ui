@@ -2,29 +2,24 @@
   "compilerOptions": {
     "target": "ESNext",
     "jsx": "react-jsx",
-    "lib": ["DOM", "ESNext"],
+    "lib": ["ESNext", "DOM"],
+    "useDefineForClassFields": true,
     "baseUrl": ".",
     "module": "ESNext",
     "moduleResolution": "bundler",
-    "paths": {
-      "@ui": ["../ui/src/index.ts"],
-      "@ui/*": ["../ui/src/*"]
-    },
     "resolveJsonModule": true,
     "types": ["node"],
+    "allowImportingTsExtensions": true,
+    /* Linting */
     "strict": true,
     "strictNullChecks": true,
-    "noUnusedLocals": true,
-    "declaration": true,
-    "emitDeclarationOnly": true,
-    "outDir": "./dist",
+    "noUnusedLocals": false,
+    "noEmit": true,
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "isolatedModules": true,
-    "verbatimModuleSyntax": true,
-    "skipLibCheck": true
+    "isolatedModules": true
   },
-  "include": ["src/**/*"],
+  "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }

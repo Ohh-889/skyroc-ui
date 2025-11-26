@@ -1,5 +1,5 @@
-import { createConfig } from '@skyroc/eslint-config';
+import { skyroc } from '@skyroc/eslint-config';
 
-export default createConfig({
+export default skyroc({
   react: true
 });

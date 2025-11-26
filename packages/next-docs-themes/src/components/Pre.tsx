@@ -1,9 +1,10 @@
 'use client';
-
+import React from 'react';
 import type { FC, HTMLAttributes, ReactNode } from 'react';
 import cn from 'clsx';
 import { WrapText } from 'lucide-react';
-import { Button } from '@ui/components/button';
+import type { ButtonProps } from 'skyroc-ui';
+import { Button } from 'skyroc-ui';
 import CopyButton from './CopyButton';
 
 /* -------------------- ToggleWordWrapButton -------------------- */
@@ -14,17 +15,19 @@ function toggleWordWrap() {
   else htmlDataset.nextraWordWrap = '';
 }
 
-export const ToggleWordWrapButton: FC<{ children?: ReactNode }> = ({ children }) => (
-  <Button
-    className="flex items-center gap-1 rounded-md border border-border/50 bg-transparent hover:bg-muted"
-    size="sm"
-    title="切换自动换行"
-    variant="outline"
-    onClick={toggleWordWrap}
-  >
-    {children ?? <WrapText size={16} />}
-  </Button>
-);
+export const ToggleWordWrapButton = (props: ButtonProps) => {
+  const { size, ...rest } = props;
+
+  return (
+    <Button
+      title="切换自动换行"
+      variant="outline"
+      onClick={toggleWordWrap}
+    >
+      <WrapText size={16} />
+    </Button>
+  );
+};
 
 /* -------------------- Pre 组件 -------------------- */
 export interface PreProps extends HTMLAttributes<HTMLPreElement> {
@@ -56,11 +59,11 @@ export const Pre: FC<PreProps> = (rest) => {
         ? (
           <div
             className={cn(
-              'flex items-center justify-between gap-2 rounded-t-md border border-border/50 border-b-0',
-              'bg-gray-100 dark:bg-neutral-900 px-4 py-2 text-xs text-gray-700 dark:text-gray-200'
+              'border-border/50 flex items-center justify-between gap-2 rounded-t-md border border-b-0',
+              'bg-gray-100 px-4 py-2 text-xs text-gray-700 dark:bg-neutral-900 dark:text-gray-200'
             )}
           >
-            <div className="flex items-center gap-2 min-w-0">
+            <div className="flex min-w-0 items-center gap-2">
               {icon}
               <span className="truncate">{filename}</span>
             </div>
@@ -73,7 +76,7 @@ export const Pre: FC<PreProps> = (rest) => {
       {/* 代码区 */}
       <div
         className={cn(
-          'relative group rounded-b-md border border-border/50 bg-white dark:bg-black',
+          'group border-border/50 relative rounded-b-md border bg-white dark:bg-black',
           filename ? 'rounded-t-none' : 'rounded-md'
         )}
       >
@@ -91,8 +94,8 @@ export const Pre: FC<PreProps> = (rest) => {
 
         <pre
           className={cn(
-            'overflow-x-auto p-4 text-sm leading-relaxed subpixel-antialiased not-prose',
-            'bg-transparent text-foreground dark:text-foreground/90',
+            'not-prose overflow-x-auto p-4 text-sm leading-relaxed subpixel-antialiased',
+            'text-foreground dark:text-foreground/90 bg-transparent',
             'font-mono',
             className
           )}

@@ -8,7 +8,7 @@ export const Table = ({ className, ...props }: TableProps) => {
     <div className="not-prose border-border my-6 w-full overflow-x-auto rounded-lg border shadow-sm">
       <table
         className={cn(
-          'w-full border-collapse text-base table-fixed',
+          'w-full table-fixed border-collapse text-base',
           className
         )}
         {...props}
@@ -83,7 +83,7 @@ export const TH = ({ className, ...props }: THProps) => {
         '[&_code]:bg-muted [&_code]:text-foreground [&_code]:rounded [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-xs [&_code]:font-normal',
         '[&_code]:whitespace-nowrap',
         // 设置列宽
-        'first:w-[15%] [&:nth-child(2)]:w-[29%] [&:nth-child(3)]:w-[26%] last:w-[30%]',
+        'first:w-[15%] last:w-[30%] [&:nth-child(2)]:w-[29%] [&:nth-child(3)]:w-[26%]',
         className
       )}
       {...props}
@@ -106,7 +106,7 @@ export const TD = ({ className, ...props }: TDProps) => {
         '[&:has([role=checkbox])]:pr-0',
         // 代码块样式 - 支持多行布局，每行最多4个选项
         '[&_code]:bg-muted [&_code]:text-foreground [&_code]:rounded [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:font-mono [&_code]:text-xs [&_code]:font-normal',
-        '[&_code]:inline-block [&_code]:my-0.5',
+        '[&_code]:my-0.5 [&_code]:inline-block',
         // 防止内容溢出
         'overflow-hidden',
         // 对于包含多个选项的单元格，让内容自然换行

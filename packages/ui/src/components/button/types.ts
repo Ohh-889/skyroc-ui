@@ -3,7 +3,7 @@ import type { BaseNodeProps, PrimitiveProps, ThemeColor, ThemeOrientation } from
 import type { IconProps } from '../icon';
 import type { ButtonShadow, ButtonShape, ButtonVariant } from './button-variants';
 
-export interface ButtonProps extends PrimitiveProps, BaseNodeProps<ComponentProps<'button'>> {
+export interface ButtonProps extends PrimitiveProps, Omit<ComponentProps<'button'>, 'className'>, BaseNodeProps {
   color?: ThemeColor;
   fitContent?: boolean;
   leading?: React.ReactNode;

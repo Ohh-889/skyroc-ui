@@ -51,7 +51,7 @@ export interface PrimitiveProps {
   asChild?: boolean;
 }
 
-export type BaseNodeProps<T> = Omit<T, 'className'> & {
+export type BaseNodeProps<T = {}> = T & {
   className?: ClassValue;
   size?: ThemeSize;
 };

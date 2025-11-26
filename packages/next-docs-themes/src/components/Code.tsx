@@ -34,12 +34,12 @@ const Code: FC<CodeProps> = (rest) => {
       data-show-line-numbers={showLineNumbers}
       className={cn(
         'font-mono text-[13px] leading-relaxed',
-        'justify-between items-center flex-wrap',
+        'flex-wrap items-center justify-between',
         'text-gray-800 dark:text-gray-100',
 
         isBlock
           ? [
-            'block w-full whitespace-pre break-words',
+            'block w-full break-words whitespace-pre',
             'bg-transparent',
             'selection:bg-muted selection:text-foreground',
             'before:hidden after:hidden',
@@ -49,8 +49,8 @@ const Code: FC<CodeProps> = (rest) => {
           : [
             // inline code 样式 - 内容自适应宽度
             'inline-block flex-wrap rounded-md px-[0.3em] py-[0.15em] ',
-            'font-mono text-[0.875em] leading-normal text-foreground/90',
-            'bg-muted/40 dark:bg-neutral-800 dark:border-neutral-700'
+            'text-foreground/90 font-mono text-[0.875em] leading-normal',
+            'bg-muted/40 dark:border-neutral-700 dark:bg-neutral-800'
           ],
         className
       )}

@@ -51,10 +51,10 @@ const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang 
   };
 
   return (
-    <div className="my-8 overflow-hidden prose rounded-lg border border-border/50 bg-background/50 shadow-sm">
+    <div className="prose border-border/50 bg-background/50 my-8 overflow-hidden rounded-lg border shadow-sm">
       {/* Header */}
-      <div className="flex items-center justify-between border-b border-border/50 px-4 py-2 bg-muted/40">
-        <span className="font-medium text-sm text-foreground truncate">{title ?? name}</span>
+      <div className="border-border/50 bg-muted/40 flex items-center justify-between border-b px-4 py-2">
+        <span className="text-foreground truncate text-sm font-medium">{title ?? name}</span>
 
         <Segment
           value={active}
@@ -73,7 +73,7 @@ const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang 
         {active === 'preview' ? (
           <motion.div
             animate={{ opacity: 1, y: 0 }}
-            className="flex items-center justify-center bg-card"
+            className="bg-card flex items-center justify-center"
             exit={{ opacity: 0, y: -10 }}
             initial={{ opacity: 0, y: 10 }}
             key="preview"
@@ -85,7 +85,7 @@ const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang 
         ) : (
           <motion.div
             animate={{ opacity: 1, y: 0 }}
-            className="relative bg-background"
+            className="bg-background relative"
             exit={{ opacity: 0, y: -10 }}
             initial={{ opacity: 0, y: 10 }}
             key="code"
@@ -95,7 +95,7 @@ const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang 
             <button
               title="Copy code"
               className={cn(
-                'absolute right-3 top-3 z-10 p-1.5 rounded-md border border-border/50',
+                'border-border/50 absolute top-3 right-3 z-10 rounded-md border p-1.5',
                 'bg-muted/30 hover:bg-muted text-muted-foreground hover:text-foreground'
               )}
               onClick={handleCopy}
@@ -108,13 +108,13 @@ const ComponentPreview: React.FC<Props> = ({ children, code, height = 360, lang 
               dangerouslySetInnerHTML={{ __html: html }}
               className={cn(
                 'h-[calc(100vh-380px)] overflow-auto',
-                '[&_pre]:m-0 [&_pre]:whitespace-pre [&_code]:whitespace-pre'
+                '[&_code]:whitespace-pre [&_pre]:m-0 [&_pre]:whitespace-pre'
               )}
             />
 
             {isLoading
               ? (
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm">
+                <div className="text-muted-foreground absolute inset-0 flex items-center justify-center text-sm">
                   Loading code...
                 </div>
               )

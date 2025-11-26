@@ -23,12 +23,12 @@ export const TypeList: FC<TypeListProps> = ({
     <div className={cn('flex flex-wrap gap-1.5', className)}>
       {types.map((type, index) => (
         <span key={index}>
-          <code className="inline-block rounded bg-muted px-1.5 py-0.5 font-mono text-xs font-normal text-foreground">
+          <code className="bg-muted text-foreground inline-block rounded px-1.5 py-0.5 font-mono text-xs font-normal">
             {type}
           </code>
 
           {index < types.length - 1 && (
-            <span className="mx-0.5 text-muted-foreground">|</span>
+            <span className="text-muted-foreground mx-0.5">|</span>
           )}
         </span>
       ))}

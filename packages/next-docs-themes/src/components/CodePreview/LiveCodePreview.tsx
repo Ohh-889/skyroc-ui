@@ -87,11 +87,11 @@ export const LiveCodePreview = ({ code: initialCode, title, children }: LiveCode
   return (
     <div
       className={cn(
-        'group my-8 overflow-hidden rounded-xl border transition-all relative',
+        'group relative my-8 overflow-hidden rounded-xl border transition-all',
         // 亮色模式：纯白背景，细边框
-        'bg-white border-border',
+        'border-border bg-white',
         // 暗色模式：深色背景，更深的边框
-        'dark:bg-zinc-900 dark:border-zinc-800',
+        'dark:border-zinc-800 dark:bg-zinc-900',
         // 全屏模式
         isFullscreen && 'fixed inset-6 z-50 m-0 shadow-2xl'
       )}
@@ -129,7 +129,7 @@ export const LiveCodePreview = ({ code: initialCode, title, children }: LiveCode
       {/* 已复制提示 */}
       {copied
         ? (
-          <div className="pointer-events-none absolute bottom-10 right-3 rounded-md bg-black/90 px-3 py-1.5 text-xs text-white shadow-lg dark:bg-white/90 dark:text-black">
+          <div className="pointer-events-none absolute right-3 bottom-10 rounded-md bg-black/90 px-3 py-1.5 text-xs text-white shadow-lg dark:bg-white/90 dark:text-black">
             已复制
           </div>
         )

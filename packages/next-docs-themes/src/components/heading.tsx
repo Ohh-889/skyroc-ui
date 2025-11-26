@@ -11,8 +11,8 @@ const createHeading = (Tag: `h${1 | 2 | 3 | 4 | 5 | 6}`): FC<ComponentProps<type
         : cn(
           'group scroll-mt-20 font-semibold tracking-tight',
           {
-            h1: cn('scroll-m-20 text-4xl font-extrabold tracking-tight text-balance mb-6'),
-            h2: cn('scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0 mt-12 mb-6'),
+            h1: cn('mb-6 scroll-m-20 text-4xl font-extrabold tracking-tight text-balance'),
+            h2: cn('mt-12 mb-6 scroll-m-20 pb-2 text-3xl font-semibold tracking-tight first:mt-0'),
             h3: cn('mt-8 mb-4 text-xl md:text-2xl', 'leading-[1.4] font-semibold', 'relative'),
             h4: cn('mt-6 mb-3 text-lg md:text-xl', 'font-semibold', 'text-foreground/90'),
             h5: cn('mt-5 mb-2 text-base md:text-lg', 'leading-[1.6] font-semibold', 'text-foreground/80'),

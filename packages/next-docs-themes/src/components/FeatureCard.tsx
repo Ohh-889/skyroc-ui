@@ -32,28 +32,31 @@ export const FeatureCard: FC<FeatureCardProps> = ({
       className={cn(
         'group relative overflow-hidden rounded-xl border p-6',
         'transition-all duration-300',
-        'hover:shadow-md hover:scale-[1.02]',
+        'hover:scale-[1.02] hover:shadow-md',
         variantStyles[variant],
         className
       )}
       {...props}
     >
       {/* 背景装饰 */}
-      <div className="absolute right-0 top-0 h-32 w-32 -translate-y-8 translate-x-8 rounded-full bg-gradient-to-br from-white/20 to-transparent blur-2xl transition-transform group-hover:scale-150" />
-      
+      <div className="absolute top-0 right-0 h-32 w-32 translate-x-8 -translate-y-8 rounded-full bg-gradient-to-br from-white/20 to-transparent blur-2xl transition-transform group-hover:scale-150" />
+
       <div className="relative flex flex-col gap-3">
         {/* 图标和标题 */}
         <div className="flex items-center gap-3">
-          {icon && (
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-background/50 backdrop-blur-sm">
-              {icon}
-            </div>
-          )}
-          <h4 className="text-lg font-semibold text-foreground">{title}</h4>
+          {icon
+            ? (
+              <div className="bg-background/50 flex h-10 w-10 shrink-0 items-center justify-center rounded-lg backdrop-blur-sm">
+                {icon}
+              </div>
+            )
+            : null}
+
+          <h4 className="text-foreground text-lg font-semibold">{title}</h4>
         </div>
-        
+
         {/* 描述 */}
-        <p className="text-sm leading-relaxed text-muted-foreground">
+        <p className="text-muted-foreground text-sm leading-relaxed">
           {description}
         </p>
       </div>
@@ -76,4 +79,3 @@ export const FeatureGrid: FC<ComponentProps<'div'>> = ({ children, className, ..
     </div>
   );
 };
-

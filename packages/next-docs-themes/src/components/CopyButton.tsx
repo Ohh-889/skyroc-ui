@@ -3,8 +3,8 @@
 import { useEffect, useState } from 'react';
 import type { FC, MouseEvent } from 'react';
 import { Check, Copy } from 'lucide-react';
-import type { ButtonIconProps } from '@ui/components/button';
-import { ButtonIcon } from '@ui/components/button';
+import type { ButtonIconProps } from 'skyroc-ui';
+import { ButtonIcon } from 'skyroc-ui';
 
 interface CopyButtonProps extends ButtonIconProps {
   content?: string;

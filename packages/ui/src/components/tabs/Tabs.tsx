@@ -6,7 +6,7 @@ import Root from './TabsRoot';
 import TabsTrigger from './TabsTrigger';
 import type { TabsOptionData, TabsProps } from './types';
 
-const Tabs = forwardRef<React.ElementRef<typeof Root>, TabsProps<TabsOptionData>>((props, ref) => {
+const Tabs = forwardRef<React.ComponentRef<typeof Root>, TabsProps<TabsOptionData>>((props, ref) => {
   const {
     className,
     classNames,

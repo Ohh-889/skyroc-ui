@@ -2,9 +2,6 @@ import { defineConfig } from 'tsdown';
 import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig({
-  alias: {
-    '@ui': '../ui/src'
-  },
   clean: true,
   dts: true,
   entry: ['src/index.ts'],

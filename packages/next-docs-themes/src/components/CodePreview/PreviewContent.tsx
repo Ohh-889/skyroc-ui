@@ -39,7 +39,7 @@ export const PreviewContent = ({
   const codeMaxHeightClass = isFullscreen ? 'max-h-[calc(100vh-200px)]' : 'max-h-[calc(100vh-380px)]';
 
   return (
-    <div className="relative bg-background">
+    <div className="bg-background relative">
       {/* 预览模式 */}
       {mode === 'preview' && (
         <ErrorBoundary
@@ -61,21 +61,21 @@ export const PreviewContent = ({
 
       {/* 代码模式 - 自适应高度 */}
       {mode === 'code' && (
-        <div className="relative bg-muted/30">
+        <div className="bg-muted/30 relative">
           <div className={cn(
-            'code-viewer overflow-auto p-4 font-mono text-sm leading-relaxed not-prose show-line-numbers',
+            'code-viewer not-prose show-line-numbers overflow-auto p-4 font-mono text-sm leading-relaxed',
             codeMaxHeightClass
           )}
           >
             <div
-              className="[&_pre]:m-0 [&_pre]:whitespace-pre [&_code]:whitespace-pre [&_pre]:!bg-transparent"
+              className="[&_code]:whitespace-pre [&_pre]:m-0 [&_pre]:!bg-transparent [&_pre]:whitespace-pre"
               dangerouslySetInnerHTML={{ __html: highlightedHtml }}
             />
           </div>
 
           {isLoading
             ? (
-              <div className="absolute inset-0 flex items-center justify-center text-muted-foreground text-sm bg-background/80 backdrop-blur-sm">
+              <div className="text-muted-foreground bg-background/80 absolute inset-0 flex items-center justify-center text-sm backdrop-blur-sm">
                 加载代码中...
               </div>
             )
@@ -85,7 +85,7 @@ export const PreviewContent = ({
 
       {/* 分屏模式 - 固定高度 */}
       {mode === 'split' && (
-        <div className="grid grid-cols-2 divide-x divide-border">
+        <div className="divide-border grid grid-cols-2 divide-x">
           <div className={cn(splitHeightClass)}>
             <CodeEditor
               className="h-full"
@@ -119,8 +119,8 @@ export const PreviewContent = ({
                   ? (
                     <React.Suspense
                       fallback={(
-                        <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-muted-foreground/30 border-t-muted-foreground" />
+                        <div className="text-muted-foreground flex items-center gap-2 text-sm">
+                          <div className="border-muted-foreground/30 border-t-muted-foreground h-4 w-4 animate-spin rounded-full border-2" />
                           <span>加载中...</span>
                         </div>
                       )}
@@ -129,8 +129,8 @@ export const PreviewContent = ({
                     </React.Suspense>
                   )
                   : (
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                      <div className="h-4 w-4 animate-pulse rounded-full bg-muted" />
+                    <div className="text-muted-foreground flex items-center gap-2 text-sm">
+                      <div className="bg-muted h-4 w-4 animate-pulse rounded-full" />
                       <span>等待编译...</span>
                     </div>
                   )}

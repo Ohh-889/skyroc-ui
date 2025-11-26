@@ -26,7 +26,7 @@ export const LI: FC<ComponentProps<'li'>> = ({ children, className, ...props }) 
       className={cn(
         'group relative flex items-center gap-3 rounded-lg px-4 py-3',
         'bg-muted/30 backdrop-blur-sm',
-        'border border-border/50',
+        'border-border/50 border',
         'transition-all duration-200',
         'hover:bg-muted/50 hover:border-border hover:shadow-sm',
         'hover:translate-x-1',
@@ -35,10 +35,10 @@ export const LI: FC<ComponentProps<'li'>> = ({ children, className, ...props }) 
       {...props}
     >
       {/* 装饰性图标点 */}
-      <span className="flex h-1.5 w-1.5 shrink-0 rounded-full bg-primary/60 ring-4 ring-primary/10 transition-all group-hover:bg-primary group-hover:ring-primary/20" />
+      <span className="bg-primary/60 ring-primary/10 group-hover:bg-primary group-hover:ring-primary/20 flex h-1.5 w-1.5 shrink-0 rounded-full ring-4 transition-all" />
 
       {/* 内容 */}
-      <span className="flex-1 text-sm leading-relaxed text-foreground/90 group-hover:text-foreground">
+      <span className="text-foreground/90 group-hover:text-foreground flex-1 text-sm leading-relaxed">
         {children}
       </span>
     </li>
@@ -51,7 +51,7 @@ export const OL: FC<ComponentProps<'ol'>> = ({ children, className, ...props }) 
     <ol
       className={cn(
         'my-6 space-y-3',
-        'list-none counter-reset-[item]',
+        'counter-reset-[item] list-none',
         className
       )}
       {...props}
