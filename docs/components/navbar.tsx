@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { Github, Menu, Moon, Sun } from 'lucide-react';
+
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 
@@ -17,9 +18,7 @@ export const Navbar = () => {
             className="flex items-center gap-2 text-lg font-semibold tracking-tight"
             href="/"
           >
-            <div className="flex size-8 items-center justify-center rounded-lg bg-linear-to-br from-[hsl(237,100%,70%)] to-[hsl(237,100%,85%)]">
-              <span className="text-sm font-bold text-white">S</span>
-            </div>
+           {/* <img src={Logo.src} alt="Skyroc UI" className="size-8" /> */}
 
             <span>Skyroc UI</span>
           </Link>
