@@ -47,7 +47,7 @@
   "devDependencies": {
     "@eslint/eslintrc": "catalog:",
     "@next/eslint-plugin-next": "catalog:",
-    "@opennextjs/cloudflare": "1.11.0",
+    "@opennextjs/cloudflare": "1.13.1",
     "@skyroc/eslint-config": "workspace:*",
     "@skyroc/tailwind-plugin": "workspace:*",
     "@tailwindcss/postcss": "catalog:",
@@ -64,6 +64,6 @@
     "tsx": "catalog:",
     "tw-animate-css": "catalog:",
     "typescript": "catalog:",
-    "wrangler": "4.24.3"
+    "wrangler": "4.51.0"
   }
 }
