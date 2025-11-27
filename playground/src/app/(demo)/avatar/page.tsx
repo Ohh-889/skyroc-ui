@@ -1,65 +1,46 @@
-import Image from 'next/image';
-import type { ThemeSize } from 'skyroc-ui';
-import { Avatar, Card } from 'skyroc-ui';
-
-const skyrocUiRsc = 'https://assets.skyroc.me/asset/logo.svg';
-
-const skyrocSrc = 'https://assets.skyroc.me/asset/logo.png';
-
-const sizes: ThemeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
+import { Card } from 'skyroc-ui';
+import AvatarBasic from './modules/AvatarBasic';
+import AvatarCustomFallback from './modules/AvatarCustomFallback';
+import AvatarFallback from './modules/AvatarFallback';
+import AvatarGroup from './modules/AvatarGroup';
+import AvatarSize from './modules/AvatarSize';
 
 const AvatarPage = () => {
   return (
     <div className="flex flex-col gap-4">
       <Card
         split
-        title="Default"
+        title="Basic"
       >
-        <div className="flex gap-[12px]">
-          <Avatar
-            alt="Skyroc UI"
-            fallback="CN"
-            src={skyrocUiRsc}
-          />
-
-          <Avatar
-            alt="Skyroc UI"
-            classNames={{ fallback: 'bg-foreground ' }}
-            src={skyrocUiRsc}
-            fallback={(
-              <Image
-                alt="Vercel logomark"
-                className="dark:invert"
-                height={20}
-                src="/vercel.svg"
-                width={20}
-              />
-            )}
-          />
-        </div>
+        <AvatarBasic />
       </Card>
 
       <Card
         split
         title="Sizes"
       >
-        <div className="flex flex-wrap gap-[12px]">
-          {sizes.map(size => (
-            <div
-              className="flex-c-center"
-              key={size}
-            >
-              <Avatar
-                alt="Skyroc UI"
-                fallback="SKY"
-                size={size}
-                src={skyrocSrc}
-              />
+        <AvatarSize />
+      </Card>
 
-              <p>{size}</p>
-            </div>
-          ))}
-        </div>
+      <Card
+        split
+        title="Fallback"
+      >
+        <AvatarFallback />
+      </Card>
+
+      <Card
+        split
+        title="Custom Fallback"
+      >
+        <AvatarCustomFallback />
+      </Card>
+
+      <Card
+        split
+        title="Avatar Group"
+      >
+        <AvatarGroup />
       </Card>
     </div>
   );

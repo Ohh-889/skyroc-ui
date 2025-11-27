@@ -1,142 +1,232 @@
-export const metadata = {
-  title: 'Avatar 头像',
-  description: '用于展示用户头像的组件'
-};
+# Avatar 头像
 
-Avatar 头像
+头像组件用于展示用户或实体的图像，支持图片和回退内容（如文字缩写、图标等）。
 
-用于展示用户头像图片，支持图片、文字和备用方案。
+## 安装
 
-导入
+<InstallDependencies packages={['@radix-ui/react-avatar']} />
 
-```tsx
-``
+## 导入
+
+```ts copy
+import { Avatar, AvatarRoot, AvatarImage, AvatarFallback } from 'skyroc-ui';
+```
 
 ## 基础用法
 
-<ComponentPreview code={`import { Avatar, AvatarImage, AvatarFallback } from '@skyroc/ui';
+### 基本示例
+
+头像组件可以展示图片，并在图片加载失败时显示回退内容。
+
+<Demo src="@playground/avatar/modules/AvatarBasic" title="基本头像" />
+
+### 尺寸
+
+Avatar 提供 6 种尺寸大小：`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
+
+<Demo src="@playground/avatar/modules/AvatarSize" title="头像尺寸" />
+
+### 回退内容
+
+当图片加载失败时，会显示 `fallback` 属性中的内容。通常使用用户名的首字母缩写。
+
+<Demo src="@playground/avatar/modules/AvatarFallback" title="回退内容" />
+
+### 自定义回退
+
+`fallback` 支持任意 `ReactNode`，可以是图标、图片或自定义组件。
+
+<Demo src="@playground/avatar/modules/AvatarCustomFallback" title="自定义回退" />
+
+### 头像组
+
+通过负间距可以创建重叠的头像组效果。
+
+<Demo src="@playground/avatar/modules/AvatarGroup" title="头像组" />
+
+## 组合式 API
+
+如果需要更灵活的布局控制，可以使用组合式 API：
+
+```tsx
+import { AvatarRoot, AvatarImage, AvatarFallback } from 'skyroc-ui';
 
 export default function Demo() {
   return (
-    <Avatar>
-      <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
-      <AvatarFallback>CN</AvatarFallback>
-    </Avatar>
+    <AvatarRoot size="lg">
+      <AvatarImage 
+        src="https://github.com/shadcn.png" 
+        alt="User Avatar" 
+      />
+      <AvatarFallback delayMs={600}>CN</AvatarFallback>
+    </AvatarRoot>
   );
-}`}>
-  <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
-    <div className="flex h-full w-full items-center justify-center rounded-full bg-muted">
-      <span className="text-sm font-medium">CN</span>
-    </div>
-  </div>
-</ComponentPreview>
-
-## 不同尺寸
-
-<ComponentPreview code={`import { Avatar, AvatarFallback } from '@skyroc/ui';
-
-export default function Demo() {
-  return (
-    <div className="flex items-center gap-4">
-      <Avatar className="h-8 w-8">
-        <AvatarFallback>SM</AvatarFallback>
-      </Avatar>
-      <Avatar>
-        <AvatarFallback>MD</AvatarFallback>
-      </Avatar>
-      <Avatar className="h-12 w-12">
-        <AvatarFallback>LG</AvatarFallback>
-      </Avatar>
-      <Avatar className="h-16 w-16">
-        <AvatarFallback>XL</AvatarFallback>
-      </Avatar>
-    </div>
-  );
-}`}>
-  <div className="flex items-center gap-4">
-    <div className="relative flex h-8 w-8 shrink-0 overflow-hidden rounded-full">
-      <div className="flex h-full w-full items-center justify-center bg-muted">
-        <span className="text-xs font-medium">SM</span>
-      </div>
-    </div>
-    <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full">
-      <div className="flex h-full w-full items-center justify-center bg-muted">
-        <span className="text-sm font-medium">MD</span>
-      </div>
-    </div>
-    <div className="relative flex h-12 w-12 shrink-0 overflow-hidden rounded-full">
-      <div className="flex h-full w-full items-center justify-center bg-muted">
-        <span className="text-base font-medium">LG</span>
-      </div>
-    </div>
-    <div className="relative flex h-16 w-16 shrink-0 overflow-hidden rounded-full">
-      <div className="flex h-full w-full items-center justify-center bg-muted">
-        <span className="text-lg font-medium">XL</span>
-      </div>
-    </div>
-  </div>
-</ComponentPreview>
-
-## 头像组
-
-<ComponentPreview code={`import { Avatar, AvatarFallback } from '@skyroc/ui';
-
-export default function Demo() {
-  return (
-    <div className="flex -space-x-2">
-      <Avatar className="border-2 border-background">
-        <AvatarFallback>A</AvatarFallback>
-      </Avatar>
-      <Avatar className="border-2 border-background">
-        <AvatarFallback>B</AvatarFallback>
-      </Avatar>
-      <Avatar className="border-2 border-background">
-        <AvatarFallback>C</AvatarFallback>
-      </Avatar>
-      <Avatar className="border-2 border-background">
-        <AvatarFallback>+3</AvatarFallback>
-      </Avatar>
-    </div>
-  );
-}`}>
-  <div className="flex -space-x-2">
-    <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-background">
-      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-purple-500 to-pink-500">
-        <span className="text-sm font-medium text-white">A</span>
-      </div>
-    </div>
-    <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-background">
-      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-blue-500 to-cyan-500">
-        <span className="text-sm font-medium text-white">B</span>
-      </div>
-    </div>
-    <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-background">
-      <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-green-500 to-teal-500">
-        <span className="text-sm font-medium text-white">C</span>
-      </div>
-    </div>
-    <div className="relative flex h-10 w-10 shrink-0 overflow-hidden rounded-full border-2 border-background">
-      <div className="flex h-full w-full items-center justify-center bg-muted">
-        <span className="text-sm font-medium">+3</span>
-      </div>
-    </div>
-  </div>
-</ComponentPreview>
+}
+```
 
 ## API
 
-### Avatar
+### Avatar Props
 
-头像容器组件。
+简化的头像组件，封装了 `AvatarRoot`、`AvatarImage` 和 `AvatarFallback`。
 
 | 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| className | `string` | - | 自定义类名 |
+|------|------|--------|------|
+| src | `string` | - | 头像图片的 URL 地址 |
+| alt | `string` | - | 图片的替代文本，用于无障碍访问 |
+| fallback | `ReactNode` | - | 图片加载失败时显示的回退内容 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 头像尺寸 |
+| delayMs | `number` | - | 延迟显示回退内容的毫秒数 |
+| classNames | `AvatarUi` | - | 自定义各部分的样式类名 |
+| className | `ClassValue` | - | 图片元素的自定义类名 |
+| onLoadingStatusChange | `(status: 'idle' \| 'loading' \| 'loaded' \| 'error') => void` | - | 图片加载状态变化的回调 |
 
-### AvatarImage
+> 支持原生 `img` 元素的其他所有属性。
 
-头像图片组件，继承所有 img 元素属性。
+### AvatarUi（classNames）
 
-### AvatarFallback
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| root | `ClassValue` | 根容器样式 |
+| image | `ClassValue` | 图片元素样式 |
+| fallback | `ClassValue` | 回退内容样式 |
 
-头像备用内容，当图片加载失败时显示。
+### AvatarRoot Props
+
+头像的根容器组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 头像尺寸 |
+| className | `ClassValue` | - | 自定义类名 |
+| asChild | `boolean` | `false` | 作为子元素渲染 |
+
+> 支持原生 `span` 元素的其他所有属性。
+
+### AvatarImage Props
+
+头像图片组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| src | `string` | - | 图片 URL |
+| alt | `string` | - | 图片替代文本 |
+| className | `ClassValue` | - | 自定义类名 |
+| onLoadingStatusChange | `(status: ImageLoadingStatus) => void` | - | 加载状态变化回调 |
+
+> 支持原生 `img` 元素的其他所有属性。
+
+### AvatarFallback Props
+
+头像回退内容组件，在图片加载失败时显示。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| delayMs | `number` | - | 延迟显示的毫秒数，避免图片加载过快时闪烁 |
+| className | `ClassValue` | - | 自定义类名 |
+| asChild | `boolean` | `false` | 作为子元素渲染 |
+
+> 支持原生 `span` 元素的其他所有属性。
+
+## 尺寸对照
+
+| 尺寸 | 类名 | 实际大小 |
+|------|------|----------|
+| xs | `size-6` | 24px |
+| sm | `size-8` | 32px |
+| md | `size-10` | 40px |
+| lg | `size-12` | 48px |
+| xl | `size-14` | 56px |
+| 2xl | `size-16` | 64px |
+
+## 使用指南
+
+### 何时使用
+
+- 用户个人资料展示
+- 评论、消息等场景的用户标识
+- 团队成员列表
+- 导航栏中的用户信息
+
+### 回退内容建议
+
+- **文字缩写** - 使用用户名的首字母，如 "John Doe" → "JD"
+- **图标** - 使用通用的用户图标
+- **默认图片** - 使用统一的默认头像图片
+
+### 尺寸使用建议
+
+- **xs/sm** - 列表项、表格行、紧凑型布局
+- **md** - 默认尺寸，适合大多数场景
+- **lg/xl** - 个人资料页、卡片展示
+- **2xl** - 大型展示、个人主页
+
+## 注意事项
+
+1. **替代文本** - 始终提供有意义的 `alt` 属性以支持无障碍访问
+2. **回退延迟** - 使用 `delayMs` 可以避免图片加载过快时回退内容的闪烁
+3. **图片优化** - 建议使用适当尺寸的图片，避免过大的图片影响加载性能
+4. **头像组** - 创建头像组时使用 `ring` 类添加边框以区分重叠的头像
+
+## 无障碍
+
+- 始终提供 `alt` 属性描述头像内容
+- 回退内容应该有意义，避免使用纯装饰性文字
+- 头像组应该有适当的 `aria-label` 描述成员数量
+- 支持键盘焦点和焦点环
+
+## 最佳实践
+
+### 基本头像
+
+```tsx
+<Avatar
+  src="https://example.com/avatar.jpg"
+  alt="张三的头像"
+  fallback="张三"
+/>
+```
+
+### 带延迟的回退
+
+```tsx
+<Avatar
+  src="https://example.com/avatar.jpg"
+  alt="用户头像"
+  fallback="CN"
+  delayMs={600}
+/>
+```
+
+### 头像组
+
+```tsx
+<div className="flex -space-x-3">
+  {users.map(user => (
+    <Avatar
+      key={user.id}
+      src={user.avatar}
+      alt={user.name}
+      fallback={user.initials}
+      className="ring-2 ring-background"
+    />
+  ))}
+  <div className="flex size-10 items-center justify-center rounded-full bg-muted ring-2 ring-background">
+    <span className="text-xs">+{remainingCount}</span>
+  </div>
+</div>
+```
+
+### 自定义样式
+
+```tsx
+<Avatar
+  src="https://example.com/avatar.jpg"
+  alt="用户头像"
+  fallback="CN"
+  classNames={{
+    root: 'border-2 border-primary',
+    fallback: 'bg-primary text-primary-foreground'
+  }}
+/>
+```
