@@ -17,6 +17,7 @@
       "dependencies": [
         "tailwind-variants",
         "tailwindcss-animate",
+        "@skyroc/color",
         "tw-animate-css",
         "tailwindcss",
         "lucide-react",
@@ -1452,6 +1453,74 @@
     {
       "files": [
         {
+          "path": "src/components/layout/Layout.tsx",
+          "target": "components/layout/Layout.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/LayoutHeader.tsx",
+          "target": "components/layout/LayoutHeader.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/LayoutMain.tsx",
+          "target": "components/layout/LayoutMain.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/LayoutMobile.tsx",
+          "target": "components/layout/LayoutMobile.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/LayoutRail.tsx",
+          "target": "components/layout/LayoutRail.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/LayoutRoot.tsx",
+          "target": "components/layout/LayoutRoot.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/LayoutSidebar.tsx",
+          "target": "components/layout/LayoutSidebar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/LayoutTrigger.tsx",
+          "target": "components/layout/LayoutTrigger.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/context.tsx",
+          "target": "components/layout/context.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/index.ts",
+          "target": "components/layout/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/layout-variants.ts",
+          "target": "components/layout/layout-variants.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/types.ts",
+          "target": "components/layout/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "layout",
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+      "title": "Layout",
+      "type": "registry:block"
+    },
+    {
+      "files": [
+        {
           "path": "src/components/menu/MenuArrow.tsx",
           "target": "components/menu/MenuArrow.tsx",
           "type": "registry:ui"
@@ -1912,6 +1981,29 @@
     {
       "files": [
         {
+          "path": "src/components/segment/Segment.tsx",
+          "target": "components/segment/Segment.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/segment/index.ts",
+          "target": "components/segment/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/segment/types.ts",
+          "target": "components/segment/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "segment",
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+      "title": "Segment",
+      "type": "registry:block"
+    },
+    {
+      "files": [
+        {
           "path": "src/components/select/Select.tsx",
           "target": "components/select/Select.tsx",
           "type": "registry:ui"
@@ -2337,8 +2429,8 @@
     {
       "files": [
         {
-          "path": "src/types/other.ts",
-          "target": "types/other.ts",
+          "path": "src/types/shared.ts",
+          "target": "types/shared.ts",
           "type": "registry:file"
         }
       ],

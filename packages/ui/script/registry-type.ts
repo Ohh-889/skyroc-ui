@@ -3,8 +3,8 @@ import type { Registry } from 'shadcn/registry';
 export const registerType: Registry['items'][number] = {
   files: [
     {
-      path: 'src/types/other.ts',
-      target: 'types/other.ts',
+      path: 'src/types/shared.ts',
+      target: 'types/shared.ts',
       type: 'registry:file'
     }
   ],
