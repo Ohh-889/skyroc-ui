@@ -33,7 +33,7 @@ export const Demo = async ({ children, src, title }: DemoProps) => {
   try {
     dependencies = await resolveDependencies(filePath, code);
     if (dependencies.length > 0) {
-      console.log(`[Demo] 为 ${src} 加载了 ${dependencies.length} 个依赖文件`);
+      // console.log(`[Demo] 为 ${src} 加载了 ${dependencies.length} 个依赖文件`);
     }
   }
   catch (error) {
@@ -48,9 +48,9 @@ export const Demo = async ({ children, src, title }: DemoProps) => {
     <Suspense fallback={<div className="p-6 text-sm text-gray-400">Loading...</div>}>
       <LiveCodePreview
         code={code}
-        title={title}
         dependencies={dependencies}
         mainFileNpmImports={mainFileNpmImports}
+        title={title}
       >
         {children}
       </LiveCodePreview>

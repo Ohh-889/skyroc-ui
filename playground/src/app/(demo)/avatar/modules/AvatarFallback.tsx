@@ -1,6 +1,6 @@
 import { Avatar } from 'skyroc-ui';
 
-const AvatarFallback = () => {
+const AvatarFallbackDemo = () => {
   return (
     <div className="flex gap-[12px]">
       {/* 文字回退 */}
@@ -27,4 +27,4 @@ const AvatarFallback = () => {
   );
 };
 
-export default AvatarFallback;
+export default AvatarFallbackDemo;

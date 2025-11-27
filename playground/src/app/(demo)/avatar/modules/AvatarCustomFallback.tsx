@@ -22,7 +22,7 @@ const AvatarCustomFallback = () => {
             alt="Fallback"
             className="dark:invert"
             height={20}
-            src="/vercel.svg"
+            src="https://assets.skyroc.me/asset/logo.svg"
             width={20}
           />
         )}

@@ -1,125 +1,172 @@
-export const metadata = {
-  title: 'Badge 徽章',
-  description: '用于展示状态、标签等小型标记'
-};
+# Badge 徽章
 
-Badge 徽章
+徽章组件用于展示状态、标签或计数，常用于标注信息、分类或数量提示。
 
-用于展示状态、标签、计数等小型标记信息。
+## 安装
 
-导入
+Badge 组件是内置组件，无需额外安装依赖。
 
-```tsx
-``
+## 导入
+
+```ts copy
+import { Badge } from 'skyroc-ui';
+```
 
 ## 基础用法
 
-<ComponentPreview code={`import { Badge } from '@skyroc/ui';
+### 颜色
 
-export default function Demo() {
-  return <Badge>Badge</Badge>;
-}`}>
-  <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent bg-primary text-primary-foreground hover:bg-primary/80">
-    Badge
-  </span>
-</ComponentPreview>
+徽章提供 8 种主题颜色，每种颜色都有其特定的语义和使用场景。
 
-## 徽章变体
+<Demo src="@playground/badge/modules/BadgeColor" title="徽章颜色" />
 
-提供多种视觉样式的徽章。
+### 变体
 
-<ComponentPreview code={`import { Badge } from '@skyroc/ui';
+徽章提供 6 种视觉变体样式，可以满足不同的设计需求和视觉层级。
 
-export default function Demo() {
-  return (
-    <div className="flex gap-2">
-      <Badge>Default</Badge>
-      <Badge variant="secondary">Secondary</Badge>
-      <Badge variant="destructive">Destructive</Badge>
-      <Badge variant="outline">Outline</Badge>
-    </div>
-  );
-}`}>
-  <div className="flex gap-2">
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-primary text-primary-foreground">
-      Default
-    </span>
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-secondary text-secondary-foreground">
-      Secondary
-    </span>
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-destructive text-destructive-foreground">
-      Destructive
-    </span>
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold text-foreground">
-      Outline
-    </span>
-  </div>
-</ComponentPreview>
+<Demo src="@playground/badge/modules/BadgeVariant" title="徽章变体" />
 
-## 使用场景
+### 尺寸
 
-### 状态标记
+Badge 提供 6 种尺寸大小：`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
 
-<ComponentPreview code={`import { Badge } from '@skyroc/ui';
+<Demo src="@playground/badge/modules/BadgeSize" title="徽章尺寸" />
 
-export default function Demo() {
-  return (
-    <div className="flex gap-2">
-      <Badge>Active</Badge>
-      <Badge variant="secondary">Pending</Badge>
-      <Badge variant="outline">Draft</Badge>
-    </div>
-  );
-}`}>
-  <div className="flex gap-2">
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-green-500 text-white">
-      Active
-    </span>
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold border-transparent bg-yellow-500 text-white">
-      Pending
-    </span>
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold text-foreground">
-      Draft
-    </span>
-  </div>
-</ComponentPreview>
+### 形状
 
-### 标签组
+徽章提供 2 种形状：`auto`（默认圆角）和 `rounded`（完全圆角）。
 
-<ComponentPreview code={`import { Badge } from '@skyroc/ui';
+<Demo src="@playground/badge/modules/BadgeShape" title="徽章形状" />
 
-export default function Demo() {
-  return (
-    <div className="flex flex-wrap gap-2">
-      <Badge variant="outline">React</Badge>
-      <Badge variant="outline">TypeScript</Badge>
-      <Badge variant="outline">Tailwind CSS</Badge>
-      <Badge variant="outline">Next.js</Badge>
-    </div>
-  );
-}`}>
-  <div className="flex flex-wrap gap-2">
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold text-foreground">
-      React
-    </span>
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold text-foreground">
-      TypeScript
-    </span>
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold text-foreground">
-      Tailwind CSS
-    </span>
-    <span className="inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-semibold text-foreground">
-      Next.js
-    </span>
-  </div>
-</ComponentPreview>
+### 变体与颜色组合
+
+展示所有变体和颜色的组合效果。
+
+<Demo src="@playground/badge/modules/BadgeVariantColors" title="变体与颜色组合" />
+
+## 变体说明
+
+- **Solid（实心）** - 有纯色背景和对比文字，视觉冲击力最强，适合重要状态
+- **Pure（纯净）** - 白色背景带边框，简洁清爽，适合常规标签
+- **Outline（描边）** - 有边框和颜色，背景透明，适合次要标签
+- **Soft（柔和）** - 浅色背景，无边框，视觉柔和，适合辅助信息
+- **Ghost（幽灵）** - 浅色背景带边框，轻量的视觉样式
+- **Raw（原始）** - 无边框无背景，仅有文字颜色
 
 ## API
 
 ### Badge Props
 
 | 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
-| variant | `'default' \| 'secondary' \| 'destructive' \| 'outline'` | `'default'` | 徽章样式变体 |
-| className | `string` | - | 自定义类名 |
-| children | `React.ReactNode` | - | 徽章内容 |
+|------|------|--------|------|
+| color | `'primary' \| 'destructive' \| 'success' \| 'warning' \| 'info' \| 'carbon' \| 'secondary' \| 'accent'` | `'primary'` | 徽章颜色 |
+| variant | `'solid' \| 'pure' \| 'outline' \| 'soft' \| 'ghost' \| 'raw'` | `'solid'` | 徽章变体 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 徽章尺寸 |
+| shape | `'auto' \| 'rounded'` | `'auto'` | 徽章形状 |
+| className | `ClassValue` | - | 自定义类名 |
+| children | `ReactNode` | - | 徽章内容 |
+
+> 支持原生 `div` 元素的其他所有属性。
+
+## 尺寸对照
+
+| 尺寸 | 高度 | 内边距 | 字号 |
+|------|------|--------|------|
+| xs | `h-3.5` (14px) | `px-1` | `text-4xs` |
+| sm | `h-4` (16px) | `px-1.5` | `text-3xs` |
+| md | `h-4.5` (18px) | `px-2` | `text-2xs` |
+| lg | `h-5` (20px) | `px-2.5` | `text-xs` |
+| xl | `h-6` (24px) | `px-3` | `text-sm` |
+| 2xl | `h-7` (28px) | `px-4` | `text-base` |
+
+## 使用指南
+
+### 何时使用
+
+- 标注状态（如：已发布、待审核、已过期）
+- 分类标签（如：技术、设计、产品）
+- 数量提示（如：未读消息数、通知数）
+- 版本标识（如：Beta、New、Pro）
+- 用户角色或权限标识
+
+### 颜色使用建议
+
+- **Primary** - 默认状态、一般标签
+- **Success** - 成功状态、已完成、在线
+- **Warning** - 警告状态、待处理、注意
+- **Destructive** - 错误状态、已删除、离线
+- **Info** - 信息提示、帮助标签
+- **Carbon** - 深色主题标签
+- **Secondary** - 次要信息、灰色标签
+- **Accent** - 强调标签、特殊标识
+
+### 变体选择建议
+
+- **Solid** - 最高优先级，重要状态、关键标签
+- **Pure** - 标准标签，适合大多数场景
+- **Outline** - 次要标签，边框突出但不抢眼
+- **Soft** - 柔和标签，背景淡雅
+- **Ghost** - 轻量标签，不干扰主要内容
+- **Raw** - 纯文字标签，最简约
+
+### 尺寸使用建议
+
+- **xs/sm** - 紧凑型界面、表格内、列表项
+- **md** - 默认尺寸，适合大多数场景
+- **lg/xl** - 重要标签、独立展示
+- **2xl** - 大型展示、营销页面
+
+## 注意事项
+
+1. **语义化使用颜色** - 根据状态语义选择合适的颜色
+2. **避免过多使用** - 一个区域内不要使用太多徽章，会降低识别度
+3. **文字简洁** - 徽章内的文字应该简短，最好不超过 4-5 个字符
+4. **配合图标** - 可以在徽章内添加小图标增强语义
+
+## 无障碍
+
+- 颜色不是唯一的信息传达方式，配合文字说明
+- 确保文字与背景有足够的对比度
+- 用于计数时应有适当的 `aria-label` 描述
+
+## 最佳实践
+
+### 状态徽章
+
+```tsx
+<Badge color="success">已发布</Badge>
+<Badge color="warning">待审核</Badge>
+<Badge color="destructive">已删除</Badge>
+```
+
+### 分类标签
+
+```tsx
+<Badge variant="soft" color="info">技术</Badge>
+<Badge variant="soft" color="accent">设计</Badge>
+<Badge variant="soft" color="success">产品</Badge>
+```
+
+### 版本标识
+
+```tsx
+<Badge variant="outline" color="primary">Beta</Badge>
+<Badge variant="solid" color="success">New</Badge>
+<Badge variant="ghost" color="accent">Pro</Badge>
+```
+
+### 数量提示
+
+```tsx
+<Badge variant="solid" color="destructive" shape="rounded">99+</Badge>
+<Badge variant="soft" color="primary" shape="rounded">5</Badge>
+```
+
+### 组合使用
+
+```tsx
+<div className="flex items-center gap-2">
+  <span>React</span>
+  <Badge size="sm" variant="soft" color="info">v18.2</Badge>
+</div>
+```

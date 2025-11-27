@@ -1,88 +1,49 @@
-import { Badge, type BadgeShape, type BadgeVariant, Card, type ThemeColor, type ThemeSize } from 'skyroc-ui';
+import { Card } from 'skyroc-ui';
+import BadgeColor from './modules/BadgeColor';
+import BadgeShape from './modules/BadgeShape';
+import BadgeSize from './modules/BadgeSize';
+import BadgeVariant from './modules/BadgeVariant';
+import BadgeVariantColors from './modules/BadgeVariantColors';
 
-const colors: ThemeColor[] = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'];
-const variants: BadgeVariant[] = ['solid', 'pure', 'outline', 'soft', 'ghost', 'raw'];
-const sizes: ThemeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
-const shapes: BadgeShape[] = ['auto', 'rounded'];
-
-const BadgeDemo = () => {
+const BadgePage = () => {
   return (
     <div className="flex-c gap-4">
       <Card
         split
         title="Color"
       >
-        <div className="flex flex-wrap gap-[12px]">
-          {colors.map(color => (
-            <Badge
-              color={color}
-              key={color}
-            >
-              {color}
-            </Badge>
-          ))}
-        </div>
+        <BadgeColor />
       </Card>
 
       <Card
         split
         title="Variant"
       >
-        <div className="flex-c-stretch gap-[12px]">
-          {colors.map(color => (
-            <div
-              className="flex flex-wrap gap-[12px]"
-              key={color}
-            >
-              {variants.map(variant => (
-                <Badge
-                  color={color}
-                  key={variant}
-                  variant={variant}
-                >
-                  {variant}
-                </Badge>
-              ))}
-            </div>
-          ))}
-        </div>
+        <BadgeVariant />
       </Card>
 
       <Card
         split
         title="Size"
       >
-        <div className="flex flex-wrap gap-[12px]">
-          {sizes.map(size => (
-            <Badge
-              key={size}
-              size={size}
-              variant="soft"
-            >
-              {size}
-            </Badge>
-          ))}
-        </div>
+        <BadgeSize />
       </Card>
 
       <Card
         split
         title="Shape"
       >
-        <div className="flex flex-wrap gap-[12px]">
-          {shapes.map(shape => (
-            <Badge
-              key={shape}
-              shape={shape}
-              variant="ghost"
-            >
-              {shape}
-            </Badge>
-          ))}
-        </div>
+        <BadgeShape />
+      </Card>
+
+      <Card
+        split
+        title="Variant x Colors"
+      >
+        <BadgeVariantColors />
       </Card>
     </div>
   );
 };
 
-export default BadgeDemo;
+export default BadgePage;

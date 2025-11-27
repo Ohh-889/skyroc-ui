@@ -1,0 +1,285 @@
+# Breadcrumb 面包屑
+
+面包屑导航用于展示当前页面在网站层次结构中的位置，帮助用户了解当前所在位置并快速返回上级页面。
+
+## 安装
+
+Breadcrumb 组件是内置组件，无需额外安装依赖。
+
+## 导入
+
+```ts copy
+import { 
+  Breadcrumb,
+  BreadcrumbRoot,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+  BreadcrumbEllipsis
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 基本示例
+
+通过 `items` 属性传入面包屑项数组，每个项可以包含 `label`、`value`、`leading`（前置内容）和 `trailing`（后置内容）。
+
+<Demo src="@playground/breadcrumb/modules/BreadcrumbBasic" title="基本面包屑" />
+
+### 带链接
+
+为面包屑项添加 `href` 属性可以使其成为可点击的链接。
+
+<Demo src="@playground/breadcrumb/modules/BreadcrumbLink" title="带链接的面包屑" />
+
+### 自定义分隔符
+
+通过 `separator` 属性可以自定义面包屑项之间的分隔符。
+
+<Demo src="@playground/breadcrumb/modules/BreadcrumbCustomSeparator" title="自定义分隔符" />
+
+### 省略号
+
+当面包屑项过多时（超过 4 个），可以使用 `ellipsis` 属性自动折叠中间的项。
+
+<Demo src="@playground/breadcrumb/modules/BreadcrumbEllipsis" title="省略号" />
+
+### 自定义省略号图标
+
+通过 `ellipsisIcon` 属性可以自定义省略号的图标。
+
+<Demo src="@playground/breadcrumb/modules/BreadcrumbCustomEllipsis" title="自定义省略号图标" />
+
+### 尺寸
+
+Breadcrumb 提供 6 种尺寸大小：`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
+
+<Demo src="@playground/breadcrumb/modules/BreadcrumbSize" title="面包屑尺寸" />
+
+### 自定义渲染
+
+通过 `renderItem` 属性可以完全自定义每个面包屑项的渲染方式。
+
+<Demo src="@playground/breadcrumb/modules/BreadcrumbCustomItem" title="自定义渲染" />
+
+## 组合式 API
+
+如果需要更灵活的布局控制，可以使用组合式 API：
+
+```tsx
+import {
+  BreadcrumbRoot,
+  BreadcrumbList,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbPage,
+  BreadcrumbSeparator
+} from 'skyroc-ui';
+
+export default function Demo() {
+  return (
+    <BreadcrumbRoot>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/">首页</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink href="/docs">文档</BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbPage>Breadcrumb</BreadcrumbPage>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </BreadcrumbRoot>
+  );
+}
+```
+
+## API
+
+### Breadcrumb Props
+
+简化的面包屑组件，通过 `items` 数组自动生成面包屑导航。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| items | `BreadcrumbItem[]` | `[]` | 面包屑项数组 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 面包屑尺寸 |
+| separator | `ReactNode` | `<ChevronRight />` | 自定义分隔符 |
+| ellipsis | `true \| [number, number] \| null` | `null` | 省略号配置 |
+| ellipsisIcon | `ReactNode` | `<MoreHorizontal />` | 自定义省略号图标 |
+| handleItemClick | `(item: BreadcrumbItem) => void` | - | 点击项的回调 |
+| renderItem | `(item: BreadcrumbItem) => ReactNode` | - | 自定义项渲染函数 |
+| renderEllipsis | `(items: BreadcrumbItem[]) => ReactNode` | - | 自定义省略号渲染函数 |
+| classNames | `BreadcrumbUi` | - | 自定义各部分的样式类名 |
+| className | `ClassValue` | - | 根容器自定义类名 |
+
+> 支持原生 `nav` 元素的其他所有属性。
+
+### BreadcrumbItem 类型
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| label | `ReactNode` | 显示的文本内容 |
+| value | `string` | 唯一标识符 |
+| href | `string` | 链接地址（可选） |
+| target | `string` | 链接打开方式（可选） |
+| leading | `ReactNode` | 前置内容（如图标） |
+| trailing | `ReactNode` | 后置内容（如徽章） |
+| className | `ClassValue` | 自定义类名 |
+
+### BreadcrumbUi（classNames）
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| root | `ClassValue` | 根容器样式 |
+| list | `ClassValue` | 列表容器样式 |
+| item | `ClassValue` | 面包屑项样式 |
+| separator | `ClassValue` | 分隔符样式 |
+| ellipsis | `ClassValue` | 省略号样式 |
+
+### BreadcrumbRoot Props
+
+面包屑的根容器组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 面包屑尺寸 |
+| className | `ClassValue` | - | 自定义类名 |
+
+> 支持原生 `nav` 元素的其他所有属性。
+
+### BreadcrumbLink Props
+
+面包屑链接组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| href | `string` | - | 链接地址 |
+| asChild | `boolean` | `false` | 作为子元素渲染 |
+| className | `ClassValue` | - | 自定义类名 |
+
+> 支持原生 `a` 元素的其他所有属性。
+
+### BreadcrumbPage Props
+
+面包屑当前页组件（不可点击）。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| className | `ClassValue` | - | 自定义类名 |
+
+> 支持原生 `span` 元素的其他所有属性。
+
+### BreadcrumbSeparator Props
+
+面包屑分隔符组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| className | `ClassValue` | - | 自定义类名 |
+| children | `ReactNode` | `<ChevronRight />` | 自定义分隔符内容 |
+
+> 支持原生 `li` 元素的其他所有属性。
+
+## 省略号配置
+
+`ellipsis` 属性支持以下值：
+
+- `true` - 自动省略，保留首尾各 1-2 项
+- `[start, end]` - 指定省略范围，如 `[1, 3]` 表示省略索引 1 到 3 的项
+- `null` - 不省略
+
+```tsx
+// 自动省略
+<Breadcrumb ellipsis items={items} />
+
+// 指定省略范围：省略第 2-4 项
+<Breadcrumb ellipsis={[1, 4]} items={items} />
+```
+
+## 使用指南
+
+### 何时使用
+
+- 网站层次结构较深时
+- 用户需要了解当前位置
+- 用户需要快速返回上级页面
+- 多级导航场景
+
+### 最佳实践
+
+1. **保持简洁** - 面包屑项文本应简短明了
+2. **层级不宜过深** - 建议不超过 4-5 级
+3. **当前页不可点击** - 最后一项（当前页）不应该是链接
+4. **使用省略号** - 层级过多时使用省略号折叠中间项
+
+### 尺寸使用建议
+
+- **xs/sm** - 紧凑型布局、移动端
+- **md** - 默认尺寸，适合大多数场景
+- **lg/xl** - 大型页面、突出显示
+- **2xl** - 特殊场景、营销页面
+
+## 注意事项
+
+1. **首页链接** - 建议面包屑的第一项始终是首页
+2. **当前页标识** - 最后一项应使用 `BreadcrumbPage` 而非 `BreadcrumbLink`
+3. **链接有效性** - 确保所有链接都是有效的
+4. **移动端适配** - 在小屏幕上考虑使用省略号或隐藏部分项
+
+## 无障碍
+
+- 使用 `nav` 元素包裹，添加 `aria-label="breadcrumb"`
+- 当前页应添加 `aria-current="page"` 属性
+- 链接应有清晰的焦点指示器
+- 分隔符应使用 `aria-hidden="true"` 隐藏
+
+## 最佳实践示例
+
+### 基本面包屑
+
+```tsx
+<Breadcrumb
+  items={[
+    { label: '首页', value: 'home', href: '/' },
+    { label: '产品', value: 'products', href: '/products' },
+    { label: '详情', value: 'detail' }
+  ]}
+/>
+```
+
+### 带图标的面包屑
+
+```tsx
+<Breadcrumb
+  items={[
+    { label: '首页', value: 'home', leading: <Home />, href: '/' },
+    { label: '设置', value: 'settings', leading: <Settings />, href: '/settings' },
+    { label: '个人资料', value: 'profile' }
+  ]}
+/>
+```
+
+### 带徽章的面包屑
+
+```tsx
+<Breadcrumb
+  items={[
+    { label: '首页', value: 'home', href: '/' },
+    { 
+      label: '新功能', 
+      value: 'features', 
+      href: '/features',
+      trailing: <Badge size="sm" color="success">New</Badge>
+    },
+    { label: '详情', value: 'detail' }
+  ]}
+/>
+```
+

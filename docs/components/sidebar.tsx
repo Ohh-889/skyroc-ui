@@ -21,6 +21,7 @@ const navigation = [
       { href: '/docs/components/alert-dialog', title: 'AlertDialog 警告对话框' },
       { href: '/docs/components/avatar', title: 'Avatar 头像' },
       { href: '/docs/components/badge', title: 'Badge 徽章' },
+      { href: '/docs/components/breadcrumb', title: 'Breadcrumb 面包屑' },
       { href: '/docs/components/button', title: 'Button 按钮' },
       { href: '/docs/components/card', title: 'Card 卡片' },
       { href: '/docs/components/checkbox', title: 'Checkbox 复选框' },

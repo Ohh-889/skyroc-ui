@@ -1,94 +1,62 @@
-'use client';
-
-import { ChevronsLeftRightEllipsis } from 'lucide-react';
-import Link from 'next/link';
-import type { BreadcrumbItem } from 'skyroc-ui';
-import { Breadcrumb, Card, toast } from 'skyroc-ui';
-import { items, items2, items3, items4, sizes } from './modules/shared';
+import { Card } from 'skyroc-ui';
+import BreadcrumbBasic from './modules/BreadcrumbBasic';
+import BreadcrumbCustomEllipsis from './modules/BreadcrumbCustomEllipsis';
+import BreadcrumbCustomItem from './modules/BreadcrumbCustomItem';
+import BreadcrumbCustomSeparator from './modules/BreadcrumbCustomSeparator';
+import BreadcrumbEllipsisDemo from './modules/BreadcrumbEllipsis';
+import BreadcrumbLink from './modules/BreadcrumbLink';
+import BreadcrumbSize from './modules/BreadcrumbSize';
 
 const BreadcrumbPage = () => {
-  function handleItemClick(item: BreadcrumbItem) {
-    toast.success(`You clicked ${item.label}`, {
-      classNames: {
-        title: '!text-xs',
-        toast: '!w-auto !px-2 !py-1.5'
-      },
-      position: 'top-center'
-    });
-  }
   return (
     <div className="flex-c gap-4">
       <Card
         split
         title="Default"
       >
-        <Breadcrumb
-          handleItemClick={handleItemClick}
-          items={items}
-        />
+        <BreadcrumbBasic />
       </Card>
 
       <Card
         split
         title="Custom Item"
       >
-        <Breadcrumb
-          items={items4}
-          renderItem={item => <Link href={item.value}>{item.label}</Link>}
-        />
+        <BreadcrumbCustomItem />
       </Card>
 
       <Card
         split
         title="Custom Separator"
       >
-        <Breadcrumb
-          items={items}
-          separator={<span className="text-sm text-gray-500">/</span>}
-        />
+        <BreadcrumbCustomSeparator />
       </Card>
 
       <Card
         split
         title="Link"
       >
-        <Breadcrumb items={items2} />
+        <BreadcrumbLink />
       </Card>
 
       <Card
         split
         title="Ellipsis"
       >
-        <Breadcrumb
-          ellipsis
-          items={items3}
-        />
+        <BreadcrumbEllipsisDemo />
       </Card>
 
       <Card
         split
         title="Custom Ellipsis"
       >
-        <Breadcrumb
-          ellipsis
-          ellipsisIcon={<ChevronsLeftRightEllipsis />}
-          items={items3}
-        />
+        <BreadcrumbCustomEllipsis />
       </Card>
 
       <Card
         split
         title="Size"
       >
-        <div className="flex-c-stretch gap-[12px]">
-          {sizes.map(size => (
-            <Breadcrumb
-              items={items}
-              key={size}
-              size={size}
-            />
-          ))}
-        </div>
+        <BreadcrumbSize />
       </Card>
     </div>
   );

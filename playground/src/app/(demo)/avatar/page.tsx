@@ -1,7 +1,5 @@
 import { Card } from 'skyroc-ui';
 import AvatarBasic from './modules/AvatarBasic';
-import AvatarCustomFallback from './modules/AvatarCustomFallback';
-import AvatarFallback from './modules/AvatarFallback';
 import AvatarGroup from './modules/AvatarGroup';
 import AvatarSize from './modules/AvatarSize';
 
