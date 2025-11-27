@@ -26,6 +26,8 @@ const navigation = [
       { href: '/docs/components/card', title: 'Card 卡片' },
       { href: '/docs/components/carousel', title: 'Carousel 轮播图' },
       { href: '/docs/components/checkbox', title: 'Checkbox 复选框' },
+      { href: '/docs/components/chip', title: 'Chip 标签' },
+      { href: '/docs/components/collapsible', title: 'Collapsible 折叠' },
       { href: '/docs/components/dialog', title: 'Dialog 对话框' },
       { href: '/docs/components/input', title: 'Input 输入框' },
       { href: '/docs/components/select', title: 'Select 选择器' },
