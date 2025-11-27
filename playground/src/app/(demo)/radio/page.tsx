@@ -1,24 +1,47 @@
-import type { RadioGroupProps } from 'skyroc-ui';
+import { Card } from 'skyroc-ui';
 import RadioColor from './modules/RadioColor';
 import RadioDisabledAll from './modules/RadioDisabledAll';
 import RadioDisabledItem from './modules/RadioDisabledItem';
 import RadioSize from './modules/RadioSize';
 import RadioVertical from './modules/RadioVertical';
 
-const items: RadioGroupProps['items'] = [
-  { id: 'r1', label: 'A', value: '1' },
-  { id: 'r2', label: 'B', value: '2' },
-  { id: 'r3', label: 'C', value: '3' }
-];
-
 const RadioPage = () => {
   return (
     <div className="flex-c gap-4">
-      <RadioColor items={items} />
-      <RadioVertical items={items} />
-      <RadioDisabledItem />
-      <RadioDisabledAll items={items} />
-      <RadioSize items={items} />
+      <Card
+        split
+        title="Color"
+      >
+        <RadioColor />
+      </Card>
+
+      <Card
+        split
+        title="Orientation: Vertical"
+      >
+        <RadioVertical />
+      </Card>
+
+      <Card
+        split
+        title="Disabled Item"
+      >
+        <RadioDisabledItem />
+      </Card>
+
+      <Card
+        split
+        title="Disabled All"
+      >
+        <RadioDisabledAll />
+      </Card>
+
+      <Card
+        split
+        title="Size"
+      >
+        <RadioSize />
+      </Card>
     </div>
   );
 };

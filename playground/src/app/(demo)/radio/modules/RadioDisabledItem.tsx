@@ -1,5 +1,5 @@
 import type { RadioGroupProps } from 'skyroc-ui';
-import { Card, RadioGroup } from 'skyroc-ui';
+import { RadioGroup } from 'skyroc-ui';
 
 const items: RadioGroupProps['items'] = [
   { id: 'r1', label: 'A', value: '1' },
@@ -8,14 +8,7 @@ const items: RadioGroupProps['items'] = [
 ];
 
 const RadioDisabledItem = () => {
-  return (
-    <Card
-      split
-      title="Disabled Item"
-    >
-      <RadioGroup items={items} />
-    </Card>
-  );
+  return <RadioGroup items={items} />;
 };
 
 export default RadioDisabledItem;

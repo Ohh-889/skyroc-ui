@@ -1,0 +1,568 @@
+# Radio 单选框
+
+单选框组件用于在一组选项中选择一个,基于 Radix UI 的 Radio Group 原语,提供丰富的样式和无障碍支持。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-radio-group']} />
+
+## 导入
+
+```ts copy
+import {
+  Radio,
+  RadioGroup,
+  RadioRoot,
+  RadioGroupItem,
+  RadioIndicator
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 颜色
+
+RadioGroup 提供 8 种主题颜色:`primary`、`destructive`、`success`、`warning`、`info`、`carbon`、`secondary`、`accent`。
+
+<Demo src="@playground/radio/modules/RadioColor" title="颜色" />
+
+### 垂直方向
+
+通过 `orientation` 属性控制单选框组的排列方向。
+
+<Demo src="@playground/radio/modules/RadioVertical" title="垂直方向" />
+
+### 禁用单个选项
+
+可以禁用单个选项,而不影响其他选项。
+
+<Demo src="@playground/radio/modules/RadioDisabledItem" title="禁用单个选项" />
+
+### 禁用全部
+
+通过 `disabled` 属性禁用整个单选框组。
+
+<Demo src="@playground/radio/modules/RadioDisabledAll" title="禁用全部" />
+
+### 尺寸
+
+RadioGroup 提供 6 种尺寸:`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
+
+<Demo src="@playground/radio/modules/RadioSize" title="尺寸" />
+
+## 组合式 API
+
+如果需要更灵活的控制,可以使用组合式 API:
+
+```tsx
+import {
+  RadioRoot,
+  RadioGroupItem,
+  RadioIndicator,
+  Label
+} from 'skyroc-ui';
+import { Root } from '@radix-ui/react-radio-group';
+
+export default function Demo() {
+  return (
+    <Root defaultValue="1">
+      <div className="flex gap-4">
+        <RadioRoot>
+          <RadioGroupItem value="1" id="r1">
+            <RadioIndicator />
+          </RadioGroupItem>
+          <Label htmlFor="r1">Option 1</Label>
+        </RadioRoot>
+
+        <RadioRoot>
+          <RadioGroupItem value="2" id="r2">
+            <RadioIndicator />
+          </RadioGroupItem>
+          <Label htmlFor="r2">Option 2</Label>
+        </RadioRoot>
+      </div>
+    </Root>
+  );
+}
+```
+
+## API
+
+### RadioGroup Props
+
+简化的单选框组组件,封装了常用功能。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| items | `RadioItem[]` | - | 单选项数组(必填) |
+| value | `string` | - | 当前选中值(受控) |
+| defaultValue | `string` | - | 默认选中值(非受控) |
+| onValueChange | `(value: string) => void` | - | 值变化回调 |
+| disabled | `boolean` | `false` | 是否禁用全部选项 |
+| required | `boolean` | `false` | 是否必选 |
+| orientation | `'horizontal' \| 'vertical'` | `'horizontal'` | 排列方向 |
+| color | `ThemeColor` | `'primary'` | 主题颜色 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 尺寸 |
+| className | `string` | - | 组容器自定义类名 |
+| classNames | `RadioClassNames` | - | 各部分自定义类名 |
+| name | `string` | - | 表单字段名称 |
+| loop | `boolean` | `true` | 键盘导航是否循环 |
+
+> 支持原生 `div` 元素的其他所有属性。
+
+#### RadioItem
+
+单个单选项的配置:
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| value | `string` | - | 选项值(必填) |
+| label | `ReactNode` | - | 标签内容 |
+| id | `string` | - | 元素 id,默认使用 value |
+| disabled | `boolean` | `false` | 是否禁用该选项 |
+
+> 支持原生 `button` 元素的其他所有属性。
+
+#### ThemeColor
+
+```ts
+type ThemeColor =
+  | 'primary'
+  | 'destructive'
+  | 'success'
+  | 'warning'
+  | 'info'
+  | 'carbon'
+  | 'secondary'
+  | 'accent';
+```
+
+### RadioClassNames
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| group | `string` | 组容器样式 |
+| root | `string` | 单个选项根容器样式 |
+| control | `string` | 单选框控件样式 |
+| indicator | `string` | 选中指示器样式 |
+| label | `string` | 标签样式 |
+
+### Radio Props
+
+单个单选框组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| value | `string` | - | 选项值(必填) |
+| label | `ReactNode` | - | 标签内容 |
+| id | `string` | - | 元素 id |
+| disabled | `boolean` | `false` | 是否禁用 |
+| color | `ThemeColor` | `'primary'` | 主题颜色 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 尺寸 |
+| className | `string` | - | 根容器自定义类名 |
+| classNames | `Partial<RadioClassNames>` | - | 各部分自定义类名 |
+
+> 支持原生 `button` 元素的其他所有属性。
+
+### RadioRoot Props
+
+单选框根容器,用于包裹 RadioGroupItem 和 Label。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 尺寸 |
+| className | `string` | - | 自定义类名 |
+
+> 支持原生 `div` 元素的其他所有属性。
+
+### RadioGroupItem Props
+
+单选框控件组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| value | `string` | - | 选项值(必填) |
+| disabled | `boolean` | `false` | 是否禁用 |
+| color | `ThemeColor` | `'primary'` | 主题颜色 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 尺寸 |
+| className | `string` | - | 自定义类名 |
+
+> 支持原生 `button` 元素的其他所有属性。
+
+### RadioIndicator Props
+
+选中指示器组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| forceMount | `boolean` | - | 强制挂载 |
+| color | `ThemeColor` | `'primary'` | 主题颜色 |
+| className | `string` | - | 自定义类名 |
+
+> 支持原生 `span` 元素的其他所有属性。
+
+## 尺寸对照
+
+| 尺寸 | 控件大小 | 组间距(水平/垂直) | 项间距 |
+|------|---------|------------------|--------|
+| xs | 12px (`size-3`) | 8px / 6px | 6px |
+| sm | 14px (`size-3.5`) | 10px / 7px | 7px |
+| md | 16px (`size-4`) | 12px / 8px | 8px |
+| lg | 18px (`size-4.5`) | 14px / 10px | 10px |
+| xl | 20px (`size-5`) | 16px / 12px | 12px |
+| 2xl | 24px (`size-6`) | 18px / 14px | 14px |
+
+## 使用指南
+
+### 何时使用
+
+- 在一组互斥选项中选择一个
+- 需要明确显示所有可选项
+- 选项数量较少(通常 2-6 个)
+- 需要用户做出明确的单选决策
+
+### Radio vs Checkbox vs Select
+
+- **Radio** - 单选,所有选项可见,通常 2-6 个选项
+- **Checkbox** - 多选,可选择 0 个或多个
+- **Select** - 单选,节省空间,选项较多时使用
+
+### 方向选择
+
+- **horizontal** - 默认方向,选项较少时使用
+- **vertical** - 选项较多或标签较长时使用
+
+### 颜色使用
+
+根据场景选择合适的颜色:
+- **primary** - 默认颜色,常规选择
+- **success** - 正确选项、推荐选项
+- **warning** - 需要注意的选项
+- **destructive** - 危险操作确认
+- **其他颜色** - 根据设计主题选择
+
+## 注意事项
+
+1. **必选项标识** - 使用 `required` 属性或在标签中添加星号
+2. **默认值** - 对于必选项,建议设置 `defaultValue`
+3. **选项数量** - 选项过多(>6个)时考虑使用 Select
+4. **标签长度** - 标签过长时使用垂直排列
+5. **禁用状态** - 可以禁用单个选项或整个组
+6. **键盘导航** - 自动支持箭头键导航
+
+## 无障碍
+
+RadioGroup 基于 Radix UI,提供完善的无障碍支持:
+
+- **语义化 HTML** - 使用 `role="radiogroup"` 和 `role="radio"`
+- **键盘导航** - 箭头键切换选项,Space 键选择
+- **ARIA 属性** - 自动添加 `aria-checked` 等属性
+- **焦点管理** - 自动管理焦点状态
+- **屏幕阅读器** - 正确宣告选项和选中状态
+- **标签关联** - 通过 `htmlFor` 关联标签和控件
+
+## 最佳实践
+
+### 基本用法
+
+```tsx
+<RadioGroup
+  items={[
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' },
+  ]}
+  defaultValue="1"
+/>
+```
+
+### 受控模式
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { RadioGroup } from 'skyroc-ui';
+
+function ControlledRadio() {
+  const [value, setValue] = useState('1');
+
+  return (
+    <div className="space-y-4">
+      <RadioGroup
+        items={[
+          { value: '1', label: 'Option 1' },
+          { value: '2', label: 'Option 2' },
+          { value: '3', label: 'Option 3' },
+        ]}
+        value={value}
+        onValueChange={setValue}
+      />
+      <p className="text-sm text-muted-foreground">
+        Selected: {value}
+      </p>
+    </div>
+  );
+}
+```
+
+### 垂直排列
+
+```tsx
+<RadioGroup
+  items={[
+    { value: 'email', label: 'Email notifications' },
+    { value: 'sms', label: 'SMS notifications' },
+    { value: 'push', label: 'Push notifications' },
+  ]}
+  orientation="vertical"
+/>
+```
+
+### 禁用选项
+
+```tsx
+<RadioGroup
+  items={[
+    { value: '1', label: 'Available' },
+    { value: '2', label: 'Sold out', disabled: true },
+    { value: '3', label: 'Available' },
+  ]}
+/>
+```
+
+### 不同颜色
+
+```tsx
+<div className="space-y-4">
+  <RadioGroup
+    items={[{ value: '1', label: 'Primary' }]}
+    color="primary"
+  />
+  <RadioGroup
+    items={[{ value: '1', label: 'Success' }]}
+    color="success"
+  />
+  <RadioGroup
+    items={[{ value: '1', label: 'Destructive' }]}
+    color="destructive"
+  />
+</div>
+```
+
+### 不同尺寸
+
+```tsx
+<div className="space-y-4">
+  <RadioGroup
+    items={[
+      { value: '1', label: 'Small' },
+      { value: '2', label: 'Medium' },
+    ]}
+    size="sm"
+  />
+
+  <RadioGroup
+    items={[
+      { value: '1', label: 'Medium' },
+      { value: '2', label: 'Large' },
+    ]}
+    size="md"
+  />
+
+  <RadioGroup
+    items={[
+      { value: '1', label: 'Large' },
+      { value: '2', label: 'Extra Large' },
+    ]}
+    size="lg"
+  />
+</div>
+```
+
+### 表单集成
+
+```tsx
+import { RadioGroup, Label } from 'skyroc-ui';
+
+<form>
+  <div className="space-y-2">
+    <Label>
+      Shipping Method
+      <span className="text-destructive ml-1">*</span>
+    </Label>
+    <RadioGroup
+      name="shipping"
+      required
+      items={[
+        { value: 'standard', label: 'Standard (5-7 days)' },
+        { value: 'express', label: 'Express (2-3 days)' },
+        { value: 'overnight', label: 'Overnight' },
+      ]}
+      defaultValue="standard"
+    />
+  </div>
+</form>
+```
+
+### 带描述的选项
+
+```tsx
+<RadioGroup
+  orientation="vertical"
+  items={[
+    {
+      value: 'free',
+      label: (
+        <div>
+          <div className="font-medium">Free Plan</div>
+          <div className="text-sm text-muted-foreground">
+            Basic features for personal use
+          </div>
+        </div>
+      ),
+    },
+    {
+      value: 'pro',
+      label: (
+        <div>
+          <div className="font-medium">Pro Plan</div>
+          <div className="text-sm text-muted-foreground">
+            Advanced features for professionals
+          </div>
+        </div>
+      ),
+    },
+  ]}
+/>
+```
+
+### 自定义样式
+
+```tsx
+<RadioGroup
+  items={[
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+  ]}
+  classNames={{
+    group: 'gap-4',
+    control: 'border-2',
+    label: 'font-bold',
+  }}
+/>
+```
+
+### 使用组合式 API
+
+```tsx
+import { Root } from '@radix-ui/react-radio-group';
+import {
+  RadioRoot,
+  RadioGroupItem,
+  RadioIndicator,
+  Label,
+} from 'skyroc-ui';
+
+<Root defaultValue="1" className="flex gap-4">
+  <RadioRoot>
+    <RadioGroupItem value="1" id="option1">
+      <RadioIndicator />
+    </RadioGroupItem>
+    <Label htmlFor="option1">Option 1</Label>
+  </RadioRoot>
+
+  <RadioRoot>
+    <RadioGroupItem value="2" id="option2">
+      <RadioIndicator />
+    </RadioGroupItem>
+    <Label htmlFor="option2">Option 2</Label>
+  </RadioRoot>
+</Root>
+```
+
+### 卡片式选项
+
+```tsx
+<RadioGroup
+  items={[
+    { value: '1', label: 'Option 1' },
+    { value: '2', label: 'Option 2' },
+    { value: '3', label: 'Option 3' },
+  ]}
+  classNames={{
+    root: 'border rounded-lg p-4 hover:bg-accent cursor-pointer',
+  }}
+/>
+```
+
+### 动态选项
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { RadioGroup } from 'skyroc-ui';
+
+const categories = ['electronics', 'clothing', 'books'];
+
+function DynamicRadio() {
+  const [category, setCategory] = useState('');
+
+  const items = categories.map(cat => ({
+    value: cat,
+    label: cat.charAt(0).toUpperCase() + cat.slice(1),
+  }));
+
+  return (
+    <RadioGroup
+      items={items}
+      value={category}
+      onValueChange={setCategory}
+    />
+  );
+}
+```
+
+## React Hook Form 集成
+
+```tsx
+import { useForm, Controller } from 'react-hook-form';
+import { RadioGroup, Button } from 'skyroc-ui';
+
+function MyForm() {
+  const { control, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <Controller
+        name="plan"
+        control={control}
+        rules={{ required: true }}
+        render={({ field }) => (
+          <RadioGroup
+            items={[
+              { value: 'free', label: 'Free' },
+              { value: 'pro', label: 'Pro' },
+              { value: 'enterprise', label: 'Enterprise' },
+            ]}
+            {...field}
+          />
+        )}
+      />
+      <Button type="submit">Submit</Button>
+    </form>
+  );
+}
+```
+
+## 相关组件
+
+- **Checkbox** - 复选框
+- **Switch** - 开关
+- **Select** - 下拉选择
+- **Label** - 标签

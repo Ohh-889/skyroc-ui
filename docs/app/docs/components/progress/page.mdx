@@ -1,0 +1,457 @@
+# Progress 进度条
+
+进度条组件用于显示操作或任务的完成进度,基于 Radix UI 的 Progress 原语,提供平滑的动画效果和无障碍支持。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-progress']} />
+
+## 导入
+
+```ts copy
+import { Progress } from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 基本示例
+
+最基本的进度条用法,通过 `value` 属性控制进度。
+
+<Demo src="@playground/progress/modules/ProgressBasic" title="基本进度条" />
+
+### 颜色
+
+Progress 提供 8 种主题颜色:`primary`、`destructive`、`success`、`warning`、`info`、`carbon`、`secondary`、`accent`。
+
+<Demo src="@playground/progress/modules/Color" title="颜色" />
+
+### 尺寸
+
+Progress 提供 6 种尺寸:`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
+
+<Demo src="@playground/progress/modules/Size" title="尺寸" />
+
+### 动画进度
+
+通过动态更新 `value` 属性实现动画效果。
+
+<Demo src="@playground/progress/modules/ProgressAnimated" title="动画进度" />
+
+## API
+
+### Progress Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| value | `number \| null` | - | 当前进度值(0-100),`null` 表示不确定状态 |
+| max | `number` | `100` | 最大值 |
+| color | `ThemeColor` | `'primary'` | 进度条颜色 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 进度条尺寸 |
+| className | `string` | - | 根容器自定义类名 |
+| classNames | `ProgressClassNames` | - | 各部分自定义类名 |
+| getValueLabel | `(value: number, max: number) => string` | - | 自定义值标签的格式化函数 |
+
+> 支持原生 `div` 元素的其他所有属性。
+
+#### ThemeColor
+
+```ts
+type ThemeColor =
+  | 'primary'
+  | 'destructive'
+  | 'success'
+  | 'warning'
+  | 'info'
+  | 'carbon'
+  | 'secondary'
+  | 'accent';
+```
+
+### ProgressClassNames
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| root | `string` | 根容器样式 |
+| indicator | `string` | 指示器(进度条)样式 |
+
+## 尺寸对照
+
+| 尺寸 | 高度 |
+|------|------|
+| xs | 7px (`h-1.75`) |
+| sm | 8px (`h-2`) |
+| md | 10px (`h-2.5`) |
+| lg | 12px (`h-3`) |
+| xl | 14px (`h-3.5`) |
+| 2xl | 16px (`h-4`) |
+
+## 颜色对照
+
+每种颜色都有两个部分:
+- **背景色** - 20% 透明度的主题色
+- **指示器色** - 100% 不透明的主题色
+
+| 颜色 | 背景色 | 指示器色 |
+|------|--------|---------|
+| primary | `bg-primary/20` | `bg-primary` |
+| destructive | `bg-destructive/20` | `bg-destructive` |
+| success | `bg-success/20` | `bg-success` |
+| warning | `bg-warning/20` | `bg-warning` |
+| info | `bg-info/20` | `bg-info` |
+| carbon | `bg-carbon/20` | `bg-carbon` |
+| secondary | `bg-secondary-foreground/20` | `bg-secondary-foreground` |
+| accent | `bg-accent-foreground/20` | `bg-accent-foreground` |
+
+## 使用指南
+
+### 何时使用
+
+- 文件上传/下载进度
+- 表单填写进度
+- 任务完成进度
+- 页面加载进度
+- 多步骤流程指示
+- 技能水平展示
+
+### 进度值范围
+
+- **确定进度** - `value` 为 0-100 的数字
+- **不确定进度** - `value` 为 `null`(组件会显示不确定状态)
+
+### 颜色选择
+
+根据场景选择合适的颜色:
+- **primary** - 默认颜色,常规进度
+- **success** - 完成、成功状态
+- **warning** - 警告、注意状态
+- **destructive** - 错误、危险状态
+- **info** - 信息提示
+- **其他颜色** - 根据设计主题选择
+
+### 尺寸选择
+
+- **xs/sm** - 紧凑布局、次要进度
+- **md** - 默认尺寸,适合大多数场景
+- **lg/xl** - 强调显示、主要进度
+- **2xl** - 大屏展示、突出显示
+
+## 注意事项
+
+1. **进度范围** - `value` 应在 0-100 之间,超出范围会被限制
+2. **动画性能** - 内置 CSS 过渡动画,平滑更新进度
+3. **无障碍** - 自动提供 ARIA 属性和进度标签
+4. **响应式** - 宽度默认 100%,可通过容器控制
+5. **不确定状态** - 设置 `value={null}` 显示不确定进度(需自定义动画)
+
+## 无障碍
+
+Progress 基于 Radix UI,提供完善的无障碍支持:
+
+- **语义化 HTML** - 使用 `role="progressbar"`
+- **ARIA 属性** - 自动添加 `aria-valuemin`、`aria-valuemax`、`aria-valuenow`
+- **进度标签** - 支持自定义 `aria-label` 和 `getValueLabel`
+- **屏幕阅读器** - 正确宣告当前进度值
+- **视觉反馈** - 清晰的进度指示和颜色对比
+
+## 最佳实践
+
+### 基本用法
+
+```tsx
+<Progress value={60} />
+```
+
+### 指定颜色和尺寸
+
+```tsx
+<Progress
+  color="success"
+  size="lg"
+  value={75}
+/>
+```
+
+### 文件上传进度
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { Progress, Button } from 'skyroc-ui';
+
+function FileUpload() {
+  const [progress, setProgress] = useState(0);
+  const [uploading, setUploading] = useState(false);
+
+  const handleUpload = async () => {
+    setUploading(true);
+    setProgress(0);
+
+    // 模拟上传
+    const interval = setInterval(() => {
+      setProgress(prev => {
+        if (prev >= 100) {
+          clearInterval(interval);
+          setUploading(false);
+          return 100;
+        }
+        return prev + 10;
+      });
+    }, 500);
+  };
+
+  return (
+    <div className="space-y-4">
+      <Button onClick={handleUpload} disabled={uploading}>
+        {uploading ? 'Uploading...' : 'Upload File'}
+      </Button>
+      {uploading && (
+        <div className="space-y-2">
+          <Progress value={progress} color="primary" />
+          <p className="text-sm text-muted-foreground">{progress}%</p>
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### 多步骤进度
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { Progress, Button } from 'skyroc-ui';
+
+const steps = ['Personal Info', 'Address', 'Payment', 'Confirm'];
+
+function MultiStepForm() {
+  const [currentStep, setCurrentStep] = useState(0);
+  const progress = ((currentStep + 1) / steps.length) * 100;
+
+  return (
+    <div className="space-y-4">
+      <div className="space-y-2">
+        <div className="flex justify-between text-sm text-muted-foreground">
+          <span>Step {currentStep + 1} of {steps.length}</span>
+          <span>{Math.round(progress)}%</span>
+        </div>
+        <Progress value={progress} />
+      </div>
+
+      <div className="space-y-4">
+        <h3 className="font-medium">{steps[currentStep]}</h3>
+        <div className="flex gap-2">
+          <Button
+            onClick={() => setCurrentStep(prev => Math.max(0, prev - 1))}
+            disabled={currentStep === 0}
+            variant="outline"
+          >
+            Previous
+          </Button>
+          <Button
+            onClick={() => setCurrentStep(prev => Math.min(steps.length - 1, prev + 1))}
+            disabled={currentStep === steps.length - 1}
+          >
+            Next
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+```
+
+### 不同状态的进度条
+
+```tsx
+<div className="space-y-4">
+  <div className="space-y-2">
+    <p className="text-sm font-medium">In Progress</p>
+    <Progress value={45} color="primary" />
+  </div>
+
+  <div className="space-y-2">
+    <p className="text-sm font-medium">Warning</p>
+    <Progress value={80} color="warning" />
+  </div>
+
+  <div className="space-y-2">
+    <p className="text-sm font-medium">Success</p>
+    <Progress value={100} color="success" />
+  </div>
+
+  <div className="space-y-2">
+    <p className="text-sm font-medium">Error</p>
+    <Progress value={30} color="destructive" />
+  </div>
+</div>
+```
+
+### 技能水平展示
+
+```tsx
+const skills = [
+  { name: 'React', level: 90, color: 'primary' },
+  { name: 'TypeScript', level: 85, color: 'info' },
+  { name: 'Node.js', level: 75, color: 'success' },
+  { name: 'CSS', level: 80, color: 'warning' },
+];
+
+<div className="space-y-4">
+  {skills.map((skill) => (
+    <div key={skill.name} className="space-y-2">
+      <div className="flex justify-between text-sm">
+        <span className="font-medium">{skill.name}</span>
+        <span className="text-muted-foreground">{skill.level}%</span>
+      </div>
+      <Progress value={skill.level} color={skill.color} />
+    </div>
+  ))}
+</div>
+```
+
+### 自定义样式
+
+```tsx
+<Progress
+  value={60}
+  className="h-6 rounded-lg"
+  classNames={{
+    indicator: 'rounded-lg'
+  }}
+/>
+```
+
+### 带标签的进度条
+
+```tsx
+<div className="space-y-2">
+  <div className="flex justify-between text-sm">
+    <span>Download Progress</span>
+    <span className="font-medium">65%</span>
+  </div>
+  <Progress value={65} />
+  <p className="text-xs text-muted-foreground">
+    325 MB of 500 MB
+  </p>
+</div>
+```
+
+### 循环动画进度
+
+```tsx
+'use client';
+
+import { useEffect, useState } from 'react';
+import { Progress } from 'skyroc-ui';
+
+function AnimatedProgress() {
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress(prev => (prev >= 100 ? 0 : prev + 1));
+    }, 50);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  return <Progress value={progress} />;
+}
+```
+
+### 自定义值标签
+
+```tsx
+<Progress
+  value={60}
+  getValueLabel={(value, max) => `${value} of ${max} completed`}
+/>
+```
+
+### 不同尺寸组合
+
+```tsx
+<div className="space-y-4">
+  <div className="space-y-2">
+    <p className="text-xs">Extra Small</p>
+    <Progress value={60} size="xs" />
+  </div>
+
+  <div className="space-y-2">
+    <p className="text-sm">Small</p>
+    <Progress value={60} size="sm" />
+  </div>
+
+  <div className="space-y-2">
+    <p className="text-sm">Medium (Default)</p>
+    <Progress value={60} size="md" />
+  </div>
+
+  <div className="space-y-2">
+    <p className="text-base">Large</p>
+    <Progress value={60} size="lg" />
+  </div>
+
+  <div className="space-y-2">
+    <p className="text-lg">Extra Large</p>
+    <Progress value={60} size="xl" />
+  </div>
+
+  <div className="space-y-2">
+    <p className="text-xl">2X Large</p>
+    <Progress value={60} size="2xl" />
+  </div>
+</div>
+```
+
+### 页面加载进度
+
+```tsx
+'use client';
+
+import { useEffect, useState } from 'react';
+import { Progress } from 'skyroc-ui';
+
+function PageLoadingProgress() {
+  const [loading, setLoading] = useState(true);
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    // 模拟页面加载
+    const stages = [0, 30, 60, 90, 100];
+    let currentStage = 0;
+
+    const timer = setInterval(() => {
+      if (currentStage < stages.length) {
+        setProgress(stages[currentStage]);
+        currentStage++;
+      } else {
+        setLoading(false);
+        clearInterval(timer);
+      }
+    }, 400);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  if (!loading) {
+    return <div>Page Loaded!</div>;
+  }
+
+  return (
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <Progress value={progress} className="rounded-none h-1" />
+    </div>
+  );
+}
+```
+
+## 相关组件
+
+- **Skeleton** - 骨架屏加载占位符
+- **Spinner** - 旋转加载指示器
+- **Slider** - 滑块选择器

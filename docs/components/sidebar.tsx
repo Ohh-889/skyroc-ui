@@ -41,6 +41,9 @@ const navigation = [
       { href: '/docs/components/input-otp', title: 'InputOTP 一次性密码输入框' },
       { href: '/docs/components/keyboard-key', title: 'KeyboardKey 键盘按键' },
       { href: '/docs/components/label', title: 'Label 标签' },
+      { href: '/docs/components/popover', title: 'Popover 弹出层' },
+      { href: '/docs/components/progress', title: 'Progress 进度条' },
+      { href: '/docs/components/radio', title: 'Radio 单选框' },
       { href: '/docs/components/select', title: 'Select 选择器' },
       { href: '/docs/components/switch', title: 'Switch 开关' }
     ],

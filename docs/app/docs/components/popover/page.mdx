@@ -1,0 +1,472 @@
+# Popover 弹出层
+
+弹出层组件用于在触发元素附近显示浮动内容,基于 Radix UI 的 Popover 原语,提供丰富的功能和无障碍支持。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-popover']} />
+
+## 导入
+
+```ts copy
+import {
+  Popover,
+  PopoverRoot,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverAnchor,
+  PopoverArrow
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 基本示例
+
+最基本的弹出层用法,点击按钮显示浮动内容。
+
+<Demo src="@playground/popover/modules/PopoverBasic" title="基本弹出层" />
+
+### 带箭头
+
+通过 `showArrow` 属性显示指向触发元素的箭头。
+
+<Demo src="@playground/popover/modules/PopoverWithArrow" title="带箭头" />
+
+### 位置
+
+通过 `side` 属性控制弹出层显示位置,支持 `top`、`right`、`bottom`、`left`。
+
+<Demo src="@playground/popover/modules/PopoverPlacement" title="位置" />
+
+### 尺寸
+
+Popover 提供 6 种尺寸:`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
+
+<Demo src="@playground/popover/modules/PopoverSize" title="尺寸" />
+
+### 受控模式
+
+通过 `open` 和 `onOpenChange` 属性控制弹出层的显示状态。
+
+<Demo src="@playground/popover/modules/PopoverControlled" title="受控模式" />
+
+## 组合式 API
+
+如果需要更灵活的控制,可以使用组合式 API:
+
+```tsx
+import {
+  PopoverRoot,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  Button
+} from 'skyroc-ui';
+
+export default function Demo() {
+  return (
+    <PopoverRoot>
+      <PopoverTrigger asChild>
+        <Button>Open</Button>
+      </PopoverTrigger>
+      <PopoverContent side="top" sideOffset={5}>
+        <div className="space-y-2">
+          <h4 className="font-medium">Popover Title</h4>
+          <p className="text-sm">Popover content goes here.</p>
+        </div>
+        <PopoverArrow />
+      </PopoverContent>
+    </PopoverRoot>
+  );
+}
+```
+
+## API
+
+### Popover Props
+
+简化的弹出层组件,封装了常用功能。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| trigger | `ReactNode` | - | 触发元素 |
+| children | `ReactNode` | - | 弹出层内容 |
+| open | `boolean` | - | 是否显示(受控) |
+| defaultOpen | `boolean` | - | 默认是否显示(非受控) |
+| onOpenChange | `(open: boolean) => void` | - | 显示状态变化回调 |
+| modal | `boolean` | `false` | 是否为模态框模式 |
+| showArrow | `boolean` | `false` | 是否显示箭头 |
+| arrowWidth | `number` | - | 箭头宽度 |
+| arrowHeight | `number` | - | 箭头高度 |
+| closeIcon | `ReactNode` | - | 关闭图标 |
+| side | `'top' \| 'right' \| 'bottom' \| 'left'` | `'bottom'` | 弹出位置 |
+| sideOffset | `number` | `5` | 与触发元素的距离 |
+| align | `'start' \| 'center' \| 'end'` | `'center'` | 对齐方式 |
+| alignOffset | `number` | - | 对齐偏移量 |
+| avoidCollisions | `boolean` | `true` | 是否避免碰撞 |
+| collisionBoundary | `Element \| Element[] \| null` | - | 碰撞边界 |
+| collisionPadding | `number \| Partial<Record<Side, number>>` | - | 碰撞内边距 |
+| sticky | `'partial' \| 'always'` | `'partial'` | 粘性定位行为 |
+| hideWhenDetached | `boolean` | `false` | 当脱离时是否隐藏 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 弹出层尺寸 |
+| className | `string` | - | 内容区域自定义类名 |
+| classNames | `PopoverClassNames` | - | 各部分自定义类名 |
+| container | `HTMLElement` | - | Portal 容器元素 |
+| forceMount | `boolean` | - | 强制挂载内容 |
+| forceMountPortal | `boolean` | - | 强制挂载 Portal |
+
+> 支持原生 `div` 元素的其他所有属性(应用到 PopoverContent)。
+
+### PopoverClassNames
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| content | `string` | 内容区域样式 |
+| arrow | `string` | 箭头样式 |
+| anchor | `string` | 锚点样式 |
+
+### PopoverRoot Props
+
+弹出层的根组件,提供上下文。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| open | `boolean` | - | 是否显示(受控) |
+| defaultOpen | `boolean` | - | 默认是否显示 |
+| onOpenChange | `(open: boolean) => void` | - | 显示状态变化回调 |
+| modal | `boolean` | `false` | 是否为模态框模式 |
+
+### PopoverTrigger Props
+
+触发弹出层的元素。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| asChild | `boolean` | `false` | 作为子元素渲染 |
+
+> 支持原生 `button` 元素的所有属性。
+
+### PopoverContent Props
+
+弹出层内容组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| side | `'top' \| 'right' \| 'bottom' \| 'left'` | `'bottom'` | 弹出位置 |
+| sideOffset | `number` | `5` | 与触发元素的距离 |
+| align | `'start' \| 'center' \| 'end'` | `'center'` | 对齐方式 |
+| alignOffset | `number` | - | 对齐偏移量 |
+| avoidCollisions | `boolean` | `true` | 是否避免碰撞 |
+| collisionBoundary | `Element \| Element[] \| null` | - | 碰撞边界 |
+| collisionPadding | `number \| Partial<Record<Side, number>>` | - | 碰撞内边距 |
+| sticky | `'partial' \| 'always'` | `'partial'` | 粘性定位行为 |
+| hideWhenDetached | `boolean` | `false` | 当脱离时是否隐藏 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 内容尺寸 |
+| className | `string` | - | 自定义类名 |
+| forceMount | `boolean` | - | 强制挂载 |
+
+> 支持原生 `div` 元素的其他所有属性。
+
+### PopoverAnchor Props
+
+锚点组件,用于定位弹出层的参考元素。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| asChild | `boolean` | `false` | 作为子元素渲染 |
+| className | `string` | - | 自定义类名 |
+
+> 支持原生 `div` 元素的其他所有属性。
+
+### PopoverArrow Props
+
+箭头组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| width | `number` | - | 箭头宽度 |
+| height | `number` | - | 箭头高度 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 箭头尺寸 |
+| className | `string` | - | 自定义类名 |
+
+> 支持原生 `svg` 元素的其他所有属性。
+
+## 尺寸对照
+
+| 尺寸 | 内边距 | 文本大小 | 箭头大小 |
+|------|--------|---------|---------|
+| xs | `p-3` (12px) | `text-2xs` | `text-3xs` |
+| sm | `p-3.5` (14px) | `text-xs` | `text-2xs` |
+| md | `p-4` (16px) | `text-sm` | `text-xs` |
+| lg | `p-4.5` (18px) | `text-base` | `text-sm` |
+| xl | `p-5` (20px) | `text-lg` | `text-base` |
+| 2xl | `p-5.5` (22px) | `text-xl` | `text-lg` |
+
+## 使用指南
+
+### 何时使用
+
+- 需要在特定元素附近显示额外信息
+- 显示用户操作的详细说明
+- 提供快捷操作菜单
+- 显示表单提示信息
+- 展示配置选项
+
+### Popover vs Tooltip vs Dialog
+
+- **Popover** - 需要用户交互,可包含复杂内容(表单、列表等)
+- **Tooltip** - 仅用于简单提示,鼠标悬停显示,不可交互
+- **Dialog** - 需要用户明确操作,显示在页面中心,有遮罩层
+
+### 位置选择
+
+根据触发元素的位置选择合适的弹出方向:
+- **top** - 元素在页面下方时使用
+- **bottom** - 元素在页面上方时使用(默认)
+- **left** - 元素在页面右侧时使用
+- **right** - 元素在页面左侧时使用
+
+### 碰撞检测
+
+Popover 默认开启碰撞检测(`avoidCollisions={true}`),会自动调整位置避免溢出视口。
+
+## 注意事项
+
+1. **触发方式** - 默认点击触发,可通过组合式 API 自定义触发逻辑
+2. **关闭行为** - 点击外部、按 ESC 键会关闭弹出层
+3. **模态模式** - `modal={true}` 时会阻止页面其他交互
+4. **Portal 渲染** - 默认使用 Portal 渲染,避免被父元素遮挡
+5. **焦点管理** - 打开时自动聚焦到内容,关闭时恢复焦点
+6. **动画** - 内置淡入淡出和缩放动画
+
+## 无障碍
+
+Popover 基于 Radix UI,提供完善的无障碍支持:
+
+- **键盘导航** - Tab 键在内容中导航,ESC 键关闭
+- **焦点管理** - 自动管理焦点移动和恢复
+- **ARIA 属性** - 自动添加 `aria-haspopup`、`aria-expanded` 等属性
+- **屏幕阅读器** - 正确宣告弹出层的打开/关闭状态
+- **焦点陷阱** - 模态模式下限制焦点在弹出层内
+
+## 最佳实践
+
+### 基本用法
+
+```tsx
+<Popover trigger={<Button>Open</Button>}>
+  <div className="space-y-2">
+    <h4 className="font-medium">Title</h4>
+    <p className="text-sm text-muted-foreground">
+      Popover content goes here.
+    </p>
+  </div>
+</Popover>
+```
+
+### 带箭头和位置
+
+```tsx
+<Popover
+  showArrow
+  side="top"
+  trigger={<Button>Open</Button>}
+>
+  <p>Content with arrow pointing down</p>
+</Popover>
+```
+
+### 表单弹出层
+
+```tsx
+<Popover trigger={<Button>Settings</Button>}>
+  <form className="space-y-4">
+    <div className="space-y-2">
+      <Label htmlFor="name">Name</Label>
+      <Input id="name" placeholder="Enter name" />
+    </div>
+    <div className="space-y-2">
+      <Label htmlFor="email">Email</Label>
+      <Input id="email" type="email" placeholder="Enter email" />
+    </div>
+    <Button type="submit" size="sm">Save</Button>
+  </form>
+</Popover>
+```
+
+### 受控模式
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { Popover, Button } from 'skyroc-ui';
+
+function ControlledPopover() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Popover
+      open={open}
+      trigger={<Button>Open</Button>}
+      onOpenChange={setOpen}
+    >
+      <div className="space-y-2">
+        <p>Controlled popover content</p>
+        <Button size="sm" onClick={() => setOpen(false)}>
+          Close
+        </Button>
+      </div>
+    </Popover>
+  );
+}
+```
+
+### 使用组合式 API
+
+```tsx
+import {
+  PopoverRoot,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverArrow,
+  Button
+} from 'skyroc-ui';
+
+<PopoverRoot>
+  <PopoverTrigger asChild>
+    <Button variant="outline">Open</Button>
+  </PopoverTrigger>
+  <PopoverContent side="right" align="start">
+    <div className="space-y-2">
+      <h4 className="font-medium">Advanced</h4>
+      <p className="text-sm">Using composition API for more control.</p>
+    </div>
+    <PopoverArrow />
+  </PopoverContent>
+</PopoverRoot>
+```
+
+### 带关闭按钮
+
+```tsx
+import { X } from 'lucide-react';
+
+<Popover
+  closeIcon={
+    <button className="absolute right-2 top-2 rounded-sm opacity-70 hover:opacity-100">
+      <X className="size-4" />
+    </button>
+  }
+  trigger={<Button>Open</Button>}
+>
+  <div className="pr-8">
+    <h4 className="font-medium">Popover with Close Button</h4>
+    <p className="text-sm text-muted-foreground">
+      Click the X button to close.
+    </p>
+  </div>
+</Popover>
+```
+
+### 自定义样式
+
+```tsx
+<Popover
+  trigger={<Button>Custom Style</Button>}
+  className="bg-primary text-primary-foreground"
+  classNames={{
+    arrow: 'fill-primary'
+  }}
+  showArrow
+>
+  <p>Custom styled popover</p>
+</Popover>
+```
+
+### 菜单式弹出层
+
+```tsx
+<Popover trigger={<Button variant="outline">Options</Button>}>
+  <div className="w-56">
+    <div className="grid gap-1">
+      <button className="flex items-center gap-2 rounded-sm px-2 py-1.5 text-sm hover:bg-accent">
+        Edit
+      </button>
+      <button className="flex items-center gap-2 rounded-sm px-2 py-1.5 text-sm hover:bg-accent">
+        Duplicate
+      </button>
+      <button className="flex items-center gap-2 rounded-sm px-2 py-1.5 text-sm hover:bg-accent">
+        Delete
+      </button>
+    </div>
+  </div>
+</Popover>
+```
+
+### 帮助提示弹出层
+
+```tsx
+import { HelpCircle } from 'lucide-react';
+
+<div className="flex items-center gap-2">
+  <Label>Setting Name</Label>
+  <Popover
+    trigger={
+      <button className="text-muted-foreground hover:text-foreground">
+        <HelpCircle className="size-4" />
+      </button>
+    }
+    side="top"
+  >
+    <p className="text-sm max-w-xs">
+      This setting controls how the application behaves when...
+    </p>
+  </Popover>
+</div>
+```
+
+### 不同尺寸
+
+```tsx
+<div className="flex gap-2">
+  <Popover size="sm" trigger={<Button size="sm">Small</Button>}>
+    <p>Small popover</p>
+  </Popover>
+
+  <Popover size="md" trigger={<Button size="md">Medium</Button>}>
+    <p>Medium popover</p>
+  </Popover>
+
+  <Popover size="lg" trigger={<Button size="lg">Large</Button>}>
+    <p>Large popover</p>
+  </Popover>
+</div>
+```
+
+### 自定义锚点
+
+```tsx
+import { PopoverRoot, PopoverTrigger, PopoverContent, PopoverAnchor } from 'skyroc-ui';
+
+<PopoverRoot>
+  <PopoverAnchor>
+    <div className="inline-block">Reference Element</div>
+  </PopoverAnchor>
+  <PopoverTrigger asChild>
+    <Button>Open (positioned relative to anchor)</Button>
+  </PopoverTrigger>
+  <PopoverContent>
+    <p>Positioned relative to the anchor above</p>
+  </PopoverContent>
+</PopoverRoot>
+```
+
+## 相关组件
+
+- **Tooltip** - 简单文本提示
+- **Dialog** - 对话框
+- **DropdownMenu** - 下拉菜单
+- **HoverCard** - 悬浮卡片
+- **ContextMenu** - 右键菜单

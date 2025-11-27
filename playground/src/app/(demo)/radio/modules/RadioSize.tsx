@@ -1,30 +1,25 @@
-import { Card, RadioGroup } from 'skyroc-ui';
+import { RadioGroup } from 'skyroc-ui';
 import type { RadioGroupProps, ThemeSize } from 'skyroc-ui';
-
-interface Props {
-  items: RadioGroupProps['items']
-}
 
 const sizes: ThemeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
 
-const RadioSize = (props: Props) => {
-  const { items } = props;
+const items: RadioGroupProps['items'] = [
+  { id: 'r1', label: 'A', value: '1' },
+  { id: 'r2', label: 'B', value: '2' },
+  { id: 'r3', label: 'C', value: '3' }
+];
 
+const RadioSize = () => {
   return (
-    <Card
-      split
-      title="Size"
-    >
-      <div className="flex-c gap-[12px]">
-        {sizes.map(size => (
-          <RadioGroup
-            items={items}
-            key={size}
-            size={size}
-          />
-        ))}
-      </div>
-    </Card>
+    <div className="flex-c gap-[12px]">
+      {sizes.map(size => (
+        <RadioGroup
+          items={items}
+          key={size}
+          size={size}
+        />
+      ))}
+    </div>
   );
 };
 

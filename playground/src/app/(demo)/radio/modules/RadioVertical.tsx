@@ -1,23 +1,18 @@
 import type { RadioGroupProps } from 'skyroc-ui';
-import { Card, RadioGroup } from 'skyroc-ui';
+import { RadioGroup } from 'skyroc-ui';
 
-interface Props {
-  items: RadioGroupProps['items']
-}
+const items: RadioGroupProps['items'] = [
+  { id: 'r1', label: 'A', value: '1' },
+  { id: 'r2', label: 'B', value: '2' },
+  { id: 'r3', label: 'C', value: '3' }
+];
 
-const RadioVertical = (props: Props) => {
-  const { items } = props;
-
+const RadioVertical = () => {
   return (
-    <Card
-      split
-      title="Orientation: Vertical"
-    >
-      <RadioGroup
-        items={items}
-        orientation="vertical"
-      />
-    </Card>
+    <RadioGroup
+      items={items}
+      orientation="vertical"
+    />
   );
 };
 
