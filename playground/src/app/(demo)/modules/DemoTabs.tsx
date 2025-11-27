@@ -8,7 +8,7 @@ interface DemoTabsProps {
   items: TabsOptionData[];
 }
 
-export default function DemoTabs({ items }: DemoTabsProps) {
+const DemoTabs = ({ items }: DemoTabsProps) => {
   const pathname = usePathname();
 
   const currentTab = pathname.split('/').pop();
@@ -23,4 +23,6 @@ export default function DemoTabs({ items }: DemoTabsProps) {
       }}
     />
   );
-}
+};
+
+export default DemoTabs;
