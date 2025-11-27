@@ -1,4 +1,6 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import CardBasic from './modules/CardBasic';
 import CardOnlyContent from './modules/CardOnlyContent';
 import CardSize from './modules/CardSize';
@@ -6,6 +8,8 @@ import CardSplit from './modules/CardSplit';
 import CardTitleSlot from './modules/CardTitleSlot';
 import CardWithExtra from './modules/CardWithExtra';
 import CardWithFooter from './modules/CardWithFooter';
+
+export const metadata: Metadata = generateComponentMetadata('card');
 
 const CardPage = () => {
   return (

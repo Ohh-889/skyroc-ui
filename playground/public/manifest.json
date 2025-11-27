@@ -1,0 +1,30 @@
+{
+  "name": "Skyroc UI Playground",
+  "short_name": "Skyroc UI",
+  "description": "Skyroc UI 是一个现代化的 React UI 组件库，提供丰富的可定制组件。支持 CLI 一键复制源码和 NPM 包引入两种使用方式。",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#030712",
+  "theme_color": "#6366f1",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["developer tools", "utilities"],
+  "lang": "zh-CN",
+  "dir": "ltr",
+  "screenshots": [],
+  "prefer_related_applications": false
+}
+

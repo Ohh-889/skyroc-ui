@@ -19,9 +19,83 @@ const geistMono = Geist_Mono({
   variable: '--font-geist-mono'
 });
 
+const siteConfig = {
+  name: 'Skyroc UI',
+  description: 'Skyroc UI 是一个现代化的 React UI 组件库，提供丰富的可定制组件。支持 CLI 一键复制源码和 NPM 包引入两种使用方式。',
+  url: 'https://playground.skyroc-ui.com',
+  ogImage: '/logo.png',
+  author: {
+    name: 'Ohh',
+    url: 'https://github.com/Ohh-889'
+  },
+  keywords: [
+    'React',
+    'UI',
+    'Components',
+    'Tailwind CSS',
+    'TypeScript',
+    'Skyroc UI',
+    'Component Library',
+    'Design System',
+    'shadcn',
+    'Radix UI'
+  ]
+};
+
 export const metadata: Metadata = {
-  description: 'skyroc-ui playground',
-  title: 'Skyroc UI'
+  metadataBase: new URL(siteConfig.url),
+  title: {
+    default: `${siteConfig.name} - Playground`,
+    template: `%s | ${siteConfig.name}`
+  },
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.author.name, url: siteConfig.author.url }],
+  creator: siteConfig.author.name,
+  publisher: siteConfig.name,
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      'index': true,
+      'follow': true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1
+    }
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'zh_CN',
+    url: siteConfig.url,
+    title: siteConfig.name,
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: siteConfig.name
+      }
+    ]
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+    creator: '@skyroc_ui'
+  },
+  icons: {
+    icon: '/icon.svg',
+    shortcut: '/favicon.ico',
+    apple: '/logo.png'
+  },
+  manifest: '/manifest.json',
+  alternates: {
+    canonical: siteConfig.url
+  }
 };
 
 const RootLayout = ({

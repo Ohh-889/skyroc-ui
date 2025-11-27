@@ -1,4 +1,6 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import ButtonColor from './modules/ButtonColor';
 import ButtonDisabled from './modules/ButtonDisabled';
 import ButtonGroupHorizontal from './modules/ButtonGroupHorizontal';
@@ -11,6 +13,8 @@ import ButtonShadow from './modules/ButtonShadow';
 import ButtonSize from './modules/ButtonSize';
 import ButtonSlot from './modules/ButtonSlot';
 import ButtonVariant from './modules/ButtonVariant';
+
+export const metadata: Metadata = generateComponentMetadata('button');
 
 const ButtonPage = () => {
   return (

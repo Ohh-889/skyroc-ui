@@ -1,4 +1,8 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
+
+export const metadata: Metadata = generateComponentMetadata('alert');
 import AlertColor from './modules/AlertColor';
 import AlertComplete from './modules/AlertComplete';
 import AlertWithDescription from './modules/AlertDescription';

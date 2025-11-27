@@ -1,4 +1,8 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
+
+export const metadata: Metadata = generateComponentMetadata('accordion');
 import AccordionCustom from './modules/AccordionCustom';
 import AccordionCustomIcon from './modules/AccordionCustomIcon';
 import AccordionMultiple from './modules/AccordionMultiple';

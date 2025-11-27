@@ -1,4 +1,8 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
+
+export const metadata: Metadata = generateComponentMetadata('checkbox');
 import CheckboxBasic from './modules/CheckboxBasic';
 import CheckboxColor from './modules/CheckboxColor';
 import CheckboxDisabled from './modules/CheckboxDisabled';

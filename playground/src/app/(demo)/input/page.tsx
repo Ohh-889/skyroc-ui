@@ -1,4 +1,8 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
+
+export const metadata: Metadata = generateComponentMetadata('input');
 import InputBasic from './modules/InputBasic';
 import InputDisabled from './modules/InputDisabled';
 import InputFile from './modules/InputFile';
