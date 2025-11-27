@@ -1,0 +1,29 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "segment",
+  "type": "registry:block",
+  "title": "Segment",
+  "registryDependencies": [
+    "https://ui-play.skyroc.me/r/style.json"
+  ],
+  "files": [
+    {
+      "path": "src/components/segment/Segment.tsx",
+      "content": "import { forwardRef } from 'react';\nimport type { Root } from '@radix-ui/react-tabs';\nimport SegmentList from '../tabs/TabsList';\nimport SegmentRoot from '../tabs/TabsRoot';\nimport SegmentTrigger from '../tabs/TabsTrigger';\nimport type { SegmentOptionData, SegmentProps } from './types';\n\nconst Segment = forwardRef<React.ComponentRef<typeof Root>, SegmentProps<SegmentOptionData>>((props, ref) => {\n  const {\n    className,\n    classNames,\n    dir,\n    enableIndicator = true,\n    items,\n    loop,\n    orientation = 'horizontal',\n    size,\n    value,\n    ...rest\n  } = props;\n\n  return (\n    <SegmentRoot\n      className={[className, classNames?.root]}\n      dir={dir}\n      ref={ref}\n      size={size}\n      value={value}\n      {...rest}\n    >\n      <SegmentList\n        className={classNames?.list}\n        dir={dir}\n        enableIndicator={enableIndicator}\n        loop={loop}\n        orientation={orientation}\n        size={size}\n        value={value}\n        classNames={{\n          indicator: classNames?.indicator,\n          indicatorRoot: classNames?.indicatorRoot\n        }}\n      >\n        {items.map(item => (\n          <SegmentTrigger\n            className={classNames?.trigger}\n            dir={dir}\n            disabled={item.disabled}\n            enableIndicator={enableIndicator}\n            key={item.value}\n            size={size}\n            value={item.value}\n          >\n            {item.label}\n          </SegmentTrigger>\n        ))}\n      </SegmentList>\n    </SegmentRoot>\n  );\n});\n\nSegment.displayName = 'Segment';\n\nexport default Segment;\n",
+      "type": "registry:ui",
+      "target": "components/segment/Segment.tsx"
+    },
+    {
+      "path": "src/components/segment/index.ts",
+      "content": "export { default as Segment } from './Segment';\n\nexport type { SegmentOptionData, SegmentProps } from './types';\n",
+      "type": "registry:ui",
+      "target": "components/segment/index.ts"
+    },
+    {
+      "path": "src/components/segment/types.ts",
+      "content": "import type { TabsOptionData, TabsProps } from '../tabs/types';\n\nexport type SegmentOptionData = Omit<TabsOptionData, 'children'>;\n\nexport type SegmentProps<T extends SegmentOptionData> = Omit<TabsProps<TabsOptionData>, 'items'> & {\n  items: T[];\n};\n",
+      "type": "registry:ui",
+      "target": "components/segment/types.ts"
+    }
+  ]
+}

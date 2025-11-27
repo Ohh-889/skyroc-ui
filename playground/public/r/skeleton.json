@@ -3,11 +3,13 @@
   "name": "skeleton",
   "type": "registry:block",
   "title": "Skeleton",
-  "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+  "registryDependencies": [
+    "https://ui-play.skyroc.me/r/style.json"
+  ],
   "files": [
     {
       "path": "src/components/skeleton/Skeleton.tsx",
-      "content": "import { cn } from '@/lib/utils';\n\nimport { skeletonVariants } from './skeleton-variants';\nimport type { SkeletonProps } from './types';\n\nfunction Skeleton(props: SkeletonProps) {\n  const { className, ...rest } = props;\n\n  const mergedCls = cn(skeletonVariants(), className);\n\n  return (\n    <div\n      className={mergedCls}\n      data-slot=\"skeleton\"\n      {...rest}\n    />\n  );\n}\n\nexport default Skeleton;\n",
+      "content": "import { cn } from '@/lib/utils';\nimport { skeletonVariants } from './skeleton-variants';\nimport type { SkeletonProps } from './types';\n\nconst Skeleton = (props: SkeletonProps) => {\n  const { className, ...rest } = props;\n\n  const mergedCls = cn(skeletonVariants(), className);\n\n  return (\n    <div\n      className={mergedCls}\n      data-slot=\"skeleton\"\n      {...rest}\n    />\n  );\n};\n\nexport default Skeleton;\n",
       "type": "registry:ui",
       "target": "components/skeleton/Skeleton.tsx"
     },
@@ -25,7 +27,7 @@
     },
     {
       "path": "src/components/skeleton/types.ts",
-      "content": "import type { BaseComponentProps } from '@/types/other';\n\nexport type SkeletonProps = BaseComponentProps<'div'>;\n",
+      "content": "import type { HTMLComponentProps } from '@/types/shared';\n\nexport type SkeletonProps = HTMLComponentProps<'div'>;\n",
       "type": "registry:ui",
       "target": "components/skeleton/types.ts"
     }

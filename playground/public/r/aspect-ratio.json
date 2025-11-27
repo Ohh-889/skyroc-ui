@@ -3,12 +3,16 @@
   "name": "aspect-ratio",
   "type": "registry:block",
   "title": "Aspect Ratio",
-  "dependencies": ["@radix-ui/react-aspect-ratio"],
-  "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+  "dependencies": [
+    "@radix-ui/react-aspect-ratio"
+  ],
+  "registryDependencies": [
+    "https://ui-play.skyroc.me/r/style.json"
+  ],
   "files": [
     {
       "path": "src/components/aspect-ratio/AspectRatio.tsx",
-      "content": "import { Root } from '@radix-ui/react-aspect-ratio';\nimport { forwardRef } from 'react';\n\nimport { cn } from '@/lib/utils';\n\nimport type { AspectRatioProps } from './types';\n\nconst AspectRatio = forwardRef<React.ElementRef<typeof Root>, AspectRatioProps>((props, ref) => {\n  const { className, ...rest } = props;\n\n  const mergedCls = cn(className);\n\n  return (\n    <Root\n      ref={ref}\n      {...rest}\n      className={mergedCls}\n    />\n  );\n});\n\nAspectRatio.displayName = 'AspectRatio';\n\nexport default AspectRatio;\n",
+      "content": "import { forwardRef } from 'react';\nimport { Root } from '@radix-ui/react-aspect-ratio';\nimport { cn } from '@/lib/utils';\nimport type { AspectRatioProps } from './types';\n\nconst AspectRatio = forwardRef<React.ComponentRef<typeof Root>, AspectRatioProps>((props, ref) => {\n  const { className, ...rest } = props;\n\n  const mergedCls = cn(className);\n\n  return (\n    <Root\n      ref={ref}\n      {...rest}\n      className={mergedCls}\n    />\n  );\n});\n\nAspectRatio.displayName = 'AspectRatio';\n\nexport default AspectRatio;\n",
       "type": "registry:ui",
       "target": "components/aspect-ratio/AspectRatio.tsx"
     },
@@ -20,7 +24,7 @@
     },
     {
       "path": "src/components/aspect-ratio/types.ts",
-      "content": "import type { AspectRatioProps as _AspectRatioProps } from '@radix-ui/react-aspect-ratio';\n\nimport type { BaseNodeProps } from '@/types/other';\n\nexport interface AspectRatioProps extends BaseNodeProps<_AspectRatioProps> {}\n",
+      "content": "import type { AspectRatioProps as _AspectRatioProps } from '@radix-ui/react-aspect-ratio';\nimport type { StyledComponentProps } from '@/types/shared';\n\nexport interface AspectRatioProps extends StyledComponentProps<_AspectRatioProps> {}\n",
       "type": "registry:ui",
       "target": "components/aspect-ratio/types.ts"
     }
