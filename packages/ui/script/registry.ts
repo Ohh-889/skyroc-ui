@@ -7,11 +7,9 @@ import { getRegistryUi } from './registry-ui';
 import { registryUtils } from './registry-utils';
 import { getPath, lintFile } from './shared';
 
-// eslint-disable-next-line n/prefer-global/process
 const registryPath = getPath(`registry.json`);
 
-// eslint-disable-next-line n/prefer-global/process
-const targetPath = getPath(`../../playground/public/r`);
+const targetPath = getPath(`../../../playground/public/r`);
 
 const registry = {
   homepage: 'https://ui-play.skyroc.me/',
@@ -132,7 +130,7 @@ async function main() {
     if (error instanceof Error) {
       console.error('Error stack:', error.stack);
     }
-    // eslint-disable-next-line n/prefer-global/process
+
     process.exit(1);
   }
 }

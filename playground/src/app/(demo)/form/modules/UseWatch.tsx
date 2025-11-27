@@ -19,7 +19,7 @@ const EffectWatch = () => {
   return null;
 };
 
-export default function WatchDemo() {
+const WatchDemo = () => {
   const [form] = useForm<Inputs>();
 
   // 1) Watch single field
@@ -110,4 +110,6 @@ export default function WatchDemo() {
       </div>
     </Card>
   );
-}
+};
+
+export default WatchDemo;
