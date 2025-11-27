@@ -9,7 +9,7 @@ import { getPath, lintFile } from './shared';
 
 const registryPath = getPath(`registry.json`);
 
-const targetPath = getPath(`../../../playground/public/r`);
+const targetPath = getPath(`../../playground/public/r`);
 
 const registry = {
   homepage: 'https://ui-play.skyroc.me/',
@@ -116,11 +116,13 @@ async function main() {
 
     await buildRegistry();
 
-    console.log('✅ writing registry to :', registryPath);
+    console.log('🎯 Ensuring target directory exists:', targetPath);
+    await fs.mkdir(targetPath, { recursive: true });
 
+    console.log('✅ writing registry to :', registryPath);
     await fs.writeFile(`${targetPath}/registry.json`, registryJson);
 
-    lintFile(targetPath);
+    lintFile(`${targetPath}/registry.json`);
 
     console.log('✅ Registry build completed');
   }

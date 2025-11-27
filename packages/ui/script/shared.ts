@@ -7,6 +7,5 @@ export function lintFile(filePath: string) {
 }
 
 export function getPath(filePath: string) {
-  // eslint-disable-next-line n/prefer-global/process
   return path.join(process.cwd(), filePath);
 }
