@@ -24,6 +24,7 @@ const navigation = [
       { href: '/docs/components/breadcrumb', title: 'Breadcrumb 面包屑' },
       { href: '/docs/components/button', title: 'Button 按钮' },
       { href: '/docs/components/card', title: 'Card 卡片' },
+      { href: '/docs/components/carousel', title: 'Carousel 轮播图' },
       { href: '/docs/components/checkbox', title: 'Checkbox 复选框' },
       { href: '/docs/components/dialog', title: 'Dialog 对话框' },
       { href: '/docs/components/input', title: 'Input 输入框' },

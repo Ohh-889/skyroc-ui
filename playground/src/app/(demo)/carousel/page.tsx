@@ -1,48 +1,38 @@
-import { Card, Carousel } from 'skyroc-ui';
-import PluginDemo from './modules/PluginDemo';
+import { Card } from 'skyroc-ui';
+import CarouselAutoplay from './modules/CarouselAutoplay';
+import CarouselBasic from './modules/CarouselBasic';
+import CarouselMultiple from './modules/CarouselMultiple';
+import CarouselVertical from './modules/CarouselVertical';
 
 const CarouselPage = () => {
   return (
     <div className="flex-c gap-4">
       <Card
         split
-        title="Default"
+        title="Basic"
       >
-        <div className="p-10">
-          <Carousel
-            classNames={{ item: 'h-[100px] md:basis-1/4 lg:basis-1/5' }}
-            counts={10}
-            opts={{ loop: true }}
-          >
-            {index => (
-              <Card className="size-full">
-                <div className="flex-center size-full">{index}</div>
-              </Card>
-            )}
-          </Carousel>
-        </div>
+        <CarouselBasic />
       </Card>
-
-      <PluginDemo />
 
       <Card
         split
-        title="vertical"
+        title="Multiple Items"
       >
-        <div className="p-10">
-          <Carousel
-            classNames={{ content: 'h-[200px]', item: 'md:basis-1/2' }}
-            counts={10}
-            opts={{ loop: true }}
-            orientation="vertical"
-          >
-            {index => (
-              <Card className="size-full">
-                <div className="flex-center size-full">{index}</div>
-              </Card>
-            )}
-          </Carousel>
-        </div>
+        <CarouselMultiple />
+      </Card>
+
+      <Card
+        split
+        title="Autoplay Plugin"
+      >
+        <CarouselAutoplay />
+      </Card>
+
+      <Card
+        split
+        title="Vertical"
+      >
+        <CarouselVertical />
       </Card>
     </div>
   );

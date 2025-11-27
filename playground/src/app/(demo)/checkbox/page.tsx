@@ -1,67 +1,46 @@
-import type { ThemeColor, ThemeSize } from 'skyroc-ui';
-import { Card, Checkbox } from 'skyroc-ui';
-
-const colors: ThemeColor[] = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'];
-
-const sizes: ThemeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
-
-const items = [
-  { label: 'A', value: '1' },
-  { label: 'B', value: '2' },
-  { label: 'C', value: '3' }
-];
+import { Card } from 'skyroc-ui';
+import CheckboxBasic from './modules/CheckboxBasic';
+import CheckboxColor from './modules/CheckboxColor';
+import CheckboxDisabled from './modules/CheckboxDisabled';
+import CheckboxIndeterminate from './modules/CheckboxIndeterminate';
+import CheckboxSize from './modules/CheckboxSize';
 
 const CheckboxPage = () => {
   return (
     <div className="flex-c gap-4">
       <Card
         split
+        title="Basic"
+      >
+        <CheckboxBasic />
+      </Card>
+
+      <Card
+        split
         title="Color"
       >
-        <div className="flex flex-wrap gap-[12px]">
-          {colors.map(color => (
-            <Checkbox
-              color={color}
-              id={color}
-              key={color}
-            >
-              {color}
-            </Checkbox>
-          ))}
-        </div>
+        <CheckboxColor />
       </Card>
 
       <Card
         split
         title="Size"
       >
-        <div className="flex flex-wrap gap-[12px]">
-          {sizes.map(size => (
-            <Checkbox
-              checked="indeterminate"
-              key={size}
-              size={size}
-            >
-              {size}
-            </Checkbox>
-          ))}
-        </div>
+        <CheckboxSize />
+      </Card>
+
+      <Card
+        split
+        title="States"
+      >
+        <CheckboxIndeterminate />
       </Card>
 
       <Card
         split
         title="Disabled"
       >
-        {items.map(item => (
-          <Checkbox
-            disabled
-            defaultChecked={item.value === '2'}
-            key={item.value}
-            value={item.value}
-          >
-            {item.label}
-          </Checkbox>
-        ))}
+        <CheckboxDisabled />
       </Card>
     </div>
   );

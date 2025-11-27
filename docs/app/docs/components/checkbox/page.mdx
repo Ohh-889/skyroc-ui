@@ -1,0 +1,280 @@
+# Checkbox 复选框
+
+复选框组件用于在一组选项中进行多项选择，支持选中、未选中和半选（indeterminate）三种状态。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-checkbox', 'lucide-react']} />
+
+## 导入
+
+```ts copy
+import { 
+  Checkbox,
+  CheckboxRoot,
+  CheckboxControl,
+  CheckboxIndicator
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 基本示例
+
+通过 `checked` 和 `onCheckedChange` 控制复选框的选中状态。
+
+<Demo src="@playground/checkbox/modules/CheckboxBasic" title="基本复选框" />
+
+### 颜色
+
+Checkbox 提供 8 种主题颜色。
+
+<Demo src="@playground/checkbox/modules/CheckboxColor" title="复选框颜色" />
+
+### 尺寸
+
+Checkbox 提供 6 种尺寸大小：`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
+
+<Demo src="@playground/checkbox/modules/CheckboxSize" title="复选框尺寸" />
+
+### 状态
+
+复选框支持三种状态：未选中、选中和半选（indeterminate）。
+
+<Demo src="@playground/checkbox/modules/CheckboxIndeterminate" title="复选框状态" />
+
+### 禁用状态
+
+通过 `disabled` 属性禁用复选框。
+
+<Demo src="@playground/checkbox/modules/CheckboxDisabled" title="禁用状态" />
+
+## 组合式 API
+
+如果需要更灵活的布局控制，可以使用组合式 API：
+
+```tsx
+import {
+  CheckboxRoot,
+  CheckboxControl,
+  CheckboxIndicator,
+  Label
+} from 'skyroc-ui';
+import { Check } from 'lucide-react';
+
+export default function Demo() {
+  return (
+    <CheckboxRoot>
+      <CheckboxControl id="custom">
+        <CheckboxIndicator>
+          <Check className="size-full" />
+        </CheckboxIndicator>
+      </CheckboxControl>
+      <Label htmlFor="custom">自定义复选框</Label>
+    </CheckboxRoot>
+  );
+}
+```
+
+## API
+
+### Checkbox Props
+
+简化的复选框组件，封装了所有子组件和标签。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| checked | `boolean \| 'indeterminate'` | - | 选中状态 |
+| defaultChecked | `boolean` | - | 默认选中状态（非受控） |
+| onCheckedChange | `(checked: boolean \| 'indeterminate') => void` | - | 选中状态变化回调 |
+| color | `'primary' \| 'destructive' \| 'success' \| 'warning' \| 'info' \| 'carbon' \| 'secondary' \| 'accent'` | `'primary'` | 复选框颜色 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 复选框尺寸 |
+| disabled | `boolean` | `false` | 是否禁用 |
+| required | `boolean` | `false` | 是否必填 |
+| name | `string` | - | 表单字段名称 |
+| value | `string` | `'on'` | 表单字段值 |
+| id | `string` | - | 元素 ID，用于关联标签 |
+| classNames | `CheckboxUi` | - | 自定义各部分的样式类名 |
+| className | `ClassValue` | - | 根容器自定义类名 |
+| forceMountIndicator | `true` | - | 强制挂载指示器 |
+| children | `ReactNode` | - | 标签内容 |
+
+> 支持原生 `button` 元素的其他所有属性。
+
+### CheckboxUi（classNames）
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| root | `ClassValue` | 根容器样式 |
+| control | `ClassValue` | 复选框控件样式 |
+| indicator | `ClassValue` | 选中指示器样式 |
+| label | `ClassValue` | 标签样式 |
+
+### CheckboxControl Props
+
+复选框控件组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| color | `ThemeColor` | `'primary'` | 复选框颜色 |
+| size | `ThemeSize` | `'md'` | 复选框尺寸 |
+| checked | `boolean \| 'indeterminate'` | - | 选中状态 |
+| onCheckedChange | `(checked) => void` | - | 状态变化回调 |
+| disabled | `boolean` | `false` | 是否禁用 |
+| className | `ClassValue` | - | 自定义类名 |
+
+> 支持原生 `button` 元素的其他所有属性。
+
+### CheckboxIndicator Props
+
+复选框选中指示器组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| forceMount | `true` | - | 强制挂载（即使未选中） |
+| className | `ClassValue` | - | 自定义类名 |
+
+> 支持 Radix UI CheckboxIndicator 的其他所有属性。
+
+## 半选状态
+
+半选状态（indeterminate）通常用于表示"部分选中"的状态，常见于全选场景：
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { Checkbox } from 'skyroc-ui';
+
+const items = ['Apple', 'Banana', 'Orange'];
+
+export default function Demo() {
+  const [selected, setSelected] = useState<string[]>(['Apple']);
+
+  const allChecked = selected.length === items.length;
+  const someChecked = selected.length > 0 && !allChecked;
+
+  const handleSelectAll = (checked: boolean | 'indeterminate') => {
+    setSelected(checked ? items : []);
+  };
+
+  const handleSelect = (item: string, checked: boolean | 'indeterminate') => {
+    setSelected(prev => 
+      checked 
+        ? [...prev, item] 
+        : prev.filter(i => i !== item)
+    );
+  };
+
+  return (
+    <div className="space-y-2">
+      <Checkbox
+        checked={someChecked ? 'indeterminate' : allChecked}
+        onCheckedChange={handleSelectAll}
+      >
+        Select All
+      </Checkbox>
+      
+      <div className="ml-6 space-y-1">
+        {items.map(item => (
+          <Checkbox
+            key={item}
+            checked={selected.includes(item)}
+            onCheckedChange={checked => handleSelect(item, checked)}
+          >
+            {item}
+          </Checkbox>
+        ))}
+      </div>
+    </div>
+  );
+}
+```
+
+## 使用指南
+
+### 何时使用
+
+- 需要在多个选项中选择一个或多个
+- 同意条款、接受协议等场景
+- 筛选条件选择
+- 批量操作的项目选择
+
+### 颜色使用建议
+
+- **Primary** - 默认选项、一般功能
+- **Success** - 确认类选项
+- **Warning** - 需要注意的选项
+- **Destructive** - 危险操作相关选项
+- **Info** - 信息类选项
+
+### 尺寸使用建议
+
+- **xs/sm** - 紧凑型列表、表格
+- **md** - 默认尺寸，适合大多数场景
+- **lg/xl** - 重要选项、表单主要项
+- **2xl** - 大型表单、营销页面
+
+## 注意事项
+
+1. **关联标签** - 使用 `id` 属性确保点击标签也能切换状态
+2. **表单集成** - 使用 `name` 和 `value` 属性与表单集成
+3. **半选状态** - 半选状态只能通过受控组件设置，不会通过用户交互产生
+4. **焦点管理** - 复选框支持键盘操作（Space 键切换）
+
+## 无障碍
+
+- 使用语义化的 `checkbox` 角色
+- 支持键盘操作（Space 切换，Tab 导航）
+- 禁用状态有明确的视觉反馈
+- 与 Label 关联以扩大点击区域
+- 焦点状态有清晰的焦点环
+
+## 最佳实践
+
+### 基本用法
+
+```tsx
+<Checkbox id="terms" onCheckedChange={setAccepted}>
+  我已阅读并同意服务条款
+</Checkbox>
+```
+
+### 表单中使用
+
+```tsx
+<form>
+  <Checkbox name="newsletter" value="yes">
+    订阅邮件通知
+  </Checkbox>
+  <Checkbox name="marketing" value="yes">
+    接收营销信息
+  </Checkbox>
+</form>
+```
+
+### 列表选择
+
+```tsx
+{items.map(item => (
+  <Checkbox
+    key={item.id}
+    checked={selectedIds.includes(item.id)}
+    onCheckedChange={checked => handleSelect(item.id, checked)}
+  >
+    {item.name}
+  </Checkbox>
+))}
+```
+
+### 全选场景
+
+```tsx
+<Checkbox
+  checked={allSelected ? true : someSelected ? 'indeterminate' : false}
+  onCheckedChange={handleSelectAll}
+>
+  全选
+</Checkbox>
+```
+
