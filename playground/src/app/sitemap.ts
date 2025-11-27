@@ -48,7 +48,7 @@ const components = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://playground.skyroc-ui.com';
+  const baseUrl = 'https://ui-play.skyroc.me';
   const currentDate = new Date();
 
   // 主页

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://playground.skyroc-ui.com';
+  const baseUrl = 'https://ui-play.skyroc.me';
 
   return {
     rules: [

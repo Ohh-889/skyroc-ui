@@ -22,7 +22,7 @@ const geistMono = Geist_Mono({
 const siteConfig = {
   name: 'Skyroc UI',
   description: 'Skyroc UI 是一个现代化的 React UI 组件库，提供丰富的可定制组件。支持 CLI 一键复制源码和 NPM 包引入两种使用方式。',
-  url: 'https://playground.skyroc-ui.com',
+  url: 'https://ui-play.skyroc.me',
   ogImage: '/logo.png',
   author: {
     name: 'Ohh',
