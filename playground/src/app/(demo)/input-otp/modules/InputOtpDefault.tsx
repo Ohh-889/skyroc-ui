@@ -1,6 +1,6 @@
 'use client';
 
-import { Card, InputOTP, toast } from 'skyroc-ui';
+import { InputOTP, toast } from 'skyroc-ui';
 
 const InputOtpDefault = () => {
   const handleComplete = (value: string[]) => {
@@ -10,16 +10,11 @@ const InputOtpDefault = () => {
   };
 
   return (
-    <Card
-      split
-      title="Default"
-    >
-      <InputOTP
-        inputMode="numeric"
-        placeholder="○"
-        onComplete={handleComplete}
-      />
-    </Card>
+    <InputOTP
+      inputMode="numeric"
+      placeholder="○"
+      onComplete={handleComplete}
+    />
   );
 };
 

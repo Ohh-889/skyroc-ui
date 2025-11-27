@@ -38,6 +38,9 @@ const navigation = [
       { href: '/docs/components/hover-card', title: 'HoverCard 悬浮卡片' },
       { href: '/docs/components/icon', title: 'Icon 图标' },
       { href: '/docs/components/input', title: 'Input 输入框' },
+      { href: '/docs/components/input-otp', title: 'InputOTP 一次性密码输入框' },
+      { href: '/docs/components/keyboard-key', title: 'KeyboardKey 键盘按键' },
+      { href: '/docs/components/label', title: 'Label 标签' },
       { href: '/docs/components/select', title: 'Select 选择器' },
       { href: '/docs/components/switch', title: 'Switch 开关' }
     ],

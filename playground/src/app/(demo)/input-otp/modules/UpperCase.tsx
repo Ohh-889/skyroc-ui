@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Card, InputOTP } from 'skyroc-ui';
+import { InputOTP } from 'skyroc-ui';
 
 const UpperCase = () => {
   const [value, setValue] = useState('');
@@ -11,16 +11,11 @@ const UpperCase = () => {
   }
 
   return (
-    <Card
-      split
-      title="UpperCase"
-    >
-      <InputOTP
-        placeholder="○"
-        value={value}
-        onChange={handleChange}
-      />
-    </Card>
+    <InputOTP
+      placeholder="○"
+      value={value}
+      onChange={handleChange}
+    />
   );
 };
 

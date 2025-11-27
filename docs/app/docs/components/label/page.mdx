@@ -1,0 +1,363 @@
+# Label 标签
+
+标签组件用于为表单控件提供文本说明,基于 Radix UI 的 Label 原语,提供无障碍功能和完善的用户体验。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-label']} />
+
+## 导入
+
+```ts copy
+import { Label } from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 基本示例
+
+最基本的标签用法,通过 `htmlFor` 属性关联表单控件。
+
+<Demo src="@playground/label/modules/LabelBasic" title="基本标签" />
+
+### 尺寸
+
+Label 提供 6 种尺寸:`xs`、`sm`、`md`、`lg`、`xl`、`2xl`,与表单控件尺寸对应。
+
+<Demo src="@playground/label/modules/LabelSize" title="标签尺寸" />
+
+### 必填标记
+
+通过添加红色星号标识必填字段。
+
+<Demo src="@playground/label/modules/LabelRequired" title="必填标记" />
+
+### 禁用状态
+
+当关联的表单控件被禁用时,标签会自动调整样式。
+
+<Demo src="@playground/label/modules/LabelDisabled" title="禁用状态" />
+
+## API
+
+### Label Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| htmlFor | `string` | - | 关联的表单控件 id |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 标签尺寸 |
+| className | `string` | - | 自定义类名 |
+| asChild | `boolean` | `false` | 作为子元素渲染 |
+
+> 支持原生 `label` 元素的其他所有属性。
+
+## 尺寸对照
+
+| 尺寸 | 文本大小 | 适用场景 |
+|------|---------|---------|
+| xs | `text-2xs` | 极紧凑布局、辅助信息 |
+| sm | `text-xs` | 紧凑表单、小型输入框 |
+| md | `text-sm` | 默认尺寸,适合大多数场景 |
+| lg | `text-base` | 强调显示、大型表单 |
+| xl | `text-lg` | 标题式标签、重要表单 |
+| 2xl | `text-xl` | 大屏展示、特殊强调 |
+
+## 使用指南
+
+### 何时使用
+
+- 表单输入框的说明文字
+- 单选框、复选框的文本标签
+- 下拉选择器的标题
+- 任何需要说明的表单控件
+
+### 关联表单控件
+
+Label 通过 `htmlFor` 属性与表单控件建立关联:
+
+1. **点击标签聚焦控件** - 点击标签文本会自动聚焦到关联的输入框
+2. **无障碍支持** - 屏幕阅读器能够正确识别标签和控件的关系
+3. **增大点击区域** - 提升用户体验,特别是在移动端
+
+### 尺寸匹配
+
+建议 Label 的尺寸与表单控件保持一致:
+
+```tsx
+// 推荐
+<Label size="sm" htmlFor="input">Label</Label>
+<Input size="sm" id="input" />
+
+// 不推荐
+<Label size="lg" htmlFor="input">Label</Label>
+<Input size="sm" id="input" />
+```
+
+### 必填标识
+
+有两种常见的必填字段标识方式:
+
+1. **红色星号** - 在标签后添加星号
+2. **"(必填)"文字** - 在标签后添加文字说明
+
+```tsx
+// 方式 1: 红色星号
+<Label htmlFor="username">
+  Username
+  <span className="text-destructive ml-1">*</span>
+</Label>
+
+// 方式 2: 文字说明
+<Label htmlFor="email">
+  Email
+  <span className="text-muted-foreground ml-1">(必填)</span>
+</Label>
+```
+
+## 注意事项
+
+1. **必须关联控件** - 始终使用 `htmlFor` 属性关联表单控件的 `id`
+2. **语义化标签** - 使用清晰、简洁的标签文本
+3. **禁用状态** - Label 会自动识别关联控件的禁用状态(通过 `peer-disabled:` 样式)
+4. **不要嵌套** - 避免在 Label 内部直接嵌套表单控件,使用 `htmlFor` 关联更灵活
+5. **国际化** - 标签文本需要支持国际化,确保有足够空间显示不同语言
+
+## 无障碍
+
+Label 组件基于 Radix UI Label,提供完善的无障碍支持:
+
+- **语义化 HTML** - 使用原生 `<label>` 元素
+- **正确关联** - 通过 `htmlFor` 建立与表单控件的关联
+- **屏幕阅读器** - 自动为表单控件提供标签说明
+- **键盘导航** - 支持 Tab 键聚焦
+- **禁用识别** - 当控件禁用时,标签样式自动调整(`peer-disabled:`)
+
+## 最佳实践
+
+### 基本用法
+
+```tsx
+<div className="space-y-2">
+  <Label htmlFor="email">Email</Label>
+  <Input
+    id="email"
+    type="email"
+    placeholder="Enter your email"
+  />
+</div>
+```
+
+### 必填字段
+
+```tsx
+<div className="space-y-2">
+  <Label htmlFor="password">
+    Password
+    <span className="text-destructive ml-1">*</span>
+  </Label>
+  <Input
+    id="password"
+    type="password"
+    required
+  />
+</div>
+```
+
+### 带描述的标签
+
+```tsx
+<div className="space-y-2">
+  <div>
+    <Label htmlFor="bio">Bio</Label>
+    <p className="text-xs text-muted-foreground mt-1">
+      Tell us a little about yourself
+    </p>
+  </div>
+  <Textarea id="bio" />
+</div>
+```
+
+### 行内标签 (单选框/复选框)
+
+```tsx
+// 单选框
+<div className="flex items-center space-x-2">
+  <input type="radio" id="option1" name="options" />
+  <Label htmlFor="option1">Option 1</Label>
+</div>
+
+// 复选框
+<div className="flex items-center space-x-2">
+  <Checkbox id="terms" />
+  <Label htmlFor="terms">
+    I agree to the terms and conditions
+  </Label>
+</div>
+```
+
+### 水平表单布局
+
+```tsx
+<div className="grid grid-cols-12 gap-4 items-center">
+  <Label htmlFor="name" className="col-span-3 text-right">
+    Name
+  </Label>
+  <div className="col-span-9">
+    <Input id="name" />
+  </div>
+</div>
+```
+
+### 不同尺寸组合
+
+```tsx
+<div className="space-y-4">
+  <div className="space-y-2">
+    <Label htmlFor="small" size="sm">Small Label</Label>
+    <Input id="small" size="sm" />
+  </div>
+
+  <div className="space-y-2">
+    <Label htmlFor="medium" size="md">Medium Label</Label>
+    <Input id="medium" size="md" />
+  </div>
+
+  <div className="space-y-2">
+    <Label htmlFor="large" size="lg">Large Label</Label>
+    <Input id="large" size="lg" />
+  </div>
+</div>
+```
+
+### 带错误提示
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { Label, Input } from 'skyroc-ui';
+
+function FormField() {
+  const [error, setError] = useState('');
+
+  return (
+    <div className="space-y-2">
+      <Label htmlFor="username">
+        Username
+        <span className="text-destructive ml-1">*</span>
+      </Label>
+      <Input
+        id="username"
+        className={error ? 'border-destructive' : ''}
+        onChange={(e) => {
+          if (e.target.value.length < 3) {
+            setError('Username must be at least 3 characters');
+          } else {
+            setError('');
+          }
+        }}
+      />
+      {error && (
+        <p className="text-sm text-destructive">{error}</p>
+      )}
+    </div>
+  );
+}
+```
+
+### 禁用状态
+
+```tsx
+<div className="space-y-2">
+  <Label htmlFor="disabled-input">Disabled Field</Label>
+  <Input
+    id="disabled-input"
+    disabled
+    defaultValue="This field is disabled"
+  />
+</div>
+```
+
+### 使用 asChild 实现自定义标签
+
+```tsx
+import { Label } from 'skyroc-ui';
+
+<Label asChild>
+  <span className="text-primary font-bold">
+    Custom Label Element
+  </span>
+</Label>
+```
+
+## 表单库集成
+
+Label 组件可以与流行的表单库无缝集成:
+
+### React Hook Form
+
+```tsx
+import { useForm } from 'react-hook-form';
+import { Label, Input } from 'skyroc-ui';
+
+function MyForm() {
+  const { register, handleSubmit } = useForm();
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="space-y-2">
+        <Label htmlFor="email">Email</Label>
+        <Input
+          id="email"
+          {...register('email', { required: true })}
+        />
+      </div>
+    </form>
+  );
+}
+```
+
+### Formik
+
+```tsx
+import { Formik, Field } from 'formik';
+import { Label, Input } from 'skyroc-ui';
+
+function MyForm() {
+  return (
+    <Formik initialValues={{ email: '' }} onSubmit={handleSubmit}>
+      <div className="space-y-2">
+        <Label htmlFor="email">Email</Label>
+        <Field as={Input} id="email" name="email" />
+      </div>
+    </Formik>
+  );
+}
+```
+
+## 样式定制
+
+Label 组件支持完全自定义样式:
+
+```tsx
+// 自定义颜色
+<Label className="text-primary font-bold">Primary Label</Label>
+
+// 大写样式
+<Label className="uppercase tracking-wider">Uppercase Label</Label>
+
+// 带图标的标签
+<Label className="flex items-center gap-2">
+  <InfoIcon className="size-4" />
+  Label with Icon
+</Label>
+```
+
+## 相关组件
+
+- **Input** - 输入框组件
+- **Checkbox** - 复选框组件
+- **RadioGroup** - 单选框组组件
+- **Select** - 选择器组件
+- **Textarea** - 文本域组件
+- **Form** - 表单组件

@@ -1,16 +1,11 @@
-import { Card, InputOTP } from 'skyroc-ui';
+import { InputOTP } from 'skyroc-ui';
 
 const Disabled = () => {
   return (
-    <Card
-      split
-      title="Disabled"
-    >
-      <InputOTP
-        disabled
-        placeholder="○"
-      />
-    </Card>
+    <InputOTP
+      disabled
+      placeholder="○"
+    />
   );
 };
 

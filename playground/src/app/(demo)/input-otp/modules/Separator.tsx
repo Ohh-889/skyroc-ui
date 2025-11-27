@@ -1,14 +1,7 @@
-import { Card, InputOTP } from 'skyroc-ui';
+import { InputOTP } from 'skyroc-ui';
 
 const Separator = () => {
-  return (
-    <Card
-      split
-      title="Separator"
-    >
-      <InputOTP separator />
-    </Card>
-  );
+  return <InputOTP separator />;
 };
 
 export default Separator;

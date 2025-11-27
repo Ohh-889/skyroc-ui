@@ -1,3 +1,4 @@
+import { isValidElement } from 'react';
 import { Minus } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { inputOTPVariants } from './input-otp-variants';
@@ -17,7 +18,7 @@ const InputOTPSeparator = (props: InputOTPSeparatorProps) => {
       data-slot="input-otp-separator"
       {...rest}
     >
-      {children || <Minus />}
+      {isValidElement(children) ? children : <Minus />}
     </div>
   );
 };

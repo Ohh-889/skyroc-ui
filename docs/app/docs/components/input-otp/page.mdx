@@ -1,0 +1,371 @@
+# InputOTP 一次性密码输入框
+
+一次性密码输入框组件用于输入验证码、OTP(一次性密码)等场景,提供分段输入和友好的用户体验。
+
+## 安装
+
+<InstallDependencies packages={['input-otp']} />
+
+## 导入
+
+```ts copy
+import { InputOTP, InputOtpRoot, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 基本示例
+
+最基本的一次性密码输入框,支持 6 位数字输入。
+
+<Demo src="@playground/input-otp/modules/InputOtpDefault" title="基本输入框" />
+
+### 自定义输入数量
+
+通过 `inputCount` 属性自定义输入框的数量。
+
+<Demo src="@playground/input-otp/modules/InputOtpCustomCount" title="自定义输入数量" />
+
+### 大写转换
+
+可以通过 `onChange` 回调实现输入内容的自动转换,如转换为大写。
+
+<Demo src="@playground/input-otp/modules/UpperCase" title="大写转换" />
+
+### 分隔符
+
+使用 `separator` 属性添加分隔符,使输入更清晰。
+
+<Demo src="@playground/input-otp/modules/Separator" title="默认分隔符" />
+
+### 自定义分隔符
+
+`separator` 可以接受自定义内容,如字符串或 React 节点。
+
+<Demo src="@playground/input-otp/modules/CustomSeparator" title="自定义分隔符" />
+
+### 密码模式
+
+通过 `mask` 属性启用密码模式,输入内容会显示为圆点。
+
+<Demo src="@playground/input-otp/modules/Password" title="密码模式" />
+
+### 禁用状态
+
+通过 `disabled` 属性禁用输入框。
+
+<Demo src="@playground/input-otp/modules/Disabled" title="禁用状态" />
+
+## 组合式 API
+
+如果需要更灵活的布局控制,可以使用组合式 API:
+
+```tsx
+import { InputOtpRoot, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from 'skyroc-ui';
+
+export default function Demo() {
+  return (
+    <InputOtpRoot maxLength={6}>
+      <InputOTPGroup>
+        <InputOTPSlot index={0} />
+        <InputOTPSlot index={1} />
+        <InputOTPSlot index={2} />
+      </InputOTPGroup>
+      <InputOTPSeparator />
+      <InputOTPGroup>
+        <InputOTPSlot index={3} />
+        <InputOTPSlot index={4} />
+        <InputOTPSlot index={5} />
+      </InputOTPGroup>
+    </InputOtpRoot>
+  );
+}
+```
+
+## API
+
+### InputOTP Props
+
+简化的一次性密码输入框组件,封装了 `InputOtpRoot`、`InputOTPGroup`、`InputOTPSlot` 和 `InputOTPSeparator`。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| inputCount | `number` | `6` | 输入框数量 |
+| mask | `boolean` | `false` | 是否启用密码模式,显示为圆点 |
+| separator | `ReactNode \| true` | - | 分隔符内容,`true` 使用默认分隔符(减号图标) |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 输入框尺寸 |
+| classNames | `InputOTPClassNames` | - | 自定义各部分的样式类名 |
+| className | `string` | - | 根容器的自定义类名 |
+| value | `string` | - | 受控输入值 |
+| onChange | `(newValue: string) => void` | - | 输入值变化时的回调 |
+| onComplete | `(value: string[]) => void` | - | 输入完成时的回调 |
+| placeholder | `string` | - | 占位符字符 |
+| inputMode | `string` | - | 输入模式,如 `'numeric'` 用于数字输入 |
+| disabled | `boolean` | `false` | 是否禁用 |
+| containerClassName | `string` | - | 容器类名 |
+| textAlign | `'left' \| 'center' \| 'right'` | `'center'` | 文本对齐方式 |
+| pushPasswordManagerStrategy | `'increase-width' \| 'none'` | - | 密码管理器策略 |
+| pasteTransformer | `(pasted: string) => string` | - | 粘贴内容转换函数 |
+| noScriptCSSFallback | `string \| null` | - | 无 JavaScript 时的 CSS 降级方案 |
+
+> 支持原生 `input` 元素的其他所有属性。
+
+### InputOTPClassNames
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| root | `string` | 根容器样式 |
+| group | `string` | 分组容器样式 |
+| input | `string` | 输入框样式 |
+| separator | `string` | 分隔符样式 |
+
+### InputOtpRoot Props
+
+一次性密码输入框的根容器组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| maxLength | `number` | - | 最大输入长度(必填) |
+| value | `string` | - | 受控输入值 |
+| onChange | `(newValue: string) => void` | - | 输入值变化时的回调 |
+| onComplete | `(...args: any[]) => void` | - | 输入完成时的回调 |
+| textAlign | `'left' \| 'center' \| 'right'` | `'center'` | 文本对齐方式 |
+| pushPasswordManagerStrategy | `'increase-width' \| 'none'` | - | 密码管理器策略 |
+| pasteTransformer | `(pasted: string) => string` | - | 粘贴内容转换函数 |
+| containerClassName | `string` | - | 容器类名 |
+| noScriptCSSFallback | `string \| null` | - | 无 JavaScript 时的 CSS 降级方案 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 输入框尺寸 |
+| className | `string` | - | 自定义类名 |
+| render | `(props: RenderProps) => ReactNode` | - | 自定义渲染函数 |
+| children | `ReactNode` | - | 子元素(与 `render` 互斥) |
+
+> 支持原生 `input` 元素的其他所有属性。
+
+#### RenderProps
+
+`render` 函数接收的参数对象:
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| slots | `SlotProps[]` | 每个输入框的状态数组 |
+| isFocused | `boolean` | 是否获得焦点 |
+| isHovering | `boolean` | 是否悬停 |
+
+#### SlotProps
+
+单个输入框的状态:
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| isActive | `boolean` | 是否激活(当前输入位置) |
+| char | `string \| null` | 当前字符 |
+| placeholderChar | `string \| null` | 占位符字符 |
+| hasFakeCaret | `boolean` | 是否显示模拟光标 |
+
+### InputOTPGroup Props
+
+输入框分组组件,用于对多个输入框进行分组。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| separate | `boolean` | `false` | 是否显示分隔状态(影响间距) |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 输入框尺寸 |
+| className | `string` | - | 自定义类名 |
+
+> 支持原生 `div` 元素的其他所有属性。
+
+### InputOTPSlot Props
+
+单个输入框插槽组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| index | `number` | - | 输入框索引(必填) |
+| mask | `boolean` | `false` | 是否启用密码模式 |
+| separate | `boolean` | `false` | 是否显示分隔状态 |
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 输入框尺寸 |
+| className | `string` | - | 自定义类名 |
+
+> 支持原生 `div` 元素的其他所有属性。
+
+### InputOTPSeparator Props
+
+分隔符组件,在输入框组之间显示分隔符。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 分隔符尺寸 |
+| className | `string` | - | 自定义类名 |
+| children | `ReactNode` | `<Minus />` | 分隔符内容,默认为减号图标 |
+
+> 支持原生 `div` 元素的其他所有属性。
+
+## 尺寸对照
+
+| 尺寸 | 输入框大小 | 文本大小 |
+|------|-----------|---------|
+| xs | 24×24px (`h-6 w-6`) | `text-2xs` |
+| sm | 28×28px (`h-7 w-7`) | `text-xs` |
+| md | 32×32px (`h-8 w-8`) | `text-sm` |
+| lg | 36×36px (`h-9 w-9`) | `text-base` |
+| xl | 40×40px (`h-10 w-10`) | `text-lg` |
+| 2xl | 48×48px (`h-12 w-12`) | `text-xl` |
+
+## 使用指南
+
+### 何时使用
+
+- 验证码输入
+- 一次性密码(OTP)输入
+- PIN 码输入
+- 短信验证码输入
+- 邮箱验证码输入
+
+### 输入模式建议
+
+- **数字验证码** - 设置 `inputMode="numeric"` 优化移动端键盘
+- **字母+数字** - 使用默认 `inputMode` 或 `inputMode="text"`
+- **纯字母** - 可配合 `onChange` 实现大写转换
+
+### 尺寸使用建议
+
+- **xs/sm** - 紧凑型布局、移动端
+- **md** - 默认尺寸,适合大多数场景
+- **lg/xl** - 桌面端、强调输入
+- **2xl** - 大屏展示、突出显示
+
+## 注意事项
+
+1. **自动聚焦** - 组件会自动聚焦到第一个输入框
+2. **粘贴支持** - 支持粘贴整个验证码,会自动分配到各个输入框
+3. **键盘导航** - 支持左右箭头键在输入框间移动
+4. **删除处理** - Backspace 会删除当前字符并自动聚焦到上一个输入框
+5. **输入限制** - 使用 `inputMode` 和 `pattern` 限制输入类型
+6. **完成回调** - `onComplete` 在所有输入框填满时触发
+
+## 无障碍
+
+- 自动管理焦点顺序
+- 支持键盘导航(箭头键、Backspace)
+- 支持屏幕阅读器
+- 提供适当的 ARIA 属性
+- 禁用状态有明确的视觉反馈
+
+## 最佳实践
+
+### 基本验证码输入
+
+```tsx
+<InputOTP
+  inputMode="numeric"
+  placeholder="○"
+  onComplete={(value) => {
+    console.log('验证码:', value.join(''));
+  }}
+/>
+```
+
+### 带分隔符的 PIN 码
+
+```tsx
+<InputOTP
+  inputCount={4}
+  inputMode="numeric"
+  separator
+  onComplete={(value) => {
+    verifyPIN(value.join(''));
+  }}
+/>
+```
+
+### 字母验证码(自动大写)
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { InputOTP } from 'skyroc-ui';
+
+export default function Demo() {
+  const [value, setValue] = useState('');
+
+  return (
+    <InputOTP
+      value={value}
+      onChange={(newValue) => setValue(newValue.toUpperCase())}
+      inputCount={6}
+      placeholder="○"
+    />
+  );
+}
+```
+
+### 使用组合式 API 自定义布局
+
+```tsx
+<InputOtpRoot maxLength={6} onComplete={handleComplete}>
+  <InputOTPGroup>
+    <InputOTPSlot index={0} />
+    <InputOTPSlot index={1} />
+    <InputOTPSlot index={2} />
+  </InputOTPGroup>
+  <InputOTPSeparator />
+  <InputOTPGroup>
+    <InputOTPSlot index={3} />
+    <InputOTPSlot index={4} />
+    <InputOTPSlot index={5} />
+  </InputOTPGroup>
+</InputOtpRoot>
+```
+
+### 自定义样式
+
+```tsx
+<InputOTP
+  inputCount={6}
+  classNames={{
+    root: 'gap-4',
+    group: 'gap-2',
+    input: 'border-primary focus-visible:ring-primary',
+    separator: 'text-primary'
+  }}
+/>
+```
+
+### 密码模式配合验证
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+import { InputOTP, Button } from 'skyroc-ui';
+
+export default function Demo() {
+  const [value, setValue] = useState('');
+  const [error, setError] = useState('');
+
+  const handleComplete = (values: string[]) => {
+    const password = values.join('');
+    if (password === '123456') {
+      setError('');
+      // 验证成功
+    } else {
+      setError('密码错误');
+    }
+  };
+
+  return (
+    <div className="space-y-2">
+      <InputOTP
+        value={value}
+        onChange={setValue}
+        onComplete={handleComplete}
+        mask
+        type="password"
+        inputMode="numeric"
+      />
+      {error && <p className="text-sm text-destructive">{error}</p>}
+    </div>
+  );
+}
+```
