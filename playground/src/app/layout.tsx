@@ -43,19 +43,17 @@ const siteConfig = {
 };
 
 export const metadata: Metadata = {
-  'metadataBase': new URL(siteConfig.url),
-  'title': {
+  metadataBase: new URL(siteConfig.url),
+  title: {
     default: `${siteConfig.name} - Playground`,
     template: `%s | ${siteConfig.name}`
   },
-  'description': siteConfig.description,
-  'keywords': siteConfig.keywords,
-  // @ts-expect-error - msvalidate.01 is not a valid property in the Metadata type
-  'msvalidate.01': '7F89C68ECF79F13249BDC614706F7549',
-  'authors': [{ name: siteConfig.author.name, url: siteConfig.author.url }],
-  'creator': siteConfig.author.name,
-  'publisher': siteConfig.name,
-  'robots': {
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
+  authors: [{ name: siteConfig.author.name, url: siteConfig.author.url }],
+  creator: siteConfig.author.name,
+  publisher: siteConfig.name,
+  robots: {
     index: true,
     follow: true,
     googleBot: {
@@ -66,7 +64,7 @@ export const metadata: Metadata = {
       'max-snippet': -1
     }
   },
-  'openGraph': {
+  openGraph: {
     type: 'website',
     locale: 'zh_CN',
     url: siteConfig.url,
@@ -82,20 +80,23 @@ export const metadata: Metadata = {
       }
     ]
   },
-  'twitter': {
+  twitter: {
     card: 'summary_large_image',
     title: siteConfig.name,
     description: siteConfig.description,
     images: [siteConfig.ogImage],
     creator: '@skyroc_ui'
   },
-  'icons': {
+  icons: {
     icon: '/icon.svg',
     shortcut: '/favicon.ico',
     apple: '/logo.png'
   },
-  'manifest': '/manifest.json',
-  'alternates': {
+  other: {
+    'msvalidate.01': '7F89C68ECF79F13249BDC614706F7549'
+  },
+  manifest: '/manifest.json',
+  alternates: {
     canonical: siteConfig.url
   }
 };
@@ -122,6 +123,7 @@ const RootLayout = ({
             `
           }}
         />
+
       </head>
 
       <body

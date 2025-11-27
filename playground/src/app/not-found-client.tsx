@@ -3,7 +3,7 @@
 import { ArrowLeft, Home, Mail, RefreshCw } from 'lucide-react';
 import Link from 'next/link';
 
-export default function NotFoundClient() {
+const NotFoundClient = () => {
   return (
     <div className="flex min-h-screen items-center justify-center bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 p-4">
       {/* Background decorations */}
@@ -121,4 +121,6 @@ export default function NotFoundClient() {
       </div>
     </div>
   );
-}
+};
+
+export default NotFoundClient;
