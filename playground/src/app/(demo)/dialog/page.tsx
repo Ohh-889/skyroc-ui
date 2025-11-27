@@ -1,10 +1,10 @@
 import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
 import { generateComponentMetadata } from '../components-meta';
-
-export const metadata: Metadata = generateComponentMetadata('dialog');
 import DialogBasic from './modules/DialogBasic';
 import DialogWithFooter from './modules/DialogWithFooter';
+
+export const metadata: Metadata = generateComponentMetadata('dialog');
 
 const DialogPage = () => {
   return (

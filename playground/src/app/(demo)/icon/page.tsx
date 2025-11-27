@@ -1,7 +1,11 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import IconBasic from './modules/IconBasic';
 import IconColor from './modules/IconColor';
 import IconSize from './modules/IconSize';
+
+export const metadata: Metadata = generateComponentMetadata('icon');
 
 const IconPage = () => {
   return (

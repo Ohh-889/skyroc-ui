@@ -1,8 +1,12 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import Color from './modules/Color';
 import ProgressAnimated from './modules/ProgressAnimated';
 import ProgressBasic from './modules/ProgressBasic';
 import Size from './modules/Size';
+
+export const metadata: Metadata = generateComponentMetadata('progress');
 
 const ProgressPage = () => {
   return (

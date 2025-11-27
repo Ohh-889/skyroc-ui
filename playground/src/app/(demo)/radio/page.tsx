@@ -1,9 +1,13 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import RadioColor from './modules/RadioColor';
 import RadioDisabledAll from './modules/RadioDisabledAll';
 import RadioDisabledItem from './modules/RadioDisabledItem';
 import RadioSize from './modules/RadioSize';
 import RadioVertical from './modules/RadioVertical';
+
+export const metadata: Metadata = generateComponentMetadata('radio');
 
 const RadioPage = () => {
   return (

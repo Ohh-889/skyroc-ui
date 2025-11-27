@@ -1,27 +1,11 @@
-'use client';
-import { toast } from 'skyroc-ui';
+import type { Metadata } from 'next';
+import { generateComponentMetadata } from '../components-meta';
+import SonnerClient from './sonner-client';
+
+export const metadata: Metadata = generateComponentMetadata('sonner');
 
 const SonnerPage = () => {
-  return (
-    <div>
-      <button
-        onClick={() =>
-          toast.success('Hello', {
-            action: {
-              label: 'Click me',
-              onClick: () => {
-                toast.success('Hello');
-              }
-            },
-
-            description: 'This is a description',
-            duration: 3000
-          })}
-      >
-        Click me
-      </button>
-    </div>
-  );
+  return <SonnerClient />;
 };
 
 export default SonnerPage;

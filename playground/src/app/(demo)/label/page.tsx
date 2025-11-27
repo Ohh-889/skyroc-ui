@@ -1,8 +1,12 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import LabelBasic from './modules/LabelBasic';
 import LabelDisabled from './modules/LabelDisabled';
 import LabelRequired from './modules/LabelRequired';
 import LabelSize from './modules/LabelSize';
+
+export const metadata: Metadata = generateComponentMetadata('label');
 
 const LabelPage = () => {
   return (

@@ -1,7 +1,11 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import AspectRatioBasic from './modules/AspectRatioBasic';
 import AspectRatioVariants from './modules/AspectRatioVariants';
 import AspectRatioVideo from './modules/AspectRatioVideo';
+
+export const metadata: Metadata = generateComponentMetadata('aspect-ratio');
 
 const AspectRatioPage = () => {
   return (

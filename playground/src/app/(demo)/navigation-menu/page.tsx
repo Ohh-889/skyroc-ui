@@ -1,3 +1,8 @@
+import type { Metadata } from 'next';
+import { generateComponentMetadata } from '../components-meta';
+
+export const metadata: Metadata = generateComponentMetadata('navigation-menu');
+
 // 'use client';
 
 // import { CircleCheckIcon, CircleHelpIcon, CircleIcon } from 'lucide-react';

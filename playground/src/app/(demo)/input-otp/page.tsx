@@ -1,4 +1,6 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import CustomSeparator from './modules/CustomSeparator';
 import Disabled from './modules/Disabled';
 import InputOtpCustomCount from './modules/InputOtpCustomCount';
@@ -6,6 +8,8 @@ import InputOtpDefault from './modules/InputOtpDefault';
 import Password from './modules/Password';
 import Separator from './modules/Separator';
 import UpperCase from './modules/UpperCase';
+
+export const metadata: Metadata = generateComponentMetadata('input-otp');
 
 const InputOtpPage = () => {
   return (

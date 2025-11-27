@@ -1,8 +1,12 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import CarouselAutoplay from './modules/CarouselAutoplay';
 import CarouselBasic from './modules/CarouselBasic';
 import CarouselMultiple from './modules/CarouselMultiple';
 import CarouselVertical from './modules/CarouselVertical';
+
+export const metadata: Metadata = generateComponentMetadata('carousel');
 
 const CarouselPage = () => {
   return (

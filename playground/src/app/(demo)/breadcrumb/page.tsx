@@ -1,4 +1,6 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import BreadcrumbBasic from './modules/BreadcrumbBasic';
 import BreadcrumbCustomEllipsis from './modules/BreadcrumbCustomEllipsis';
 import BreadcrumbCustomItem from './modules/BreadcrumbCustomItem';
@@ -6,6 +8,8 @@ import BreadcrumbCustomSeparator from './modules/BreadcrumbCustomSeparator';
 import BreadcrumbEllipsisDemo from './modules/BreadcrumbEllipsis';
 import BreadcrumbLink from './modules/BreadcrumbLink';
 import BreadcrumbSize from './modules/BreadcrumbSize';
+
+export const metadata: Metadata = generateComponentMetadata('breadcrumb');
 
 const BreadcrumbPage = () => {
   return (

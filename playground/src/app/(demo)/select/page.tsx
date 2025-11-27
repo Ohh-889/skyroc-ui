@@ -1,14 +1,14 @@
 import type { Metadata } from 'next';
 import { generateComponentMetadata } from '../components-meta';
 import AllSeparator from './modules/AllSeparator';
-
-export const metadata: Metadata = generateComponentMetadata('select');
 import Default from './modules/Default';
 import DefaultValue from './modules/DefaultValue';
 import Disabled from './modules/Disabled';
 import DisabledOption from './modules/DisabledOption';
 import GroupOption from './modules/GroupOption';
 import PositionItemAligned from './modules/PositionItemAligned';
+
+export const metadata: Metadata = generateComponentMetadata('select');
 
 const SelectPage = () => {
   return (

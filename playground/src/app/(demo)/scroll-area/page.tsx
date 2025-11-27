@@ -1,5 +1,9 @@
 import React from 'react';
+import type { Metadata } from 'next';
 import { Card, Divider, ScrollArea } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
+
+export const metadata: Metadata = generateComponentMetadata('scroll-area');
 
 interface Artwork {
   art: string;

@@ -1,9 +1,13 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import BadgeColor from './modules/BadgeColor';
 import BadgeShape from './modules/BadgeShape';
 import BadgeSize from './modules/BadgeSize';
 import BadgeVariant from './modules/BadgeVariant';
 import BadgeVariantColors from './modules/BadgeVariantColors';
+
+export const metadata: Metadata = generateComponentMetadata('badge');
 
 const BadgePage = () => {
   return (

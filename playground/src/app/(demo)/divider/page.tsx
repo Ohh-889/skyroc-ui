@@ -1,8 +1,12 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import DividerAlign from './modules/DividerAlign';
 import DividerBasic from './modules/DividerBasic';
 import DividerBorder from './modules/DividerBorder';
 import DividerVertical from './modules/DividerVertical';
+
+export const metadata: Metadata = generateComponentMetadata('divider');
 
 const DividerPage = () => {
   return (

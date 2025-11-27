@@ -1,4 +1,6 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import AlertDialogCustomIcon from './modules/AlertDialogCustomIcon';
 import AlertDialogDestructive from './modules/AlertDialogDestructive';
 import AlertDialogInformation from './modules/AlertDialogInformation';
@@ -7,6 +9,8 @@ import AlertDialogSuccess from './modules/AlertDialogSuccess';
 import AlertDialogTypes from './modules/AlertDialogTypes';
 import AlertDialogWarning from './modules/AlertDialogWarning';
 import AlertDialogWithDescription from './modules/AlertDialogWithDescription';
+
+export const metadata: Metadata = generateComponentMetadata('alert-dialog');
 
 const AlertDialogPage = () => {
   return (

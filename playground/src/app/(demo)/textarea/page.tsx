@@ -1,8 +1,12 @@
+import type { Metadata } from 'next';
+import { generateComponentMetadata } from '../components-meta';
 import TextCustomCount from './modules/TextCustomCount';
 import TextareaCountGraphemes from './modules/TextareaCountGraphemes';
 import TextareaDemo from './modules/TextareaDemo';
 import TextareaMaxlength from './modules/TextareaMaxlength';
 import TextareaSize from './modules/TextareaSize';
+
+export const metadata: Metadata = generateComponentMetadata('textarea');
 
 const TextareaPage = () => {
   return (

@@ -1,6 +1,10 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import CommandBasic from './modules/CommandBasic';
 import CommandDialogDemo from './modules/CommandDialog';
+
+export const metadata: Metadata = generateComponentMetadata('command');
 
 const CommandPage = () => {
   return (

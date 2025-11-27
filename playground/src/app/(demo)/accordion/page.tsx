@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
 import { generateComponentMetadata } from '../components-meta';
-
-export const metadata: Metadata = generateComponentMetadata('accordion');
 import AccordionCustom from './modules/AccordionCustom';
 import AccordionCustomIcon from './modules/AccordionCustomIcon';
 import AccordionMultiple from './modules/AccordionMultiple';
@@ -10,6 +8,8 @@ import AccordionSingle from './modules/AccordionSingle';
 import AccordionSingleCollapsible from './modules/AccordionSingleCollapsible';
 import AccordionSize from './modules/AccordionSize';
 import AccordionSlot from './modules/AccordionSlot';
+
+export const metadata: Metadata = generateComponentMetadata('accordion');
 
 const AccordionDemo = () => {
   return (

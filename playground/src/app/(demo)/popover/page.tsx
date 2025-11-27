@@ -1,9 +1,13 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import PopoverBasic from './modules/PopoverBasic';
 import PopoverControlled from './modules/PopoverControlled';
 import PopoverPlacement from './modules/PopoverPlacement';
 import PopoverSize from './modules/PopoverSize';
 import PopoverWithArrow from './modules/PopoverWithArrow';
+
+export const metadata: Metadata = generateComponentMetadata('popover');
 
 const PopoverPage = () => {
   return (

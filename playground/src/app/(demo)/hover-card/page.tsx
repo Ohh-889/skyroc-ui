@@ -1,6 +1,10 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import HoverCardArrow from './modules/HoverCardArrow';
 import HoverCardBasic from './modules/HoverCardBasic';
+
+export const metadata: Metadata = generateComponentMetadata('hover-card');
 
 const HoverCardPage = () => {
   return (

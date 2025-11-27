@@ -1,6 +1,10 @@
+import type { Metadata } from 'next';
+import { generateComponentMetadata } from '../components-meta';
 import SliderColor from './modules/SliderColor';
 import SliderSize from './modules/SliderSize';
 import SliderVertical from './modules/SliderVertical';
+
+export const metadata: Metadata = generateComponentMetadata('slider');
 
 const SliderPage = () => {
   return (

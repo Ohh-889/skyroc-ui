@@ -1,9 +1,13 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import ChipBasic from './modules/ChipBasic';
 import ChipColor from './modules/ChipColor';
 import ChipColorWithContent from './modules/ChipColorWithContent';
 import ChipPosition from './modules/ChipPosition';
 import ChipSize from './modules/ChipSize';
+
+export const metadata: Metadata = generateComponentMetadata('chip');
 
 const ChipPage = () => {
   return (

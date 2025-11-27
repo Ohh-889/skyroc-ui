@@ -1,7 +1,11 @@
+import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
+import { generateComponentMetadata } from '../components-meta';
 import Default from './modules/Default';
 import ResizableHorizontal from './modules/ResizableHorizontal';
 import ResizableVertical from './modules/ResizableVertical';
+
+export const metadata: Metadata = generateComponentMetadata('resizable');
 
 const ResizablePage = () => {
   return (
