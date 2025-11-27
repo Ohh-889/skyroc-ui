@@ -1,19 +1,24 @@
 import { Card } from 'skyroc-ui';
-import AutoClose from './modules/AutoClose';
-import ControlState from './modules/ControlState';
-import DefaultDemo from './modules/DefaultDemo';
-import WithFooter from './modules/WithFooter';
+import DialogBasic from './modules/DialogBasic';
+import DialogWithFooter from './modules/DialogWithFooter';
 
 const DialogPage = () => {
   return (
-    <Card>
-      <div className="flex-c gap-4">
-        <DefaultDemo />
-        <WithFooter />
-        <ControlState />
-        <AutoClose />
-      </div>
-    </Card>
+    <div className="flex-c gap-4">
+      <Card
+        split
+        title="Default"
+      >
+        <DialogBasic />
+      </Card>
+
+      <Card
+        split
+        title="With Footer"
+      >
+        <DialogWithFooter />
+      </Card>
+    </div>
   );
 };
 

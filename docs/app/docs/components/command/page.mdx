@@ -1,0 +1,144 @@
+# Command 命令面板
+
+命令面板组件用于快速搜索和执行命令，常用于全局搜索和快捷操作。
+
+## 安装
+
+<InstallDependencies packages={['cmdk']} />
+
+## 导入
+
+```ts copy
+import { 
+  Command,
+  CommandDialog,
+  CommandRoot,
+  CommandInput,
+  CommandList,
+  CommandEmpty,
+  CommandGroup,
+  CommandItem,
+  CommandSeparator,
+  CommandShortcut
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 基本命令面板
+
+<Demo src="@playground/command/modules/CommandBasic" title="基本命令面板" />
+
+### 命令对话框
+
+<Demo src="@playground/command/modules/CommandDialog" title="命令对话框" />
+
+## API
+
+### Command Props
+
+简化的命令面板组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| items | `CommandOptionData[]` | - | 命令列表数据 |
+| empty | `ReactNode` | - | 无结果时显示的内容 |
+| inputProps | `CommandInputProps` | - | 搜索输入框属性 |
+| classNames | `CommandClassNames` | - | 自定义各部分的样式类名 |
+| className | `ClassValue` | - | 根容器自定义类名 |
+
+> 支持 cmdk Command 的其他所有属性。
+
+### CommandOptionData
+
+命令选项数据类型，支持三种类型：
+
+```ts
+type CommandOptionData = 
+  | CommandItemOptionProps    // 普通选项
+  | CommandGroupOptionProps   // 分组
+  | CommandSeparatorOptionProps; // 分隔线
+```
+
+### CommandItemOptionProps
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| label | `ReactNode` | 选项标签 |
+| value | `string` | 选项值 |
+| shortcut | `string \| string[]` | 快捷键 |
+| disabled | `boolean` | 是否禁用 |
+| onSelect | `(value: string) => void` | 选择回调 |
+
+### CommandGroupOptionProps
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| label | `ReactNode` | 分组标签 |
+| children | `CommandOptionData[]` | 子选项 |
+| type | `'group'` | 类型标识 |
+
+### CommandDialog Props
+
+命令对话框组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| open | `boolean` | - | 是否打开 |
+| onOpenChange | `(open: boolean) => void` | - | 状态变化回调 |
+| classNames | `DialogClassNames` | - | 自定义样式类名 |
+
+## 使用指南
+
+### 何时使用
+
+- 全局快捷搜索
+- 命令调色板
+- 功能快速导航
+- 键盘快捷操作
+
+## 无障碍
+
+- 支持键盘导航（上下箭头）
+- 支持快捷键触发
+- 搜索结果实时过滤
+- 焦点管理和陷阱
+
+## 最佳实践
+
+### 全局搜索
+
+```tsx
+'use client';
+
+import { useEffect, useState } from 'react';
+
+export default function Demo() {
+  const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const down = (e: KeyboardEvent) => {
+      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        setOpen(open => !open);
+      }
+    };
+    document.addEventListener('keydown', down);
+    return () => document.removeEventListener('keydown', down);
+  }, []);
+
+  return (
+    <CommandDialog open={open} onOpenChange={setOpen}>
+      <CommandInput placeholder="搜索..." />
+      <CommandList>
+        <CommandEmpty>未找到结果</CommandEmpty>
+        <CommandGroup heading="建议">
+          <CommandItem>日历</CommandItem>
+          <CommandItem>搜索表情</CommandItem>
+        </CommandGroup>
+      </CommandList>
+    </CommandDialog>
+  );
+}
+```
+

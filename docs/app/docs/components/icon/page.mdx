@@ -1,0 +1,127 @@
+# Icon 图标
+
+图标组件基于 Iconify 实现，支持超过 150,000+ 开源图标，包括 Lucide、Material Design、Font Awesome 等流行图标库。
+
+## 安装
+
+<InstallDependencies packages={['@iconify/react']} />
+
+## 导入
+
+```ts copy
+import { Icon } from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 基本图标
+
+使用 `icon` 属性指定图标名称，格式为 `{集合}:{图标名}`。
+
+<Demo src="@playground/icon/modules/IconBasic" title="基本图标" />
+
+### 尺寸
+
+通过 `width` 和 `height` 属性控制图标尺寸。
+
+<Demo src="@playground/icon/modules/IconSize" title="图标尺寸" />
+
+### 颜色
+
+图标颜色继承自父元素的 `color` 属性，可通过 CSS 类名控制。
+
+<Demo src="@playground/icon/modules/IconColor" title="图标颜色" />
+
+## API
+
+### Icon Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| icon | `string` | - | 图标名称，格式：`{集合}:{图标名}` |
+| width | `string \| number` | `'1.25em'` | 图标宽度 |
+| height | `string \| number` | `'1.25em'` | 图标高度 |
+| color | `string` | - | 图标颜色 |
+| inline | `boolean` | - | 是否为内联模式 |
+| flip | `'horizontal' \| 'vertical' \| 'horizontal,vertical'` | - | 翻转方向 |
+| rotate | `0 \| 1 \| 2 \| 3 \| '90deg' \| '180deg' \| '270deg'` | - | 旋转角度 |
+| className | `string` | - | 自定义类名 |
+| style | `CSSProperties` | - | 自定义样式 |
+
+> 支持 Iconify React Icon 的其他所有属性。
+
+## 图标集合
+
+常用的图标集合：
+
+| 集合 | 前缀 | 示例 |
+|------|------|------|
+| Lucide | `lucide` | `lucide:home`, `lucide:settings` |
+| Material Design Icons | `mdi` | `mdi:home`, `mdi:account` |
+| Font Awesome Solid | `fa-solid` | `fa-solid:home` |
+| Heroicons | `heroicons` | `heroicons:home` |
+| Tabler Icons | `tabler` | `tabler:home` |
+| Carbon | `carbon` | `carbon:home` |
+
+## 使用指南
+
+### 何时使用
+
+- 按钮图标
+- 导航菜单图标
+- 状态指示器
+- 操作提示
+
+### 查找图标
+
+访问 [Iconify 图标库](https://icon-sets.iconify.design/) 搜索和预览图标。
+
+## 最佳实践
+
+### 按钮中使用
+
+```tsx
+<Button>
+  <Icon icon="lucide:plus" />
+  新建
+</Button>
+```
+
+### 导航菜单
+
+```tsx
+<nav>
+  <a href="/"><Icon icon="lucide:home" /> 首页</a>
+  <a href="/settings"><Icon icon="lucide:settings" /> 设置</a>
+</nav>
+```
+
+### 状态图标
+
+```tsx
+<div className="flex items-center gap-2">
+  <Icon icon="lucide:check-circle" className="text-success" />
+  <span>操作成功</span>
+</div>
+```
+
+### 自定义尺寸
+
+```tsx
+// 使用固定像素值
+<Icon icon="lucide:star" width={24} height={24} />
+
+// 使用相对单位（推荐）
+<Icon icon="lucide:star" width="1.5em" height="1.5em" />
+```
+
+### 翻转和旋转
+
+```tsx
+// 水平翻转
+<Icon icon="lucide:arrow-right" flip="horizontal" />
+
+// 旋转 90 度
+<Icon icon="lucide:arrow-up" rotate={1} />
+```
+

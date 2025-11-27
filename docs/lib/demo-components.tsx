@@ -13,6 +13,7 @@
 
 import * as skyrocUI from 'skyroc-ui';
 import Image from 'next/image';
+import * as skyrocForm from '@skyroc/form';
 
 /**
  * 获取所有可用的 Demo 组件
@@ -21,7 +22,8 @@ export function getDemoComponents() {
   return {
     // Skyroc UI 组件库
     ...skyrocUI,
-    Image
+    Image,
+    ...skyrocForm
     // 其他组件可以在依赖文件中直接 import，会自动处理
   };
 }

@@ -1,0 +1,125 @@
+# HoverCard 悬浮卡片
+
+悬浮卡片组件用于在鼠标悬停时显示更多信息，常用于用户信息预览、链接预览等场景。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-hover-card']} />
+
+## 导入
+
+```ts copy
+import { 
+  HoverCard,
+  HoverCardRoot,
+  HoverCardTrigger,
+  HoverCardContent,
+  HoverCardArrow
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 基本悬浮卡片
+
+<Demo src="@playground/hover-card/modules/HoverCardBasic" title="基本悬浮卡片" />
+
+### 带箭头
+
+<Demo src="@playground/hover-card/modules/HoverCardArrow" title="带箭头悬浮卡片" />
+
+## API
+
+### HoverCard Props
+
+简化的悬浮卡片组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| trigger | `ReactNode` | - | 触发悬浮卡片的元素 |
+| showArrow | `boolean` | `false` | 是否显示箭头 |
+| open | `boolean` | - | 是否显示（受控） |
+| defaultOpen | `boolean` | `false` | 默认是否显示 |
+| onOpenChange | `(open: boolean) => void` | - | 显示状态变化回调 |
+| openDelay | `number` | `700` | 打开延迟（毫秒） |
+| closeDelay | `number` | `300` | 关闭延迟（毫秒） |
+| classNames | `HoverCardClassNames` | - | 自定义各部分的样式类名 |
+| className | `ClassValue` | - | 内容区域自定义类名 |
+| contentProps | `HoverCardContentProps` | - | 内容区域属性 |
+| arrowProps | `HoverCardArrowProps` | - | 箭头属性 |
+
+> 支持 Radix UI HoverCard 的其他所有属性。
+
+### HoverCardClassNames
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| content | `ClassValue` | 内容区域样式 |
+| arrow | `ClassValue` | 箭头样式 |
+
+### HoverCardContent Props
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| side | `'top' \| 'right' \| 'bottom' \| 'left'` | `'bottom'` | 弹出方向 |
+| sideOffset | `number` | `0` | 与触发器的距离 |
+| align | `'start' \| 'center' \| 'end'` | `'center'` | 对齐方式 |
+| alignOffset | `number` | `0` | 对齐偏移 |
+| className | `ClassValue` | - | 自定义类名 |
+
+### HoverCardArrow Props
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| width | `number` | 箭头宽度 |
+| height | `number` | 箭头高度 |
+| className | `ClassValue` | 自定义类名 |
+
+## 使用指南
+
+### 何时使用
+
+- 用户头像/名称悬停预览
+- 链接预览
+- 术语解释
+- 快速信息查看
+
+## 无障碍
+
+- 支持键盘焦点触发
+- 适当的延迟避免误触发
+- 内容可通过键盘导航
+
+## 最佳实践
+
+### 用户信息预览
+
+```tsx
+<HoverCard
+  trigger={<Avatar src={user.avatar} />}
+  classNames={{ content: 'w-64' }}
+>
+  <div className="flex gap-4">
+    <Avatar src={user.avatar} size="lg" />
+    <div>
+      <h4 className="font-semibold">{user.name}</h4>
+      <p className="text-sm text-muted-foreground">{user.bio}</p>
+    </div>
+  </div>
+</HoverCard>
+```
+
+### 链接预览
+
+```tsx
+<HoverCard
+  showArrow
+  trigger={<a href="/article">查看文章</a>}
+>
+  <div className="space-y-2">
+    <h4 className="font-semibold">文章标题</h4>
+    <p className="text-sm">文章摘要内容...</p>
+  </div>
+</HoverCard>
+```
+

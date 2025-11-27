@@ -1,7 +1,15 @@
-import DefaultCollapsibleDemo from './modules/DefaultCollapsibleDemo';
+import { Card } from 'skyroc-ui';
+import CollapsibleBasic from './modules/CollapsibleBasic';
 
 const CollapsiblePage = () => {
-  return <DefaultCollapsibleDemo />;
+  return (
+    <Card
+      split
+      title="Collapsible"
+    >
+      <CollapsibleBasic />
+    </Card>
+  );
 };
 
 export default CollapsiblePage;

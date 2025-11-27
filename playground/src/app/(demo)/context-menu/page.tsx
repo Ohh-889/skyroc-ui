@@ -1,17 +1,15 @@
-import Checkbox from './modules/Checkbox';
-import ContextMenu from './modules/DefaultContextMenuDemo';
-import Radio from './modules/Radio';
-import WithArrow from './modules/WithArrow';
+import { Card } from 'skyroc-ui';
+import ContextMenuBasic from './modules/ContextMenuBasic';
 
-const DropdownMenuPage = () => {
+const ContextMenuPage = () => {
   return (
-    <div className="flex-c gap-4">
-      <ContextMenu />
-      <WithArrow />
-      <Checkbox />
-      <Radio />
-    </div>
+    <Card
+      split
+      title="Context Menu"
+    >
+      <ContextMenuBasic />
+    </Card>
   );
 };
 
-export default DropdownMenuPage;
+export default ContextMenuPage;

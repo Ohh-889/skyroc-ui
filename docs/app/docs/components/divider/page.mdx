@@ -1,0 +1,144 @@
+# Divider 分割线
+
+分割线组件用于分隔页面内容，支持水平和垂直方向，可添加文字说明。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-separator']} />
+
+## 导入
+
+```ts copy
+import { 
+  Divider,
+  DividerRoot,
+  DividerLabel
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+### 水平分割线
+
+<Demo src="@playground/divider/modules/DividerBasic" title="水平分割线" />
+
+### 垂直分割线
+
+<Demo src="@playground/divider/modules/DividerVertical" title="垂直分割线" />
+
+### 文字对齐
+
+<Demo src="@playground/divider/modules/DividerAlign" title="文字对齐" />
+
+### 边框样式
+
+<Demo src="@playground/divider/modules/DividerBorder" title="边框样式" />
+
+## API
+
+### Divider Props
+
+简化的分割线组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| orientation | `'horizontal' \| 'vertical'` | `'horizontal'` | 分割线方向 |
+| align | `'start' \| 'center' \| 'end'` | `'center'` | 文字对齐方式 |
+| border | `'solid' \| 'dashed' \| 'dotted'` | `'solid'` | 边框样式 |
+| classNames | `DividerUi` | - | 自定义各部分的样式类名 |
+| className | `ClassValue` | - | 根容器自定义类名 |
+| size | `ThemeSize` | - | 尺寸 |
+| children | `ReactNode` | - | 分割线文字内容 |
+
+> 支持 Radix UI Separator 的其他所有属性。
+
+### DividerUi（classNames）
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| root | `ClassValue` | 分割线根样式 |
+| label | `ClassValue` | 标签文字样式 |
+
+### DividerRoot Props
+
+分割线根组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| orientation | `'horizontal' \| 'vertical'` | `'horizontal'` | 方向 |
+| border | `DividerBorder` | `'solid'` | 边框样式 |
+| decorative | `boolean` | - | 是否为装饰性 |
+
+### DividerLabel Props
+
+分割线标签组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| align | `ThemeAlign` | `'center'` | 对齐方式 |
+| orientation | `ThemeOrientation` | `'horizontal'` | 方向 |
+
+## 边框样式
+
+| 样式 | 说明 |
+|------|------|
+| `solid` | 实线（默认） |
+| `dashed` | 虚线 |
+| `dotted` | 点线 |
+
+## 使用指南
+
+### 何时使用
+
+- 分隔页面区块
+- 列表分隔
+- 工具栏分隔
+- 表单分组
+
+## 无障碍
+
+- 使用语义化的分隔符角色
+- `decorative` 属性用于标识装饰性分隔线
+- 垂直分割线有明确的方向标识
+
+## 最佳实践
+
+### 段落分隔
+
+```tsx
+<article>
+  <p>第一段内容...</p>
+  <Divider />
+  <p>第二段内容...</p>
+</article>
+```
+
+### 带标题分隔
+
+```tsx
+<Divider>或者</Divider>
+```
+
+### 工具栏分隔
+
+```tsx
+<div className="flex items-center gap-2">
+  <Button>复制</Button>
+  <Button>粘贴</Button>
+  <Divider orientation="vertical" className="h-5" />
+  <Button>撤销</Button>
+  <Button>重做</Button>
+</div>
+```
+
+### 自定义样式
+
+```tsx
+<Divider 
+  border="dashed" 
+  className="border-primary"
+>
+  分隔线
+</Divider>
+```
+

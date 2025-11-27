@@ -1,121 +1,167 @@
-export const metadata = {
-  title: 'Input 输入框',
-  description: '通过键盘输入内容的基本表单组件'
-};
+# Input 输入框
 
-Input 输入框
+输入框组件用于接收用户的文本输入，支持多种尺寸和状态。
 
-通过键盘输入内容的基本表单组件。
+## 安装
 
-导入
+Input 组件是内置组件，无需额外安装依赖。
 
-```tsx
-``
+## 导入
+
+```ts copy
+import { Input } from 'skyroc-ui';
+```
 
 ## 基础用法
 
-<ComponentPreview code={`import { Input } from '@skyroc/ui';
+### 基本输入框
 
-export default function Demo() {
-  return <Input placeholder="请输入内容" />;
-}`}>
-  <div className="w-full max-w-sm">
-    <input
-      type="text"
-      placeholder="请输入内容"
-      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
-    />
-  </div>
-</ComponentPreview>
+<Demo src="@playground/input/modules/InputBasic" title="基本输入框" />
 
-## 不同类型
+### 尺寸
 
-支持不同的 HTML5 input 类型。
+Input 提供 6 种尺寸大小：`xs`、`sm`、`md`、`lg`、`xl`、`2xl`。
 
-<ComponentPreview code={`import { Input } from '@skyroc/ui';
+<Demo src="@playground/input/modules/InputSize" title="输入框尺寸" />
 
-export default function Demo() {
-  return (
-    <div className="space-y-4 w-full max-w-sm">
-      <Input type="text" placeholder="Text" />
-      <Input type="email" placeholder="Email" />
-      <Input type="password" placeholder="Password" />
-      <Input type="number" placeholder="Number" />
-      <Input type="tel" placeholder="Phone" />
-    </div>
-  );
-}`}>
-  <div className="space-y-4 w-full max-w-sm">
-    <input
-      type="text"
-      placeholder="Text"
-      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-    />
-    <input
-      type="email"
-      placeholder="Email"
-      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-    />
-    <input
-      type="password"
-      placeholder="Password"
-      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-    />
-  </div>
-</ComponentPreview>
+### 禁用状态
 
-## 禁用状态
+<Demo src="@playground/input/modules/InputDisabled" title="禁用状态" />
 
-<ComponentPreview code={`import { Input } from '@skyroc/ui';
+### 文件上传
 
-export default function Demo() {
-  return <Input placeholder="Disabled" disabled />;
-}`}>
-  <div className="w-full max-w-sm">
-    <input
-      type="text"
-      placeholder="Disabled"
-      disabled
-      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50"
-    />
-  </div>
-</ComponentPreview>
-
-## 带标签
-
-<ComponentPreview code={`import { Input } from '@skyroc/ui';
-import { Label } from '@skyroc/ui';
-
-export default function Demo() {
-  return (
-    <div className="space-y-2 w-full max-w-sm">
-      <Label htmlFor="email">Email</Label>
-      <Input id="email" type="email" placeholder="m@example.com" />
-    </div>
-  );
-}`}>
-  <div className="space-y-2 w-full max-w-sm">
-    <label htmlFor="email" className="text-sm font-medium leading-none">
-      Email
-    </label>
-    <input
-      id="email"
-      type="email"
-      placeholder="m@example.com"
-      className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-    />
-  </div>
-</ComponentPreview>
+<Demo src="@playground/input/modules/InputFile" title="文件上传" />
 
 ## API
 
 ### Input Props
 
 | 属性 | 类型 | 默认值 | 说明 |
-| --- | --- | --- | --- |
+|------|------|--------|------|
+| size | `'xs' \| 'sm' \| 'md' \| 'lg' \| 'xl' \| '2xl'` | `'md'` | 输入框尺寸 |
 | type | `string` | `'text'` | 输入框类型 |
+| value | `string` | - | 输入值（受控） |
+| defaultValue | `string` | - | 默认值 |
 | placeholder | `string` | - | 占位文本 |
 | disabled | `boolean` | `false` | 是否禁用 |
-| className | `string` | - | 自定义类名 |
+| readOnly | `boolean` | `false` | 是否只读 |
+| className | `ClassValue` | - | 自定义类名 |
+| onChange | `(e: ChangeEvent<HTMLInputElement>) => void` | - | 值变化回调 |
+| onFocus | `(e: FocusEvent<HTMLInputElement>) => void` | - | 获得焦点回调 |
+| onBlur | `(e: FocusEvent<HTMLInputElement>) => void` | - | 失去焦点回调 |
 
-继承所有原生 HTML input 元素的属性。
+> 支持原生 `input` 元素的其他所有属性。
+
+## 输入类型
+
+常用的 input type：
+
+| 类型 | 说明 |
+|------|------|
+| `text` | 文本输入（默认） |
+| `password` | 密码输入 |
+| `email` | 邮箱输入 |
+| `number` | 数字输入 |
+| `tel` | 电话输入 |
+| `url` | URL 输入 |
+| `search` | 搜索输入 |
+| `file` | 文件上传 |
+| `date` | 日期选择 |
+| `time` | 时间选择 |
+
+## 使用指南
+
+### 何时使用
+
+- 表单数据输入
+- 搜索框
+- 登录/注册表单
+- 数据筛选
+
+### 尺寸使用建议
+
+- **xs/sm** - 紧凑型表格、筛选条件
+- **md** - 默认尺寸，适合大多数表单
+- **lg/xl** - 重要输入项、搜索框
+- **2xl** - 大型搜索框、营销页面
+
+## 无障碍
+
+- 使用 `aria-invalid` 标识验证状态
+- 支持 `aria-describedby` 关联描述文本
+- 禁用状态有明确的视觉反馈
+- 焦点状态有清晰的焦点环
+
+## 最佳实践
+
+### 带标签
+
+```tsx
+<div className="space-y-2">
+  <Label htmlFor="email">邮箱</Label>
+  <Input id="email" type="email" placeholder="请输入邮箱" />
+</div>
+```
+
+### 表单验证
+
+```tsx
+<Input
+  aria-invalid={hasError}
+  className={hasError ? 'border-destructive' : ''}
+  placeholder="请输入用户名"
+/>
+{hasError && <p className="text-destructive text-sm">用户名不能为空</p>}
+```
+
+### 带图标
+
+```tsx
+<div className="relative">
+  <Icon 
+    icon="lucide:search" 
+    className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" 
+  />
+  <Input className="pl-10" placeholder="搜索..." />
+</div>
+```
+
+### 密码输入
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+
+export default function PasswordInput() {
+  const [show, setShow] = useState(false);
+
+  return (
+    <div className="relative">
+      <Input 
+        type={show ? 'text' : 'password'} 
+        placeholder="请输入密码" 
+      />
+      <button
+        type="button"
+        className="absolute right-3 top-1/2 -translate-y-1/2"
+        onClick={() => setShow(!show)}
+      >
+        <Icon icon={show ? 'lucide:eye-off' : 'lucide:eye'} />
+      </button>
+    </div>
+  );
+}
+```
+
+### 数字输入
+
+```tsx
+<Input 
+  type="number" 
+  min={0} 
+  max={100} 
+  step={1} 
+  placeholder="0-100" 
+/>
+```

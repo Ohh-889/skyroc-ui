@@ -1,27 +1,18 @@
-import type { ThemeSize } from 'skyroc-ui';
-import { Card, Input } from 'skyroc-ui';
+import { Input } from 'skyroc-ui';
 
-const sizes: ThemeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
+const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
 
 const InputSize = () => {
   return (
-    <Card
-      split
-      title="Size"
-    >
-      <div className="w-320px flex-c-stretch lt-sm:w-auto gap-3">
-        {sizes.map(size => (
-          <div key={size}>
-            <div>{size}</div>
-
-            <Input
-              placeholder={`${size} Please input`}
-              size={size}
-            />
-          </div>
-        ))}
-      </div>
-    </Card>
+    <div className="flex w-80 flex-col gap-3 max-sm:w-auto">
+      {sizes.map(size => (
+        <Input
+          key={size}
+          placeholder={`Size: ${size}`}
+          size={size}
+        />
+      ))}
+    </div>
   );
 };
 

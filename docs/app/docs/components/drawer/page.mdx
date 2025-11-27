@@ -1,0 +1,129 @@
+# Drawer 抽屉
+
+抽屉组件用于从屏幕边缘滑出的面板，常用于移动端菜单、详情面板等场景。
+
+## 安装
+
+<InstallDependencies packages={['vaul']} />
+
+## 导入
+
+```ts copy
+import { 
+  Drawer,
+  DrawerRoot,
+  DrawerTrigger,
+  DrawerContent,
+  DrawerHeader,
+  DrawerTitle,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerClose,
+  DrawerKnob
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+<Demo src="@playground/drawer/modules/DrawerBasic" title="基本抽屉" />
+
+## API
+
+### Drawer Props
+
+简化的抽屉组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| trigger | `ReactNode` | - | 触发抽屉的元素 |
+| title | `ReactNode` | - | 抽屉标题 |
+| description | `ReactNode` | - | 抽屉描述 |
+| footer | `ReactNode` | - | 底部内容 |
+| showClose | `boolean` | `false` | 是否显示关闭按钮 |
+| size | `ThemeSize` | - | 抽屉尺寸 |
+| open | `boolean` | - | 是否打开（受控） |
+| onOpenChange | `(open: boolean) => void` | - | 状态变化回调 |
+| classNames | `DrawerClassNames` | - | 自定义各部分的样式类名 |
+| contentProps | `DrawerContentProps` | - | 内容区域属性 |
+
+> 支持 Vaul Drawer 的其他所有属性。
+
+### DrawerClassNames
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| overlay | `ClassValue` | 遮罩层样式 |
+| content | `ClassValue` | 内容区域样式 |
+| contentBody | `ClassValue` | 内容主体样式 |
+| header | `ClassValue` | 头部样式 |
+| title | `ClassValue` | 标题样式 |
+| description | `ClassValue` | 描述样式 |
+| footer | `ClassValue` | 底部样式 |
+| close | `ClassValue` | 关闭按钮样式 |
+| knob | `ClassValue` | 拖拽把手样式 |
+
+### DrawerContent Props
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| className | `ClassValue` | 自定义类名 |
+| classNames | `DrawerContentClassNames` | 子元素样式 |
+
+## 使用指南
+
+### 何时使用
+
+- 移动端导航菜单
+- 详情面板
+- 筛选面板
+- 表单填写
+
+## 无障碍
+
+- 支持拖拽关闭
+- 支持 ESC 关闭
+- 自动焦点管理
+- 背景滚动锁定
+
+## 最佳实践
+
+### 移动端菜单
+
+```tsx
+<Drawer
+  title="菜单"
+  trigger={<Button>打开菜单</Button>}
+>
+  <nav className="space-y-2">
+    <DrawerClose asChild>
+      <a href="/">首页</a>
+    </DrawerClose>
+    <DrawerClose asChild>
+      <a href="/about">关于</a>
+    </DrawerClose>
+  </nav>
+</Drawer>
+```
+
+### 表单抽屉
+
+```tsx
+<Drawer
+  title="编辑信息"
+  trigger={<Button>编辑</Button>}
+  footer={(
+    <>
+      <DrawerClose asChild>
+        <Button variant="plain">取消</Button>
+      </DrawerClose>
+      <Button>保存</Button>
+    </>
+  )}
+>
+  <form className="space-y-4">
+    <Input placeholder="姓名" />
+    <Input placeholder="邮箱" />
+  </form>
+</Drawer>
+```
+

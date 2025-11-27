@@ -1,0 +1,184 @@
+# Form 表单
+
+表单组件用于数据收集、校验和提交，提供丰富的表单控件和验证功能。
+
+## 安装
+
+<InstallDependencies packages={['@skyroc/form']} />
+
+## 导入
+
+```ts copy
+import { Form, useForm } from '@skyroc/form';
+import { 
+  FormField,
+  FormItem,
+  FormLabel,
+  FormDescription,
+  FormMessage,
+  FormComputedField
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+<Demo src="@playground/form/modules/FormBasic" title="基本表单" />
+
+## API
+
+### Form Props
+
+表单容器组件（来自 `@skyroc/form`）。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| form | `FormInstance` | - | 表单实例 |
+| onFinish | `(values: T) => void` | - | 提交成功回调 |
+| onFinishFailed | `(errors: any) => void` | - | 提交失败回调 |
+| initialValues | `T` | - | 初始值 |
+| className | `string` | - | 自定义类名 |
+
+### useForm
+
+创建表单实例的 Hook。
+
+```ts
+const [form] = useForm<FormValues>();
+```
+
+返回的表单实例包含：
+
+| 方法 | 类型 | 说明 |
+|------|------|------|
+| getFieldValue | `(name: string) => any` | 获取字段值 |
+| getFieldsValue | `() => T` | 获取所有字段值 |
+| setFieldValue | `(name: string, value: any) => void` | 设置字段值 |
+| setFieldsValue | `(values: Partial<T>) => void` | 设置多个字段值 |
+| resetFields | `() => void` | 重置表单 |
+| validateFields | `() => Promise<T>` | 校验表单 |
+| submit | `() => void` | 提交表单 |
+
+### FormField Props
+
+表单字段组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| name | `string` | - | 字段名称 |
+| label | `ReactNode` | - | 字段标签 |
+| description | `string` | - | 字段描述 |
+| error | `string` | - | 错误信息 |
+| rules | `Rule[]` | - | 校验规则 |
+| classNames | `FormClassNames` | - | 自定义样式 |
+| className | `ClassValue` | - | 根容器类名 |
+| component | `ElementType` | - | 自定义组件 |
+
+> 支持 `@skyroc/form` FieldProps 的其他所有属性。
+
+### FormClassNames
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| item | `ClassValue` | 表单项样式 |
+| label | `ClassValue` | 标签样式 |
+| description | `ClassValue` | 描述样式 |
+| message | `ClassValue` | 错误信息样式 |
+
+### FormItem Props
+
+表单项容器组件。
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| className | `ClassValue` | 自定义类名 |
+
+### FormLabel Props
+
+表单标签组件。
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| error | `boolean` | 是否显示错误状态 |
+| className | `ClassValue` | 自定义类名 |
+
+### FormMessage Props
+
+表单错误信息组件。
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| error | `string[]` | 错误信息列表 |
+| className | `ClassValue` | 自定义类名 |
+
+## 使用指南
+
+### 何时使用
+
+- 用户信息收集
+- 数据提交
+- 设置配置
+- 搜索筛选
+
+## 验证规则
+
+```ts
+const rules = [
+  { required: true, message: '此字段必填' },
+  { min: 3, message: '最少 3 个字符' },
+  { max: 20, message: '最多 20 个字符' },
+  { pattern: /^[a-z]+$/, message: '只能输入小写字母' },
+  { validator: async (value) => {
+    if (value === 'admin') throw new Error('不能使用 admin');
+  }}
+];
+```
+
+## 最佳实践
+
+### 登录表单
+
+```tsx
+'use client';
+
+import { Form, useForm } from '@skyroc/form';
+import { Button, FormField, Input } from 'skyroc-ui';
+
+export default function LoginForm() {
+  const [form] = useForm();
+
+  return (
+    <Form form={form} onFinish={console.log}>
+      <FormField
+        name="email"
+        label="邮箱"
+        rules={[{ required: true }]}
+      >
+        <Input type="email" />
+      </FormField>
+      
+      <FormField
+        name="password"
+        label="密码"
+        rules={[{ required: true, min: 6 }]}
+      >
+        <Input type="password" />
+      </FormField>
+      
+      <Button type="submit">登录</Button>
+    </Form>
+  );
+}
+```
+
+### 带描述的表单
+
+```tsx
+<FormField
+  name="username"
+  label="用户名"
+  description="用户名将用于登录和显示"
+>
+  <Input />
+</FormField>
+```
+

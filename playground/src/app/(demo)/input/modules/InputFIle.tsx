@@ -1,15 +1,10 @@
-import { Card, Input } from 'skyroc-ui';
+import { Input } from 'skyroc-ui';
 
 const InputFile = () => {
   return (
-    <Card
-      split
-      title="File"
-    >
-      <div className="w-320px lt-sm:w-auto">
-        <Input type="file" />
-      </div>
-    </Card>
+    <div className="w-80 max-sm:w-auto">
+      <Input type="file" />
+    </div>
   );
 };
 

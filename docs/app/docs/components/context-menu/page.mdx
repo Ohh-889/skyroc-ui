@@ -1,0 +1,126 @@
+# ContextMenu 右键菜单
+
+右键菜单组件用于在用户右键点击时显示上下文相关的操作选项。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-context-menu']} />
+
+## 导入
+
+```ts copy
+import { 
+  ContextMenu,
+  ContextMenuRoot,
+  ContextMenuTrigger,
+  ContextMenuContent,
+  ContextMenuItem,
+  ContextMenuSeparator,
+  ContextMenuCheckbox,
+  ContextMenuRadio
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+<Demo src="@playground/context-menu/modules/ContextMenuBasic" title="基本右键菜单" />
+
+## API
+
+### ContextMenu Props
+
+简化的右键菜单组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| items | `ContextMenuOptionProps['item'][]` | - | 菜单项数据 |
+| contentProps | `ContextMenuContentProps` | - | 菜单内容区域属性 |
+| className | `ClassValue` | - | 自定义类名 |
+
+> 支持 Radix UI ContextMenu 的其他所有属性。
+
+### 菜单项类型
+
+菜单项支持多种类型：
+
+```ts
+// 普通菜单项
+{ label: '复制', shortcut: '⌘C' }
+
+// 分隔线
+{ type: 'separator' }
+
+// 子菜单
+{ label: '更多', children: [...] }
+
+// 复选框
+{ label: '显示侧边栏', checked: true, onCheckedChange: () => {} }
+
+// 单选
+{ label: '选项A', value: 'a' }
+```
+
+### ContextMenuItem Props
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| label | `ReactNode` | 菜单项标签 |
+| shortcut | `string` | 快捷键提示 |
+| disabled | `boolean` | 是否禁用 |
+| onSelect | `() => void` | 点击回调 |
+
+### ContextMenuCheckbox Props
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| checked | `boolean` | 是否选中 |
+| onCheckedChange | `(checked: boolean) => void` | 状态变化回调 |
+| items | `CheckboxItemProps[]` | 复选项列表 |
+
+### ContextMenuRadio Props
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| value | `string` | 当前选中值 |
+| onValueChange | `(value: string) => void` | 选中值变化回调 |
+| items | `RadioItemProps[]` | 单选项列表 |
+
+## 使用指南
+
+### 何时使用
+
+- 文件/文件夹操作
+- 富文本编辑器
+- 图片/媒体操作
+- 表格行操作
+
+## 无障碍
+
+- 支持键盘导航
+- 支持 Escape 关闭
+- 焦点自动管理
+- ARIA 属性完善
+
+## 最佳实践
+
+### 文件操作菜单
+
+```tsx
+const items = [
+  { label: '打开', shortcut: '⌘O' },
+  { label: '在新标签页打开' },
+  { type: 'separator' },
+  { label: '复制', shortcut: '⌘C' },
+  { label: '剪切', shortcut: '⌘X' },
+  { label: '粘贴', shortcut: '⌘V' },
+  { type: 'separator' },
+  { label: '删除', shortcut: '⌘⌫', className: 'text-destructive' }
+];
+
+<ContextMenu items={items}>
+  <div className="border rounded p-4">
+    右键点击此区域
+  </div>
+</ContextMenu>
+```
+

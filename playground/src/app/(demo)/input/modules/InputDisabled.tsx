@@ -1,19 +1,17 @@
-import { Card, Input } from 'skyroc-ui';
+import { Input } from 'skyroc-ui';
 
 const InputDisabled = () => {
   return (
-    <Card
-      split
-      title="Disabled"
-    >
-      <div className="w-320px lt-sm:w-auto">
-        <Input
-          disabled
-          placeholder="Please input"
-          value="the input is disabled"
-        />
-      </div>
-    </Card>
+    <div className="flex w-80 flex-col gap-3 max-sm:w-auto">
+      <Input
+        disabled
+        placeholder="Disabled input"
+      />
+      <Input
+        readOnly
+        defaultValue="Readonly input"
+      />
+    </div>
   );
 };
 

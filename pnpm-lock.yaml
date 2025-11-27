@@ -318,6 +318,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: 'catalog:'
         version: 1.2.3(@types/react@19.1.0)(react@19.1.0)
+      '@skyroc/form':
+        specifier: workspace:*
+        version: link:../primitives/filed-form
       '@skyroc/next-docs-themes':
         specifier: workspace:*
         version: link:../packages/next-docs-themes

@@ -1,16 +1,14 @@
-import Checkbox from './modules/Checkbox';
-import DefaultDropdownMenuDemo from './modules/DefaultDropdownMenuDemo';
-import Radio from './modules/Radio';
-import WithArrow from './modules/WithArrow';
+import { Card } from 'skyroc-ui';
+import DropdownMenuBasic from './modules/DropdownMenuBasic';
 
 const DropdownMenuPage = () => {
   return (
-    <div className="flex-c gap-4">
-      <DefaultDropdownMenuDemo />
-      <WithArrow />
-      <Checkbox />
-      <Radio />
-    </div>
+    <Card
+      split
+      title="Dropdown Menu"
+    >
+      <DropdownMenuBasic />
+    </Card>
   );
 };
 

@@ -1,0 +1,153 @@
+# Collapsible 折叠
+
+可折叠组件用于展开和收起内容区域，提供更灵活的内容展示方式。
+
+## 安装
+
+<InstallDependencies packages={['@radix-ui/react-collapsible']} />
+
+## 导入
+
+```ts copy
+import { 
+  Collapsible,
+  CollapsibleRoot,
+  CollapsibleTrigger,
+  CollapsibleContent
+} from 'skyroc-ui';
+```
+
+## 基础用法
+
+<Demo src="@playground/collapsible/modules/CollapsibleBasic" title="基本折叠" />
+
+## 组合式 API
+
+如需更灵活的控制，可以使用组合式 API：
+
+```tsx
+import {
+  CollapsibleRoot,
+  CollapsibleTrigger,
+  CollapsibleContent
+} from 'skyroc-ui';
+
+export default function Demo() {
+  return (
+    <CollapsibleRoot>
+      <CollapsibleTrigger>Toggle</CollapsibleTrigger>
+      <CollapsibleContent>
+        Hidden content here
+      </CollapsibleContent>
+    </CollapsibleRoot>
+  );
+}
+```
+
+## API
+
+### Collapsible Props
+
+简化的折叠组件，封装了所有子组件。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| content | `ReactNode` | - | 可折叠的内容区域 |
+| open | `boolean` | - | 是否展开（受控） |
+| defaultOpen | `boolean` | `false` | 默认是否展开 |
+| onOpenChange | `(open: boolean) => void` | - | 展开状态变化回调 |
+| disabled | `boolean` | `false` | 是否禁用 |
+| classNames | `CollapsibleClassNames` | - | 自定义各部分的样式类名 |
+| className | `ClassValue` | - | 根容器自定义类名 |
+| forceMountContent | `true` | - | 强制挂载内容（即使收起） |
+
+> 支持 Radix UI Collapsible 的其他所有属性。
+
+### CollapsibleClassNames
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| root | `ClassValue` | 根容器样式 |
+| content | `ClassValue` | 内容区域样式 |
+
+### CollapsibleRoot Props
+
+折叠组件的根容器。
+
+| 属性 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| open | `boolean` | - | 是否展开 |
+| defaultOpen | `boolean` | `false` | 默认展开 |
+| onOpenChange | `(open: boolean) => void` | - | 状态变化回调 |
+| disabled | `boolean` | `false` | 是否禁用 |
+
+### CollapsibleTrigger Props
+
+触发折叠的按钮组件。
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| asChild | `boolean` | 使用子元素作为触发器 |
+
+### CollapsibleContent Props
+
+可折叠的内容区域。
+
+| 属性 | 类型 | 说明 |
+|------|------|------|
+| forceMount | `true` | 强制挂载内容 |
+| className | `ClassValue` | 自定义类名 |
+
+## 使用指南
+
+### 何时使用
+
+- FAQ 问答列表
+- 高级设置展开
+- 详情展开/收起
+- 侧边栏导航折叠
+
+## 无障碍
+
+- 支持键盘操作（Enter/Space 切换）
+- 使用 `aria-expanded` 标识展开状态
+- 触发器获得焦点时有明确的焦点环
+
+## 最佳实践
+
+### 基本用法
+
+```tsx
+<Collapsible
+  content={<div>可折叠的内容</div>}
+>
+  <CollapsibleTrigger asChild>
+    <Button>展开/收起</Button>
+  </CollapsibleTrigger>
+</Collapsible>
+```
+
+### 受控模式
+
+```tsx
+'use client';
+
+import { useState } from 'react';
+
+export default function Demo() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <Collapsible
+      open={open}
+      onOpenChange={setOpen}
+      content={<div>可折叠的内容</div>}
+    >
+      <Button onClick={() => setOpen(!open)}>
+        {open ? '收起' : '展开'}
+      </Button>
+    </Collapsible>
+  );
+}
+```
+
