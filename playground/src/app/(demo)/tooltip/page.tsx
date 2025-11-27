@@ -6,7 +6,7 @@ import TooltipDemo from './modules/TooltipDemo';
 
 export const metadata: Metadata = generateComponentMetadata('tooltip');
 
-export default function TooltipPage() {
+const TooltipPage = () => {
   return (
     <div className="flex-c gap-4">
       <TooltipProvider>
@@ -15,4 +15,6 @@ export default function TooltipPage() {
       </TooltipProvider>
     </div>
   );
-}
+};
+
+export default TooltipPage;

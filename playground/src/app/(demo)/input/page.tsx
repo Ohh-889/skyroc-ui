@@ -3,7 +3,7 @@ import { Card } from 'skyroc-ui';
 import { generateComponentMetadata } from '../components-meta';
 import InputBasic from './modules/InputBasic';
 import InputDisabled from './modules/InputDisabled';
-import InputFile from './modules/InputFile';
+import InputFile from './modules/InputFileDemo';
 import InputSize from './modules/InputSize';
 
 export const metadata: Metadata = generateComponentMetadata('input');

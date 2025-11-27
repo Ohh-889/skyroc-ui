@@ -4,6 +4,8 @@ import { generateComponentMetadata } from '../components-meta';
 import AvatarBasic from './modules/AvatarBasic';
 import AvatarGroup from './modules/AvatarGroup';
 import AvatarSize from './modules/AvatarSize';
+import AvatarFallback from './modules/AvatarFallback';
+import AvatarCustomFallback from './modules/AvatarCustomFallback';
 
 export const metadata: Metadata = generateComponentMetadata('avatar');
 

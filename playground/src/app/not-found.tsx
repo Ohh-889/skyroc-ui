@@ -10,6 +10,8 @@ export const metadata: Metadata = {
   }
 };
 
-export default function NotFound() {
+const NotFound = () => {
   return <NotFoundClient />;
-}
+};
+
+export default NotFound;
