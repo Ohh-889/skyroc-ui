@@ -20,4 +20,3 @@ const CardSize = () => {
 };
 
 export default CardSize;
-

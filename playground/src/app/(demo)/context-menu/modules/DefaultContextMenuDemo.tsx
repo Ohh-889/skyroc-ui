@@ -11,7 +11,7 @@ function useMenuShortcuts(items: DropdownMenuProps['items'], callback: (key: str
 
   /** 1) 递归收集所有带 shortcut 的条目（保持稳定顺序即可） */
   const shortcutItems = useMemo(() => {
-    const list: Array<{ key: string, label: string }> = [];
+    const list: Array<{ key: string; label: string }> = [];
 
     const walk = (arr: typeof items) => {
       arr.forEach((item) => {

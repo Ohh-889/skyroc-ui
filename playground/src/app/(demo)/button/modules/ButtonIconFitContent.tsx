@@ -26,4 +26,3 @@ const ButtonIconFitContent = () => {
 };
 
 export default ButtonIconFitContent;
-

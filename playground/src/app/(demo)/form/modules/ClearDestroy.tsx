@@ -4,8 +4,8 @@ import React, { useState } from 'react';
 import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 interface FormValues {
-  password: string
-  username: string
+  password: string;
+  username: string;
 }
 
 const ClearDestroy = () => {

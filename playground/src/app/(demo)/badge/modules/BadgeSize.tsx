@@ -19,4 +19,3 @@ const BadgeSize = () => {
 };
 
 export default BadgeSize;
-

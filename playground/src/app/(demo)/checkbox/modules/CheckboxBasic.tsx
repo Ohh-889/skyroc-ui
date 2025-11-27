@@ -18,4 +18,3 @@ const CheckboxBasic = () => {
 };
 
 export default CheckboxBasic;
-

@@ -8,11 +8,11 @@ const AlertDialogSize = () => {
     <div className="flex flex-wrap gap-[12px]">
       {sizes.map(size => (
         <AlertDialog
+          description="This is the dialog description text"
           key={size}
           size={size}
           title="Dialog Title"
           type="info"
-          description="This is the dialog description text"
           footer={[
             <AlertDialogCancel key="cancel">Cancel</AlertDialogCancel>,
             <AlertDialogAction key="action">Confirm</AlertDialogAction>
@@ -34,4 +34,3 @@ const AlertDialogSize = () => {
 };
 
 export default AlertDialogSize;
-

@@ -13,4 +13,3 @@ const DividerVertical = () => {
 };
 
 export default DividerVertical;
-

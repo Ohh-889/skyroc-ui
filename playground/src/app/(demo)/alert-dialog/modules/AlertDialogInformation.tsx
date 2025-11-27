@@ -22,4 +22,3 @@ const AlertDialogInformation = () => {
 };
 
 export default AlertDialogInformation;
-

@@ -3,9 +3,9 @@
 import { Button, Card, Form, FormField, FormList, Input, useForm, useUndoRedo } from 'skyroc-ui';
 
 interface Inputs {
-  email: string
-  tags: string[]
-  username: string
+  email: string;
+  tags: string[];
+  username: string;
 }
 
 const initialValues: Inputs = {

@@ -5,8 +5,8 @@ import { Heart } from 'lucide-react';
 const AlertDialogCustomIcon = () => {
   return (
     <AlertDialog
-      title="Custom Icon"
       icon={<Heart className="text-destructive" />}
+      title="Custom Icon"
       footer={[
         <AlertDialogCancel key="cancel">Cancel</AlertDialogCancel>,
         <AlertDialogAction key="action">Confirm</AlertDialogAction>
@@ -26,4 +26,3 @@ const AlertDialogCustomIcon = () => {
 };
 
 export default AlertDialogCustomIcon;
-

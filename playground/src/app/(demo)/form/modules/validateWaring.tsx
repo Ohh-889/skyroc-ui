@@ -6,9 +6,9 @@ import { DemoInput } from './DemoComponents';
 import { showToastCode } from './toast';
 
 interface Inputs {
-  age: number
-  email: string
-  username: string
+  age: number;
+  email: string;
+  username: string;
 }
 
 const ValidateOnlyDemo = () => {

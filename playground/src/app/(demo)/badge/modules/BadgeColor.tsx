@@ -18,4 +18,3 @@ const BadgeColor = () => {
 };
 
 export default BadgeColor;
-

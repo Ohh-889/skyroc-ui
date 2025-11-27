@@ -8,15 +8,30 @@ const PopoverSize = () => {
     <div className="flex flex-wrap gap-4">
       {sizes.map(size => (
         <Popover
-          key={size}
           showArrow
+          key={size}
           size={size}
-          trigger={<Button size={size} variant="outline">{size}</Button>}
+          trigger={(
+            <Button
+              size={size}
+              variant="outline"
+            >
+              {size}
+            </Button>
+          )}
         >
           <div className="space-y-2">
-            <h4 className="font-medium">Size: {size}</h4>
+            <h4 className="font-medium">
+              Size:
+              {size}
+            </h4>
+
             <p className="text-muted-foreground">
-              This is a {size} sized popover.
+              This is a
+              {' '}
+              {size}
+              {' '}
+              sized popover.
             </p>
           </div>
         </Popover>

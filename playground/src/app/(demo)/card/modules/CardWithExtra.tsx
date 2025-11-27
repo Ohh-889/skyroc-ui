@@ -5,12 +5,12 @@ const CardWithExtra = () => {
   return (
     <Card
       split
+      title="Card with Extra"
       extra={(
         <ButtonIcon size="sm">
           <X />
         </ButtonIcon>
       )}
-      title="Card with Extra"
     >
       <p className="text-muted-foreground">
         The extra slot is typically used for action buttons.
@@ -20,4 +20,3 @@ const CardWithExtra = () => {
 };
 
 export default CardWithExtra;
-

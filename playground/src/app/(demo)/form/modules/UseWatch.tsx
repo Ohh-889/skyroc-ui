@@ -5,10 +5,10 @@ import { Card, Form, FormField, Input, useForm, useWatch } from 'skyroc-ui';
 import { showToastCode } from './toast';
 
 interface Inputs {
-  age: number
-  info: { city: string, company: string }
-  password: string
-  username: string
+  age: number;
+  info: { city: string; company: string };
+  password: string;
+  username: string;
 }
 
 const EffectWatch = () => {

@@ -22,4 +22,3 @@ const ButtonGroupVertical = () => {
 };
 
 export default ButtonGroupVertical;
-

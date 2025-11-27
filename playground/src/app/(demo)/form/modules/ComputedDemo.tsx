@@ -3,9 +3,9 @@
 import { Button, Card, Form, FormComputedField, FormField, Input, useForm } from 'skyroc-ui';
 
 interface FormValues {
-  price: number
-  quantity: number
-  total: number
+  price: number;
+  quantity: number;
+  total: number;
 }
 
 const ComputedDemo = () => {

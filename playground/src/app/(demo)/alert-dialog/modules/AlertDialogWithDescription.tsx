@@ -4,8 +4,8 @@ import { AlertDialog, AlertDialogAction, AlertDialogCancel, Button } from 'skyro
 const AlertDialogWithDescription = () => {
   return (
     <AlertDialog
-      title="Confirm Action"
       description="This is a description for the dialog"
+      title="Confirm Action"
       type="warning"
       footer={[
         <AlertDialogCancel key="cancel">Cancel</AlertDialogCancel>,
@@ -26,4 +26,3 @@ const AlertDialogWithDescription = () => {
 };
 
 export default AlertDialogWithDescription;
-

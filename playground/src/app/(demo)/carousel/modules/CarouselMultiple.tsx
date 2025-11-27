@@ -21,4 +21,3 @@ const CarouselMultiple = () => {
 };
 
 export default CarouselMultiple;
-

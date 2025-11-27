@@ -5,9 +5,9 @@ import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 // Form field types
 interface Inputs {
-  age: number
-  email: string
-  username: string
+  age: number;
+  email: string;
+  username: string;
 }
 
 const initialValues: Inputs = {

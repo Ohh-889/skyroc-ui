@@ -7,6 +7,7 @@ const InputDisabled = () => {
         disabled
         placeholder="Disabled input"
       />
+
       <Input
         readOnly
         defaultValue="Readonly input"

@@ -18,4 +18,3 @@ const BadgeVariant = () => {
 };
 
 export default BadgeVariant;
-

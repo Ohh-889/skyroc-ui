@@ -18,4 +18,3 @@ const DividerBorder = () => {
 };
 
 export default DividerBorder;
-

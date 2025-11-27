@@ -4,9 +4,9 @@ import { ButtonIcon, Card, Form, FormField, FormList, Input, useForm } from 'sky
 
 interface FormValues {
   users: {
-    age: number
-    name: string
-  }[]
+    age: number;
+    name: string;
+  }[];
 }
 
 const List = () => {

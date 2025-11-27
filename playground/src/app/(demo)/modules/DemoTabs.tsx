@@ -5,7 +5,7 @@ import type { TabsOptionData } from 'skyroc-ui';
 import { Tabs } from 'skyroc-ui';
 
 interface DemoTabsProps {
-  items: TabsOptionData[]
+  items: TabsOptionData[];
 }
 
 export default function DemoTabs({ items }: DemoTabsProps) {

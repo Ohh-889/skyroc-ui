@@ -5,17 +5,17 @@ import { Button, Card, Form, FormField, Input, useForm, useSelector } from 'skyr
 import { showToastCode } from './toast';
 
 interface Inputs {
-  confirmPassword: string
+  confirmPassword: string;
   info: {
-    age: number
+    age: number;
     familyInfo: {
-      phone: string
-    }
-    gender: string
-    hobbies: string
-  }
-  password: string
-  username: string
+      phone: string;
+    };
+    gender: string;
+    hobbies: string;
+  };
+  password: string;
+  username: string;
 }
 
 const SelectorEffect = ({ form }: { form: FormInstance<Inputs> }) => {

@@ -38,4 +38,3 @@ const ButtonGroupHorizontal = () => {
 };
 
 export default ButtonGroupHorizontal;
-

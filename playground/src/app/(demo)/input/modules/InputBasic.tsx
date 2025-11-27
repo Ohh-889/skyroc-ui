@@ -13,10 +13,13 @@ const InputBasic = () => {
         value={value}
         onChange={e => setValue(e.target.value)}
       />
-      <p className="text-muted-foreground mt-2 text-sm">Value: {value}</p>
+
+      <p className="text-muted-foreground mt-2 text-sm">
+        Value:
+        {value}
+      </p>
     </div>
   );
 };
 
 export default InputBasic;
-

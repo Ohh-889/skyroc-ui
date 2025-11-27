@@ -25,4 +25,3 @@ const AlertDialogWarning = () => {
 };
 
 export default AlertDialogWarning;
-

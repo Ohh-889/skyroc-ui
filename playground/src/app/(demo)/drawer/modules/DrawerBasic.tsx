@@ -14,6 +14,7 @@ const DrawerBasic = () => {
           <DrawerClose asChild>
             <Button variant="plain">Cancel</Button>
           </DrawerClose>
+
           <Button>Submit</Button>
         </>
       )}
@@ -26,4 +27,3 @@ const DrawerBasic = () => {
 };
 
 export default DrawerBasic;
-

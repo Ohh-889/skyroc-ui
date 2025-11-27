@@ -18,4 +18,3 @@ const DividerAlign = () => {
 };
 
 export default DividerAlign;
-

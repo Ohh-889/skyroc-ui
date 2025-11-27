@@ -19,4 +19,3 @@ const BadgeShape = () => {
 };
 
 export default BadgeShape;
-

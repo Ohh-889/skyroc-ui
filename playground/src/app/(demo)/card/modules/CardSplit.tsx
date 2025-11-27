@@ -15,4 +15,3 @@ const CardSplit = () => {
 };
 
 export default CardSplit;
-

@@ -7,10 +7,11 @@ const LabelRequired = () => {
         Username
         <span className="text-destructive ml-1">*</span>
       </Label>
+
       <Input
+        required
         id="username"
         placeholder="Enter your username"
-        required
       />
     </div>
   );

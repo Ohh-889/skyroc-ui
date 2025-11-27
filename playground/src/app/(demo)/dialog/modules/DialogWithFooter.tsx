@@ -11,6 +11,7 @@ const DialogWithFooter = () => {
           <DialogClose asChild>
             <Button variant="plain">Cancel</Button>
           </DialogClose>
+
           <Button>Confirm</Button>
         </>
       )}
@@ -21,4 +22,3 @@ const DialogWithFooter = () => {
 };
 
 export default DialogWithFooter;
-

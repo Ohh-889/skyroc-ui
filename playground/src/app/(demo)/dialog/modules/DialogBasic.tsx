@@ -13,4 +13,3 @@ const DialogBasic = () => {
 };
 
 export default DialogBasic;
-

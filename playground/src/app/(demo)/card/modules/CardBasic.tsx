@@ -11,4 +11,3 @@ const CardBasic = () => {
 };
 
 export default CardBasic;
-

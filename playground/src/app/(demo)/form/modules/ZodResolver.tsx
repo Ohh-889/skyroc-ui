@@ -13,11 +13,11 @@ const zodSchema = z.object({
 });
 
 interface Inputs {
-  email: string
+  email: string;
   info: {
-    password: string
-  }
-  username: string
+    password: string;
+  };
+  username: string;
 }
 
 const initialValues: Inputs = {

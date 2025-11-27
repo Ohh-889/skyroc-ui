@@ -14,9 +14,9 @@ const descriptor: Record<string, RuleItem | RuleItem[]> = {
 const validator = new Schema(descriptor);
 
 interface Inputs {
-  email: string
+  email: string;
 
-  username: string
+  username: string;
 }
 
 const initialValues: Inputs = {

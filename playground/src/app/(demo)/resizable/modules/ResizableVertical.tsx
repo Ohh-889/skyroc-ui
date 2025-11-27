@@ -9,7 +9,10 @@ const ResizableVertical = () => {
       direction="vertical"
       id="demo-vertical"
     >
-      <ResizablePanel defaultSize={50} minSize={30}>
+      <ResizablePanel
+        defaultSize={50}
+        minSize={30}
+      >
         <div className="flex h-full items-center justify-center p-6">
           <span className="font-semibold">Header</span>
         </div>
@@ -17,7 +20,10 @@ const ResizableVertical = () => {
 
       <ResizableHandle />
 
-      <ResizablePanel defaultSize={50} minSize={30}>
+      <ResizablePanel
+        defaultSize={50}
+        minSize={30}
+      >
         <div className="flex h-full items-center justify-center p-6">
           <span className="font-semibold">Content</span>
         </div>

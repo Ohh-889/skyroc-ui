@@ -14,4 +14,3 @@ const CardWithFooter = () => {
 };
 
 export default CardWithFooter;
-

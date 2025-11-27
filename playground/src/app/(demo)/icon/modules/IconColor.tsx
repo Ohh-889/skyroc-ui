@@ -7,18 +7,22 @@ const IconColor = () => {
         className="text-primary"
         icon="lucide:heart"
       />
+
       <Icon
         className="text-destructive"
         icon="lucide:heart"
       />
+
       <Icon
         className="text-success"
         icon="lucide:heart"
       />
+
       <Icon
         className="text-warning"
         icon="lucide:heart"
       />
+
       <Icon
         className="text-info"
         icon="lucide:heart"
@@ -28,4 +32,3 @@ const IconColor = () => {
 };
 
 export default IconColor;
-

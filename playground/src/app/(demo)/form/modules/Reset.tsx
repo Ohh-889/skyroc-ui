@@ -4,9 +4,9 @@ import React from 'react';
 import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 interface Inputs {
-  info: { city: string, company: string }
-  password: string
-  username: string
+  info: { city: string; company: string };
+  password: string;
+  username: string;
 }
 
 const initialValues = {

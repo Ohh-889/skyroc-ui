@@ -22,4 +22,3 @@ const HoverCardBasic = () => {
 };
 
 export default HoverCardBasic;
-

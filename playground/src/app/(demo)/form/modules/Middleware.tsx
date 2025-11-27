@@ -5,7 +5,7 @@ import type { FormAction } from 'skyroc-ui';
 import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 // ============ Analytics Middleware (logging/tracking) ============
-function analyticsMiddleware({ getState }: { dispatch: (a: FormAction) => void, getState: () => any }) {
+function analyticsMiddleware({ getState }: { dispatch: (a: FormAction) => void; getState: () => any }) {
   return (next: (a: FormAction) => void) => (action: FormAction) => {
     // the action before the middleware
     console.log('[middleware] before', action, 'state:', getState());
@@ -25,9 +25,9 @@ function analyticsMiddleware({ getState }: { dispatch: (a: FormAction) => void, 
 
 // ============ Form field types ============
 interface Inputs {
-  confirmPassword: string
-  password: string
-  username: string
+  confirmPassword: string;
+  password: string;
+  username: string;
 }
 
 const initialValues: Inputs = {

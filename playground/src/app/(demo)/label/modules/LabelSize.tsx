@@ -15,8 +15,11 @@ const LabelSize = () => {
             htmlFor={`input-${size}`}
             size={size}
           >
-            {size} - Label Text
+            {size}
+            {' '}
+            - Label Text
           </Label>
+
           <Input
             id={`input-${size}`}
             placeholder={`Size ${size}`}

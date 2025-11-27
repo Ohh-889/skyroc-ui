@@ -15,11 +15,11 @@ const cities = [
 ];
 
 interface FormValues {
-  city: string
-  gender: 'female' | 'male'
-  hobbies: string[]
-  remember: boolean
-  username: string
+  city: string;
+  gender: 'female' | 'male';
+  hobbies: string[];
+  remember: boolean;
+  username: string;
 }
 
 const Default = () => {

@@ -13,4 +13,3 @@ const BreadcrumbCustomEllipsis = () => {
 };
 
 export default BreadcrumbCustomEllipsis;
-

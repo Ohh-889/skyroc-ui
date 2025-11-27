@@ -11,8 +11,8 @@ const CheckboxDisabled = () => {
       </Checkbox>
 
       <Checkbox
-        disabled
         defaultChecked
+        disabled
         id="disabled-checked"
       >
         Disabled Checked
@@ -22,4 +22,3 @@ const CheckboxDisabled = () => {
 };
 
 export default CheckboxDisabled;
-

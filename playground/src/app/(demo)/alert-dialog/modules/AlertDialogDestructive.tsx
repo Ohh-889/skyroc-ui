@@ -25,4 +25,3 @@ const AlertDialogDestructive = () => {
 };
 
 export default AlertDialogDestructive;
-

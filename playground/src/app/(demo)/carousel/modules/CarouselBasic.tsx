@@ -19,4 +19,3 @@ const CarouselBasic = () => {
 };
 
 export default CarouselBasic;
-

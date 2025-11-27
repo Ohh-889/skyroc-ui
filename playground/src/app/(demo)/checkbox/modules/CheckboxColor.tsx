@@ -20,4 +20,3 @@ const CheckboxColor = () => {
 };
 
 export default CheckboxColor;
-

@@ -13,4 +13,3 @@ const IconBasic = () => {
 };
 
 export default IconBasic;
-

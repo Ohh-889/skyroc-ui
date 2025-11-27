@@ -20,4 +20,3 @@ const CarouselVertical = () => {
 };
 
 export default CarouselVertical;
-

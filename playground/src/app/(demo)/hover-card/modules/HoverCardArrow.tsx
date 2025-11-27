@@ -23,4 +23,3 @@ const HoverCardArrow = () => {
 };
 
 export default HoverCardArrow;
-

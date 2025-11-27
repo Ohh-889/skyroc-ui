@@ -6,19 +6,19 @@ import { DemoInput } from './DemoComponents';
 import { showToastCode } from './toast';
 
 interface Inputs {
-  age: number
-  bio: string
-  birthday: string
-  favoriteColor: string
-  nickname: string
-  password: string
-  password2: string
-  pin: string
-  role: string
-  username: string
-  username2: string
-  website: string
-  workEmail: string
+  age: number;
+  bio: string;
+  birthday: string;
+  favoriteColor: string;
+  nickname: string;
+  password: string;
+  password2: string;
+  pin: string;
+  role: string;
+  username: string;
+  username2: string;
+  website: string;
+  workEmail: string;
 }
 
 const Validate = () => {

@@ -20,4 +20,3 @@ const CheckboxSize = () => {
 };
 
 export default CheckboxSize;
-

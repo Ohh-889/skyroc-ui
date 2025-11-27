@@ -9,7 +9,7 @@ const BreadcrumbSize = () => {
           className="flex items-center gap-4"
           key={size}
         >
-          <span className="w-8 text-muted-foreground text-xs">{size}</span>
+          <span className="text-muted-foreground w-8 text-xs">{size}</span>
 
           <Breadcrumb
             items={items}
@@ -22,4 +22,3 @@ const BreadcrumbSize = () => {
 };
 
 export default BreadcrumbSize;
-

@@ -11,4 +11,3 @@ const CommandBasic = () => {
 };
 
 export default CommandBasic;
-

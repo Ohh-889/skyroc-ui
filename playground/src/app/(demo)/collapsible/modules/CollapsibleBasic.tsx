@@ -29,4 +29,3 @@ const CollapsibleBasic = () => {
 };
 
 export default CollapsibleBasic;
-

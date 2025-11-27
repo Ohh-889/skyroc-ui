@@ -11,4 +11,3 @@ const CardOnlyContent = () => {
 };
 
 export default CardOnlyContent;
-

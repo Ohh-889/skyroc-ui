@@ -5,4 +5,3 @@ const DividerBasic = () => {
 };
 
 export default DividerBasic;
-

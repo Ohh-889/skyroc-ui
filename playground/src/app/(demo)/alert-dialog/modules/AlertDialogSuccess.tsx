@@ -22,4 +22,3 @@ const AlertDialogSuccess = () => {
 };
 
 export default AlertDialogSuccess;
-

@@ -15,9 +15,11 @@ const PopoverControlled = () => {
       >
         <div className="space-y-2">
           <h4 className="font-medium">Controlled Popover</h4>
-          <p className="text-sm text-muted-foreground mb-4">
+
+          <p className="text-muted-foreground mb-4 text-sm">
             This popover is controlled by external state.
           </p>
+
           <Button
             size="sm"
             variant="outline"

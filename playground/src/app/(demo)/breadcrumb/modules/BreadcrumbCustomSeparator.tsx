@@ -5,10 +5,9 @@ const BreadcrumbCustomSeparator = () => {
   return (
     <Breadcrumb
       items={items}
-      separator={<span className="text-gray-500 text-sm">/</span>}
+      separator={<span className="text-sm text-gray-500">/</span>}
     />
   );
 };
 
 export default BreadcrumbCustomSeparator;
-

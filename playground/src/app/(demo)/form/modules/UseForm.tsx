@@ -5,21 +5,21 @@ import { Button, Card, Form, FormField, Input, useFieldState, useForm } from 'sk
 import { showToastCode } from './toast';
 
 interface Inputs {
-  confirmPassword: string
+  confirmPassword: string;
   info: {
-    age: number
+    age: number;
     familyInfo: {
-      phone: string
-    }
-    gender: string
-    hobbies: string
-  }
-  password: string
-  username: string
+      phone: string;
+    };
+    gender: string;
+    hobbies: string;
+  };
+  password: string;
+  username: string;
 }
 
 interface StateEffectProps {
-  form: FormInstance<Inputs>
+  form: FormInstance<Inputs>;
 }
 
 const StateEffect = (props: StateEffectProps) => {

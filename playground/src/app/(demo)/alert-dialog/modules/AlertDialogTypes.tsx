@@ -57,4 +57,3 @@ const AlertDialogTypes = () => {
 };
 
 export default AlertDialogTypes;
-

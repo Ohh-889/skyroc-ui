@@ -2,9 +2,9 @@ import React from 'react';
 import { Card, Divider, ScrollArea } from 'skyroc-ui';
 
 interface Artwork {
-  art: string
-  artist: string
-  id: string
+  art: string;
+  artist: string;
+  id: string;
 }
 
 const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);

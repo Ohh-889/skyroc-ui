@@ -17,4 +17,3 @@ const CardTitleSlot = () => {
 };
 
 export default CardTitleSlot;
-

@@ -28,4 +28,3 @@ const CheckboxIndeterminate = () => {
 };
 
 export default CheckboxIndeterminate;
-
