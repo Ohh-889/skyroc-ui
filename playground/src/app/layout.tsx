@@ -108,7 +108,7 @@ const RootLayout = ({
 }>) => {
   return (
     <html
-      lang="en"
+      lang="zh-CN"
       suppressHydrationWarning={!config.isDev}
     >
       <head>
@@ -146,6 +146,7 @@ const RootLayout = ({
                     <Tooltip content="文档">
                       <ButtonIcon
                         asChild
+                        aria-label="查看文档"
                         size="lg"
                         variant="ghost"
                       >
@@ -165,6 +166,7 @@ const RootLayout = ({
                       side="bottom"
                       trigger={(
                         <ButtonIcon
+                          aria-label="自定义主题"
                           icon="lucide:palette"
                           size="lg"
                           variant="ghost"
@@ -177,6 +179,7 @@ const RootLayout = ({
                     <Tooltip content="GitHub">
                       <ButtonIcon
                         asChild
+                        aria-label="GitHub 仓库"
                         size="lg"
                         variant="ghost"
                       >

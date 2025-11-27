@@ -24,6 +24,7 @@ const ThemeSchemaToggler = () => {
 
   return (
     <Switch
+      aria-label={isDark ? '切换到亮色模式' : '切换到暗色模式'}
       checked={isDark}
       color="accent"
       defaultChecked={isDark}

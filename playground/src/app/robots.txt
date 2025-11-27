@@ -1,0 +1,9 @@
+User-Agent: *
+Allow: /
+Disallow: /api/
+Disallow: /_next/
+Disallow: /static/
+Disallow: /r/
+
+Sitemap: https://ui-play.skyroc.me/sitemap.xml
+Host: https://ui-play.skyroc.me

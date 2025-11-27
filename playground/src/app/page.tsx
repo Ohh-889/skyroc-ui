@@ -168,6 +168,7 @@ const Home = () => {
                   <code>npx skyroc add button</code>
 
                   <Button
+                    aria-label={copiedCmd === 'cli' ? '已复制' : '复制 CLI 命令'}
                     className="ml-1 h-6 w-6 p-0"
                     size="sm"
                     variant="ghost"
@@ -188,6 +189,7 @@ const Home = () => {
                   <code>npm i skyroc-ui</code>
 
                   <Button
+                    aria-label={copiedCmd === 'npm' ? '已复制' : '复制 NPM 命令'}
                     className="ml-1 h-6 w-6 p-0"
                     size="sm"
                     variant="ghost"
@@ -213,6 +215,7 @@ const Home = () => {
             </div>
 
             <Input
+              aria-label="搜索组件"
               className="w-full sm:w-60"
               placeholder="搜索组件..."
               value={searchQuery}
