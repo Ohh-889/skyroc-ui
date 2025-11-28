@@ -3,7 +3,7 @@
 import { useMemo } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
 import type { DropdownMenuProps } from 'skyroc-ui';
-import { Button, Card, DropdownMenu, toast } from 'skyroc-ui';
+import { Button, DropdownMenu, toast } from 'skyroc-ui';
 import { menus } from './shared';
 
 function useMenuShortcuts(items: DropdownMenuProps['items'], callback: (key: string, label: string) => void) {
@@ -30,7 +30,7 @@ function useMenuShortcuts(items: DropdownMenuProps['items'], callback: (key: str
 
     walk(items);
     return list;
-  }, [items]);
+  }, [items, isMacOS]);
 
   /** 2) 针对每个收集到的快捷键注册 useHotkeys */
   shortcutItems.forEach(({ key, label }) => {
@@ -47,7 +47,7 @@ function useMenuShortcuts(items: DropdownMenuProps['items'], callback: (key: str
   });
 }
 
-const DefaultDropdownMenuDemo = () => {
+const DropdownMenuShortcuts = () => {
   useMenuShortcuts(menus, (key, label) => {
     toast.success(`You pressed ${key} label:${label}`, {
       classNames: {
@@ -59,15 +59,10 @@ const DefaultDropdownMenuDemo = () => {
   });
 
   return (
-    <Card
-      split
-      title="Dropdown Menu"
-    >
-      <DropdownMenu items={menus}>
-        <Button variant="pure">Dropdown</Button>
-      </DropdownMenu>
-    </Card>
+    <DropdownMenu items={menus}>
+      <Button variant="pure">Dropdown</Button>
+    </DropdownMenu>
   );
 };
 
-export default DefaultDropdownMenuDemo;
+export default DropdownMenuShortcuts;
