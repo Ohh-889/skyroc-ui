@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import '../css/globals.css';
 import { ThemeProvider } from 'next-themes';
-import { Card, Sonner, TooltipProvider } from 'skyroc-ui';
+import { Card, Sonner, TooltipProvider, ScrollArea } from 'skyroc-ui';
 import config from '../config';
 import { BrandLogo, HeaderActions } from './_components';
 
@@ -141,7 +141,13 @@ const RootLayout = ({
                 extra={<HeaderActions />}
                 title={<BrandLogo />}
               >
-                {children}
+                <ScrollArea
+                  className="h-full"
+                  orientation="vertical"
+                  size="sm"
+                >
+                  {children}
+                </ScrollArea>
               </Card>
             </div>
 
