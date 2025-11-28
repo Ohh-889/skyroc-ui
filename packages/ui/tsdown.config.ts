@@ -1,6 +1,6 @@
 import fg from 'fast-glob';
 import { defineConfig } from 'tsdown';
-import pkg from './package.json';
+import pkg from './package.json' with { type: 'json' };
 
 export default defineConfig({
   alias: {

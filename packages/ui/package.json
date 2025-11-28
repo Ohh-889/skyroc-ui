@@ -65,7 +65,7 @@
   "types": "./src/index.ts",
   "files": ["README.zh.md", "dist", "README.md"],
   "scripts": {
-    "build": "pnpm run registry",
+    "build": "pnpm run build:components && pnpm run registry",
     "build:components": "tsdown",
     "build:registry": "shadcn build -o ../../playground/public/r",
     "dev": "tsx script/fix-pkg.ts dev",

@@ -1,6 +1,191 @@
 # Changelog
 
 
+## [skyroc-ui@0.0.10](https://github.com/Ohh-889/skyroc-ui/compare/vskyroc-ui@0.0.4...skyroc-ui@0.0.10) (2025-11-28)
+
+### &nbsp;&nbsp;&nbsp;🚀 Features
+
+- layout component &nbsp;-&nbsp; by **rascal** [<samp>(55284)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/552849e)
+- revamp Home page with comprehensive component list, search functionality, and highlight features for improved user interaction &nbsp;-&nbsp; by @Ohh-889 [<samp>(aa29f)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/aa29f6f)
+- update icons and logos by adding new SVG files, removing unused Vercel SVG, and updating layout with improved component structure and tooltips &nbsp;-&nbsp; by @Ohh-889 [<samp>(a14f0)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/a14f08a)
+- remove unused icon.svg file and update layout metadata with site configuration and improved SEO attributes &nbsp;-&nbsp; by @Ohh-889 [<samp>(ad981)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/ad981c5)
+- **@skyroc/eslint-config**:
+  - ✨ enhance config with formatter support and expanded options &nbsp;-&nbsp; by @Ohh-889 [<samp>(05a42)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/05a427b)
+  - add Markdown/MDX rules and update Tailwind options &nbsp;-&nbsp; by @Ohh-889 [<samp>(412a0)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/412a01a)
+- **@skyroc/next-docs-plugin**:
+  - ✨ feat: add CodeEditor and LiveCodePreview components for real-time code editing and preview functionality &nbsp;-&nbsp; by @Ohh-889 [<samp>(b8fd0)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/b8fd063)
+  - ✨ enhance Demo and LiveCodePreview with children and better errors &nbsp;-&nbsp; by @Ohh-889 [<samp>(b4fe9)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/b4fe922)
+  - ✨ add ClientDemoComponentsProvider and demo components &nbsp;-&nbsp; by @Ohh-889 [<samp>(c0adc)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/c0adc95)
+- **config**:
+  - ✨ add ESLint config entry for skyroc-config &nbsp;-&nbsp; by @Ohh-889 [<samp>(d8193)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/d8193d7)
+- **docs**:
+  - ✨ add table components and update MDX documentation &nbsp;-&nbsp; by @Ohh-889 [<samp>(26081)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/2608137)
+  - add comprehensive documentation for Playground component integration and usage in MDX &nbsp;-&nbsp; by @Ohh-889 [<samp>(82fcb)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/82fcb5e)
+  - add Accordion docs and examples, update sidebar &nbsp;-&nbsp; by @Ohh-889 [<samp>(ebc2d)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/ebc2d68)
+  - integrate skyroc-ui components, update imports, and enhance documentation &nbsp;-&nbsp; by @Ohh-889 [<samp>(1ce63)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/1ce63c6)
+  - enhance demo components with dependency resolution, improve code editor, and update LiveCodePreview for dynamic imports &nbsp;-&nbsp; by @Ohh-889 [<samp>(13e33)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/13e3371)
+  - update sidebar navigation and enhance AspectRatio demo with modular components &nbsp;-&nbsp; by @Ohh-889 [<samp>(a2f2c)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/a2f2c46)
+  - add AlertDialog component to sidebar navigation and restructure AlertDialog demo with modular components &nbsp;-&nbsp; by @Ohh-889 [<samp>(df9ad)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/df9ad0d)
+  - enhance Avatar documentation with detailed usage examples, props table, and modular demo components &nbsp;-&nbsp; by @Ohh-889 [<samp>(19cd2)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/19cd2bb)
+  - add Breadcrumb component documentation and demo examples, enhance sidebar navigation &nbsp;-&nbsp; by @Ohh-889 [<samp>(08d9e)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/08d9e09)
+  - enhance Card component documentation with detailed usage examples, props table, and modular demo components &nbsp;-&nbsp; by @Ohh-889 [<samp>(0e9df)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/0e9dfb5)
+  - add Carousel component to sidebar navigation and enhance Checkbox demo with modular components &nbsp;-&nbsp; by @Ohh-889 [<samp>(751c4)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/751c4d7)
+  - add Chip component documentation, modular demo components, and update sidebar navigation &nbsp;-&nbsp; by @Ohh-889 [<samp>(c9bf1)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/c9bf130)
+  - integrate @skyroc/form into documentation, enhance Input and Dialog demos with modular components, and update sidebar navigation &nbsp;-&nbsp; by @Ohh-889 [<samp>(af7e3)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/af7e3bb)
+  - update favicon, add new logo, and remove unused SVG files &nbsp;-&nbsp; by @Ohh-889 [<samp>(0ae8c)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/0ae8cd4)
+  - add InputOTP, KeyboardKey, and related components to sidebar navigation and enhance demo pages with modular Card components &nbsp;-&nbsp; by @Ohh-889 [<samp>(7ab91)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/7ab91dd)
+  - enhance documentation with new components including Popover, Progress, and Radio, and update sidebar navigation &nbsp;-&nbsp; by @Ohh-889 [<samp>(1b089)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/1b089ed)
+- **eslint-config**:
+  - ✨ add initial ESLint setup &nbsp;-&nbsp; by @Ohh-889 [<samp>(ca21f)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/ca21fc8)
+- **next-docs-plugin**:
+  - ✨ integrate @skyroc/eslint-config and enhance ESLint setup &nbsp;-&nbsp; by @Ohh-889 [<samp>(3fc90)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/3fc90ae)
+  - add new variants, improve layout, and update deps &nbsp;-&nbsp; by @Ohh-889 [<samp>(edad3)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/edad3cc)
+- **next-docs-themes**:
+  - init theme package with core components and config &nbsp;-&nbsp; by @Ohh-889 [<samp>(f44dd)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/f44ddb9)
+- **skyroc-ui**:
+  - ✨ enhance package metadata and add comprehensive README documentation in English and Chinese &nbsp;-&nbsp; by @SkyRoc1 [<samp>(bf7e0)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/bf7e085)
+- **tailwind-plugin**:
+  - ✨ add ESLint configuration and improve package structure &nbsp;-&nbsp; by @Ohh-889 [<samp>(aed54)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/aed54cc)
+
+### &nbsp;&nbsp;&nbsp;🐞 Bug Fixes
+
+- update versioning format in configuration and workflow to use 'v-' prefix for tags &nbsp;-&nbsp; by @SkyRoc1 [<samp>(55b02)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/55b020d)
+- add missing semicolons in TypeScript interfaces across various components for consistency and improved linting &nbsp;-&nbsp; by @Ohh-889 [<samp>(51299)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/51299aa)
+- update base URL in robots and sitemap files to reflect new deployment domain &nbsp;-&nbsp; by @Ohh-889 [<samp>(41f74)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/41f749b)
+- **@skyroc/eslint-config**:
+  - 🐛 update TypeScript error handling in plugins file &nbsp;-&nbsp; by @Ohh-889 [<samp>(a3c23)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/a3c23ca)
+- **components**:
+  - add missing semicolons to TypeScript interfaces for consistency across multiple files &nbsp;-&nbsp; by @Ohh-889 [<samp>(1bd20)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/1bd20d9)
+- **docs**:
+  - correct syntax errors by adding missing semicolons across multiple files &nbsp;-&nbsp; by @Ohh-889 [<samp>(8c5c9)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/8c5c96c)
+  - add overflow-x-auto to main layout for improved responsiveness &nbsp;-&nbsp; by @Ohh-889 [<samp>(d7cc1)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/d7cc1f4)
+- **other**:
+  - 💄 update package name extraction logic to handle scoped packages correctly &nbsp;-&nbsp; by @SkyRoc1 [<samp>(62f1c)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/62f1c37)
+- **skyroc-ui**:
+  - 🐛 change anchor width to w-fit &nbsp;-&nbsp; by @Ohh-889 [<samp>(b444b)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/b444b05)
+
+### &nbsp;&nbsp;&nbsp;💅 Refactors
+
+- standardize component metadata generation across demo pages by importing and utilizing generateComponentMetadata function &nbsp;-&nbsp; by @Ohh-889 [<samp>(95fbe)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/95fbeec)
+- convert functional components to arrow functions and enhance demo pages with new InputFileDemo component and additional Avatar imports &nbsp;-&nbsp; by @Ohh-889 [<samp>(d2cc4)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/d2cc4c0)
+- update import statements for better organization, adjust target path for registry, and convert functional components to arrow functions in demo pages &nbsp;-&nbsp; by @Ohh-889 [<samp>(7bb32)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/7bb32f3)
+- streamline component metadata and update type imports across various components for consistency and improved organization &nbsp;-&nbsp; by @Ohh-889 [<samp>(4f76f)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/4f76f7f)
+- update registry paths from 'other.ts' to 'shared.ts' and add new layout and segment components to the registry for improved organization and consistency &nbsp;-&nbsp; by @Ohh-889 [<samp>(e07d7)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/e07d78d)
+- adjust target path for registry output, ensure target directory exists, and standardize formatting in registry.json for improved consistency &nbsp;-&nbsp; by @Ohh-889 [<samp>(533f7)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/533f736)
+- update metadata structure in layout.tsx for improved consistency and add msvalidate.01 property for enhanced SEO &nbsp;-&nbsp; by @Ohh-889 [<samp>(f39e1)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/f39e1ba)
+- convert NotFoundClient to arrow function, update layout.tsx metadata structure for consistency, and enhance robots.txt rules for search engine optimization &nbsp;-&nbsp; by @Ohh-889 [<samp>(12912)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/1291216)
+- update layout language to Chinese, enhance accessibility with aria-labels in buttons and inputs, and replace robots.ts with a simplified robots.txt for improved SEO &nbsp;-&nbsp; by @Ohh-889 [<samp>(cf792)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/cf792be)
+- **@skyroc/eslint-config**:
+  - 🛠️ remove Pre component and restructure imports &nbsp;-&nbsp; by @Ohh-889 [<samp>(8da8c)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/8da8c15)
+  - standardize imports and improve formatting &nbsp;-&nbsp; by @Ohh-889 [<samp>(a801e)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/a801e1d)
+- **@skyroc/next-docs-plugin**:
+  - ♻️ remove deprecated demos and restructure CodePreview &nbsp;-&nbsp; by @Ohh-889 [<samp>(cecef)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/cecef99)
+  - 🛠️ streamline imports, improve styling, and update configs &nbsp;-&nbsp; by @Ohh-889 [<samp>(573d9)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/573d964)
+- **demo**:
+  - restructure button demo components, remove deprecated files, and update imports for clarity &nbsp;-&nbsp; by @Ohh-889 [<samp>(15e18)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/15e1830)
+- **docs**:
+  - remove LiveDemo and update MDX imports &nbsp;-&nbsp; by @Ohh-889 [<samp>(cc730)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/cc730af)
+  - update code block syntax and improve button docs layout &nbsp;-&nbsp; by @Ohh-889 [<samp>(4ed0d)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/4ed0d83)
+- **next-docs-themes**:
+  - update ESLint config, tweak package.json, and enhance styles &nbsp;-&nbsp; by @Ohh-889 [<samp>(83d8a)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/83d8a46)
+  - update TypeScript configuration, refactor component imports, and standardize type imports across UI components &nbsp;-&nbsp; by @Ohh-889 [<samp>(465ff)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/465ff53)
+- **skyroc-ui-docs**:
+  - ♻️ update button demo path and enhance color variants &nbsp;-&nbsp; by @Ohh-889 [<samp>(73015)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/7301598)
+  - 🛠️ consolidate mdx-components imports and remove unused styles &nbsp;-&nbsp; by @Ohh-889 [<samp>(98eaf)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/98eaf4f)
+- **skyroc-ui-playground**:
+  - ✨ simplify layout with BrandLogo/HeaderActions, update Badge variant, and use Link for navigation &nbsp;-&nbsp; by @Ohh-889 [<samp>(4f6a4)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/4f6a4b6)
+  - ♻️ integrate ScrollArea for better scrolling &nbsp;-&nbsp; by @Ohh-889 [<samp>(e1eea)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/e1eea0b)
+  - enhance dropdown page with more variants and remove unused components &nbsp;-&nbsp; by @Ohh-889 [<samp>(9ab8a)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/9ab8af5)
+- **types**:
+  - replace BaseNodeProps with StyledComponentProps across multiple components and remove deprecated type definitions &nbsp;-&nbsp; by @Ohh-889 [<samp>(ab833)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/ab833c7)
+
+### &nbsp;&nbsp;&nbsp;🏡 Chore
+
+- remove dependabot configuration file &nbsp;-&nbsp; by @Ohh-889 [<samp>(b090b)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/b090ba8)
+- update compatibility date in wrangler.jsonc to reflect new deployment timeline &nbsp;-&nbsp; by @Ohh-889 [<samp>(f7b5f)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/f7b5fa8)
+- update dependencies in pnpm-lock.yaml and package.json for @opennextjs/cloudflare and wrangler to latest versions, and add account_id to wrangler.jsonc for configuration &nbsp;-&nbsp; by @Ohh-889 [<samp>(f20a9)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/f20a90a)
+- **@skyroc/cli**:
+  - update release workflow and package.json configuration &nbsp;-&nbsp; by @SkyRoc1 [<samp>(10bb6)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/10bb6c4)
+  - update release workflow to include id-token permission &nbsp;-&nbsp; by @SkyRoc1 [<samp>(662d0)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/662d0e8)
+- **@skyroc/eslint-config**:
+  - update package.json exports and publish config &nbsp;-&nbsp; by @Ohh-889 [<samp>(5e769)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/5e7696e)
+  - update peerDeps and add optional deps &nbsp;-&nbsp; by @Ohh-889 [<samp>(5a2fd)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/5a2fdcf)
+- **@skyroc/next-docs-plugin**:
+  - bump @next/eslint-plugin-next to 16.0.3, remove unused deps, and refactor plugin &nbsp;-&nbsp; by @Ohh-889 [<samp>(c7126)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/c7126d0)
+- **deps**:
+  - bump tailwindcss in /packages/tailwind-plugin &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(b14e6)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/b14e6ec)
+  - bump @radix-ui/react-slot in /primitives/filed-form &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(5a5bc)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/5a5bc69)
+  - bump react-dom from 19.1.0 to 19.2.0 in /playground &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(9c782)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/9c78273)
+  - bump @radix-ui/react-select in /packages/ui &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(db9e5)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/db9e587)
+  - bump next from 15.4.1 to 16.0.0 in /docs &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(671ff)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/671ff1f)
+  - bump lucide-react in /packages/next-docs-plugin &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(b7e8b)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/b7e8bb3)
+  - bump tailwind-variants from 1.0.0 to 3.1.1 in /packages/ui &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(a9aae)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/a9aae55)
+  - bump @radix-ui/react-dropdown-menu from 2.1.15 to 2.1.16 &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(c576e)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/c576e6c)
+  - bump @radix-ui/react-toggle from 1.1.9 to 1.1.10 &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(517ba)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/517ba82)
+  - bump @radix-ui/react-collapsible in /packages/ui &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(a985f)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/a985f3b)
+- **deps-dev**:
+  - bump tsdown in /primitives/type-utils &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(7f73c)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/7f73cac)
+  - bump tsdown in /primitives/filed-form &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(5ad6e)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/5ad6edd)
+  - bump tsx from 4.20.3 to 4.20.6 in /docs &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(215f9)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/215f965)
+  - bump tsup from 8.5.0 to 8.5.1 in /packages/color &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(0675b)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/0675bd6)
+  - bump tsdown from 0.12.9 to 0.16.1 in /primitives/utils &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(62bff)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/62bff0e)
+  - bump shadcn from 2.9.0 to 3.5.0 in /packages/ui &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(afbde)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/afbde82)
+  - bump eslint-config-next in /playground &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(6d7c9)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/6d7c9a0)
+  - bump tailwindcss from 4.1.11 to 4.1.16 in /playground &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(ad2b5)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/ad2b5b4)
+  - bump tailwindcss from 4.1.11 to 4.1.16 in /docs &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(db86c)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/db86c63)
+  - bump @tailwindcss/postcss in /docs &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(b304c)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/b304cd9)
+  - bump tsx from 4.20.3 to 4.20.6 in /playground &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(3ffef)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/3ffefd3)
+  - bump typescript in /primitives/filed-form &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(25dbc)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/25dbcbe)
+  - bump tsdown from 0.12.9 to 0.15.10 &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(42cf7)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/42cf763)
+  - bump react and @types/react &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(060cd)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/060cd78)
+  - bump @opennextjs/cloudflare in /playground &nbsp;-&nbsp; by **dependabot[bot]** [<samp>(6759f)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/6759f72)
+- **docs**:
+  - migrate to @skyroc/next-docs-themes, update deps, and adjust imports &nbsp;-&nbsp; by @Ohh-889 [<samp>(68dd9)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/68dd907)
+- **eslint**:
+  - 🗑️ remove ESLint configuration and related dependency &nbsp;-&nbsp; by @Ohh-889 [<samp>(23b71)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/23b7170)
+- **next-docs-plugin**:
+  - update ESLint deps, improve formatting, and enhance structure &nbsp;-&nbsp; by @Ohh-889 [<samp>(0e764)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/0e76497)
+- **other**:
+  - ✨ rename Soybean UI to Skyroc UI &nbsp;-&nbsp; by @SkyRoc1 [<samp>(6dc22)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/6dc22cc)
+  - 🔧 update changelog and refine name extraction &nbsp;-&nbsp; by @SkyRoc1 [<samp>(142f9)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/142f9af)
+  - 🔧 remove dependabot configuration file &nbsp;-&nbsp; by @SkyRoc1 [<samp>(d1203)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/d1203f2)
+  - 🔧 add cursor rules for Next.js init &nbsp;-&nbsp; by @Ohh-889 [<samp>(1d138)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/1d138ee)
+  - 🔧 update versions, add deps, and clean package configs &nbsp;-&nbsp; by @Ohh-889 [<samp>(755a8)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/755a852)
+  - 🔧 update import paths to @skyroc &nbsp;-&nbsp; by @Ohh-889 [<samp>(4487b)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/4487b7a)
+  - update tailwindcss from 4.1.11 to 4.1.17 &nbsp;-&nbsp; by @Ohh-889 [<samp>(13890)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/138907c)
+  - 🗑️ remove default dark mode UI CSS file &nbsp;-&nbsp; by @Ohh-889 [<samp>(0ad61)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/0ad6137)
+  - update packageManager to pnpm@10.12.0 &nbsp;-&nbsp; by @Ohh-889 [<samp>(2ecd0)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/2ecd0a5)
+  - update ESLint validation and enable bracket guides &nbsp;-&nbsp; by @Ohh-889 [<samp>(06e49)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/06e499c)
+  - 🔧 use catalog refs for ESLint deps &nbsp;-&nbsp; by @Ohh-889 [<samp>(b30ec)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/b30ec78)
+  - ✨ add recommended extensions and update Tailwind settings &nbsp;-&nbsp; by @Ohh-889 [<samp>(10e42)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/10e4282)
+- **playground**:
+  - update deps, improve formatting, and enhance demos &nbsp;-&nbsp; by @Ohh-889 [<samp>(ffefc)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/ffefc82)
+- **ui**:
+  - update component structures, improve styling, and enhance documentation across multiple UI components &nbsp;-&nbsp; by @Ohh-889 [<samp>(a1296)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/a1296d2)
+- **ui/layout**:
+  - 使用useControllableState优化代码 &nbsp;-&nbsp; by **rascal** [<samp>(02b38)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/02b387f)
+
+### &nbsp;&nbsp;&nbsp;🎨 Styles
+
+- **skyroc-ui-docs**: 💄 clean formatting, improve docs, and update demos &nbsp;-&nbsp; by @Ohh-889 [<samp>(87bd2)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/87bd23e)
+
+### &nbsp;&nbsp;&nbsp;🤖 CI
+
+- **other**:
+  - update versioning format in configuration and workflow to remove 'v-' prefix for tags &nbsp;-&nbsp; by @SkyRoc1 [<samp>(1749f)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/1749fbd)
+  - 👷 correct package name extraction in release workflow &nbsp;-&nbsp; by @SkyRoc1 [<samp>(612ba)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/612ba54)
+  - 👷 refine package name extraction logic in release workflow &nbsp;-&nbsp; by @SkyRoc1 [<samp>(32cea)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/32cead0)
+  - 👷 update package name handling in changelog generation &nbsp;-&nbsp; by @SkyRoc1 [<samp>(25331)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/253310f)
+  - 👷 improve package name extraction logic for scoped packages &nbsp;-&nbsp; by @SkyRoc1 [<samp>(fef43)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/fef432d)
+  - improve package name extraction logic for scoped packages &nbsp;-&nbsp; by @SkyRoc1 [<samp>(3adb7)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/3adb7f2)
+  - enhance safe package name handling for changelog generation &nbsp;-&nbsp; by @SkyRoc1 [<samp>(a3b67)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/a3b6792)
+  - simplify package name extraction logic in release workflow &nbsp;-&nbsp; by @SkyRoc1 [<samp>(4680f)</samp>](https://github.com/Ohh-889/skyroc-ui/commit/4680fa8)
+
+### &nbsp;&nbsp;&nbsp;❤️ Contributors
+
+[![Ohh-889](https://github.com/Ohh-889.png?size=48)](https://github.com/Ohh-889)&nbsp;&nbsp;[![SkyRoc1](https://github.com/SkyRoc1.png?size=48)](https://github.com/SkyRoc1)&nbsp;&nbsp;
+[rascal](mailto:ras-cal@gmail.com),&nbsp;[dependabot[bot]](mailto:49699333+dependabot[bot]@users.noreply.github.com)
+
 ## [skyroc-ui](https://github.com/Ohh-889/skyroc-ui/compare/vskyroc-ui@0.0.4...skyroc-ui) (2025-10-13)
 
 ### &nbsp;&nbsp;&nbsp;🚀 Features

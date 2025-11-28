@@ -19,7 +19,7 @@
     "lint": "turbo run lint",
     "lint:fix": "eslint . --fix",
     "postinstall": "tsx script/postinstall.ts",
-    "release": "tsx script/bump.ts",
+    "release": "tsx script/release.ts",
     "release:alpha": "tsx script/release.ts --type alpha",
     "release:beta": "tsx script/release.ts --type beta",
     "release:prod": "tsx script/release.ts --type prod",
