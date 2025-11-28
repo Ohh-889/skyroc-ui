@@ -1,4 +1,4 @@
-export * from './Card';
+export { default as Card } from './Card';
 export * from './CardContent';
 export * from './CardFooter';
 export * from './CardHeader';

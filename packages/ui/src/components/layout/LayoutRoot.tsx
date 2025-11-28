@@ -1,3 +1,5 @@
+'use client';
+
 import type { CSSProperties } from 'react';
 import { useMemo, useState } from 'react';
 import { useControllableState } from '@radix-ui/react-use-controllable-state';
