@@ -1,7 +1,7 @@
 'use client';
 
 import type { FormInstance } from 'skyroc-ui';
-import { Button, Card, Form, FormField, Input, useFieldState, useForm } from 'skyroc-ui';
+import { Button, Form, FormField, Input, useFieldState, useForm } from 'skyroc-ui';
 import { showToastCode } from './toast';
 
 interface Inputs {
@@ -112,7 +112,7 @@ const UseForm = () => {
   }
 
   return (
-    <Card title="UseForm">
+    <>
       <Form
         className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
@@ -243,7 +243,7 @@ const UseForm = () => {
       </Form>
 
       <StateEffect form={form} />
-    </Card>
+    </>
   );
 };
 

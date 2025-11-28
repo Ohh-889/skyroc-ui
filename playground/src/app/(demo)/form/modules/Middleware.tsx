@@ -2,7 +2,7 @@
 
 import { useEffect } from 'react';
 import type { FormAction } from 'skyroc-ui';
-import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
+import { Button, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 // ============ Analytics Middleware (logging/tracking) ============
 function analyticsMiddleware({ getState }: { dispatch: (a: FormAction) => void; getState: () => any }) {
@@ -45,39 +45,37 @@ const UseFormWithMiddleware = () => {
   }, []);
 
   return (
-    <Card title="UseForm with Middleware (Sync Password)">
-      <Form
-        className="w-[480px] space-y-4 max-sm:w-full"
-        form={form}
-        initialValues={initialValues}
+    <Form
+      className="w-[480px] space-y-4 max-sm:w-full"
+      form={form}
+      initialValues={initialValues}
+    >
+      <FormField
+        label="Username"
+        name="username"
       >
-        <FormField
-          label="Username"
-          name="username"
-        >
-          <Input />
-        </FormField>
+        <Input />
+      </FormField>
 
-        <FormField
-          label="Password"
-          name="password"
-        >
-          <Input />
-        </FormField>
+      <FormField
+        label="Password"
+        name="password"
+      >
+        <Input />
+      </FormField>
 
-        <FormField
-          label="Confirm Password"
-          name="confirmPassword"
-        >
-          <Input />
-        </FormField>
+      <FormField
+        label="Confirm Password"
+        name="confirmPassword"
+      >
+        <Input />
+      </FormField>
 
-        <div className="flex flex-wrap gap-2">
-          <Button type="submit">Submit</Button>
-          <Button onClick={() => form.setFieldValue('username', 'ohh-889')}>Set Username</Button>
-        </div>
-      </Form>
-    </Card>
+      <div className="flex flex-wrap gap-2">
+        <Button type="submit">Submit</Button>
+        <Button onClick={() => form.setFieldValue('username', 'ohh-889')}>Set Username</Button>
+      </div>
+    </Form>
   );
 };
 

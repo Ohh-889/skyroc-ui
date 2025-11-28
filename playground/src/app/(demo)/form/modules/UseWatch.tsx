@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { Card, Form, FormField, Input, useForm, useWatch } from 'skyroc-ui';
+import { Form, FormField, Input, useForm, useWatch } from 'skyroc-ui';
 import { showToastCode } from './toast';
 
 interface Inputs {
@@ -38,77 +38,75 @@ const WatchDemo = () => {
   }, [NewAge, NewPassword, NewUsername]);
 
   return (
-    <Card title="Use Watch">
-      <div className="w-[480px] space-y-4 max-sm:w-full">
-        <Form form={form}>
-          <FormField
-            label="Username"
-            name="username"
-          >
-            <Input placeholder="Enter username" />
-          </FormField>
+    <div className="w-[480px] space-y-4 max-sm:w-full">
+      <Form form={form}>
+        <FormField
+          label="Username"
+          name="username"
+        >
+          <Input placeholder="Enter username" />
+        </FormField>
 
-          <FormField
-            label="Age"
-            name="age"
-            rules={[{ message: 'Must be 18 or older', min: 18, type: 'number' }]}
-          >
-            <Input placeholder="Enter age" />
-          </FormField>
+        <FormField
+          label="Age"
+          name="age"
+          rules={[{ message: 'Must be 18 or older', min: 18, type: 'number' }]}
+        >
+          <Input placeholder="Enter age" />
+        </FormField>
 
-          <FormField
-            label="Password"
-            name="password"
-            rules={[{ message: 'Password must be at least 6 characters', minLength: 6 }]}
-          >
-            <Input placeholder="Enter password" />
-          </FormField>
+        <FormField
+          label="Password"
+          name="password"
+          rules={[{ message: 'Password must be at least 6 characters', minLength: 6 }]}
+        >
+          <Input placeholder="Enter password" />
+        </FormField>
 
-          <FormField
-            label="Info&City"
-            name="info.city"
-            rules={[{ message: 'Password must be at least 6 characters', minLength: 6 }]}
-          >
-            <Input placeholder="Enter info.city" />
-          </FormField>
+        <FormField
+          label="Info&City"
+          name="info.city"
+          rules={[{ message: 'Password must be at least 6 characters', minLength: 6 }]}
+        >
+          <Input placeholder="Enter info.city" />
+        </FormField>
 
-          <FormField
-            label="Info&company"
-            name="info.company"
-            rules={[{ message: 'Password must be at least 6 characters', minLength: 6 }]}
-          >
-            <Input placeholder="Enter info.company" />
-          </FormField>
+        <FormField
+          label="Info&company"
+          name="info.company"
+          rules={[{ message: 'Password must be at least 6 characters', minLength: 6 }]}
+        >
+          <Input placeholder="Enter info.company" />
+        </FormField>
 
-          <EffectWatch />
-        </Form>
+        <EffectWatch />
+      </Form>
 
-        {/* 4) Dynamic rendering */}
-        <div className="mt-4 rounded border p-2">
-          <h3 className="font-bold">Real-time Watch Results:</h3>
+      {/* 4) Dynamic rendering */}
+      <div className="mt-4 rounded border p-2">
+        <h3 className="font-bold">Real-time Watch Results:</h3>
 
-          <p>
-            Username:
-            {username}
-          </p>
+        <p>
+          Username:
+          {username}
+        </p>
 
-          <p>
-            Age:
-            {age}
-          </p>
+        <p>
+          Age:
+          {age}
+        </p>
 
-          <p>
-            Password:
-            {password}
-          </p>
+        <p>
+          Password:
+          {password}
+        </p>
 
-          <p>
-            Info:
-            {JSON.stringify(info, (_, value) => (value === undefined ? null : value), 2)}
-          </p>
-        </div>
+        <p>
+          Info:
+          {JSON.stringify(info, (_, value) => (value === undefined ? null : value), 2)}
+        </p>
       </div>
-    </Card>
+    </div>
   );
 };
 

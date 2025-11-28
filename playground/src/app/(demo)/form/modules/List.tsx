@@ -1,6 +1,6 @@
 'use client';
 
-import { ButtonIcon, Card, Form, FormField, FormList, Input, useForm } from 'skyroc-ui';
+import { ButtonIcon, Form, FormField, FormList, Input, useForm } from 'skyroc-ui';
 
 interface FormValues {
   users: {
@@ -13,125 +13,120 @@ const List = () => {
   const [form] = useForm<FormValues>();
 
   return (
-    <Card
-      split
-      title="List"
+    <Form
+      className="w-[480px] space-y-4 max-sm:w-full"
+      form={form}
     >
-      <Form
-        className="w-[480px] space-y-4 max-sm:w-full"
-        form={form}
+      <FormList
+        name="users"
+        initialValue={[
+          { age: 20, name: 'John' },
+          { age: 21, name: 'Jane' }
+        ]}
       >
-        <FormList
-          name="users"
-          initialValue={[
-            { age: 20, name: 'John' },
-            { age: 21, name: 'Jane' }
-          ]}
-        >
-          {(fields, ops) => (
-            <div>
-              {fields.map(({ key, name }, index) => (
-                <div
-                  className="flex items-center gap-x-2"
-                  key={key}
+        {(fields, ops) => (
+          <div>
+            {fields.map(({ key, name }, index) => (
+              <div
+                className="flex items-center gap-x-2"
+                key={key}
+              >
+                <FormField
+                  className="flex-1"
+                  label={`Name ${key}`}
+                  name={`${name}.name`}
                 >
-                  <FormField
-                    className="flex-1"
-                    label={`Name ${key}`}
-                    name={`${name}.name`}
-                  >
-                    <Input placeholder={`Enter ${name}.name`} />
-                  </FormField>
+                  <Input placeholder={`Enter ${name}.name`} />
+                </FormField>
 
-                  <FormField
-                    className="flex-1"
-                    label={`Age ${key}`}
-                    name={`${name}.age`}
-                  >
-                    <Input placeholder={`Enter ${name}.age`} />
-                  </FormField>
+                <FormField
+                  className="flex-1"
+                  label={`Age ${key}`}
+                  name={`${name}.age`}
+                >
+                  <Input placeholder={`Enter ${name}.age`} />
+                </FormField>
 
-                  <div className="mt-6 flex gap-x-2">
-                    <ButtonIcon
-                      icon="ant-design:plus-outlined"
-                      variant="ghost"
-                      onClick={() => ops.insert(index + 1, { age: 11, name: '' })}
-                    />
-
-                    <ButtonIcon icon="ant-design:minus-outlined" />
-                  </div>
-                </div>
-              ))}
-
-              <div className="mt-4 flex items-center gap-x-2">
-                <div className="gap-x-2px flex items-center">
-                  <div className="text-sm text-gray-500">replace 0:</div>
-
+                <div className="mt-6 flex gap-x-2">
                   <ButtonIcon
-                    icon="ant-design:swap-outlined"
+                    icon="ant-design:plus-outlined"
                     variant="ghost"
-                    onClick={() => ops.replace(0, { age: 99, name: 'Replaced' })}
+                    onClick={() => ops.insert(index + 1, { age: 11, name: '' })}
                   />
-                </div>
 
-                <div className="gap-x-2px flex items-center">
-                  <div className="text-sm text-gray-500">move 0 to 1: </div>
-
-                  <ButtonIcon
-                    icon="ant-design:arrow-up-outlined"
-                    variant="ghost"
-                    onClick={() => ops.move(0, 1)}
-                  />
-                </div>
-
-                <div className="gap-x-2px flex items-center">
-                  <div className="text-sm text-gray-500">swap 0 and 1: </div>
-
-                  <ButtonIcon
-                    icon="ant-design:retweet-outlined"
-                    variant="ghost"
-                    onClick={() => ops.swap(0, 1)}
-                  />
+                  <ButtonIcon icon="ant-design:minus-outlined" />
                 </div>
               </div>
-            </div>
-          )}
-        </FormList>
+            ))}
 
-        <FormList
-          initialValue={['company1', 'company2']}
-          name="companies"
-        >
-          {(fields, ops) => (
-            <div>
-              {fields.map(({ key, name }, index) => (
-                <div
-                  className="flex items-center gap-x-2"
-                  key={key}
+            <div className="mt-4 flex items-center gap-x-2">
+              <div className="gap-x-2px flex items-center">
+                <div className="text-sm text-gray-500">replace 0:</div>
+
+                <ButtonIcon
+                  icon="ant-design:swap-outlined"
+                  variant="ghost"
+                  onClick={() => ops.replace(0, { age: 99, name: 'Replaced' })}
+                />
+              </div>
+
+              <div className="gap-x-2px flex items-center">
+                <div className="text-sm text-gray-500">move 0 to 1: </div>
+
+                <ButtonIcon
+                  icon="ant-design:arrow-up-outlined"
+                  variant="ghost"
+                  onClick={() => ops.move(0, 1)}
+                />
+              </div>
+
+              <div className="gap-x-2px flex items-center">
+                <div className="text-sm text-gray-500">swap 0 and 1: </div>
+
+                <ButtonIcon
+                  icon="ant-design:retweet-outlined"
+                  variant="ghost"
+                  onClick={() => ops.swap(0, 1)}
+                />
+              </div>
+            </div>
+          </div>
+        )}
+      </FormList>
+
+      <FormList
+        initialValue={['company1', 'company2']}
+        name="companies"
+      >
+        {(fields, ops) => (
+          <div>
+            {fields.map(({ key, name }, index) => (
+              <div
+                className="flex items-center gap-x-2"
+                key={key}
+              >
+                <FormField
+                  label={`Company ${key}`}
+                  name={name}
                 >
-                  <FormField
-                    label={`Company ${key}`}
-                    name={name}
-                  >
-                    <Input placeholder={`Enter ${name}`} />
-                  </FormField>
+                  <Input placeholder={`Enter ${name}`} />
+                </FormField>
 
-                  <div className="mt-6 flex gap-x-2">
-                    <ButtonIcon
-                      icon="ant-design:plus-outlined"
-                      variant="ghost"
-                      onClick={() => ops.insert(index + 1, `company${index + 1}`)}
-                    />
+                <div className="mt-6 flex gap-x-2">
+                  <ButtonIcon
+                    icon="ant-design:plus-outlined"
+                    variant="ghost"
+                    onClick={() => ops.insert(index + 1, `company${index + 1}`)}
+                  />
 
-                    <ButtonIcon icon="ant-design:minus-outlined" />
-                  </div>
+                  <ButtonIcon icon="ant-design:minus-outlined" />
                 </div>
-              ))}
-            </div>
-          )}
-        </FormList>
-      </Form>
-    </Card>
+              </div>
+            ))}
+          </div>
+        )}
+      </FormList>
+    </Form>
   );
 };
 

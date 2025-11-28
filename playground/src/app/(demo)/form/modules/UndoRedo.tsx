@@ -1,6 +1,6 @@
 'use client';
 
-import { Button, Card, Form, FormField, FormList, Input, useForm, useUndoRedo } from 'skyroc-ui';
+import { Button, Form, FormField, FormList, Input, useForm, useUndoRedo } from 'skyroc-ui';
 
 interface Inputs {
   email: string;
@@ -36,80 +36,78 @@ const UseFormWithUndoRedo = () => {
   }
 
   return (
-    <Card title="UseForm with Undo/Redo">
-      <Form
-        className="w-[480px] space-y-4 max-sm:w-full"
-        form={form}
-        initialValues={initialValues}
+    <Form
+      className="w-[480px] space-y-4 max-sm:w-full"
+      form={form}
+      initialValues={initialValues}
+    >
+      <FormField
+        label="Username"
+        name="username"
       >
-        <FormField
-          label="Username"
-          name="username"
+        <Input />
+      </FormField>
+
+      <FormField
+        label="Email"
+        name="email"
+      >
+        <Input />
+      </FormField>
+
+      <FormList
+        initialValue={['vue', 'react']}
+        name="tags"
+      >
+        {fields => (
+          <div>
+            {fields.map(({ key, name }) => (
+              <FormField
+                key={key}
+                label={`Tag ${key}`}
+                name={name}
+              >
+                <Input />
+              </FormField>
+            ))}
+          </div>
+        )}
+      </FormList>
+
+      <div className="flex flex-wrap gap-2">
+        <Button
+          type="button"
+          onClick={setUsername}
         >
-          <Input />
-        </FormField>
+          Change Username
+        </Button>
 
-        <FormField
-          label="Email"
-          name="email"
+        <Button
+          type="button"
+          onClick={insertTag}
         >
-          <Input />
-        </FormField>
+          Insert Tag
+        </Button>
 
-        <FormList
-          initialValue={['vue', 'react']}
-          name="tags"
+        <Button
+          disabled={!undoRedo?.canUndo}
+          type="button"
+          onClick={undo}
         >
-          {fields => (
-            <div>
-              {fields.map(({ key, name }) => (
-                <FormField
-                  key={key}
-                  label={`Tag ${key}`}
-                  name={name}
-                >
-                  <Input />
-                </FormField>
-              ))}
-            </div>
-          )}
-        </FormList>
+          Undo
+        </Button>
 
-        <div className="flex flex-wrap gap-2">
-          <Button
-            type="button"
-            onClick={setUsername}
-          >
-            Change Username
-          </Button>
+        <Button
+          disabled={!undoRedo?.canRedo}
+          type="button"
+          onClick={redo}
+        >
+          Redo
+        </Button>
 
-          <Button
-            type="button"
-            onClick={insertTag}
-          >
-            Insert Tag
-          </Button>
-
-          <Button
-            disabled={!undoRedo?.canUndo}
-            type="button"
-            onClick={undo}
-          >
-            Undo
-          </Button>
-
-          <Button
-            disabled={!undoRedo?.canRedo}
-            type="button"
-            onClick={redo}
-          >
-            Redo
-          </Button>
-
-          <Button type="submit">Submit</Button>
-        </div>
-      </Form>
-    </Card>
+        <Button type="submit">Submit</Button>
+      </div>
+    </Form>
   );
 };
 

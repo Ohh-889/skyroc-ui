@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState } from 'react';
-import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
+import { useState } from 'react';
+import { Button, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 interface FormValues {
   password: string;
@@ -18,7 +18,7 @@ const ClearDestroy = () => {
   }
 
   return (
-    <Card title="Clear Destroy">
+    <div>
       {show
         ? (
           <Form
@@ -50,7 +50,7 @@ const ClearDestroy = () => {
       >
         Toggle
       </Button>
-    </Card>
+    </div>
   );
 };
 

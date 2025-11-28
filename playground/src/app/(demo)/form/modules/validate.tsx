@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
-import { Button, Card, Form, FormField, useFieldError, useForm } from 'skyroc-ui';
+import { Button, Form, FormField, useFieldError, useForm } from 'skyroc-ui';
 import { DemoInput } from './DemoComponents';
 import { showToastCode } from './toast';
 
@@ -39,17 +39,16 @@ const Validate = () => {
   }, [errors]);
 
   return (
-    <Card title="Validate Fields">
-      <Form
-        className="w-[480px] space-y-4 max-sm:w-full"
-        form={form}
-        onFinish={(values) => {
-          showToastCode('You submitted the following values success Validate', values);
-        }}
-        onFinishFailed={(errInfo) => {
-          showToastCode('You failed to submit the form failed Validate', errInfo);
-        }}
-      >
+    <Form
+      className="w-[480px] space-y-4 max-sm:w-full"
+      form={form}
+      onFinish={(values) => {
+        showToastCode('You submitted the following values success Validate', values);
+      }}
+      onFinishFailed={(errInfo) => {
+        showToastCode('You failed to submit the form failed Validate', errInfo);
+      }}
+    >
         <FormField
           label="Username"
           name="username"
@@ -300,7 +299,6 @@ const Validate = () => {
           <Button type="submit">Submit</Button>
         </div>
       </Form>
-    </Card>
   );
 };
 

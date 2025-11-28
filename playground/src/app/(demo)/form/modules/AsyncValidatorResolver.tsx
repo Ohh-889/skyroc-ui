@@ -2,7 +2,7 @@
 
 import Schema from 'async-validator';
 import type { RuleItem } from 'async-validator';
-import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
+import { Button, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 // 定义 async-validator 规则
 const descriptor: Record<string, RuleItem | RuleItem[]> = {
@@ -55,32 +55,30 @@ const AsyncValidatorDemo = () => {
   const [form] = useForm<Inputs>();
 
   return (
-    <Card title="Form with AsyncValidator (function resolver)">
-      <Form
-        className="w-[480px] space-y-4 max-sm:w-full"
-        form={form}
-        initialValues={initialValues}
-        schema={asyncValidatorResolver} // ✅ 非标准库 → 传函数
+    <Form
+      className="w-[480px] space-y-4 max-sm:w-full"
+      form={form}
+      initialValues={initialValues}
+      schema={asyncValidatorResolver} // ✅ 非标准库 → 传函数
+    >
+      <FormField
+        label="Username"
+        name="username"
       >
-        <FormField
-          label="Username"
-          name="username"
-        >
-          <Input />
-        </FormField>
+        <Input />
+      </FormField>
 
-        <FormField
-          label="Email"
-          name="email"
-        >
-          <Input />
-        </FormField>
+      <FormField
+        label="Email"
+        name="email"
+      >
+        <Input />
+      </FormField>
 
-        <div className="flex gap-2">
-          <Button type="submit">Submit</Button>
-        </div>
-      </Form>
-    </Card>
+      <div className="flex gap-2">
+        <Button type="submit">Submit</Button>
+      </div>
+    </Form>
   );
 };
 

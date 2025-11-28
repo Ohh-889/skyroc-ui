@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Button, Card, Form, FormField, Input, useForm } from 'skyroc-ui';
+import { Button, Form, FormField, Input, useForm } from 'skyroc-ui';
 
 interface Inputs {
   info: { city: string; company: string };
@@ -28,46 +28,44 @@ const Reset = () => {
   };
 
   return (
-    <Card title="Reset">
-      <Form
-        className="w-[480px] space-y-4 max-sm:w-full"
-        form={form}
-        initialValues={initialValues}
+    <Form
+      className="w-[480px] space-y-4 max-sm:w-full"
+      form={form}
+      initialValues={initialValues}
+    >
+      <FormField
+        label="Username"
+        name="username"
       >
-        <FormField
-          label="Username"
-          name="username"
-        >
-          <Input placeholder="Enter username" />
-        </FormField>
+        <Input placeholder="Enter username" />
+      </FormField>
 
-        <FormField
-          label="Password"
-          name="password"
-        >
-          <Input placeholder="Enter password" />
-        </FormField>
+      <FormField
+        label="Password"
+        name="password"
+      >
+        <Input placeholder="Enter password" />
+      </FormField>
 
-        <FormField
-          label="Info&City"
-          name="info.city"
-        >
-          <Input placeholder="Enter info.city" />
-        </FormField>
+      <FormField
+        label="Info&City"
+        name="info.city"
+      >
+        <Input placeholder="Enter info.city" />
+      </FormField>
 
-        <FormField
-          label="Info&Company"
-          name="info.company"
-        >
-          <Input placeholder="Enter info.company" />
-        </FormField>
+      <FormField
+        label="Info&Company"
+        name="info.company"
+      >
+        <Input placeholder="Enter info.company" />
+      </FormField>
 
-        <div className="flex gap-x-1">
-          <Button onClick={handleReset}>Reset All</Button>
-          <Button onClick={handleResetUsername}>Reset Username</Button>
-        </div>
-      </Form>
-    </Card>
+      <div className="flex gap-x-1">
+        <Button onClick={handleReset}>Reset All</Button>
+        <Button onClick={handleResetUsername}>Reset Username</Button>
+      </div>
+    </Form>
   );
 };
 

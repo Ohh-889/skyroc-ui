@@ -1,7 +1,7 @@
 'use client';
 
 import type { FormInstance } from 'skyroc-ui';
-import { Button, Card, Form, FormField, Input, useForm, useSelector } from 'skyroc-ui';
+import { Button, Form, FormField, Input, useForm, useSelector } from 'skyroc-ui';
 import { showToastCode } from './toast';
 
 interface Inputs {
@@ -91,7 +91,7 @@ const UseSelectorDemo = () => {
   };
 
   return (
-    <Card title="UseSelector Demo">
+    <>
       <Form
         className="w-[480px] space-y-4 max-sm:w-full"
         form={form}
@@ -167,7 +167,7 @@ const UseSelectorDemo = () => {
 
       {/* Observe dependency changes of useSelector */}
       <SelectorEffect form={form} />
-    </Card>
+    </>
   );
 };
 
