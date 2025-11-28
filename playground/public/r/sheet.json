@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "src/components/sheet/Sheet.tsx",
-      "content": "'use client';\n\nimport { Dialog } from '../dialog';\nimport SheetContent from './SheetContent';\nimport type { SheetProps } from './types';\n\nconst Sheet = (props: SheetProps) => {\n  const { children, ...rest } = props;\n\n  return (\n    <Dialog\n      contentComponent={SheetContent}\n      {...rest}\n    >\n      <div className=\"flex-grow overflow-auto\">{children}</div>\n    </Dialog>\n  );\n};\n\nexport default Sheet;\n",
+      "content": "'use client';\n\nimport { useComponentConfig } from '../config-provider/context';\nimport SheetUI from './SheetUI';\nimport type { SheetProps } from './types';\n\nconst Sheet = (props: SheetProps) => {\n  const config = useComponentConfig('sheet');\n\n  const mergedProps = {\n    ...config,\n    ...props\n  };\n\n  return (\n    <SheetUI\n      {...mergedProps}\n\n    />\n  );\n};\n\nSheet.displayName = 'Sheet';\n\nexport default Sheet;\n",
       "type": "registry:ui",
       "target": "components/sheet/Sheet.tsx"
     },
@@ -18,6 +18,12 @@
       "content": "import { Content } from '@radix-ui/react-dialog';\nimport { cn } from '@/lib/utils';\nimport { sheetVariants } from './sheet-variants';\nimport type { SheetContentProps } from './types';\n\nconst SheetContent = (props: SheetContentProps) => {\n  const { className, side, ...rest } = props;\n\n  const { content } = sheetVariants({ side });\n\n  const mergedCls = cn(content(), className);\n\n  return (\n    <Content\n      className={mergedCls}\n      data-side={side}\n      data-slot=\"sheet-content\"\n      {...rest}\n    />\n  );\n};\n\nexport default SheetContent;\n",
       "type": "registry:ui",
       "target": "components/sheet/SheetContent.tsx"
+    },
+    {
+      "path": "src/components/sheet/SheetUI.tsx",
+      "content": "'use client';\n\nimport { Dialog } from '../dialog';\nimport SheetContent from './SheetContent';\nimport type { SheetProps } from './types';\n\nconst SheetUI = (props: SheetProps) => {\n  const { children, ...rest } = props;\n\n  return (\n    <Dialog\n      contentComponent={SheetContent}\n      {...rest}\n    >\n      <div className=\"flex-grow overflow-auto\">{children}</div>\n    </Dialog>\n  );\n};\n\nexport default SheetUI;\n",
+      "type": "registry:ui",
+      "target": "components/sheet/SheetUI.tsx"
     },
     {
       "path": "src/components/sheet/index.ts",
@@ -33,7 +39,7 @@
     },
     {
       "path": "src/components/sheet/types.ts",
-      "content": "import type { DialogContentProps } from '@radix-ui/react-dialog';\nimport type { StyledComponentProps, ClassValue } from '@/types/shared';\nimport type { DialogSlots as SheetSlots } from '../dialog/dialog-variants';\nimport type { DialogProps } from '../dialog/types';\nimport type { SheetSide } from './sheet-variants';\n\nexport interface SheetContentProps extends StyledComponentProps<DialogContentProps> {\n  side?: SheetSide;\n}\n\nexport type SheetClassNames = Partial<Record<SheetSlots, ClassValue>>;\n\nexport interface SheetProps extends Omit<DialogProps<SheetContentProps>, 'contentComponent'> {}\n\nexport { SheetSide };\n",
+      "content": "import type { DialogContentProps } from '@radix-ui/react-dialog';\nimport type { StyledComponentProps, ClassValue } from '@/types/shared';\nimport type { DialogSlots as SheetSlots } from '../dialog/dialog-variants';\nimport type { DialogProps } from '../dialog/types';\nimport type { SheetSide } from './sheet-variants';\n\n/**\n * Props for the sheet content component.\n * The main container that slides in from a specified side of the screen.\n *\n * @example\n * ```tsx\n * <SheetContent side=\"right\">\n *   <SheetHeader>\n *     <SheetTitle>Sheet Title</SheetTitle>\n *   </SheetHeader>\n *   <div>Sheet content goes here</div>\n * </SheetContent>\n * ```\n */\nexport interface SheetContentProps extends StyledComponentProps<DialogContentProps> {\n  /**\n   * The side of the screen from which the sheet slides in.\n   * Can be \"top\", \"right\", \"bottom\", or \"left\".\n   */\n  side?: SheetSide;\n}\n\n/**\n * Class names for different slots in the sheet component.\n * Allows customizing styles for the overlay, content, and other parts.\n */\nexport type SheetClassNames = Partial<Record<SheetSlots, ClassValue>>;\n\n/**\n * Props for the main Sheet component.\n * A side panel modal that slides in from the edge of the screen.\n *\n * @example\n * ```tsx\n * <Sheet>\n *   <SheetTrigger>Open Sheet</SheetTrigger>\n *   <SheetContent side=\"left\">\n *     <SheetHeader>\n *       <SheetTitle>Navigation</SheetTitle>\n *     </SheetHeader>\n *     <SheetBody>\n *       <nav>Navigation items here</nav>\n *     </SheetBody>\n *   </SheetContent>\n * </Sheet>\n * ```\n */\nexport interface SheetProps extends Omit<DialogProps<SheetContentProps>, 'contentComponent'> {}\n\nexport { SheetSide };\n",
       "type": "registry:ui",
       "target": "components/sheet/types.ts"
     }

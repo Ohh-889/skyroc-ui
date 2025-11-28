@@ -9,9 +9,15 @@
   "files": [
     {
       "path": "src/components/badge/Badge.tsx",
-      "content": "import { cn } from '@/lib/utils';\nimport { badgeVariants } from './badge-variants';\nimport type { BadgeProps } from './types';\n\nconst Badge = (props: BadgeProps) => {\n  const { className, color, shape, size, variant, ...rest } = props;\n\n  const mergedCls = cn(badgeVariants({ color, shape, size, variant }), className);\n\n  return (\n    <div\n      {...rest}\n      className={mergedCls}\n    />\n  );\n};\n\nexport default Badge;\n",
+      "content": "'use client';\n\nimport { useComponentConfig } from '../config-provider/context';\nimport BadgeUI from './BadgeUI';\nimport type { BadgeProps } from './types';\n\nconst Badge = (props: BadgeProps) => {\n  const config = useComponentConfig('badge');\n\n  const mergedProps = {\n    ...config,\n    ...props\n  };\n\n  return (\n    <BadgeUI\n      {...mergedProps}\n    />\n  );\n};\n\nBadge.displayName = 'Badge';\n\nexport default Badge;\n",
       "type": "registry:ui",
       "target": "components/badge/Badge.tsx"
+    },
+    {
+      "path": "src/components/badge/BadgeUI.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport { badgeVariants } from './badge-variants';\nimport type { BadgeProps } from './types';\n\nconst BadgeUI = (props: BadgeProps) => {\n  const { className, color, shape, size, variant, ...rest } = props;\n\n  const mergedCls = cn(badgeVariants({ color, shape, size, variant }), className);\n\n  return (\n    <div\n      {...rest}\n      className={mergedCls}\n    />\n  );\n};\n\nBadgeUI.displayName = 'BadgeUI';\n\nexport default BadgeUI;\n",
+      "type": "registry:ui",
+      "target": "components/badge/BadgeUI.tsx"
     },
     {
       "path": "src/components/badge/badge-variants.ts",
@@ -27,7 +33,7 @@
     },
     {
       "path": "src/components/badge/types.ts",
-      "content": "import type { StyledComponentProps, ThemeColor } from '@/types/shared';\nimport type { BadgeShape, BadgeVariant } from './badge-variants';\n\nexport interface BadgeProps extends StyledComponentProps<React.ComponentProps<'div'>> {\n  /** The color of the badge. */\n  color?: ThemeColor;\n  /** The shape of the badge. */\n  shape?: BadgeShape;\n  /** The variant of the badge. */\n  variant?: BadgeVariant;\n}\n\nexport type { BadgeShape, BadgeVariant };\n",
+      "content": "import type { StyledComponentProps, ThemeColor } from '@/types/shared';\nimport type { BadgeShape, BadgeVariant } from './badge-variants';\n\n/**\n * Props for the Badge component.\n * A small, styled label component used to highlight, categorize, or mark items.\n *\n * @example\n * ```jsx\n * <Badge color=\"primary\" variant=\"solid\" shape=\"pill\">\n *   New\n * </Badge>\n * ```\n */\nexport interface BadgeProps extends StyledComponentProps<React.ComponentProps<'div'>> {\n  /**\n   * The color theme of the badge (e.g., primary, secondary, destructive, success, etc.).\n   */\n  color?: ThemeColor;\n  /**\n   * The shape variant of the badge (e.g., square, rounded, pill).\n   */\n  shape?: BadgeShape;\n  /**\n   * The visual style variant of the badge (e.g., solid, outline, subtle, ghost).\n   */\n  variant?: BadgeVariant;\n}\n\nexport type { BadgeShape, BadgeVariant };\n",
       "type": "registry:ui",
       "target": "components/badge/types.ts"
     }

@@ -9,9 +9,15 @@
   "files": [
     {
       "path": "src/components/skeleton/Skeleton.tsx",
-      "content": "import { cn } from '@/lib/utils';\nimport { skeletonVariants } from './skeleton-variants';\nimport type { SkeletonProps } from './types';\n\nconst Skeleton = (props: SkeletonProps) => {\n  const { className, ...rest } = props;\n\n  const mergedCls = cn(skeletonVariants(), className);\n\n  return (\n    <div\n      className={mergedCls}\n      data-slot=\"skeleton\"\n      {...rest}\n    />\n  );\n};\n\nexport default Skeleton;\n",
+      "content": "'use client';\n\nimport { useComponentConfig } from '../config-provider/context';\nimport SkeletonUI from './SkeletonUI';\nimport type { SkeletonProps } from './types';\n\nconst Skeleton = (props: SkeletonProps) => {\n  const config = useComponentConfig('skeleton');\n\n  const mergedProps = {\n    ...config,\n    ...props\n  };\n\n  return (\n    <SkeletonUI\n      {...mergedProps}\n\n    />\n  );\n};\n\nSkeleton.displayName = 'Skeleton';\n\nexport default Skeleton;\n",
       "type": "registry:ui",
       "target": "components/skeleton/Skeleton.tsx"
+    },
+    {
+      "path": "src/components/skeleton/SkeletonUI.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport { skeletonVariants } from './skeleton-variants';\nimport type { SkeletonProps } from './types';\n\nconst SkeletonUI = (props: SkeletonProps) => {\n  const { className, ...rest } = props;\n\n  const mergedCls = cn(skeletonVariants(), className);\n\n  return (\n    <div\n      className={mergedCls}\n      data-slot=\"skeleton\"\n      {...rest}\n    />\n  );\n};\n\nexport default SkeletonUI;\n",
+      "type": "registry:ui",
+      "target": "components/skeleton/SkeletonUI.tsx"
     },
     {
       "path": "src/components/skeleton/index.ts",
@@ -27,7 +33,7 @@
     },
     {
       "path": "src/components/skeleton/types.ts",
-      "content": "import type { HTMLComponentProps } from '@/types/shared';\n\nexport type SkeletonProps = HTMLComponentProps<'div'>;\n",
+      "content": "import type { HTMLComponentProps } from '@/types/shared';\n\n/**\n * Props for the Skeleton component.\n * A placeholder component that displays an animated loading skeleton while content is loading.\n * Inherits all standard HTML div attributes and custom component props.\n *\n * @example\n * ```tsx\n * // Simple skeleton placeholder\n * <Skeleton className=\"h-12 w-12 rounded-full\" />\n *\n * // Skeleton lines\n * <div className=\"space-y-2\">\n *   <Skeleton className=\"h-4 w-full\" />\n *   <Skeleton className=\"h-4 w-3/4\" />\n *   <Skeleton className=\"h-4 w-1/2\" />\n * </div>\n *\n * // Skeleton for image placeholder\n * <Skeleton className=\"h-32 w-32 rounded-lg\" />\n * ```\n */\nexport type SkeletonProps = HTMLComponentProps<'div'>;\n",
       "type": "registry:ui",
       "target": "components/skeleton/types.ts"
     }

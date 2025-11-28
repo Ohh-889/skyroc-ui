@@ -9,9 +9,15 @@
   "files": [
     {
       "path": "src/components/toggle/Toggle.tsx",
-      "content": "import { Root } from '@radix-ui/react-toggle';\nimport { cn } from '@/lib/utils';\nimport { toggleVariants } from './toggle-variants';\nimport type { ToggleProps } from './types';\n\nconst Toggle = (props: ToggleProps) => {\n  const { className, size, variant, ...rest } = props;\n  const { toggle } = toggleVariants({ size, variant });\n\n  const mergedCls = cn(toggle(), className);\n\n  return (\n    <Root\n      className={mergedCls}\n      data-slot=\"toggle\"\n      {...rest}\n    />\n  );\n};\n\nexport default Toggle;\n",
+      "content": "'use client';\n\nimport { useComponentConfig } from '../config-provider/context';\nimport ToggleUI from './ToggleUI';\nimport type { ToggleProps } from './types';\n\nconst Toggle = (props: ToggleProps) => {\n  const config = useComponentConfig('toggle');\n\n  const mergedProps = {\n    ...config,\n    ...props\n  };\n\n  return <ToggleUI {...mergedProps} />;\n};\n\nToggle.displayName = 'Toggle';\n\nexport default Toggle;\n",
       "type": "registry:ui",
       "target": "components/toggle/Toggle.tsx"
+    },
+    {
+      "path": "src/components/toggle/ToggleUI.tsx",
+      "content": "import { Root } from '@radix-ui/react-toggle';\nimport { cn } from '@/lib/utils';\nimport { toggleVariants } from './toggle-variants';\nimport type { ToggleProps } from './types';\n\nconst ToggleUI = (props: ToggleProps) => {\n  const { className, size, variant, ...rest } = props;\n  const { toggle } = toggleVariants({ size, variant });\n\n  const mergedCls = cn(toggle(), className);\n\n  return (\n    <Root\n      className={mergedCls}\n      data-slot=\"toggle\"\n      {...rest}\n    />\n  );\n};\n\nToggleUI.displayName = 'ToggleUI';\n\nexport default ToggleUI;\n",
+      "type": "registry:ui",
+      "target": "components/toggle/ToggleUI.tsx"
     },
     {
       "path": "src/components/toggle/index.ts",
@@ -27,7 +33,7 @@
     },
     {
       "path": "src/components/toggle/types.ts",
-      "content": "import type { ToggleProps as _ToggleProps } from '@radix-ui/react-toggle';\nimport type { StyledComponentProps } from '@/types/shared';\nimport type { ToggleVariant } from './toggle-variants';\n\nexport interface ToggleProps extends StyledComponentProps<_ToggleProps> {\n  variant?: ToggleVariant;\n}\n",
+      "content": "import type { ToggleProps as _ToggleProps } from '@radix-ui/react-toggle';\nimport type { StyledComponentProps } from '@/types/shared';\nimport type { ToggleVariant } from './toggle-variants';\n\n/**\n * Props for the Toggle component.\n * A component that can be toggled between two states (pressed/unpressed).\n * Extends the base Radix UI toggle props with additional style customization.\n *\n * @example\n * ```tsx\n * // Basic toggle button\n * <Toggle aria-label=\"Toggle italic\">\n *   <ItalicIcon />\n * </Toggle>\n *\n * // With variant and pressed state\n * <Toggle\n *   variant=\"outline\"\n *   pressed={isPressed}\n *   onPressedChange={setIsPressed}\n *   aria-label=\"Toggle bold\"\n * >\n *   <BoldIcon />\n * </Toggle>\n * ```\n */\nexport interface ToggleProps extends StyledComponentProps<_ToggleProps> {\n  /**\n   * Visual variant style for the toggle button.\n   * Determines the appearance and styling of the toggle component.\n   * Common variants include 'outline', 'solid', 'ghost', etc.\n   */\n  variant?: ToggleVariant;\n}\n",
       "type": "registry:ui",
       "target": "components/toggle/types.ts"
     }

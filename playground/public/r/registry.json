@@ -235,6 +235,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/alert-dialog/AlertDialogUI.tsx",
+          "target": "components/alert-dialog/AlertDialogUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/alert-dialog/alert-dialog-variants.ts",
           "target": "components/alert-dialog/alert-dialog-variants.ts",
           "type": "registry:ui"
@@ -267,6 +272,11 @@
         {
           "path": "src/components/aspect-ratio/AspectRatio.tsx",
           "target": "components/aspect-ratio/AspectRatio.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/aspect-ratio/AspectRatioUI.tsx",
+          "target": "components/aspect-ratio/AspectRatioUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -313,6 +323,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/avatar/AvatarUI.tsx",
+          "target": "components/avatar/AvatarUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/avatar/avatar-variants.ts",
           "target": "components/avatar/avatar-variants.ts",
           "type": "registry:ui"
@@ -343,6 +358,11 @@
         {
           "path": "src/components/badge/Badge.tsx",
           "target": "components/badge/Badge.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/badge/BadgeUI.tsx",
+          "target": "components/badge/BadgeUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -411,6 +431,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/breadcrumb/BreadcrumbUI.tsx",
+          "target": "components/breadcrumb/BreadcrumbUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/breadcrumb/breadcrumb-variants.ts",
           "target": "components/breadcrumb/breadcrumb-variants.ts",
           "type": "registry:ui"
@@ -451,6 +476,11 @@
         {
           "path": "src/components/button/ButtonIcon.tsx",
           "target": "components/button/ButtonIcon.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/button/ButtonUI.tsx",
+          "target": "components/button/ButtonUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -523,6 +553,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/card/CardUI.tsx",
+          "target": "components/card/CardUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/card/card-variants.ts",
           "target": "components/card/card-variants.ts",
           "type": "registry:ui"
@@ -575,6 +610,11 @@
         {
           "path": "src/components/carousel/CarouselRoot.tsx",
           "target": "components/carousel/CarouselRoot.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/carousel/CarouselUI.tsx",
+          "target": "components/carousel/CarouselUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -632,6 +672,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/checkbox/CheckboxUI.tsx",
+          "target": "components/checkbox/CheckboxUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/checkbox/checkbox-variants.ts",
           "target": "components/checkbox/checkbox-variants.ts",
           "type": "registry:ui"
@@ -675,6 +720,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/chip/ChipUI.tsx",
+          "target": "components/chip/ChipUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/chip/chip-variants.ts",
           "target": "components/chip/chip-variants.ts",
           "type": "registry:ui"
@@ -712,6 +762,11 @@
         {
           "path": "src/components/collapsible/CollapsibleRoot.tsx",
           "target": "components/collapsible/CollapsibleRoot.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/collapsible/CollapsibleUI.tsx",
+          "target": "components/collapsible/CollapsibleUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -792,6 +847,11 @@
         {
           "path": "src/components/command/CommandShortcut.tsx",
           "target": "components/command/CommandShortcut.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/command/CommandUI.tsx",
+          "target": "components/command/CommandUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -935,6 +995,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/context-menu/ContextMenuUI.tsx",
+          "target": "components/context-menu/ContextMenuUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/context-menu/index.ts",
           "target": "components/context-menu/index.ts",
           "type": "registry:ui"
@@ -995,6 +1060,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/dialog/DialogUI.tsx",
+          "target": "components/dialog/DialogUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/dialog/dialog-variants.ts",
           "target": "components/dialog/dialog-variants.ts",
           "type": "registry:ui"
@@ -1032,6 +1102,11 @@
         {
           "path": "src/components/divider/DividerRoot.tsx",
           "target": "components/divider/DividerRoot.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/divider/DividerUI.tsx",
+          "target": "components/divider/DividerUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -1100,6 +1175,11 @@
         {
           "path": "src/components/drawer/DrawerTitle.tsx",
           "target": "components/drawer/DrawerTitle.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/drawer/DrawerUI.tsx",
+          "target": "components/drawer/DrawerUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -1208,6 +1288,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/dropdown-menu/DropdownMenuUI.tsx",
+          "target": "components/dropdown-menu/DropdownMenuUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/dropdown-menu/index.ts",
           "target": "components/dropdown-menu/index.ts",
           "type": "registry:ui"
@@ -1240,6 +1325,11 @@
         {
           "path": "src/components/form/FormField.tsx",
           "target": "components/form/FormField.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/form/FormFieldUI.tsx",
+          "target": "components/form/FormFieldUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -1295,6 +1385,11 @@
         {
           "path": "src/components/hover-card/HoverCardContent.tsx",
           "target": "components/hover-card/HoverCardContent.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/hover-card/HoverCardUI.tsx",
+          "target": "components/hover-card/HoverCardUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -1381,6 +1476,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/input/InputUI.tsx",
+          "target": "components/input/InputUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/input/index.ts",
           "target": "components/input/index.ts",
           "type": "registry:ui"
@@ -1426,6 +1526,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/input-otp/InputOTPUI.tsx",
+          "target": "components/input-otp/InputOTPUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/input-otp/InputOtpRoot.tsx",
           "target": "components/input-otp/InputOtpRoot.tsx",
           "type": "registry:ui"
@@ -1466,6 +1571,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/keyboard-key/KeyboardKeyUI.tsx",
+          "target": "components/keyboard-key/KeyboardKeyUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/keyboard-key/index.ts",
           "target": "components/keyboard-key/index.ts",
           "type": "registry:ui"
@@ -1498,6 +1608,11 @@
         {
           "path": "src/components/label/Label.tsx",
           "target": "components/label/Label.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/label/LabelUI.tsx",
+          "target": "components/label/LabelUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -1569,6 +1684,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/layout/LayoutUI.tsx",
+          "target": "components/layout/LayoutUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/layout/context.tsx",
           "target": "components/layout/context.tsx",
           "type": "registry:ui"
@@ -1598,6 +1718,11 @@
     },
     {
       "files": [
+        {
+          "path": "src/components/menu/Menu.tsx",
+          "target": "components/menu/Menu.tsx",
+          "type": "registry:ui"
+        },
         {
           "path": "src/components/menu/MenuArrow.tsx",
           "target": "components/menu/MenuArrow.tsx",
@@ -1669,6 +1794,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/menu/MenuUI.tsx",
+          "target": "components/menu/MenuUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/menu/index.ts",
           "target": "components/menu/index.ts",
           "type": "registry:ui"
@@ -1698,11 +1828,6 @@
     },
     {
       "files": [
-        {
-          "path": "src/components/menubar/Menubar.tsx",
-          "target": "components/menubar/Menubar.tsx",
-          "type": "registry:ui"
-        },
         {
           "path": "src/components/menubar/MenubarItem.tsx",
           "target": "components/menubar/MenubarItem.tsx",
@@ -1751,6 +1876,11 @@
         {
           "path": "src/components/menubar/MenubarTrigger.tsx",
           "target": "components/menubar/MenubarTrigger.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarUI.tsx",
+          "target": "components/menubar/MenubarUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -1834,6 +1964,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/navigation-menu/NavigationMenuUI.tsx",
+          "target": "components/navigation-menu/NavigationMenuUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/navigation-menu/NavigationMenuViewport.tsx",
           "target": "components/navigation-menu/NavigationMenuViewport.tsx",
           "type": "registry:ui"
@@ -1863,6 +1998,11 @@
     },
     {
       "files": [
+        {
+          "path": "src/components/popover/Popover.tsx",
+          "target": "components/popover/Popover.tsx",
+          "type": "registry:ui"
+        },
         {
           "path": "src/components/popover/PopoverAnchor.tsx",
           "target": "components/popover/PopoverAnchor.tsx",
@@ -1914,6 +2054,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/progress/ProgressUI.tsx",
+          "target": "components/progress/ProgressUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/progress/index.ts",
           "target": "components/progress/index.ts",
           "type": "registry:ui"
@@ -1961,6 +2106,11 @@
         {
           "path": "src/components/radio/RadioRoot.tsx",
           "target": "components/radio/RadioRoot.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/radio/RadioUI.tsx",
+          "target": "components/radio/RadioUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -2044,6 +2194,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/scroll-area/ScrollAreaUI.tsx",
+          "target": "components/scroll-area/ScrollAreaUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/scroll-area/ScrollAreaViewport.tsx",
           "target": "components/scroll-area/ScrollAreaViewport.tsx",
           "type": "registry:ui"
@@ -2079,6 +2234,11 @@
         {
           "path": "src/components/segment/Segment.tsx",
           "target": "components/segment/Segment.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/segment/SegmentUI.tsx",
+          "target": "components/segment/SegmentUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -2137,6 +2297,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/select/SelectUI.tsx",
+          "target": "components/select/SelectUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/select/index.ts",
           "target": "components/select/index.ts",
           "type": "registry:ui"
@@ -2177,6 +2342,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/sheet/SheetUI.tsx",
+          "target": "components/sheet/SheetUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/sheet/index.ts",
           "target": "components/sheet/index.ts",
           "type": "registry:ui"
@@ -2204,6 +2374,11 @@
         {
           "path": "src/components/skeleton/Skeleton.tsx",
           "target": "components/skeleton/Skeleton.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/skeleton/SkeletonUI.tsx",
+          "target": "components/skeleton/SkeletonUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -2257,6 +2432,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/slider/SliderUI.tsx",
+          "target": "components/slider/SliderUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/slider/index.ts",
           "target": "components/slider/index.ts",
           "type": "registry:ui"
@@ -2282,13 +2462,18 @@
     {
       "files": [
         {
-          "path": "src/components/sonner/index.ts",
-          "target": "components/sonner/index.ts",
+          "path": "src/components/sonner/Sonner.tsx",
+          "target": "components/sonner/Sonner.tsx",
           "type": "registry:ui"
         },
         {
-          "path": "src/components/sonner/sonner.tsx",
-          "target": "components/sonner/sonner.tsx",
+          "path": "src/components/sonner/SonnerUI.tsx",
+          "target": "components/sonner/SonnerUI.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/sonner/index.ts",
+          "target": "components/sonner/index.ts",
           "type": "registry:ui"
         },
         {
@@ -2323,6 +2508,11 @@
         {
           "path": "src/components/switch/SwitchThumb.tsx",
           "target": "components/switch/SwitchThumb.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/switch/SwitchUI.tsx",
+          "target": "components/switch/SwitchUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -2376,6 +2566,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/tabs/TabsUI.tsx",
+          "target": "components/tabs/TabsUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/tabs/index.ts",
           "target": "components/tabs/index.ts",
           "type": "registry:ui"
@@ -2425,6 +2620,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/textarea/TextareaUI.tsx",
+          "target": "components/textarea/TextareaUI.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/textarea/index.ts",
           "target": "components/textarea/index.ts",
           "type": "registry:ui"
@@ -2452,6 +2652,11 @@
         {
           "path": "src/components/toggle/Toggle.tsx",
           "target": "components/toggle/Toggle.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/toggle/ToggleUI.tsx",
+          "target": "components/toggle/ToggleUI.tsx",
           "type": "registry:ui"
         },
         {
@@ -2527,6 +2732,11 @@
         {
           "path": "src/components/tooltip/TooltipContent.tsx",
           "target": "components/tooltip/TooltipContent.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/tooltip/TooltipUI.tsx",
+          "target": "components/tooltip/TooltipUI.tsx",
           "type": "registry:ui"
         },
         {

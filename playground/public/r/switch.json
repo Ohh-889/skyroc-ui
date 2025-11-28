@@ -9,7 +9,7 @@
   "files": [
     {
       "path": "src/components/switch/Switch.tsx",
-      "content": "import type { ComponentRef } from 'react';\nimport { forwardRef } from 'react';\nimport SwitchRoot from './SwitchRoot';\nimport SwitchThumb from './SwitchThumb';\nimport type { SwitchProps } from './types';\n\nconst Switch = forwardRef<ComponentRef<typeof SwitchRoot>, SwitchProps>((props, ref) => {\n  const { children, className, classNames, size, ...rest } = props;\n\n  return (\n    <SwitchRoot\n      className={className || classNames?.root}\n      ref={ref}\n      size={size}\n      {...rest}\n    >\n      <SwitchThumb\n        className={classNames?.thumb}\n        size={size}\n      >\n        {children}\n      </SwitchThumb>\n    </SwitchRoot>\n  );\n});\n\nSwitch.displayName = 'Switch';\n\nexport default Switch;\n",
+      "content": "'use client';\n\nimport type { ComponentRef } from 'react';\nimport { forwardRef } from 'react';\nimport { useComponentConfig } from '../config-provider/context';\nimport SwitchUI from './SwitchUI';\nimport type SwitchRoot from './SwitchRoot';\nimport type { SwitchProps } from './types';\n\nconst Switch = forwardRef<ComponentRef<typeof SwitchRoot>, SwitchProps>((props, ref) => {\n  const config = useComponentConfig('switch');\n\n  const mergedProps = {\n    ...config,\n    ...props\n  };\n\n  return (\n    <SwitchUI\n      {...mergedProps}\n      ref={ref}\n    />\n  );\n});\n\nSwitch.displayName = 'Switch';\n\nexport default Switch;\n",
       "type": "registry:ui",
       "target": "components/switch/Switch.tsx"
     },
@@ -26,6 +26,12 @@
       "target": "components/switch/SwitchThumb.tsx"
     },
     {
+      "path": "src/components/switch/SwitchUI.tsx",
+      "content": "import type { ComponentRef } from 'react';\nimport { forwardRef } from 'react';\nimport SwitchRoot from './SwitchRoot';\nimport SwitchThumb from './SwitchThumb';\nimport type { SwitchProps } from './types';\n\nconst SwitchUI = forwardRef<ComponentRef<typeof SwitchRoot>, SwitchProps>((props, ref) => {\n  const { children, className, classNames, size, ...rest } = props;\n\n  return (\n    <SwitchRoot\n      className={className || classNames?.root}\n      ref={ref}\n      size={size}\n      {...rest}\n    >\n      <SwitchThumb\n        className={classNames?.thumb}\n        size={size}\n      >\n        {children}\n      </SwitchThumb>\n    </SwitchRoot>\n  );\n});\n\nSwitchUI.displayName = 'SwitchUI';\n\nexport default SwitchUI;\n",
+      "type": "registry:ui",
+      "target": "components/switch/SwitchUI.tsx"
+    },
+    {
       "path": "src/components/switch/index.ts",
       "content": "export { default as Switch } from './Switch';\nexport { default as SwitchRoot } from './SwitchRoot';\nexport { default as SwitchThumb } from './SwitchThumb';\n\nexport * from './types';\n",
       "type": "registry:ui",
@@ -39,7 +45,7 @@
     },
     {
       "path": "src/components/switch/types.ts",
-      "content": "import type { SwitchProps as _SwitchRootProps, SwitchThumbProps as _SwitchThumbProps } from '@radix-ui/react-switch';\nimport type { StyledComponentProps, ClassValue, ThemeColor } from '@/types/shared';\nimport type { SwitchSlots } from './switch-varianst';\n\nexport interface SwitchRootProps extends StyledComponentProps<_SwitchRootProps> {\n  color?: ThemeColor;\n}\n\nexport type SwitchThumbProps = StyledComponentProps<_SwitchThumbProps>;\n\nexport type ClassNames = Partial<Record<SwitchSlots, ClassValue>>;\n\nexport interface SwitchProps extends SwitchRootProps {\n  classNames?: ClassNames;\n}\n",
+      "content": "import type { SwitchProps as _SwitchRootProps, SwitchThumbProps as _SwitchThumbProps } from '@radix-ui/react-switch';\nimport type { StyledComponentProps, ClassValue, ThemeColor } from '@/types/shared';\nimport type { SwitchSlots } from './switch-varianst';\n\n/**\n * Props for the switch root component.\n * Extends the base Radix UI switch props with additional theme customization.\n */\nexport interface SwitchRootProps extends StyledComponentProps<_SwitchRootProps> {\n  /**\n   * Color theme to apply to the switch component.\n   * Controls the visual appearance of the switch in different states.\n   */\n  color?: ThemeColor;\n}\n\n/**\n * Props for the switch thumb component.\n * The sliding toggle element that moves within the switch track.\n */\nexport type SwitchThumbProps = StyledComponentProps<_SwitchThumbProps>;\n\n/**\n * Class names for different slots in the switch component.\n * Allows customizing styles for specific parts of the switch (root, thumb, etc.).\n *\n * @example\n * ```tsx\n * const classNames = {\n *   root: 'custom-root-class',\n *   thumb: 'custom-thumb-class'\n * }\n * ```\n */\nexport type ClassNames = Partial<Record<SwitchSlots, ClassValue>>;\n\n/**\n * Props for the Switch component.\n * Combines root props with class name customization support.\n *\n * @example\n * ```tsx\n * <Switch\n *   disabled={false}\n *   color=\"primary\"\n *   classNames={{ root: 'custom-switch' }}\n * />\n * ```\n */\nexport interface SwitchProps extends SwitchRootProps {\n  /**\n   * Class names for customizing different slots within the switch component.\n   */\n  classNames?: ClassNames;\n}\n",
       "type": "registry:ui",
       "target": "components/switch/types.ts"
     }

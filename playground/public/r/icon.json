@@ -24,7 +24,7 @@
     },
     {
       "path": "src/components/icon/types.ts",
-      "content": "export type { IconProps } from '@iconify/react';\n",
+      "content": "/**\n * Props for the Icon component.\n *\n * Used to render SVG icons from the Iconify icon library.\n * Iconify provides access to over 150,000 open source icons from various icon sets.\n *\n * @example\n * ```tsx\n * // Basic usage with icon name\n * <Icon icon=\"mdi:home\" />\n *\n * // With size and color customization\n * <Icon icon=\"mdi:heart\" width=\"24\" height=\"24\" color=\"red\" />\n *\n * // With animation\n * <Icon icon=\"mdi:loading\" className=\"animate-spin\" />\n *\n * // Supported icon prefixes:\n * // - mdi: Material Design Icons\n * // - ri: Remix Icon\n * // - heroicons: Heroicons\n * // - feather: Feather Icons\n * // - fas: Font Awesome Solid\n * // And many more from the Iconify library\n * ```\n *\n * @see https://icon-sets.iconify.design/\n */\nexport type { IconProps } from '@iconify/react';\n",
       "type": "registry:ui",
       "target": "components/icon/types.ts"
     }

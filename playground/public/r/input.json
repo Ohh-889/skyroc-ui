@@ -9,9 +9,15 @@
   "files": [
     {
       "path": "src/components/input/Input.tsx",
-      "content": "import { forwardRef } from 'react';\nimport { cn } from '@/lib/utils';\nimport { inputVariants } from './input-variants';\nimport type { InputProps } from './types';\n\nconst Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {\n  const { className, disabled, size, ...rest } = props;\n\n  const mergedCls = cn(inputVariants({ size }), className);\n\n  const isDisabled = disabled || rest.readOnly;\n\n  return (\n    <input\n      className={mergedCls}\n      data-slot=\"input\"\n      disabled={isDisabled}\n      ref={ref}\n      {...rest}\n    />\n  );\n});\n\nInput.displayName = 'Input';\n\nexport default Input;\n",
+      "content": "'use client';\n\nimport { forwardRef } from 'react';\nimport { useComponentConfig } from '../config-provider/context';\nimport InputUI from './InputUI';\nimport type { InputProps } from './types';\n\nconst Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {\n  const config = useComponentConfig('input');\n\n  const mergedProps = {\n    ...config,\n    ...props\n  };\n\n  return (\n    <InputUI\n      {...mergedProps}\n      ref={ref}\n    />\n  );\n});\n\nInput.displayName = 'Input';\n\nexport default Input;\n",
       "type": "registry:ui",
       "target": "components/input/Input.tsx"
+    },
+    {
+      "path": "src/components/input/InputUI.tsx",
+      "content": "import { forwardRef } from 'react';\nimport { cn } from '@/lib/utils';\nimport { inputVariants } from './input-variants';\nimport type { InputProps } from './types';\n\nconst InputUI = forwardRef<HTMLInputElement, InputProps>((props, ref) => {\n  const { className, disabled, size, ...rest } = props;\n\n  const mergedCls = cn(inputVariants({ size }), className);\n\n  const isDisabled = disabled || rest.readOnly;\n\n  return (\n    <input\n      className={mergedCls}\n      data-slot=\"input\"\n      disabled={isDisabled}\n      ref={ref}\n      {...rest}\n    />\n  );\n});\n\nInputUI.displayName = 'InputUI';\n\nexport default InputUI;\n",
+      "type": "registry:ui",
+      "target": "components/input/InputUI.tsx"
     },
     {
       "path": "src/components/input/index.ts",
@@ -27,7 +33,7 @@
     },
     {
       "path": "src/components/input/types.ts",
-      "content": "import type { ComponentPropsWithRef } from 'react';\nimport type { StyledComponentProps } from '@/types/shared';\n\nexport type InputProps = StyledComponentProps<Omit<ComponentPropsWithRef<'input'>, 'size'>>;\n",
+      "content": "import type { ComponentPropsWithRef } from 'react';\nimport type { StyledComponentProps } from '@/types/shared';\n\n/**\n * Props for the Input component.\n * A styled HTML input element with support for various input types and states.\n *\n * Extends standard HTML input attributes while omitting the native 'size' attribute\n * to avoid conflicts with theme size variants. Use className or style for sizing instead.\n *\n * @example\n * ```tsx\n * // Basic text input\n * <Input type=\"text\" placeholder=\"Enter text\" />\n *\n * // Email input with validation\n * <Input type=\"email\" required placeholder=\"Enter email\" />\n *\n * // Password input\n * <Input type=\"password\" placeholder=\"Enter password\" />\n *\n * // Number input with min/max\n * <Input type=\"number\" min=\"0\" max=\"100\" placeholder=\"0-100\" />\n *\n * // Disabled input\n * <Input type=\"text\" disabled placeholder=\"Disabled\" />\n *\n * // Input with custom styling\n * <Input\n *   type=\"text\"\n *   placeholder=\"Styled input\"\n *   className=\"border-blue-500 focus:ring-blue-300\"\n * />\n *\n * // Input with ref for direct access\n * <Input\n *   ref={inputRef}\n *   type=\"text\"\n *   onFocus={() => inputRef.current?.select()}\n * />\n * ```\n *\n * Supported input types: text, email, password, number, date, time, search,\n * tel, url, color, file, checkbox, radio, range, and more.\n */\nexport type InputProps = StyledComponentProps<Omit<ComponentPropsWithRef<'input'>, 'size'>>;\n",
       "type": "registry:ui",
       "target": "components/input/types.ts"
     }

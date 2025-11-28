@@ -12,19 +12,25 @@
   "files": [
     {
       "path": "src/components/aspect-ratio/AspectRatio.tsx",
-      "content": "import { forwardRef } from 'react';\nimport { Root } from '@radix-ui/react-aspect-ratio';\nimport { cn } from '@/lib/utils';\nimport type { AspectRatioProps } from './types';\n\nconst AspectRatio = forwardRef<React.ComponentRef<typeof Root>, AspectRatioProps>((props, ref) => {\n  const { className, ...rest } = props;\n\n  const mergedCls = cn(className);\n\n  return (\n    <Root\n      ref={ref}\n      {...rest}\n      className={mergedCls}\n    />\n  );\n});\n\nAspectRatio.displayName = 'AspectRatio';\n\nexport default AspectRatio;\n",
+      "content": "'use client';\n\nimport type { ComponentRef } from 'react';\nimport { forwardRef } from 'react';\nimport type { Root } from '@radix-ui/react-aspect-ratio';\nimport { useComponentConfig } from '../config-provider/context';\nimport AspectRatioUI from './AspectRatioUI';\nimport type { AspectRatioProps } from './types';\n\nconst AspectRatio = forwardRef<ComponentRef<typeof Root>, AspectRatioProps>((props, ref) => {\n  const config = useComponentConfig('aspectRatio');\n\n  const mergedProps = {\n    ...config,\n    ...props\n  };\n\n  return (\n    <AspectRatioUI\n      {...mergedProps}\n      ref={ref}\n    />\n  );\n});\n\nAspectRatio.displayName = 'AspectRatio';\n\nexport default AspectRatio;\n",
       "type": "registry:ui",
       "target": "components/aspect-ratio/AspectRatio.tsx"
     },
     {
+      "path": "src/components/aspect-ratio/AspectRatioUI.tsx",
+      "content": "import type { ComponentRef } from 'react';\nimport { forwardRef } from 'react';\nimport { Root } from '@radix-ui/react-aspect-ratio';\nimport { cn } from '@/lib/utils';\nimport type { AspectRatioProps } from './types';\n\nconst AspectRatioUI = forwardRef<ComponentRef<typeof Root>, AspectRatioProps>((props, ref) => {\n  const { className, ...rest } = props;\n\n  const mergedCls = cn(className);\n\n  return (\n    <Root\n      className={mergedCls}\n      ref={ref}\n      {...rest}\n    />\n  );\n});\n\nAspectRatioUI.displayName = 'AspectRatioUI';\n\nexport default AspectRatioUI;\n",
+      "type": "registry:ui",
+      "target": "components/aspect-ratio/AspectRatioUI.tsx"
+    },
+    {
       "path": "src/components/aspect-ratio/index.ts",
-      "content": "export { default as AspectRatio } from './AspectRatio';\nexport type { AspectRatioProps } from './types';\n",
+      "content": "export { default as AspectRatio } from './AspectRatio';\n\nexport type { AspectRatioProps } from './types';\n",
       "type": "registry:ui",
       "target": "components/aspect-ratio/index.ts"
     },
     {
       "path": "src/components/aspect-ratio/types.ts",
-      "content": "import type { AspectRatioProps as _AspectRatioProps } from '@radix-ui/react-aspect-ratio';\nimport type { StyledComponentProps } from '@/types/shared';\n\nexport interface AspectRatioProps extends StyledComponentProps<_AspectRatioProps> {}\n",
+      "content": "import type { AspectRatioProps as _AspectRatioProps } from '@radix-ui/react-aspect-ratio';\nimport type { StyledComponentProps } from '@/types/shared';\n\n/**\n * Props for the AspectRatio component.\n * Maintains a consistent aspect ratio for its content, useful for images, videos, and iframes.\n * Extends Radix UI's AspectRatio with styled component capabilities.\n *\n * @example\n * ```jsx\n * <AspectRatio ratio={16/9}>\n *   <img src=\"image.jpg\" alt=\"example\" className=\"w-full h-full object-cover\" />\n * </AspectRatio>\n * ```\n */\nexport interface AspectRatioProps extends StyledComponentProps<_AspectRatioProps> {}\n",
       "type": "registry:ui",
       "target": "components/aspect-ratio/types.ts"
     }
