@@ -119,15 +119,10 @@
         }
       ],
       "name": "accordion",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Accordion",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-accordion",
-        "@radix-ui/react-slot"
-      ]
+      "dependencies": ["@radix-ui/react-accordion", "@radix-ui/react-slot"]
     },
     {
       "files": [
@@ -178,14 +173,10 @@
         }
       ],
       "name": "alert",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Alert",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ]
+      "dependencies": ["@radix-ui/react-slot"]
     },
     {
       "files": [
@@ -262,10 +253,7 @@
       ],
       "title": "Alert Dialog",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-alert-dialog",
-        "@radix-ui/react-slot"
-      ]
+      "dependencies": ["@radix-ui/react-alert-dialog", "@radix-ui/react-slot"]
     },
     {
       "files": [
@@ -291,14 +279,10 @@
         }
       ],
       "name": "aspect-ratio",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Aspect Ratio",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-aspect-ratio"
-      ]
+      "dependencies": ["@radix-ui/react-aspect-ratio"]
     },
     {
       "files": [
@@ -344,14 +328,10 @@
         }
       ],
       "name": "avatar",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Avatar",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-avatar"
-      ]
+      "dependencies": ["@radix-ui/react-avatar"]
     },
     {
       "files": [
@@ -382,9 +362,7 @@
         }
       ],
       "name": "badge",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Badge",
       "type": "registry:block"
     },
@@ -452,14 +430,10 @@
         }
       ],
       "name": "breadcrumb",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Breadcrumb",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ]
+      "dependencies": ["@radix-ui/react-slot"]
     },
     {
       "files": [
@@ -511,9 +485,7 @@
       ],
       "title": "Button",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-slot"
-      ]
+      "dependencies": ["@radix-ui/react-slot"]
     },
     {
       "files": [
@@ -574,9 +546,7 @@
         }
       ],
       "name": "card",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Card",
       "type": "registry:block"
     },
@@ -645,9 +615,7 @@
       ],
       "title": "Carousel",
       "type": "registry:block",
-      "dependencies": [
-        "embla-carousel-react"
-      ]
+      "dependencies": ["embla-carousel-react"]
     },
     {
       "files": [
@@ -693,14 +661,10 @@
         }
       ],
       "name": "checkbox",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Checkbox",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-checkbox"
-      ]
+      "dependencies": ["@radix-ui/react-checkbox"]
     },
     {
       "files": [
@@ -741,9 +705,7 @@
         }
       ],
       "name": "chip",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Chip",
       "type": "registry:block"
     },
@@ -786,9 +748,7 @@
         }
       ],
       "name": "collapsible",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Collapsible",
       "type": "registry:block"
     },
@@ -876,9 +836,7 @@
         }
       ],
       "name": "command",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Command",
       "type": "registry:block"
     },
@@ -906,9 +864,7 @@
         }
       ],
       "name": "config-provider",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Config Provider",
       "type": "registry:block"
     },
@@ -1011,9 +967,7 @@
         }
       ],
       "name": "context-menu",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Context Menu",
       "type": "registry:block"
     },
@@ -1081,9 +1035,7 @@
         }
       ],
       "name": "dialog",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Dialog",
       "type": "registry:block"
     },
@@ -1126,14 +1078,10 @@
         }
       ],
       "name": "divider",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Divider",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-separator"
-      ]
+      "dependencies": ["@radix-ui/react-separator"]
     },
     {
       "files": [
@@ -1199,9 +1147,7 @@
         }
       ],
       "name": "drawer",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Drawer",
       "type": "registry:block"
     },
@@ -1304,9 +1250,7 @@
         }
       ],
       "name": "dropdown-menu",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Dropdown Menu",
       "type": "registry:block"
     },
@@ -1364,9 +1308,7 @@
         }
       ],
       "name": "form",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Form",
       "type": "registry:block"
     },
@@ -1409,9 +1351,7 @@
         }
       ],
       "name": "hover-card",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Hover Card",
       "type": "registry:block"
     },
@@ -1434,14 +1374,10 @@
         }
       ],
       "name": "icon",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Icon",
       "type": "registry:block",
-      "dependencies": [
-        "@iconify/react"
-      ]
+      "dependencies": ["@iconify/react"]
     },
     {
       "files": [
@@ -1462,9 +1398,7 @@
         }
       ],
       "name": "if",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "If",
       "type": "registry:block"
     },
@@ -1497,9 +1431,7 @@
         }
       ],
       "name": "input",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Input",
       "type": "registry:block"
     },
@@ -1552,9 +1484,7 @@
         }
       ],
       "name": "input-otp",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Input Otp",
       "type": "registry:block"
     },
@@ -1597,9 +1527,7 @@
         }
       ],
       "name": "keyboard-key",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Keyboard Key",
       "type": "registry:block"
     },
@@ -1632,14 +1560,10 @@
         }
       ],
       "name": "label",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Label",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-label"
-      ]
+      "dependencies": ["@radix-ui/react-label"]
     },
     {
       "files": [
@@ -1710,9 +1634,7 @@
         }
       ],
       "name": "layout",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Layout",
       "type": "registry:block"
     },
@@ -1820,9 +1742,7 @@
         }
       ],
       "name": "menu",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Menu",
       "type": "registry:block"
     },
@@ -1900,9 +1820,7 @@
         }
       ],
       "name": "menubar",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Menubar",
       "type": "registry:block"
     },
@@ -1990,9 +1908,7 @@
         }
       ],
       "name": "navigation-menu",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Navigation Menu",
       "type": "registry:block"
     },
@@ -2040,9 +1956,7 @@
         }
       ],
       "name": "popover",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Popover",
       "type": "registry:block"
     },
@@ -2075,9 +1989,7 @@
         }
       ],
       "name": "progress",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Progress",
       "type": "registry:block"
     },
@@ -2130,9 +2042,7 @@
         }
       ],
       "name": "radio",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Radio",
       "type": "registry:block"
     },
@@ -2165,9 +2075,7 @@
         }
       ],
       "name": "resizable",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Resizable",
       "type": "registry:block"
     },
@@ -2220,14 +2128,10 @@
         }
       ],
       "name": "scroll-area",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Scroll Area",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-scroll-area"
-      ]
+      "dependencies": ["@radix-ui/react-scroll-area"]
     },
     {
       "files": [
@@ -2253,9 +2157,7 @@
         }
       ],
       "name": "segment",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Segment",
       "type": "registry:block"
     },
@@ -2323,9 +2225,7 @@
         }
       ],
       "name": "select",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Select",
       "type": "registry:block"
     },
@@ -2363,9 +2263,7 @@
         }
       ],
       "name": "sheet",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Sheet",
       "type": "registry:block"
     },
@@ -2398,9 +2296,7 @@
         }
       ],
       "name": "skeleton",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Skeleton",
       "type": "registry:block"
     },
@@ -2453,9 +2349,7 @@
         }
       ],
       "name": "slider",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Slider",
       "type": "registry:block"
     },
@@ -2483,15 +2377,10 @@
         }
       ],
       "name": "sonner",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Sonner",
       "type": "registry:block",
-      "dependencies": [
-        "sonner",
-        "next-themes"
-      ]
+      "dependencies": ["sonner", "next-themes"]
     },
     {
       "files": [
@@ -2532,9 +2421,7 @@
         }
       ],
       "name": "switch",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Switch",
       "type": "registry:block"
     },
@@ -2587,15 +2474,10 @@
         }
       ],
       "name": "tabs",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Tabs",
       "type": "registry:block",
-      "dependencies": [
-        "@radix-ui/react-tabs",
-        "@radix-ui/react-compose-refs"
-      ]
+      "dependencies": ["@radix-ui/react-tabs", "@radix-ui/react-compose-refs"]
     },
     {
       "files": [
@@ -2641,9 +2523,7 @@
         }
       ],
       "name": "textarea",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Textarea",
       "type": "registry:block"
     },
@@ -2676,9 +2556,7 @@
         }
       ],
       "name": "toggle",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Toggle",
       "type": "registry:block"
     },
@@ -2711,9 +2589,7 @@
         }
       ],
       "name": "toggle-group",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Toggle Group",
       "type": "registry:block"
     },
@@ -2756,9 +2632,7 @@
         }
       ],
       "name": "tooltip",
-      "registryDependencies": [
-        "https://ui-play.skyroc.me/r/style.json"
-      ],
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Tooltip",
       "type": "registry:block"
     },
@@ -2775,10 +2649,7 @@
       "type": "registry:file"
     },
     {
-      "dependencies": [
-        "clsx",
-        "tailwind-merge"
-      ],
+      "dependencies": ["clsx", "tailwind-merge"],
       "files": [
         {
           "path": "src/lib/utils.ts",

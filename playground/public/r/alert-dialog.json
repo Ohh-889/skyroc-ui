@@ -3,10 +3,7 @@
   "name": "alert-dialog",
   "type": "registry:block",
   "title": "Alert Dialog",
-  "dependencies": [
-    "@radix-ui/react-alert-dialog",
-    "@radix-ui/react-slot"
-  ],
+  "dependencies": ["@radix-ui/react-alert-dialog", "@radix-ui/react-slot"],
   "registryDependencies": [
     "https://ui-play.skyroc.me/r/style.json",
     "https://ui-play.skyroc.me/r/button.json"
