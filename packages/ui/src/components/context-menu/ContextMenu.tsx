@@ -1,33 +1,24 @@
-import { Root, Trigger } from '@radix-ui/react-context-menu';
-import ContextMenuContent from './ContextMenuContent';
-import ContextMenuOption from './ContextMenuOption';
+'use client';
+
+import { useComponentConfig } from '../config-provider/context';
+import ContextMenuUI from './ContextMenuUI';
 import type { ContextMenuProps } from './types';
 
 const ContextMenu = (props: ContextMenuProps) => {
-  const { children, classNames, contentProps, dir, items, modal, onOpenChange, size } = props;
+  const config = useComponentConfig('contextMenu');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <Root
-      dir={dir}
-      modal={modal}
-      onOpenChange={onOpenChange}
-    >
-      <Trigger asChild>{children}</Trigger>
-
-      <ContextMenuContent {...contentProps}>
-        {items.map((item, index) => {
-          return (
-            <ContextMenuOption
-              classNames={classNames}
-              item={item}
-              key={String(index)}
-              size={size}
-            />
-          );
-        })}
-      </ContextMenuContent>
-    </Root>
+    <ContextMenuUI
+      {...mergedProps}
+    />
   );
 };
+
+ContextMenu.displayName = 'ContextMenu';
 
 export default ContextMenu;

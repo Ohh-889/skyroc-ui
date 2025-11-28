@@ -3,6 +3,8 @@
  * Represents an action that can be performed from a toast notification.
  * @see https://sonner.emilkowal.ski/
  */
+import 'sonner';
+
 export type { Action };
 
 /**
@@ -34,5 +36,3 @@ export type { ToastT };
  * Represents a toast notification that has been dismissed or is pending dismissal.
  */
 export type { ToastToDismiss };
-
-import 'sonner';

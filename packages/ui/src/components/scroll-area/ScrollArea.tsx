@@ -1,40 +1,25 @@
+'use client';
+
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-import { ScrollAreaCorner } from '@radix-ui/react-scroll-area';
-import { cn } from '@/lib/utils';
-import ScrollAreaRoot from './ScrollAreaRoot';
-import ScrollAreaScrollbar from './ScrollAreaScrollbar';
-import ScrollAreaThumb from './ScrollAreaThumb';
-import ScrollAreaViewport from './ScrollAreaViewport';
+import { useComponentConfig } from '../config-provider/context';
+import ScrollAreaUI from './ScrollAreaUI';
+import type ScrollAreaRoot from './ScrollAreaRoot';
 import type { ScrollAreaProps } from './types';
 
 const ScrollArea = forwardRef<ComponentRef<typeof ScrollAreaRoot>, ScrollAreaProps>((props, ref) => {
-  const { children, className, classNames, forceMount, nonce, orientation, size, ...rest } = props;
+  const config = useComponentConfig('scrollArea');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <ScrollAreaRoot
-      className={className}
-      {...rest}
+    <ScrollAreaUI
+      {...mergedProps}
       ref={ref}
-    >
-      <ScrollAreaViewport
-        className={classNames?.viewport}
-        nonce={nonce}
-      >
-        {children}
-      </ScrollAreaViewport>
-
-      <ScrollAreaScrollbar
-        className={classNames?.scrollbar}
-        forceMount={forceMount}
-        orientation={orientation}
-        size={size}
-      >
-        <ScrollAreaThumb className={classNames?.thumb} />
-      </ScrollAreaScrollbar>
-
-      <ScrollAreaCorner className={cn(classNames?.corner)} />
-    </ScrollAreaRoot>
+    />
   );
 });
 

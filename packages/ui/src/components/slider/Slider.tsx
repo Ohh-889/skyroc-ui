@@ -1,43 +1,25 @@
+'use client';
+
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-import SliderRange from './SliderRange';
-import SliderRoot from './SliderRoot';
-import SliderThumb from './SliderThumb';
-import SliderTrack from './SliderTrack';
+import { useComponentConfig } from '../config-provider/context';
+import SliderUI from './SliderUI';
+import type SliderRoot from './SliderRoot';
 import type { SliderProps } from './types';
 
 const Slider = forwardRef<ComponentRef<typeof SliderRoot>, SliderProps>((props, ref) => {
-  const { className, classNames, color, defaultValue, size, value, ...rest } = props;
+  const config = useComponentConfig('slider');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <SliderRoot
-      className={className || classNames?.root}
-      defaultValue={defaultValue}
+    <SliderUI
+      {...mergedProps}
       ref={ref}
-      size={size}
-      value={value}
-      {...rest}
-    >
-      <SliderTrack
-        className={classNames?.track}
-        color={color}
-        size={size}
-      >
-        <SliderRange
-          className={classNames?.range}
-          color={color}
-        />
-      </SliderTrack>
-
-      {(defaultValue || value)?.map((_, index) => (
-        <SliderThumb
-          className={classNames?.thumb}
-          color={color}
-          key={String(index)}
-          size={size}
-        />
-      ))}
-    </SliderRoot>
+    />
   );
 });
 

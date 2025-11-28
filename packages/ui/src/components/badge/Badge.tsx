@@ -1,18 +1,24 @@
-import { cn } from '@/lib/utils';
-import { badgeVariants } from './badge-variants';
+'use client';
+
+import { useComponentConfig } from '../config-provider/context';
+import BadgeUI from './BadgeUI';
 import type { BadgeProps } from './types';
 
 const Badge = (props: BadgeProps) => {
-  const { className, color, shape, size, variant, ...rest } = props;
+  const config = useComponentConfig('badge');
 
-  const mergedCls = cn(badgeVariants({ color, shape, size, variant }), className);
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <div
-      {...rest}
-      className={mergedCls}
+    <BadgeUI
+      {...mergedProps}
     />
   );
 };
+
+Badge.displayName = 'Badge';
 
 export default Badge;

@@ -1,35 +1,28 @@
+'use client';
+
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-import { Image } from '@radix-ui/react-avatar';
-import AvatarFallback from './AvatarFallback';
-import AvatarImage from './AvatarImage';
-import AvatarRoot from './AvatarRoot';
+import type { Image } from '@radix-ui/react-avatar';
+import { useComponentConfig } from '../config-provider/context';
+import AvatarUI from './AvatarUI';
 import type { AvatarProps } from './types';
 
 const Avatar = forwardRef<ComponentRef<typeof Image>, AvatarProps>((props, ref) => {
-  const { className, classNames, delayMs, fallback, size, ...rest } = props;
+  const config = useComponentConfig('avatar');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <AvatarRoot
-      className={classNames?.root}
-      size={size}
-    >
-      <AvatarImage
-        className={className || classNames?.image}
-        ref={ref}
-        {...rest}
-      />
-
-      <AvatarFallback
-        className={classNames?.fallback}
-        delayMs={delayMs}
-      >
-        {fallback}
-      </AvatarFallback>
-    </AvatarRoot>
+    <AvatarUI
+      {...mergedProps}
+      ref={ref}
+    />
   );
 });
 
-Avatar.displayName = Image.displayName;
+Avatar.displayName = 'Avatar';
 
 export default Avatar;

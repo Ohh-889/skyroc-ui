@@ -1,24 +1,28 @@
+'use client';
+
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-import { Root } from '@radix-ui/react-label';
-import { cn } from '@/lib/utils';
-import { labelVariants } from './label-variants';
+import type { Root } from '@radix-ui/react-label';
+import { useComponentConfig } from '../config-provider/context';
+import LabelUI from './LabelUI';
 import type { LabelProps } from './types';
 
 const Label = forwardRef<ComponentRef<typeof Root>, LabelProps>((props, ref) => {
-  const { className, size, ...rest } = props;
+  const config = useComponentConfig('label');
 
-  const mergedCls = cn(labelVariants({ size }), className);
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <Root
-      className={mergedCls}
+    <LabelUI
+      {...mergedProps}
       ref={ref}
-      {...rest}
     />
   );
 });
 
-Label.displayName = Root.displayName;
+Label.displayName = 'Label';
 
 export default Label;

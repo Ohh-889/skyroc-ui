@@ -1,19 +1,25 @@
-import { cn } from '@/lib/utils';
-import { skeletonVariants } from './skeleton-variants';
+'use client';
+
+import { useComponentConfig } from '../config-provider/context';
+import SkeletonUI from './SkeletonUI';
 import type { SkeletonProps } from './types';
 
 const Skeleton = (props: SkeletonProps) => {
-  const { className, ...rest } = props;
+  const config = useComponentConfig('skeleton');
 
-  const mergedCls = cn(skeletonVariants(), className);
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <div
-      className={mergedCls}
-      data-slot="skeleton"
-      {...rest}
+    <SkeletonUI
+      {...mergedProps}
+
     />
   );
 };
+
+Skeleton.displayName = 'Skeleton';
 
 export default Skeleton;

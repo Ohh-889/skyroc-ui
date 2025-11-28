@@ -1,51 +1,23 @@
-import { Children, forwardRef } from 'react';
-import { isFunction } from '@/lib/typed';
-import CarouselContent from './CarouselContent';
-import CarouselItem from './CarouselItem';
-import CarouselNext from './CarouselNext';
-import CarouselPrevious from './CarouselPrevious';
-import CarouselRoot from './CarouselRoot';
+'use client';
+
+import { forwardRef } from 'react';
+import { useComponentConfig } from '../config-provider/context';
+import CarouselUI from './CarouselUI';
 import type { CarouselProps } from './types';
 
 const Carousel = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
-  const { children, className, classNames, counts, nextProps, previousProps, size, ...rest } = props;
+  const config = useComponentConfig('carousel');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <CarouselRoot
-      className={className || classNames?.root}
+    <CarouselUI
+      {...mergedProps}
       ref={ref}
-      size={size}
-      {...rest}
-    >
-      <CarouselContent
-        classNames={classNames}
-        size={size}
-      >
-        {counts
-          ? Array.from({ length: counts }).map((_, index) => (
-            <CarouselItem
-              className={classNames?.item}
-              key={index}
-              size={size}
-            >
-              {isFunction(children) ? children(index) : Children.toArray(children)[index]}
-            </CarouselItem>
-          ))
-          : null}
-      </CarouselContent>
-
-      <CarouselNext
-        className={classNames?.next}
-        size={size}
-        {...nextProps}
-      />
-
-      <CarouselPrevious
-        className={classNames?.previous}
-        size={size}
-        {...previousProps}
-      />
-    </CarouselRoot>
+    />
   );
 });
 

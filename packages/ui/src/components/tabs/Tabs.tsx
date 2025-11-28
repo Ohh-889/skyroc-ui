@@ -1,78 +1,25 @@
 'use client';
+
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-import TabsContent from './TabsContent';
-import TabsList from './TabsList';
-import Root from './TabsRoot';
-import TabsTrigger from './TabsTrigger';
+import { useComponentConfig } from '../config-provider/context';
+import type TabsRoot from './TabsRoot';
+import TabsUI from './TabsUI';
 import type { TabsOptionData, TabsProps } from './types';
 
-const Tabs = forwardRef<ComponentRef<typeof Root>, TabsProps<TabsOptionData>>((props, ref) => {
-  const {
-    className,
-    classNames,
-    dir,
-    enableIndicator = true,
-    forceMountContent,
-    items,
-    loop,
-    orientation = 'horizontal',
-    size,
-    value,
-    ...rest
-  } = props;
+const Tabs = forwardRef<ComponentRef<typeof TabsRoot>, TabsProps<TabsOptionData>>((props, ref) => {
+  const config = useComponentConfig('tabs');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <Root
-      className={[className, classNames?.root]}
-      dir={dir}
+    <TabsUI
+      {...mergedProps}
       ref={ref}
-      size={size}
-      value={value}
-      {...rest}
-    >
-      <TabsList
-        className={classNames?.list}
-        dir={dir}
-        enableIndicator={enableIndicator}
-        loop={loop}
-        orientation={orientation}
-        size={size}
-        value={value}
-        classNames={{
-          indicator: classNames?.indicator,
-          indicatorRoot: classNames?.indicatorRoot
-        }}
-      >
-        {items.map(item => (
-          <TabsTrigger
-            className={classNames?.trigger}
-            dir={dir}
-            disabled={item.disabled}
-            enableIndicator={enableIndicator}
-            key={item.value}
-            size={size}
-            value={item.value}
-          >
-            {item.label}
-          </TabsTrigger>
-        ))}
-      </TabsList>
-
-      {items.map(item => (
-        <TabsContent
-          className={classNames?.content}
-          dir={dir}
-          forceMount={forceMountContent}
-          key={item.value}
-          orientation={orientation}
-          size={size}
-          value={item.value}
-        >
-          {typeof item.children === 'function' ? item.children({ active: item.value === value, item }) : item.children}
-        </TabsContent>
-      ))}
-    </Root>
+    />
   );
 });
 

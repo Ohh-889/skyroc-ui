@@ -1,26 +1,25 @@
+'use client';
+
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-import SwitchRoot from './SwitchRoot';
-import SwitchThumb from './SwitchThumb';
+import { useComponentConfig } from '../config-provider/context';
+import SwitchUI from './SwitchUI';
+import type SwitchRoot from './SwitchRoot';
 import type { SwitchProps } from './types';
 
 const Switch = forwardRef<ComponentRef<typeof SwitchRoot>, SwitchProps>((props, ref) => {
-  const { children, className, classNames, size, ...rest } = props;
+  const config = useComponentConfig('switch');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <SwitchRoot
-      className={className || classNames?.root}
+    <SwitchUI
+      {...mergedProps}
       ref={ref}
-      size={size}
-      {...rest}
-    >
-      <SwitchThumb
-        className={classNames?.thumb}
-        size={size}
-      >
-        {children}
-      </SwitchThumb>
-    </SwitchRoot>
+    />
   );
 });
 

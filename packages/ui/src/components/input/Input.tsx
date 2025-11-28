@@ -1,22 +1,22 @@
+'use client';
+
 import { forwardRef } from 'react';
-import { cn } from '@/lib/utils';
-import { inputVariants } from './input-variants';
+import { useComponentConfig } from '../config-provider/context';
+import InputUI from './InputUI';
 import type { InputProps } from './types';
 
 const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
-  const { className, disabled, size, ...rest } = props;
+  const config = useComponentConfig('input');
 
-  const mergedCls = cn(inputVariants({ size }), className);
-
-  const isDisabled = disabled || rest.readOnly;
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <input
-      className={mergedCls}
-      data-slot="input"
-      disabled={isDisabled}
+    <InputUI
+      {...mergedProps}
       ref={ref}
-      {...rest}
     />
   );
 });

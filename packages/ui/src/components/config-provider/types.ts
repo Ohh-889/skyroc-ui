@@ -1,8 +1,48 @@
 import type { ThemeOptions } from '@skyroc/tailwind-plugin';
+import type { ToasterProps } from 'sonner';
 import type { ThemeSize } from '@/types/shared';
 import type { AccordionProps } from '../accordion/types';
 import type { AlertProps } from '../alert';
+import type { AlertDialogProps } from '../alert-dialog';
+import type { AspectRatioProps } from '../aspect-ratio';
+import type { AvatarProps } from '../avatar/types';
+import type { BadgeProps } from '../badge/types';
+import type { BreadcrumbItem, BreadcrumbProps } from '../breadcrumb/types';
+import type { ButtonProps } from '../button/types';
+import type { CardProps } from '../card/types';
+import type { CarouselProps } from '../carousel/types';
+import type { CheckboxProps } from '../checkbox/types';
+import type { ChipProps } from '../chip/types';
+import type { CollapsibleProps } from '../collapsible/types';
+import type { CommandProps } from '../command/types';
+import type { ContextMenuProps } from '../context-menu/types';
+import type { DialogProps } from '../dialog/types';
+import type { DividerProps } from '../divider/types';
+import type { DrawerProps } from '../drawer/types';
+import type { DropdownMenuProps } from '../dropdown-menu/types';
+import type { FormFieldProps } from '../form/types';
+import type { HoverCardProps } from '../hover-card/types';
 import type { IconProps } from '../icon';
+import type { InputProps } from '../input/types';
+import type { InputOTPProps } from '../input-otp/types';
+import type { KeyboardKeyProps } from '../keyboard-key/types';
+import type { LabelProps } from '../label/types';
+import type { LayoutProps } from '../layout/types';
+import type { MenuProps } from '../menu/types';
+import type { PopoverProps } from '../popover/types';
+import type { ProgressProps } from '../progress/types';
+import type { RadioGroupProps } from '../radio/types';
+import type { ScrollAreaProps } from '../scroll-area/types';
+import type { SegmentOptionData, SegmentProps } from '../segment/types';
+import type { SelectProps } from '../select/types';
+import type { SheetProps } from '../sheet/types';
+import type { SkeletonProps } from '../skeleton/types';
+import type { SliderProps } from '../slider/types';
+import type { SwitchProps } from '../switch/types';
+import type { TabsProps, TabsOptionData } from '../tabs/types';
+import type { TextareaProps } from '../textarea/types';
+import type { ToggleProps } from '../toggle/types';
+import type { TooltipProps } from '../tooltip/types';
 
 /**
  * Props for the ConfigProvider component.
@@ -67,25 +107,244 @@ export interface ComponentConfig {
   alert?: AlertConfig;
 
   /**
+   * Default configuration for alert dialog components.
+   */
+  alertDialog?: AlertDialogConfig;
+
+  /**
+   * Default configuration for aspect ratio components.
+   */
+  aspectRatio?: AspectRatioConfig;
+
+  /**
+   * Default configuration for avatar components.
+   */
+  avatar?: AvatarConfig;
+
+  /**
+   * Default configuration for badge components.
+   */
+  badge?: BadgeConfig;
+
+  /**
+   * Default configuration for breadcrumb components.
+   */
+  breadcrumb?: BreadcrumbConfig;
+
+  /**
+   * Default configuration for button components.
+   */
+  button?: ButtonConfig;
+
+  /**
+   * Default configuration for card components.
+   */
+  card?: CardConfig;
+
+  /**
+   * Default configuration for carousel components.
+   */
+  carousel?: CarouselConfig;
+
+  /**
+   * Default configuration for checkbox components.
+   */
+  checkbox?: CheckboxConfig;
+
+  /**
+   * Default configuration for chip components.
+   */
+  chip?: ChipConfig;
+
+  /**
+   * Default configuration for collapsible components.
+   */
+  collapsible?: CollapsibleConfig;
+
+  /**
+   * Default configuration for command components.
+   */
+  command?: CommandConfig;
+
+  /**
+   * Default configuration for context menu components.
+   */
+  contextMenu?: ContextMenuConfig;
+
+  /**
+   * Default configuration for dialog components.
+   */
+  dialog?: DialogConfig;
+
+  /**
+   * Default configuration for divider components.
+   */
+  divider?: DividerConfig;
+
+  /**
+   * Default configuration for drawer components.
+   */
+  drawer?: DrawerConfig;
+
+  /**
+   * Default configuration for dropdown menu components.
+   */
+  dropdownMenu?: DropdownMenuConfig;
+
+  /**
+   * Default configuration for form field components.
+   */
+  formField?: FormFieldConfig;
+
+  /**
+   * Default configuration for hover card components.
+   */
+  hoverCard?: HoverCardConfig;
+
+  /**
    * Default configuration for icon components.
    */
   icon?: IconConfig;
+
+  /**
+   * Default configuration for input components.
+   */
+  input?: InputConfig;
+
+  /**
+   * Default configuration for input OTP components.
+   */
+  inputOtp?: InputOtpConfig;
+
+  /**
+   * Default configuration for keyboard key components.
+   */
+  keyboardKey?: KeyboardKeyConfig;
+
+  /**
+   * Default configuration for label components.
+   */
+  label?: LabelConfig;
+
+  /**
+   * Default configuration for layout components.
+   */
+  layout?: LayoutConfig;
+
+  /**
+   * Default configuration for menu components.
+   */
+  menu?: MenuConfig;
+
+  /**
+   * Default configuration for popover components.
+   */
+  popover?: PopoverConfig;
+
+  /**
+   * Default configuration for progress components.
+   */
+  progress?: ProgressConfig;
+
+  /**
+   * Default configuration for radio components.
+   */
+  radio?: RadioConfig;
+
+  /**
+   * Default configuration for scroll area components.
+   */
+  scrollArea?: ScrollAreaConfig;
+
+  /**
+   * Default configuration for segment components.
+   */
+  segment?: SegmentConfig;
+
+  /**
+   * Default configuration for select components.
+   */
+  select?: SelectConfig;
+
+  /**
+   * Default configuration for sheet components.
+   */
+  sheet?: SheetConfig;
+
+  /**
+   * Default configuration for skeleton components.
+   */
+  skeleton?: SkeletonConfig;
+
+  /**
+   * Default configuration for slider components.
+   */
+  slider?: SliderConfig;
+
+  /**
+   * Default configuration for sonner/toast components.
+   */
+  sonner?: SonnerConfig;
+
+  /**
+   * Default configuration for switch components.
+   */
+  switch?: SwitchConfig;
+
+  /**
+   * Default configuration for tabs components.
+   */
+  tabs?: TabsConfig;
+
+  /**
+   * Default configuration for textarea components.
+   */
+  textarea?: TextareaConfig;
+
+  /**
+   * Default configuration for toggle components.
+   */
+  toggle?: ToggleConfig;
+
+  /**
+   * Default configuration for tooltip components.
+   */
+  tooltip?: TooltipConfig;
 }
 
 /**
  * Configuration options for accordion components.
- * Selects specific props that can be set globally for all accordions.
+ * Allows setting default props that apply to all accordion instances globally.
  *
  * @example
  * ```tsx
  * accordion: {
  *   size: 'lg',
+ *   orientation: 'vertical',
+ *   collapsible: true,
  *   triggerIcon: <ChevronDown />,
  *   classNames: { trigger: 'custom-trigger' }
  * }
  * ```
  */
-export type AccordionConfig = Pick<AccordionProps, 'className' | 'classNames' | 'dir' | 'size' | 'triggerIcon'>;
+export type AccordionConfig = Pick<
+  AccordionProps,
+  | 'className'
+  | 'classNames'
+  | 'dir'
+  | 'disabled'
+  | 'orientation'
+  | 'size'
+  | 'triggerIcon'
+  | 'triggerLeading'
+  | 'triggerTrailing'
+> & {
+  /**
+   * Whether accordion items can be collapsed after expansion (Single mode only).
+   * @default false
+   */
+  collapsible?: boolean;
+};
 
 /**
  * Configuration options for alert components.
@@ -106,6 +365,112 @@ export type AlertConfig = Pick<
 >;
 
 /**
+ * Configuration options for alert dialog components.
+ * Selects specific props that can be set globally for all alert dialogs.
+ *
+ * @example
+ * ```tsx
+ * alertDialog: {
+ *   type: 'info',
+ *   size: 'md',
+ *   forceMountOverlay: true,
+ *   classNames: { content: 'custom-content' }
+ * }
+ * ```
+ */
+export type AlertDialogConfig = Pick<
+  AlertDialogProps,
+  | 'className'
+  | 'classNames'
+  | 'forceMountOverlay'
+  | 'forceMountPortal'
+  | 'size'
+  | 'type'
+>;
+
+/**
+ * Configuration options for aspect ratio components.
+ * Selects specific props that can be set globally for all aspect ratios.
+ *
+ * @example
+ * ```tsx
+ * aspectRatio: {
+ *   className: 'custom-aspect-ratio'
+ * }
+ * ```
+ */
+export type AspectRatioConfig = Pick<AspectRatioProps, 'className'>;
+
+/**
+ * Configuration options for collapsible components.
+ * Selects specific props that can be set globally for all collapsible instances.
+ */
+export type CollapsibleConfig = Pick<
+  CollapsibleProps,
+  'className' | 'classNames' | 'disabled'
+>;
+
+/**
+ * Configuration options for command components.
+ * Selects specific props that can be set globally for all command instances.
+ */
+export type CommandConfig = Pick<
+  CommandProps,
+  'className' | 'classNames' | 'size'
+>;
+
+/**
+ * Configuration options for context menu components.
+ * Selects specific props that can be set globally for all context menu instances.
+ */
+export type ContextMenuConfig = Pick<
+  ContextMenuProps,
+  'className' | 'classNames' | 'dir' | 'size'
+>;
+
+/**
+ * Configuration options for dialog components.
+ * Selects specific props that can be set globally for all dialog instances.
+ */
+export type DialogConfig = Pick<
+  DialogProps,
+  'className' | 'classNames' | 'size'
+>;
+
+/**
+ * Configuration options for divider components.
+ * Selects specific props that can be set globally for all divider instances.
+ */
+export type DividerConfig = Pick<
+  DividerProps,
+  'className' | 'classNames' | 'orientation' | 'size'
+>;
+
+/**
+ * Configuration options for drawer components.
+ * Selects specific props that can be set globally for all drawer instances.
+ */
+export type DrawerConfig = Pick<DrawerProps, 'classNames' | 'size'>;
+
+/**
+ * Configuration options for dropdown menu components.
+ * Selects specific props that can be set globally for all dropdown menu instances.
+ */
+export type DropdownMenuConfig = Pick<
+  DropdownMenuProps,
+  'className' | 'classNames' | 'dir' | 'size'
+>;
+
+/**
+ * Configuration options for form field components.
+ * Selects specific props that can be set globally for all form field instances.
+ */
+export type FormFieldConfig = Pick<
+  FormFieldProps,
+  'className' | 'classNames' | 'size'
+>;
+
+/**
  * Configuration options for icon components.
  * Selects specific props that can be set globally for all icons.
  *
@@ -119,3 +484,205 @@ export type AlertConfig = Pick<
  * ```
  */
 export type IconConfig = Pick<IconProps, 'className' | 'color' | 'height' | 'inline' | 'width'>;
+
+/**
+ * Configuration options for input components.
+ * Selects specific props that can be set globally for all inputs.
+ */
+export type InputConfig = Pick<InputProps, 'className' | 'size'>;
+
+/**
+ * Configuration options for button components.
+ * Selects specific props that can be set globally for all buttons.
+ *
+ * @example
+ * ```tsx
+ * button: {
+ *   variant: 'solid',
+ *   color: 'primary',
+ *   size: 'md',
+ *   shape: 'rounded'
+ * }
+ * ```
+ */
+export type ButtonConfig = Pick<
+  ButtonProps,
+  'className' | 'color' | 'shadow' | 'shape' | 'size' | 'variant'
+>;
+
+/**
+ * Configuration options for badge components.
+ * Selects specific props that can be set globally for all badges.
+ */
+export type BadgeConfig = Pick<BadgeProps, 'className' | 'color' | 'shape' | 'size' | 'variant'>;
+
+/**
+ * Configuration options for radio components.
+ * Selects specific props that can be set globally for all radio groups.
+ */
+export type RadioConfig = Pick<RadioGroupProps, 'className' | 'classNames' | 'color' | 'size'>;
+
+/**
+ * Configuration options for switch components.
+ * Selects specific props that can be set globally for all switches.
+ */
+export type SwitchConfig = Pick<SwitchProps, 'className' | 'classNames' | 'color' | 'size'>;
+
+/**
+ * Configuration options for slider components.
+ * Selects specific props that can be set globally for all sliders.
+ */
+export type SliderConfig = Pick<SliderProps, 'className' | 'classNames' | 'color' | 'size'>;
+
+/**
+ * Configuration options for progress components.
+ * Selects specific props that can be set globally for all progress bars.
+ */
+export type ProgressConfig = Pick<ProgressProps, 'className' | 'classNames' | 'color' | 'size'>;
+
+/**
+ * Configuration options for avatar components.
+ * Selects specific props that can be set globally for all avatars.
+ */
+export type AvatarConfig = Pick<AvatarProps, 'className' | 'classNames' | 'size'>;
+
+/**
+ * Configuration options for card components.
+ * Selects specific props that can be set globally for all cards.
+ */
+export type CardConfig = Pick<CardProps, 'className' | 'classNames' | 'size'>;
+
+/**
+ * Configuration options for checkbox components.
+ * Selects specific props that can be set globally for all checkboxes.
+ */
+export type CheckboxConfig = Pick<CheckboxProps, 'className' | 'classNames' | 'color' | 'size'>;
+
+/**
+ * Configuration options for textarea components.
+ * Selects specific props that can be set globally for all textareas.
+ */
+export type TextareaConfig = Pick<TextareaProps, 'className' | 'classNames' | 'size'>;
+
+/**
+ * Configuration options for tooltip components.
+ * Selects specific props that can be set globally for all tooltips.
+ */
+export type TooltipConfig = Pick<TooltipProps, 'className' | 'classNames' | 'showArrow' | 'size'>;
+
+/**
+ * Configuration options for tabs components.
+ * Selects specific props that can be set globally for all tabs.
+ */
+export type TabsConfig = Pick<
+  TabsProps<TabsOptionData>,
+  'classNames' | 'enableIndicator' | 'orientation' | 'size'
+>;
+
+/**
+ * Configuration options for chip components.
+ * Selects specific props that can be set globally for all chips.
+ */
+export type ChipConfig = Pick<ChipProps, 'className' | 'classNames' | 'color' | 'position' | 'size'>;
+
+/**
+ * Configuration options for toggle components.
+ * Selects specific props that can be set globally for all toggles.
+ */
+export type ToggleConfig = Pick<ToggleProps, 'className' | 'size' | 'variant'>;
+
+/**
+ * Configuration options for popover components.
+ * Selects specific props that can be set globally for all popovers.
+ */
+export type PopoverConfig = Pick<PopoverProps, 'className' | 'classNames' | 'showArrow' | 'size'>;
+
+/**
+ * Configuration options for select components.
+ * Selects specific props that can be set globally for all selects.
+ */
+export type SelectConfig = Pick<SelectProps, 'classNames' | 'size'>;
+
+/**
+ * Configuration options for breadcrumb components.
+ * Selects specific props that can be set globally for all breadcrumbs.
+ */
+export type BreadcrumbConfig = Pick<
+  BreadcrumbProps<BreadcrumbItem>,
+  'className' | 'classNames' | 'separator'
+>;
+
+/**
+ * Configuration options for carousel components.
+ * Selects specific props that can be set globally for all carousels.
+ */
+export type CarouselConfig = Pick<CarouselProps, 'classNames' | 'orientation'>;
+
+/**
+ * Configuration options for segment components.
+ * Selects specific props that can be set globally for all segments.
+ */
+export type SegmentConfig = Pick<
+  SegmentProps<SegmentOptionData>,
+  'classNames' | 'enableIndicator' | 'orientation' | 'size'
+>;
+
+/**
+ * Configuration options for scroll area components.
+ * Selects specific props that can be set globally for all scroll areas.
+ */
+export type ScrollAreaConfig = Pick<ScrollAreaProps, 'className' | 'classNames'>;
+
+/**
+ * Configuration options for layout components.
+ * Selects specific props that can be set globally for all layouts.
+ */
+export type LayoutConfig = Pick<LayoutProps, 'collapsible' | 'side' | 'size' | 'variant'>;
+
+/**
+ * Configuration options for label components.
+ * Selects specific props that can be set globally for all labels.
+ */
+export type LabelConfig = Pick<LabelProps, 'className' | 'size'>;
+
+/**
+ * Configuration options for skeleton components.
+ * Selects specific props that can be set globally for all skeletons.
+ */
+export type SkeletonConfig = Pick<SkeletonProps, 'className'>;
+
+/**
+ * Configuration options for keyboard key components.
+ * Selects specific props that can be set globally for all keyboard keys.
+ */
+export type KeyboardKeyConfig = Pick<KeyboardKeyProps, 'className' | 'variant'>;
+
+/**
+ * Configuration options for sheet components.
+ * Selects specific props that can be set globally for all sheets.
+ */
+export type SheetConfig = Pick<SheetProps, 'classNames' | 'size'>;
+
+/**
+ * Configuration options for input OTP components.
+ * Selects specific props that can be set globally for all input OTPs.
+ */
+export type InputOtpConfig = Pick<InputOTPProps, 'className' | 'classNames' | 'size'>;
+
+/**
+ * Configuration options for hover card components.
+ * Selects specific props that can be set globally for all hover cards.
+ */
+export type HoverCardConfig = Pick<HoverCardProps, 'className' | 'classNames' | 'showArrow'>;
+
+/**
+ * Configuration options for menu components.
+ * Selects specific props that can be set globally for all menus.
+ */
+export type MenuConfig = Pick<MenuProps, 'classNames' | 'size'>;
+
+/**
+ * Configuration options for sonner/toast components.
+ * Selects specific props that can be set globally for all toasters.
+ */
+export type SonnerConfig = Pick<ToasterProps, 'expand' | 'position' | 'richColors'>;

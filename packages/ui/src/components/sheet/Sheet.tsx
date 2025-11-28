@@ -1,20 +1,25 @@
 'use client';
 
-import { Dialog } from '../dialog';
-import SheetContent from './SheetContent';
+import { useComponentConfig } from '../config-provider/context';
+import SheetUI from './SheetUI';
 import type { SheetProps } from './types';
 
 const Sheet = (props: SheetProps) => {
-  const { children, ...rest } = props;
+  const config = useComponentConfig('sheet');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <Dialog
-      contentComponent={SheetContent}
-      {...rest}
-    >
-      <div className="flex-grow overflow-auto">{children}</div>
-    </Dialog>
+    <SheetUI
+      {...mergedProps}
+
+    />
   );
 };
+
+Sheet.displayName = 'Sheet';
 
 export default Sheet;

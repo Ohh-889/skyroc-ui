@@ -1,32 +1,23 @@
+'use client';
+
 import { forwardRef } from 'react';
-import ChipContent from './ChipContent';
-import ChipRoot from './ChipRoot';
+import { useComponentConfig } from '../config-provider/context';
+import ChipUI from './ChipUI';
 import type { ChipProps } from './types';
 
 const Chip = forwardRef<HTMLDivElement, ChipProps>((props, ref) => {
-  const { children, className, classNames, color, content, open = true, position, size, ...rest } = props;
+  const config = useComponentConfig('chip');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <ChipRoot
-      className={className || classNames?.root}
+    <ChipUI
+      {...mergedProps}
       ref={ref}
-      {...rest}
-    >
-      {children}
-
-      {open
-        ? (
-          <ChipContent
-            className={classNames?.content}
-            color={color}
-            position={position}
-            size={size}
-          >
-            {content}
-          </ChipContent>
-        )
-        : null}
-    </ChipRoot>
+    />
   );
 });
 

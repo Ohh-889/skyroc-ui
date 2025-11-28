@@ -1,81 +1,25 @@
-import { type ComponentRef, forwardRef } from 'react';
+'use client';
+
+import type { ComponentRef } from 'react';
+import { forwardRef } from 'react';
 import type { Content } from 'vaul';
-import { Root as _Root } from 'vaul';
-import { DialogFooter, DialogHeader, DialogTrigger } from '../dialog';
-import DrawerClose from './DrawerClose';
-import DrawerContent from './DrawerContent';
-import DrawerDescription from './DrawerDescription';
-import DrawerTitle from './DrawerTitle';
+import { useComponentConfig } from '../config-provider/context';
+import DrawerUI from './DrawerUI';
 import type { DrawerProps } from './types';
 
 const Drawer = forwardRef<ComponentRef<typeof Content>, DrawerProps>((props, ref) => {
-  const {
-    children,
-    classNames,
-    contentProps,
-    description,
-    footer,
-    shouldScaleBackground = true,
-    showClose,
-    size,
-    title,
-    trigger
-  } = props;
+  const config = useComponentConfig('drawer');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <_Root
-      shouldScaleBackground={shouldScaleBackground}
-      {...props}
-    >
-      <DialogTrigger asChild>{trigger}</DialogTrigger>
-
-      <DrawerContent
-        classNames={classNames}
-        ref={ref}
-        {...contentProps}
-      >
-        <DialogHeader
-          className={classNames?.header}
-          size={size}
-        >
-          <DrawerTitle
-            className={classNames?.title}
-            size={size}
-          >
-            {title}
-          </DrawerTitle>
-
-          <DrawerDescription
-            className={classNames?.description}
-            size={size}
-          >
-            {description}
-          </DrawerDescription>
-        </DialogHeader>
-
-        {showClose
-          ? (
-            <DrawerClose
-              className={classNames?.close}
-              size={size}
-            />
-          )
-          : null}
-
-        {children}
-
-        {footer
-          ? (
-            <DialogFooter
-              className={classNames?.footer || '!flex-col-reverse'}
-              size={size}
-            >
-              {footer}
-            </DialogFooter>
-          )
-          : null}
-      </DrawerContent>
-    </_Root>
+    <DrawerUI
+      {...mergedProps}
+      ref={ref}
+    />
   );
 });
 

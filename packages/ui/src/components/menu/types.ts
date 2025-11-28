@@ -395,3 +395,14 @@ export interface MenuRadioGroupProps extends MenuCommonProps, StyledComponentPro
   /** Custom component for rendering separators */
   separatorComponent?: ElementType<MenuSeparatorProps>;
 }
+
+/**
+ * Props for the main Menu component.
+ * A composable menu component that wraps Radix UI's menu primitives.
+ */
+export interface MenuProps extends MenuCommonProps {
+  /**
+   * Menu content/children
+   */
+  children?: ReactNode;
+}

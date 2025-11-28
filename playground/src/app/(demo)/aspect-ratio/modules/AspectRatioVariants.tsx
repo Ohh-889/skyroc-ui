@@ -16,7 +16,7 @@ const AspectRatioVariants = () => {
             className="bg-muted overflow-hidden rounded-md"
             ratio={ratio}
           >
-            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+            <div className="flex h-full w-full items-center justify-center bg-linear-to-br from-blue-500 to-purple-600 text-white">
               <span className="text-lg font-semibold">{label}</span>
             </div>
           </AspectRatio>

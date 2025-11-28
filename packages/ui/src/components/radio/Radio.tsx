@@ -1,43 +1,24 @@
-import RadioLabel from '../label/Label';
-import RadioGroupItem from './RadioGroupItem';
-import RadioIndicator from './RadioIndicator';
-import RadioRoot from './RadioRoot';
+'use client';
+
+import { useComponentConfig } from '../config-provider/context';
+import RadioUI from './RadioUI';
 import type { RadioProps } from './types';
 
 const Radio = (props: RadioProps) => {
-  const { className, classNames, color, id, label, size, value, ...rest } = props;
+  const config = useComponentConfig('radio');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <RadioRoot
-      className={className || classNames?.root}
-      size={size}
-    >
-      <RadioGroupItem
-        color={color}
-        id={id || value}
-        value={value}
-        {...rest}
-        size={size}
-      >
-        <RadioIndicator
-          className={classNames?.indicator}
-          color={color}
-        />
-      </RadioGroupItem>
-
-      {label
-        ? (
-          <RadioLabel
-            className={classNames?.label}
-            htmlFor={id || value}
-            size={size}
-          >
-            {label}
-          </RadioLabel>
-        )
-        : null}
-    </RadioRoot>
+    <RadioUI
+      {...mergedProps}
+    />
   );
 };
+
+Radio.displayName = 'Radio';
 
 export default Radio;

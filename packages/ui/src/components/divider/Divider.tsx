@@ -1,34 +1,24 @@
-import React from 'react';
-import DividerLabel from './DividerLabel';
-import DividerRoot from './DividerRoot';
+'use client';
+
+import type { ComponentRef } from 'react';
+import { forwardRef } from 'react';
+import { useComponentConfig } from '../config-provider/context';
+import DividerUI from './DividerUI';
 import type { DividerProps } from './types';
 
-const Divider = React.forwardRef<HTMLDivElement, DividerProps>((props, ref) => {
-  const { align, children, className, classNames, leading, orientation, size, trailing, ...rest } = props;
+const Divider = forwardRef<ComponentRef<typeof DividerUI>, DividerProps>((props, ref) => {
+  const config = useComponentConfig('divider');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <DividerRoot
-      className={className || classNames?.root}
-      orientation={orientation}
-      {...rest}
+    <DividerUI
+      {...mergedProps}
       ref={ref}
-    >
-      {leading}
-
-      {Boolean(children) && (
-        <DividerLabel
-          align={align}
-          className={classNames?.label}
-          orientation={orientation}
-          size={size}
-          {...rest}
-        >
-          {children}
-        </DividerLabel>
-      )}
-
-      {trailing}
-    </DividerRoot>
+    />
   );
 });
 

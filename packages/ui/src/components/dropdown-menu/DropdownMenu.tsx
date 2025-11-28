@@ -1,35 +1,24 @@
-import { Root, Trigger } from '@radix-ui/react-dropdown-menu';
-import DropdownMenuContent from './DropdownMenuContent';
-import DropdownMenuOption from './DropdownMenuOption';
+'use client';
+
+import { useComponentConfig } from '../config-provider/context';
+import DropdownMenuUI from './DropdownMenuUI';
 import type { DropdownMenuProps } from './types';
 
 const DropdownMenu = (props: DropdownMenuProps) => {
-  const { children, classNames, contentProps, defaultOpen, dir, items, modal, onOpenChange, open, size } = props;
+  const config = useComponentConfig('dropdownMenu');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <Root
-      defaultOpen={defaultOpen}
-      dir={dir}
-      modal={modal}
-      open={open}
-      onOpenChange={onOpenChange}
-    >
-      <Trigger asChild>{children}</Trigger>
-
-      <DropdownMenuContent {...contentProps}>
-        {items.map((item, index) => {
-          return (
-            <DropdownMenuOption
-              classNames={classNames}
-              item={item}
-              key={String(index)}
-              size={size}
-            />
-          );
-        })}
-      </DropdownMenuContent>
-    </Root>
+    <DropdownMenuUI
+      {...mergedProps}
+    />
   );
 };
+
+DropdownMenu.displayName = 'DropdownMenu';
 
 export default DropdownMenu;

@@ -1,33 +1,20 @@
-import { Root, Trigger } from '@radix-ui/react-tooltip';
-import TooltipArrow from './TooltipArrow';
-import TooltipContent from './TooltipContent';
+'use client';
+
+import { useComponentConfig } from '../config-provider/context';
+import TooltipUI from './TooltipUI';
 import type { TooltipProps } from './types';
 
 const Tooltip = (props: TooltipProps) => {
-  const { children, className, classNames, content, contentProps, showArrow, size, ...rest } = props;
+  const config = useComponentConfig('tooltip');
 
-  return (
-    <Root {...rest}>
-      <Trigger asChild>{children}</Trigger>
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
-      <TooltipContent
-        className={className || classNames?.content}
-        size={size}
-        {...contentProps}
-      >
-        {content}
-
-        {showArrow
-          ? (
-            <TooltipArrow
-              className={classNames?.arrow}
-              size={size}
-            />
-          )
-          : null}
-      </TooltipContent>
-    </Root>
-  );
+  return <TooltipUI {...mergedProps} />;
 };
+
+Tooltip.displayName = 'Tooltip';
 
 export default Tooltip;

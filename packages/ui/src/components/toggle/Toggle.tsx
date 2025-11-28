@@ -1,21 +1,20 @@
-import { Root } from '@radix-ui/react-toggle';
-import { cn } from '@/lib/utils';
-import { toggleVariants } from './toggle-variants';
+'use client';
+
+import { useComponentConfig } from '../config-provider/context';
+import ToggleUI from './ToggleUI';
 import type { ToggleProps } from './types';
 
 const Toggle = (props: ToggleProps) => {
-  const { className, size, variant, ...rest } = props;
-  const { toggle } = toggleVariants({ size, variant });
+  const config = useComponentConfig('toggle');
 
-  const mergedCls = cn(toggle(), className);
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
-  return (
-    <Root
-      className={mergedCls}
-      data-slot="toggle"
-      {...rest}
-    />
-  );
+  return <ToggleUI {...mergedProps} />;
 };
+
+Toggle.displayName = 'Toggle';
 
 export default Toggle;

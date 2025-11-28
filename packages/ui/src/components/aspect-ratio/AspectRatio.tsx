@@ -1,19 +1,24 @@
+'use client';
+
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-import { Root } from '@radix-ui/react-aspect-ratio';
-import { cn } from '@/lib/utils';
+import type { Root } from '@radix-ui/react-aspect-ratio';
+import { useComponentConfig } from '../config-provider/context';
+import AspectRatioUI from './AspectRatioUI';
 import type { AspectRatioProps } from './types';
 
 const AspectRatio = forwardRef<ComponentRef<typeof Root>, AspectRatioProps>((props, ref) => {
-  const { className, ...rest } = props;
+  const config = useComponentConfig('aspectRatio');
 
-  const mergedCls = cn(className);
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <Root
+    <AspectRatioUI
+      {...mergedProps}
       ref={ref}
-      {...rest}
-      className={mergedCls}
     />
   );
 });

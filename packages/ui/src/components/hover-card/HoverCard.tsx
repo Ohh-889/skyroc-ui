@@ -1,41 +1,24 @@
+'use client';
+
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-import { Root, Trigger } from '@radix-ui/react-hover-card';
-import HoverCardArrow from './HoverCardArrow';
-import HoverCardContent from './HoverCardContent';
+import { useComponentConfig } from '../config-provider/context';
+import HoverCardUI from './HoverCardUI';
 import type { HoverCardProps } from './types';
 
-const HoverCard = forwardRef<ComponentRef<typeof HoverCardContent>, HoverCardProps>((props, ref) => {
-  const { arrowProps, children, className, classNames, showArrow, trigger, ...rest } = props;
+const HoverCard = forwardRef<ComponentRef<typeof HoverCardUI>, HoverCardProps>((props, ref) => {
+  const config = useComponentConfig('hoverCard');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <Root
-      data-slot="hover-card-root"
-      {...rest}
-    >
-      <Trigger
-        asChild
-        data-slot="hover-card-trigger"
-      >
-        {trigger}
-      </Trigger>
-
-      <HoverCardContent
-        className={className || classNames?.content}
-        ref={ref}
-      >
-        {children}
-
-        {showArrow
-          ? (
-            <HoverCardArrow
-              {...arrowProps}
-              className={classNames?.arrow}
-            />
-          )
-          : null}
-      </HoverCardContent>
-    </Root>
+    <HoverCardUI
+      {...mergedProps}
+      ref={ref}
+    />
   );
 });
 

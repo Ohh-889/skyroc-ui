@@ -1,27 +1,24 @@
+'use client';
+
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
-import CollapsibleContent from './CollapsibleContent';
-import CollapsibleRoot from './CollapsibleRoot';
+import { useComponentConfig } from '../config-provider/context';
+import CollapsibleUI from './CollapsibleUI';
 import type { CollapsibleProps } from './types';
 
-const Collapsible = forwardRef<ComponentRef<typeof CollapsibleRoot>, CollapsibleProps>((props, ref) => {
-  const { children, className, classNames, content, forceMountContent, ...rest } = props;
+const Collapsible = forwardRef<ComponentRef<typeof CollapsibleUI>, CollapsibleProps>((props, ref) => {
+  const config = useComponentConfig('collapsible');
+
+  const mergedProps = {
+    ...config,
+    ...props
+  };
 
   return (
-    <CollapsibleRoot
-      className={className || classNames?.root}
+    <CollapsibleUI
+      {...mergedProps}
       ref={ref}
-      {...rest}
-    >
-      {children}
-
-      <CollapsibleContent
-        className={classNames?.content}
-        forceMount={forceMountContent}
-      >
-        {content}
-      </CollapsibleContent>
-    </CollapsibleRoot>
+    />
   );
 });
 
