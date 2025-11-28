@@ -1,4 +1,5 @@
 'use client';
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import TabsContent from './TabsContent';
 import TabsList from './TabsList';
@@ -6,7 +7,7 @@ import Root from './TabsRoot';
 import TabsTrigger from './TabsTrigger';
 import type { TabsOptionData, TabsProps } from './types';
 
-const Tabs = forwardRef<React.ComponentRef<typeof Root>, TabsProps<TabsOptionData>>((props, ref) => {
+const Tabs = forwardRef<ComponentRef<typeof Root>, TabsProps<TabsOptionData>>((props, ref) => {
   const {
     className,
     classNames,

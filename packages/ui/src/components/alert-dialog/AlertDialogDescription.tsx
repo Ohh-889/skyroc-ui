@@ -1,10 +1,11 @@
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { Description } from '@radix-ui/react-alert-dialog';
 import { cn } from '@/lib/utils';
 import { dialogVariants } from './alert-dialog-variants';
 import type { AlertDialogDescriptionProps } from './types';
 
-const AlertDialogDescription = forwardRef<React.ElementRef<typeof Description>, AlertDialogDescriptionProps>(
+const AlertDialogDescription = forwardRef<ComponentRef<typeof Description>, AlertDialogDescriptionProps>(
   (props, ref) => {
     const { className, size, ...rest } = props;
 

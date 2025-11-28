@@ -1,4 +1,4 @@
-import type { ElementRef } from 'react';
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { Image } from '@radix-ui/react-avatar';
 import AvatarFallback from './AvatarFallback';
@@ -6,7 +6,7 @@ import AvatarImage from './AvatarImage';
 import AvatarRoot from './AvatarRoot';
 import type { AvatarProps } from './types';
 
-const Avatar = forwardRef<ElementRef<typeof Image>, AvatarProps>((props, ref) => {
+const Avatar = forwardRef<ComponentRef<typeof Image>, AvatarProps>((props, ref) => {
   const { className, classNames, delayMs, fallback, size, ...rest } = props;
 
   return (

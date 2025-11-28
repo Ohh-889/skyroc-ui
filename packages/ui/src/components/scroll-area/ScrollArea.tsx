@@ -1,3 +1,4 @@
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { ScrollAreaCorner } from '@radix-ui/react-scroll-area';
 import { cn } from '@/lib/utils';
@@ -7,7 +8,7 @@ import ScrollAreaThumb from './ScrollAreaThumb';
 import ScrollAreaViewport from './ScrollAreaViewport';
 import type { ScrollAreaProps } from './types';
 
-const ScrollArea = forwardRef<React.ElementRef<typeof ScrollAreaRoot>, ScrollAreaProps>((props, ref) => {
+const ScrollArea = forwardRef<ComponentRef<typeof ScrollAreaRoot>, ScrollAreaProps>((props, ref) => {
   const { children, className, classNames, forceMount, nonce, orientation, size, ...rest } = props;
 
   return (

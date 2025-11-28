@@ -1,3 +1,4 @@
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import type { Content } from '@radix-ui/react-alert-dialog';
 import { AlertDialog as AlertDialogRoot, Portal, Trigger } from '@radix-ui/react-alert-dialog';
@@ -18,7 +19,7 @@ const iconRecord: Record<AlertType, React.ReactNode> = {
   warning: <CircleAlert className="text-warning" />
 };
 
-const AlertDialog = forwardRef<React.ElementRef<typeof Content>, AlertDialogProps>((props, ref) => {
+const AlertDialog = forwardRef<ComponentRef<typeof Content>, AlertDialogProps>((props, ref) => {
   const {
     children,
     className,

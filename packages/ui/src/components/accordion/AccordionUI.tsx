@@ -1,3 +1,4 @@
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import type { Root } from '@radix-ui/react-accordion';
 import AccordionContent from './AccordionContent';
@@ -7,7 +8,7 @@ import AccordionRoot from './AccordionRoot';
 import AccordionTrigger from './AccordionTrigger';
 import type { AccordionProps } from './types';
 
-const AccordionUI = forwardRef<React.ElementRef<typeof Root>, AccordionProps>((props, ref) => {
+const AccordionUI = forwardRef<ComponentRef<typeof Root>, AccordionProps>((props, ref) => {
   const { className, classNames, dir, items, size, triggerIcon, triggerLeading, triggerTrailing, ...rest } = props;
 
   return (

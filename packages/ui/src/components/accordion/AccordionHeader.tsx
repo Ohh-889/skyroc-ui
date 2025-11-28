@@ -1,10 +1,11 @@
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { Header } from '@radix-ui/react-accordion';
 import { cn } from '@/lib/utils';
 import { accordionVariants } from './accordion-variants';
 import type { AccordionHeaderProps } from './types';
 
-const AccordionHeader = forwardRef<React.ElementRef<typeof Header>, AccordionHeaderProps>((props, ref) => {
+const AccordionHeader = forwardRef<ComponentRef<typeof Header>, AccordionHeaderProps>((props, ref) => {
   const { className, ...rest } = props;
 
   const { header } = accordionVariants();

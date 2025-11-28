@@ -1,9 +1,10 @@
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { Root } from '@radix-ui/react-aspect-ratio';
 import { cn } from '@/lib/utils';
 import type { AspectRatioProps } from './types';
 
-const AspectRatio = forwardRef<React.ComponentRef<typeof Root>, AspectRatioProps>((props, ref) => {
+const AspectRatio = forwardRef<ComponentRef<typeof Root>, AspectRatioProps>((props, ref) => {
   const { className, ...rest } = props;
 
   const mergedCls = cn(className);

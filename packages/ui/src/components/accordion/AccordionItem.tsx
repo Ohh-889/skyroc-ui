@@ -1,10 +1,11 @@
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { Item } from '@radix-ui/react-accordion';
 import { cn } from '@/lib/utils';
 import { accordionVariants } from './accordion-variants';
 import type { AccordionItemProps } from './types';
 
-const AccordionItem = forwardRef<React.ElementRef<typeof Item>, AccordionItemProps>((props, ref) => {
+const AccordionItem = forwardRef<ComponentRef<typeof Item>, AccordionItemProps>((props, ref) => {
   const { className, ...rest } = props;
 
   const { item } = accordionVariants();

@@ -1,10 +1,11 @@
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { TabsContent as Content } from '@radix-ui/react-tabs';
 import { cn } from '@/lib/utils';
 import { tabsVariants } from './tabs-variants';
 import type { TabsContentProps } from './types';
 
-const TabsContent = forwardRef<React.ElementRef<typeof Content>, TabsContentProps>((props, ref) => {
+const TabsContent = forwardRef<ComponentRef<typeof Content>, TabsContentProps>((props, ref) => {
   const { className, orientation, size, ...rest } = props;
 
   const { content } = tabsVariants({ orientation, size });

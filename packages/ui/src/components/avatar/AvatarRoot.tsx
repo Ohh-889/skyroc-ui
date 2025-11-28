@@ -1,11 +1,11 @@
-import type { ElementRef } from 'react';
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { Root } from '@radix-ui/react-avatar';
 import { cn } from '@/lib/utils';
 import { avatarVariants } from './avatar-variants';
 import type { AvatarRootProps } from './types';
 
-const AvatarRoot = forwardRef<ElementRef<typeof Root>, AvatarRootProps>((props, ref) => {
+const AvatarRoot = forwardRef<ComponentRef<typeof Root>, AvatarRootProps>((props, ref) => {
   const { className, size, ...rest } = props;
 
   const { root } = avatarVariants({ size });

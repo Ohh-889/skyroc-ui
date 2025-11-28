@@ -1,10 +1,11 @@
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { Trigger } from '@radix-ui/react-tabs';
 import { cn } from '@/lib/utils';
 import { tabsVariants } from './tabs-variants';
 import type { TabsTriggerProps } from './types';
 
-const TabsTrigger = forwardRef<React.ComponentRef<typeof Trigger>, TabsTriggerProps>((props, ref) => {
+const TabsTrigger = forwardRef<ComponentRef<typeof Trigger>, TabsTriggerProps>((props, ref) => {
   const { className, enableIndicator = true, size, ...rest } = props;
 
   const { trigger } = tabsVariants({ enableIndicator, size });

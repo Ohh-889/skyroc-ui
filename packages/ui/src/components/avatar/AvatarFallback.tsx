@@ -1,11 +1,11 @@
-import type { ElementRef } from 'react';
+import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import { Fallback } from '@radix-ui/react-avatar';
 import { cn } from '@/lib/utils';
 import { avatarVariants } from './avatar-variants';
 import type { AvatarFallbackProps } from './types';
 
-const AvatarFallback = forwardRef<ElementRef<typeof Fallback>, AvatarFallbackProps>((props, ref) => {
+const AvatarFallback = forwardRef<ComponentRef<typeof Fallback>, AvatarFallbackProps>((props, ref) => {
   const { className, ...rest } = props;
 
   const { fallback } = avatarVariants();
