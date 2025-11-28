@@ -1,3 +1,5 @@
+'use client';
+
 import { Card, Carousel } from 'skyroc-ui';
 
 const CarouselMultiple = () => {

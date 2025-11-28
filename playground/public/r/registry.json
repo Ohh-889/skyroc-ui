@@ -2356,8 +2356,8 @@
     {
       "files": [
         {
-          "path": "src/components/sonner/Sonner.tsx",
-          "target": "components/sonner/Sonner.tsx",
+          "path": "src/components/sonner/InterSonner.tsx",
+          "target": "components/sonner/InterSonner.tsx",
           "type": "registry:ui"
         },
         {

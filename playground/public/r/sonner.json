@@ -7,10 +7,10 @@
   "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
   "files": [
     {
-      "path": "src/components/sonner/Sonner.tsx",
+      "path": "src/components/sonner/InterSonner.tsx",
       "content": "'use client';\n\nimport type { ToasterProps } from 'sonner';\nimport { useComponentConfig } from '../config-provider/context';\nimport SonnerUI from './SonnerUI';\n\nconst Sonner = (props: ToasterProps) => {\n  const config = useComponentConfig('sonner');\n\n  const mergedProps = {\n    ...config,\n    ...props\n  };\n\n  return <SonnerUI {...mergedProps} />;\n};\n\nSonner.displayName = 'Sonner';\n\nexport default Sonner;\n",
       "type": "registry:ui",
-      "target": "components/sonner/Sonner.tsx"
+      "target": "components/sonner/InterSonner.tsx"
     },
     {
       "path": "src/components/sonner/SonnerUI.tsx",
@@ -20,7 +20,7 @@
     },
     {
       "path": "src/components/sonner/index.ts",
-      "content": "export { toast, useSonner } from 'sonner';\n\nexport { default as Sonner } from './Sonner';\n\nexport * from './types';\n",
+      "content": "export { toast, useSonner } from 'sonner';\n\nexport { default as Sonner } from './InterSonner';\n\nexport * from './types';\n",
       "type": "registry:ui",
       "target": "components/sonner/index.ts"
     },
