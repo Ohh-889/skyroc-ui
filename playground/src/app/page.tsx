@@ -88,8 +88,7 @@ const Home = () => {
               <h1 className="text-primary text-3xl font-bold">Skyroc UI</h1>
 
               <Badge
-                color="success"
-                variant="soft"
+                variant="pure"
               >
                 Playground
               </Badge>
@@ -103,10 +102,11 @@ const Home = () => {
           <div className="flex items-center gap-3">
             <Button
               asChild
+              color="carbon"
               size="sm"
               variant="outline"
             >
-              <a
+              <Link
                 href="https://docs.skyroc-ui.com"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -116,15 +116,16 @@ const Home = () => {
                   icon="lucide:book-open"
                 />
                 文档
-              </a>
+              </Link>
             </Button>
 
             <Button
               asChild
+              color="carbon"
               size="sm"
               variant="outline"
             >
-              <a
+              <Link
                 href="https://github.com/Ohh-889/skyroc-ui"
                 rel="noopener noreferrer"
                 target="_blank"
@@ -134,7 +135,7 @@ const Home = () => {
                   icon="lucide:github"
                 />
                 GitHub
-              </a>
+              </Link>
             </Button>
           </div>
         </header>
@@ -211,7 +212,7 @@ const Home = () => {
           <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
               <h2 className="text-xl font-semibold">组件</h2>
-              <Badge variant="outline">{componentList.length}</Badge>
+              <Badge variant="pure">{componentList.length}</Badge>
             </div>
 
             <Input
@@ -274,57 +275,77 @@ const Home = () => {
         {/* 底部链接 */}
         <footer className="mt-12 border-t pt-6">
           <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-            <a
-              className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-colors"
-              href="https://docs.skyroc-ui.com"
-              rel="noopener noreferrer"
-              target="_blank"
+            <Button
+              asChild
+              color="carbon"
+              variant="ghost"
             >
-              <Icon
-                className="h-4 w-4"
-                icon="lucide:book-open"
-              />
-              完整文档
-            </a>
+              <Link
+                href="https://docs.skyroc-ui.com"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Icon
+                  className="h-4 w-4"
+                  icon="lucide:book-open"
+                />
+                完整文档
+              </Link>
+            </Button>
 
-            <a
-              className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-colors"
-              href="https://docs.skyroc-ui.com/docs/installation"
-              rel="noopener noreferrer"
-              target="_blank"
+            <Button
+              asChild
+              color="carbon"
+              variant="ghost"
             >
-              <Icon
-                className="h-4 w-4"
-                icon="lucide:download"
-              />
-              安装指南
-            </a>
+              <Link
+                href="https://docs.skyroc-ui.com/docs/installation"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Icon
+                  className="h-4 w-4"
+                  icon="lucide:download"
+                />
+                安装指南
+              </Link>
+            </Button>
 
-            <a
-              className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-colors"
-              href="https://github.com/Ohh-889/skyroc-ui"
-              rel="noopener noreferrer"
-              target="_blank"
+            <Button
+              asChild
+              color="carbon"
+              variant="ghost"
             >
-              <Icon
-                className="h-4 w-4"
-                icon="lucide:github"
-              />
-              GitHub
-            </a>
+              <Link
+                href="https://github.com/Ohh-889/skyroc-ui"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Icon
+                  className="h-4 w-4"
+                  icon="lucide:github"
+                />
+                GitHub
+              </Link>
+            </Button>
 
-            <a
-              className="text-muted-foreground hover:text-foreground flex items-center gap-1.5 transition-colors"
-              href="https://github.com/Ohh-889/skyroc-ui/issues"
-              rel="noopener noreferrer"
-              target="_blank"
+            <Button
+              asChild
+              color="carbon"
+              variant="ghost"
             >
-              <Icon
-                className="h-4 w-4"
-                icon="lucide:bug"
-              />
-              反馈问题
-            </a>
+              <Link
+                href="https://github.com/Ohh-889/skyroc-ui/issues"
+                rel="noopener noreferrer"
+                target="_blank"
+              >
+                <Icon
+                  className="h-4 w-4"
+                  icon="lucide:bug"
+                />
+                反馈问题
+              </Link>
+            </Button>
           </div>
         </footer>
       </div>
