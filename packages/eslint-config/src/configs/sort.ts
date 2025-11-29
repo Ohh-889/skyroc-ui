@@ -9,7 +9,7 @@ export async function sortPackageJson(): Promise<FlatConfigItem[]> {
   return [
     {
       files: ['**/package.json'],
-      name: 'antfu/sort/package-json',
+      name: 'skyroc/sort/package-json',
       rules: {
         'jsonc/sort-array-values': [
           'error',
@@ -121,7 +121,7 @@ export function sortTsconfig(): FlatConfigItem[] {
   return [
     {
       files: ['**/[jt]sconfig.json', '**/[jt]sconfig.*.json'],
-      name: 'antfu/sort/tsconfig-json',
+      name: 'skyroc/sort/tsconfig-json',
       rules: {
         'jsonc/sort-keys': [
           'error',

@@ -5,7 +5,7 @@ export async function command(): Promise<FlatConfigItem[]> {
   return [
     {
       ...(createCommand() as any),
-      name: 'antfu/command/rules'
+      name: 'skyroc/command/rules'
     }
   ];
 }

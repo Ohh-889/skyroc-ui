@@ -29,10 +29,10 @@ export async function javascript(options: OptionsIsInEditor & OptionsOverrides =
       linterOptions: {
         reportUnusedDisableDirectives: true
       },
-      name: 'antfu/javascript/setup'
+      name: 'skyroc/javascript/setup'
     },
     {
-      name: 'antfu/javascript/rules',
+      name: 'skyroc/javascript/rules',
       plugins: {
         'antfu': pluginAntfu,
         'unused-imports': pluginUnusedImports
