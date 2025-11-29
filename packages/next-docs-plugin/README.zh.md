@@ -2,7 +2,7 @@
 
 [English](./README.md) | [简体中文](./README.zh.md)
 
-MDX plugin for automatically processing `<Demo>` components in documentation.
+MDX 插件，用于自动处理文档中的 `<Demo>` 组件。
 
 ## 功能
 
@@ -11,6 +11,33 @@ MDX plugin for automatically processing `<Demo>` components in documentation.
 支持两种引用方式：
 1. **通过 @/demos 中转**（传统方式）
 2. **直接引用 @playground**（推荐方式）
+
+## 安装
+
+```bash
+# npm
+npm install @skyroc/next-docs-plugin
+
+# pnpm
+pnpm add @skyroc/next-docs-plugin
+
+# yarn
+yarn add @skyroc/next-docs-plugin
+```
+
+## 配置
+
+在 `next.config.mjs` 或 MDX 配置中使用：
+
+```js
+import rehypeCodeMeta from '@skyroc/next-docs-plugin'
+
+export default {
+  mdxOptions: {
+    rehypePlugins: [rehypeCodeMeta]
+  }
+}
+```
 
 ## 使用方式
 
@@ -117,7 +144,7 @@ export default async function Demo({ children, src, title }: DemoProps) {
 }
 ```
 
-## 优势
+## 优势对比
 
 ### 传统方式（@/demos）
 - 需要创建中间文件
@@ -129,20 +156,6 @@ export default async function Demo({ children, src, title }: DemoProps) {
 - **直观**：路径清晰，一目了然
 - **灵活**：支持默认导出和命名导出
 - **维护简单**：单一数据源
-
-## 配置
-
-在 `next.config.mjs` 或 MDX 配置中使用：
-
-```js
-import rehypeCodeMeta from '@skyroc/next-docs-plugin';
-
-export default {
-  mdxOptions: {
-    rehypePlugins: [rehypeCodeMeta]
-  }
-}
-```
 
 ## 路径别名
 
@@ -159,16 +172,14 @@ export default {
 }
 ```
 
-## 示例
-
-查看以下文档了解更多：
-- `docs/app/docs/components/button/page.mdx` - 完整示例
-- `DIRECT_PLAYGROUND_REFERENCE.md` - 直接引用说明
-- `DEMO_SYSTEM.md` - 系统架构说明
-
 ## 相关文件
 
 - `src/index.ts` - 插件主文件
-- `src/components/CodePreview/Demo.tsx` - Demo 组件实现
+- `src/remark.ts` - Remark 插件
 - `docs/demos/` - Demo 组件存放目录
 - `playground/src/app/(demo)/` - Playground 组件目录
+
+## 许可证
+
+[MIT](../../LICENSE) 许可证 © 2024-至今 [Ohh](https://github.com/Ohh-889)
+
