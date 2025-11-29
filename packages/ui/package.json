@@ -63,11 +63,7 @@
   "main": "./src/index.ts",
   "module": "./src/index.ts",
   "types": "./src/index.ts",
-  "files": [
-    "README.zh.md",
-    "dist",
-    "README.md"
-  ],
+  "files": ["README.zh.md", "dist", "README.md"],
   "scripts": {
     "build": "pnpm run build:components && pnpm run registry",
     "build:components": "tsdown",
@@ -112,6 +108,7 @@
     "@skyroc/form": "workspace:*",
     "@skyroc/tailwind-plugin": "workspace:*",
     "@skyroc/utils": "workspace:*",
+    "@skyroc/virtualizer": "workspace:*",
     "clsx": "catalog:",
     "cmdk": "1.1.1",
     "embla-carousel-react": "8.6.0",

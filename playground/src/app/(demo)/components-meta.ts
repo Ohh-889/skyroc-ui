@@ -216,6 +216,11 @@ export const componentsInfo: Record<string, { title: string; description: string
     title: 'Tooltip 提示',
     description: 'Skyroc UI Tooltip 组件 - 文字提示组件，鼠标悬停时显示。',
     keywords: ['tooltip', '提示', 'hint', 'tip']
+  },
+  'virtualizer': {
+    title: 'Virtualizer 虚拟列表',
+    description: 'Skyroc UI Virtualizer 组件 - 高性能虚拟列表和网格组件，支持大数据量渲染。',
+    keywords: ['virtualizer', '虚拟列表', 'virtual-list', 'virtual-scroll', '大数据']
   }
 };
 

@@ -1,0 +1,22 @@
+import { Content } from '@radix-ui/react-navigation-menu';
+import { cn } from '@/lib/utils';
+import { navigationMenuVariants } from './navigation-menu';
+import type { NavigationMenuContentProps } from './types';
+
+const NavigationMenuContent = (props: NavigationMenuContentProps) => {
+  const { className, ...rest } = props;
+
+  const { content } = navigationMenuVariants();
+
+  const mergedCls = cn(content(), className);
+
+  return (
+    <Content
+      {...rest}
+      className={mergedCls}
+      data-slot="navigation-menu-content"
+    />
+  );
+};
+
+export default NavigationMenuContent;

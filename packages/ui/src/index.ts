@@ -58,6 +58,8 @@ export * from './components/layout';
 
 export * from './components/menubar';
 
+export * from './components/navigation-menu';
+
 export * from './components/popover';
 
 export * from './components/progress';
@@ -91,6 +93,8 @@ export * from './components/toggle';
 export * from './components/toggle-group';
 
 export * from './components/tooltip';
+
+export * from './components/virtualizer';
 
 export * from './lib';
 
