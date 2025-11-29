@@ -60,6 +60,46 @@ Skyroc UI 是一个综合性的 **Monorepo**，包含现代化的 React UI 组�
 | [@skyroc/next-docs-plugin](./packages/next-docs-plugin) | 文档 MDX 插件 |
 | [@skyroc/next-docs-themes](./packages/next-docs-themes) | 文档主题组件 |
 
+## 开发项目
+
+本 Monorepo 包含两个用于开发和展示组件库的重要项目：
+
+### 🎮 Playground（演示场）
+
+基于 Next.js 构建的交互式组件展示和测试环境。演示场可以让你：
+
+- **浏览所有组件** - 探索 50+ 组件及其实时示例
+- **测试交互** - 尝试不同的组件状态和变体
+- **查看源码** - 查看每个演示的实现细节
+- **开发新组件** - 在开发过程中独立测试组件
+
+**快速启动：**
+```bash
+cd playground
+pnpm dev
+# 打开 http://localhost:3000
+```
+
+📖 [查看 Playground README](./playground/README.md)
+
+### 📚 文档站点
+
+基于 Next.js 和 MDX 构建的完整文档网站，提供：
+
+- **完整 API 文档** - 详细的组件 API 和属性说明
+- **使用指南** - 循序渐进的教程和最佳实践
+- **实时代码预览** - 可编辑代码的交互式示例
+- **搜索功能** - 快速访问任何组件或指南
+
+**快速启动：**
+```bash
+cd docs
+pnpm dev
+# 打开 http://localhost:3000
+```
+
+📖 [查看 Docs README](./docs/README.md)
+
 ## 特性
 
 - **现代化设计** - 精美简洁的设计，支持亮/暗主题切换

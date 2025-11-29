@@ -60,6 +60,46 @@ Skyroc UI is a comprehensive **monorepo** containing a modern React UI component
 | [@skyroc/next-docs-plugin](./packages/next-docs-plugin) | MDX plugin for documentation |
 | [@skyroc/next-docs-themes](./packages/next-docs-themes) | Theme components for documentation |
 
+## Development Projects
+
+This monorepo includes two essential development projects for working with and showcasing the component library:
+
+### 🎮 Playground
+
+An interactive component showcase and testing environment built with Next.js. The playground allows you to:
+
+- **Browse all components** - Explore 50+ components with live examples
+- **Test interactions** - Try different component states and variants
+- **View source code** - See implementation details for each demo
+- **Develop new components** - Test components in isolation during development
+
+**Quick start:**
+```bash
+cd playground
+pnpm dev
+# Open http://localhost:3000
+```
+
+📖 [View Playground README](./playground/README.md)
+
+### 📚 Documentation Site
+
+A comprehensive documentation website built with Next.js and MDX, featuring:
+
+- **Complete API documentation** - Detailed component APIs and props
+- **Usage guides** - Step-by-step tutorials and best practices
+- **Live code previews** - Interactive examples with editable code
+- **Search functionality** - Quick access to any component or guide
+
+**Quick start:**
+```bash
+cd docs
+pnpm dev
+# Open http://localhost:3000
+```
+
+📖 [View Docs README](./docs/README.md)
+
 ## Features
 
 - **Modern Design** - Beautiful and clean design with light/dark theme support
