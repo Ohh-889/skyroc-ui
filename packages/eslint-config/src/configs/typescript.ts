@@ -12,7 +12,7 @@ import type {
 } from '../types';
 import { pluginAntfu } from '../plugins';
 import { interopDefault, renameRules } from '../utils';
-import { GLOB_ASTRO_TS, GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../utils/globs';
+import { GLOB_MARKDOWN, GLOB_TS, GLOB_TSX } from '../utils/globs';
 
 export async function typescript(
   options: OptionsFiles
@@ -35,7 +35,7 @@ export async function typescript(
   const files = options.files ?? [GLOB_TS, GLOB_TSX, ...componentExts.map(ext => `**/*.${ext}`)];
 
   const filesTypeAware = options.filesTypeAware ?? [GLOB_TS, GLOB_TSX];
-  const ignoresTypeAware = options.ignoresTypeAware ?? [`${GLOB_MARKDOWN}/**`, GLOB_ASTRO_TS];
+  const ignoresTypeAware = options.ignoresTypeAware ?? [`${GLOB_MARKDOWN}/**`,];
   const tsconfigPath = options?.tsconfigPath ? options.tsconfigPath : undefined;
   const isTypeAware = Boolean(tsconfigPath);
 
