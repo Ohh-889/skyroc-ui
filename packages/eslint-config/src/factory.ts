@@ -1,7 +1,7 @@
-import type { Linter } from 'eslint'
-import { FlatConfigComposer } from 'eslint-flat-config-utils'
-import { isPackageExists } from 'local-pkg'
-import type { Awaitable, FlatConfigItem, SkryocESLintConfig } from './types'
+import type { Linter } from 'eslint';
+import { FlatConfigComposer } from 'eslint-flat-config-utils';
+import { isPackageExists } from 'local-pkg';
+import type { Awaitable, FlatConfigItem, SkryocESLintConfig } from './types';
 import {
   command,
   comments,
@@ -31,9 +31,9 @@ import {
   unicorn,
   unocss,
   vue,
-  yaml,
-} from './configs'
-import { isInEditorEnv } from './utils'
+  yaml
+} from './configs';
+import { isInEditorEnv } from './utils';
 
 const flatConfigProps = [
   'name',
@@ -42,12 +42,12 @@ const flatConfigProps = [
   'processor',
   'plugins',
   'rules',
-  'settings',
-] satisfies (keyof FlatConfigItem)[]
+  'settings'
+] satisfies (keyof FlatConfigItem)[];
 
-const VuePackages = ['vue', 'nuxt', 'vitepress']
-const ReactPackages = ['react', 'react-dom']
-const NextPackages = ['next']
+const VuePackages = ['vue', 'nuxt', 'vitepress'];
+const ReactPackages = ['react', 'react-dom'];
+const NextPackages = ['next'];
 
 export const defaultPluginRenaming = {
   '@eslint-react': 'react',
@@ -62,8 +62,8 @@ export const defaultPluginRenaming = {
   'n': 'node',
   'vitest': 'test',
 
-  'yml': 'yaml',
-}
+  'yml': 'yaml'
+};
 
 /**
  * Construct an array of ESLint flat config items.
@@ -100,32 +100,32 @@ export function skyroc(
     unicorn: enableUnicorn = true,
     unocss: enableUnoCSS = false,
     vue: enableVue = VuePackages.some(i => isPackageExists(i)),
-    yaml: enableYaml = true,
-  } = options
+    yaml: enableYaml = true
+  } = options;
 
-  let isInEditor = options.isInEditor
+  let isInEditor = options.isInEditor;
 
   if (isInEditor == null) {
-    isInEditor = isInEditorEnv()
+    isInEditor = isInEditorEnv();
     if (isInEditor)
       // eslint-disable-next-line no-console
-      console.log('[@skyroc/eslint-config] Detected running in editor, some rules are disabled.')
+      console.log('[@skyroc/eslint-config] Detected running in editor, some rules are disabled.');
   }
 
   const stylisticOptions = enableStylistic === false
     ? false
     : typeof enableStylistic === 'object'
       ? enableStylistic
-      : {}
+      : {};
 
-  const typescriptOptions = resolveSubOptions(options, 'typescript')
-  const tsconfigPath = 'tsconfigPath' in typescriptOptions ? typescriptOptions.tsconfigPath : undefined
+  const typescriptOptions = resolveSubOptions(options, 'typescript');
+  const tsconfigPath = 'tsconfigPath' in typescriptOptions ? typescriptOptions.tsconfigPath : undefined;
 
-  const configs: Awaitable<FlatConfigItem[]>[] = []
+  const configs: Awaitable<FlatConfigItem[]>[] = [];
 
   // Gitignore
   if (enableGitignore) {
-    configs.push(gitignore())
+    configs.push(gitignore());
   }
 
   // Base configs
@@ -133,52 +133,52 @@ export function skyroc(
     ignores(userIgnores),
     javascript({
       isInEditor,
-      overrides: getOverrides(options, 'javascript'),
+      overrides: getOverrides(options, 'javascript')
     }),
     comments(),
     node(),
     jsdoc({
-      stylistic: !!stylisticOptions,
+      stylistic: !!stylisticOptions
     }),
     imports(getOverrides(options, 'imports')),
     command(),
 
     // Optional plugins (installed but not enabled by default)
-    perfectionist(),
-  )
+    perfectionist()
+  );
 
   if (enableUnicorn) {
-    configs.push(unicorn(enableUnicorn === true ? {} : enableUnicorn))
+    configs.push(unicorn(enableUnicorn === true ? {} : enableUnicorn));
   }
 
   if (enableVue) {
-    componentExts.push('vue')
+    componentExts.push('vue');
   }
 
   if (enableTypeScript) {
     configs.push(typescript({
       ...typescriptOptions,
       componentExts,
-      overrides: getOverrides(options, 'typescript'),
-    }))
+      overrides: getOverrides(options, 'typescript')
+    }));
   }
 
   if (stylisticOptions) {
     configs.push(stylistic({
       ...stylisticOptions,
-      overrides: getOverrides(options, 'stylistic'),
-    }))
+      overrides: getOverrides(options, 'stylistic')
+    }));
   }
 
   if (enableRegExp) {
-    configs.push(regexp(typeof enableRegExp === 'boolean' ? {} : enableRegExp))
+    configs.push(regexp(typeof enableRegExp === 'boolean' ? {} : enableRegExp));
   }
 
   if (enableTest) {
     configs.push(test({
       isInEditor,
-      overrides: getOverrides(options, 'test'),
-    }))
+      overrides: getOverrides(options, 'test')
+    }));
   }
 
   if (enableVue && !enableReact && !enableNext) {
@@ -186,141 +186,141 @@ export function skyroc(
       ...resolveSubOptions(options, 'vue'),
       overrides: getOverrides(options, 'vue'),
       stylistic: stylisticOptions,
-      typescript: !!enableTypeScript,
-    }))
+      typescript: !!enableTypeScript
+    }));
   }
 
   if (enableReact && !enableVue) {
     configs.push(react({
       ...typescriptOptions,
       overrides: getOverrides(options, 'react'),
-      tsconfigPath,
-    }))
+      tsconfigPath
+    }));
   }
 
   if (enableReactNative && enableReact && !enableVue) {
     configs.push(reactNative({
-      overrides: getOverrides(options, 'reactNative'),
-    }))
+      overrides: getOverrides(options, 'reactNative')
+    }));
   }
 
   if (enableNext && enableReact && !enableVue) {
     configs.push(next({
-      overrides: getOverrides(options, 'next'),
-    }))
+      overrides: getOverrides(options, 'next')
+    }));
   }
 
   if (enableUnoCSS) {
     configs.push(unocss({
       ...resolveSubOptions(options, 'unocss'),
-      overrides: getOverrides(options, 'unocss'),
-    }))
+      overrides: getOverrides(options, 'unocss')
+    }));
   }
 
   if (enableTailwindCSS) {
     configs.push(tailwindcss({
       ...resolveSubOptions(options, 'tailwindcss'),
-      overrides: getOverrides(options, 'tailwindcss'),
-    }))
+      overrides: getOverrides(options, 'tailwindcss')
+    }));
   }
 
   if (enableJSONC) {
     configs.push(
       jsonc({
         overrides: getOverrides(options, 'jsonc'),
-        stylistic: stylisticOptions,
+        stylistic: stylisticOptions
       }),
       sortPackageJson(),
-      sortTsconfig(),
-    )
+      sortTsconfig()
+    );
   }
 
   if (enablePnpm) {
-    configs.push(pnpm())
+    configs.push(pnpm());
   }
 
   if (enableYaml) {
     configs.push(yaml({
       overrides: getOverrides(options, 'yaml'),
-      stylistic: stylisticOptions,
-    }))
+      stylistic: stylisticOptions
+    }));
   }
 
   if (enableToml) {
     configs.push(toml({
       overrides: getOverrides(options, 'toml'),
-      stylistic: stylisticOptions,
-    }))
+      stylistic: stylisticOptions
+    }));
   }
 
   if (enableMarkdown) {
     configs.push(
       markdown({
         componentExts,
-        overrides: getOverrides(options, 'markdown'),
-      }),
-    )
+        overrides: getOverrides(options, 'markdown')
+      })
+    );
   }
 
   if (enableFormatter) {
     configs.push(formatter(
       enableFormatter === true ? {} : enableFormatter,
-      typeof stylisticOptions === 'boolean' ? {} : stylisticOptions,
-    ))
+      typeof stylisticOptions === 'boolean' ? {} : stylisticOptions
+    ));
   }
 
-  configs.push(disables())
+  configs.push(disables());
 
   if ('files' in options) {
-    throw new Error('[@skyroc/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.')
+    throw new Error('[@skyroc/eslint-config] The first argument should not contain the "files" property as the options are supposed to be global. Place it in the second or later config instead.');
   }
 
   // User can optionally pass a flat config item to the first argument
   // We pick the known keys as ESLint would do schema validation
   const fusedConfig = flatConfigProps.reduce((acc, key) => {
     if (key in options)
-      acc[key] = options[key] as any
-    return acc
-  }, {} as FlatConfigItem)
+      acc[key] = options[key] as any;
+    return acc;
+  }, {} as FlatConfigItem);
   if (Object.keys(fusedConfig).length)
-    configs.push([fusedConfig])
+    configs.push([fusedConfig]);
 
-  let composer = new FlatConfigComposer<FlatConfigItem>()
+  let composer = new FlatConfigComposer<FlatConfigItem>();
 
   composer = composer.append(
     ...configs,
-    ...userConfigs as any,
-  )
+    ...userConfigs as any
+  );
 
   if (autoRenamePlugins) {
-    composer = composer.renamePlugins(defaultPluginRenaming)
+    composer = composer.renamePlugins(defaultPluginRenaming);
   }
 
-  return composer
+  return composer;
 }
 
 export type ResolvedOptions<T> = T extends boolean
   ? never
-  : NonNullable<T>
+  : NonNullable<T>;
 
 export function resolveSubOptions<K extends keyof SkryocESLintConfig>(
   options: SkryocESLintConfig,
-  key: K,
+  key: K
 ): ResolvedOptions<SkryocESLintConfig[K]> {
   return typeof options[key] === 'boolean'
     ? {} as any
-    : options[key] || {} as any
+    : options[key] || {} as any;
 }
 
 export function getOverrides(
   options: SkryocESLintConfig,
-  key: string,
+  key: string
 ): Linter.RulesRecord {
-  const sub = resolveSubOptions(options, key as keyof SkryocESLintConfig)
+  const sub = resolveSubOptions(options, key as keyof SkryocESLintConfig);
   return {
     ...(options.overrides as any)?.[key],
     ...'overrides' in sub
       ? sub.overrides
-      : {},
-  } as Linter.RulesRecord
+      : {}
+  } as Linter.RulesRecord;
 }

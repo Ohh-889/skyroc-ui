@@ -12,7 +12,7 @@ export interface BaseOptions {
    *
    * @default process.cwd()
    */
-  cwd: string
+  cwd: string;
   /**
    * @default
    * {
@@ -22,13 +22,13 @@ export interface BaseOptions {
    * }
    */
   formatter: {
-    css?: boolean
-    html?: boolean
-    json?: boolean
-    markdown?: boolean
-    toml?: boolean
-    yaml?: boolean
-  }
+    css?: boolean;
+    html?: boolean;
+    json?: boolean;
+    markdown?: boolean;
+    toml?: boolean;
+    yaml?: boolean;
+  };
   /**
    * Enable gitignore support.
    *
@@ -37,11 +37,11 @@ export interface BaseOptions {
    * @default true
    * @see https://github.com/antfu/eslint-config-flat-gitignore
    */
-  gitignore?: boolean | FlatGitignoreOptions
+  gitignore?: boolean | FlatGitignoreOptions;
   /** The globs to ignore lint */
-  ignores: string[]
+  ignores: string[];
   /** The override rules */
-  overrides: Record<string, any>
+  overrides: Record<string, any>;
   /**
    * Default prettier rules
    *
@@ -56,7 +56,7 @@ export interface BaseOptions {
    * }
    * ```
    */
-  prettierRules: PartialPrettierExtendedOptions
+  prettierRules: PartialPrettierExtendedOptions;
 
   /**
    * Whether to use prettierrc
@@ -65,12 +65,12 @@ export interface BaseOptions {
    *
    * @default true
    */
-  usePrettierrc: boolean
+  usePrettierrc: boolean;
 }
 
 export type RuleBaseOptions<T = NonNullable<unknown>> = T & {
   /** The glob patterns to lint */
-  files?: string[]
+  files?: string[];
 };
 
 export type VueOptions = RuleBaseOptions<{
@@ -79,7 +79,7 @@ export type VueOptions = RuleBaseOptions<{
    *
    * @default 3
    */
-  version?: 2 | 3
+  version?: 2 | 3;
 }>;
 
 export type OnDemandRuleKey = 'react' | 'react-native' | 'vue';
@@ -87,9 +87,9 @@ export type OnDemandRuleKey = 'react' | 'react-native' | 'vue';
 export type OnDemandRuleOptions = Partial<Record<Exclude<OnDemandRuleKey, 'vue'>, RuleBaseOptions | boolean>>;
 
 export type Options = Partial<BaseOptions> & {
-  vue?: VueOptions | boolean
+  vue?: VueOptions | boolean;
 } & OnDemandRuleOptions & {
-  unocss?: boolean
+  unocss?: boolean;
 };
 
 export type Awaitable<T> = T | Promise<T>;
@@ -105,13 +105,13 @@ export type FlatConfigItem = Omit<Linter.Config, 'plugins' | 'rules'> & {
    *
    * @see [Using plugins in your configuration](https://eslint.org/docs/latest/user-guide/configuring/configuration-files-new#using-plugins-in-your-configuration)
    */
-  plugins?: Record<string, any>
+  plugins?: Record<string, any>;
 
   /**
    * An object containing the configured rules. When `files` or `ignores` are
    * specified, these rule configurations are only available to the matching files.
    */
-  rules?: Rules
+  rules?: Rules;
 };
 
 export type PrettierCustomParser = 'astro' | 'jsdoc-parser' | 'svelte' | 'toml';
@@ -119,24 +119,24 @@ export type PrettierCustomParser = 'astro' | 'jsdoc-parser' | 'svelte' | 'toml';
 export type PrettierParser = BuiltInParserName | PrettierCustomParser;
 
 export interface OptionsFiles {
-  files?: string[]
+  files?: string[];
 }
 export interface PrettierOptions extends RequiredOptions {
-  parser: LiteralUnion<PrettierParser>
+  parser: LiteralUnion<PrettierParser>;
 }
 
 export type PartialPrettierExtendedOptions = Partial<PrettierOptions>;
 
 export interface OptionsUnocss {
-  enable?: boolean
+  enable?: boolean;
   /**
    * Override rules.
    */
-  overrides?: Linter.RulesRecord
+  overrides?: Linter.RulesRecord;
 }
 
 export interface OptionsIsInEditor {
-  isInEditor?: boolean
+  isInEditor?: boolean;
 }
 
 export interface OptionsComponentExts {
@@ -146,31 +146,31 @@ export interface OptionsComponentExts {
    * @example ['vue']
    * @default []
    */
-  componentExts?: string[]
+  componentExts?: string[];
 }
 
 export interface OptionsRegExp {
   /**
    * Override rulelevels
    */
-  level?: 'error' | 'warn'
+  level?: 'error' | 'warn';
 }
 
 export interface OptionsOverrides {
-  overrides?: Linter.RulesRecord
+  overrides?: Linter.RulesRecord;
 }
 
 export interface OptionsTypeScriptWithTypes {
   /**
    * Override type aware rules.
    */
-  overridesTypeAware?: FlatConfigItem['rules']
+  overridesTypeAware?: FlatConfigItem['rules'];
 
   /**
    * When this options is provided, type aware rules will be enabled.
    * @see https://typescript-eslint.io/linting/typed-linting/
    */
-  tsconfigPath?: string
+  tsconfigPath?: string;
 }
 
 export interface OptionsTypeScriptErasableOnly {
@@ -180,7 +180,7 @@ export interface OptionsTypeScriptErasableOnly {
    * @see https://github.com/JoshuaKGoldberg/eslint-plugin-erasable-syntax-only
    * @default false
    */
-  erasableOnly?: boolean
+  erasableOnly?: boolean;
 }
 
 export interface OptionsProjectType {
@@ -189,7 +189,7 @@ export interface OptionsProjectType {
    *
    * @default 'app'
    */
-  type?: 'app' | 'lib'
+  type?: 'app' | 'lib';
 }
 
 export interface OptionsTypeScriptParserOptions {
@@ -197,38 +197,38 @@ export interface OptionsTypeScriptParserOptions {
    * Glob patterns for files that should be type aware.
    * @default ['**\/*.{ts,tsx}']
    */
-  filesTypeAware?: string[]
+  filesTypeAware?: string[];
 
   /**
    * Glob patterns for files that should not be type aware.
    * @default ['**\/*.md\/**', '**\/*.astro/*.ts']
    */
-  ignoresTypeAware?: string[]
+  ignoresTypeAware?: string[];
 
   /**
    * Additional parser options for TypeScript.
    */
-  parserOptions?: Partial<ParserOptions>
+  parserOptions?: Partial<ParserOptions>;
 }
 
 export interface OptionsTypeScript extends OptionsFiles, OptionsOverrides {
-  filesTypeAware?: string[]
-  ignoresTypeAware?: string[]
-  tsconfigPath?: string
+  filesTypeAware?: string[];
+  ignoresTypeAware?: string[];
+  tsconfigPath?: string;
 }
 
 export interface OptionsHasTypeScript {
-  typescript?: boolean
+  typescript?: boolean;
 }
 
 export interface OptionsReact extends OptionsFiles, OptionsOverrides {
-  tsconfigPath?: string
+  tsconfigPath?: string;
 }
 
 export interface StylisticConfig extends Pick<StylisticCustomizeOptions, 'indent' | 'jsx' | 'quotes' | 'semi'> {}
 
 export interface OptionsStylistic {
-  stylistic?: boolean | StylisticConfig
+  stylistic?: boolean | StylisticConfig;
 }
 
 export interface OptionsReactNative extends OptionsFiles, OptionsOverrides {}
@@ -240,56 +240,56 @@ export interface OptionsTailwindCSS extends OptionsOverrides {
    * Callees to lint
    * @default ['classnames', 'clsx', 'ctl', 'cn', 'cva']
    */
-  callees?: string[]
+  callees?: string[];
 
-  config?: string | boolean
+  config?: string | boolean;
   /**
    * Regex to match class attributes
    * @default "^class(Name)?$"
    */
-  classRegex?: string
+  classRegex?: string;
 
   /**
    * CSS files to lint
    * @default ['**\/*.css', '!**\/node_modules', '!**\/.*', '!**\/dist', '!**\/build']
    */
-  cssFiles?: string[]
+  cssFiles?: string[];
 
   /**
    * CSS files refresh rate in milliseconds
    * @default 5000
    */
-  cssFilesRefreshRate?: number
+  cssFilesRefreshRate?: number;
 
   /**
    * Enable Tailwind CSS linting
    * @default true if tailwindcss package is installed
    */
-  enable?: boolean
+  enable?: boolean;
 
   /**
    * Remove duplicates
    * @default true
    */
-  removeDuplicates?: boolean
+  removeDuplicates?: boolean;
 
   /**
    * Skip class attribute
    * @default false
    */
-  skipClassAttribute?: boolean
+  skipClassAttribute?: boolean;
 
   /**
    * Tags to lint (e.g. ['tw'] for tw`bg-blue`)
    * @default []
    */
-  tags?: string[]
+  tags?: string[];
 
   /**
    * Whitelist of class names
    * @default []
    */
-  whitelist?: string[]
+  whitelist?: string[];
 }
 
 export interface OptionsVue extends OptionsFiles, OptionsOverrides {
@@ -299,14 +299,14 @@ export interface OptionsVue extends OptionsFiles, OptionsOverrides {
    * @see https://github.com/antfu/eslint-processor-vue-blocks
    * @default true
    */
-  sfcBlocks?: boolean | VueBlocksOptions
+  sfcBlocks?: boolean | VueBlocksOptions;
 
   /**
    * Vue version. Apply different rules set from `eslint-plugin-vue`.
    *
    * @default 3
    */
-  vueVersion?: 2 | 3
+  vueVersion?: 2 | 3;
 }
 
 export interface OptionsFormatter {
@@ -315,42 +315,42 @@ export interface OptionsFormatter {
    *
    * @default true
    */
-  css?: boolean
+  css?: boolean;
 
   /**
    * Format HTML files
    *
    * @default true
    */
-  html?: boolean
+  html?: boolean;
 
   /**
    * Format JSON files
    *
    * @default true
    */
-  json?: boolean
+  json?: boolean;
 
   /**
    * Format Markdown files
    *
    * @default false
    */
-  markdown?: boolean
+  markdown?: boolean;
 
   /**
    * Format TOML files
    *
    * @default false
    */
-  toml?: boolean
+  toml?: boolean;
 
   /**
    * Format YAML files
    *
    * @default false
    */
-  yaml?: boolean
+  yaml?: boolean;
 }
 
 export interface SkryocESLintConfig extends OptionsComponentExts {
@@ -359,22 +359,22 @@ export interface SkryocESLintConfig extends OptionsComponentExts {
    *
    * @default true
    */
-  autoRenamePlugins?: boolean
+  autoRenamePlugins?: boolean;
   /**
    * Whether to run in editor environment
    *
    * @default undefined
    */
-  isInEditor?: boolean
+  isInEditor?: boolean;
 
-  unicorn?: boolean | OptionsUnicorn
+  unicorn?: boolean | OptionsUnicorn;
 
   /**
    * Enable formatter support for various file types
    *
    * @default true
    */
-  formatter?: boolean | OptionsFormatter
+  formatter?: boolean | OptionsFormatter;
 
   /**
    * Enable gitignore support.
@@ -384,156 +384,156 @@ export interface SkryocESLintConfig extends OptionsComponentExts {
    * @default true
    * @see https://github.com/antfu/eslint-config-flat-gitignore
    */
-  gitignore?: boolean | FlatGitignoreOptions
+  gitignore?: boolean | FlatGitignoreOptions;
 
   /**
    * Glob patterns to ignore
    *
    * @default []
    */
-  ignores?: string[]
+  ignores?: string[];
 
   /**
    * Global overrides for all configurations
    */
   overrides?: {
-    javascript?: Linter.RulesRecord
-    jsdoc?: Linter.RulesRecord
-    jsonc?: Linter.RulesRecord
-    markdown?: Linter.RulesRecord
-    next?: Linter.RulesRecord
-    react?: Linter.RulesRecord
-    reactNative?: Linter.RulesRecord
-    regexp?: Linter.RulesRecord
-    stylistic?: Linter.RulesRecord
-    tailwindcss?: Linter.RulesRecord
-    test?: Linter.RulesRecord
-    toml?: Linter.RulesRecord
-    typescript?: Linter.RulesRecord
-    unicorn?: Linter.RulesRecord
-    unocss?: Linter.RulesRecord
-    vue?: Linter.RulesRecord
-    yaml?: Linter.RulesRecord
-  }
+    javascript?: Linter.RulesRecord;
+    jsdoc?: Linter.RulesRecord;
+    jsonc?: Linter.RulesRecord;
+    markdown?: Linter.RulesRecord;
+    next?: Linter.RulesRecord;
+    react?: Linter.RulesRecord;
+    reactNative?: Linter.RulesRecord;
+    regexp?: Linter.RulesRecord;
+    stylistic?: Linter.RulesRecord;
+    tailwindcss?: Linter.RulesRecord;
+    test?: Linter.RulesRecord;
+    toml?: Linter.RulesRecord;
+    typescript?: Linter.RulesRecord;
+    unicorn?: Linter.RulesRecord;
+    unocss?: Linter.RulesRecord;
+    vue?: Linter.RulesRecord;
+    yaml?: Linter.RulesRecord;
+  };
 
   /**
    * Enable JSDoc rules
    *
    * @default true
    */
-  jsdoc?: boolean | OptionsStylistic
+  jsdoc?: boolean | OptionsStylistic;
 
   /**
    * Enable JSONC support
    *
    * @default true
    */
-  jsonc?: boolean | OptionsOverrides
+  jsonc?: boolean | OptionsOverrides;
 
   /**
    * Enable Markdown support
    *
    * @default true
    */
-  markdown?: boolean | OptionsOverrides
+  markdown?: boolean | OptionsOverrides;
 
   /**
    * Enable Next.js support
    *
    * Auto-detected based on dependencies
    */
-  next?: boolean | OptionsNext
+  next?: boolean | OptionsNext;
 
   /**
    * Enable Perfectionist rules for sorting
    *
    * @default true
    */
-  perfectionist?: boolean
+  perfectionist?: boolean;
 
   /**
    * Enable PNPM catalog support
    *
    * @default false
    */
-  pnpm?: boolean
+  pnpm?: boolean;
 
   /**
    * Enable React support
    *
    * Auto-detected based on dependencies
    */
-  react?: boolean | OptionsReact
+  react?: boolean | OptionsReact;
 
   /**
    * Enable React Native support
    *
    * @default false
    */
-  reactNative?: boolean | OptionsReactNative
+  reactNative?: boolean | OptionsReactNative;
 
   /**
    * Enable RegExp rules
    *
    * @default true
    */
-  regexp?: boolean | OptionsRegExp
+  regexp?: boolean | OptionsRegExp;
 
   /**
    * Enable Stylistic rules
    *
    * @default true
    */
-  stylistic?: boolean | StylisticConfig
+  stylistic?: boolean | StylisticConfig;
 
   /**
    * Enable Tailwind CSS support
    *
    * Auto-detected based on dependencies
    */
-  tailwindcss?: boolean | OptionsTailwindCSS
+  tailwindcss?: boolean | OptionsTailwindCSS;
 
   /**
    * Enable test support
    *
    * @default true
    */
-  test?: boolean | OptionsOverrides
+  test?: boolean | OptionsOverrides;
 
   /**
    * Enable TOML support
    *
    * @default true
    */
-  toml?: boolean | OptionsOverrides
+  toml?: boolean | OptionsOverrides;
 
   /**
    * Enable TypeScript support
    *
    * Auto-detected based on dependencies
    */
-  typescript?: boolean | OptionsTypeScript
+  typescript?: boolean | OptionsTypeScript;
 
   /**
    * Enable UnoCSS support
    *
    * @default false
    */
-  unocss?: boolean | OptionsUnocss
+  unocss?: boolean | OptionsUnocss;
 
   /**
    * Enable Vue support
    *
    * Auto-detected based on dependencies
    */
-  vue?: boolean | OptionsVue
+  vue?: boolean | OptionsVue;
 
   /**
    * Enable YAML support
    *
    * @default true
    */
-  yaml?: boolean | OptionsOverrides
+  yaml?: boolean | OptionsOverrides;
 }
 
 export interface OptionsUnicorn extends OptionsOverrides {
@@ -542,7 +542,7 @@ export interface OptionsUnicorn extends OptionsOverrides {
    *
    * @default false
    */
-  allRecommended?: boolean
+  allRecommended?: boolean;
 }
 
 interface FlatGitignoreOptions {
@@ -551,22 +551,22 @@ interface FlatGitignoreOptions {
    * Used to resolve relative paths.
    * @default process.cwd()
    */
-  cwd?: string
+  cwd?: string;
   /**
    * Path to `.gitignore` files, or files with compatible formats like `.eslintignore`.
    * @default ['.gitignore'] // or findUpSync('.gitignore')
    */
-  files?: string | string[]
+  files?: string | string[];
   /**
    * Path to `.gitmodules` file.
    * @default ['.gitmodules'] // or findUpSync('.gitmodules')
    */
-  filesGitModules?: string | string[]
+  filesGitModules?: string | string[];
   /**
    * Name of the configuration.
    * @default 'gitignore'
    */
-  name?: string
+  name?: string;
   /**
    * Mark the current working directory as the root directory,
    * disable searching for `.gitignore` files in parent directories.
@@ -574,10 +574,10 @@ interface FlatGitignoreOptions {
    * This option is not effective when `files` is explicitly specified.
    * @default false
    */
-  root?: boolean
+  root?: boolean;
   /**
    * Throw an error if gitignore file not found.
    * @default true
    */
-  strict?: boolean
+  strict?: boolean;
 }

@@ -10,7 +10,7 @@ export const StylisticConfigDefaults: StylisticConfig = {
 };
 
 export interface StylisticOptions extends StylisticConfig, OptionsOverrides {
-  lessOpinionated?: boolean
+  lessOpinionated?: boolean;
 }
 
 export async function stylistic(options: StylisticOptions = {}): Promise<FlatConfigItem[]> {

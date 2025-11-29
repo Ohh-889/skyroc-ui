@@ -14,7 +14,7 @@ declare module 'eslint-plugin-react' {
   type ReactConfigKey = 'all' | 'jsx-runtime' | 'recommended';
 
   const plugin: import('eslint').ESLint.Plugin & {
-    configs: Record<ReactConfigKey, import('eslint').ESLint.ConfigData>
+    configs: Record<ReactConfigKey, import('eslint').ESLint.ConfigData>;
   };
 
   export default plugin;
@@ -33,13 +33,13 @@ declare module 'eslint-plugin-react-refresh' {
 declare module 'eslint-plugin-react-native' {
   const plugin: import('eslint').ESLint.Plugin & {
     configs: {
-      all: import('eslint').ESLint.ConfigData
-    }
+      all: import('eslint').ESLint.ConfigData;
+    };
     environments: {
       'react-native': {
-        globals: Record<string, boolean>
-      }
-    }
+        globals: Record<string, boolean>;
+      };
+    };
   };
 
   export default plugin;
