@@ -100,6 +100,8 @@ export interface MenuCheckboxItemProps extends StyledComponentProps<_MenuCheckbo
   shortcut?: string | string[];
   /** Content to display after the label */
   trailing?: ReactNode;
+  /** Value of the checkbox item */
+  value?: string;
 }
 
 /**

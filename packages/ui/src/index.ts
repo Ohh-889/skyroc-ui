@@ -4,6 +4,8 @@ export * from './components/alert';
 
 export * from './components/alert-dialog';
 
+export * from './components/arrow';
+
 export * from './components/aspect-ratio';
 
 export * from './components/avatar';
@@ -53,6 +55,8 @@ export * from './components/keyboard-key';
 export * from './components/label';
 
 export * from './components/layout';
+
+export * from './components/menubar';
 
 export * from './components/popover';
 
