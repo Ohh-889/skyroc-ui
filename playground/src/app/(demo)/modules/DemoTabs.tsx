@@ -19,7 +19,7 @@ const DemoTabs = ({ items }: DemoTabsProps) => {
       items={items}
       value={currentTab}
       classNames={{
-        list: 'flex-wrap justify-start'
+        list: 'grid grid-cols-10 gap-y-1 max-sm:grid-cols-3 max-md:grid-cols-6 max-lg:grid-cols-8 w-full',
       }}
     />
   );
