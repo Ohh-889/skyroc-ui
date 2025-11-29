@@ -1,70 +1,71 @@
-# Skyroc UI 文档网站
+# Skyroc UI Documentation Site
 
-现代、优雅、简洁的 Skyroc UI 组件库文档网站。
+[English](./README.md) | [简体中文](./README_ZH.md)
 
-## ✨ 特性
+A modern, elegant, and comprehensive documentation website for the Skyroc UI component library.
 
-- 🎨 **精美设计** - 基于品牌色 `hsl(237 100% 70%)` 的视觉系统
-- 🌙 **深色模式** - 完美适配的深色主题
-- 📱 **响应式** - 移动端友好的布局设计
-- 🔍 **易于导航** - 清晰的侧边栏和导航结构
-- 💻 **代码预览** - 实时组件预览和代码展示
-- ⚡ **高性能** - 基于 Next.js 15 App Router
+## ✨ Features
 
-## 🚀 快速开始
+- 🎨 **Beautiful Design** - Visual system based on brand color `hsl(237 100% 70%)`
+- 🌙 **Dark Mode** - Perfectly adapted dark theme
+- 📱 **Responsive** - Mobile-friendly layout design
+- 🔍 **Easy Navigation** - Clear sidebar and navigation structure
+- 💻 **Code Preview** - Live component preview and code display
+- ⚡ **High Performance** - Built on Next.js 15 App Router
 
-### 安装依赖
+## 🚀 Quick Start
+
+### Install Dependencies
 
 ```bash
 pnpm install
 ```
 
-### 启动开发服务器
+### Start Development Server
 
 ```bash
 pnpm dev
 ```
 
-访问 [http://localhost:3000](http://localhost:3000) 查看文档网站。
+Visit [http://localhost:3000](http://localhost:3000) to view the documentation site.
 
-### 构建生产版本
+### Build for Production
 
 ```bash
 pnpm build
 ```
 
-## 📁 项目结构
+## 📁 Project Structure
 
 ```text
 docs/
 ├── app/                          # Next.js App Router
-│   ├── layout.tsx               # 根布局（主题提供者）
-│   ├── page.tsx                 # 首页
-│   ├── globals.css              # 全局样式
-│   └── docs/                    # 文档页面
-│       ├── layout.tsx           # 文档布局
-│       ├── page.mdx             # 介绍
-│       ├── installation/        # 安装指南
-│       ├── quick-start/         # 快速开始
-│       └── components/          # 组件文档
+│   ├── layout.tsx               # Root layout (theme provider)
+│   ├── page.tsx                 # Home page
+│   ├── globals.css              # Global styles
+│   └── docs/                    # Documentation pages
+│       ├── layout.tsx           # Docs layout
+│       ├── page.mdx             # Introduction
+│       ├── installation/        # Installation guide
+│       ├── quick-start/         # Quick start guide
+│       └── components/          # Component docs
 │           ├── button/
 │           ├── input/
 │           ├── card/
 │           └── ...
-├── components/                   # React 组件
-│   ├── navbar.tsx               # 顶部导航栏
-│   ├── sidebar.tsx              # 侧边文档导航
-│   ├── component-preview.tsx   # 组件预览容器
-│   ├── theme-provider.tsx      # 主题提供者
-│   ├── mdx-heading.tsx         # MDX 标题组件
-│   └── heading-anchor.client.tsx # 标题锚点
-├── mdx-components.tsx          # MDX 组件配置
-└── next.config.ts              # Next.js 配置
+├── components/                   # React components
+│   ├── navbar.tsx               # Top navigation bar
+│   ├── sidebar.tsx              # Sidebar documentation navigation
+│   ├── component-preview.tsx   # Component preview container
+│   ├── theme-provider.tsx      # Theme provider
+│   └── heading-anchor.client.tsx # Heading anchor
+├── mdx-components.tsx          # MDX component configuration
+└── next.config.ts              # Next.js configuration
 ```
 
-## 🎨 设计系统
+## 🎨 Design System
 
-### 主题色
+### Brand Color
 
 ```css
 --color-brand: hsl(237 100% 70%);
@@ -72,132 +73,132 @@ docs/
 --color-brand-active: hsl(237 100% 65%);
 ```
 
-### 字体
+### Fonts
 
-- 正文：Inter
-- 代码：JetBrains Mono / Fira Code / Consolas
+- Body: Inter
+- Code: JetBrains Mono / Fira Code / Consolas
 
-### 排版
+### Typography
 
-- H1: 4xl-6xl, 粗体，渐变色
-- H2: 2xl-3xl, 半粗体，带下划线和品牌色强调
-- H3: xl-2xl, 半粗体
-- 正文：舒适的行高 1.75
+- H1: 4xl-6xl, bold, gradient color
+- H2: 2xl-3xl, semi-bold, with underline and brand color accent
+- H3: xl-2xl, semi-bold
+- Body: Comfortable line height 1.75
 
-## 📝 添加新文档
+## 📝 Adding New Documentation
 
-### 创建 MDX 文档
+### Create MDX Documentation
 
-在 `app/docs/` 下创建新的 `.mdx` 文件：
+Create a new `.mdx` file under `app/docs/`:
 
-```ts
-组件名称;
+```mdx
+# Component Name
 
-组件说明;
+Component description
 
-基础用法;
+## Basic Usage
 
-// import { Component } from '@skyroc/ui'
+import { Component } from 'skyroc-ui'
 
 export const metadata = {
-  title: '组件名称',
-  description: '组件描述',
-};
+  title: 'Component Name',
+  description: 'Component description'
+}
 ```
 
-### 添加组件预览
+### Add Component Preview
 
-使用 `ComponentPreview` 组件：
+Use the `ComponentPreview` component:
 
 ```tsx
-import { ComponentPreview } from '@/components/component-preview';
+import { ComponentPreview } from '@/components/component-preview'
 
-<ComponentPreview code={`import { Button } from '@skyroc/ui';
+<ComponentPreview code={`import { Button } from 'skyroc-ui'
 
 export default function Demo() {
-  return <Button>Click me</Button>;
-}`}
->
+  return <Button>Click me</Button>
+}`}>
   <Button>Click me</Button>
-</ComponentPreview>;
+</ComponentPreview>
 ```
 
-### 更新侧边栏导航
+### Update Sidebar Navigation
 
-编辑 `components/sidebar.tsx`，添加新的导航项：
+Edit `components/sidebar.tsx` and add a new navigation item:
 
 ```ts
 const navigation = [
   {
-    title: '组件',
+    title: 'Components',
     items: [
-    // ... 现有项
-      { title: '新组件', href: '/docs/components/new-component' }
+      // ... existing items
+      { title: 'New Component', href: '/docs/components/new-component' }
     ]
-  },
-];
+  }
+]
 ```
 
-## 🛠️ 技术栈
+## 🛠️ Technology Stack
 
-- **框架**: Next.js 15 (App Router)
-- **样式**: Tailwind CSS 4
-- **内容**: MDX
-- **代码高亮**: Shiki + rehype-pretty-code
-- **主题**: next-themes
-- **图标**: Lucide React
-- **类型**: TypeScript
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS 4
+- **Content**: MDX
+- **Code Highlighting**: Shiki + rehype-pretty-code
+- **Theme**: next-themes
+- **Icons**: Lucide React
+- **Types**: TypeScript
 
-## 📦 依赖
+## 📦 Dependencies
 
-主要依赖：
+Main dependencies:
 
-- `@next/mdx` - MDX 支持
-- `@mdx-js/react` - React MDX 组件
-- `next-themes` - 主题切换
-- `rehype-pretty-code` - 代码高亮
-- `shiki` - 语法高亮引擎
-- `lucide-react` - 图标库
+- `@next/mdx` - MDX support
+- `@mdx-js/react` - React MDX components
+- `next-themes` - Theme switching
+- `rehype-pretty-code` - Code highlighting
+- `shiki` - Syntax highlighting engine
+- `lucide-react` - Icon library
 
-## 🎯 最佳实践
+## 🎯 Best Practices
 
-### 标题层级
+### Heading Hierarchy
 
-- 每个页面只使用一个 H1（页面标题）
-- 使用 H2 作为主要章节
-- H3-H6 用于子章节
+- Use only one H1 per page (page title)
+- Use H2 for main sections
+- Use H3-H6 for subsections
 
-### 代码示例
+### Code Examples
 
-- 提供完整的导入语句
-- 使用 TypeScript
-- 添加必要的注释
-- 保持代码简洁
+- Provide complete import statements
+- Use TypeScript
+- Add necessary comments
+- Keep code concise
 
-### 组件预览
+### Component Preview
 
-- 在浅色背景上展示
-- 提供代码和预览切换
-- 确保响应式显示
+- Display on light background
+- Provide code and preview toggle
+- Ensure responsive display
 
-## 🌐 部署
+## 🌐 Deployment
 
-可以部署到任何支持 Next.js 的平台：
+Can be deployed to any platform that supports Next.js:
 
 - Vercel
 - Netlify
 - Cloudflare Pages
-- 自托管
+- Self-hosted
 
 ```bash
 pnpm build
 pnpm start
 ```
 
-## 📄 许可
+## 📄 License
 
-MIT License
+MIT License © 2024-PRESENT [Ohh](https://github.com/Ohh-889)
 
 ---
 
-**Skyroc UI** - 优雅、简洁、现代化的 React 组件库
+**Skyroc UI** - Elegant, concise, modern React component library
+
