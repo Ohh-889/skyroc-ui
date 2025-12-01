@@ -12,6 +12,7 @@ const AspectRatioUI = forwardRef<ComponentRef<typeof Root>, AspectRatioProps>((p
   return (
     <Root
       className={mergedCls}
+      data-slot="aspect-ratio"
       ref={ref}
       {...rest}
     />
