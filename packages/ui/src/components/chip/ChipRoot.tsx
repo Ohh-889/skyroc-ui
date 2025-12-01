@@ -13,6 +13,7 @@ const ChipRoot = forwardRef<HTMLDivElement, ChipRootProps>((props, ref) => {
   return (
     <div
       className={mergedCls}
+      data-slot="chip-root"
       ref={ref}
       {...rest}
     />

@@ -13,6 +13,7 @@ const ChipContent = forwardRef<HTMLSpanElement, ChipContentProps>((props, ref) =
   return (
     <span
       className={mergedCls}
+      data-slot="chip-content"
       ref={ref}
       {...rest}
     />
