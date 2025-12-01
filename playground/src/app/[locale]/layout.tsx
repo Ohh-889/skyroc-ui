@@ -1,5 +1,4 @@
-import { NextIntlClientProvider } from 'next-intl';
-import { getMessages, setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
 import { Card, ScrollArea } from 'skyroc-ui';
 import { routing } from '../../i18n/routing';
@@ -26,25 +25,21 @@ const LocaleLayout = async ({ children, params }: Props) => {
   // Enable static rendering
   setRequestLocale(locale);
 
-  // Providing all messages to the client side
-  const messages = await getMessages();
-
   return (
-    <NextIntlClientProvider messages={messages}>
-      <Card
-        className="h-full max-sm:h-auto"
-        extra={<HeaderActions />}
-        title={<BrandLogo />}
+
+    <Card
+      className="h-full max-sm:h-auto"
+      extra={<HeaderActions />}
+      title={<BrandLogo />}
+    >
+      <ScrollArea
+        className="h-full"
+        orientation="vertical"
+        size="sm"
       >
-        <ScrollArea
-          className="h-full"
-          orientation="vertical"
-          size="sm"
-        >
-          {children}
-        </ScrollArea>
-      </Card>
-    </NextIntlClientProvider>
+        {children}
+      </ScrollArea>
+    </Card>
   );
 };
 
