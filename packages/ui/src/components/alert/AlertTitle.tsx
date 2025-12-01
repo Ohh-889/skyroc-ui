@@ -13,6 +13,7 @@ const AlertTitle = forwardRef<HTMLDivElement, AlertTitleProps>((props, ref) => {
   return (
     <div
       className={mergedCls}
+      data-slot="alert-title"
       {...rest}
       ref={ref}
     />

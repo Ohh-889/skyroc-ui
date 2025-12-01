@@ -13,6 +13,7 @@ const AlertRoot = forwardRef<HTMLDivElement, AlertRootProps>((props, ref) => {
   return (
     <div
       className={mergedCls}
+      data-slot="alert-root"
       role="alert"
       {...rest}
       ref={ref}

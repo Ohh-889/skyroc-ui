@@ -19,6 +19,9 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
     leading,
     size,
     title,
+    descriptionProps,
+    titleProps,
+    wrapperProps,
     trailing,
     variant,
     ...rest
@@ -42,12 +45,14 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
       <AlertWrapper
         className={classNames?.wrapper}
         size={size}
+        {...wrapperProps}
       >
         {title
           ? (
             <AlertTitle
               className={classNames?.title}
               size={size}
+              {...titleProps}
             >
               {title}
             </AlertTitle>
@@ -59,6 +64,7 @@ const Alert = forwardRef<HTMLDivElement, AlertProps>((props, ref) => {
             <AlertDescription
               className={classNames?.description}
               size={size}
+              {...descriptionProps}
             >
               {description}
             </AlertDescription>

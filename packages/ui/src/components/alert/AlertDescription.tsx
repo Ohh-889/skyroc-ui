@@ -13,6 +13,7 @@ const AlertDescription = forwardRef<HTMLDivElement, AlertDescriptionProps>((prop
   return (
     <div
       className={mergedCls}
+      data-slot="alert-description"
       {...rest}
       ref={ref}
     />

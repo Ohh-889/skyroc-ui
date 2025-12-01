@@ -89,6 +89,18 @@ export interface AlertProps extends Omit<AlertRootProps, 'title'>, SlotProps {
    * Title or heading text displayed in the alert.
    */
   title?: React.ReactNode;
+  /**
+   * Props for the alert description component.
+   */
+  descriptionProps?: AlertDescriptionProps;
+  /**
+   * Props for the alert title component.
+   */
+  titleProps?: AlertTitleProps;
+  /**
+   * Props for the alert wrapper component.
+   */
+  wrapperProps?: AlertWrapperProps;
 }
 
 export type { AlertVariant };
