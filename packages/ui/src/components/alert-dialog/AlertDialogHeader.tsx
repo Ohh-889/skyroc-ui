@@ -11,6 +11,7 @@ const AlertDialogHeader = forwardRef<HTMLDivElement, AlertDialogHeaderProps>((pr
   const mergedClass = cn(header(), className);
   return (
     <div
+      data-slot="alert-dialog-header"
       {...rest}
       className={mergedClass}
       ref={ref}

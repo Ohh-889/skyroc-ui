@@ -11,6 +11,7 @@ const AlertDialogFooter = forwardRef<HTMLDivElement, AlertDialogFooterProps>((pr
   const mergedClass = cn(footer(), className);
   return (
     <div
+      data-slot="alert-dialog-footer"
       {...rest}
       className={mergedClass}
       ref={ref}

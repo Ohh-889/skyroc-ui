@@ -1,10 +1,10 @@
 import React from 'react';
-import { AlertDialog, AlertDialogAction, Button } from 'skyroc-ui';
+import { AlertDialog, Button } from 'skyroc-ui';
 
 const AlertDialogInformation = () => {
   return (
     <AlertDialog
-      footer={<AlertDialogAction key="action">Confirm</AlertDialogAction>}
+      showCancel={false}
       title="Information"
       type="info"
       trigger={(
@@ -16,7 +16,7 @@ const AlertDialogInformation = () => {
         </Button>
       )}
     >
-      <p>Here is some information for you</p>
+      Here is some information for you
     </AlertDialog>
   );
 };

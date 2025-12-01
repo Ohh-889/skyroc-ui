@@ -1,9 +1,11 @@
 import type { ComponentRef } from 'react';
-import { forwardRef } from 'react';
+import { forwardRef, isValidElement } from 'react';
 import type { Content } from '@radix-ui/react-alert-dialog';
 import { AlertDialog as AlertDialogRoot, Portal, Trigger } from '@radix-ui/react-alert-dialog';
 import { Slot } from '@radix-ui/react-slot';
 import { CircleAlert, CircleCheck, CircleX, Info } from 'lucide-react';
+import AlertDialogAction from './AlertDialogAction';
+import AlertDialogCancel from './AlertDialogCancel';
 import AlertDialogContent from './AlertDialogContent';
 import AlertDialogDescription from './AlertDialogDescription';
 import AlertDialogFooter from './AlertDialogFooter';
@@ -21,18 +23,30 @@ const iconRecord: Record<AlertType, React.ReactNode> = {
 
 const AlertDialogUI = forwardRef<ComponentRef<typeof Content>, AlertDialogProps>((props, ref) => {
   const {
+    cancelText = 'Cancel',
+    cancelButtonProps,
     children,
     className,
     classNames,
-    description,
     footer,
     forceMountOverlay,
     forceMountPortal,
     icon,
+    okText = 'OK',
+    okButtonProps,
+    onCancel,
+    onOk,
+    showCancel = true,
     size,
     title,
     trigger,
     type,
+    overlayProps,
+    contentProps,
+    headerProps,
+    titleProps,
+    descriptionProps,
+    footerProps,
     ...rest
   } = props;
 
@@ -44,6 +58,7 @@ const AlertDialogUI = forwardRef<ComponentRef<typeof Content>, AlertDialogProps>
         <AlertDialogOverlay
           className={classNames?.overlay}
           forceMount={forceMountOverlay}
+          {...overlayProps}
         />
 
         <AlertDialogContent
@@ -51,43 +66,63 @@ const AlertDialogUI = forwardRef<ComponentRef<typeof Content>, AlertDialogProps>
           className={className || classNames?.content}
           ref={ref}
           size={size}
+          {...contentProps}
         >
           <AlertDialogHeader
             className={classNames?.header}
             size={size}
+            {...headerProps}
           >
             <AlertDialogTitle
               className={classNames?.title}
               size={size}
+              {...titleProps}
             >
               {icon || (type && <Slot className={classNames?.icon || ''}>{iconRecord[type]}</Slot>)}
               {title}
             </AlertDialogTitle>
 
-            {description
-              ? (
-                <AlertDialogDescription
-                  className={classNames?.description}
-                  size={size}
-                >
-                  {description}
-                </AlertDialogDescription>
-              )
-              : null}
+            <AlertDialogDescription
+              className={classNames?.description}
+              size={size}
+              {...descriptionProps}
+            >
+              {children}
+            </AlertDialogDescription>
+
           </AlertDialogHeader>
 
-          {children}
+          {footer !== null && (
+            <AlertDialogFooter
+              className={classNames?.footer}
+              size={size}
+              {...footerProps}
+            >
+              {isValidElement(footer)
+                ? footer
+                : (
+                  <>
+                    {showCancel
+                      ? (
+                        <AlertDialogCancel
+                          onClick={onCancel}
+                          {...cancelButtonProps}
+                        >
+                          {cancelText}
+                        </AlertDialogCancel>
+                      )
+                      : null}
 
-          {footer
-            ? (
-              <AlertDialogFooter
-                className={classNames?.footer}
-                size={size}
-              >
-                {footer}
-              </AlertDialogFooter>
-            )
-            : null}
+                    <AlertDialogAction
+                      onClick={onOk}
+                      {...okButtonProps}
+                    >
+                      {okText}
+                    </AlertDialogAction>
+                  </>
+                )}
+            </AlertDialogFooter>
+          )}
         </AlertDialogContent>
       </Portal>
     </AlertDialogRoot>

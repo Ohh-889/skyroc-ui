@@ -1,5 +1,5 @@
 import React from 'react';
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, Button } from 'skyroc-ui';
+import { AlertDialog, Button } from 'skyroc-ui';
 
 const sizes = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'] as const;
 
@@ -8,15 +8,10 @@ const AlertDialogSize = () => {
     <div className="flex flex-wrap gap-[12px]">
       {sizes.map(size => (
         <AlertDialog
-          description="This is the dialog description text"
           key={size}
           size={size}
           title="Dialog Title"
           type="info"
-          footer={[
-            <AlertDialogCancel key="cancel">Cancel</AlertDialogCancel>,
-            <AlertDialogAction key="action">Confirm</AlertDialogAction>
-          ]}
           trigger={(
             <Button
               color="info"
@@ -26,7 +21,7 @@ const AlertDialogSize = () => {
             </Button>
           )}
         >
-          <p>Dialog content goes here</p>
+          Dialog content goes here
         </AlertDialog>
       ))}
     </div>

@@ -6,9 +6,7 @@ import AlertDialogDestructive from './modules/AlertDialogDestructive';
 import AlertDialogInformation from './modules/AlertDialogInformation';
 import AlertDialogSize from './modules/AlertDialogSize';
 import AlertDialogSuccess from './modules/AlertDialogSuccess';
-import AlertDialogTypes from './modules/AlertDialogTypes';
 import AlertDialogWarning from './modules/AlertDialogWarning';
-import AlertDialogWithDescription from './modules/AlertDialogWithDescription';
 
 export async function generateMetadata(): Promise<Metadata> {
   return await generateComponentMetadata('alert-dialog');
@@ -17,12 +15,6 @@ export async function generateMetadata(): Promise<Metadata> {
 const AlertDialogPage = () => {
   return (
     <div className="flex-c gap-4">
-      <Card
-        split
-        title="Types"
-      >
-        <AlertDialogTypes />
-      </Card>
 
       <Card
         split
@@ -66,12 +58,6 @@ const AlertDialogPage = () => {
         <AlertDialogCustomIcon />
       </Card>
 
-      <Card
-        split
-        title="With Description"
-      >
-        <AlertDialogWithDescription />
-      </Card>
     </div>
   );
 };

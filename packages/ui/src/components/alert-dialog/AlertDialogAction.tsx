@@ -7,6 +7,7 @@ const AlertDialogAction = forwardRef<HTMLButtonElement, ButtonProps>((props, ref
     <Action asChild>
       <Button
         {...props}
+        data-slot="alert-dialog-action"
         ref={ref}
       />
     </Action>

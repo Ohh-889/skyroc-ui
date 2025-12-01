@@ -7,6 +7,7 @@ import type {
   AlertDialogTitleProps as _AlertDialogTitleProps
 } from '@radix-ui/react-alert-dialog';
 import type { ClassValue, HTMLComponentProps, StyledComponentProps, ThemeColor } from '@/types/shared';
+import type { ButtonProps } from '../button';
 import type { DialogSlots } from './alert-dialog-variants';
 
 /**
@@ -82,21 +83,27 @@ export type AlertDialogProps = StyledComponentProps<_AlertDialogProps>
   & AlertDialogContentProps
   & _AlertDialogPortalProps & {
     /**
+     * Text of the cancel button. Default is "Cancel".
+     */
+    cancelText?: React.ReactNode;
+    /**
+     * Props for the cancel button.
+     */
+    cancelButtonProps?: ButtonProps;
+    /**
      * Class names for customizing different parts of the alert dialog.
      */
     classNames?: AlertDialogClassNames;
-    /**
-     * Description text displayed in the alert dialog body.
-     */
-    description?: string;
     /**
      * Whether to disable portal rendering for the alert dialog.
      */
     disabledPortal?: boolean;
     /**
      * Content to display in the footer section (typically action buttons).
+     * Set to `null` to hide the default footer buttons.
+     * Set to a React node to render custom footer content.
      */
-    footer?: React.ReactNode;
+    footer?: React.ReactNode | null;
     /**
      * Force mount the overlay element even when not visible.
      */
@@ -110,6 +117,26 @@ export type AlertDialogProps = StyledComponentProps<_AlertDialogProps>
      */
     icon?: React.ReactNode;
     /**
+     * Text of the OK button. Default is "OK".
+     */
+    okText?: React.ReactNode;
+    /**
+     * Props for the OK button.
+     */
+    okButtonProps?: ButtonProps;
+    /**
+     * Callback when cancel button is clicked.
+     */
+    onCancel?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    /**
+     * Callback when OK button is clicked.
+     */
+    onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+    /**
+     * Whether to show the cancel button. Default is true.
+     */
+    showCancel?: boolean;
+    /**
      * Title or heading text displayed at the top of the alert dialog.
      */
     title?: React.ReactNode;
@@ -121,4 +148,28 @@ export type AlertDialogProps = StyledComponentProps<_AlertDialogProps>
      * The alert type which determines styling (destructive, info, success, or warning).
      */
     type?: AlertType;
+    /**
+     * Props for the alert dialog overlay component.
+     */
+    overlayProps?: AlertDialogOverlayProps;
+    /**
+     * Props for the alert dialog content component.
+     */
+    contentProps?: AlertDialogContentProps;
+    /**
+     * Props for the alert dialog header component.
+     */
+    headerProps?: AlertDialogHeaderProps;
+    /**
+     * Props for the alert dialog title component.
+     */
+    titleProps?: AlertDialogTitleProps;
+    /**
+     * Props for the alert dialog description component.
+     */
+    descriptionProps?: AlertDialogDescriptionProps;
+    /**
+     * Props for the alert dialog footer component.
+     */
+    footerProps?: AlertDialogFooterProps;
   };

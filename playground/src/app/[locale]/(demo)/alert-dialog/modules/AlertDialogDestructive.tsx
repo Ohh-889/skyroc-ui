@@ -1,15 +1,12 @@
 import React from 'react';
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, Button } from 'skyroc-ui';
+import { AlertDialog, Button } from 'skyroc-ui';
 
 const AlertDialogDestructive = () => {
   return (
     <AlertDialog
+      okButtonProps={{ color: 'destructive' }}
       title="Are you sure delete?"
       type="destructive"
-      footer={[
-        <AlertDialogCancel key="cancel">Cancel</AlertDialogCancel>,
-        <AlertDialogAction key="action">Confirm</AlertDialogAction>
-      ]}
       trigger={(
         <Button
           color="destructive"
@@ -19,7 +16,7 @@ const AlertDialogDestructive = () => {
         </Button>
       )}
     >
-      <p>This action will delete all data</p>
+      This action will delete all data
     </AlertDialog>
   );
 };
