@@ -21,6 +21,7 @@ const AccordionTrigger = forwardRef<ComponentRef<typeof Trigger>, AccordionTrigg
   return (
     <Trigger
       className={mergedCls}
+      data-slot="accordion-trigger"
       ref={ref}
       {...rest}
     >

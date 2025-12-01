@@ -15,6 +15,7 @@ const AccordionRoot = forwardRef<ComponentRef<typeof Root>, AccordionRootProps>(
   return (
     <Root
       className={mergedCls}
+      data-slot="accordion-root"
       ref={ref}
       {...rest}
     />

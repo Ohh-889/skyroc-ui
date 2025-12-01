@@ -15,6 +15,7 @@ const AccordionHeader = forwardRef<ComponentRef<typeof Header>, AccordionHeaderP
   return (
     <Header
       className={mergedCls}
+      data-slot="accordion-header"
       ref={ref}
       {...rest}
     />

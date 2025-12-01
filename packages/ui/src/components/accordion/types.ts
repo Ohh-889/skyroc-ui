@@ -109,4 +109,27 @@ export type AccordionProps<T extends AccordionItemData = AccordionItemData> = Ac
    * Default trailing content for all triggers (can be overridden per item).
    */
   triggerTrailing?: React.ReactNode;
+  /**
+   * Props for the accordion header component.
+   */
+  headerProps?: AccordionHeaderProps;
+
+  /**
+   * Props for the accordion content component.
+   */
+  contentProps?: AccordionContentProps;
+
+  /**
+   * Props for the accordion trigger component.
+   */
+
+  /**
+   * Props for the accordion item component.
+   */
+  triggerProps?: AccordionTriggerProps;
+
+  /**
+   * Props for the accordion item component.
+   */
+  itemProps?: AccordionItemProps;
 };

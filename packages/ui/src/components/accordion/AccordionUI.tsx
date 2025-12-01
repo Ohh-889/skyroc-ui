@@ -9,7 +9,7 @@ import AccordionTrigger from './AccordionTrigger';
 import type { AccordionProps } from './types';
 
 const AccordionUI = forwardRef<ComponentRef<typeof Root>, AccordionProps>((props, ref) => {
-  const { className, classNames, dir, items, size, triggerIcon, triggerLeading, triggerTrailing, ...rest } = props;
+  const { className, classNames, dir, items, size, triggerIcon, triggerLeading, triggerTrailing, headerProps, contentProps, triggerProps, itemProps, ...rest } = props;
 
   return (
     <AccordionRoot
@@ -24,10 +24,12 @@ const AccordionUI = forwardRef<ComponentRef<typeof Root>, AccordionProps>((props
           disabled={item.disabled}
           key={item.value}
           value={item.value}
+          {...itemProps}
         >
           <AccordionHeader
             className={classNames?.header}
             dir={dir}
+            {...headerProps}
           >
             <AccordionTrigger
               className={classNames?.trigger}
@@ -37,6 +39,7 @@ const AccordionUI = forwardRef<ComponentRef<typeof Root>, AccordionProps>((props
               leading={item.leading || triggerLeading}
               size={size}
               trailing={item.trailing || triggerTrailing}
+              {...triggerProps}
             >
               {item.title}
             </AccordionTrigger>
@@ -46,6 +49,7 @@ const AccordionUI = forwardRef<ComponentRef<typeof Root>, AccordionProps>((props
             className={classNames?.content}
             dir={dir}
             size={size}
+            {...contentProps}
           >
             {item.children}
           </AccordionContent>

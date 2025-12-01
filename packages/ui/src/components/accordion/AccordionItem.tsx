@@ -15,6 +15,7 @@ const AccordionItem = forwardRef<ComponentRef<typeof Item>, AccordionItemProps>(
   return (
     <Item
       className={mergedCls}
+      data-slot="accordion-item"
       ref={ref}
       {...rest}
     />
