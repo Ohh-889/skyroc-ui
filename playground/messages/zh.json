@@ -1,0 +1,102 @@
+{
+  "metadata": {
+    "title": "Skyroc UI - Playground",
+    "description": "Skyroc UI 是一个现代化的 React UI 组件库，提供丰富的可定制组件。支持 CLI 一键复制源码和 NPM 包引入两种使用方式。"
+  },
+  "header": {
+    "docs": "文档",
+    "docsAriaLabel": "查看文档",
+    "customizeTheme": "自定义主题",
+    "github": "GitHub",
+    "githubAriaLabel": "GitHub 仓库",
+    "switchLanguage": "切换语言",
+    "switchToDark": "切换到暗色模式",
+    "switchToLight": "切换到亮色模式"
+  },
+  "home": {
+    "title": "Skyroc UI",
+    "badge": "Playground",
+    "subtitle": "组件演示与交互测试 · 点击组件查看详情",
+    "docs": "文档",
+    "github": "GitHub",
+    "highlights": {
+      "cli": "CLI 一键复制源码",
+      "npm": "NPM 包引入",
+      "composable": "组合式 + 封装式",
+      "typescript": "TypeScript"
+    },
+    "commands": {
+      "or": "或",
+      "copied": "已复制",
+      "copyCli": "复制 CLI 命令",
+      "copyNpm": "复制 NPM 命令"
+    },
+    "components": {
+      "title": "组件",
+      "search": "搜索组件...",
+      "noResult": "没有找到匹配的组件"
+    },
+    "footer": {
+      "fullDocs": "完整文档",
+      "installGuide": "安装指南",
+      "feedback": "反馈问题"
+    }
+  },
+  "componentList": {
+    "accordion": { "name": "Accordion", "description": "可折叠面板" },
+    "alert": { "name": "Alert", "description": "警告提示" },
+    "alertDialog": { "name": "AlertDialog", "description": "确认对话框" },
+    "avatar": { "name": "Avatar", "description": "头像" },
+    "badge": { "name": "Badge", "description": "徽章" },
+    "breadcrumb": { "name": "Breadcrumb", "description": "面包屑" },
+    "button": { "name": "Button", "description": "按钮" },
+    "card": { "name": "Card", "description": "卡片" },
+    "carousel": { "name": "Carousel", "description": "轮播图" },
+    "checkbox": { "name": "Checkbox", "description": "复选框" },
+    "chip": { "name": "Chip", "description": "标签" },
+    "collapsible": { "name": "Collapsible", "description": "折叠" },
+    "command": { "name": "Command", "description": "命令面板" },
+    "contextMenu": { "name": "ContextMenu", "description": "右键菜单" },
+    "dialog": { "name": "Dialog", "description": "对话框" },
+    "divider": { "name": "Divider", "description": "分割线" },
+    "drawer": { "name": "Drawer", "description": "抽屉" },
+    "dropdownMenu": { "name": "DropdownMenu", "description": "下拉菜单" },
+    "form": { "name": "Form", "description": "表单" },
+    "hoverCard": { "name": "HoverCard", "description": "悬停卡片" },
+    "icon": { "name": "Icon", "description": "图标" },
+    "input": { "name": "Input", "description": "输入框" },
+    "inputOtp": { "name": "InputOTP", "description": "OTP" },
+    "keyboardKey": { "name": "KeyboardKey", "description": "键盘键" },
+    "label": { "name": "Label", "description": "标签" },
+    "popover": { "name": "Popover", "description": "气泡" },
+    "progress": { "name": "Progress", "description": "进度条" },
+    "radio": { "name": "Radio", "description": "单选框" },
+    "scrollArea": { "name": "ScrollArea", "description": "滚动区域" },
+    "select": { "name": "Select", "description": "选择器" },
+    "sheet": { "name": "Sheet", "description": "侧边栏" },
+    "skeleton": { "name": "Skeleton", "description": "骨架屏" },
+    "slider": { "name": "Slider", "description": "滑块" },
+    "switch": { "name": "Switch", "description": "开关" },
+    "tabs": { "name": "Tabs", "description": "选项卡" },
+    "textarea": { "name": "Textarea", "description": "文本域" },
+    "toggle": { "name": "Toggle", "description": "切换" },
+    "toggleGroup": { "name": "ToggleGroup", "description": "切换组" },
+    "tooltip": { "name": "Tooltip", "description": "提示" },
+    "sonner": { "name": "Sonner", "description": "通知" }
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "description": "抱歉，您访问的页面不存在或已被移动。",
+    "hint": "别担心，这种情况会发生。您可以返回首页或尝试搜索您需要的内容。",
+    "backHome": "返回首页",
+    "goBack": "返回上一页",
+    "refresh": "刷新页面",
+    "quickNav": "常用页面",
+    "buttonComponent": "Button 组件",
+    "formComponent": "Form 组件",
+    "componentList": "组件列表",
+    "contact": "如果问题持续存在，请",
+    "contactUs": "联系我们"
+  }
+}
+

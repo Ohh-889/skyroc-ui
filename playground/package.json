@@ -38,6 +38,7 @@
     "grapheme-splitter": "1.0.4",
     "lucide-react": "catalog:",
     "next": "catalog:",
+    "next-intl": "^4.5.6",
     "next-themes": "catalog:",
     "react": "catalog:",
     "react-dom": "catalog:",

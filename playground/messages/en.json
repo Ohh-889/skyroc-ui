@@ -1,0 +1,104 @@
+{
+  "metadata": {
+    "title": "Skyroc UI - Playground",
+    "description": "Skyroc UI is a modern React UI component library with rich customizable components. Supports CLI source code copy and NPM package import."
+  },
+  "header": {
+    "docs": "Documentation",
+    "docsAriaLabel": "View documentation",
+    "customizeTheme": "Customize theme",
+    "github": "GitHub",
+    "githubAriaLabel": "GitHub repository",
+    "switchLanguage": "Switch language",
+    "switchToDark": "Switch to dark mode",
+    "switchToLight": "Switch to light mode"
+  },
+  "home": {
+    "title": "Skyroc UI",
+    "badge": "Playground",
+    "subtitle": "Component demos & interactive testing · Click to view details",
+    "docs": "Docs",
+    "github": "GitHub",
+    "highlights": {
+      "cli": "CLI copy source code",
+      "npm": "NPM package import",
+      "composable": "Composable + Wrapped",
+      "typescript": "TypeScript"
+    },
+    "commands": {
+      "or": "or",
+      "copied": "Copied",
+      "copyCli": "Copy CLI command",
+      "copyNpm": "Copy NPM command"
+    },
+    "components": {
+      "title": "Components",
+      "search": "Search components...",
+      "noResult": "No matching components found"
+    },
+    "footer": {
+      "fullDocs": "Full Docs",
+      "installGuide": "Install Guide",
+      "feedback": "Feedback"
+    }
+  },
+  "componentList": {
+    "accordion": { "name": "Accordion", "description": "Collapsible panel" },
+    "alert": { "name": "Alert", "description": "Alert message" },
+    "alertDialog": {
+      "name": "AlertDialog",
+      "description": "Confirmation dialog"
+    },
+    "avatar": { "name": "Avatar", "description": "Avatar" },
+    "badge": { "name": "Badge", "description": "Badge" },
+    "breadcrumb": { "name": "Breadcrumb", "description": "Breadcrumb" },
+    "button": { "name": "Button", "description": "Button" },
+    "card": { "name": "Card", "description": "Card" },
+    "carousel": { "name": "Carousel", "description": "Carousel" },
+    "checkbox": { "name": "Checkbox", "description": "Checkbox" },
+    "chip": { "name": "Chip", "description": "Chip" },
+    "collapsible": { "name": "Collapsible", "description": "Collapsible" },
+    "command": { "name": "Command", "description": "Command palette" },
+    "contextMenu": { "name": "ContextMenu", "description": "Context menu" },
+    "dialog": { "name": "Dialog", "description": "Dialog" },
+    "divider": { "name": "Divider", "description": "Divider" },
+    "drawer": { "name": "Drawer", "description": "Drawer" },
+    "dropdownMenu": { "name": "DropdownMenu", "description": "Dropdown menu" },
+    "form": { "name": "Form", "description": "Form" },
+    "hoverCard": { "name": "HoverCard", "description": "Hover card" },
+    "icon": { "name": "Icon", "description": "Icon" },
+    "input": { "name": "Input", "description": "Input" },
+    "inputOtp": { "name": "InputOTP", "description": "OTP input" },
+    "keyboardKey": { "name": "KeyboardKey", "description": "Keyboard key" },
+    "label": { "name": "Label", "description": "Label" },
+    "popover": { "name": "Popover", "description": "Popover" },
+    "progress": { "name": "Progress", "description": "Progress" },
+    "radio": { "name": "Radio", "description": "Radio" },
+    "scrollArea": { "name": "ScrollArea", "description": "Scroll area" },
+    "select": { "name": "Select", "description": "Select" },
+    "sheet": { "name": "Sheet", "description": "Sheet" },
+    "skeleton": { "name": "Skeleton", "description": "Skeleton" },
+    "slider": { "name": "Slider", "description": "Slider" },
+    "switch": { "name": "Switch", "description": "Switch" },
+    "tabs": { "name": "Tabs", "description": "Tabs" },
+    "textarea": { "name": "Textarea", "description": "Textarea" },
+    "toggle": { "name": "Toggle", "description": "Toggle" },
+    "toggleGroup": { "name": "ToggleGroup", "description": "Toggle group" },
+    "tooltip": { "name": "Tooltip", "description": "Tooltip" },
+    "sonner": { "name": "Sonner", "description": "Toast notification" }
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for does not exist or has been moved.",
+    "hint": "Don't worry, this happens. You can go back to the home page or try searching for what you need.",
+    "backHome": "Back to Home",
+    "goBack": "Go Back",
+    "refresh": "Refresh Page",
+    "quickNav": "Quick Links",
+    "buttonComponent": "Button Component",
+    "formComponent": "Form Component",
+    "componentList": "Component List",
+    "contact": "If the problem persists, please",
+    "contactUs": "Contact Us"
+  }
+}

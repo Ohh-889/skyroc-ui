@@ -1,28 +1,31 @@
 'use client';
 
-import Link from 'next/link';
+import { useTranslations } from 'next-intl';
 import { ButtonIcon, Icon, Popover, Tooltip } from 'skyroc-ui';
+import LocaleSwitcher from '../../components/LocaleSwitcher';
 import ThemeCustomize from '../../components/ThemeCustomize';
 import ThemeSchemaToggler from '../../components/ThemeSchemaToggler';
 import config from '../../config';
 
 const HeaderActions = () => {
+  const t = useTranslations('header');
+
   return (
     <div className="flex items-center gap-1">
-      <Tooltip content="文档">
+      <Tooltip content={t('docs')}>
         <ButtonIcon
           asChild
-          aria-label="查看文档"
+          aria-label={t('docsAriaLabel')}
           size="lg"
           variant="ghost"
         >
-          <Link
+          <a
             href="https://docs.skyroc-ui.com"
             rel="noopener noreferrer"
             target="_blank"
           >
             <Icon icon="lucide:book-open" />
-          </Link>
+          </a>
         </ButtonIcon>
       </Tooltip>
 
@@ -32,7 +35,7 @@ const HeaderActions = () => {
         side="bottom"
         trigger={(
           <ButtonIcon
-            aria-label="自定义主题"
+            aria-label={t('customizeTheme')}
             icon="lucide:palette"
             size="lg"
             variant="ghost"
@@ -42,24 +45,25 @@ const HeaderActions = () => {
         <ThemeCustomize />
       </Popover>
 
-      <Tooltip content="GitHub">
+      <Tooltip content={t('github')}>
         <ButtonIcon
           asChild
-          aria-label="GitHub 仓库"
+          aria-label={t('githubAriaLabel')}
           size="lg"
           variant="ghost"
         >
-          <Link
+          <a
             href={config.githubUrl}
             rel="noopener noreferrer"
             target="_blank"
           >
             <Icon icon="lucide:github" />
-          </Link>
+          </a>
         </ButtonIcon>
       </Tooltip>
 
       <div className="bg-border mx-1 h-5 w-px" />
+      <LocaleSwitcher />
       <ThemeSchemaToggler />
     </div>
   );
