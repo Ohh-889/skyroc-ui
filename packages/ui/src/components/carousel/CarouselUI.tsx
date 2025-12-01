@@ -8,7 +8,7 @@ import CarouselRoot from './CarouselRoot';
 import type { CarouselProps } from './types';
 
 const CarouselUI = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
-  const { children, className, classNames, counts, nextProps, previousProps, size, ...rest } = props;
+  const { children, className, classNames, counts, contentProps, itemProps, nextProps, previousProps, size, ...rest } = props;
 
   return (
     <CarouselRoot
@@ -20,6 +20,7 @@ const CarouselUI = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
       <CarouselContent
         classNames={classNames}
         size={size}
+        {...contentProps}
       >
         {counts
           ? Array.from({ length: counts }).map((_, index) => (
@@ -27,6 +28,7 @@ const CarouselUI = forwardRef<HTMLDivElement, CarouselProps>((props, ref) => {
               className={classNames?.item}
               key={index}
               size={size}
+              {...itemProps}
             >
               {isFunction(children) ? children(index) : Children.toArray(children)[index]}
             </CarouselItem>

@@ -151,6 +151,16 @@ export type CarouselPropsWithoutChildren = Omit<CarouselRootProps, 'children'> &
   counts?: number;
 
   /**
+   * Props for the carousel content component.
+   */
+  contentProps?: CarouselContentProps;
+
+  /**
+   * Props for the carousel item component.
+   */
+  itemProps?: CarouselItemProps;
+
+  /**
    * Props to pass to the next navigation button.
    */
   nextProps?: Omit<ButtonProps, 'class'>;
