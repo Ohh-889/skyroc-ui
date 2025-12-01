@@ -54,4 +54,12 @@ export interface AvatarProps extends AvatarImageProps, Pick<AvatarFallbackProps,
    * Typically shows initials or a placeholder icon.
    */
   fallback?: React.ReactNode;
+  /**
+   * Props for the avatar root component.
+   */
+  rootProps?: AvatarRootProps;
+  /**
+   * Props for the avatar fallback component.
+   */
+  fallbackProps?: AvatarFallbackProps;
 }

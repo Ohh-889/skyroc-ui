@@ -7,12 +7,13 @@ import AvatarRoot from './AvatarRoot';
 import type { AvatarProps } from './types';
 
 const Avatar = forwardRef<ComponentRef<typeof Image>, AvatarProps>((props, ref) => {
-  const { className, classNames, delayMs, fallback, size, ...rest } = props;
+  const { className, classNames, delayMs, fallback, size, rootProps, fallbackProps, ...rest } = props;
 
   return (
     <AvatarRoot
       className={classNames?.root}
       size={size}
+      {...rootProps}
     >
       <AvatarImage
         className={className || classNames?.image}
@@ -23,6 +24,7 @@ const Avatar = forwardRef<ComponentRef<typeof Image>, AvatarProps>((props, ref) 
       <AvatarFallback
         className={classNames?.fallback}
         delayMs={delayMs}
+        {...fallbackProps}
       >
         {fallback}
       </AvatarFallback>
