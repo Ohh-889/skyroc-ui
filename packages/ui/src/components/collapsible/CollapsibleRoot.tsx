@@ -15,6 +15,7 @@ const CollapsibleRoot = forwardRef<ComponentRef<typeof Root>, CollapsibleRootPro
   return (
     <Root
       className={mergedCls}
+      data-slot="collapsible-root"
       ref={ref}
       {...rest}
     />

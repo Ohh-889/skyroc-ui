@@ -15,6 +15,7 @@ const CollapsibleContent = forwardRef<ComponentRef<typeof Content>, CollapsibleC
   return (
     <Content
       className={mergedCls}
+      data-slot="collapsible-content"
       ref={ref}
       {...rest}
     />
