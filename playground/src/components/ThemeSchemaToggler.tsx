@@ -2,9 +2,11 @@
 
 import { useEffect, useState } from 'react';
 import { useTheme } from 'next-themes';
+import { useTranslations } from 'next-intl';
 import { Icon, Switch } from 'skyroc-ui';
 
 const ThemeSchemaToggler = () => {
+  const t = useTranslations('header');
   const { setTheme, theme } = useTheme();
 
   const [isMounted, setIsMounted] = useState(false);
@@ -24,7 +26,7 @@ const ThemeSchemaToggler = () => {
 
   return (
     <Switch
-      aria-label={isDark ? '切换到亮色模式' : '切换到暗色模式'}
+      aria-label={isDark ? t('switchToLight') : t('switchToDark')}
       checked={isDark}
       color="accent"
       defaultChecked={isDark}
