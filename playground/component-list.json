@@ -1,0 +1,237 @@
+[
+  {
+    "name": "accordion",
+    "label": "Accordion",
+    "value": "accordion"
+  },
+  {
+    "name": "alert",
+    "label": "Alert",
+    "value": "alert"
+  },
+  {
+    "name": "alert-dialog",
+    "label": "Alert-dialog",
+    "value": "alert-dialog"
+  },
+  {
+    "name": "arrow",
+    "label": "Arrow",
+    "value": "arrow"
+  },
+  {
+    "name": "aspect-ratio",
+    "label": "Aspect-ratio",
+    "value": "aspect-ratio"
+  },
+  {
+    "name": "avatar",
+    "label": "Avatar",
+    "value": "avatar"
+  },
+  {
+    "name": "badge",
+    "label": "Badge",
+    "value": "badge"
+  },
+  {
+    "name": "breadcrumb",
+    "label": "Breadcrumb",
+    "value": "breadcrumb"
+  },
+  {
+    "name": "button",
+    "label": "Button",
+    "value": "button"
+  },
+  {
+    "name": "card",
+    "label": "Card",
+    "value": "card"
+  },
+  {
+    "name": "carousel",
+    "label": "Carousel",
+    "value": "carousel"
+  },
+  {
+    "name": "checkbox",
+    "label": "Checkbox",
+    "value": "checkbox"
+  },
+  {
+    "name": "chip",
+    "label": "Chip",
+    "value": "chip"
+  },
+  {
+    "name": "collapsible",
+    "label": "Collapsible",
+    "value": "collapsible"
+  },
+  {
+    "name": "combobox",
+    "label": "Combobox",
+    "value": "combobox"
+  },
+  {
+    "name": "command",
+    "label": "Command",
+    "value": "command"
+  },
+  {
+    "name": "context-menu",
+    "label": "Context-menu",
+    "value": "context-menu"
+  },
+  {
+    "name": "dialog",
+    "label": "Dialog",
+    "value": "dialog"
+  },
+  {
+    "name": "divider",
+    "label": "Divider",
+    "value": "divider"
+  },
+  {
+    "name": "drawer",
+    "label": "Drawer",
+    "value": "drawer"
+  },
+  {
+    "name": "dropdown-menu",
+    "label": "Dropdown-menu",
+    "value": "dropdown-menu"
+  },
+  {
+    "name": "form",
+    "label": "Form",
+    "value": "form"
+  },
+  {
+    "name": "hover-card",
+    "label": "Hover-card",
+    "value": "hover-card"
+  },
+  {
+    "name": "icon",
+    "label": "Icon",
+    "value": "icon"
+  },
+  {
+    "name": "input",
+    "label": "Input",
+    "value": "input"
+  },
+  {
+    "name": "input-otp",
+    "label": "Input-otp",
+    "value": "input-otp"
+  },
+  {
+    "name": "keyboard-key",
+    "label": "Keyboard-key",
+    "value": "keyboard-key"
+  },
+  {
+    "name": "label",
+    "label": "Label",
+    "value": "label"
+  },
+  {
+    "name": "layout",
+    "label": "Layout",
+    "value": "layout"
+  },
+  {
+    "name": "menubar",
+    "label": "Menubar",
+    "value": "menubar"
+  },
+  {
+    "name": "navigation-menu",
+    "label": "Navigation-menu",
+    "value": "navigation-menu"
+  },
+  {
+    "name": "popover",
+    "label": "Popover",
+    "value": "popover"
+  },
+  {
+    "name": "progress",
+    "label": "Progress",
+    "value": "progress"
+  },
+  {
+    "name": "radio",
+    "label": "Radio",
+    "value": "radio"
+  },
+  {
+    "name": "resizable",
+    "label": "Resizable",
+    "value": "resizable"
+  },
+  {
+    "name": "scroll-area",
+    "label": "Scroll-area",
+    "value": "scroll-area"
+  },
+  {
+    "name": "select",
+    "label": "Select",
+    "value": "select"
+  },
+  {
+    "name": "sheet",
+    "label": "Sheet",
+    "value": "sheet"
+  },
+  {
+    "name": "skeleton",
+    "label": "Skeleton",
+    "value": "skeleton"
+  },
+  {
+    "name": "slider",
+    "label": "Slider",
+    "value": "slider"
+  },
+  {
+    "name": "sonner",
+    "label": "Sonner",
+    "value": "sonner"
+  },
+  {
+    "name": "tabs",
+    "label": "Tabs",
+    "value": "tabs"
+  },
+  {
+    "name": "textarea",
+    "label": "Textarea",
+    "value": "textarea"
+  },
+  {
+    "name": "toggle",
+    "label": "Toggle",
+    "value": "toggle"
+  },
+  {
+    "name": "toggle-group",
+    "label": "Toggle-group",
+    "value": "toggle-group"
+  },
+  {
+    "name": "tooltip",
+    "label": "Tooltip",
+    "value": "tooltip"
+  },
+  {
+    "name": "virtualizer",
+    "label": "Virtualizer",
+    "value": "virtualizer"
+  }
+]
