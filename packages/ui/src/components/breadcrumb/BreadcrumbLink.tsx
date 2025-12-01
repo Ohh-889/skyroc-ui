@@ -16,6 +16,7 @@ const BreadcrumbLink = forwardRef<HTMLAnchorElement, BreadcrumbLinkProps>((props
   return (
     <Comp
       className={mergedCls}
+      data-slot="breadcrumb-link"
       ref={ref}
       {...rest}
     />

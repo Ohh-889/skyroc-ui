@@ -15,6 +15,7 @@ const BreadcrumbPage = forwardRef<HTMLSpanElement, BreadcrumbPageProps>((props, 
       aria-current="page"
       aria-disabled="true"
       className={mergedCls}
+      data-slot="breadcrumb-page"
       ref={ref}
       role="link"
       {...rest}

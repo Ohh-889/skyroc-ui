@@ -14,6 +14,7 @@ const BreadcrumbSeparator = forwardRef<HTMLLIElement, BreadcrumbSeparatorProps>(
   return (
     <li
       className={mergedCls}
+      data-slot="breadcrumb-separator"
       ref={ref}
       {...rest}
     >

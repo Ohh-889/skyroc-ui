@@ -13,6 +13,7 @@ const BreadcrumbItem = forwardRef<HTMLLIElement, BreadcrumbItemProps>((props, re
   return (
     <li
       className={mergedCls}
+      data-slot="breadcrumb-item"
       ref={ref}
       {...rest}
     />

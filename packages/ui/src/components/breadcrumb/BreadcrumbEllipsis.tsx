@@ -13,6 +13,7 @@ const BreadcrumbEllipsis = (props: BreadcrumbEllipsisProps) => {
     <span
       aria-hidden="true"
       className={mergedCls}
+      data-slot="breadcrumb-ellipsis"
       role="presentation"
       {...rest}
     >

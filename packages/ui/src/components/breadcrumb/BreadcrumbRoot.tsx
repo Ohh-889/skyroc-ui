@@ -14,6 +14,7 @@ const BreadcrumbRoot = forwardRef<HTMLElement, BreadcrumbRootProps>((props, ref)
     <nav
       aria-label="breadcrumb"
       className={mergedCls}
+      data-slot="breadcrumb-root"
       ref={ref}
       {...rest}
     />

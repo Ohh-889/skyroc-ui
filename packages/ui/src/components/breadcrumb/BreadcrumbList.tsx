@@ -13,6 +13,7 @@ const BreadcrumbList = forwardRef<HTMLOListElement, BreadcrumbListProps>((props,
   return (
     <ol
       className={mergedCls}
+      data-slot="breadcrumb-list"
       ref={ref}
       {...rest}
     />
