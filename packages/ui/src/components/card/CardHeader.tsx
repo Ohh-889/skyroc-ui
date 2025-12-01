@@ -13,6 +13,7 @@ export const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>((props, re
   return (
     <div
       className={mergedCls}
+      data-slot="card-header"
       {...rest}
       ref={ref}
     />

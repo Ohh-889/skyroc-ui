@@ -163,4 +163,28 @@ export interface CardProps extends CardRootProps {
    * Content displayed after the title in the title section.
    */
   titleTrailing?: ReactNode;
+  /**
+   * Props for the card root component.
+   */
+  rootProps?: CardRootProps;
+  /**
+   * Props for the card header component.
+   */
+  headerProps?: CardHeaderProps;
+  /**
+   * Props for the card title root component.
+   */
+  titleRootProps?: CardTitleRootProps;
+  /**
+   * Props for the card title component.
+   */
+  titleProps?: CardTitleProps;
+  /**
+   * Props for the card content component.
+   */
+  contentProps?: CardContentProps;
+  /**
+   * Props for the card footer component.
+   */
+  footerProps?: CardFooterProps;
 }

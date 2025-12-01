@@ -25,6 +25,12 @@ export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) =
     titleLeading,
     titleRoot,
     titleTrailing,
+    rootProps,
+    headerProps,
+    titleRootProps,
+    titleProps,
+    contentProps,
+    footerProps,
     ...rest
   } = props;
 
@@ -39,11 +45,13 @@ export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) =
       className={mergedCls}
       {...rest}
       ref={ref}
+      {...rootProps}
     >
       <If condition={showHeader}>
         <CardHeader
           className={classNames?.header}
           size={size}
+          {...headerProps}
         >
           <If
             condition={!header}
@@ -56,6 +64,7 @@ export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) =
               <CardTitleRoot
                 className={classNames?.titleRoot}
                 size={size}
+                {...titleRootProps}
               >
                 {titleLeading}
 
@@ -66,6 +75,7 @@ export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) =
                   <CardTitle
                     className={classNames?.title}
                     size={size}
+                    {...titleProps}
                   >
                     {title}
                   </CardTitle>
@@ -84,6 +94,7 @@ export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) =
         className={classNames?.content}
         flexHeight={flexHeight}
         size={size}
+        {...contentProps}
       >
         {children}
       </CardContent>
@@ -95,6 +106,7 @@ export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) =
         <CardFooter
           className={classNames?.footer}
           size={size}
+          {...footerProps}
         >
           {footer}
         </CardFooter>

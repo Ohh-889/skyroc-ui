@@ -13,6 +13,7 @@ export const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>((p
   return (
     <div
       className={mergedCls}
+      data-slot="card-content"
       {...rest}
       ref={ref}
     />

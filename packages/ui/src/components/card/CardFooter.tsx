@@ -13,6 +13,7 @@ export const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>((pro
   return (
     <div
       className={mergedCls}
+      data-slot="card-footer"
       {...rest}
       ref={ref}
     />

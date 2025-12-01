@@ -13,6 +13,7 @@ export const CardRoot = React.forwardRef<HTMLDivElement, CardRootProps>((props, 
   return (
     <div
       className={mergedCls}
+      data-slot="card-root"
       {...rest}
       ref={ref}
     />
