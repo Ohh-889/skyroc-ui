@@ -2,6 +2,7 @@
 
 import type { Ref } from 'react';
 import { Fragment, forwardRef } from 'react';
+import { DropdownMenu, type DropdownMenuProps } from '../dropdown-menu';
 import BreadcrumbEllipsis from './BreadcrumbEllipsis';
 import BreadcrumbItemContent from './BreadcrumbItem';
 import BreadcrumbLink from './BreadcrumbLink';
@@ -13,24 +14,65 @@ import type { BreadcrumbItem, BreadcrumbProps } from './types';
 
 type EllipsisProps<T extends BreadcrumbItem> = Pick<
   BreadcrumbProps<T>,
-  'className' | 'ellipsisIcon' | 'items' | 'renderEllipsis'
->;
-
-const Ellipsis = <T extends BreadcrumbItem>({ className, ellipsisIcon, items, renderEllipsis }: EllipsisProps<T>) => {
-  if (!renderEllipsis)
-    return <BreadcrumbEllipsis className={className}>{ellipsisIcon}</BreadcrumbEllipsis>;
-
-  return renderEllipsis(items);
+  'className' | 'ellipsisIcon' | 'handleItemClick' | 'items' | 'renderEllipsis'
+> & {
+  ellipsisDropdownProps?: Omit<DropdownMenuProps, 'children' | 'items'>;
+  ellipsisProps?: BreadcrumbProps<T>['ellipsisProps'];
 };
 
-function renderBreadcrumbContent<T extends BreadcrumbItem>(item: T, renderItem: BreadcrumbProps<T>['renderItem']) {
+const Ellipsis = <T extends BreadcrumbItem>(props: EllipsisProps<T>) => {
+  const { className, ellipsisDropdownProps, ellipsisIcon, ellipsisProps, handleItemClick, items, renderEllipsis } = props;
+
+  if (renderEllipsis) {
+    return renderEllipsis(items);
+  }
+
+  const dropdownItems: DropdownMenuProps['items'] = items.map(item => ({
+    label: item.label,
+    leading: item.leading,
+    trailing: item.trailing,
+    onSelect: () => handleItemClick?.(item)
+  }));
+
+  return (
+    <DropdownMenu
+      items={dropdownItems}
+      modal={false}
+      {...ellipsisDropdownProps}
+    >
+      <BreadcrumbEllipsis
+        className={className}
+        {...ellipsisProps}
+      >
+        {ellipsisIcon}
+      </BreadcrumbEllipsis>
+    </DropdownMenu>
+  );
+};
+
+function renderBreadcrumbContent<T extends BreadcrumbItem>(item: T, renderItem: BreadcrumbProps<T>['renderItem'], linkProps?: BreadcrumbProps<T>['linkProps'], pageProps?: BreadcrumbProps<T>['pageProps']) {
   if (renderItem)
     return renderItem(item);
 
-  if (item.href)
-    return <BreadcrumbLink {...item}>{item.label}</BreadcrumbLink>;
+  if (item.href) {
+    return (
+      <BreadcrumbLink
+        {...item}
+        {...linkProps}
+      >
+        {item.label}
+      </BreadcrumbLink>
+    );
+  }
 
-  return <BreadcrumbPage {...item}>{item.label}</BreadcrumbPage>;
+  return (
+    <BreadcrumbPage
+      {...item}
+      {...pageProps}
+    >
+      {item.label}
+    </BreadcrumbPage>
+  );
 }
 
 const Breadcrumb = <T extends BreadcrumbItem>(props: BreadcrumbProps<T>, ref: Ref<HTMLElement>) => {
@@ -45,6 +87,13 @@ const Breadcrumb = <T extends BreadcrumbItem>(props: BreadcrumbProps<T>, ref: Re
     renderItem,
     separator,
     size,
+    listProps,
+    itemProps,
+    ellipsisProps,
+    ellipsisDropdownProps,
+    separatorProps,
+    linkProps,
+    pageProps,
     ...rest
   } = props;
 
@@ -99,6 +148,7 @@ const Breadcrumb = <T extends BreadcrumbItem>(props: BreadcrumbProps<T>, ref: Re
       <BreadcrumbList
         className={classNames?.list}
         size={size}
+        {...listProps}
       >
         {itemsFilterEllipsis.map((item, index) => {
           const isEllipsis = startEllipsisIndex && startEllipsisIndex === index;
@@ -112,12 +162,20 @@ const Breadcrumb = <T extends BreadcrumbItem>(props: BreadcrumbProps<T>, ref: Re
                   <>
                     <Ellipsis<T>
                       className={classNames?.ellipsis}
+                      ellipsisDropdownProps={ellipsisDropdownProps}
                       ellipsisIcon={ellipsisIcon}
+                      ellipsisProps={ellipsisProps}
+                      handleItemClick={handleItemClick}
                       items={ellipsisItems}
                       renderEllipsis={renderEllipsis}
                     />
 
-                    {separator || <BreadcrumbSeparator className={classNames?.separator} />}
+                    {separator || (
+                      <BreadcrumbSeparator
+                        className={classNames?.separator}
+                        {...separatorProps}
+                      />
+                    )}
                   </>
                 )
                 : null}
@@ -126,13 +184,21 @@ const Breadcrumb = <T extends BreadcrumbItem>(props: BreadcrumbProps<T>, ref: Re
                 className={classNames?.item}
                 size={size}
                 onClick={() => handleItemClick?.(item)}
+                {...itemProps}
               >
                 {item.leading}
-                {renderBreadcrumbContent(item, renderItem)}
+                {renderBreadcrumbContent(item, renderItem, linkProps, pageProps)}
                 {item.trailing}
               </BreadcrumbItemContent>
 
-              {isShowSeparator ? separator || <BreadcrumbSeparator className={classNames?.separator} /> : null}
+              {isShowSeparator
+                ? separator || (
+                  <BreadcrumbSeparator
+                    className={classNames?.separator}
+                    {...separatorProps}
+                  />
+                )
+                : null}
             </Fragment>
           );
         })}

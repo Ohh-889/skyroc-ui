@@ -1,4 +1,5 @@
 import type { HTMLComponentProps, ClassValue, SlotProps } from '@/types/shared';
+import type { DropdownMenuProps } from '../dropdown-menu';
 import type { BreadcrumbSlots } from './breadcrumb-variants';
 
 /**
@@ -129,4 +130,33 @@ export type BreadcrumbProps<T extends BreadcrumbItem> = BreadcrumbRootProps & {
    * Visual separator displayed between breadcrumb items (e.g., "/", ">", "|").
    */
   separator?: React.ReactNode;
+  /**
+   * Props for the breadcrumb list component.
+   */
+  listProps?: BreadcrumbListProps;
+  /**
+   * Props for the breadcrumb item component.
+   */
+  itemProps?: BreadcrumbItemProps;
+  /**
+   * Props for the breadcrumb ellipsis component.
+   */
+  ellipsisProps?: BreadcrumbEllipsisProps;
+  /**
+   * Props for the dropdown menu that wraps the ellipsis.
+   * Use this to customize the dropdown menu behavior and appearance.
+   */
+  ellipsisDropdownProps?: Omit<DropdownMenuProps, 'children' | 'items'>;
+  /**
+   * Props for the breadcrumb separator component.
+   */
+  separatorProps?: BreadcrumbSeparatorProps;
+  /**
+   * Props for the breadcrumb link component.
+   */
+  linkProps?: BreadcrumbLinkProps;
+  /**
+   * Props for the breadcrumb page component.
+   */
+  pageProps?: BreadcrumbPageProps;
 };

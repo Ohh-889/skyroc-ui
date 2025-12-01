@@ -61,17 +61,18 @@ const BreadcrumbPage = () => {
 
       <Card
         split
+        title="Item Custom Dropdown"
+      >
+        <BreadcrumbItemDropdown />
+      </Card>
+
+      <Card
+        split
         title="Size"
       >
         <BreadcrumbSize />
       </Card>
 
-      <Card
-        split
-        title="Item Dropdown"
-      >
-        <BreadcrumbItemDropdown />
-      </Card>
     </div>
   );
 };
