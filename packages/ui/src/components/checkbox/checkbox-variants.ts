@@ -4,11 +4,17 @@ export const checkboxVariants = tv({
   defaultVariants: {
     color: 'primary',
     orientation: 'horizontal',
+    shape: 'square',
     size: 'md'
   },
   slots: {
+    card: [
+      'relative flex w-fit cursor-pointer items-center gap-3 rounded-lg border p-3 transition-all',
+      'hover:bg-accent/50'
+    ],
+    cardContent: 'flex flex-1 items-center gap-2',
     control: [
-      'peer shrink-0 rounded-sm border shadow',
+      'peer shrink-0 border shadow',
       'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background ',
       'disabled:cursor-not-allowed disabled:opacity-50'
     ],
@@ -18,6 +24,14 @@ export const checkboxVariants = tv({
     root: 'flex items-center'
   },
   variants: {
+    shape: {
+      rounded: {
+        control: 'rounded-full'
+      },
+      square: {
+        control: 'rounded-sm'
+      }
+    },
     color: {
       accent: {
         control: `border-accent-foreground/50 focus-visible:ring-accent-foreground/20 data-[state=checked]:bg-accent-foreground/5 data-[state=checked]:text-accent-foreground data-[state=indeterminate]:bg-accent-foreground/5 data-[state=indeterminate]:text-accent-foreground`

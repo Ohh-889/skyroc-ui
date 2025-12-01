@@ -6,9 +6,9 @@ import { checkboxVariants } from './checkbox-variants';
 import type { CheckboxControlProps } from './types';
 
 const CheckboxControl = React.forwardRef<ComponentRef<typeof Root>, CheckboxControlProps>((props, ref) => {
-  const { className, color, size, ...rest } = props;
+  const { className, color, shape, size, ...rest } = props;
 
-  const { control } = checkboxVariants({ color, size });
+  const { control } = checkboxVariants({ color, shape, size });
 
   const mergedCls = cn(control(), className);
 

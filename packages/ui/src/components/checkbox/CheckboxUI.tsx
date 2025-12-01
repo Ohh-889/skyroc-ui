@@ -9,7 +9,7 @@ import CheckboxRoot from './CheckboxRoot';
 import type { CheckboxProps } from './types';
 
 const CheckboxUI = forwardRef<HTMLDivElement, CheckboxProps>((props, ref) => {
-  const { children, className, classNames, forceMountIndicator, size, ...rest } = props;
+  const { children, className, classNames, forceMountIndicator, size, rootProps, controlProps, indicatorProps, ...rest } = props;
 
   const isIndeterminate = rest.checked === 'indeterminate';
 
@@ -17,15 +17,18 @@ const CheckboxUI = forwardRef<HTMLDivElement, CheckboxProps>((props, ref) => {
     <CheckboxRoot
       className={className || classNames?.root}
       ref={ref}
+      {...rootProps}
     >
       <CheckboxControl
         className={classNames?.control}
         size={size}
         {...rest}
+        {...controlProps}
       >
         <CheckboxIndicator
           className={classNames?.indicator}
           forceMount={forceMountIndicator}
+          {...indicatorProps}
         >
           {isIndeterminate ? <Minus className="size-full" /> : <Check className="size-full" />}
         </CheckboxIndicator>
