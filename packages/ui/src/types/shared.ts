@@ -26,6 +26,9 @@ export interface WithClassName {
   className?: ClassValue;
 }
 
+/** Props with value support */
+export type Value = string;
+
 /** HTML element tag types */
 export type HTMLTag
   = | 'a'

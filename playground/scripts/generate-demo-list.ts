@@ -8,7 +8,6 @@ interface ComponentDir {
 
 const root = process.cwd();
 
-
 const demoBasePath = path.join(
   root,
   'src/app/[locale]/(demo)'

@@ -1,8 +1,10 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, useId } from 'react';
 import { Check, Minus } from 'lucide-react';
+import { Slot } from '@radix-ui/react-slot';
 import { cn } from '@/lib/utils';
+import CheckboxLabel from '../label/Label';
 import { checkboxVariants } from './checkbox-variants';
 import CheckboxControl from './CheckboxControl';
 import CheckboxIndicator from './CheckboxIndicator';
@@ -14,12 +16,14 @@ const CheckboxCard = forwardRef<HTMLLabelElement, CheckboxCardProps>((props, ref
     checkboxPosition = 'left',
     className,
     classNames,
+    checkedIcon = <Check className="size-full" />,
+    indeterminateIcon = <Minus className="size-full" />,
     color,
     description,
     disabled,
     forceMountIndicator,
     icon,
-    id,
+    id: controlId,
     label,
     shape,
     size,
@@ -29,7 +33,30 @@ const CheckboxCard = forwardRef<HTMLLabelElement, CheckboxCardProps>((props, ref
   const isIndeterminate = checked === 'indeterminate';
   const isChecked = checked === true;
 
-  const { card, cardContent } = checkboxVariants({ color, shape, size });
+  const id = useId();
+
+  const { card, cardContent, cardLabel, cardDescription } = checkboxVariants({ color, shape, size });
+
+  const mergedCls = cn(
+    card(),
+    disabled && 'cursor-not-allowed opacity-50',
+    className || classNames?.card
+  );
+
+  const labelCls = cn(
+    cardLabel(),
+    classNames?.cardLabel
+  );
+
+  const descriptionCls = cn(
+    cardDescription(),
+    classNames?.cardDescription
+  );
+
+  const contentCls = cn(
+    cardContent(),
+    classNames?.cardContent
+  );
 
   const checkboxElement = (
     <CheckboxControl
@@ -37,7 +64,7 @@ const CheckboxCard = forwardRef<HTMLLabelElement, CheckboxCardProps>((props, ref
       className={classNames?.control}
       color={color}
       disabled={disabled}
-      id={id}
+      id={controlId || id}
       shape={shape}
       size={size}
       {...rest}
@@ -46,19 +73,20 @@ const CheckboxCard = forwardRef<HTMLLabelElement, CheckboxCardProps>((props, ref
         className={classNames?.indicator}
         forceMount={forceMountIndicator}
       >
-        {isIndeterminate ? <Minus className="size-full" /> : <Check className="size-full" />}
+        {isIndeterminate ? indeterminateIcon : checkedIcon}
       </CheckboxIndicator>
     </CheckboxControl>
   );
 
   const contentElement = (
-    <div className={cn(cardContent(), classNames?.cardContent)}>
-      {icon ? <span className="text-lg">{icon}</span> : null}
+    <div className={contentCls}>
+
+      {icon ? <Slot className="shrink-0 text-lg">{icon}</Slot> : null}
 
       <div className="flex flex-col gap-0.5">
         {label
           ? (
-            <span className="text-sm leading-none font-medium">
+            <span className={labelCls}>
               {label}
             </span>
           )
@@ -66,9 +94,9 @@ const CheckboxCard = forwardRef<HTMLLabelElement, CheckboxCardProps>((props, ref
 
         {description
           ? (
-            <span className="text-muted-foreground text-xs">
+            <p className={descriptionCls}>
               {description}
-            </span>
+            </p>
           )
           : null}
       </div>
@@ -76,20 +104,17 @@ const CheckboxCard = forwardRef<HTMLLabelElement, CheckboxCardProps>((props, ref
   );
 
   return (
-    <label
-      htmlFor={id}
+    <CheckboxLabel
+      className={mergedCls}
+      data-slot="checkbox-card"
+      data-state={isChecked ? 'checked' : isIndeterminate ? 'indeterminate' : 'unchecked'}
+      htmlFor={controlId || id}
       ref={ref}
-      className={cn(
-        card(),
-        (isChecked || isIndeterminate) && 'border-primary bg-primary/5',
-        disabled && 'cursor-not-allowed opacity-50',
-        className || classNames?.card
-      )}
     >
       {checkboxPosition === 'left' && checkboxElement}
       {contentElement}
       {checkboxPosition === 'right' && checkboxElement}
-    </label>
+    </CheckboxLabel>
   );
 });
 

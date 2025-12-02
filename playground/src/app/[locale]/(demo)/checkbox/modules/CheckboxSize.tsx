@@ -8,7 +8,6 @@ const CheckboxSize = () => {
       {sizes.map(size => (
         <Checkbox
           defaultChecked
-          id={`size-${size}`}
           key={size}
           size={size}
         >

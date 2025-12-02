@@ -13,6 +13,7 @@ const CheckboxRoot = React.forwardRef<HTMLDivElement, CheckboxRootProps>((props,
   return (
     <div
       className={mergedCls}
+      data-slot="checkbox-root"
       {...rest}
       ref={ref}
     />

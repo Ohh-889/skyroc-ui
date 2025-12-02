@@ -5,21 +5,20 @@ const CheckboxIndeterminate = () => {
     <div className="flex flex-wrap gap-[12px]">
       <Checkbox
         checked={false}
-        id="unchecked"
       >
         Unchecked
       </Checkbox>
 
       <Checkbox
         checked="indeterminate"
-        id="indeterminate"
+        shape="rounded"
       >
         Indeterminate
       </Checkbox>
 
       <Checkbox
         defaultChecked
-        id="checked"
+        shape="rounded"
       >
         Checked
       </Checkbox>

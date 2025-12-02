@@ -15,6 +15,7 @@ const CheckboxControl = React.forwardRef<ComponentRef<typeof Root>, CheckboxCont
   return (
     <Root
       className={mergedCls}
+      data-slot="checkbox-control"
       {...rest}
       ref={ref}
     />

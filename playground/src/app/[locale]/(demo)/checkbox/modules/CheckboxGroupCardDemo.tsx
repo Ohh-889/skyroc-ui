@@ -13,7 +13,7 @@ const items = [
 ];
 
 const CheckboxGroupCardDemo = () => {
-  const [value, setValue] = useState<string[]>(['apple', 'orange']);
+  const [value, setValue] = useState(['apple', 'orange']);
 
   const checkedState = useMemo<CheckedState>(() => {
     if (value.length === 0) {

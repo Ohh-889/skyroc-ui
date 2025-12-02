@@ -16,6 +16,7 @@ const CheckboxIndicator = React.forwardRef<ComponentRef<typeof Indicator>, Check
     return (
       <Indicator
         className={mergedCls}
+        data-slot="checkbox-indicator"
         {...rest}
         ref={ref}
       />

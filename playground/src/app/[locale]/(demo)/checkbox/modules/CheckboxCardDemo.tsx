@@ -17,7 +17,6 @@ const CheckboxCardDemo = () => {
         color="carbon"
         description="Enable color customization for your theme"
         icon={<Palette className="size-5" />}
-        id="checkbox-card-1"
         label="Color Scheme"
         onCheckedChange={setChecked1}
       />
@@ -27,7 +26,6 @@ const CheckboxCardDemo = () => {
         color="primary"
         description="Add beautiful animations and transitions"
         icon={<Sparkles className="size-5" />}
-        id="checkbox-card-2"
         label="Animations"
         onCheckedChange={setChecked2}
       />
@@ -37,7 +35,6 @@ const CheckboxCardDemo = () => {
         color="warning"
         description="Optimize for faster load times"
         icon={<Zap className="size-5" />}
-        id="checkbox-card-3"
         label="Performance Mode"
         onCheckedChange={setChecked3}
       />

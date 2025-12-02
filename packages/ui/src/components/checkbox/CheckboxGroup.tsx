@@ -1,11 +1,13 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { cn } from '@/lib/utils';
+import type { Value } from '@/types/shared';
 import Checkbox from './Checkbox';
-import { checkboxVariants } from './checkbox-variants';
 import { CheckboxGroupProvider } from './CheckboxGroupContext';
 import type { CheckboxGroupProps } from './types';
+import { checkboxVariants } from './checkbox-variants';
 
 const CheckboxGroup = (props: CheckboxGroupProps) => {
   const {
@@ -14,23 +16,32 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
     color,
     defaultValue,
     disabled,
+    checkedIcon,
     items,
     onValueChange,
     orientation = 'horizontal',
     size,
     value: controlledValue,
-    ...rest
+    indeterminateIcon
   } = props;
 
-  const [uncontrolledValue, setUncontrolledValue] = useState<string[]>(defaultValue || []);
+  const [uncontrolledValue, setUncontrolledValue] = useControllableState({
+    caller: 'checkbox-group',
+    defaultProp: defaultValue || [],
+    onChange: onValueChange,
+    prop: controlledValue
+  });
 
   const isControlled = controlledValue !== undefined;
+
+  const { groupRoot } = checkboxVariants({ orientation, size });
+
+  const mergedCls = cn(groupRoot(), className || classNames?.groupRoot);
+
   const value = isControlled ? controlledValue : uncontrolledValue;
 
-  const variants = useMemo(() => checkboxVariants({ orientation, size }), [orientation, size]);
-
   const handleValueChange = useCallback(
-    (itemValue: string, checked: boolean) => {
+    (itemValue: Value, checked: boolean) => {
       const newValue = checked
         ? [...value, itemValue]
         : value.filter(v => v !== itemValue);
@@ -41,7 +52,7 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
 
       onValueChange?.(newValue);
     },
-    [value, isControlled, onValueChange]
+    [value, isControlled, onValueChange, setUncontrolledValue]
   );
 
   const contextValue = useMemo(
@@ -50,32 +61,30 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
       disabled,
       onValueChange: handleValueChange,
       size,
-      value,
-      variants
+      value
     }),
-    [color, disabled, handleValueChange, size, value, variants]
+    [color, disabled, handleValueChange, size, value]
   );
-
-  const { groupRoot } = variants;
 
   return (
     <CheckboxGroupProvider value={contextValue}>
       <div
-        className={cn(groupRoot(), className || classNames?.groupRoot)}
+        className={mergedCls}
+        data-slot="checkbox-group"
         role="group"
-        {...rest}
       >
         {items.map((item) => {
-          const isChecked = value.includes(item.value);
+          const isChecked = value.includes(item.value || '');
           const isDisabled = disabled || item.disabled;
 
           return (
             <Checkbox
               checked={isChecked}
+              checkedIcon={checkedIcon}
               classNames={classNames}
               color={color}
               disabled={isDisabled}
-              id={item.id || item.value}
+              indeterminateIcon={indeterminateIcon}
               key={item.value}
               size={size}
               onCheckedChange={(checked) => {
@@ -83,6 +92,7 @@ const CheckboxGroup = (props: CheckboxGroupProps) => {
                   handleValueChange(item.value, checked);
                 }
               }}
+              {...item}
             >
               {item.label}
             </Checkbox>

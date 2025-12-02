@@ -4,10 +4,9 @@ import type {
   CheckboxProps as _CheckboxRootProps,
   CheckedState as _CheckedState
 } from '@radix-ui/react-checkbox';
-import type { HTMLComponentProps, StyledComponentProps, ClassValue, ThemeColor } from '@/types/shared';
+import type { HTMLComponentProps, StyledComponentProps, ClassValue, ThemeColor, Value, ThemeSize } from '@/types/shared';
 import type { CheckboxSlots, checkboxVariants } from './checkbox-variants';
 
-type CheckboxSize = NonNullable<Parameters<typeof checkboxVariants>[0]>['size'];
 type CheckboxOrientation = NonNullable<Parameters<typeof checkboxVariants>[0]>['orientation'];
 type CheckboxShape = NonNullable<Parameters<typeof checkboxVariants>[0]>['shape'];
 
@@ -67,6 +66,8 @@ export interface CheckboxRootProps extends HTMLComponentProps<'div'> {}
  *   color="blue"
  *   classNames={{ control: 'w-5 h-5' }}
  *   forceMountIndicator
+ *   checkedIcon={<CustomCheckIcon />}
+ *   indeterminateIcon={<CustomMinusIcon />}
  * />
  * ```
  */
@@ -87,37 +88,42 @@ export interface CheckboxProps extends CheckboxControlProps {
    */
   rootProps?: CheckboxRootProps;
   /**
-   * Props for the checkbox control component.
-   */
-  controlProps?: CheckboxControlProps;
-  /**
    * Props for the checkbox indicator component.
    */
   indicatorProps?: CheckboxIndicatorProps;
+  /**
+   * Custom icon to display when checkbox is checked.
+   * Defaults to a check mark icon.
+   */
+  checkedIcon?: ReactNode;
+  /**
+   * Custom icon to display when checkbox is in indeterminate state.
+   * Defaults to a minus/dash icon.
+   */
+  indeterminateIcon?: ReactNode;
 }
 
-/**
- * Item configuration for CheckboxGroup.
- * Defines the value, label and optional properties for each checkbox in a group.
- */
-export interface CheckboxGroupItem {
+export interface CheckboxGroupContextValue extends Pick<CheckboxProps, 'color' | 'disabled' | 'size' | 'checkedIcon' | 'indeterminateIcon'> {
   /**
-   * Unique value identifier for this checkbox item.
+   * The current selected values in the group.
    */
-  value: string;
+  value: Value[];
   /**
-   * Label text or element displayed next to the checkbox.
+   * Callback when a checkbox item is toggled.
    */
-  label?: ReactNode;
-  /**
-   * Whether this specific checkbox item is disabled.
-   */
-  disabled?: boolean;
-  /**
-   * Optional ID for the checkbox input element.
-   */
-  id?: string;
+  onValueChange: (value: Value, checked: boolean) => void;
 }
+
+export type CheckboxItemProps = Omit<CheckboxProps, 'children' | 'value'> & {
+  /**
+   * Label of the checkbox item.
+   */
+  label: ReactNode;
+  /**
+   * Value of the checkbox item.
+   */
+  value: Value;
+};
 
 /**
  * Props for the CheckboxGroup component.
@@ -135,51 +141,44 @@ export interface CheckboxGroupItem {
  * />
  * ```
  */
-export interface CheckboxGroupProps extends HTMLComponentProps<'div'> {
+export interface CheckboxGroupProps extends Pick<CheckboxItemProps, 'color' | 'checkedIcon' | 'indeterminateIcon' | 'classNames' | 'disabled'> {
   /**
-   * Class names for customizing different parts of the checkbox group.
+   * CSS class name for the checkbox group.
    */
-  classNames?: CheckboxUi;
+  className?: ClassValue;
   /**
-   * Theme color applied to all checkboxes in the group.
+   * Component size variant.
    */
-  color?: ThemeColor;
+  size?: ThemeSize;
+
   /**
    * Array of checkbox items to render in the group.
    */
-  items: CheckboxGroupItem[];
-  /**
-   * The controlled selected values.
-   */
-  value?: string[];
+  items: CheckboxItemProps[];
   /**
    * The default selected values (uncontrolled).
    */
-  defaultValue?: string[];
+  defaultValue?: Value[];
   /**
-   * Callback fired when the selected values change.
+   * The controlled selected values.
    */
-  onValueChange?: (value: string[]) => void;
+  value?: Value[];
   /**
-   * Whether all checkboxes in the group are disabled.
+   * Callback when the selected values change.
    */
-  disabled?: boolean;
+  onValueChange?: (value: Value[]) => void;
   /**
    * Layout orientation of the checkbox group.
    * @default 'horizontal'
    */
   orientation?: CheckboxOrientation;
-  /**
-   * Size of all checkboxes in the group.
-   */
-  size?: CheckboxSize;
 }
 
 /**
  * Item configuration for CheckboxGroupCard.
  * Extends CheckboxGroupItem with icon for card display.
  */
-export interface CheckboxGroupCardItem extends CheckboxGroupItem {
+export interface CheckboxGroupCardItem extends CheckboxItemProps {
   /**
    * Icon to display on the card.
    */
@@ -234,6 +233,16 @@ export interface CheckboxGroupCardProps extends Omit<CheckboxGroupProps, 'items'
  * ```
  */
 export interface CheckboxCardProps extends CheckboxControlProps {
+  /**
+   * Custom icon to display when checkbox is checked.
+   * Defaults to a check mark icon.
+   */
+  checkedIcon?: ReactNode;
+  /**
+   * Custom icon to display when checkbox is in indeterminate state.
+   * Defaults to a minus/dash icon.
+   */
+  indeterminateIcon?: ReactNode;
   /**
    * Custom class names for different checkbox card UI slots.
    */

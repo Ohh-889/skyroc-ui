@@ -1,13 +1,12 @@
 'use client';
 
-import { useCallback, useMemo, useState } from 'react';
-import { Check, Minus } from 'lucide-react';
+import { useCallback, useMemo } from 'react';
+import { useControllableState } from '@radix-ui/react-use-controllable-state';
 import { cn } from '@/lib/utils';
-import CheckboxControl from './CheckboxControl';
-import CheckboxIndicator from './CheckboxIndicator';
 import { checkboxVariants } from './checkbox-variants';
 import { CheckboxGroupProvider } from './CheckboxGroupContext';
 import type { CheckboxGroupCardProps } from './types';
+import CheckboxCard from './CheckboxCard';
 
 const CheckboxGroupCard = (props: CheckboxGroupCardProps) => {
   const {
@@ -18,20 +17,32 @@ const CheckboxGroupCard = (props: CheckboxGroupCardProps) => {
     defaultValue,
     disabled,
     items,
+    checkedIcon,
+    indeterminateIcon,
     onValueChange,
     orientation = 'horizontal',
     shape = 'rounded',
     size,
-    value: controlledValue,
-    ...rest
+    value: controlledValue
   } = props;
 
-  const [uncontrolledValue, setUncontrolledValue] = useState<string[]>(defaultValue || []);
+  const [uncontrolledValue, setUncontrolledValue] = useControllableState({
+    caller: 'checkbox-group-card',
+    defaultProp: defaultValue || [],
+    onChange: onValueChange,
+    prop: controlledValue
+  });
 
   const isControlled = controlledValue !== undefined;
+
   const value = isControlled ? controlledValue : uncontrolledValue;
 
-  const variants = useMemo(() => checkboxVariants({ color, orientation, shape, size }), [color, orientation, shape, size]);
+  const { groupRoot } = checkboxVariants({ orientation, size });
+
+  const mergedCls = cn(
+    groupRoot(),
+    className || classNames?.groupRoot
+  );
 
   const handleValueChange = useCallback(
     (itemValue: string, checked: boolean) => {
@@ -45,7 +56,7 @@ const CheckboxGroupCard = (props: CheckboxGroupCardProps) => {
 
       onValueChange?.(newValue);
     },
-    [value, isControlled, onValueChange]
+    [value, isControlled, onValueChange, setUncontrolledValue]
   );
 
   const contextValue = useMemo(
@@ -54,32 +65,31 @@ const CheckboxGroupCard = (props: CheckboxGroupCardProps) => {
       disabled,
       onValueChange: handleValueChange,
       size,
-      value,
-      variants
+      value
     }),
-    [color, disabled, handleValueChange, size, value, variants]
+    [color, disabled, handleValueChange, size, value]
   );
-
-  const { card, cardContent, groupRoot } = variants;
 
   return (
     <CheckboxGroupProvider value={contextValue}>
       <div
-        className={cn(groupRoot(), className || classNames?.groupRoot)}
+        className={mergedCls}
+        data-slot="checkbox-group-card"
         role="group"
-        {...rest}
       >
         {items.map((item) => {
           const isChecked = value.includes(item.value);
           const isDisabled = disabled || item.disabled;
 
-          const checkboxElement = (
-            <CheckboxControl
+          return (
+            <CheckboxCard
+              checkboxPosition={checkboxPosition}
               checked={isChecked}
-              className={classNames?.control}
+              checkedIcon={checkedIcon}
               color={color}
               disabled={isDisabled}
-              id={item.id || item.value}
+              indeterminateIcon={indeterminateIcon}
+              key={item.value}
               shape={shape}
               size={size}
               onCheckedChange={(checked) => {
@@ -87,42 +97,8 @@ const CheckboxGroupCard = (props: CheckboxGroupCardProps) => {
                   handleValueChange(item.value, checked);
                 }
               }}
-            >
-              <CheckboxIndicator className={classNames?.indicator}>
-                {isChecked ? <Check className="size-full" /> : <Minus className="size-full" />}
-              </CheckboxIndicator>
-            </CheckboxControl>
-          );
-
-          const contentElement = (
-            <div className={cn(cardContent(), classNames?.cardContent)}>
-              {item.icon ? <span className="text-lg">{item.icon}</span> : null}
-
-              {item.label
-                ? (
-                  <span className="text-sm leading-none font-medium">
-                    {item.label}
-                  </span>
-                )
-                : null}
-            </div>
-          );
-
-          return (
-            <label
-              htmlFor={item.id || item.value}
-              key={item.value}
-              className={cn(
-                card(),
-                isChecked && 'border-primary bg-primary/5',
-                isDisabled && 'cursor-not-allowed opacity-50',
-                classNames?.card
-              )}
-            >
-              {checkboxPosition === 'left' && checkboxElement}
-              {contentElement}
-              {checkboxPosition === 'right' && checkboxElement}
-            </label>
+              {...item}
+            />
           );
         })}
       </div>

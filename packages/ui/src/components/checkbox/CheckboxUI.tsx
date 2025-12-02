@@ -1,6 +1,6 @@
 'use client';
 
-import { forwardRef } from 'react';
+import { forwardRef, useId } from 'react';
 import { Check, Minus } from 'lucide-react';
 import CheckboxLabel from '../label/Label';
 import CheckboxControl from './CheckboxControl';
@@ -9,9 +9,24 @@ import CheckboxRoot from './CheckboxRoot';
 import type { CheckboxProps } from './types';
 
 const CheckboxUI = forwardRef<HTMLDivElement, CheckboxProps>((props, ref) => {
-  const { children, className, classNames, forceMountIndicator, size, rootProps, controlProps, indicatorProps, ...rest } = props;
+  const {
+    children,
+    className,
+    classNames,
+    forceMountIndicator,
+    size,
+    rootProps,
+    indicatorProps,
+    checkedIcon = <Check className="size-full" />,
+    indeterminateIcon = <Minus className="size-full" />,
+    ...rest
+  } = props;
 
   const isIndeterminate = rest.checked === 'indeterminate';
+
+  const id = useId();
+
+  const controlId = `${id}-control`;
 
   return (
     <CheckboxRoot
@@ -21,16 +36,18 @@ const CheckboxUI = forwardRef<HTMLDivElement, CheckboxProps>((props, ref) => {
     >
       <CheckboxControl
         className={classNames?.control}
+        id={controlId}
         size={size}
         {...rest}
-        {...controlProps}
       >
         <CheckboxIndicator
           className={classNames?.indicator}
           forceMount={forceMountIndicator}
           {...indicatorProps}
         >
-          {isIndeterminate ? <Minus className="size-full" /> : <Check className="size-full" />}
+          {isIndeterminate
+            ? indeterminateIcon
+            : checkedIcon}
         </CheckboxIndicator>
       </CheckboxControl>
 
@@ -38,7 +55,7 @@ const CheckboxUI = forwardRef<HTMLDivElement, CheckboxProps>((props, ref) => {
         ? (
           <CheckboxLabel
             className={classNames?.label}
-            htmlFor={rest.id}
+            htmlFor={controlId || rest.id}
           >
             {children}
           </CheckboxLabel>

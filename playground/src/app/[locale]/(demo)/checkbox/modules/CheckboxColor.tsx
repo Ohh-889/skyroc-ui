@@ -9,7 +9,6 @@ const CheckboxColor = () => {
         <Checkbox
           defaultChecked
           color={color}
-          id={`color-${color}`}
           key={color}
         >
           {color}
