@@ -17,7 +17,7 @@ const BreadcrumbEllipsis = (props: BreadcrumbEllipsisProps) => {
       role="presentation"
       {...rest}
     >
-      {children || <Ellipsis />}
+      {children || <Ellipsis className="cursor-pointer" />}
       <span className="sr-only">More</span>
     </span>
   );
