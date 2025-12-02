@@ -5,6 +5,7 @@ import { Heart } from 'lucide-react';
 const AlertDialogCustomIcon = () => {
   return (
     <AlertDialog
+      description="You can customize the icon displayed in the dialog"
       icon={<Heart className="text-destructive" />}
       title="Custom Icon"
       trigger={(
@@ -17,9 +18,7 @@ const AlertDialogCustomIcon = () => {
       )}
       onCancel={() => console.log('cancel')}
       onOk={() => console.log('ok')}
-    >
-      You can customize the icon displayed in the dialog
-    </AlertDialog>
+    />
   );
 };
 

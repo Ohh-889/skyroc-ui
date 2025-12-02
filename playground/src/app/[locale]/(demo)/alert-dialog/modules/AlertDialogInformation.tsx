@@ -4,6 +4,7 @@ import { AlertDialog, Button } from 'skyroc-ui';
 const AlertDialogInformation = () => {
   return (
     <AlertDialog
+      description="Here is some information for you"
       showCancel={false}
       title="Information"
       type="info"
@@ -15,9 +16,7 @@ const AlertDialogInformation = () => {
           Show Dialog
         </Button>
       )}
-    >
-      Here is some information for you
-    </AlertDialog>
+    />
   );
 };
 

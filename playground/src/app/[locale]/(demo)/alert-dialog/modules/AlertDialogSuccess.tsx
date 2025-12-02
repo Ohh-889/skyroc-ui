@@ -4,6 +4,7 @@ import { AlertDialog, Button } from 'skyroc-ui';
 const AlertDialogSuccess = () => {
   return (
     <AlertDialog
+      description="You have successfully completed the task"
       showCancel={false}
       title="Congratulations"
       type="success"
@@ -15,9 +16,7 @@ const AlertDialogSuccess = () => {
           Show Dialog
         </Button>
       )}
-    >
-      You have successfully completed the task
-    </AlertDialog>
+    />
   );
 };
 

@@ -39,6 +39,7 @@ const AlertDialogUI = forwardRef<ComponentRef<typeof Content>, AlertDialogProps>
     showCancel = true,
     size,
     title,
+    description,
     trigger,
     type,
     overlayProps,
@@ -87,10 +88,12 @@ const AlertDialogUI = forwardRef<ComponentRef<typeof Content>, AlertDialogProps>
               size={size}
               {...descriptionProps}
             >
-              {children}
+              {description}
             </AlertDialogDescription>
 
           </AlertDialogHeader>
+
+          {children}
 
           {footer !== null && (
             <AlertDialogFooter

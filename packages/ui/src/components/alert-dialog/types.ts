@@ -99,6 +99,10 @@ export type AlertDialogProps = StyledComponentProps<_AlertDialogProps>
      */
     disabledPortal?: boolean;
     /**
+     * Description text displayed in the alert dialog.
+     */
+    description: string;
+    /**
      * Content to display in the footer section (typically action buttons).
      * Set to `null` to hide the default footer buttons.
      * Set to a React node to render custom footer content.

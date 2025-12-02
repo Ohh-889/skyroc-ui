@@ -4,6 +4,7 @@ import { AlertDialog, Button } from 'skyroc-ui';
 const AlertDialogWarning = () => {
   return (
     <AlertDialog
+      description="Be careful with this action"
       title="Warning"
       type="warning"
       trigger={(
@@ -14,9 +15,7 @@ const AlertDialogWarning = () => {
           Show Dialog
         </Button>
       )}
-    >
-      Be careful with this action
-    </AlertDialog>
+    />
   );
 };
 
