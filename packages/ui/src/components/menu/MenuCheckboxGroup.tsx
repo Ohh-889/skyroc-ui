@@ -59,17 +59,17 @@ const MenuCheckboxGroup = forwardRef<ComponentRef<typeof _Group>, MenuCheckboxGr
           <MenuCheckboxItem
             key={String(index)}
             {...item}
-            checked={item.checked || checks?.includes(item?.textValue || '')}
+            checked={item.checked || checks?.includes(item?.value || '')}
             classNames={classNames}
             size={size}
             onCheckedChange={(checked) => {
               item.onCheckedChange?.(checked);
 
               if (checked) {
-                onChecksChange?.([...(checks || []), item?.textValue || '']);
+                onChecksChange?.([...(checks || []), item?.value || '']);
               }
               else {
-                onChecksChange?.([...(checks || []).filter(check => check !== item?.textValue)]);
+                onChecksChange?.([...(checks || []).filter(check => check !== item?.value)]);
               }
             }}
           >
