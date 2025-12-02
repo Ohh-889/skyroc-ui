@@ -15,6 +15,7 @@ const AvatarFallback = forwardRef<ComponentRef<typeof Fallback>, AvatarFallbackP
   return (
     <Fallback
       className={mergedCls}
+      data-slot="avatar-fallback"
       ref={ref}
       {...rest}
     />

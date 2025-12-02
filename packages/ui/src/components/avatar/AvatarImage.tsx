@@ -15,6 +15,7 @@ const AvatarImage = forwardRef<ComponentRef<typeof Image>, AvatarImageProps>((pr
   return (
     <Image
       className={mergedCls}
+      data-slot="avatar-image"
       ref={ref}
       {...rest}
     />

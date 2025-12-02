@@ -15,6 +15,7 @@ const AvatarRoot = forwardRef<ComponentRef<typeof Root>, AvatarRootProps>((props
   return (
     <Root
       className={mergedCls}
+      data-slot="avatar-root"
       ref={ref}
       {...rest}
     />
