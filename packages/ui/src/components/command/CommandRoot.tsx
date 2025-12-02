@@ -13,10 +13,10 @@ const CommandRoot = forwardRef<ComponentRef<typeof _CommandRoot>, CommandRootPro
   const mergedClass = cn(root(), className);
   return (
     <_CommandRoot
-      {...rest}
       className={mergedClass}
       data-slot="command-root"
       ref={ref}
+      {...rest}
     />
   );
 });

@@ -12,9 +12,9 @@ const CommandSeparator = (props: CommandSeparatorProps) => {
 
   return (
     <_CommandSeparator
-      {...rest}
       className={mergedClass}
       data-slot="command-separator"
+      {...rest}
     />
   );
 };

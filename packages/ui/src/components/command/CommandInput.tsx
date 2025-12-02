@@ -23,9 +23,9 @@ const CommandInput = (props: CommandInputProps) => {
       )}
 
       <_CommandInput
-        {...rest}
         className={mergedClass}
         data-slot="command-input"
+        {...rest}
       />
 
       {trailing}

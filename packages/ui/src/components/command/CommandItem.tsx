@@ -15,9 +15,9 @@ const CommandItem = (props: CommandItemProps) => {
 
   return (
     <_CommandItem
-      {...rest}
       className={mergedClass}
       data-slot="command-item"
+      {...rest}
     >
       {isValidElement(leading) ? withClassName(leading, itemIcon()) : leading}
       {children}

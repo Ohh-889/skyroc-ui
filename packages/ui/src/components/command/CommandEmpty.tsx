@@ -11,9 +11,9 @@ const CommandEmpty = (props: CommandEmptyProps) => {
   const mergedClass = cn(empty(), className);
   return (
     <_CommandEmpty
-      {...rest}
       className={mergedClass}
       data-slot="command-empty"
+      {...rest}
     />
   );
 };

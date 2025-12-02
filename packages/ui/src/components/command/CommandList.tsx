@@ -11,9 +11,9 @@ const CommandList = (props: CommandListProps) => {
   const mergedClass = cn(list(), className);
   return (
     <_CommandList
-      {...rest}
       className={mergedClass}
       data-slot="command-list"
+      {...rest}
     />
   );
 };

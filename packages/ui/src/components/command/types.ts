@@ -235,10 +235,10 @@ export interface CommandProps extends CommandRootProps {
  * ```
  */
 export interface CommandDialogProps
-  extends Omit<DialogProps, 'classNames' | 'description' | 'footer' | 'title' | 'trigger'> {
+  extends Omit<DialogProps, 'classNames' | 'footer' | 'trigger'> {
   /**
    * Custom class names for dialog-related slots.
    * Limited to overlay, content, and close button styling.
    */
-  classNames?: Pick<DialogClassNames, 'close' | 'content' | 'overlay'>;
+  classNames?: Pick<DialogClassNames, 'close' | 'content' | 'description' | 'header' | 'overlay' | 'title'>;
 }

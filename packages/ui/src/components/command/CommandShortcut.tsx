@@ -13,9 +13,9 @@ const CommandShortcut = (props: CommandShortcutProps) => {
 
   return (
     <div
-      {...rest}
       className={mergedClass}
       data-slot="command-shortcut"
+      {...rest}
     >
       {children || (
         <KeyboardKey
