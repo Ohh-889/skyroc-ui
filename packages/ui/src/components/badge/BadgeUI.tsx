@@ -11,6 +11,7 @@ const BadgeUI = (props: BadgeProps) => {
     <div
       {...rest}
       className={mergedCls}
+      data-slot="badge"
     />
   );
 };

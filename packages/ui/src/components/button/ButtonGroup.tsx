@@ -11,6 +11,8 @@ const ButtonGroup = forwardRef<HTMLDivElement, ButtonGroupProps>((props, ref) =>
   return (
     <div
       className={mergedCls}
+      data-slot="button-group"
+      role="group"
       {...rest}
       ref={ref}
     >
