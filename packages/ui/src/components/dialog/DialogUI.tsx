@@ -3,7 +3,8 @@
 import type { ComponentRef } from 'react';
 import { forwardRef } from 'react';
 import type { Content } from '@radix-ui/react-dialog';
-import { Portal, Root, Trigger } from '@radix-ui/react-dialog';
+import { Close, Portal, Root, Trigger } from '@radix-ui/react-dialog';
+import DialogAction from './DialogAction';
 import DialogClose from './DialogClose';
 import DialogContent from './DialogContent';
 import DialogDescription from './DialogDescription';
@@ -24,12 +25,23 @@ const DialogUI = forwardRef<ComponentRef<typeof Content>, DialogProps>((props, r
     description,
     footer,
     modal,
+    okText = 'OK',
+    okButtonProps,
+    onOk,
     onOpenChange,
     open,
     size,
     title,
-    trigger
+    trigger,
+    overlayProps,
+    headerProps,
+    titleProps,
+    descriptionProps,
+    closeProps,
+    footerProps
   } = props;
+
+  console.log('footer', footer);
 
   return (
     <Root
@@ -47,7 +59,10 @@ const DialogUI = forwardRef<ComponentRef<typeof Content>, DialogProps>((props, r
       </Trigger>
 
       <Portal data-slot="dialog-portal">
-        <DialogOverlay className={classNames?.overlay} />
+        <DialogOverlay
+          className={classNames?.overlay}
+          {...overlayProps}
+        />
 
         <ContentComponent
           {...contentProps}
@@ -58,10 +73,12 @@ const DialogUI = forwardRef<ComponentRef<typeof Content>, DialogProps>((props, r
           <DialogHeader
             className={classNames?.header}
             size={size}
+            {...headerProps}
           >
             <DialogTitle
               className={classNames?.title}
               size={size}
+              {...titleProps}
             >
               {title}
             </DialogTitle>
@@ -71,6 +88,7 @@ const DialogUI = forwardRef<ComponentRef<typeof Content>, DialogProps>((props, r
                 <DialogDescription
                   className={classNames?.description}
                   size={size}
+                  {...descriptionProps}
                 >
                   {description}
                 </DialogDescription>
@@ -80,24 +98,29 @@ const DialogUI = forwardRef<ComponentRef<typeof Content>, DialogProps>((props, r
 
           <DialogClose
             className={classNames?.close}
+            component={Close}
             size={size}
-            onClick={() => {
-              onOpenChange?.(false);
-            }}
+            {...closeProps}
           />
 
           {children}
 
-          {footer
-            ? (
-              <DialogFooter
-                className={classNames?.footer}
-                size={size}
-              >
-                {footer}
-              </DialogFooter>
-            )
-            : null}
+          {footer !== null && footer !== false && (
+            <DialogFooter
+              className={classNames?.footer}
+              size={size}
+              {...footerProps}
+            >
+              {footer || (
+                <DialogAction
+                  onClick={onOk}
+                  {...okButtonProps}
+                >
+                  {okText}
+                </DialogAction>
+              )}
+            </DialogFooter>
+          )}
         </ContentComponent>
       </Portal>
     </Root>

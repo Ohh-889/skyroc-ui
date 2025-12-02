@@ -1,15 +1,15 @@
-import type { ComponentType } from 'react';
+import type { ComponentPropsWithoutRef, ComponentType } from 'react';
 import type {
   DialogCloseProps as _DialogCloseProps,
   DialogContentProps as _DialogContentProps,
   DialogDescriptionProps as _DialogDescriptionProps,
   DialogOverlayProps as _DialogOverlayProps,
-
   DialogPortalProps,
   DialogProps as _DialogProps,
   DialogTitleProps as _DialogTitleProps
 } from '@radix-ui/react-dialog';
-import type { HTMLComponentProps, StyledComponentProps, ClassValue } from '@/types/shared';
+import type { StyledComponentProps, ClassValue } from '@/types/shared';
+import type { ButtonProps } from '../button';
 import type { DialogSlots } from './dialog-variants';
 
 /**
@@ -71,7 +71,7 @@ export interface DialogDescriptionProps extends StyledComponentProps<_DialogDesc
  * </DialogFooter>
  * ```
  */
-export interface DialogFooterProps extends HTMLComponentProps<'footer'> {}
+export interface DialogFooterProps extends StyledComponentProps<ComponentPropsWithoutRef<'footer'>> {}
 
 /**
  * Props for the dialog header component.
@@ -85,7 +85,7 @@ export interface DialogFooterProps extends HTMLComponentProps<'footer'> {}
  * </DialogHeader>
  * ```
  */
-export interface DialogHeaderProps extends HTMLComponentProps<'header'> {}
+export interface DialogHeaderProps extends StyledComponentProps<ComponentPropsWithoutRef<'header'>> {}
 
 /**
  * Props for the dialog overlay component.
@@ -123,12 +123,8 @@ export interface DialogTitleProps extends StyledComponentProps<_DialogTitleProps
  *   trigger={<Button>Open Dialog</Button>}
  *   title="Confirm Action"
  *   description="Are you sure you want to delete?"
- *   footer={
- *     <div>
- *       <Button>Cancel</Button>
- *       <Button>Delete</Button>
- *     </div>
- *   }
+ *   okText="Confirm"
+ *   onOk={() => console.log('confirmed')}
  * >
  *   <p>This action cannot be undone.</p>
  * </Dialog>
@@ -160,8 +156,9 @@ export interface DialogProps<T extends DialogContentProps = DialogContentProps> 
   /**
    * Footer content, typically containing action buttons.
    * Appears at the bottom of the dialog.
+   * Set to `null` to hide the default footer.
    */
-  footer?: React.ReactNode;
+  footer?: React.ReactNode | null | false;
 
   /**
    * Title text displayed at the top of the dialog.
@@ -174,6 +171,46 @@ export interface DialogProps<T extends DialogContentProps = DialogContentProps> 
    * Typically a button, but can be any interactive element.
    */
   trigger?: React.ReactNode;
+
+  /**
+   * Text of the OK button. Default is "OK".
+   */
+  okText?: React.ReactNode;
+
+  /**
+   * Props for the OK button.
+   */
+  okButtonProps?: ButtonProps;
+
+  /**
+   * Callback when OK button is clicked.
+   */
+  onOk?: (e: React.MouseEvent<HTMLButtonElement>) => void;
+
+  /**
+   * Props for the dialog overlay component.
+   */
+  overlayProps?: DialogOverlayProps;
+  /**
+   * Props for the dialog header component.
+   */
+  headerProps?: DialogHeaderProps;
+  /**
+   * Props for the dialog title component.
+   */
+  titleProps?: DialogTitleProps;
+  /**
+   * Props for the dialog description component.
+   */
+  descriptionProps?: DialogDescriptionProps;
+  /**
+   * Props for the dialog close button component.
+   */
+  closeProps?: DialogCloseProps;
+  /**
+   * Props for the dialog footer component.
+   */
+  footerProps?: DialogFooterProps;
 }
 
 export { DialogPortalProps };

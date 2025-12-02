@@ -13,10 +13,10 @@ const DialogContent = forwardRef<ComponentRef<typeof _Content>, DialogContentPro
   const mergedClass = cn(content(), className);
   return (
     <Content
-      {...rest}
       className={mergedClass}
       data-slot="dialog-content"
       ref={ref}
+      {...rest}
     />
   );
 });

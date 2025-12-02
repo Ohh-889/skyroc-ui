@@ -3,7 +3,7 @@ import { cn } from '@/lib/utils';
 import { dialogVariants } from './dialog-variants';
 import type { DialogHeaderProps } from './types';
 
-const DialogHeader = forwardRef<HTMLDivElement, DialogHeaderProps>((props, ref) => {
+const DialogHeader = forwardRef<HTMLHeadingElement, DialogHeaderProps>((props, ref) => {
   const { className, size, ...rest } = props;
 
   const { header } = dialogVariants({ size });

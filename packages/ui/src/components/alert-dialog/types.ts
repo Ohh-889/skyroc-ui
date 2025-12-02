@@ -107,7 +107,7 @@ export type AlertDialogProps = StyledComponentProps<_AlertDialogProps>
      * Set to `null` to hide the default footer buttons.
      * Set to a React node to render custom footer content.
      */
-    footer?: React.ReactNode | null;
+    footer?: React.ReactNode | null | false;
     /**
      * Force mount the overlay element even when not visible.
      */

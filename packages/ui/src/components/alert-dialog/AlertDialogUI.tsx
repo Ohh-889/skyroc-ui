@@ -1,5 +1,5 @@
 import type { ComponentRef } from 'react';
-import { forwardRef, isValidElement } from 'react';
+import { forwardRef } from 'react';
 import type { Content } from '@radix-ui/react-alert-dialog';
 import { AlertDialog as AlertDialogRoot, Portal, Trigger } from '@radix-ui/react-alert-dialog';
 import { Slot } from '@radix-ui/react-slot';
@@ -95,35 +95,33 @@ const AlertDialogUI = forwardRef<ComponentRef<typeof Content>, AlertDialogProps>
 
           {children}
 
-          {footer !== null && (
+          {footer !== null && footer !== false && (
             <AlertDialogFooter
               className={classNames?.footer}
               size={size}
               {...footerProps}
             >
-              {isValidElement(footer)
-                ? footer
-                : (
-                  <>
-                    {showCancel
-                      ? (
-                        <AlertDialogCancel
-                          onClick={onCancel}
-                          {...cancelButtonProps}
-                        >
-                          {cancelText}
-                        </AlertDialogCancel>
-                      )
-                      : null}
+              {footer || (
+                <>
+                  {showCancel
+                    ? (
+                      <AlertDialogCancel
+                        onClick={onCancel}
+                        {...cancelButtonProps}
+                      >
+                        {cancelText}
+                      </AlertDialogCancel>
+                    )
+                    : null}
 
-                    <AlertDialogAction
-                      onClick={onOk}
-                      {...okButtonProps}
-                    >
-                      {okText}
-                    </AlertDialogAction>
-                  </>
-                )}
+                  <AlertDialogAction
+                    onClick={onOk}
+                    {...okButtonProps}
+                  >
+                    {okText}
+                  </AlertDialogAction>
+                </>
+              )}
             </AlertDialogFooter>
           )}
         </AlertDialogContent>
