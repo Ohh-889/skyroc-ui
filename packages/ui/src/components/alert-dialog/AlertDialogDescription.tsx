@@ -14,9 +14,9 @@ const AlertDialogDescription = forwardRef<ComponentRef<typeof Description>, Aler
     const mergedClass = cn(description(), className);
     return (
       <Description
+        className={mergedClass}
         data-slot="alert-dialog-description"
         {...rest}
-        className={mergedClass}
         ref={ref}
       />
     );

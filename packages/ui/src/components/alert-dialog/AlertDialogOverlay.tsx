@@ -13,9 +13,9 @@ const AlertDialogOverlay = forwardRef<ComponentRef<typeof Overlay>, AlertDialogO
   const mergedClass = cn(overlay(), className);
   return (
     <Overlay
+      className={mergedClass}
       data-slot="alert-dialog-overlay"
       {...rest}
-      className={mergedClass}
       ref={ref}
     />
   );

@@ -13,8 +13,8 @@ const AlertWrapper = forwardRef<HTMLDivElement, AlertWrapperProps>((props, ref) 
   return (
     <div
       className={mergedCls}
-      {...rest}
       data-slot="alert-wrapper"
+      {...rest}
       ref={ref}
     />
   );

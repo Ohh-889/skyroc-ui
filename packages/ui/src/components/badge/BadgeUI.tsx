@@ -9,9 +9,9 @@ const BadgeUI = (props: BadgeProps) => {
 
   return (
     <div
-      {...rest}
       className={mergedCls}
       data-slot="badge"
+      {...rest}
     />
   );
 };

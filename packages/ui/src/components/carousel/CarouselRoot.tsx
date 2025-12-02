@@ -68,20 +68,28 @@ const Carousel = forwardRef<HTMLDivElement, CarouselRootProps>((props, ref) => {
     setApi(api);
   }, [api, setApi]);
 
-  useEffect(() => {
+  function checkApi() {
     if (!api) {
       return;
     }
 
     onSelect(api);
+  }
 
-    api.on('reInit', onSelect);
-    api.on('select', onSelect);
+  useEffect(() => {
+    api?.on('reInit', onSelect);
+    api?.on('select', onSelect);
 
     return () => {
       api?.off('select', onSelect);
     };
-  }, [api, onSelect]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  useEffect(() => {
+    checkApi();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [api]);
 
   return (
     <CarouselContext.Provider

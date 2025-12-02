@@ -9,9 +9,9 @@ const AlertDialogCancel = forwardRef<HTMLButtonElement, ButtonProps>((props, ref
     <Cancel asChild>
       <Button
         data-slot="alert-dialog-cancel"
-        {...rest}
         ref={ref}
         variant={variant}
+        {...rest}
       />
     </Cancel>
   );
