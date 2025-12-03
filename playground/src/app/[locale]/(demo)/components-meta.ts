@@ -145,6 +145,11 @@ const componentsInfoEn: Record<string, ComponentInfo> = {
     description: 'Skyroc UI Label Component - Form label.',
     keywords: ['label', 'form', 'text', 'field']
   },
+  'list': {
+    title: 'List',
+    description: 'Skyroc UI List Component - List for displaying items with title, description, and icons.',
+    keywords: ['list', 'item', 'content', 'menu']
+  },
   'navigation-menu': {
     title: 'NavigationMenu',
     description: 'Skyroc UI NavigationMenu Component - Horizontal navigation menu.',
@@ -368,6 +373,11 @@ const componentsInfoZh: Record<string, ComponentInfo> = {
     title: 'Label 标签',
     description: 'Skyroc UI Label 组件 - 表单标签组件。',
     keywords: ['label', '标签', 'form', 'text']
+  },
+  'list': {
+    title: 'List 列表',
+    description: 'Skyroc UI List 组件 - 列表组件，用于展示带标题、描述和图标的列表项。',
+    keywords: ['list', '列表', 'item', '列表项']
   },
   'navigation-menu': {
     title: 'NavigationMenu 导航菜单',

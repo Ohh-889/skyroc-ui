@@ -28,6 +28,7 @@ import type { InputOTPProps } from '../input-otp/types';
 import type { KeyboardKeyProps } from '../keyboard-key/types';
 import type { LabelProps } from '../label/types';
 import type { LayoutProps } from '../layout/types';
+import type { ListProps } from '../list/types';
 import type { MenuProps } from '../menu/types';
 import type { PopoverProps } from '../popover/types';
 import type { ProgressProps } from '../progress/types';
@@ -235,6 +236,11 @@ export interface ComponentConfig {
    * Default configuration for layout components.
    */
   layout?: LayoutConfig;
+
+  /**
+   * Default configuration for list components.
+   */
+  list?: ListConfig;
 
   /**
    * Default configuration for menu components.
@@ -638,6 +644,23 @@ export type ScrollAreaConfig = Pick<ScrollAreaProps, 'className' | 'classNames'>
  * Selects specific props that can be set globally for all layouts.
  */
 export type LayoutConfig = Pick<LayoutProps, 'collapsible' | 'side' | 'size' | 'variant'>;
+
+/**
+ * Configuration options for list components.
+ * Selects specific props that can be set globally for all lists.
+ *
+ * @example
+ * ```tsx
+ * list: {
+ *   size: 'md',
+ *   classNames: {
+ *     root: 'custom-list',
+ *     item: 'custom-item'
+ *   }
+ * }
+ * ```
+ */
+export type ListConfig = Pick<ListProps, 'className' | 'classNames' | 'size'>;
 
 /**
  * Configuration options for label components.

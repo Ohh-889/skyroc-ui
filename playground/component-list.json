@@ -150,6 +150,11 @@
     "value": "layout"
   },
   {
+    "name": "list",
+    "label": "List",
+    "value": "list"
+  },
+  {
     "name": "menubar",
     "label": "Menubar",
     "value": "menubar"

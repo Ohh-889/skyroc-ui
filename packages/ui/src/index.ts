@@ -58,6 +58,8 @@ export * from './components/label';
 
 export * from './components/layout';
 
+export * from './components/list';
+
 export * from './components/menubar';
 
 export * from './components/navigation-menu';
