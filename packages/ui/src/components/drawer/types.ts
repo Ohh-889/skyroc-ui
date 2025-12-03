@@ -38,7 +38,7 @@ export type DrawerClassNames = Partial<Record<DrawerSlots, ClassValue>>;
  *
  * @example
  * ```tsx
- * <Drawer>
+ * <Drawer scrollable>
  *   <DrawerTrigger>Open Drawer</DrawerTrigger>
  *   <DrawerContent side="left">
  *     <DrawerHeader>
@@ -51,6 +51,13 @@ export type DrawerClassNames = Partial<Record<DrawerSlots, ClassValue>>;
  * </Drawer>
  * ```
  */
-export interface DrawerProps extends Omit<DialogProps<DrawerContentProps>, 'contentComponent'> {}
+export interface DrawerProps extends Omit<DialogProps<DrawerContentProps>, 'contentComponent'> {
+  /**
+   * Whether the drawer content should be scrollable.
+   * When true, adds flex-grow and overflow-auto to the content wrapper.
+   * @default true
+   */
+  scrollable?: boolean;
+}
 
 export { DrawerSide };
