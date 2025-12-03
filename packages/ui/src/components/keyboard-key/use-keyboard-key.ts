@@ -1,33 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-
-export type BuiltinKeyboardKey
-  = | 'alt'
-    | 'arrowdown'
-    | 'arrowleft'
-    | 'arrowright'
-    | 'arrowup'
-    | 'backspace'
-    | 'capslock'
-    | 'command'
-    | 'ctrl'
-    | 'delete'
-    | 'end'
-    | 'enter'
-    | 'escape'
-    | 'home'
-    | 'meta'
-    | 'option'
-    | 'pagedown'
-    | 'pageup'
-    | 'shift'
-    | 'tab'
-    | 'win';
-
-export interface KeyboardKeyProps {
-  value: string;
-}
+import type { KbdKey, KbdValue } from './types';
 
 interface SpecificKeyboardKeyMap {
   alt: string;
@@ -35,7 +9,7 @@ interface SpecificKeyboardKeyMap {
   meta: string;
 }
 
-export const builtinKeyboardKeyMap: Record<BuiltinKeyboardKey, string> = {
+export const builtinKeyboardKeyMap: Record<KbdKey, string> = {
   alt: '',
   arrowdown: '↓',
   arrowleft: '←',
@@ -59,9 +33,6 @@ export const builtinKeyboardKeyMap: Record<BuiltinKeyboardKey, string> = {
   win: '⊞'
 };
 
-/* ------------------------------------------------------------------ */
-/*                               Hook                                 */
-/* ------------------------------------------------------------------ */
 export function useKeyboardKey() {
   const [isMacOS, setIsMacOS] = useState(false);
 
@@ -71,7 +42,7 @@ export function useKeyboardKey() {
     meta: isMacOS ? builtinKeyboardKeyMap.command : builtinKeyboardKeyMap.win
   };
 
-  const getKeyboardKey = (value?: KeyboardKeyProps['value']) => {
+  const getKeyboardKey = (value?: KbdValue) => {
     if (!value)
       return '';
 
@@ -79,10 +50,11 @@ export function useKeyboardKey() {
       return specificMapRef[value as keyof SpecificKeyboardKeyMap];
     }
 
-    return builtinKeyboardKeyMap[value as BuiltinKeyboardKey] || value.toUpperCase();
+    return builtinKeyboardKeyMap[value as KbdKey] || value.toUpperCase();
   };
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsMacOS(/Macintosh;/.test(navigator.userAgent));
   }, []);
 

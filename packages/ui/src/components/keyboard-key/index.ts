@@ -1,6 +1,5 @@
-export { default as KeyboardKey } from './KeyboardKey';
-export { default as KeyboardKeyGroup } from './KeyboardKeyGroup';
+export { default as Kbd } from './KeyboardKey';
 
-export * from './types';
+export type { KbdKey, KbdValue, KbdVariant, KbdSize, KeyboardKeyProps, KeyboardKeyGroupProps } from './types';
 
-export { useKeyboardKey } from './use-keyboard-key';
+export { useKeyboardKey, builtinKeyboardKeyMap } from './use-keyboard-key';

@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import KeyboardKey from '../keyboard-key/KeyboardKey';
-import type { KeyboardKeyValue } from '../keyboard-key/types';
+import type { KbdValue } from '../keyboard-key/types';
 import { commandVariants } from './command-variants';
 import type { CommandShortcutProps } from './types';
 
@@ -20,7 +20,7 @@ const CommandShortcut = (props: CommandShortcutProps) => {
       {children || (
         <KeyboardKey
           size={size}
-          value={value as KeyboardKeyValue}
+          value={value as KbdValue}
         />
       )}
     </div>

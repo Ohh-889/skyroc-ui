@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { useHotkeys } from 'react-hotkeys-hook';
-import { Card, Command, CommandDialog, KeyboardKey } from 'skyroc-ui';
+import { Card, Command, CommandDialog, Kbd } from 'skyroc-ui';
 import { items } from './shared';
 
 const CommandDialogDemo = () => {
@@ -21,7 +21,7 @@ const CommandDialogDemo = () => {
       split
       title="Dialog Command"
     >
-      <KeyboardKey value={['command', 'j']} />
+      <Kbd value={['command', 'j']} />
 
       <CommandDialog
         open={open}

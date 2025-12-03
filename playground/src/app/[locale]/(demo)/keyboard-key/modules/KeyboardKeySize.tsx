@@ -1,23 +1,17 @@
-import type { ThemeSize } from 'skyroc-ui';
-import { KeyboardKey } from 'skyroc-ui';
+import type { KbdSize } from 'skyroc-ui';
+import { Kbd } from 'skyroc-ui';
 
-const sizes: ThemeSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
+const sizes: KbdSize[] = ['xs', 'sm', 'md', 'lg', 'xl', '2xl'];
 
 const KeyboardKeySize = () => {
   return (
     <div className="flex flex-wrap gap-2">
       {sizes.map(size => (
-        <div
-          className="flex-c justify-between"
+        <Kbd
           key={size}
-        >
-          <div>{size}</div>
-
-          <KeyboardKey
-            size={size}
-            value="command"
-          />
-        </div>
+          size={size}
+          value="command"
+        />
       ))}
     </div>
   );

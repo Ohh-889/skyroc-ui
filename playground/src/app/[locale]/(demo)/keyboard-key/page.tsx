@@ -1,8 +1,7 @@
 import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
 import { generateComponentMetadata } from '../components-meta';
-import KeyboardKeyDemo from './modules/KeyboardKeyDemo';
-import KeyboardKeyGroup from './modules/KeyboardKeyGroup';
+import KeyboardKeyBase from './modules/KeyboardKeyBase';
 import KeyboardKeySize from './modules/KeyboardKeySize';
 import KeyboardKeyVariants from './modules/KeyboardKeyVariants';
 
@@ -15,23 +14,9 @@ const KeyboardKeyPage = () => {
     <div className="flex-c gap-4">
       <Card
         split
-        title="Combination"
+        title="Base"
       >
-        <KeyboardKeyDemo />
-      </Card>
-
-      <Card
-        split
-        title="Group"
-      >
-        <KeyboardKeyGroup />
-      </Card>
-
-      <Card
-        split
-        title="Variants"
-      >
-        <KeyboardKeyVariants />
+        <KeyboardKeyBase />
       </Card>
 
       <Card
@@ -39,6 +24,13 @@ const KeyboardKeyPage = () => {
         title="Size"
       >
         <KeyboardKeySize />
+      </Card>
+
+      <Card
+        split
+        title="Variant"
+      >
+        <KeyboardKeyVariants />
       </Card>
     </div>
   );

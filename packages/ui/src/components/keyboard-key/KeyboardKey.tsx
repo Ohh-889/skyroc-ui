@@ -7,7 +7,8 @@ import type { KeyboardKeyProps } from './types';
 const KeyboardKey = (props: KeyboardKeyProps) => {
   const config = useComponentConfig('keyboardKey');
 
-  const mergedProps = {
+  const mergedProps: KeyboardKeyProps = {
+
     ...config,
     ...props
   };

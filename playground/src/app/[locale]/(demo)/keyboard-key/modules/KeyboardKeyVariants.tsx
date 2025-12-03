@@ -1,29 +1,20 @@
-import type { KeyboardKeyVariant } from 'skyroc-ui';
-import { KeyboardKey } from 'skyroc-ui';
+import type { KbdVariant } from 'skyroc-ui';
+import { Kbd } from 'skyroc-ui';
 
-const variants: KeyboardKeyVariant[] = ['solid', 'outline', 'ghost'];
+const variants: KbdVariant[] = ['solid', 'outline', 'ghost'];
 
-const KeyboardKeyVariantsDemo = () => {
+const KeyboardKeyVariants = () => {
   return (
-    <div className="flex-c gap-2">
+    <div className="flex flex-wrap gap-2">
       {variants.map(variant => (
-        <div
-          className="flex-c"
+        <Kbd
           key={variant}
-        >
-          <div>{variant}</div>
-
-          <div className="flex items-end gap-2">
-            <KeyboardKey
-              size="sm"
-              value="K"
-              variant={variant}
-            />
-          </div>
-        </div>
+          value="command"
+          variant={variant}
+        />
       ))}
     </div>
   );
 };
 
-export default KeyboardKeyVariantsDemo;
+export default KeyboardKeyVariants;
