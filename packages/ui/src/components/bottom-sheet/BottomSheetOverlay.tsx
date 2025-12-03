@@ -1,8 +1,8 @@
 import { Overlay as _Overlay } from 'vaul';
 import { DialogOverlay } from '../dialog';
-import type { DrawerOverlayProps } from './types';
+import type { BottomSheetOverlayProps } from './types';
 
-const DrawerOverlay = (props: DrawerOverlayProps) => {
+const BottomSheetOverlay = (props: BottomSheetOverlayProps) => {
   return (
     <DialogOverlay
       component={_Overlay}
@@ -11,4 +11,4 @@ const DrawerOverlay = (props: DrawerOverlayProps) => {
   );
 };
 
-export default DrawerOverlay;
+export default BottomSheetOverlay;

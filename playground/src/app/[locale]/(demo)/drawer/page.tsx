@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
 import { generateComponentMetadata } from '../components-meta';
-import DrawerBasic from './modules/DrawerBasic';
+import ContentScrollable from './modules/ContentScrollable';
+import Side from './modules/Side';
 
 export async function generateMetadata(): Promise<Metadata> {
   return await generateComponentMetadata('drawer');
@@ -9,11 +10,16 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const DrawerPage = () => {
   return (
-    <Card
-      split
-      title="Drawer"
-    >
-      <DrawerBasic />
+    <Card title="Drawer">
+      <div className="flex-c gap-4">
+        <Card title="Side">
+          <Side />
+        </Card>
+
+        <Card title="Content Scrollable">
+          <ContentScrollable />
+        </Card>
+      </div>
     </Card>
   );
 };

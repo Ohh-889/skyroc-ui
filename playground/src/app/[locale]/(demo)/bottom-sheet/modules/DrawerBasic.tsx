@@ -1,19 +1,19 @@
-import { Button, Drawer, DrawerClose } from 'skyroc-ui';
+import { Button, BottomSheet, BottomSheetClose } from 'skyroc-ui';
 
-const DrawerBasic = () => {
+const BottomSheetBasic = () => {
   return (
-    <Drawer
+    <BottomSheet
       showClose
-      title="Drawer Title"
-      trigger={<Button variant="outline">Open Drawer</Button>}
+      title="BottomSheet Title"
+      trigger={<Button variant="outline">Open BottomSheet</Button>}
       classNames={{
         contentBody: 'mx-auto max-w-sm w-full'
       }}
       footer={(
         <>
-          <DrawerClose asChild>
+          <BottomSheetClose asChild>
             <Button variant="plain">Cancel</Button>
-          </DrawerClose>
+          </BottomSheetClose>
 
           <Button>Submit</Button>
         </>
@@ -22,8 +22,8 @@ const DrawerBasic = () => {
       <p>
         This is a basic drawer with a title and description.
       </p>
-    </Drawer>
+    </BottomSheet>
   );
 };
 
-export default DrawerBasic;
+export default BottomSheetBasic;

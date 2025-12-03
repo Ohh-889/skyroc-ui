@@ -1,13 +1,10 @@
 'use client';
 
-import type { ComponentRef } from 'react';
-import { forwardRef } from 'react';
-import type { Content } from 'vaul';
 import { useComponentConfig } from '../config-provider/context';
 import DrawerUI from './DrawerUI';
 import type { DrawerProps } from './types';
 
-const Drawer = forwardRef<ComponentRef<typeof Content>, DrawerProps>((props, ref) => {
+const Drawer = (props: DrawerProps) => {
   const config = useComponentConfig('drawer');
 
   const mergedProps = {
@@ -18,10 +15,9 @@ const Drawer = forwardRef<ComponentRef<typeof Content>, DrawerProps>((props, ref
   return (
     <DrawerUI
       {...mergedProps}
-      ref={ref}
     />
   );
-});
+};
 
 Drawer.displayName = 'Drawer';
 

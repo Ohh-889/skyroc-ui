@@ -12,6 +12,8 @@ export * from './components/avatar';
 
 export * from './components/badge';
 
+export * from './components/bottom-sheet';
+
 export * from './components/breadcrumb';
 
 export * from './components/button';
@@ -73,8 +75,6 @@ export * from './components/scroll-area';
 export * from './components/segment';
 
 export * from './components/select';
-
-export * from './components/sheet';
 
 export * from './components/skeleton';
 

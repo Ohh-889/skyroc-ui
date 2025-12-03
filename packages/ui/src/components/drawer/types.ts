@@ -1,148 +1,56 @@
-import type { ContentProps, DialogProps } from 'vaul';
-import type { HTMLComponentProps, StyledComponentProps, ClassValue, ThemeSize } from '@/types/shared';
-import type {
-  DialogCloseProps,
-  DialogDescriptionProps,
-  DialogHeaderProps,
-  DialogOverlayProps,
-  DialogTitleProps
-} from '../dialog';
-import type { DialogSlots } from '../dialog/dialog-variants';
-import type { DrawerSlots } from './drawer-variants';
-
-/**
- * Class names for different slots in the drawer component.
- * Allows customizing styles for drawer-specific and dialog-shared parts.
- */
-export type DrawerClassNames = Partial<Record<DrawerSlots | DialogSlots, ClassValue>>;
+import type { DialogContentProps } from '@radix-ui/react-dialog';
+import type { StyledComponentProps, ClassValue } from '@/types/shared';
+import type { DialogSlots as DrawerSlots } from '../dialog/dialog-variants';
+import type { DialogProps } from '../dialog/types';
+import type { DrawerSide } from './drawer-variants';
 
 /**
  * Props for the drawer content component.
- * Wraps the main content area of the drawer with styling and slot customization.
+ * The main container that slides in from a specified side of the screen.
  *
  * @example
  * ```tsx
- * <Drawer.Content
- *   contentProps={{
- *     classNames: {
- *       content: 'custom-content-class',
- *       knob: 'custom-knob-class'
- *     }
- *   }}
- * >
- *   Content here
- * </Drawer.Content>
+ * <DrawerContent side="right">
+ *   <DrawerHeader>
+ *     <DrawerTitle>Drawer Title</DrawerTitle>
+ *   </DrawerHeader>
+ *   <div>Drawer content goes here</div>
+ * </DrawerContent>
  * ```
  */
-export type DrawerContentProps = StyledComponentProps<ContentProps> & {
+export interface DrawerContentProps extends StyledComponentProps<DialogContentProps> {
   /**
-   * Class names for customizing specific parts of the drawer content area.
-   * Includes content, contentBody, knob, and overlay styling slots.
+   * The side of the screen from which the drawer slides in.
+   * Can be "top", "right", "bottom", or "left".
    */
-  classNames?: Pick<DrawerClassNames, 'content' | 'contentBody' | 'knob' | 'overlay'>;
-};
+  side?: DrawerSide;
+}
 
 /**
- * Props for the drawer content body component.
- * Standard div element props for the inner content wrapper.
+ * Class names for different slots in the drawer component.
+ * Allows customizing styles for the overlay, content, and other parts.
  */
-export type DrawerContentBodyProps = HTMLComponentProps<'div'>;
-
-/**
- * Props for the drawer footer component.
- * Standard div element props for the footer section of the drawer.
- */
-export type DrawerFooterProps = HTMLComponentProps<'div'>;
-
-/**
- * Props for the drawer knob component.
- * The draggable indicator typically shown at the top of mobile drawer implementations.
- */
-export type DrawerKnobProps = HTMLComponentProps<'div'>;
-
-/**
- * Props for the drawer overlay component.
- * The backdrop that appears behind the drawer when it's open.
- */
-export type DrawerOverlayProps = Omit<DialogOverlayProps, 'component'>;
-
-/**
- * Props for the drawer header component.
- * Container for the drawer's header content, typically including title and close button.
- */
-export type DrawerHeaderProps = DialogHeaderProps;
-
-/**
- * Props for the drawer description component.
- * Accessible description text for the drawer content.
- */
-export type DrawerDescriptionProps = Omit<DialogDescriptionProps, 'component'>;
-
-/**
- * Props for the drawer title component.
- * The main heading/title displayed in the drawer header.
- */
-export type DrawerTitleProps = Omit<DialogTitleProps, 'component'>;
-
-/**
- * Props for the drawer close button component.
- * Button trigger to dismiss and close the drawer.
- */
-export type DrawerCloseProps = Omit<DialogCloseProps, 'component'>;
+export type DrawerClassNames = Partial<Record<DrawerSlots, ClassValue>>;
 
 /**
  * Props for the main Drawer component.
- * A slide-out panel component with header, content, footer, and overlay.
+ * A side panel modal that slides in from the edge of the screen.
  *
  * @example
  * ```tsx
- * <Drawer
- *   trigger={<button>Open Drawer</button>}
- *   title="Settings"
- *   description="Manage your preferences"
- *   footer={<button>Save</button>}
- *   showClose
- * >
- *   Drawer content goes here
+ * <Drawer>
+ *   <DrawerTrigger>Open Drawer</DrawerTrigger>
+ *   <DrawerContent side="left">
+ *     <DrawerHeader>
+ *       <DrawerTitle>Navigation</DrawerTitle>
+ *     </DrawerHeader>
+ *     <DrawerBody>
+ *       <nav>Navigation items here</nav>
+ *     </DrawerBody>
+ *   </DrawerContent>
  * </Drawer>
  * ```
  */
-export type DrawerProps = DialogProps & {
-  /**
-   * Class names for customizing different parts of the drawer component.
-   */
-  classNames?: DrawerClassNames;
-  /**
-   * Props to customize the content area of the drawer.
-   */
-  contentProps?: DrawerContentProps;
-  /**
-   * Accessible description text for the drawer.
-   * Useful for screen readers and accessibility.
-   */
-  description?: React.ReactNode;
-  /**
-   * Content to display in the drawer footer section.
-   * Typically used for action buttons like Save/Cancel.
-   */
-  footer?: React.ReactNode;
-  /**
-   * Whether to show the close button in the drawer header.
-   * Defaults to false.
-   */
-  showClose?: boolean;
-  /**
-   * Size variant for the drawer (sm, md, lg, etc).
-   * Controls the width/dimensions of the drawer panel.
-   */
-  size?: ThemeSize;
-  /**
-   * Title text displayed in the drawer header.
-   */
-  title?: React.ReactNode;
-  /**
-   * Element that triggers the opening of the drawer.
-   * Usually a button or interactive element.
-   */
-  trigger?: React.ReactNode;
-};
+export interface DrawerProps extends Omit<DialogProps<DrawerContentProps>, 'contentComponent'> {}
+
+export { DrawerSide };

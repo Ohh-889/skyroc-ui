@@ -35,7 +35,6 @@ import type { RadioGroupProps } from '../radio/types';
 import type { ScrollAreaProps } from '../scroll-area/types';
 import type { SegmentOptionData, SegmentProps } from '../segment/types';
 import type { SelectProps } from '../select/types';
-import type { SheetProps } from '../sheet/types';
 import type { SkeletonProps } from '../skeleton/types';
 import type { SliderProps } from '../slider/types';
 import type { SwitchProps } from '../switch/types';
@@ -43,6 +42,7 @@ import type { TabsProps, TabsOptionData } from '../tabs/types';
 import type { TextareaProps } from '../textarea/types';
 import type { ToggleProps } from '../toggle/types';
 import type { TooltipProps } from '../tooltip/types';
+import type { BottomSheetProps } from '../bottom-sheet';
 
 /**
  * Props for the ConfigProvider component.
@@ -125,6 +125,11 @@ export interface ComponentConfig {
    * Default configuration for badge components.
    */
   badge?: BadgeConfig;
+
+  /**
+   * Default configuration for bottom sheet components.
+   */
+  bottomSheet?: BottomSheetConfig;
 
   /**
    * Default configuration for breadcrumb components.
@@ -265,11 +270,6 @@ export interface ComponentConfig {
    * Default configuration for select components.
    */
   select?: SelectConfig;
-
-  /**
-   * Default configuration for sheet components.
-   */
-  sheet?: SheetConfig;
 
   /**
    * Default configuration for skeleton components.
@@ -661,7 +661,7 @@ export type KeyboardKeyConfig = Pick<KeyboardKeyProps, 'className' | 'variant'>;
  * Configuration options for sheet components.
  * Selects specific props that can be set globally for all sheets.
  */
-export type SheetConfig = Pick<SheetProps, 'classNames' | 'size'>;
+export type BottomSheetConfig = Pick<BottomSheetProps, 'classNames' | 'size'>;
 
 /**
  * Configuration options for input OTP components.

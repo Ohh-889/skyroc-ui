@@ -1,8 +1,8 @@
 import { Drawer } from 'vaul';
 import { DialogClose } from '../dialog';
-import type { DrawerCloseProps } from './types';
+import type { BottomSheetCloseProps } from './types';
 
-const DrawerClose = (props: DrawerCloseProps) => {
+const BottomSheetClose = (props: BottomSheetCloseProps) => {
   return (
     <DialogClose
       component={Drawer.Close}
@@ -11,4 +11,4 @@ const DrawerClose = (props: DrawerCloseProps) => {
   );
 };
 
-export default DrawerClose;
+export default BottomSheetClose;

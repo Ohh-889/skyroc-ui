@@ -1,8 +1,8 @@
 import { Drawer } from 'vaul';
 import { DialogTitle } from '../dialog';
-import type { DrawerTitleProps } from './types';
+import type { BottomSheetTitleProps } from './types';
 
-const DrawerTitle = (props: DrawerTitleProps) => {
+const BottomSheetTitle = (props: BottomSheetTitleProps) => {
   return (
     <DialogTitle
       component={Drawer.Title}
@@ -11,4 +11,4 @@ const DrawerTitle = (props: DrawerTitleProps) => {
   );
 };
 
-export default DrawerTitle;
+export default BottomSheetTitle;

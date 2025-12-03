@@ -1,8 +1,8 @@
 import { Drawer } from 'vaul';
 import { DialogDescription } from '../dialog';
-import type { DrawerDescriptionProps } from './types';
+import type { BottomSheetDescriptionProps } from './types';
 
-const DrawerDescription = (props: DrawerDescriptionProps) => {
+const BottomSheetDescription = (props: BottomSheetDescriptionProps) => {
   return (
     <DialogDescription
       component={Drawer.Description}
@@ -11,4 +11,4 @@ const DrawerDescription = (props: DrawerDescriptionProps) => {
   );
 };
 
-export default DrawerDescription;
+export default BottomSheetDescription;

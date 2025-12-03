@@ -35,6 +35,11 @@
     "value": "badge"
   },
   {
+    "name": "bottom-sheet",
+    "label": "Bottom-sheet",
+    "value": "bottom-sheet"
+  },
+  {
     "name": "breadcrumb",
     "label": "Breadcrumb",
     "value": "breadcrumb"
@@ -183,11 +188,6 @@
     "name": "select",
     "label": "Select",
     "value": "select"
-  },
-  {
-    "name": "sheet",
-    "label": "Sheet",
-    "value": "sheet"
   },
   {
     "name": "skeleton",
