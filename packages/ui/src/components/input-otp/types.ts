@@ -231,4 +231,16 @@ export type InputOTPProps = Omit<OTPInputRootStyledComponentProps, 'maxLength' |
    * Size variant for the OTP input slots (sm, md, lg, etc).
    */
   size?: ThemeSize;
+  /**
+   * Props for the input OTP group component.
+   */
+  groupProps?: InputOTPGroupProps;
+  /**
+   * Props for the input OTP slot component.
+   */
+  slotProps?: InputOTPSlotProps;
+  /**
+   * Props for the input OTP separator component.
+   */
+  separatorProps?: InputOTPSeparatorProps;
 };

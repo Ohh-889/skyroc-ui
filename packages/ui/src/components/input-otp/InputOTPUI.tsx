@@ -7,7 +7,7 @@ import InputOtpRoot from './InputOtpRoot';
 import type { InputOTPProps } from './types';
 
 const InputOTPUI = forwardRef<ComponentRef<typeof InputOtpRoot>, InputOTPProps>((props, ref) => {
-  const { className, classNames, inputCount = 6, mask, separator, size, ...rest } = props;
+  const { className, classNames, inputCount = 6, mask, separator, size, groupProps, slotProps, separatorProps, ...rest } = props;
 
   const isSeparator = Boolean(separator);
 
@@ -22,6 +22,7 @@ const InputOTPUI = forwardRef<ComponentRef<typeof InputOtpRoot>, InputOTPProps>(
         className={classNames?.group}
         separate={isSeparator}
         size={size}
+        {...groupProps}
       >
         {Array.from({ length: inputCount }).map((_, index) => (
           <Fragment key={String(index)}>
@@ -31,6 +32,7 @@ const InputOTPUI = forwardRef<ComponentRef<typeof InputOtpRoot>, InputOTPProps>(
               mask={mask}
               separate={isSeparator}
               size={size}
+              {...slotProps}
             />
 
             {isSeparator && index !== inputCount - 1
@@ -38,6 +40,7 @@ const InputOTPUI = forwardRef<ComponentRef<typeof InputOtpRoot>, InputOTPProps>(
                 <InputOTPSeparator
                   className={classNames?.separator}
                   size={size}
+                  {...separatorProps}
                 >
                   {separator}
                 </InputOTPSeparator>
