@@ -6,7 +6,7 @@ import HoverCardContent from './HoverCardContent';
 import type { HoverCardProps } from './types';
 
 const HoverCardUI = forwardRef<ComponentRef<typeof HoverCardContent>, HoverCardProps>((props, ref) => {
-  const { arrowProps, children, className, classNames, showArrow, trigger, ...rest } = props;
+  const { arrowProps, children, className, classNames, contentProps, showArrow, trigger, ...rest } = props;
 
   return (
     <Root
@@ -23,14 +23,15 @@ const HoverCardUI = forwardRef<ComponentRef<typeof HoverCardContent>, HoverCardP
       <HoverCardContent
         className={className || classNames?.content}
         ref={ref}
+        {...contentProps}
       >
         {children}
 
         {showArrow
           ? (
             <HoverCardArrow
-              {...arrowProps}
               className={classNames?.arrow}
+              {...arrowProps}
             />
           )
           : null}
