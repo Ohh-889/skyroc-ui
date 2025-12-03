@@ -3,8 +3,8 @@ import { Card } from 'skyroc-ui';
 import { generateComponentMetadata } from '../components-meta';
 import DropdownMenuBasic from './modules/DropdownMenuBasic';
 import DropdownMenuCheckbox from './modules/DropdownMenuCheckbox';
+import DropdownMenuMix from './modules/DropdownMenuMix';
 import DropdownMenuRadio from './modules/DropdownMenuRadio';
-import DropdownMenuShortcuts from './modules/DropdownMenuShortcuts';
 import DropdownMenuWithArrow from './modules/DropdownMenuWithArrow';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -13,7 +13,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 const DropdownMenuPage = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex-c gap-4">
       <Card
         split
         title="Basic"
@@ -30,13 +30,6 @@ const DropdownMenuPage = () => {
 
       <Card
         split
-        title="With Shortcuts"
-      >
-        <DropdownMenuShortcuts />
-      </Card>
-
-      <Card
-        split
         title="Checkbox"
       >
         <DropdownMenuCheckbox />
@@ -47,6 +40,13 @@ const DropdownMenuPage = () => {
         title="Radio"
       >
         <DropdownMenuRadio />
+      </Card>
+
+      <Card
+        split
+        title="Mix"
+      >
+        <DropdownMenuMix />
       </Card>
     </div>
   );

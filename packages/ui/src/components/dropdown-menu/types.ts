@@ -5,6 +5,7 @@ import type {
 import type { StyledComponentProps } from '@/types/shared';
 import type {
   MenuArrowProps,
+  MenuCheckboxGroupItemProps,
   MenuCheckboxGroupProps,
   MenuCheckboxItemProps,
   MenuCommonProps,
@@ -14,6 +15,7 @@ import type {
   MenuLabelProps,
   MenuOptionProps,
   MenuRadioGroupProps,
+  MenuRadioItemOptionProps,
   MenuRadioItemProps,
   MenuSeparatorProps,
   MenuSubContentProps,
@@ -159,11 +161,45 @@ export interface DropdownMenuRadioProps
 }
 
 /**
+ * Checkbox menu option.
+ */
+interface DropdownMenuCheckboxOption {
+  /** Array of checked item values */
+  checks?: string[];
+  /** Checkbox items to render */
+  children: MenuCheckboxGroupItemProps[];
+  /** Callback when checked items change */
+  onChecksChange?: (checks: string[]) => void;
+  /** Menu type */
+  type: 'checkbox';
+}
+
+/**
+ * Radio menu option.
+ */
+interface DropdownMenuRadioOption {
+  /** Radio items to render */
+  children: MenuRadioItemOptionProps[];
+  /** Callback when selected value changes */
+  onValueChange?: (value: string) => void;
+  /** Menu type */
+  type: 'radio';
+  /** Currently selected value */
+  value?: string;
+}
+
+/**
+ * Union type for all dropdown menu option types.
+ */
+export type DropdownMenuOption = DropdownMenuCheckboxOption | DropdownMenuOptionProps['item'] | DropdownMenuRadioOption;
+
+/**
  * Props for the main Dropdown Menu component.
  * A context menu triggered by an element with customizable items and actions.
  *
  * @example
  * ```tsx
+ * // Normal menu
  * <DropdownMenu
  *   items={[
  *     { label: 'Edit', icon: <EditIcon /> },
@@ -172,9 +208,43 @@ export interface DropdownMenuRadioProps
  * >
  *   <button>Menu</button>
  * </DropdownMenu>
+ *
+ * // With checkbox
+ * <DropdownMenu
+ *   items={[
+ *     {
+ *       type: 'checkbox',
+ *       checks: ['opt1'],
+ *       onChecksChange: setChecks,
+ *       children: [
+ *         { label: 'Option 1', value: 'opt1' },
+ *         { label: 'Option 2', value: 'opt2' }
+ *       ]
+ *     }
+ *   ]}
+ * >
+ *   <button>Menu</button>
+ * </DropdownMenu>
+ *
+ * // With radio
+ * <DropdownMenu
+ *   items={[
+ *     {
+ *       type: 'radio',
+ *       value: 'a',
+ *       onValueChange: setValue,
+ *       children: [
+ *         { label: 'Option A', value: 'a' },
+ *         { label: 'Option B', value: 'b' }
+ *       ]
+ *     }
+ *   ]}
+ * >
+ *   <button>Menu</button>
+ * </DropdownMenu>
  * ```
  */
-export interface DropdownMenuProps extends StyledComponentProps<_DropdownMenuProps>, MenuCommonProps {
+export interface DropdownMenuProps extends StyledComponentProps<_DropdownMenuProps>, Omit<MenuCommonProps, 'items'> {
   /**
    * Child elements of the dropdown menu (typically the trigger).
    */
@@ -184,8 +254,7 @@ export interface DropdownMenuProps extends StyledComponentProps<_DropdownMenuPro
    */
   contentProps?: Omit<DropdownMenuContentProps, 'children'>;
   /**
-   * Array of menu items to render in the dropdown.
-   * Each item is a data object containing label, icon, action, etc.
+   * Array of dropdown menu items, checkbox groups, radio groups, or separators.
    */
-  items: DropdownMenuOptionProps['item'][];
+  items: DropdownMenuOption[];
 }
