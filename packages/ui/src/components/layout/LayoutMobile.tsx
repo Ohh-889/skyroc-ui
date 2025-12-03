@@ -26,7 +26,7 @@ const LayoutMobile = (props: LayoutMobileProps) => {
         <DrawerContent
           className={mergedCls.root}
           side={side}
-          style={{ '--sidebar-width': '18rem' } as CSSProperties}
+          style={{ '--skyroc-sidebar-width': '18rem' } as CSSProperties}
         >
           <div
             className={mergedCls.cls}

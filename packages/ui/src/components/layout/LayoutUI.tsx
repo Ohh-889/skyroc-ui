@@ -1,8 +1,10 @@
+import LayoutFooter from './LayoutFooter';
 import LayoutHeader from './LayoutHeader';
 import LayoutMain from './LayoutMain';
 import LayoutRail from './LayoutRail';
 import LayoutRoot from './LayoutRoot';
 import LayoutSidebar from './LayoutSidebar';
+import LayoutTab from './LayoutTab';
 import type { LayoutProps } from './types';
 
 const LayoutUI = ({
@@ -10,6 +12,7 @@ const LayoutUI = ({
   collapsedSidebarWidth,
   collapsible = 'offcanvas',
   defaultOpen,
+  footer,
   header,
   onOpenChange,
   open,
@@ -17,6 +20,7 @@ const LayoutUI = ({
   sidebar,
   sidebarWidth,
   size = 'md',
+  tab,
   ui,
   variant = 'sidebar'
 }: LayoutProps) => {
@@ -73,7 +77,9 @@ const LayoutUI = ({
         variant={variant}
       >
         <LayoutHeader className={ui?.header}>{header}</LayoutHeader>
+        {tab ? <LayoutTab className={ui?.tab}>{tab}</LayoutTab> : null}
         {children}
+        {footer ? <LayoutFooter className={ui?.footer}>{footer}</LayoutFooter> : null}
       </LayoutMain>
     </LayoutRoot>
   );

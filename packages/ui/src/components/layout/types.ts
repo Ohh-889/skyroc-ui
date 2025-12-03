@@ -42,6 +42,34 @@ export type LayoutHeaderProps = Pick<StyledComponentProps<'header'>, 'className'
 };
 
 /**
+ * Props for the Layout tab section.
+ * Renders a tab area below the header in the layout.
+ *
+ * @example
+ * <LayoutTab>
+ *   <Tabs>Tab content</Tabs>
+ * </LayoutTab>
+ */
+export type LayoutTabProps = Pick<StyledComponentProps<'div'>, 'className'> & {
+  /** Tab content to render */
+  children?: ReactNode;
+};
+
+/**
+ * Props for the Layout footer section.
+ * Renders a footer area at the bottom of the layout.
+ *
+ * @example
+ * <LayoutFooter>
+ *   <p>Footer content</p>
+ * </LayoutFooter>
+ */
+export type LayoutFooterProps = Pick<StyledComponentProps<'footer'>, 'className'> & {
+  /** Footer content to render */
+  children?: ReactNode;
+};
+
+/**
  * Props for the Layout mobile sidebar.
  * Renders a mobile-responsive sidebar using the Sheet component.
  *
@@ -188,7 +216,7 @@ export type LayoutRootProps = Pick<StyledComponentProps<'div'>, 'className'> & {
 
 /**
  * Props for the main Layout component.
- * Composite component that manages header, sidebar, and main content areas.
+ * Composite component that manages header, sidebar, tab, footer and main content areas.
  *
  * @example
  * <Layout
@@ -197,6 +225,8 @@ export type LayoutRootProps = Pick<StyledComponentProps<'div'>, 'className'> & {
  *   side="left"
  *   header={<LayoutHeader>Header</LayoutHeader>}
  *   sidebar={<LayoutSidebar>Sidebar</LayoutSidebar>}
+ *   tab={<LayoutTab>Tab</LayoutTab>}
+ *   footer={<LayoutFooter>Footer</LayoutFooter>}
  * >
  *   Main content area
  * </Layout>
@@ -204,10 +234,14 @@ export type LayoutRootProps = Pick<StyledComponentProps<'div'>, 'className'> & {
 export type LayoutProps = Omit<LayoutRootProps, 'children'> & {
   /** Main content area of the layout */
   children?: ReactNode;
+  /** Footer content of the layout */
+  footer?: ReactNode;
   /** Header content of the layout */
   header?: ReactNode;
   /** Sidebar content or render function */
   sidebar?: ReactNode | ((props: LayoutSidebarChildrenProps) => ReactNode);
+  /** Tab content of the layout */
+  tab?: ReactNode;
   /** Custom styling for layout slots */
   ui?: LayoutUi;
 };

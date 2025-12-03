@@ -47,15 +47,15 @@ const LayoutRoot = ({
     return open ? 'expanded' : 'collapsed';
   }, [open]);
 
-  const { root } = layoutVariants({ variant });
+  const { root } = layoutVariants({ size, variant });
   const mergedCls = cn(root(), props.className);
 
   const style = useMemo(() => {
     const sidebarWidthValue = (sidebarWidth * themeSizeRatio[size]) / 16;
     const collapsedSidebarWidthValue = (collapsedSidebarWidth * themeSizeRatio[size]) / 16;
     return {
-      '--sidebar-width': `${sidebarWidthValue}rem`,
-      '--sidebar-width-icon': `${collapsedSidebarWidthValue}rem`
+      '--skyroc-sidebar-width': `${sidebarWidthValue}rem`,
+      '--skyroc-collapsed-sidebar-width': `${collapsedSidebarWidthValue}rem`
     } as CSSProperties;
   }, [sidebarWidth, collapsedSidebarWidth, size]);
 

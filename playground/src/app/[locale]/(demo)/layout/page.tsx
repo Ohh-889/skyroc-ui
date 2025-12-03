@@ -165,17 +165,29 @@ const DemoLayout = () => {
           sidebar={<div className="group p-2">sidebar</div>}
           size={size as ThemeSize}
           variant={variant as LayoutVariant}
+          footer={(
+            <div className="border-border border-t p-4">
+              This is Footer
+            </div>
+          )}
           header={(
             <div className="flex w-full items-center gap-2 px-4">
               <LayoutTrigger size={size as ThemeSize} />
               <Breadcrumb items={breadcrumbItems} />
             </div>
           )}
+          tab={(
+            <div className="border-border border-b p-4">
+              This is Tab
+            </div>
+          )}
           ui={{
             header: 'h-12'
           }}
         >
-          layout
+          <div className="flex-1 p-4">
+            This is Content
+          </div>
         </Layout>
       </div>
     </>
