@@ -21,7 +21,6 @@ const DividerUI = React.forwardRef<HTMLDivElement, DividerProps>((props, ref) =>
           className={classNames?.label}
           orientation={orientation}
           size={size}
-          {...rest}
         >
           {children}
         </DividerLabel>

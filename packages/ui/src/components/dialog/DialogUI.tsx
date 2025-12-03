@@ -41,8 +41,6 @@ const DialogUI = forwardRef<ComponentRef<typeof Content>, DialogProps>((props, r
     footerProps
   } = props;
 
-  console.log('footer', footer);
-
   return (
     <Root
       data-slot="dialog-root"
