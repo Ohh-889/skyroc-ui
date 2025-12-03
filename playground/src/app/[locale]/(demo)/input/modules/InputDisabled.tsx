@@ -2,15 +2,11 @@ import { Input } from 'skyroc-ui';
 
 const InputDisabled = () => {
   return (
-    <div className="flex w-80 flex-col gap-3 max-sm:w-auto">
+    <div className="w-80 max-sm:w-auto">
       <Input
         disabled
-        placeholder="Disabled input"
-      />
-
-      <Input
-        readOnly
-        defaultValue="Readonly input"
+        placeholder="Please input"
+        value="the input is disabled"
       />
     </div>
   );

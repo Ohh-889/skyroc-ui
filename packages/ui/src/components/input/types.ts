@@ -1,5 +1,12 @@
 import type { ComponentPropsWithRef } from 'react';
-import type { StyledComponentProps } from '@/types/shared';
+import type { ClassValue, SlotProps, StyledComponentProps } from '@/types/shared';
+import type { InputSlots } from './input-variants';
+
+/**
+ * Class names for different slots in the drawer component.
+ * Allows customizing styles for the overlay, content, and other parts.
+ */
+export type InputClassNames = Partial<Record<InputSlots, ClassValue>>;
 
 /**
  * Props for the Input component.
@@ -43,4 +50,13 @@ import type { StyledComponentProps } from '@/types/shared';
  * Supported input types: text, email, password, number, date, time, search,
  * tel, url, color, file, checkbox, radio, range, and more.
  */
-export type InputProps = StyledComponentProps<Omit<ComponentPropsWithRef<'input'>, 'size'>>;
+export interface InputProps extends StyledComponentProps<Omit<ComponentPropsWithRef<'input'>, 'size'>>, SlotProps {
+  /**
+   * Class names for customizing different parts of the input component.
+   */
+  classNames?: InputClassNames;
+  /**
+   * Whether to show the clearable button.
+   */
+  clearable?: boolean;
+}

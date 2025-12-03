@@ -2,9 +2,9 @@ import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
 import { generateComponentMetadata } from '../components-meta';
 import InputBasic from './modules/InputBasic';
+import InputClearable from './modules/InputClearable';
 import InputDisabled from './modules/InputDisabled';
-import InputFile from './modules/InputFileDemo';
-import InputSize from './modules/InputSize';
+import InputSlot from './modules/InputSlot';
 
 export async function generateMetadata(): Promise<Metadata> {
   return await generateComponentMetadata('input');
@@ -15,16 +15,9 @@ const InputPage = () => {
     <div className="flex-c gap-4">
       <Card
         split
-        title="Basic"
+        title="Base"
       >
         <InputBasic />
-      </Card>
-
-      <Card
-        split
-        title="Size"
-      >
-        <InputSize />
       </Card>
 
       <Card
@@ -36,9 +29,16 @@ const InputPage = () => {
 
       <Card
         split
-        title="File"
+        title="Slot"
       >
-        <InputFile />
+        <InputSlot />
+      </Card>
+
+      <Card
+        split
+        title="Clearable"
+      >
+        <InputClearable />
       </Card>
     </div>
   );
