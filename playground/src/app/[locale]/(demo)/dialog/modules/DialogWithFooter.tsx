@@ -5,7 +5,7 @@ const DialogWithFooter = () => {
     <Dialog
       description="Dialog with footer buttons"
       title="Confirm Action"
-      trigger={<Button variant="outline">With Footer</Button>}
+      trigger={<Button variant="plain">With Footer</Button>}
       footer={(
         <>
           <DialogClose asChild>

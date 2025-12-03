@@ -5,7 +5,7 @@ const DialogBasic = () => {
     <Dialog
       description="Dialog Description"
       title="Dialog Title"
-      trigger={<Button variant="outline">Open</Button>}
+      trigger={<Button variant="plain">Open</Button>}
     >
       <div>Dialog Content</div>
     </Dialog>
