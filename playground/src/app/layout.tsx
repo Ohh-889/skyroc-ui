@@ -1,10 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono } from 'next/font/google';
 import '../css/globals.css';
-import { ThemeProvider } from 'next-themes';
-import { getLocale, getMessages } from 'next-intl/server';
-import { Sonner, TooltipProvider } from 'skyroc-ui';
-import { NextIntlClientProvider } from 'next-intl';
+import { getLocale } from 'next-intl/server';
 import config from '../config';
 import type { Locale } from '../i18n/config';
 
@@ -118,9 +115,6 @@ const RootLayout = async ({
 }: Props) => {
   const locale = await getLocale();
 
-  // Providing all messages to the client side
-  const messages = await getMessages();
-
   return (
     <html
       lang={locale}
@@ -145,24 +139,7 @@ const RootLayout = async ({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         id="app"
       >
-        <NextIntlClientProvider messages={messages}>
-          <ThemeProvider
-            disableTransitionOnChange
-            attribute="class"
-          >
-
-            <TooltipProvider>
-              <div
-                data-vaul-drawer-wrapper
-                className="h-full"
-              >
-                {children}
-              </div>
-
-              <Sonner />
-            </TooltipProvider>
-          </ThemeProvider>
-        </NextIntlClientProvider>
+        {children}
       </body>
     </html>
   );
