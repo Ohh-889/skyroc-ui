@@ -5,6 +5,7 @@ import type {
 import type { StyledComponentProps } from '@/types/shared';
 import type {
   MenuArrowProps,
+  MenuCheckboxGroupItemProps,
   MenuCheckboxGroupProps,
   MenuCheckboxItemProps,
   MenuCommonProps,
@@ -14,6 +15,7 @@ import type {
   MenuLabelProps,
   MenuOptionProps,
   MenuRadioGroupProps,
+  MenuRadioItemOptionProps,
   MenuRadioItemProps,
   MenuSeparatorProps,
   MenuSubContentProps,
@@ -156,24 +158,90 @@ export interface ContextMenuRadioProps
 }
 
 /**
+ * Checkbox menu option.
+ */
+interface ContextMenuCheckboxOption {
+  /** Array of checked item values */
+  checks?: string[];
+  /** Checkbox items to render */
+  children: MenuCheckboxGroupItemProps[];
+  /** Callback when checked items change */
+  onChecksChange?: (checks: string[]) => void;
+  /** Menu type */
+  type: 'checkbox';
+}
+
+/**
+ * Radio menu option.
+ */
+interface ContextMenuRadioOption {
+  /** Radio items to render */
+  children: MenuRadioItemOptionProps[];
+  /** Callback when selected value changes */
+  onValueChange?: (value: string) => void;
+  /** Menu type */
+  type: 'radio';
+  /** Currently selected value */
+  value?: string;
+}
+
+/**
+ * Union type for all context menu option types.
+ */
+export type ContextMenuOption = ContextMenuCheckboxOption | ContextMenuOptionProps['item'] | ContextMenuRadioOption;
+
+/**
  * Props for the main ContextMenu component.
- * A right-click context menu with support for nested items and groups.
+ * A right-click context menu with support for nested items, checkbox groups, and radio groups.
  *
  * @example
  * ```tsx
+ * // Normal menu
  * <ContextMenu
  *   items={[
  *     { type: 'item', label: 'Cut', onSelect: () => cut() },
  *     { type: 'item', label: 'Copy', onSelect: () => copy() },
- *     { type: 'separator' },
- *     { type: 'item', label: 'Paste', onSelect: () => paste() }
+ *   ]}
+ * >
+ *   <div>Right-click me</div>
+ * </ContextMenu>
+ *
+ * // With checkbox
+ * <ContextMenu
+ *   items={[
+ *     {
+ *       type: 'checkbox',
+ *       checks: ['opt1'],
+ *       onChecksChange: setChecks,
+ *       children: [
+ *         { label: 'Option 1', value: 'opt1' },
+ *         { label: 'Option 2', value: 'opt2' }
+ *       ]
+ *     }
+ *   ]}
+ * >
+ *   <div>Right-click me</div>
+ * </ContextMenu>
+ *
+ * // With radio
+ * <ContextMenu
+ *   items={[
+ *     {
+ *       type: 'radio',
+ *       value: 'a',
+ *       onValueChange: setValue,
+ *       children: [
+ *         { label: 'Option A', value: 'a' },
+ *         { label: 'Option B', value: 'b' }
+ *       ]
+ *     }
  *   ]}
  * >
  *   <div>Right-click me</div>
  * </ContextMenu>
  * ```
  */
-export interface ContextMenuProps extends StyledComponentProps<_ContextMenuProps>, MenuCommonProps {
+export interface ContextMenuProps extends StyledComponentProps<_ContextMenuProps>, Omit<MenuCommonProps, 'items'> {
   /**
    * Element that triggers the context menu on right-click.
    */
@@ -185,7 +253,7 @@ export interface ContextMenuProps extends StyledComponentProps<_ContextMenuProps
   contentProps?: Omit<ContextMenuContentProps, 'children'>;
 
   /**
-   * Array of context menu items, groups, or separators.
+   * Array of context menu items, checkbox groups, radio groups, or separators.
    */
-  items: ContextMenuOptionProps['item'][];
+  items: ContextMenuOption[];
 }
