@@ -1,7 +1,7 @@
 import type { CSSProperties } from 'react';
 import { cn } from '@/lib/utils';
 import { DialogOverlay, DialogPortal, DialogRoot } from '../dialog';
-import { SheetContent } from '../sheet';
+import { DrawerContent } from '../drawer';
 import { useLayoutContext } from './context';
 import { layoutVariants } from './layout-variants';
 import type { LayoutMobileProps } from './types';
@@ -23,7 +23,7 @@ const LayoutMobile = (props: LayoutMobileProps) => {
       <DialogPortal>
         <DialogOverlay />
 
-        <SheetContent
+        <DrawerContent
           className={mergedCls.root}
           side={side}
           style={{ '--sidebar-width': '18rem' } as CSSProperties}
@@ -35,7 +35,7 @@ const LayoutMobile = (props: LayoutMobileProps) => {
           >
             {children}
           </div>
-        </SheetContent>
+        </DrawerContent>
       </DialogPortal>
     </DialogRoot>
   );
