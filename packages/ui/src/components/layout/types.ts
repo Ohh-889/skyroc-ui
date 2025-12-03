@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react';
 import type { StyledComponentProps, ClassValue, ThemeSize } from '@/types/shared';
-import type { SheetSide } from '../sheet';
+import type { DrawerSide } from '../drawer';
 import type { LayoutCollapsible, LayoutSide, LayoutSlots, LayoutVariant } from './layout-variants';
 
 /**
@@ -56,7 +56,7 @@ export type LayoutMobileProps = Pick<StyledComponentProps<'div'>, 'className'> &
   /** Class names for the root element of mobile layout */
   rootClassName?: ClassValue;
   /** Position of the mobile sidebar (left or right) */
-  side?: SheetSide;
+  side?: DrawerSide;
 };
 
 /**
