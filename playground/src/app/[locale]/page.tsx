@@ -7,7 +7,8 @@ import {
   Button,
   Card,
   Icon,
-  Input
+  Input,
+  ScrollArea
 } from 'skyroc-ui';
 import { Link } from '../../i18n/navigation';
 
@@ -85,281 +86,287 @@ const Home = () => {
   };
 
   return (
-    <div className="relative min-h-full">
-      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        {/* Header */}
-        <header className="mb-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <div className="mb-2 flex items-center gap-3">
-              <h1 className="text-primary text-3xl font-bold">{t('title')}</h1>
+    <ScrollArea
+      className="h-full"
+      orientation="vertical"
+      size="sm"
+    >
+      <div className="relative">
+        <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+          {/* Header */}
+          <header className="mb-8 flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+              <div className="mb-2 flex items-center gap-3">
+                <h1 className="text-primary text-3xl font-bold">{t('title')}</h1>
 
-              <Badge variant="pure">
-                {t('badge')}
-              </Badge>
-            </div>
-
-            <p className="text-muted-foreground text-sm">
-              {t('subtitle')}
-            </p>
-          </div>
-
-          <div className="flex items-center gap-3">
-            <Button
-              asChild
-              color="carbon"
-              size="sm"
-              variant="outline"
-            >
-              <a
-                href="https://docs.skyroc-ui.com"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Icon
-                  className="mr-1.5 h-4 w-4"
-                  icon="lucide:book-open"
-                />
-
-                {t('docs')}
-              </a>
-            </Button>
-
-            <Button
-              asChild
-              color="carbon"
-              size="sm"
-              variant="outline"
-            >
-              <a
-                href="https://github.com/Ohh-889/skyroc-ui"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
-                <Icon
-                  className="mr-1.5 h-4 w-4"
-                  icon="lucide:github"
-                />
-
-                {t('github')}
-              </a>
-            </Button>
-          </div>
-        </header>
-
-        {/* 亮点介绍 */}
-        <section className="mb-8">
-          <Card className="bg-muted/30">
-            <div className="flex flex-col gap-6 p-5 lg:flex-row lg:items-center lg:justify-between">
-              {/* 左侧：亮点标签 */}
-              <div className="flex flex-wrap items-center gap-3">
-                {highlightKeys.map(item => (
-                  <div
-                    className="bg-background flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm"
-                    key={item.key}
-                  >
-                    <Icon
-                      className="text-primary h-4 w-4"
-                      icon={item.icon}
-                    />
-
-                    <span>{t(`highlights.${item.key}`)}</span>
-                  </div>
-                ))}
+                <Badge variant="pure">
+                  {t('badge')}
+                </Badge>
               </div>
 
-              {/* 右侧：安装命令 */}
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
-                {/* CLI 命令 */}
-                <div className="bg-background flex items-center gap-2 rounded-lg border px-3 py-2 font-mono text-sm">
-                  <span className="text-muted-foreground">$</span>
-                  <code>npx skyroc add button</code>
-
-                  <Button
-                    aria-label={copiedCmd === 'cli' ? t('commands.copied') : t('commands.copyCli')}
-                    className="ml-1 h-6 w-6 p-0"
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => handleCopy('npx skyroc add button', 'cli')}
-                  >
-                    <Icon
-                      className="h-3.5 w-3.5"
-                      icon={copiedCmd === 'cli' ? 'lucide:check' : 'lucide:copy'}
-                    />
-                  </Button>
-                </div>
-
-                <span className="text-muted-foreground hidden text-xs sm:block">{t('commands.or')}</span>
-
-                {/* NPM 命令 */}
-                <div className="bg-background flex items-center gap-2 rounded-lg border px-3 py-2 font-mono text-sm">
-                  <span className="text-muted-foreground">$</span>
-                  <code>npm i skyroc-ui</code>
-
-                  <Button
-                    aria-label={copiedCmd === 'npm' ? t('commands.copied') : t('commands.copyNpm')}
-                    className="ml-1 h-6 w-6 p-0"
-                    size="sm"
-                    variant="ghost"
-                    onClick={() => handleCopy('npm i skyroc-ui', 'npm')}
-                  >
-                    <Icon
-                      className="h-3.5 w-3.5"
-                      icon={copiedCmd === 'npm' ? 'lucide:check' : 'lucide:copy'}
-                    />
-                  </Button>
-                </div>
-              </div>
+              <p className="text-muted-foreground text-sm">
+                {t('subtitle')}
+              </p>
             </div>
-          </Card>
-        </section>
 
-        {/* 组件列表 */}
-        <section>
-          <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-3">
-              <h2 className="text-xl font-semibold">{t('components.title')}</h2>
-              <Badge variant="pure">{componentKeys.length}</Badge>
+              <Button
+                asChild
+                color="carbon"
+                size="sm"
+                variant="outline"
+              >
+                <a
+                  href="https://docs.skyroc-ui.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Icon
+                    className="mr-1.5 h-4 w-4"
+                    icon="lucide:book-open"
+                  />
+
+                  {t('docs')}
+                </a>
+              </Button>
+
+              <Button
+                asChild
+                color="carbon"
+                size="sm"
+                variant="outline"
+              >
+                <a
+                  href="https://github.com/Ohh-889/skyroc-ui"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Icon
+                    className="mr-1.5 h-4 w-4"
+                    icon="lucide:github"
+                  />
+
+                  {t('github')}
+                </a>
+              </Button>
+            </div>
+          </header>
+
+          {/* 亮点介绍 */}
+          <section className="mb-8">
+            <Card className="bg-muted/30">
+              <div className="flex flex-col gap-6 p-5 lg:flex-row lg:items-center lg:justify-between">
+                {/* 左侧：亮点标签 */}
+                <div className="flex flex-wrap items-center gap-3">
+                  {highlightKeys.map(item => (
+                    <div
+                      className="bg-background flex items-center gap-2 rounded-full border px-3 py-1.5 text-sm"
+                      key={item.key}
+                    >
+                      <Icon
+                        className="text-primary h-4 w-4"
+                        icon={item.icon}
+                      />
+
+                      <span>{t(`highlights.${item.key}`)}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* 右侧：安装命令 */}
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+                  {/* CLI 命令 */}
+                  <div className="bg-background flex items-center gap-2 rounded-lg border px-3 py-2 font-mono text-sm">
+                    <span className="text-muted-foreground">$</span>
+                    <code>npx skyroc add button</code>
+
+                    <Button
+                      aria-label={copiedCmd === 'cli' ? t('commands.copied') : t('commands.copyCli')}
+                      className="ml-1 h-6 w-6 p-0"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => handleCopy('npx skyroc add button', 'cli')}
+                    >
+                      <Icon
+                        className="h-3.5 w-3.5"
+                        icon={copiedCmd === 'cli' ? 'lucide:check' : 'lucide:copy'}
+                      />
+                    </Button>
+                  </div>
+
+                  <span className="text-muted-foreground hidden text-xs sm:block">{t('commands.or')}</span>
+
+                  {/* NPM 命令 */}
+                  <div className="bg-background flex items-center gap-2 rounded-lg border px-3 py-2 font-mono text-sm">
+                    <span className="text-muted-foreground">$</span>
+                    <code>npm i skyroc-ui</code>
+
+                    <Button
+                      aria-label={copiedCmd === 'npm' ? t('commands.copied') : t('commands.copyNpm')}
+                      className="ml-1 h-6 w-6 p-0"
+                      size="sm"
+                      variant="ghost"
+                      onClick={() => handleCopy('npm i skyroc-ui', 'npm')}
+                    >
+                      <Icon
+                        className="h-3.5 w-3.5"
+                        icon={copiedCmd === 'npm' ? 'lucide:check' : 'lucide:copy'}
+                      />
+                    </Button>
+                  </div>
+                </div>
+              </div>
+            </Card>
+          </section>
+
+          {/* 组件列表 */}
+          <section>
+            <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <div className="flex items-center gap-3">
+                <h2 className="text-xl font-semibold">{t('components.title')}</h2>
+                <Badge variant="pure">{componentKeys.length}</Badge>
+              </div>
+
+              <Input
+                aria-label={t('components.search')}
+                className="w-full sm:w-60"
+                placeholder={t('components.search')}
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+              />
             </div>
 
-            <Input
-              aria-label={t('components.search')}
-              className="w-full sm:w-60"
-              placeholder={t('components.search')}
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-            />
-          </div>
+            <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+              {filteredComponents.map(component => (
+                <Link
+                  className="group"
+                  href={component.href}
+                  key={component.key}
+                >
+                  <Card className="hover:border-primary/50 hover:bg-muted/30 h-full transition-all duration-200">
+                    <div className="flex items-center gap-3 p-3">
+                      <div className="text-muted-foreground group-hover:text-primary bg-muted flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors">
+                        <Icon
+                          className="h-4 w-4"
+                          icon={component.icon}
+                        />
+                      </div>
 
-          <div className="grid gap-3 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
-            {filteredComponents.map(component => (
-              <Link
-                className="group"
-                href={component.href}
-                key={component.key}
-              >
-                <Card className="hover:border-primary/50 hover:bg-muted/30 h-full transition-all duration-200">
-                  <div className="flex items-center gap-3 p-3">
-                    <div className="text-muted-foreground group-hover:text-primary bg-muted flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors">
+                      <div className="min-w-0 flex-1">
+                        <h3 className="group-hover:text-primary truncate text-sm font-medium transition-colors">
+                          {tComponents(`${component.key}.name`)}
+                        </h3>
+
+                        <p className="text-muted-foreground truncate text-xs">
+                          {tComponents(`${component.key}.description`)}
+                        </p>
+                      </div>
+
                       <Icon
-                        className="h-4 w-4"
-                        icon={component.icon}
+                        className="text-muted-foreground group-hover:text-primary h-4 w-4 shrink-0 opacity-0 transition-all group-hover:opacity-100"
+                        icon="lucide:chevron-right"
                       />
                     </div>
-
-                    <div className="min-w-0 flex-1">
-                      <h3 className="group-hover:text-primary truncate text-sm font-medium transition-colors">
-                        {tComponents(`${component.key}.name`)}
-                      </h3>
-
-                      <p className="text-muted-foreground truncate text-xs">
-                        {tComponents(`${component.key}.description`)}
-                      </p>
-                    </div>
-
-                    <Icon
-                      className="text-muted-foreground group-hover:text-primary h-4 w-4 shrink-0 opacity-0 transition-all group-hover:opacity-100"
-                      icon="lucide:chevron-right"
-                    />
-                  </div>
-                </Card>
-              </Link>
-            ))}
-          </div>
-
-          {filteredComponents.length === 0 && (
-            <div className="py-16 text-center">
-              <Icon
-                className="text-muted-foreground mx-auto mb-3 h-10 w-10"
-                icon="lucide:search-x"
-              />
-
-              <p className="text-muted-foreground text-sm">{t('components.noResult')}</p>
+                  </Card>
+                </Link>
+              ))}
             </div>
-          )}
-        </section>
 
-        {/* 底部链接 */}
-        <footer className="mt-12 border-t pt-6">
-          <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
-            <Button
-              asChild
-              color="carbon"
-              variant="ghost"
-            >
-              <a
-                href="https://docs.skyroc-ui.com"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+            {filteredComponents.length === 0 && (
+              <div className="py-16 text-center">
                 <Icon
-                  className="h-4 w-4"
-                  icon="lucide:book-open"
+                  className="text-muted-foreground mx-auto mb-3 h-10 w-10"
+                  icon="lucide:search-x"
                 />
 
-                {t('footer.fullDocs')}
-              </a>
-            </Button>
+                <p className="text-muted-foreground text-sm">{t('components.noResult')}</p>
+              </div>
+            )}
+          </section>
 
-            <Button
-              asChild
-              color="carbon"
-              variant="ghost"
-            >
-              <a
-                href="https://docs.skyroc-ui.com/docs/installation"
-                rel="noopener noreferrer"
-                target="_blank"
+          {/* 底部链接 */}
+          <footer className="mt-12 border-t pt-6">
+            <div className="flex flex-wrap items-center justify-center gap-6 text-sm">
+              <Button
+                asChild
+                color="carbon"
+                variant="ghost"
               >
-                <Icon
-                  className="h-4 w-4"
-                  icon="lucide:download"
-                />
+                <a
+                  href="https://docs.skyroc-ui.com"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Icon
+                    className="h-4 w-4"
+                    icon="lucide:book-open"
+                  />
 
-                {t('footer.installGuide')}
-              </a>
-            </Button>
+                  {t('footer.fullDocs')}
+                </a>
+              </Button>
 
-            <Button
-              asChild
-              color="carbon"
-              variant="ghost"
-            >
-              <a
-                href="https://github.com/Ohh-889/skyroc-ui"
-                rel="noopener noreferrer"
-                target="_blank"
+              <Button
+                asChild
+                color="carbon"
+                variant="ghost"
               >
-                <Icon
-                  className="h-4 w-4"
-                  icon="lucide:github"
-                />
+                <a
+                  href="https://docs.skyroc-ui.com/docs/installation"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Icon
+                    className="h-4 w-4"
+                    icon="lucide:download"
+                  />
 
-                {t('github')}
-              </a>
-            </Button>
+                  {t('footer.installGuide')}
+                </a>
+              </Button>
 
-            <Button
-              asChild
-              color="carbon"
-              variant="ghost"
-            >
-              <a
-                href="https://github.com/Ohh-889/skyroc-ui/issues"
-                rel="noopener noreferrer"
-                target="_blank"
+              <Button
+                asChild
+                color="carbon"
+                variant="ghost"
               >
-                <Icon
-                  className="h-4 w-4"
-                  icon="lucide:bug"
-                />
+                <a
+                  href="https://github.com/Ohh-889/skyroc-ui"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Icon
+                    className="h-4 w-4"
+                    icon="lucide:github"
+                  />
 
-                {t('footer.feedback')}
-              </a>
-            </Button>
-          </div>
-        </footer>
+                  {t('github')}
+                </a>
+              </Button>
+
+              <Button
+                asChild
+                color="carbon"
+                variant="ghost"
+              >
+                <a
+                  href="https://github.com/Ohh-889/skyroc-ui/issues"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <Icon
+                    className="h-4 w-4"
+                    icon="lucide:bug"
+                  />
+
+                  {t('footer.feedback')}
+                </a>
+              </Button>
+            </div>
+          </footer>
+        </div>
       </div>
-    </div>
+    </ScrollArea>
   );
 };
 

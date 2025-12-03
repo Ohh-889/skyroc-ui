@@ -1,6 +1,6 @@
 import { setRequestLocale } from 'next-intl/server';
 import { notFound } from 'next/navigation';
-import { Card, ScrollArea } from 'skyroc-ui';
+import { Card } from 'skyroc-ui';
 import { routing } from '../../i18n/routing';
 import { BrandLogo, HeaderActions } from '../_components';
 import type { Locale } from '../../i18n/config';
@@ -26,19 +26,12 @@ const LocaleLayout = async ({ children, params }: Props) => {
   setRequestLocale(locale);
 
   return (
-
     <Card
       className="h-full max-sm:h-auto"
       extra={<HeaderActions />}
       title={<BrandLogo />}
     >
-      <ScrollArea
-        className="h-full"
-        orientation="vertical"
-        size="sm"
-      >
-        {children}
-      </ScrollArea>
+      {children}
     </Card>
   );
 };

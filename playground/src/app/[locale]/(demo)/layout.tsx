@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card } from 'skyroc-ui';
+import { Card, ScrollArea } from 'skyroc-ui';
 import { Link } from '../../../i18n/navigation';
 import COMPONENT_DIRS from '../../../../component-list.json';
 import DemoTabs from './modules/DemoTabs';
@@ -27,17 +27,24 @@ const DemoLayout = ({ children }: { children: React.ReactNode }) => {
   const componentTabs = getComponentDirectories();
 
   return (
-    <>
+    <div className="flex h-full grow flex-col">
       <DemoTabs items={componentTabs} />
 
-      <Card
-        className="h-full"
-        classNames={{ content: 'flex-c gap-3 ' }}
-        title={<DemoTitle />}
+      <ScrollArea
+        orientation="vertical"
+        size="sm"
       >
-        {children}
-      </Card>
-    </>
+        <Card
+          className="flex-1"
+          classNames={{ content: 'flex-c gap-3 flex-1' }}
+          title={<DemoTitle />}
+        >
+
+          {children}
+
+        </Card>
+      </ScrollArea>
+    </div>
   );
 };
 
