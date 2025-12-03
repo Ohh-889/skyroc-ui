@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Check, ChevronsUpDown } from 'lucide-react';
-import { Button, Card, Command, Popover, cn } from 'skyroc-ui';
+import { Button, Command, Popover, cn } from 'skyroc-ui';
 
 const ComboboxDemo = () => {
   const [value, setValue] = useState('');
@@ -46,34 +46,28 @@ const ComboboxDemo = () => {
   ];
 
   return (
-    <Card
-      split
-      classNames={{ content: 'w-60' }}
-      title="Combobox Size"
+    <Popover
+      classNames={{ content: 'p-0' }}
+      trigger={(
+        <Button
+          className="w-full justify-between md:max-w-[200px]"
+          role="combobox"
+          variant="pure"
+        >
+          {value ? frameworks.find(item => item.value === value)?.label : 'Select framework...'}
+          <ChevronsUpDown className="text-muted-foreground" />
+        </Button>
+      )}
     >
-      <Popover
-        classNames={{ content: 'p-0' }}
-        trigger={(
-          <Button
-            className="w-full justify-between md:max-w-[200px]"
-            role="combobox"
-            variant="pure"
-          >
-            {value ? frameworks.find(item => item.value === value)?.label : 'Select framework...'}
-            <ChevronsUpDown className="text-muted-foreground" />
-          </Button>
-        )}
-      >
-        <Command
-          items={frameworks}
-          inputProps={{
-            onValueChange(search) {
-              setValue(search);
-            }
-          }}
-        />
-      </Popover>
-    </Card>
+      <Command
+        items={frameworks}
+        inputProps={{
+          onValueChange(search) {
+            setValue(search);
+          }
+        }}
+      />
+    </Popover>
   );
 };
 
