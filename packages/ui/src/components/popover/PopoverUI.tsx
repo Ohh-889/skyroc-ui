@@ -24,6 +24,9 @@ const PopoverUI = forwardRef<ComponentRef<typeof Content>, PopoverProps>((props,
     showArrow,
     size,
     trigger,
+    anchorProps,
+    contentProps,
+    arrowProps,
     ...rest
   } = props;
 
@@ -34,16 +37,18 @@ const PopoverUI = forwardRef<ComponentRef<typeof Content>, PopoverProps>((props,
       open={open}
       onOpenChange={onOpenChange}
     >
-      <PopoverAnchor>
+      <PopoverAnchor {...anchorProps}>
         <Trigger asChild>{trigger}</Trigger>
       </PopoverAnchor>
 
       <Portal
         container={container}
+        data-slot="popover-portal"
         forceMount={forceMountPortal}
       >
         <PopoverContent
           {...rest}
+          {...contentProps}
           className={className || classNames?.content}
           ref={ref}
           size={size}
@@ -58,6 +63,7 @@ const PopoverUI = forwardRef<ComponentRef<typeof Content>, PopoverProps>((props,
                 height={arrowHeight}
                 size={size}
                 width={arrowWidth}
+                {...arrowProps}
               />
             )
             : null}

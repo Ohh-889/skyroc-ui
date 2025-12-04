@@ -4,8 +4,6 @@ import { generateComponentMetadata } from '../components-meta';
 import PopoverBasic from './modules/PopoverBasic';
 import PopoverControlled from './modules/PopoverControlled';
 import PopoverPlacement from './modules/PopoverPlacement';
-import PopoverSize from './modules/PopoverSize';
-import PopoverWithArrow from './modules/PopoverWithArrow';
 
 export async function generateMetadata(): Promise<Metadata> {
   return await generateComponentMetadata('popover');
@@ -23,23 +21,9 @@ const PopoverPage = () => {
 
       <Card
         split
-        title="With Arrow"
-      >
-        <PopoverWithArrow />
-      </Card>
-
-      <Card
-        split
         title="Placement"
       >
         <PopoverPlacement />
-      </Card>
-
-      <Card
-        split
-        title="Size"
-      >
-        <PopoverSize />
       </Card>
 
       <Card

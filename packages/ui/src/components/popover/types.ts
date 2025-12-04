@@ -1,5 +1,4 @@
 import type {
-  // eslint-disable-next-line sort/import-members
   PopoverPortalProps,
   PopoverAnchorProps as _PopoverAnchorProps,
   PopoverArrowProps as _PopoverArrowProps,
@@ -87,6 +86,12 @@ export type PopoverProps = _PopoverProps
     showArrow?: boolean;
     /** Content to display in the popover trigger button */
     trigger?: React.ReactNode;
+    /** Props for the popover anchor component */
+    anchorProps?: PopoverAnchorProps;
+    /** Props for the popover content component */
+    contentProps?: PopoverContentProps;
+    /** Props for the popover arrow component */
+    arrowProps?: PopoverArrowProps;
   };
 
 /**

@@ -1,11 +1,9 @@
-import type { ComponentRef } from 'react';
-import { forwardRef } from 'react';
 import { Arrow } from '@radix-ui/react-popover';
 import { cn } from '@/lib/utils';
 import { popoverVariants } from './popover-varianst';
 import type { PopoverArrowProps } from './types';
 
-const PopoverArrow = forwardRef<ComponentRef<typeof Arrow>, PopoverArrowProps>((props, ref) => {
+const PopoverArrow = (props: PopoverArrowProps) => {
   const { className, size, ...rest } = props;
 
   const { arrow } = popoverVariants({ size });
@@ -15,12 +13,10 @@ const PopoverArrow = forwardRef<ComponentRef<typeof Arrow>, PopoverArrowProps>((
   return (
     <Arrow
       className={mergedCls}
+      data-slot="popover-arrow"
       {...rest}
-      ref={ref}
     />
   );
-});
-
-PopoverArrow.displayName = 'PopoverArrow';
+};
 
 export default PopoverArrow;

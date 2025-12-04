@@ -2,7 +2,7 @@ import { Button, Popover } from 'skyroc-ui';
 
 const PopoverBasic = () => {
   return (
-    <Popover trigger={<Button>Open Popover</Button>}>
+    <Popover trigger={<Button variant="plain">Open Popover</Button>}>
       <div className="space-y-2">
         <h4 className="font-medium">Popover Title</h4>
 

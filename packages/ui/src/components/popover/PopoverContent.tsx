@@ -16,6 +16,7 @@ const PopoverContent = forwardRef<ComponentRef<typeof Content>, PopoverContentPr
     <Content
       avoidCollisions={avoidCollisions}
       className={mergedCls}
+      data-slot="popover-content"
       sideOffset={sideOffset}
       {...rest}
       ref={ref}

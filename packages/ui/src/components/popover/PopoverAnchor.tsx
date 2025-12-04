@@ -13,7 +13,7 @@ const PopoverAnchor = (props: PopoverAnchorProps) => {
   return (
     <Anchor
       className={mergedCls}
-      data-slot="combobox-anchor"
+      data-slot="popover-anchor"
       {...rest}
     />
   );

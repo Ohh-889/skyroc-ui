@@ -10,7 +10,7 @@ const PopoverPlacement = () => {
           showArrow
           key={placement}
           side={placement}
-          trigger={<Button variant="outline">{placement}</Button>}
+          trigger={<Button variant="plain">{placement}</Button>}
         >
           <div className="space-y-2">
             <h4 className="font-medium capitalize">
