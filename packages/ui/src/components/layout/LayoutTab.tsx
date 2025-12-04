@@ -18,4 +18,3 @@ const LayoutTab = (props: LayoutTabProps) => {
 };
 
 export default LayoutTab;
-

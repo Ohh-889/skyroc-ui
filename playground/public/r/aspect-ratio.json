@@ -14,7 +14,7 @@
     },
     {
       "path": "src/components/aspect-ratio/AspectRatioUI.tsx",
-      "content": "import type { ComponentRef } from 'react';\nimport { forwardRef } from 'react';\nimport { Root } from '@radix-ui/react-aspect-ratio';\nimport { cn } from '@/lib/utils';\nimport type { AspectRatioProps } from './types';\n\nconst AspectRatioUI = forwardRef<ComponentRef<typeof Root>, AspectRatioProps>((props, ref) => {\n  const { className, ...rest } = props;\n\n  const mergedCls = cn(className);\n\n  return (\n    <Root\n      className={mergedCls}\n      ref={ref}\n      {...rest}\n    />\n  );\n});\n\nAspectRatioUI.displayName = 'AspectRatioUI';\n\nexport default AspectRatioUI;\n",
+      "content": "import type { ComponentRef } from 'react';\nimport { forwardRef } from 'react';\nimport { Root } from '@radix-ui/react-aspect-ratio';\nimport { cn } from '@/lib/utils';\nimport type { AspectRatioProps } from './types';\n\nconst AspectRatioUI = forwardRef<ComponentRef<typeof Root>, AspectRatioProps>((props, ref) => {\n  const { className, ...rest } = props;\n\n  const mergedCls = cn(className);\n\n  return (\n    <Root\n      className={mergedCls}\n      data-slot=\"aspect-ratio\"\n      ref={ref}\n      {...rest}\n    />\n  );\n});\n\nAspectRatioUI.displayName = 'AspectRatioUI';\n\nexport default AspectRatioUI;\n",
       "type": "registry:ui",
       "target": "components/aspect-ratio/AspectRatioUI.tsx"
     },

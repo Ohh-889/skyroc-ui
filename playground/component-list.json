@@ -165,6 +165,11 @@
     "value": "navigation-menu"
   },
   {
+    "name": "number-input",
+    "label": "Number-input",
+    "value": "number-input"
+  },
+  {
     "name": "popover",
     "label": "Popover",
     "value": "popover"

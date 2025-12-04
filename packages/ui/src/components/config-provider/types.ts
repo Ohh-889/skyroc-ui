@@ -26,6 +26,7 @@ import type { IconProps } from '../icon';
 import type { InputProps } from '../input/types';
 import type { InputOTPProps } from '../input-otp/types';
 import type { KeyboardKeyProps } from '../keyboard-key/types';
+import type { NumberInputProps } from '../number-input/types';
 import type { LabelProps } from '../label/types';
 import type { LayoutProps } from '../layout/types';
 import type { ListProps } from '../list/types';
@@ -246,6 +247,11 @@ export interface ComponentConfig {
    * Default configuration for menu components.
    */
   menu?: MenuConfig;
+
+  /**
+   * Default configuration for number input components.
+   */
+  numberInput?: NumberInputConfig;
 
   /**
    * Default configuration for popover components.
@@ -703,6 +709,12 @@ export type HoverCardConfig = Pick<HoverCardProps, 'className' | 'classNames' | 
  * Selects specific props that can be set globally for all menus.
  */
 export type MenuConfig = Pick<MenuProps, 'classNames' | 'size'>;
+
+/**
+ * Configuration options for number input components.
+ * Selects specific props that can be set globally for all number inputs.
+ */
+export type NumberInputConfig = Pick<NumberInputProps, 'className' | 'classNames' | 'size' | 'center'>;
 
 /**
  * Configuration options for sonner/toast components.

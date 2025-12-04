@@ -1,0 +1,15 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "arrow",
+  "type": "registry:block",
+  "title": "Arrow",
+  "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+  "files": [
+    {
+      "path": "src/components/arrow/index.ts",
+      "content": "export { Arrow } from '@radix-ui/react-arrow';\n\nexport type { ArrowProps } from '@radix-ui/react-arrow';\n",
+      "type": "registry:ui",
+      "target": "components/arrow/index.ts"
+    }
+  ]
+}

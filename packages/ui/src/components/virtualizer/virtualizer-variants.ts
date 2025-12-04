@@ -7,4 +7,3 @@ export const virtualizerVariants = tv({
     root: 'scrollbar-thin scrollbar-thumb-accent scrollbar-track-transparent'
   }
 });
-

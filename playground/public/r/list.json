@@ -1,0 +1,75 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "list",
+  "type": "registry:block",
+  "title": "List",
+  "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+  "files": [
+    {
+      "path": "src/components/list/List.tsx",
+      "content": "'use client';\n\nimport { forwardRef } from 'react';\nimport { useComponentConfig } from '../config-provider/context';\nimport { ListUI } from './ListUI';\nimport type { ListProps } from './types';\n\nconst List = forwardRef<HTMLUListElement, ListProps>((props, ref) => {\n  const config = useComponentConfig('list');\n\n  const mergedProps = {\n    ...config,\n    ...props\n  };\n\n  return (\n    <ListUI\n      {...mergedProps}\n      ref={ref}\n    />\n  );\n});\n\nList.displayName = 'List';\n\nexport default List;\n",
+      "type": "registry:ui",
+      "target": "components/list/List.tsx"
+    },
+    {
+      "path": "src/components/list/ListContent.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport { listVariants } from './list-variants';\nimport type { ListContentProps } from './types';\n\nexport const ListContent = (props: ListContentProps) => {\n  const { children, className, size, ...rest } = props;\n\n  const { content } = listVariants({ size });\n\n  return (\n    <div\n      className={cn(content(), className)}\n      data-slot=\"list-content\"\n      {...rest}\n    >\n      {children}\n    </div>\n  );\n}\n;\n",
+      "type": "registry:ui",
+      "target": "components/list/ListContent.tsx"
+    },
+    {
+      "path": "src/components/list/ListDescription.tsx",
+      "content": "import { cn } from '@/lib/utils';\nimport { listVariants } from './list-variants';\nimport type { ListDescriptionProps } from './types';\n\nexport const ListDescription = (props: ListDescriptionProps) => {\n  const { children, className, size, ...rest } = props;\n\n  const { description } = listVariants({ size });\n\n  return (\n    <p\n      className={cn(description(), className)}\n      data-slot=\"list-description\"\n      {...rest}\n    >\n      {children}\n    </p>\n  );\n}\n;\n\nListDescription.displayName = 'ListDescription';\n",
+      "type": "registry:ui",
+      "target": "components/list/ListDescription.tsx"
+    },
+    {
+      "path": "src/components/list/ListItem.tsx",
+      "content": "import React from 'react';\nimport { cn } from '@/lib/utils';\nimport { listVariants } from './list-variants';\nimport type { ListItemProps } from './types';\n\nexport const ListItem = (props: ListItemProps) => {\n  const { children, className, size, ...rest } = props;\n\n  const { item } = listVariants({ size });\n\n  return (\n    <li\n      className={cn(item(), className)}\n      data-slot=\"list-item\"\n      {...rest}\n    >\n      {children}\n    </li>\n  );\n}\n;\n\nListItem.displayName = 'ListItem';\n",
+      "type": "registry:ui",
+      "target": "components/list/ListItem.tsx"
+    },
+    {
+      "path": "src/components/list/ListItemUI.tsx",
+      "content": "import { isValidElement } from 'react';\nimport { cn } from '@/lib/utils';\nimport { Divider } from '../divider';\nimport { ListContent } from './ListContent';\nimport { ListDescription } from './ListDescription';\nimport { ListItem } from './ListItem';\nimport { ListTitle } from './ListTitle';\nimport { listVariants } from './list-variants';\nimport type { ListItemUIProps } from './types';\n\nexport const ListItemUI = (props: ListItemUIProps) => {\n  const {\n    className,\n    classNames,\n    content,\n    contentProps,\n    description,\n    descriptionProps,\n    divider,\n    leading,\n    size,\n    title,\n    titleProps,\n    trailing,\n    ...rest\n  } = props;\n\n  const { item } = listVariants({ size });\n\n  return (\n    <>\n      <ListItem\n        className={cn(item(), className, classNames?.item)}\n        size={size}\n        {...rest}\n      >\n        {leading}\n\n        <ListContent\n          className={classNames?.content}\n          size={size}\n          {...contentProps}\n        >\n\n          {title\n            ? (\n              <ListTitle\n                className={classNames?.title}\n                size={size}\n                {...titleProps}\n              >\n                {title}\n              </ListTitle>\n            )\n            : null}\n\n          {description\n            ? (\n              <ListDescription\n                className={classNames?.description}\n                size={size}\n                {...descriptionProps}\n              >\n                {description}\n              </ListDescription>\n            )\n            : null}\n\n          {content}\n        </ListContent>\n\n        {trailing}\n\n      </ListItem>\n\n      {isValidElement(divider) ? divider : divider ? <Divider /> : null}\n    </>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/list/ListItemUI.tsx"
+    },
+    {
+      "path": "src/components/list/ListRoot.tsx",
+      "content": "import React from 'react';\nimport { cn } from '@/lib/utils';\nimport { listVariants } from './list-variants';\nimport type { ListRootProps } from './types';\n\nexport const ListRoot = React.forwardRef<HTMLUListElement, ListRootProps>(\n  (props, ref) => {\n    const { children, className, size, ...rest } = props;\n\n    const { root } = listVariants({ size });\n\n    return (\n      <ul\n        className={cn(root(), className)}\n        data-slot=\"list-root\"\n        ref={ref}\n        {...rest}\n      >\n        {children}\n      </ul>\n    );\n  }\n);\n\nListRoot.displayName = 'ListRoot';\n",
+      "type": "registry:ui",
+      "target": "components/list/ListRoot.tsx"
+    },
+    {
+      "path": "src/components/list/ListTitle.tsx",
+      "content": "import React from 'react';\nimport { cn } from '@/lib/utils';\nimport { listVariants } from './list-variants';\nimport type { ListTitleProps } from './types';\n\nexport const ListTitle = (props: ListTitleProps) => {\n  const { children, className, size, ...rest } = props;\n\n  const { title } = listVariants({ size });\n\n  return (\n    <h3\n      className={cn(title(), className)}\n      data-slot=\"list-title\"\n      {...rest}\n    >\n      {children}\n    </h3>\n  );\n};\n",
+      "type": "registry:ui",
+      "target": "components/list/ListTitle.tsx"
+    },
+    {
+      "path": "src/components/list/ListUI.tsx",
+      "content": "import React from 'react';\nimport { ListRoot } from './ListRoot';\nimport type { ListProps } from './types';\nimport { ListItemUI } from './ListItemUI';\n\nexport const ListUI = React.forwardRef<HTMLUListElement, ListProps>(\n  (props, ref) => {\n    const { children, className, classNames, leading, trailing, items, size, contentProps, titleProps, descriptionProps, ...rest } = props;\n\n    const length = items.length;\n\n    return (\n      <ListRoot\n        className={className || classNames?.root}\n        ref={ref}\n        size={size}\n        {...rest}\n      >\n        {items.map((item, index) => (\n          <ListItemUI\n            classNames={classNames}\n            contentProps={contentProps}\n            descriptionProps={descriptionProps}\n            divider={index !== length - 1}\n            key={String(index)}\n            leading={leading}\n            size={size}\n            titleProps={titleProps}\n            trailing={trailing}\n            {...item}\n          />\n        ))}\n      </ListRoot>\n    );\n  }\n);\n\nListUI.displayName = 'ListUI';\n",
+      "type": "registry:ui",
+      "target": "components/list/ListUI.tsx"
+    },
+    {
+      "path": "src/components/list/index.ts",
+      "content": "export { default as List } from './List';\nexport * from './ListContent';\nexport * from './ListDescription';\nexport * from './ListItem';\nexport * from './ListItemUI';\nexport * from './ListRoot';\nexport * from './ListTitle';\nexport * from './ListUI';\n\nexport * from './types';\n\n",
+      "type": "registry:ui",
+      "target": "components/list/index.ts"
+    },
+    {
+      "path": "src/components/list/list-variants.ts",
+      "content": "import { tv } from 'tailwind-variants';\n\nexport const listVariants = tv({\n  defaultVariants: {\n    size: 'md'\n  },\n  slots: {\n    content: 'flex flex-col grow',\n    description: '[&_p]:leading-relaxed text-muted-foreground',\n    item: 'flex list-none',\n    root: 'flex flex-col cursor-pointer',\n    title: 'font-medium tracking-tight'\n  },\n  variants: {\n    size: {\n      '2xl': {\n        content: 'gap-2',\n        item: 'gap-7',\n        root: 'gap-7 text-xl',\n        title: 'text-2xl leading-[calc(var(--spacing)*6.25)]'\n      },\n      'lg': {\n        content: 'gap-1.25',\n        item: 'gap-5',\n        root: 'gap-5 text-base',\n        title: 'text-lg leading-[calc(var(--spacing)*5)]'\n      },\n      'md': {\n        content: 'gap-1',\n        item: 'gap-4',\n        root: 'gap-4 text-sm',\n        title: 'text-base leading-[calc(var(--spacing)*4.375)]'\n      },\n      'sm': {\n        content: 'gap-1',\n        item: 'gap-3',\n        root: 'gap-3 text-xs',\n        title: 'text-sm leading-[calc(var(--spacing)*3.75)]'\n      },\n      'xl': {\n        content: 'gap-1.5',\n        item: 'gap-6',\n        root: 'gap-6 text-lg',\n        title: 'text-xl leading-[calc(var(--spacing)*5.625)]'\n      },\n      'xs': {\n        content: 'gap-0.75',\n        item: 'gap-2',\n        root: 'gap-2 text-2xs',\n        title: 'text-xs leading-[calc(var(--spacing)*3.125)]'\n      }\n    }\n  }\n});\n\nexport type ListSlots = keyof typeof listVariants.slots;\n",
+      "type": "registry:ui",
+      "target": "components/list/list-variants.ts"
+    },
+    {
+      "path": "src/components/list/types.ts",
+      "content": "import type { ComponentPropsWithRef, ReactNode } from 'react';\nimport type { ClassValue, SlotProps, StyledComponentProps, ThemeSize } from '@/types/shared';\nimport type { ListSlots } from './list-variants';\n\n/**\n * Props for the List root component.\n * Main container for list items.\n */\nexport interface ListRootProps extends StyledComponentProps<ComponentPropsWithRef<'ul'>> {\n  /**\n   * The size variant of the list affecting spacing and typography.\n   */\n  size?: ThemeSize;\n}\n\n/**\n * Props for the List item component.\n * Individual list item container.\n */\nexport interface ListItemProps extends StyledComponentProps<ComponentPropsWithRef<'li'>> {\n  /**\n   * The size variant of the list item affecting spacing.\n   */\n  size?: ThemeSize;\n}\n\n/**\n * Props for the List content component.\n * Container for the main content area within a list item.\n */\nexport interface ListContentProps extends StyledComponentProps<ComponentPropsWithRef<'div'>> {\n  /**\n   * The size variant of the content affecting spacing.\n   */\n  size?: ThemeSize;\n}\n\n/**\n * Props for the List title component.\n * Displays the title text within a list item.\n */\nexport interface ListTitleProps extends StyledComponentProps<ComponentPropsWithRef<'h3'>> {\n  /**\n   * The size variant of the title text.\n   */\n  size?: ThemeSize;\n}\n\n/**\n * Props for the List description component.\n * Displays the description text within a list item.\n */\nexport interface ListDescriptionProps extends StyledComponentProps<ComponentPropsWithRef<'p'>> {\n  /**\n   * The size variant of the description text.\n   */\n  size?: ThemeSize;\n}\n\n/**\n * Class names for different slots in the list component.\n * Allows customizing styles for specific parts of the list.\n */\nexport type ListUi = Partial<Record<ListSlots, ClassValue>>;\n\n/**\n * Props for the main List component.\n * A flexible list component that combines root, item, content, title, and description sections.\n *\n * @example\n * ```jsx\n * <List size=\"md\">\n *   <ListItem\n *     title=\"Item Title\"\n *     description=\"Item description\"\n *     leading={<Icon />}\n *     trailing={<ChevronIcon />}\n *   >\n *     Additional content\n *   </ListItem>\n * </List>\n * ```\n */\nexport interface ListProps extends ListRootProps, Pick<ListItemUIProps, 'contentProps' | 'titleProps' | 'descriptionProps'>, SlotProps {\n  /**\n   * Class names for customizing different parts of the list.\n   */\n  classNames?: ListUi;\n\n  /**\n   * Array of list items to render.\n   */\n  items: ListItemUIProps[];\n}\n\n/**\n * Props for the ListItemUI component.\n * A composite list item with leading, content, and trailing areas.\n */\nexport interface ListItemUIProps extends Omit<ListItemProps, 'title' | 'content' | 'children'> {\n  /**\n   * Class names for customizing different parts of the list item.\n   */\n  classNames?: ListUi;\n  /**\n   * Content displayed at the start of the list item (e.g., avatar, thumbnail).\n   */\n  leading?: ReactNode;\n  /**\n   * Content displayed at the end of the list item (e.g., action buttons, badge).\n   */\n  trailing?: ReactNode;\n  /**\n   * Title text for the list item.\n   */\n  title?: ReactNode;\n  /**\n   * Description text for the list item.\n   */\n  description?: ReactNode;\n  /**\n   * Main content area for the list item.\n   * Displayed after title and description.\n   */\n  content?: ReactNode;\n  /**\n   * Custom divider element to display between list items.\n   * If not provided, a default divider will be used when divider is true.\n   */\n  divider?: ReactNode | boolean;\n  /**\n   * Props for the list content component.\n   */\n  contentProps?: ListContentProps;\n  /**\n   * Props for the list title component.\n   */\n  titleProps?: ListTitleProps;\n  /**\n   * Props for the list description component.\n   */\n  descriptionProps?: ListDescriptionProps;\n}\n",
+      "type": "registry:ui",
+      "target": "components/list/types.ts"
+    }
+  ]
+}

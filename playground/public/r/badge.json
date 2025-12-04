@@ -13,7 +13,7 @@
     },
     {
       "path": "src/components/badge/BadgeUI.tsx",
-      "content": "import { cn } from '@/lib/utils';\nimport { badgeVariants } from './badge-variants';\nimport type { BadgeProps } from './types';\n\nconst BadgeUI = (props: BadgeProps) => {\n  const { className, color, shape, size, variant, ...rest } = props;\n\n  const mergedCls = cn(badgeVariants({ color, shape, size, variant }), className);\n\n  return (\n    <div\n      {...rest}\n      className={mergedCls}\n    />\n  );\n};\n\nBadgeUI.displayName = 'BadgeUI';\n\nexport default BadgeUI;\n",
+      "content": "import { cn } from '@/lib/utils';\nimport { badgeVariants } from './badge-variants';\nimport type { BadgeProps } from './types';\n\nconst BadgeUI = (props: BadgeProps) => {\n  const { className, color, shape, size, variant, ...rest } = props;\n\n  const mergedCls = cn(badgeVariants({ color, shape, size, variant }), className);\n\n  return (\n    <div\n      className={mergedCls}\n      data-slot=\"badge\"\n      {...rest}\n    />\n  );\n};\n\nBadgeUI.displayName = 'BadgeUI';\n\nexport default BadgeUI;\n",
       "type": "registry:ui",
       "target": "components/badge/BadgeUI.tsx"
     },

@@ -258,6 +258,19 @@
     {
       "files": [
         {
+          "path": "src/components/arrow/index.ts",
+          "target": "components/arrow/index.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "arrow",
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+      "title": "Arrow",
+      "type": "registry:block"
+    },
+    {
+      "files": [
+        {
           "path": "src/components/aspect-ratio/AspectRatio.tsx",
           "target": "components/aspect-ratio/AspectRatio.tsx",
           "type": "registry:ui"
@@ -364,6 +377,74 @@
       "name": "badge",
       "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Badge",
+      "type": "registry:block"
+    },
+    {
+      "files": [
+        {
+          "path": "src/components/bottom-sheet/BottomSheet.tsx",
+          "target": "components/bottom-sheet/BottomSheet.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/BottomSheetClose.tsx",
+          "target": "components/bottom-sheet/BottomSheetClose.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/BottomSheetContent.tsx",
+          "target": "components/bottom-sheet/BottomSheetContent.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/BottomSheetContentBody.tsx",
+          "target": "components/bottom-sheet/BottomSheetContentBody.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/BottomSheetDescription.tsx",
+          "target": "components/bottom-sheet/BottomSheetDescription.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/BottomSheetKnob.tsx",
+          "target": "components/bottom-sheet/BottomSheetKnob.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/BottomSheetOverlay.tsx",
+          "target": "components/bottom-sheet/BottomSheetOverlay.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/BottomSheetTitle.tsx",
+          "target": "components/bottom-sheet/BottomSheetTitle.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/BottomSheetUI.tsx",
+          "target": "components/bottom-sheet/BottomSheetUI.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/bottom-sheet-variants.ts",
+          "target": "components/bottom-sheet/bottom-sheet-variants.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/index.ts",
+          "target": "components/bottom-sheet/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/bottom-sheet/types.ts",
+          "target": "components/bottom-sheet/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "bottom-sheet",
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+      "title": "Bottom Sheet",
       "type": "registry:block"
     },
     {
@@ -625,8 +706,28 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/checkbox/CheckboxCard.tsx",
+          "target": "components/checkbox/CheckboxCard.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/checkbox/CheckboxControl.tsx",
           "target": "components/checkbox/CheckboxControl.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/checkbox/CheckboxGroup.tsx",
+          "target": "components/checkbox/CheckboxGroup.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/checkbox/CheckboxGroupCard.tsx",
+          "target": "components/checkbox/CheckboxGroupCard.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/checkbox/CheckboxGroupContext.ts",
+          "target": "components/checkbox/CheckboxGroupContext.ts",
           "type": "registry:ui"
         },
         {
@@ -979,6 +1080,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/dialog/DialogAction.tsx",
+          "target": "components/dialog/DialogAction.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/dialog/DialogClose.tsx",
           "target": "components/dialog/DialogClose.tsx",
           "type": "registry:ui"
@@ -1091,38 +1197,8 @@
           "type": "registry:ui"
         },
         {
-          "path": "src/components/drawer/DrawerClose.tsx",
-          "target": "components/drawer/DrawerClose.tsx",
-          "type": "registry:ui"
-        },
-        {
           "path": "src/components/drawer/DrawerContent.tsx",
           "target": "components/drawer/DrawerContent.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/drawer/DrawerContentBody.tsx",
-          "target": "components/drawer/DrawerContentBody.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/drawer/DrawerDescription.tsx",
-          "target": "components/drawer/DrawerDescription.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/drawer/DrawerKnob.tsx",
-          "target": "components/drawer/DrawerKnob.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/drawer/DrawerOverlay.tsx",
-          "target": "components/drawer/DrawerOverlay.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/drawer/DrawerTitle.tsx",
-          "target": "components/drawer/DrawerTitle.tsx",
           "type": "registry:ui"
         },
         {
@@ -1496,11 +1572,6 @@
           "type": "registry:ui"
         },
         {
-          "path": "src/components/keyboard-key/KeyboardKeyGroup.tsx",
-          "target": "components/keyboard-key/KeyboardKeyGroup.tsx",
-          "type": "registry:ui"
-        },
-        {
           "path": "src/components/keyboard-key/KeyboardKeyUI.tsx",
           "target": "components/keyboard-key/KeyboardKeyUI.tsx",
           "type": "registry:ui"
@@ -1511,8 +1582,8 @@
           "type": "registry:ui"
         },
         {
-          "path": "src/components/keyboard-key/keyboard-key-variants.ts",
-          "target": "components/keyboard-key/keyboard-key-variants.ts",
+          "path": "src/components/keyboard-key/kbd-variants.ts",
+          "target": "components/keyboard-key/kbd-variants.ts",
           "type": "registry:ui"
         },
         {
@@ -1573,6 +1644,11 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/layout/LayoutFooter.tsx",
+          "target": "components/layout/LayoutFooter.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/layout/LayoutHeader.tsx",
           "target": "components/layout/LayoutHeader.tsx",
           "type": "registry:ui"
@@ -1600,6 +1676,11 @@
         {
           "path": "src/components/layout/LayoutSidebar.tsx",
           "target": "components/layout/LayoutSidebar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/layout/LayoutTab.tsx",
+          "target": "components/layout/LayoutTab.tsx",
           "type": "registry:ui"
         },
         {
@@ -1641,10 +1722,68 @@
     {
       "files": [
         {
-          "path": "src/components/menu/Menu.tsx",
-          "target": "components/menu/Menu.tsx",
+          "path": "src/components/list/List.tsx",
+          "target": "components/list/List.tsx",
           "type": "registry:ui"
         },
+        {
+          "path": "src/components/list/ListContent.tsx",
+          "target": "components/list/ListContent.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/list/ListDescription.tsx",
+          "target": "components/list/ListDescription.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/list/ListItem.tsx",
+          "target": "components/list/ListItem.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/list/ListItemUI.tsx",
+          "target": "components/list/ListItemUI.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/list/ListRoot.tsx",
+          "target": "components/list/ListRoot.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/list/ListTitle.tsx",
+          "target": "components/list/ListTitle.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/list/ListUI.tsx",
+          "target": "components/list/ListUI.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/list/index.ts",
+          "target": "components/list/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/list/list-variants.ts",
+          "target": "components/list/list-variants.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/list/types.ts",
+          "target": "components/list/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "list",
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+      "title": "List",
+      "type": "registry:block"
+    },
+    {
+      "files": [
         {
           "path": "src/components/menu/MenuArrow.tsx",
           "target": "components/menu/MenuArrow.tsx",
@@ -1716,11 +1855,6 @@
           "type": "registry:ui"
         },
         {
-          "path": "src/components/menu/MenuUI.tsx",
-          "target": "components/menu/MenuUI.tsx",
-          "type": "registry:ui"
-        },
-        {
           "path": "src/components/menu/index.ts",
           "target": "components/menu/index.ts",
           "type": "registry:ui"
@@ -1749,6 +1883,31 @@
     {
       "files": [
         {
+          "path": "src/components/menubar/Menubar.tsx",
+          "target": "components/menubar/Menubar.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarCheckboxGroup.tsx",
+          "target": "components/menubar/MenubarCheckboxGroup.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarCheckboxItem.tsx",
+          "target": "components/menubar/MenubarCheckboxItem.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarContent.tsx",
+          "target": "components/menubar/MenubarContent.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarGroup.tsx",
+          "target": "components/menubar/MenubarGroup.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/menubar/MenubarItem.tsx",
           "target": "components/menubar/MenubarItem.tsx",
           "type": "registry:ui"
@@ -1769,8 +1928,33 @@
           "type": "registry:ui"
         },
         {
+          "path": "src/components/menubar/MenubarMenuComposed.tsx",
+          "target": "components/menubar/MenubarMenuComposed.tsx",
+          "type": "registry:ui"
+        },
+        {
           "path": "src/components/menubar/MenubarOption.tsx",
           "target": "components/menubar/MenubarOption.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarPortal.tsx",
+          "target": "components/menubar/MenubarPortal.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarRadioGroup.tsx",
+          "target": "components/menubar/MenubarRadioGroup.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarRadioGroupPrimitive.tsx",
+          "target": "components/menubar/MenubarRadioGroupPrimitive.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarRadioItem.tsx",
+          "target": "components/menubar/MenubarRadioItem.tsx",
           "type": "registry:ui"
         },
         {
@@ -1781,6 +1965,16 @@
         {
           "path": "src/components/menubar/MenubarSeparator.tsx",
           "target": "components/menubar/MenubarSeparator.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarShortcut.tsx",
+          "target": "components/menubar/MenubarShortcut.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/menubar/MenubarSub.tsx",
+          "target": "components/menubar/MenubarSub.tsx",
           "type": "registry:ui"
         },
         {
@@ -1910,6 +2104,59 @@
       "name": "navigation-menu",
       "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Navigation Menu",
+      "type": "registry:block"
+    },
+    {
+      "files": [
+        {
+          "path": "src/components/number-input/NumberInput.tsx",
+          "target": "components/number-input/NumberInput.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/number-input/NumberInputControl.tsx",
+          "target": "components/number-input/NumberInputControl.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/number-input/NumberInputDecrement.tsx",
+          "target": "components/number-input/NumberInputDecrement.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/number-input/NumberInputIncrement.tsx",
+          "target": "components/number-input/NumberInputIncrement.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/number-input/NumberInputRoot.tsx",
+          "target": "components/number-input/NumberInputRoot.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/number-input/NumberInputUI.tsx",
+          "target": "components/number-input/NumberInputUI.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/number-input/index.ts",
+          "target": "components/number-input/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/number-input/number-input-variants.ts",
+          "target": "components/number-input/number-input-variants.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/number-input/types.ts",
+          "target": "components/number-input/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "number-input",
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+      "title": "Number Input",
       "type": "registry:block"
     },
     {
@@ -2227,44 +2474,6 @@
       "name": "select",
       "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Select",
-      "type": "registry:block"
-    },
-    {
-      "files": [
-        {
-          "path": "src/components/sheet/Sheet.tsx",
-          "target": "components/sheet/Sheet.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/sheet/SheetContent.tsx",
-          "target": "components/sheet/SheetContent.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/sheet/SheetUI.tsx",
-          "target": "components/sheet/SheetUI.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/sheet/index.ts",
-          "target": "components/sheet/index.ts",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/sheet/sheet-variants.ts",
-          "target": "components/sheet/sheet-variants.ts",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/sheet/types.ts",
-          "target": "components/sheet/types.ts",
-          "type": "registry:ui"
-        }
-      ],
-      "name": "sheet",
-      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
-      "title": "Sheet",
       "type": "registry:block"
     },
     {
@@ -2634,6 +2843,49 @@
       "name": "tooltip",
       "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Tooltip",
+      "type": "registry:block"
+    },
+    {
+      "files": [
+        {
+          "path": "src/components/virtualizer/VirtualGrid.tsx",
+          "target": "components/virtualizer/VirtualGrid.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/virtualizer/VirtualGridUI.tsx",
+          "target": "components/virtualizer/VirtualGridUI.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/virtualizer/VirtualList.tsx",
+          "target": "components/virtualizer/VirtualList.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/virtualizer/VirtualListUI.tsx",
+          "target": "components/virtualizer/VirtualListUI.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/virtualizer/index.ts",
+          "target": "components/virtualizer/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/virtualizer/types.ts",
+          "target": "components/virtualizer/types.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/virtualizer/virtualizer-variants.ts",
+          "target": "components/virtualizer/virtualizer-variants.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "virtualizer",
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+      "title": "Virtualizer",
       "type": "registry:block"
     },
     {

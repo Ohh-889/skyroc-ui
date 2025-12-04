@@ -56,4 +56,3 @@ function VirtualGrid<T>(props: VirtualGridProps<T>) {
 VirtualGrid.displayName = 'VirtualGrid';
 
 export default VirtualGrid;
-
