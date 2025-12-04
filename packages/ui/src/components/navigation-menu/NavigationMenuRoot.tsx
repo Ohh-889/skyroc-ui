@@ -5,12 +5,8 @@ import { cn } from '@/lib/utils';
 import { navigationMenuVariants } from './navigation-menu';
 import type { NavigationMenuRootProps } from './types';
 
-interface NavigationMenuRootInternalProps extends NavigationMenuRootProps {
-  'data-viewport'?: boolean;
-}
-
-const NavigationMenuRoot = forwardRef<ComponentRef<typeof Root>, NavigationMenuRootInternalProps>((props, ref) => {
-  const { className, 'data-viewport': dataViewport = true, ...rest } = props;
+const NavigationMenuRoot = forwardRef<ComponentRef<typeof Root>, NavigationMenuRootProps>((props, ref) => {
+  const { className, ...rest } = props;
 
   const { root } = navigationMenuVariants();
 
@@ -18,11 +14,10 @@ const NavigationMenuRoot = forwardRef<ComponentRef<typeof Root>, NavigationMenuR
 
   return (
     <Root
-      {...rest}
       className={mergedCls}
-      data-slot="navigation-menu"
-      data-viewport={dataViewport}
+      data-slot="navigation-menu-root"
       ref={ref}
+      {...rest}
     />
   );
 });

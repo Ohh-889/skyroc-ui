@@ -14,10 +14,9 @@ const NavigationMenuIndicator = (props: NavigationMenuIndicatorProps) => {
 
   return (
     <Indicator
-      {...rest}
       className={mergedCls}
-      data-size={size}
       data-slot="navigation-menu-indicator"
+      {...rest}
     >
       <div
         className={mergedArrowCls}

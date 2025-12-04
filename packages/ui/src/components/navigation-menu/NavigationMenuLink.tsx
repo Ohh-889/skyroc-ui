@@ -7,33 +7,35 @@ import { navigationMenuVariants } from './navigation-menu';
 import type { NavigationMenuLinkProps } from './types';
 
 const NavigationMenuLink = (props: NavigationMenuLinkProps) => {
-  const { children, className, classNames, leading, size, trailing, ...rest } = props;
+  const { children, disabled, className, classNames, component: Component = 'a', leading, size, trailing, ...rest } = props;
 
-  const { itemIcon, link, linkIcon, linkLabel } = navigationMenuVariants({ size });
+  const { itemIcon, link, linkIcon } = navigationMenuVariants({ size });
 
   const mergedCls = {
     cls: cn(link(), className || classNames?.link),
     icon: cn(itemIcon(), classNames?.itemIcon),
-    label: cn(linkLabel(), classNames?.linkLabel),
     linkIcon: cn(linkIcon(), classNames?.linkIcon)
   };
 
   return (
     <Link
+      asChild
+      className={mergedCls.cls}
+      data-disabled={disabled ? '' : undefined}
       data-slot="navigation-menu-link"
       {...rest}
-      className={mergedCls.cls}
     >
-      {isValidElement(leading) ? withClassName(leading, mergedCls.icon) : leading}
+      <Component>
+        {isValidElement(leading) ? withClassName(leading, mergedCls.icon) : leading}
 
-      <div
-        className={mergedCls.label}
-        data-slot="navigation-menu-link-label"
-      >
-        {children}
-      </div>
+        <span
+          data-slot="navigation-menu-link-label"
+        >
+          {children}
+        </span>
 
-      {trailing || <ArrowUpRight className={mergedCls.linkIcon} />}
+        {trailing || <ArrowUpRight className={mergedCls.linkIcon} />}
+      </Component>
     </Link>
   );
 };

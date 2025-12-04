@@ -12,9 +12,9 @@ const NavigationMenuContent = (props: NavigationMenuContentProps) => {
 
   return (
     <Content
-      {...rest}
       className={mergedCls}
       data-slot="navigation-menu-content"
+      {...rest}
     />
   );
 };

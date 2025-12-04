@@ -12,9 +12,9 @@ const NavigationMenuItem = (props: NavigationMenuItemProps) => {
 
   return (
     <Item
+      className={mergedCls}
       data-slot="navigation-menu-item"
       {...rest}
-      className={mergedCls}
     />
   );
 };

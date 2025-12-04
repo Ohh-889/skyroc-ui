@@ -1,19 +1,16 @@
-import { isValidElement } from 'react';
 import { Trigger } from '@radix-ui/react-navigation-menu';
 import { ChevronDown } from 'lucide-react';
-import { withClassName } from '@/lib/compose-props';
 import { cn } from '@/lib/utils';
 import { navigationMenuVariants } from './navigation-menu';
 import type { NavigationMenuTriggerProps } from './types';
 
 const NavigationMenuTrigger = (props: NavigationMenuTriggerProps) => {
-  const { children, className, classNames, leading, trailing, ...rest } = props;
+  const { children, className, size, classNames, leading, trailing, ...rest } = props;
 
-  const { itemIcon, trigger, triggerIcon } = navigationMenuVariants();
+  const { trigger, triggerIcon } = navigationMenuVariants({ size });
 
   const mergedCls = {
     cls: cn(trigger(), className || classNames?.trigger),
-    icon: cn(itemIcon(), classNames?.itemIcon),
     triggerIcon: cn(triggerIcon(), classNames?.triggerIcon)
   };
 
@@ -23,8 +20,8 @@ const NavigationMenuTrigger = (props: NavigationMenuTriggerProps) => {
       className={mergedCls.cls}
       data-slot="navigation-menu-trigger"
     >
-      {isValidElement(leading) ? withClassName(leading, mergedCls.icon) : leading}
-      <span data-slot="navigation-menu-trigger-label">{children}</span>
+      {leading}
+      <span data-slot="navigation-menu-trigger-labe">{children}</span>
 
       {trailing || (
         <ChevronDown

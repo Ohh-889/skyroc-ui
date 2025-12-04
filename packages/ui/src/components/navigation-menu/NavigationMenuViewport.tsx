@@ -18,10 +18,11 @@ const NavigationMenuViewport = (props: NavigationMenuViewportProps) => {
       className={mergedCls.root}
       data-slot="navigation-menu-viewport-root"
     >
+
       <Viewport
-        {...rest}
         className={mergedCls.cls}
         data-slot="navigation-menu-viewport"
+        {...rest}
       />
     </div>
   );

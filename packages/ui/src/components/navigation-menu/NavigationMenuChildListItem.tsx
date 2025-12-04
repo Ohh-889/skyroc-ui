@@ -5,15 +5,15 @@ import type { NavigationMenuChildListItemProps } from './types';
 const NavigationMenuChildListItem = (props: NavigationMenuChildListItemProps) => {
   const { className, ...rest } = props;
 
-  const { childListItem } = navigationMenuVariants();
+  const { subItem } = navigationMenuVariants();
 
-  const mergedCls = cn(childListItem(), className);
+  const mergedCls = cn(subItem(), className);
 
   return (
     <li
-      {...rest}
       className={mergedCls}
       data-slot="navigation-menu-child-list-item"
+      {...rest}
     />
   );
 };

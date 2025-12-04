@@ -3,17 +3,17 @@ import { navigationMenuVariants } from './navigation-menu';
 import type { NavigationMenuChildListProps } from './types';
 
 const NavigationMenuChildList = (props: NavigationMenuChildListProps) => {
-  const { className, ...rest } = props;
+  const { className, size, ...rest } = props;
 
-  const { childList } = navigationMenuVariants();
+  const { subList } = navigationMenuVariants({ size });
 
-  const mergedCls = cn(childList(), className);
+  const mergedCls = cn(subList(), className);
 
   return (
     <ul
-      {...rest}
       className={mergedCls}
       data-slot="navigation-menu-child-list"
+      {...rest}
     />
   );
 };

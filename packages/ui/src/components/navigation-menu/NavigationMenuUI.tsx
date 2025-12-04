@@ -2,45 +2,59 @@ import NavigationMenuChildLink from './NavigationMenuChildLink';
 import NavigationMenuChildList from './NavigationMenuChildList';
 import NavigationMenuChildListItem from './NavigationMenuChildListItem';
 import NavigationMenuContent from './NavigationMenuContent';
+import NavigationMenuIndicator from './NavigationMenuIndicator';
 import NavigationMenuItem from './NavigationMenuItem';
 import NavigationMenuLink from './NavigationMenuLink';
 import NavigationMenuList from './NavigationMenuList';
 import NavigationMenuRoot from './NavigationMenuRoot';
 import NavigationMenuTrigger from './NavigationMenuTrigger';
 import NavigationMenuViewport from './NavigationMenuViewport';
-import type { NavigationMenuItemOption, NavigationMenuLinkBaseOption, NavigationMenuProps } from './types';
+import type { NavigationMenuItemChildOption, NavigationMenuItemOption, NavigationMenuLinkBaseOption, NavigationMenuProps, NavigationMenuTriggerProps } from './types';
 
 function isLink(item: NavigationMenuItemOption): item is NavigationMenuLinkBaseOption {
-  return item.type === 'link';
+  return item.type === 'link' || !item.children;
+}
+
+function getItem(itemOption: NavigationMenuItemOption): [NavigationMenuItemOption, NavigationMenuItemChildOption[]] {
+  if (isLink(itemOption)) {
+    return [itemOption, []];
+  }
+
+  const { children = [], ...item } = itemOption;
+
+  return [item, children];
 }
 
 const NavigationMenuUI = (props: NavigationMenuProps) => {
-  const { classNames, items, showArrow, size, viewport = true, ...rest } = props;
+  const { classNames, items, showArrow, itemProps, linkProps, listProps, triggerProps, contentProps, childListProps, childListItemProps, childLinkProps, size, ...rest } = props;
 
   return (
     <NavigationMenuRoot
-      data-viewport={viewport}
       {...rest}
     >
       <NavigationMenuList
         className={classNames?.list}
         size={size}
+        {...listProps}
       >
-        {items.map((item, index) => {
+        {items.map((itemOption, index) => {
           const itemKey = String(index);
+
+          const [item, children] = getItem(itemOption);
 
           return (
             <NavigationMenuItem
               className={classNames?.item}
               key={itemKey}
-              value={item.value}
+              {...itemProps}
             >
-              {isLink(item)
+              {isLink(itemOption)
                 ? (
                   <NavigationMenuLink
                     classNames={classNames}
                     size={size}
-                    {...item}
+                    {...linkProps}
+                    {...item as Omit<NavigationMenuLinkBaseOption, 'children'>}
                   >
                     {item.label}
                   </NavigationMenuLink>
@@ -50,32 +64,36 @@ const NavigationMenuUI = (props: NavigationMenuProps) => {
                     <NavigationMenuTrigger
                       classNames={classNames}
                       size={size}
+                      {...triggerProps}
+                      {...item as Omit<NavigationMenuTriggerProps, 'children'>}
                     >
                       {item.label}
                     </NavigationMenuTrigger>
 
-                    <NavigationMenuContent className={classNames?.content}>
+                    <NavigationMenuContent
+                      className={classNames?.content}
+                      {...contentProps}
+                    >
                       <NavigationMenuChildList
-                        className={classNames?.childList}
+                        className={classNames?.subList}
                         size={size}
+                        {...childListProps}
                       >
-                        {item.children && item.children.length > 0
-                          ? item.children.map((child, childIndex) => {
+                        {children && children.length > 0
+                          ? children.map((child, childIndex) => {
                             // Child items should be link type
-                            const childItem = child as NavigationMenuLinkBaseOption;
+                            const childItem = child;
 
                             return (
                               <NavigationMenuChildListItem
-                                className={classNames?.childListItem}
+                                className={classNames?.subItem}
                                 key={String(childIndex)}
+                                {...childListItemProps}
                               >
                                 <NavigationMenuChildLink
                                   classNames={classNames}
-                                  description={childItem.description}
-                                  href={childItem.href}
-                                  leading={childItem.leading}
                                   size={size}
-                                  trailing={childItem.trailing}
+                                  {...childItem}
                                 >
                                   {childItem.label}
                                 </NavigationMenuChildLink>
@@ -92,14 +110,16 @@ const NavigationMenuUI = (props: NavigationMenuProps) => {
         })}
       </NavigationMenuList>
 
-      {viewport
-        ? (
-          <NavigationMenuViewport
-            classNames={classNames}
-            size={size}
-          />
-        )
-        : null}
+      <NavigationMenuIndicator
+        classNames={classNames}
+        size={size}
+      />
+
+      <NavigationMenuViewport
+        classNames={classNames}
+        size={size}
+      />
+
     </NavigationMenuRoot>
   );
 };
