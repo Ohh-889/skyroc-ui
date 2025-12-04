@@ -1,6 +1,5 @@
 'use client';
 
-import { useMemo } from 'react';
 import { cn } from '@/lib';
 import { kbdVariants } from './kbd-variants';
 import type { KeyboardKeyProps } from './types';
@@ -19,7 +18,7 @@ export const KeyboardKeyUI = (props: KeyboardKeyProps) => {
 
   const { getKeyboardKey } = useKeyboardKey();
 
-  const formattedValue = useMemo(() => {
+  function formatValue() {
     if (!value)
       return '';
 
@@ -33,11 +32,13 @@ export const KeyboardKeyUI = (props: KeyboardKeyProps) => {
         return v;
       })
       .join('');
-  }, [value, symbolize, getKeyboardKey]);
+  };
 
   const mergedCls = cn(kbdVariants({ size, variant }), className);
 
   const isGroup = Array.isArray(value);
+
+  const formattedValue = formatValue();
 
   return (
     <kbd
