@@ -39,9 +39,7 @@ const DemoLayout = ({ children }: { children: React.ReactNode }) => {
           classNames={{ content: 'flex-c gap-3 flex-1' }}
           title={<DemoTitle />}
         >
-
           {children}
-
         </Card>
       </ScrollArea>
     </div>

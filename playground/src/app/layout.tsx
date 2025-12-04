@@ -1,19 +1,8 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
 import '../css/globals.css';
 import { getLocale } from 'next-intl/server';
 import config from '../config';
 import type { Locale } from '../i18n/config';
-
-const geistSans = Geist({
-  subsets: ['latin'],
-  variable: '--font-geist-sans'
-});
-
-const geistMono = Geist_Mono({
-  subsets: ['latin'],
-  variable: '--font-geist-mono'
-});
 
 const siteConfig = {
   name: 'Skyroc UI',
@@ -136,7 +125,6 @@ const RootLayout = async ({
       </head>
 
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
         id="app"
       >
         {children}

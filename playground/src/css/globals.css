@@ -2,7 +2,6 @@
 
 @import "tw-animate-css";
 
-@plugin "tailwindcss-animate";
 
 @plugin "@skyroc/tailwind-plugin" {
 }
