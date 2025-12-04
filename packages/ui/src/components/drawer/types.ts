@@ -54,7 +54,7 @@ export type DrawerClassNames = Partial<Record<DrawerSlots, ClassValue>>;
 export interface DrawerProps extends Omit<DialogProps<DrawerContentProps>, 'contentComponent'> {
   /**
    * Whether the drawer content should be scrollable.
-   * When true, adds flex-grow and overflow-auto to the content wrapper.
+   * When true, adds overflow-auto to the content wrapper.
    * @default true
    */
   scrollable?: boolean;

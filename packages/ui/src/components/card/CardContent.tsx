@@ -4,9 +4,9 @@ import { cardVariants } from './card-variants';
 import type { CardContentProps } from './types';
 
 export const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>((props, ref) => {
-  const { className, flexHeight, size, ...rest } = props;
+  const { className, scrollable, size, ...rest } = props;
 
-  const { content } = cardVariants({ flexHeight, size });
+  const { content } = cardVariants({ scrollable, size });
 
   const mergedCls = cn(content(), className);
 

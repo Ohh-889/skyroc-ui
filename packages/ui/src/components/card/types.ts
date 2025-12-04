@@ -86,12 +86,12 @@ export interface CardFooterProps
 export interface CardContentProps
   extends WithClassName,
   Omit<React.HTMLAttributes<HTMLDivElement>, 'className' | 'title'> {
-  /**
-   * If true, the content will grow to fill available space and handle overflow.
-   * Useful for scrollable content areas.
-   * @default false
-   */
-  flexHeight?: boolean;
+/**
+ * If true, the card content will be scrollable.
+ * When true, adds overflow-auto to the content wrapper.
+ * @default true
+ */
+  scrollable?: boolean;
   /**
    * The size variant of the content affecting padding.
    */
@@ -133,11 +133,11 @@ export interface CardProps extends CardRootProps {
    */
   extra?: ReactNode;
   /**
-   * If true, the card content will grow to fill available space and handle overflow.
-   * Useful for cards with scrollable content.
-   * @default false
+   * If true, the card content will be scrollable.
+   * When true, adds overflow-auto to the content wrapper.
+   * @default true
    */
-  flexHeight?: boolean;
+  scrollable?: boolean;
   /**
    * Custom footer content rendered at the bottom of the card.
    */
@@ -163,10 +163,6 @@ export interface CardProps extends CardRootProps {
    * Content displayed after the title in the title section.
    */
   titleTrailing?: ReactNode;
-  /**
-   * Props for the card root component.
-   */
-  rootProps?: CardRootProps;
   /**
    * Props for the card header component.
    */

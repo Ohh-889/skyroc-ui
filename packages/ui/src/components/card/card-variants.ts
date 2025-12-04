@@ -2,7 +2,8 @@ import { tv } from 'tailwind-variants';
 
 export const cardVariants = tv({
   defaultVariants: {
-    flexHeight: false,
+    scrollable: true,
+    split: false,
     size: 'md'
   },
   slots: {
@@ -14,11 +15,6 @@ export const cardVariants = tv({
     titleRoot: 'flex items-center'
   },
   variants: {
-    flexHeight: {
-      true: {
-        content: 'overflow-hidden'
-      }
-    },
     size: {
       '2xl': {
         content: 'px-7 py-6',
@@ -67,6 +63,11 @@ export const cardVariants = tv({
         root: 'text-2xs',
         title: 'text-xs',
         titleRoot: 'gap-1.5'
+      }
+    },
+    scrollable: {
+      true: {
+        content: 'overflow-auto'
       }
     },
     split: {

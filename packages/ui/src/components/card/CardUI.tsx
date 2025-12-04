@@ -1,5 +1,4 @@
 import React, { isValidElement } from 'react';
-import { cn } from '@/lib/utils';
 import { If } from '../if';
 import { CardContent } from './CardContent';
 import { CardFooter } from './CardFooter';
@@ -7,7 +6,6 @@ import { CardHeader } from './CardHeader';
 import { CardRoot } from './CardRoot';
 import { CardTitle } from './CardTitle';
 import { CardTitleRoot } from './CardTitleRoot';
-import { cardVariants } from './card-variants';
 import type { CardProps } from './types';
 
 export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) => {
@@ -16,7 +14,7 @@ export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) =
     className,
     classNames,
     extra,
-    flexHeight,
+    scrollable,
     footer,
     header,
     size,
@@ -25,7 +23,6 @@ export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) =
     titleLeading,
     titleRoot,
     titleTrailing,
-    rootProps,
     headerProps,
     titleRootProps,
     titleProps,
@@ -36,16 +33,13 @@ export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) =
 
   const showHeader = Boolean(header || title || extra);
 
-  const { root } = cardVariants({ size, split });
-
-  const mergedCls = cn(root(), className);
-
   return (
     <CardRoot
-      className={mergedCls}
+      className={className || classNames?.root}
+      size={size}
+      split={split}
       {...rest}
       ref={ref}
-      {...rootProps}
     >
       <If condition={showHeader}>
         <CardHeader
@@ -92,7 +86,7 @@ export const CardUI = React.forwardRef<HTMLDivElement, CardProps>((props, ref) =
 
       <CardContent
         className={classNames?.content}
-        flexHeight={flexHeight}
+        scrollable={scrollable}
         size={size}
         {...contentProps}
       >
