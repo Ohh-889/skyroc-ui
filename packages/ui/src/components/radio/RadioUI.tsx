@@ -1,3 +1,6 @@
+'use client';
+
+import { useId } from 'react';
 import RadioLabel from '../label/Label';
 import RadioGroupItem from './RadioGroupItem';
 import RadioIndicator from './RadioIndicator';
@@ -5,23 +8,32 @@ import RadioRoot from './RadioRoot';
 import type { RadioProps } from './types';
 
 const Radio = (props: RadioProps) => {
-  const { className, classNames, color, id, label, size, value, ...rest } = props;
+  const { className, classNames, color, id, label, size, value, variant, rootProps, itemProps, indicatorProps, ...rest } = props;
+
+  const internalId = useId();
+
+  const controlId = id || internalId;
 
   return (
     <RadioRoot
       className={className || classNames?.root}
       size={size}
+      {...rootProps}
     >
       <RadioGroupItem
-        color={color}
-        id={id || value}
-        value={value}
         {...rest}
+        {...itemProps}
+        color={color}
+        id={controlId}
         size={size}
+        value={value}
+        variant={variant}
       >
         <RadioIndicator
           className={classNames?.indicator}
           color={color}
+          variant={variant}
+          {...indicatorProps}
         />
       </RadioGroupItem>
 
@@ -29,7 +41,7 @@ const Radio = (props: RadioProps) => {
         ? (
           <RadioLabel
             className={classNames?.label}
-            htmlFor={id || value}
+            htmlFor={controlId}
             size={size}
           >
             {label}

@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import { Card } from 'skyroc-ui';
 import { generateComponentMetadata } from '../components-meta';
+// import RadioCardDemo from './modules/RadioCardDemo';
+import RadioCardGroupDemo from './modules/RadioCardGroupDemo';
 import RadioColor from './modules/RadioColor';
 import RadioDisabledAll from './modules/RadioDisabledAll';
 import RadioDisabledItem from './modules/RadioDisabledItem';
-import RadioSize from './modules/RadioSize';
+import RadioVariant from './modules/RadioVariant';
 import RadioVertical from './modules/RadioVertical';
 
 export async function generateMetadata(): Promise<Metadata> {
@@ -44,9 +46,16 @@ const RadioPage = () => {
 
       <Card
         split
-        title="Size"
+        title="Variant: Outline"
       >
-        <RadioSize />
+        <RadioVariant />
+      </Card>
+
+      <Card
+        split
+        title="Card Group"
+      >
+        <RadioCardGroupDemo />
       </Card>
     </div>
   );

@@ -4,9 +4,9 @@ import { radioVariants } from './radio-variants';
 import type { RadioGroupItemProps } from './types';
 
 const RadioGroupItem = (props: RadioGroupItemProps) => {
-  const { className, color, size, ...rest } = props;
+  const { className, color, size, variant, ...rest } = props;
 
-  const { control } = radioVariants({ color, size });
+  const { control } = radioVariants({ color, size, variant });
 
   const mergedCls = cn(control(), className);
 

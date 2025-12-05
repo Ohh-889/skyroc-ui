@@ -5,7 +5,7 @@ import { radioVariants } from './radio-variants';
 import type { RadioGroupProps } from './types';
 
 const RadioGroup = (props: RadioGroupProps) => {
-  const { className, classNames, color, items, orientation, size, ...rest } = props;
+  const { className, classNames, color, items, orientation, size, variant, ...rest } = props;
 
   const { group } = radioVariants({ orientation, size });
 
@@ -22,6 +22,7 @@ const RadioGroup = (props: RadioGroupProps) => {
           color={color}
           key={item.value}
           size={size}
+          variant={variant}
           {...item}
         />
       ))}

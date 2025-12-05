@@ -4,8 +4,16 @@ import type {
   RadioGroupItemProps as _RadioGroupItemProps,
   RadioGroupProps as _RadioGroupProps
 } from '@radix-ui/react-radio-group';
-import type { HTMLComponentProps, StyledComponentProps, ClassValue, ThemeColor } from '@/types/shared';
-import type { RadioSlots } from './radio-variants';
+import type { HTMLComponentProps, StyledComponentProps, ClassValue, ThemeColor, ThemeSize } from '@/types/shared';
+import type { RadioSlots, radioVariants } from './radio-variants';
+
+type RadioVariant = NonNullable<Parameters<typeof radioVariants>[0]>['variant'];
+type RadioOrientation = NonNullable<Parameters<typeof radioVariants>[0]>['orientation'];
+
+/**
+ * Position of the radio control relative to the content.
+ */
+export type RadioPosition = 'left' | 'right';
 
 /**
  * Class names for different slots in the radio component.
@@ -32,6 +40,23 @@ export interface RadioProps extends RadioGroupItemProps {
    * Label text or element displayed next to the radio button.
    */
   label?: ReactNode;
+  /**
+   * Props for the radio root component.
+   */
+  rootProps?: RadioRootProps;
+  /**
+   * Props for the radio group item component.
+   */
+  itemProps?: RadioGroupItemProps;
+  /**
+   * Props for the radio indicator component.
+   */
+  indicatorProps?: RadioIndicatorProps;
+  /**
+   * Variant style for the radio.
+   * @default 'dot'
+   */
+  variant?: RadioVariant;
 }
 
 /**
@@ -63,7 +88,12 @@ export interface RadioGroupProps extends StyledComponentProps<_RadioGroupProps> 
    * Array of radio items to render in the group.
    * Each item configuration is passed to individual Radio components.
    */
-  items: Omit<RadioProps, 'classNames' | 'color' | 'size'>[];
+  items: Omit<RadioProps, 'classNames' | 'color' | 'size' | 'variant'>[];
+  /**
+   * Variant style for the radio.
+   * @default 'dot'
+   */
+  variant?: RadioVariant;
 }
 
 /**
@@ -76,6 +106,11 @@ export interface RadioGroupItemProps extends StyledComponentProps<_RadioGroupIte
    * Overrides the group-level color if specified.
    */
   color?: ThemeColor;
+  /**
+   * Variant style for the radio.
+   * @default 'dot'
+   */
+  variant?: RadioVariant;
 }
 
 /**
@@ -88,6 +123,11 @@ export interface RadioIndicatorProps extends StyledComponentProps<_RadioGroupInd
    * Determines the fill color of the indicator dot.
    */
   color?: ThemeColor;
+  /**
+   * Variant style for the radio.
+   * @default 'dot'
+   */
+  variant?: RadioVariant;
 }
 
 /**
@@ -95,3 +135,110 @@ export interface RadioIndicatorProps extends StyledComponentProps<_RadioGroupInd
  * Provides a styled div wrapper for radio buttons with custom HTML attributes.
  */
 export interface RadioRootProps extends HTMLComponentProps<'div'> {}
+
+/**
+ * Item configuration for RadioCardGroup.
+ * Extends RadioProps with icon and description for card display.
+ */
+export interface RadioCardGroupItem extends Omit<RadioProps, 'classNames' | 'color' | 'size' | 'variant'> {
+  /**
+   * Icon to display on the card.
+   */
+  icon?: ReactNode;
+  /**
+   * Description text displayed below the label.
+   */
+  description?: ReactNode;
+}
+
+/**
+ * Props for the RadioCard component.
+ * A card-styled radio button with icon, label and description support.
+ *
+ * @example
+ * ```tsx
+ * <RadioCard
+ *   icon={<AppleIcon />}
+ *   label="Apple"
+ *   description="This is an apple"
+ *   value="apple"
+ *   radioPosition="right"
+ * />
+ * ```
+ */
+export interface RadioCardProps extends RadioGroupItemProps {
+  /**
+   * Custom class names for different radio card UI slots.
+   */
+  classNames?: RadioClassNames;
+  /**
+   * Icon name or ReactNode to display on the card.
+   */
+  icon?: ReactNode;
+  /**
+   * Label text or element displayed on the card.
+   */
+  label?: ReactNode;
+  /**
+   * Description text displayed below the label.
+   */
+  description?: ReactNode;
+  /**
+   * Whether the radio is checked (controlled).
+   */
+  checked?: boolean;
+  /**
+   * Position of the radio relative to the content.
+   * @default 'right'
+   */
+  radioPosition?: RadioPosition;
+}
+
+/**
+ * Props for the RadioCardGroup component.
+ * A card-styled variant of RadioGroup with richer content display.
+ *
+ * @example
+ * ```tsx
+ * <RadioCardGroup
+ *   items={[
+ *     { value: "apple", label: "Apple", icon: <AppleIcon />, description: "This is an apple" },
+ *     { value: "orange", label: "Orange", icon: <OrangeIcon />, description: "This is an orange" }
+ *   ]}
+ *   radioPosition="right"
+ * />
+ * ```
+ */
+export interface RadioCardGroupProps extends Omit<StyledComponentProps<_RadioGroupProps>, 'children'> {
+  /**
+   * Class names for customizing different parts of the radio card group.
+   */
+  classNames?: RadioClassNames;
+  /**
+   * Theme color applied to all radio cards in the group.
+   */
+  color?: ThemeColor;
+  /**
+   * Component size variant.
+   */
+  size?: ThemeSize;
+  /**
+   * Array of card items to render, with icon and description support.
+   */
+  items: RadioCardGroupItem[];
+  /**
+   * Position of the radio relative to the content.
+   * @default 'right'
+   */
+  radioPosition?: RadioPosition;
+  /**
+   * Variant style for the radio.
+   * @default 'dot'
+   */
+  variant?: RadioVariant;
+  /**
+   * Layout orientation of the radio card group.
+   * @default 'horizontal'
+   */
+  orientation?: RadioOrientation;
+}

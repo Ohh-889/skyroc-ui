@@ -4,9 +4,9 @@ import { radioVariants } from './radio-variants';
 import type { RadioIndicatorProps } from './types';
 
 const RadioIndicator = (props: RadioIndicatorProps) => {
-  const { className, color, ...rest } = props;
+  const { className, color, variant, ...rest } = props;
 
-  const { indicator } = radioVariants({ color });
+  const { indicator } = radioVariants({ color, variant });
 
   const mergedCls = cn(indicator(), className);
 
