@@ -15,6 +15,7 @@ const ScrollAreaScrollbar = forwardRef<ComponentRef<typeof Scrollbar>, ScrollAre
   return (
     <Scrollbar
       className={mergedCls}
+      data-slot="scroll-area-scrollbar"
       orientation={orientation}
       {...rest}
       ref={ref}

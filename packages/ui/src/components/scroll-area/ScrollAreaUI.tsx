@@ -9,7 +9,7 @@ import ScrollAreaViewport from './ScrollAreaViewport';
 import type { ScrollAreaProps } from './types';
 
 const ScrollArea = forwardRef<ComponentRef<typeof ScrollAreaRoot>, ScrollAreaProps>((props, ref) => {
-  const { children, className, classNames, forceMount, nonce, orientation, size, ...rest } = props;
+  const { children, className, classNames, forceMount, nonce, orientation, size, viewportProps, scrollbarProps, thumbProps, ...rest } = props;
 
   return (
     <ScrollAreaRoot
@@ -20,6 +20,7 @@ const ScrollArea = forwardRef<ComponentRef<typeof ScrollAreaRoot>, ScrollAreaPro
       <ScrollAreaViewport
         className={classNames?.viewport}
         nonce={nonce}
+        {...viewportProps}
       >
         {children}
       </ScrollAreaViewport>
@@ -29,11 +30,18 @@ const ScrollArea = forwardRef<ComponentRef<typeof ScrollAreaRoot>, ScrollAreaPro
         forceMount={forceMount}
         orientation={orientation}
         size={size}
+        {...scrollbarProps}
       >
-        <ScrollAreaThumb className={classNames?.thumb} />
+        <ScrollAreaThumb
+          className={classNames?.thumb}
+          {...thumbProps}
+        />
       </ScrollAreaScrollbar>
 
-      <ScrollAreaCorner className={cn(classNames?.corner)} />
+      <ScrollAreaCorner
+        className={cn(classNames?.corner)}
+        data-slot="scroll-area-corner"
+      />
     </ScrollAreaRoot>
   );
 });

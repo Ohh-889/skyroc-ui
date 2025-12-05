@@ -56,4 +56,16 @@ export interface ScrollAreaProps
    * Class names for customizing different parts of the scroll area component.
    */
   classNames?: ScrollAreaUi;
+  /**
+   * Props for the scroll area viewport component.
+   */
+  viewportProps?: ScrollAreaViewportProps;
+  /**
+   * Props for the scroll area scrollbar component.
+   */
+  scrollbarProps?: ScrollAreaScrollbarProps;
+  /**
+   * Props for the scroll area thumb component.
+   */
+  thumbProps?: ScrollAreaThumbProps;
 }

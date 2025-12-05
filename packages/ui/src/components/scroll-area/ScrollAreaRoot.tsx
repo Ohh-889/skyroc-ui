@@ -15,6 +15,7 @@ const ScrollAreaRoot = forwardRef<ComponentRef<typeof Root>, ScrollAreaRootProps
   return (
     <Root
       className={mergedCls}
+      data-slot="scroll-area-root"
       {...rest}
       ref={ref}
     />

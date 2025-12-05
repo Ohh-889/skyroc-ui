@@ -15,6 +15,7 @@ const ScrollAreaViewport = forwardRef<ComponentRef<typeof Viewport>, ScrollAreaV
   return (
     <Viewport
       className={mergedCls}
+      data-slot="scroll-area-viewport"
       {...rest}
       ref={ref}
     />

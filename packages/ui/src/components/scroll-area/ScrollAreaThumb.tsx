@@ -15,6 +15,7 @@ const ScrollAreaScrollbar = forwardRef<ComponentRef<typeof Thumb>, ScrollAreaThu
   return (
     <Thumb
       className={mergedCls}
+      data-slot="scroll-area-thumb"
       {...rest}
       ref={ref}
     />
