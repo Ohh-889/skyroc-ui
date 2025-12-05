@@ -39,7 +39,6 @@ import type { RadioGroupProps } from '../radio/types';
 import type { ScrollAreaProps } from '../scroll-area/types';
 import type { SegmentOptionData, SegmentProps } from '../segment/types';
 import type { SelectProps } from '../select/types';
-import type { SkeletonProps } from '../skeleton/types';
 import type { SliderProps } from '../slider/types';
 import type { SwitchProps } from '../switch/types';
 import type { TabsProps, TabsOptionData } from '../tabs/types';
@@ -294,11 +293,6 @@ export interface ComponentConfig {
    * Default configuration for select components.
    */
   select?: SelectConfig;
-
-  /**
-   * Default configuration for skeleton components.
-   */
-  skeleton?: SkeletonConfig;
 
   /**
    * Default configuration for slider components.
@@ -685,12 +679,6 @@ export type ListConfig = Pick<ListProps, 'className' | 'classNames' | 'size'>;
  * Selects specific props that can be set globally for all labels.
  */
 export type LabelConfig = Pick<LabelProps, 'className' | 'size'>;
-
-/**
- * Configuration options for skeleton components.
- * Selects specific props that can be set globally for all skeletons.
- */
-export type SkeletonConfig = Pick<SkeletonProps, 'className'>;
 
 /**
  * Configuration options for keyboard key components.

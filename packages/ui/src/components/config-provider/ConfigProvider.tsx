@@ -42,7 +42,6 @@ const COMPONENT_KEYS = [
   'scrollArea',
   'segment',
   'select',
-  'skeleton',
   'slider',
   'sonner',
   'switch',
