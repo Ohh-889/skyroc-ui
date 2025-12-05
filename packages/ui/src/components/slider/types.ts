@@ -90,4 +90,16 @@ export interface SliderProps extends Omit<SliderRootProps, 'children'> {
    * Affects both the fill and interactive elements.
    */
   color?: ThemeColor;
+  /**
+   * Props for the slider track component.
+   */
+  trackProps?: SliderTrackProps;
+  /**
+   * Props for the slider range component.
+   */
+  rangeProps?: SliderRangeProps;
+  /**
+   * Props for the slider thumb component.
+   */
+  thumbProps?: SliderThumbProps;
 }

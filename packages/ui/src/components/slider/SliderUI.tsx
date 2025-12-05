@@ -7,7 +7,7 @@ import SliderTrack from './SliderTrack';
 import type { SliderProps } from './types';
 
 const SliderUI = forwardRef<ComponentRef<typeof SliderRoot>, SliderProps>((props, ref) => {
-  const { className, classNames, color, defaultValue, size, value, ...rest } = props;
+  const { className, classNames, color, defaultValue, size, value, trackProps, rangeProps, thumbProps, ...rest } = props;
 
   return (
     <SliderRoot
@@ -22,10 +22,12 @@ const SliderUI = forwardRef<ComponentRef<typeof SliderRoot>, SliderProps>((props
         className={classNames?.track}
         color={color}
         size={size}
+        {...trackProps}
       >
         <SliderRange
           className={classNames?.range}
           color={color}
+          {...rangeProps}
         />
       </SliderTrack>
 
@@ -35,6 +37,7 @@ const SliderUI = forwardRef<ComponentRef<typeof SliderRoot>, SliderProps>((props
           color={color}
           key={String(index)}
           size={size}
+          {...thumbProps}
         />
       ))}
     </SliderRoot>
