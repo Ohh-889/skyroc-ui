@@ -14,7 +14,7 @@ export const sliderVariants = tv({
     thumb: [
       `block rounded-full bg-background transition-colors duration-200`,
       `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background`,
-      `disabled:pointer-events-none disabled:opacity-50`
+      `disabled:cursor-not-allowed disabled:opacity-50`
     ],
     track: `relative w-full grow overflow-hidden rounded-full`
   },

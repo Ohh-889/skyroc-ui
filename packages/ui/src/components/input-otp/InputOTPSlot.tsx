@@ -32,7 +32,7 @@ const InputOTPSlot = (props: InputOTPSlotProps) => {
 
       {hasFakeCaret
         ? (
-          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+          <div className="cursor-not-allowed absolute inset-0 flex items-center justify-center">
             <div className="animate-caret-blink bg-foreground h-4 w-px duration-1000" />
           </div>
         )

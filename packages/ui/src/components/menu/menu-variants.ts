@@ -9,7 +9,7 @@ export const menuVariants = tv({
     checkboxItem: [
       `relative flex items-center rounded-sm outline-none transition-colors duration-200 cursor-pointer select-none`,
       `focus:bg-accent focus:text-accent-foreground`,
-      `data-[disabled]:pointer-events-none data-[disabled]:opacity-50`
+      `data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50`
     ],
     content: [
       `z-50 min-w-max rounded-md mt-1.5 border font-medium bg-popover translate-x-2 text-popover-foreground shadow-md will-change-transform`,
@@ -21,7 +21,7 @@ export const menuVariants = tv({
     item: [
       `relative flex font-medium items-center rounded-sm outline-none transition-colors duration-200 cursor-default select-none`,
       `focus:bg-accent focus:text-accent-foreground`,
-      `data-[disabled]:pointer-events-none data-[disabled]:opacity-50`,
+      `data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50`,
       `data-[state=open]:bg-accent data-[state=open]:text-accent-foreground`
     ],
     itemIcon: `shrink-0 text-muted-foreground`,
@@ -29,7 +29,7 @@ export const menuVariants = tv({
     itemLink: [
       `relative flex items-center rounded-sm outline-none transition-colors duration-200 cursor-pointer select-none no-underline`,
       `focus:bg-accent focus:text-accent-foreground`,
-      `data-[disabled]:pointer-events-none data-[disabled]:opacity-50`
+      `data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50`
     ],
     itemLinkIcon: `shrink-0 self-start text-muted-foreground`,
     label: 'flex items-center font-semibold',
@@ -37,7 +37,7 @@ export const menuVariants = tv({
     radioItem: [
       `relative flex items-center rounded-sm outline-none transition-colors duration-200 cursor-pointer select-none`,
       `focus:bg-accent focus:text-accent-foreground`,
-      `data-[disabled]:pointer-events-none data-[disabled]:opacity-50`
+      `data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50`
     ],
     separator: `h-px bg-border`,
     shortcut: `ml-auto tracking-widest opacity-60`,

@@ -18,7 +18,7 @@ export const selectVariants = tv({
     item: [
       `relative flex items-center w-full rounded-sm outline-none cursor-pointer select-none`,
       `focus:bg-accent focus:text-accent-foreground `,
-      `data-[disabled]:pointer-events-none data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed`
+      `data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50 data-[disabled]:cursor-not-allowed`
     ],
     itemIndicator: `ml-auto shrink-0 text-muted-foreground`,
     itemText: '',
@@ -30,7 +30,7 @@ export const selectVariants = tv({
       `flex items-center justify-between w-full rounded-md border border-input bg-background [&_span]:truncate`,
       `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-primary`,
       `focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background focus:ring-primary`,
-      `disabled:pointer-events-none disabled:opacity-50 disabled:cursor-not-allowed`,
+      `disabled:cursor-not-allowed disabled:opacity-50 disabled:cursor-not-allowed`,
       `placeholder:text-muted-foreground data-[placeholder]:text-muted-foreground`
     ],
     triggerIcon: `shrink-0 text-muted-foreground opacity-70`,

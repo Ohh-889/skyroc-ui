@@ -14,7 +14,7 @@ export const commandVariants = tv({
     inputWrapper: 'flex items-center border-b',
     item: [
       `relative flex cursor-default font-medium select-none items-center rounded-sm outline-none`,
-      `data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50`
+      `data-[selected=true]:bg-accent data-[selected=true]:text-accent-foreground data-[disabled=true]:cursor-not-allowed data-[disabled=true]:opacity-50`
     ],
     itemIcon: 'shrink-0 text-muted-foreground',
     list: `overflow-y-auto overflow-x-hidden`,

@@ -17,21 +17,22 @@ export const tabsVariants = tv({
     { class: { content: 'ml-3.5', indicatorRoot: 'px-1.5' }, orientation: 'vertical', size: '2xl' }
   ],
   defaultVariants: {
-    enableIndicator: true,
-    fill: 'auto',
+    size: 'md',
     orientation: 'horizontal',
-    size: 'md'
+    shape: 'square',
+    fill: 'auto',
+    enableIndicator: true
   },
   slots: {
     content: `flex-grow self-stretch overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-primary`,
-    indicator: `size-full rounded-md bg-background shadow`,
+    indicator: `size-full bg-background shadow`,
     indicatorRoot: `absolute top-0 left-0 z-2 transition-all duration-300`,
-    list: 'relative inline-flex justify-center items-center rounded-md bg-muted text-muted-foreground',
+    list: 'relative inline-flex justify-center items-center bg-muted text-muted-foreground',
     root: `flex`,
     trigger: [
-      `relative z-3 inline-flex items-center justify-center flex-1 whitespace-nowrap rounded-md font-medium ease-in transition-all duration-200`,
+      `relative z-3 inline-flex items-center cursor-pointer justify-center flex-1 whitespace-nowrap rounded-md font-medium ease-in transition-all duration-200`,
       `focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-primary`,
-      `disabled:pointer-events-none disabled:opacity-50`
+      `disabled:cursor-not-allowed disabled:opacity-50`
     ]
   },
   variants: {
@@ -48,13 +49,23 @@ export const tabsVariants = tv({
         root: `items-stretch`
       }
     },
+    shape: {
+      square: {
+        list: 'rounded-md',
+        indicator: 'rounded-md'
+      },
+      rounded: {
+        list: 'rounded-full',
+        indicator: 'rounded-full'
+      }
+    },
     orientation: {
       horizontal: {
-        indicatorRoot: `h-full w-(--soybean-tabs-indicator-size) translate-x-(--soybean-tabs-indicator-position)`,
+        indicatorRoot: `h-full w-[var(--skyroc-tabs-indicator-size)] translate-x-[var(--skyroc-tabs-indicator-position)]`,
         root: `flex-col`
       },
       vertical: {
-        indicatorRoot: `w-full h-(--soybean-tabs-indicator-size) translate-y-(--soybean-tabs-indicator-position)`,
+        indicatorRoot: `w-full h-[var(--skyroc-tabs-indicator-size)] translate-y-[var(--skyroc-tabs-indicator-position)]`,
         list: `flex-col`
       }
     },

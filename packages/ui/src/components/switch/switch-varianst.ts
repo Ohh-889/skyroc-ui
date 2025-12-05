@@ -16,7 +16,7 @@ export const switchVariants = tv({
       `disabled:cursor-not-allowed disabled:opacity-50`,
       `data-[state=unchecked]:bg-input`
     ],
-    thumb: `flex justify-center items-center rounded-full shadow-lg transition-transform duration-200 bg-background pointer-events-none data-[state=unchecked]:translate-x-0.5`
+    thumb: `flex justify-center items-center rounded-full shadow-lg transition-transform duration-200 bg-background cursor-not-allowed data-[state=unchecked]:translate-x-0.5`
   },
   variants: {
     color: {

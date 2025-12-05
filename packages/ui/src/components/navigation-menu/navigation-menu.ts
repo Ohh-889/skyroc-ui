@@ -25,7 +25,7 @@ export const navigationMenuVariants = tv({
       `group inline-flex items-center rounded-md cursor-pointer bg-background font-medium transition-colors-200 decoration-none`,
       `hover:bg-accent hover:text-accent-foreground`,
       `focus:bg-accent focus:text-accent-foreground focus:outline-none`,
-      `disabled:pointer-events-none disabled:opacity-50`,
+      `disabled:cursor-not-allowed disabled:opacity-50`,
       `data-[active]:bg-accent/50`,
       `data-[state=open]:bg-accent/50`
     ],
@@ -39,12 +39,12 @@ export const navigationMenuVariants = tv({
     link: [
       `group relative w-full flex items-center rounded-md font-medium outline-none cursor-pointer decoration-none`,
       `focus:bg-accent focus:text-accent-foreground hover:bg-accent hover:text-accent-foreground`,
-      `data-[disabled]:pointer-events-none data-[disabled]:opacity-50`
+      `data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50`
     ],
     subLink: [
       `flex items-start select-none rounded-md no-underline outline-none transition-colors-200 cursor-pointer decoration-none`,
       `focus:bg-accent focus:text-accent-foreground hover:bg-accent hover:text-accent-foreground`,
-      `data-[disabled]:pointer-events-none data-[disabled]:opacity-50`
+      `data-[disabled]:cursor-not-allowed data-[disabled]:opacity-50`
     ],
     linkIcon: 'shrink-0 self-start',
     subLinkContent: `grow flex flex-col items-start`,

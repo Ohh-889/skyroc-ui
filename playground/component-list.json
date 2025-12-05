@@ -205,6 +205,11 @@
     "value": "scroll-area"
   },
   {
+    "name": "segment",
+    "label": "Segment",
+    "value": "segment"
+  },
+  {
     "name": "select",
     "label": "Select",
     "value": "select"

@@ -26,7 +26,7 @@ export type SegmentOptionData = Omit<TabsOptionData, 'children'>;
  * />
  * ```
  */
-export type SegmentProps<T extends SegmentOptionData> = Omit<TabsProps<TabsOptionData>, 'items'> & {
+export type SegmentProps<T extends SegmentOptionData = SegmentOptionData> = Omit<TabsProps<TabsOptionData>, 'items'> & {
   /**
    * Array of segment options to display.
    * Each option represents a selectable segment button.
