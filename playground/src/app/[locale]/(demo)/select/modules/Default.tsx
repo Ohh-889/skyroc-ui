@@ -1,6 +1,6 @@
 import { Apple, Banana, Cherry, Ear, Link2Icon } from 'lucide-react';
 import type { SelectProps } from 'skyroc-ui';
-import { Card, Select } from 'skyroc-ui';
+import { Select } from 'skyroc-ui';
 
 const fruits: SelectProps['items'] = [
   { label: 'Apple', leading: <Apple />, trailing: <Link2Icon className="size-4" />, value: 'apple' },
@@ -15,19 +15,16 @@ const fruits: SelectProps['items'] = [
 
 const Default = () => {
   return (
-    <Card
-      split
-      title="Default"
-    >
-      <div className="lt-sm:w-auto w-[240px]">
-        <Select
-          items={fruits}
-          triggerProps={{
-            placeholder: 'Please select a fruit'
-          }}
-        />
-      </div>
-    </Card>
+
+    <div className="lt-sm:w-auto w-[240px]">
+      <Select
+        items={fruits}
+        triggerProps={{
+          placeholder: 'Please select a fruit'
+        }}
+      />
+    </div>
+
   );
 };
 

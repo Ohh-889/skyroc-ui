@@ -1,5 +1,5 @@
 import type { SelectProps } from 'skyroc-ui';
-import { Card, Select } from 'skyroc-ui';
+import { Select } from 'skyroc-ui';
 
 const fruits: SelectProps['items'] = [
   { label: 'Apple', value: 'apple' },
@@ -20,19 +20,15 @@ const fruits: SelectProps['items'] = [
 
 const AllSeparator = () => {
   return (
-    <Card
-      split
-      title="Separator"
-    >
-      <div className="lt-sm:w-auto w-[240px]">
-        <Select
-          items={fruits}
-          triggerProps={{
-            placeholder: 'Please select a fruit'
-          }}
-        />
-      </div>
-    </Card>
+    <div className="lt-sm:w-auto w-[240px]">
+      <Select
+        items={fruits}
+        triggerProps={{
+          placeholder: 'Please select a fruit'
+        }}
+      />
+    </div>
+
   );
 };
 

@@ -1,39 +1,34 @@
-import type { SelectProps } from 'skyroc-ui';
-import { Card, Select } from 'skyroc-ui';
+import type { SelectOptionData } from 'skyroc-ui';
+import { Select } from 'skyroc-ui';
 
-const items: SelectProps['items'] = [
+const fruits = ['apple', 'banana', 'cherry', 'orange', 'pear', 'plum', 'strawberry', 'watermelon'];
+
+const vegetables = ['carrot', 'potato', 'onion', 'garlic', 'tomato', 'lettuce', 'broccoli', 'cauliflower'];
+
+const groups: SelectOptionData[] = [
   {
-    children: [
-      { label: 'Option 1', value: '1' },
-      { label: 'Option 2', value: '2' }
-    ],
-    label: 'Group 1'
+    label: 'Fruits',
+    children: fruits.map(fruit => ({ label: fruit, value: fruit }))
   },
   { type: 'separator' },
   {
-    children: [
-      { label: 'Option 3', value: '3' },
-      { label: 'Option 4', value: '4' }
-    ],
-    label: 'Group 2'
+    label: 'Vegetables',
+    children: vegetables.map(vegetable => ({ label: vegetable, value: vegetable }))
   }
 ];
 
 const GroupOption = () => {
   return (
-    <Card
-      split
-      title="Group Option"
-    >
-      <div className="lt-sm:w-auto w-[240px]">
-        <Select
-          items={items}
-          triggerProps={{
-            placeholder: 'Please Select'
-          }}
-        />
-      </div>
-    </Card>
+
+    <div className="lt-sm:w-auto w-[240px]">
+      <Select
+        items={groups}
+        triggerProps={{
+          placeholder: 'Please Select'
+        }}
+      />
+    </div>
+
   );
 };
 
