@@ -14,15 +14,20 @@ const Segment = forwardRef<ComponentRef<typeof Root>, SegmentProps<SegmentOption
     enableIndicator = true,
     items,
     loop,
+    shape = 'square',
+    disabled,
     orientation = 'horizontal',
     size,
     value,
+    triggerProps,
+    listProps,
     ...rest
   } = props;
 
   return (
     <SegmentRoot
       className={[className, classNames?.root]}
+      data-slot="segment-root"
       dir={dir}
       ref={ref}
       size={size}
@@ -31,26 +36,31 @@ const Segment = forwardRef<ComponentRef<typeof Root>, SegmentProps<SegmentOption
     >
       <SegmentList
         className={classNames?.list}
+        data-slot="segment-list"
         dir={dir}
         enableIndicator={enableIndicator}
         loop={loop}
         orientation={orientation}
+        shape={shape}
         size={size}
         value={value}
         classNames={{
           indicator: classNames?.indicator,
           indicatorRoot: classNames?.indicatorRoot
         }}
+        {...listProps}
       >
         {items.map(item => (
           <SegmentTrigger
             className={classNames?.trigger}
+            data-slot="segment-trigger"
             dir={dir}
-            disabled={item.disabled}
+            disabled={disabled || item.disabled}
             enableIndicator={enableIndicator}
             key={item.value}
             size={size}
             value={item.value}
+            {...triggerProps}
           >
             {item.label}
           </SegmentTrigger>
