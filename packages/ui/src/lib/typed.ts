@@ -1,3 +1,5 @@
+/* eslint-disable unicorn/no-instanceof-builtins */
+/* eslint-disable ts/no-unsafe-function-type */
 export const isSymbol = (value: any): value is symbol => {
   return Boolean(value) && value.constructor === Symbol;
 };
@@ -20,7 +22,6 @@ export const isPrimitive = (value: any): boolean => {
   return value === undefined || value === null || (typeof value !== 'object' && typeof value !== 'function');
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-function-type
 export const isFunction = (value: any): value is Function => {
   return Boolean(value && value.constructor && value.call && value.apply);
 };

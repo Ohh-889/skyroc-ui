@@ -170,6 +170,11 @@
     "value": "number-input"
   },
   {
+    "name": "pagination",
+    "label": "Pagination",
+    "value": "pagination"
+  },
+  {
     "name": "popover",
     "label": "Popover",
     "value": "popover"

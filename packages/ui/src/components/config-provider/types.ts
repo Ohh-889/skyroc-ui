@@ -27,6 +27,7 @@ import type { InputProps } from '../input/types';
 import type { InputOTPProps } from '../input-otp/types';
 import type { KeyboardKeyProps } from '../keyboard-key/types';
 import type { NumberInputProps } from '../number-input/types';
+import type { PaginationProps } from '../pagination/types';
 import type { LabelProps } from '../label/types';
 import type { LayoutProps } from '../layout/types';
 import type { ListProps } from '../list/types';
@@ -252,6 +253,11 @@ export interface ComponentConfig {
    * Default configuration for number input components.
    */
   numberInput?: NumberInputConfig;
+
+  /**
+   * Default configuration for pagination components.
+   */
+  pagination?: PaginationConfig;
 
   /**
    * Default configuration for popover components.
@@ -715,6 +721,15 @@ export type MenuConfig = Pick<MenuProps, 'classNames' | 'size'>;
  * Selects specific props that can be set globally for all number inputs.
  */
 export type NumberInputConfig = Pick<NumberInputProps, 'className' | 'classNames' | 'size' | 'center'>;
+
+/**
+ * Configuration options for pagination components.
+ * Selects specific props that can be set globally for all paginations.
+ */
+export type PaginationConfig = Pick<
+  PaginationProps,
+  'className' | 'classNames' | 'size' | 'variant' | 'shape' | 'showEdges' | 'showFirstLast' | 'siblingCount'
+>;
 
 /**
  * Configuration options for sonner/toast components.

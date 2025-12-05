@@ -155,6 +155,11 @@ const componentsInfoEn: Record<string, ComponentInfo> = {
     description: 'Skyroc UI NavigationMenu Component - Horizontal navigation menu.',
     keywords: ['navigation-menu', 'nav', 'menu', 'header']
   },
+  'pagination': {
+    title: 'Pagination',
+    description: 'Skyroc UI Pagination Component - Pagination with multiple variants, sizes, and shapes.',
+    keywords: ['pagination', 'pager', 'page', 'navigation']
+  },
   'popover': {
     title: 'Popover',
     description: 'Skyroc UI Popover Component - Popover for displaying more content.',
@@ -383,6 +388,11 @@ const componentsInfoZh: Record<string, ComponentInfo> = {
     title: 'NavigationMenu 导航菜单',
     description: 'Skyroc UI NavigationMenu 组件 - 水平导航菜单组件。',
     keywords: ['navigation-menu', '导航菜单', 'nav', 'menu']
+  },
+  'pagination': {
+    title: 'Pagination 分页',
+    description: 'Skyroc UI Pagination 组件 - 分页组件，支持多种样式变体、尺寸和形状。',
+    keywords: ['pagination', '分页', 'pager', 'page']
   },
   'popover': {
     title: 'Popover 气泡',
