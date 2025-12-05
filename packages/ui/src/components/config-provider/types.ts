@@ -28,6 +28,7 @@ import type { InputOTPProps } from '../input-otp/types';
 import type { KeyboardKeyProps } from '../keyboard-key/types';
 import type { NumberInputProps } from '../number-input/types';
 import type { PaginationProps } from '../pagination/types';
+import type { PasswordProps } from '../password/types';
 import type { LabelProps } from '../label/types';
 import type { LayoutProps } from '../layout/types';
 import type { ListProps } from '../list/types';
@@ -258,6 +259,11 @@ export interface ComponentConfig {
    * Default configuration for pagination components.
    */
   pagination?: PaginationConfig;
+
+  /**
+   * Default configuration for password components.
+   */
+  password?: PasswordConfig;
 
   /**
    * Default configuration for popover components.
@@ -730,6 +736,12 @@ export type PaginationConfig = Pick<
   PaginationProps,
   'className' | 'classNames' | 'size' | 'variant' | 'shape' | 'showEdges' | 'showFirstLast' | 'siblingCount'
 >;
+
+/**
+ * Configuration options for password components.
+ * Selects specific props that can be set globally for all password inputs.
+ */
+export type PasswordConfig = Pick<PasswordProps, 'className' | 'classNames' | 'size' | 'clearable' | 'visibleIcon' | 'hiddenIcon'>;
 
 /**
  * Configuration options for sonner/toast components.

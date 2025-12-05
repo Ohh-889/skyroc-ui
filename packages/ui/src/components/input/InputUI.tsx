@@ -27,6 +27,9 @@ const InputUI = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
   function handleClear() {
     if (interRef.current) {
       interRef.current.value = '';
+      // Trigger onChange event
+      const event = new Event('input', { bubbles: true });
+      interRef.current.dispatchEvent(event);
     }
   }
 

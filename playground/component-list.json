@@ -175,6 +175,11 @@
     "value": "pagination"
   },
   {
+    "name": "password",
+    "label": "Password",
+    "value": "password"
+  },
+  {
     "name": "popover",
     "label": "Popover",
     "value": "popover"

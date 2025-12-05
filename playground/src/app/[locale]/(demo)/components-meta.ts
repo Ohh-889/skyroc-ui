@@ -160,6 +160,11 @@ const componentsInfoEn: Record<string, ComponentInfo> = {
     description: 'Skyroc UI Pagination Component - Pagination with multiple variants, sizes, and shapes.',
     keywords: ['pagination', 'pager', 'page', 'navigation']
   },
+  'password': {
+    title: 'Password',
+    description: 'Skyroc UI Password Component - Password input with visibility toggle and clearable button.',
+    keywords: ['password', 'input', 'security', 'visibility']
+  },
   'popover': {
     title: 'Popover',
     description: 'Skyroc UI Popover Component - Popover for displaying more content.',
@@ -393,6 +398,11 @@ const componentsInfoZh: Record<string, ComponentInfo> = {
     title: 'Pagination 分页',
     description: 'Skyroc UI Pagination 组件 - 分页组件，支持多种样式变体、尺寸和形状。',
     keywords: ['pagination', '分页', 'pager', 'page']
+  },
+  'password': {
+    title: 'Password 密码输入框',
+    description: 'Skyroc UI Password 组件 - 密码输入框组件，支持显示/隐藏密码和清除按钮。',
+    keywords: ['password', '密码', '输入框', 'visibility']
   },
   'popover': {
     title: 'Popover 气泡',
