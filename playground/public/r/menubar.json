@@ -151,7 +151,7 @@
     },
     {
       "path": "src/components/menubar/menubar-variansts.ts",
-      "content": "import { tv } from 'tailwind-variants';\n\nexport const menubarVariants = tv({\n  defaultVariants: {\n    size: 'md'\n  },\n  slots: {\n    root: `flex items-center rounded-md border bg-background shadow-sm`\n  },\n  variants: {\n    size: {\n      '2xl': {\n        root: 'gap-2.5 p-1.25'\n      },\n      lg: {\n        root: 'gap-1.75 p-0.875'\n      },\n      md: {\n        root: 'gap-1.5 p-0.75'\n      },\n      sm: {\n        root: 'gap-1.25 p-0.625 text-xs'\n      },\n      xl: {\n        root: 'gap-2 p-1'\n      },\n      xs: {\n        root: 'gap-1 p-0.5 text-2xs'\n      }\n    }\n  }\n});\n\nexport type MenubarSlots = keyof typeof menubarVariants.slots;\n",
+      "content": "import { tv } from 'tailwind-variants';\n\nexport const menubarVariants = tv({\n  defaultVariants: {\n    size: 'md'\n  },\n  slots: {\n    root: `flex items-center rounded-md border bg-background shadow-sm`\n  },\n  variants: {\n    size: {\n      '2xl': {\n        root: 'gap-2.5 p-1.25'\n      },\n      'lg': {\n        root: 'gap-1.75 p-0.875'\n      },\n      'md': {\n        root: 'gap-1.5 p-0.75'\n      },\n      'sm': {\n        root: 'gap-1.25 p-0.625 text-xs'\n      },\n      'xl': {\n        root: 'gap-2 p-1'\n      },\n      'xs': {\n        root: 'gap-1 p-0.5 text-2xs'\n      }\n    }\n  }\n});\n\nexport type MenubarSlots = keyof typeof menubarVariants.slots;\n",
       "type": "registry:ui",
       "target": "components/menubar/menubar-variansts.ts"
     },

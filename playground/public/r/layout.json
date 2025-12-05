@@ -55,7 +55,7 @@
     },
     {
       "path": "src/components/layout/LayoutTab.tsx",
-      "content": "import { cn } from '@/lib/utils';\nimport { layoutVariants } from './layout-variants';\nimport type { LayoutTabProps } from './types';\n\nconst LayoutTab = (props: LayoutTabProps) => {\n  const { className, ...rest } = props;\n\n  const { tab } = layoutVariants();\n\n  const mergedClass = cn(tab(), className);\n\n  return (\n    <div\n      className={mergedClass}\n      {...rest}\n    />\n  );\n};\n\nexport default LayoutTab;\n\n",
+      "content": "import { cn } from '@/lib/utils';\nimport { layoutVariants } from './layout-variants';\nimport type { LayoutTabProps } from './types';\n\nconst LayoutTab = (props: LayoutTabProps) => {\n  const { className, ...rest } = props;\n\n  const { tab } = layoutVariants();\n\n  const mergedClass = cn(tab(), className);\n\n  return (\n    <div\n      className={mergedClass}\n      {...rest}\n    />\n  );\n};\n\nexport default LayoutTab;\n",
       "type": "registry:ui",
       "target": "components/layout/LayoutTab.tsx"
     },

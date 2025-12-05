@@ -2119,21 +2119,6 @@
           "type": "registry:ui"
         },
         {
-          "path": "src/components/number-input/NumberInputDecrement.tsx",
-          "target": "components/number-input/NumberInputDecrement.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/number-input/NumberInputIncrement.tsx",
-          "target": "components/number-input/NumberInputIncrement.tsx",
-          "type": "registry:ui"
-        },
-        {
-          "path": "src/components/number-input/NumberInputRoot.tsx",
-          "target": "components/number-input/NumberInputRoot.tsx",
-          "type": "registry:ui"
-        },
-        {
           "path": "src/components/number-input/NumberInputUI.tsx",
           "target": "components/number-input/NumberInputUI.tsx",
           "type": "registry:ui"
@@ -2157,6 +2142,112 @@
       "name": "number-input",
       "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
       "title": "Number Input",
+      "type": "registry:block"
+    },
+    {
+      "files": [
+        {
+          "path": "src/components/pagination/Pagination.tsx",
+          "target": "components/pagination/Pagination.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/PaginationContent.tsx",
+          "target": "components/pagination/PaginationContent.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/PaginationEllipsis.tsx",
+          "target": "components/pagination/PaginationEllipsis.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/PaginationFirst.tsx",
+          "target": "components/pagination/PaginationFirst.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/PaginationItem.tsx",
+          "target": "components/pagination/PaginationItem.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/PaginationLast.tsx",
+          "target": "components/pagination/PaginationLast.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/PaginationNext.tsx",
+          "target": "components/pagination/PaginationNext.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/PaginationPrevious.tsx",
+          "target": "components/pagination/PaginationPrevious.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/PaginationRoot.tsx",
+          "target": "components/pagination/PaginationRoot.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/PaginationUI.tsx",
+          "target": "components/pagination/PaginationUI.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/index.ts",
+          "target": "components/pagination/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/pagination-variants.ts",
+          "target": "components/pagination/pagination-variants.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/shared.ts",
+          "target": "components/pagination/shared.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/pagination/types.ts",
+          "target": "components/pagination/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "pagination",
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+      "title": "Pagination",
+      "type": "registry:block"
+    },
+    {
+      "files": [
+        {
+          "path": "src/components/password/Password.tsx",
+          "target": "components/password/Password.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/password/PasswordUI.tsx",
+          "target": "components/password/PasswordUI.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/password/index.ts",
+          "target": "components/password/index.ts",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/password/types.ts",
+          "target": "components/password/types.ts",
+          "type": "registry:ui"
+        }
+      ],
+      "name": "password",
+      "registryDependencies": ["https://ui-play.skyroc.me/r/style.json"],
+      "title": "Password",
       "type": "registry:block"
     },
     {
@@ -2245,6 +2336,16 @@
         {
           "path": "src/components/radio/Radio.tsx",
           "target": "components/radio/Radio.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/radio/RadioCard.tsx",
+          "target": "components/radio/RadioCard.tsx",
+          "type": "registry:ui"
+        },
+        {
+          "path": "src/components/radio/RadioCardGroup.tsx",
+          "target": "components/radio/RadioCardGroup.tsx",
           "type": "registry:ui"
         },
         {

@@ -55,7 +55,7 @@
     },
     {
       "path": "src/components/list/index.ts",
-      "content": "export { default as List } from './List';\nexport * from './ListContent';\nexport * from './ListDescription';\nexport * from './ListItem';\nexport * from './ListItemUI';\nexport * from './ListRoot';\nexport * from './ListTitle';\nexport * from './ListUI';\n\nexport * from './types';\n\n",
+      "content": "export { default as List } from './List';\nexport * from './ListContent';\nexport * from './ListDescription';\nexport * from './ListItem';\nexport * from './ListItemUI';\nexport * from './ListRoot';\nexport * from './ListTitle';\nexport * from './ListUI';\n\nexport * from './types';\n",
       "type": "registry:ui",
       "target": "components/list/index.ts"
     },
