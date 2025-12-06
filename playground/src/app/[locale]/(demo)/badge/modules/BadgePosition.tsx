@@ -1,12 +1,12 @@
-import { Button, Chip } from 'skyroc-ui';
+import { Button, Badge } from 'skyroc-ui';
 
 const positions = ['top-right', 'bottom-right', 'top-left', 'bottom-left'] as const;
 
-const ChipPosition = () => {
+const BadgePosition = () => {
   return (
     <div className="flex flex-wrap gap-3">
       {positions.map(position => (
-        <Chip
+        <Badge
           key={position}
           position={position}
         >
@@ -16,10 +16,10 @@ const ChipPosition = () => {
           >
             {position}
           </Button>
-        </Chip>
+        </Badge>
       ))}
     </div>
   );
 };
 
-export default ChipPosition;
+export default BadgePosition;

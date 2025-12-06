@@ -24,7 +24,6 @@ export * from './components/carousel';
 
 export * from './components/checkbox';
 
-export * from './components/chip';
 
 export * from './components/collapsible';
 
@@ -93,6 +92,8 @@ export * from './components/sonner';
 export * from './components/switch';
 
 export * from './components/tabs';
+
+export * from './components/tag';
 
 export * from './components/textarea';
 

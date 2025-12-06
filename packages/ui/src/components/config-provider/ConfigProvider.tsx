@@ -17,7 +17,6 @@ const COMPONENT_KEYS = [
   'card',
   'carousel',
   'checkbox',
-  'chip',
   'collapsible',
   'command',
   'contextMenu',

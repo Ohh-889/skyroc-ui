@@ -1,9 +1,9 @@
-import { Badge } from 'skyroc-ui';
+import { Tag } from 'skyroc-ui';
 
 const colors = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'] as const;
 const variants = ['solid', 'pure', 'outline', 'soft', 'ghost', 'raw'] as const;
 
-const BadgeVariantColors = () => {
+const TagVariantColors = () => {
   return (
     <div className="flex flex-col gap-[12px]">
       {colors.map(color => (
@@ -12,13 +12,13 @@ const BadgeVariantColors = () => {
           key={color}
         >
           {variants.map(variant => (
-            <Badge
+            <Tag
               color={color}
               key={variant}
               variant={variant}
             >
               {variant}
-            </Badge>
+            </Tag>
           ))}
         </div>
       ))}
@@ -26,4 +26,4 @@ const BadgeVariantColors = () => {
   );
 };
 
-export default BadgeVariantColors;
+export default TagVariantColors;

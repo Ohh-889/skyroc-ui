@@ -7,12 +7,12 @@ import type { AlertDialogProps } from '../alert-dialog';
 import type { AspectRatioProps } from '../aspect-ratio';
 import type { AvatarProps } from '../avatar/types';
 import type { BadgeProps } from '../badge/types';
+import type { TagProps } from '../tag/types';
 import type { BreadcrumbItem, BreadcrumbProps } from '../breadcrumb/types';
 import type { ButtonProps } from '../button/types';
 import type { CardProps } from '../card/types';
 import type { CarouselProps } from '../carousel/types';
 import type { CheckboxProps } from '../checkbox/types';
-import type { ChipProps } from '../chip/types';
 import type { CollapsibleProps } from '../collapsible/types';
 import type { CommandProps } from '../command/types';
 import type { ContextMenuProps } from '../context-menu/types';
@@ -130,6 +130,11 @@ export interface ComponentConfig {
   badge?: BadgeConfig;
 
   /**
+   * Default configuration for tag components.
+   */
+  tag?: TagConfig;
+
+  /**
    * Default configuration for bottom sheet components.
    */
   bottomSheet?: BottomSheetConfig;
@@ -158,11 +163,6 @@ export interface ComponentConfig {
    * Default configuration for checkbox components.
    */
   checkbox?: CheckboxConfig;
-
-  /**
-   * Default configuration for chip components.
-   */
-  chip?: ChipConfig;
 
   /**
    * Default configuration for collapsible components.
@@ -532,7 +532,13 @@ export type ButtonConfig = Pick<
  * Configuration options for badge components.
  * Selects specific props that can be set globally for all badges.
  */
-export type BadgeConfig = Pick<BadgeProps, 'className' | 'color' | 'shape' | 'size' | 'variant'>;
+export type BadgeConfig = Pick<BadgeProps, 'className' | 'classNames' | 'color' | 'position' | 'size'>;
+
+/**
+ * Configuration options for tag components.
+ * Selects specific props that can be set globally for all tags.
+ */
+export type TagConfig = Pick<TagProps, 'className' | 'color' | 'shape' | 'size' | 'variant'>;
 
 /**
  * Configuration options for radio components.
@@ -596,12 +602,6 @@ export type TabsConfig = Pick<
   TabsProps<TabsOptionData>,
   'classNames' | 'enableIndicator' | 'orientation' | 'size'
 >;
-
-/**
- * Configuration options for chip components.
- * Selects specific props that can be set globally for all chips.
- */
-export type ChipConfig = Pick<ChipProps, 'className' | 'classNames' | 'color' | 'position' | 'size'>;
 
 /**
  * Configuration options for toggle components.

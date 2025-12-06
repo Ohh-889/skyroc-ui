@@ -1,20 +1,34 @@
-import { cn } from '@/lib/utils';
-import { badgeVariants } from './badge-variants';
+import { forwardRef } from 'react';
+import BadgeContent from './BadgeContent';
+import BadgeRoot from './BadgeRoot';
 import type { BadgeProps } from './types';
 
-const BadgeUI = (props: BadgeProps) => {
-  const { className, color, shape, size, variant, ...rest } = props;
-
-  const mergedCls = cn(badgeVariants({ color, shape, size, variant }), className);
+const BadgeUI = forwardRef<HTMLDivElement, BadgeProps>((props, ref) => {
+  const { children, className, classNames, color, content, open = true, position, size, ...rest } = props;
 
   return (
-    <div
-      className={mergedCls}
-      data-slot="badge"
+    <BadgeRoot
+      className={className || classNames?.root}
+      ref={ref}
       {...rest}
-    />
+    >
+      {children}
+
+      {open
+        ? (
+          <BadgeContent
+            className={classNames?.content}
+            color={color}
+            position={position}
+            size={size}
+          >
+            {content}
+          </BadgeContent>
+        )
+        : null}
+    </BadgeRoot>
   );
-};
+});
 
 BadgeUI.displayName = 'BadgeUI';
 

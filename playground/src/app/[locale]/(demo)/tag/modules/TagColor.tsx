@@ -1,20 +1,20 @@
-import { Button, Chip } from 'skyroc-ui';
+import { Tag } from 'skyroc-ui';
 
 const colors = ['primary', 'destructive', 'success', 'warning', 'info', 'carbon', 'secondary', 'accent'] as const;
 
-const ChipColor = () => {
+const TagColor = () => {
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="flex flex-wrap gap-[12px]">
       {colors.map(color => (
-        <Chip
+        <Tag
           color={color}
           key={color}
         >
-          <Button variant="dashed">{color}</Button>
-        </Chip>
+          {color}
+        </Tag>
       ))}
     </div>
   );
 };
 
-export default ChipColor;
+export default TagColor;

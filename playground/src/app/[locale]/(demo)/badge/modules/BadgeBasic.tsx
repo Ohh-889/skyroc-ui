@@ -1,21 +1,21 @@
-import { Button, Chip } from 'skyroc-ui';
+import { Button, Badge } from 'skyroc-ui';
 
-const ChipBasic = () => {
+const BadgeBasic = () => {
   return (
     <div className="flex flex-wrap gap-4">
-      <Chip>
+      <Badge>
         <Button variant="dashed">Dot</Button>
-      </Chip>
+      </Badge>
 
-      <Chip content="5">
+      <Badge content="5">
         <Button variant="dashed">Count</Button>
-      </Chip>
+      </Badge>
 
-      <Chip content="99+">
+      <Badge content="99+">
         <Button variant="dashed">Max</Button>
-      </Chip>
+      </Badge>
     </div>
   );
 };
 
-export default ChipBasic;
+export default BadgeBasic;

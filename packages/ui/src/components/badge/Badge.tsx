@@ -1,10 +1,11 @@
 'use client';
 
+import { forwardRef } from 'react';
 import { useComponentConfig } from '../config-provider/context';
 import BadgeUI from './BadgeUI';
 import type { BadgeProps } from './types';
 
-const Badge = (props: BadgeProps) => {
+const Badge = forwardRef<HTMLDivElement, BadgeProps>((props, ref) => {
   const config = useComponentConfig('badge');
 
   const mergedProps = {
@@ -15,9 +16,10 @@ const Badge = (props: BadgeProps) => {
   return (
     <BadgeUI
       {...mergedProps}
+      ref={ref}
     />
   );
-};
+});
 
 Badge.displayName = 'Badge';
 

@@ -1,20 +1,20 @@
-import { Badge } from 'skyroc-ui';
+import { Tag } from 'skyroc-ui';
 
 const variants = ['solid', 'pure', 'outline', 'soft', 'ghost', 'raw'] as const;
 
-const BadgeVariant = () => {
+const TagVariant = () => {
   return (
     <div className="flex flex-wrap gap-[12px]">
       {variants.map(variant => (
-        <Badge
+        <Tag
           key={variant}
           variant={variant}
         >
           {variant}
-        </Badge>
+        </Tag>
       ))}
     </div>
   );
 };
 
-export default BadgeVariant;
+export default TagVariant;
