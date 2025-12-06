@@ -71,6 +71,10 @@ export interface TooltipProps extends StyledComponentProps<_TooltipProps> {
    * Defaults to false.
    */
   showArrow?: boolean;
+  /**
+   * Props for the tooltip arrow component.
+   */
+  arrowProps?: TooltipArrowProps;
 }
 
 /**

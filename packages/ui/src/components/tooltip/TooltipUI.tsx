@@ -4,7 +4,7 @@ import TooltipContent from './TooltipContent';
 import type { TooltipProps } from './types';
 
 const TooltipUI = (props: TooltipProps) => {
-  const { children, className, classNames, content, contentProps, showArrow, size, ...rest } = props;
+  const { children, className, classNames, content, contentProps, showArrow, size, arrowProps, ...rest } = props;
 
   return (
     <Root {...rest}>
@@ -22,6 +22,7 @@ const TooltipUI = (props: TooltipProps) => {
             <TooltipArrow
               className={classNames?.arrow}
               size={size}
+              {...arrowProps}
             />
           )
           : null}
