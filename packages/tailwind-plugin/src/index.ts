@@ -105,7 +105,6 @@ export const skyrocUIPlugin = plugin.withOptions(
             DEFAULT: 'hsl(var(--popover))',
             foreground: 'hsl(var(--popover-foreground))'
           },
-          // 示例部分（你也可以写一个生成器函数自动输出完整变量映射）
           'primary': {
             50: 'hsl(var(--primary-50))',
             100: 'hsl(var(--primary-100))',
