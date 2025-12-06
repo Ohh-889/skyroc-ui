@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { Badge } from 'skyroc-ui';
+import { Tag } from 'skyroc-ui';
 
 const BrandLogo = () => {
   return (
@@ -28,12 +28,12 @@ const BrandLogo = () => {
         </span>
       </div>
 
-      <Badge
+      <Tag
         className="ml-1"
         variant="pure"
       >
         v1.0
-      </Badge>
+      </Tag>
     </Link>
   );
 };

@@ -3,12 +3,12 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import {
-  Badge,
   Button,
   Card,
   Icon,
   Input,
-  ScrollArea
+  ScrollArea,
+  Tag
 } from 'skyroc-ui';
 import { Link } from '../../i18n/navigation';
 
@@ -97,9 +97,9 @@ const Home = () => {
               <div className="mb-2 flex items-center gap-3">
                 <h1 className="text-primary text-3xl font-bold">{t('title')}</h1>
 
-                <Badge variant="pure">
+                <Tag variant="pure">
                   {t('badge')}
-                </Badge>
+                </Tag>
               </div>
 
               <p className="text-muted-foreground text-sm">
@@ -222,7 +222,7 @@ const Home = () => {
             <div className="mb-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-3">
                 <h2 className="text-xl font-semibold">{t('components.title')}</h2>
-                <Badge variant="pure">{componentKeys.length}</Badge>
+                <Tag variant="pure">{componentKeys.length}</Tag>
               </div>
 
               <Input

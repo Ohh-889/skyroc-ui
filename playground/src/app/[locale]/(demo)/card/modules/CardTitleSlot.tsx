@@ -1,5 +1,5 @@
 import { Rocket } from 'lucide-react';
-import { Badge, Card } from 'skyroc-ui';
+import { Tag, Card } from 'skyroc-ui';
 
 const CardTitleSlot = () => {
   return (
@@ -7,7 +7,7 @@ const CardTitleSlot = () => {
       split
       title="Title with Slots"
       titleLeading={<Rocket className="size-4" />}
-      titleTrailing={<Badge variant="soft">New</Badge>}
+      titleTrailing={<Tag variant="soft">New</Tag>}
     >
       <p className="text-muted-foreground">
         Use titleLeading and titleTrailing to add content before/after the title.

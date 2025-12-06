@@ -1,13 +1,13 @@
 import { Earth, Info, Rocket } from 'lucide-react';
 import type { AccordionItemData, ThemeSize } from 'skyroc-ui';
-import { Badge } from 'skyroc-ui';
+import { Tag } from 'skyroc-ui';
 
 export const items: AccordionItemData[] = [
   {
     children: 'Yes. It adheres to the WAI-ARIA design pattern.',
     leading: <Info />,
     title: 'Is it accessible?',
-    trailing: <Badge variant="soft">Badge</Badge>,
+    trailing: <Tag variant="soft">Tag</Tag>,
     value: '1'
   },
   {
