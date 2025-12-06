@@ -2,7 +2,7 @@ import { tv } from 'tailwind-variants';
 
 export const hoverCardVariants = tv({
   slots: {
-    arrow: 'fill-popover stroke-border',
+    arrow: 'fill-popover stroke-transparent',
     content: [
       `w-auto p-4 rounded-md border bg-popover  text-popover-foreground shadow-md outline-none z-50 will-change-transform`,
       `data-[state=open]:zoom-in-95 data-[state=closed]:zoom-out-95 data-[state=open]:fade-in-0  data-[state=open]:animate-in`,

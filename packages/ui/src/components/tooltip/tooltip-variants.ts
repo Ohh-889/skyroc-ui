@@ -5,7 +5,7 @@ export const tooltipVariants = tv({
     size: 'md'
   },
   slots: {
-    arrow: 'w-1em h-0.5em fill-carbon stroke-border',
+    arrow: 'w-1em h-0.5em fill-carbon stroke-transparent',
     content: [
       'w-auto rounded-md border bg-carbon  text-carbon-foreground shadow-md outline-none z-50 will-change-transform',
       'animate-in fade-in-0 zoom-in-95',

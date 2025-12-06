@@ -6,7 +6,7 @@ export const popoverVariants = tv({
   },
   slots: {
     anchor: 'w-fit',
-    arrow: 'w-1em h-0.5em fill-popover stroke-border',
+    arrow: 'w-1em h-0.5em fill-popover stroke-transparent',
     content: [
       `w-auto rounded-md border bg-popover  text-popover-foreground shadow-md outline-none z-50 will-change-transform`,
       `data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=open]:zoom-in-95`,

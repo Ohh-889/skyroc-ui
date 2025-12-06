@@ -5,7 +5,7 @@ export const menuVariants = tv({
     size: 'md'
   },
   slots: {
-    arrow: 'fill-popover stroke-border',
+    arrow: 'fill-popover stroke-transparent',
     checkboxItem: [
       `relative flex items-center rounded-sm outline-none transition-colors duration-200 cursor-pointer select-none`,
       `focus:bg-accent focus:text-accent-foreground`,
