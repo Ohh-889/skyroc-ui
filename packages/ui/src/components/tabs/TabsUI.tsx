@@ -16,10 +16,16 @@ const TabsUI = forwardRef<ComponentRef<typeof Root>, TabsProps<TabsOptionData>>(
     enableIndicator = true,
     forceMountContent,
     items,
+    shape = 'square',
     loop,
     orientation = 'horizontal',
+    renderContent,
+    renderTrigger,
     size,
     value,
+    listProps,
+    triggerProps,
+    contentProps,
     ...rest
   } = props;
 
@@ -27,6 +33,7 @@ const TabsUI = forwardRef<ComponentRef<typeof Root>, TabsProps<TabsOptionData>>(
     <Root
       className={[className, classNames?.root]}
       dir={dir}
+      orientation={orientation}
       ref={ref}
       size={size}
       value={value}
@@ -38,12 +45,14 @@ const TabsUI = forwardRef<ComponentRef<typeof Root>, TabsProps<TabsOptionData>>(
         enableIndicator={enableIndicator}
         loop={loop}
         orientation={orientation}
+        shape={shape}
         size={size}
         value={value}
         classNames={{
           indicator: classNames?.indicator,
           indicatorRoot: classNames?.indicatorRoot
         }}
+        {...listProps}
       >
         {items.map(item => (
           <TabsTrigger
@@ -54,8 +63,9 @@ const TabsUI = forwardRef<ComponentRef<typeof Root>, TabsProps<TabsOptionData>>(
             key={item.value}
             size={size}
             value={item.value}
+            {...triggerProps}
           >
-            {item.label}
+            {renderTrigger ? renderTrigger({ active: item.value === value, item }) : item.label}
           </TabsTrigger>
         ))}
       </TabsList>
@@ -69,8 +79,9 @@ const TabsUI = forwardRef<ComponentRef<typeof Root>, TabsProps<TabsOptionData>>(
           orientation={orientation}
           size={size}
           value={item.value}
+          {...contentProps}
         >
-          {typeof item.children === 'function' ? item.children({ active: item.value === value, item }) : item.children}
+          {renderContent ? renderContent({ active: item.value === value, item }) : item.children}
         </TabsContent>
       ))}
     </Root>

@@ -7,6 +7,8 @@ import type {
 import type { StyledComponentProps, ClassValue, ThemeOrientation } from '@/types/shared';
 import type { TabsFill, TabsSlots } from './tabs-variants';
 
+export type TabsShape = 'square' | 'rounded';
+
 /**
  * Represents the visual style properties of the indicator.
  * Used to position and size the active tab indicator element.
@@ -51,7 +53,7 @@ export type TabsUi = Partial<Record<TabsSlots, ClassValue>>;
  * Props for the tabs root component.
  * Configures the main tabs container with fill style options.
  */
-export interface TabsRootProps extends StyledComponentProps<Omit<_TabsRootProps, 'className'>> {
+export interface TabsRootProps extends StyledComponentProps<_TabsRootProps> {
   /**
    * Determines how the tabs fill the available space.
    * Controls the layout style (e.g., fixed width, expand to fill, etc.).
@@ -73,7 +75,7 @@ export interface TabsRootProps extends StyledComponentProps<Omit<_TabsRootProps,
  * />
  * ```
  */
-export interface TabsListProps extends StyledComponentProps<Omit<_TabsListProps, 'className'>>, Pick<_TabsRootProps, 'value'> {
+export interface TabsListProps extends StyledComponentProps<_TabsListProps>, Pick<_TabsRootProps, 'value'> {
   /**
    * Class names for customizing the indicator and its container.
    */
@@ -87,6 +89,10 @@ export interface TabsListProps extends StyledComponentProps<Omit<_TabsListProps,
    * The direction of the tabs layout (horizontal or vertical).
    */
   orientation?: ThemeOrientation;
+  /**
+   * The shape of the tabs list.
+   */
+  shape?: TabsShape;
 }
 
 /**
@@ -143,7 +149,7 @@ export type TabsOptionData = Pick<TabsTriggerProps, 'disabled'> & {
    * The content to display when this tab is active.
    * Can be a static ReactNode or a render function that receives active state and item data.
    */
-  children: React.ReactNode | ((props: { active: boolean; item: TabsOptionData }) => React.ReactNode);
+  children: React.ReactNode;
   /**
    * The label/title displayed in the tab trigger button.
    */
@@ -153,6 +159,7 @@ export type TabsOptionData = Pick<TabsTriggerProps, 'disabled'> & {
    * Used to associate triggers with content and maintain tab state.
    */
   value: string;
+
 };
 
 /**
@@ -176,24 +183,47 @@ export type TabsOptionData = Pick<TabsTriggerProps, 'disabled'> & {
  * />
  * ```
  */
-export type TabsProps<T extends TabsOptionData> = TabsRootProps
-  & TabsListProps & {
-    /**
-     * Class names for customizing different slots of the tabs component.
-     */
-    classNames?: TabsUi;
-    /**
-     * Whether to display an animated indicator under the active tab.
-     */
-    enableIndicator?: boolean;
-    /**
-     * Whether to force mount all tab content even when inactive.
-     * Useful for preserving component state across tab switches.
-     */
-    forceMountContent?: true;
-    /**
-     * Array of tab items to render.
-     * Each item should have a unique `value` property.
-     */
-    items: T[];
-  };
+export interface TabsProps<T extends TabsOptionData = TabsOptionData> extends TabsRootProps, Pick<TabsListProps, 'enableIndicator' | 'orientation' | 'shape' | 'loop'> {
+  /**
+   * Class names for customizing different slots of the tabs component.
+   */
+  classNames?: TabsUi;
+  /**
+   * Whether to display an animated indicator under the active tab.
+   */
+  enableIndicator?: boolean;
+  /**
+   * Whether to force mount all tab content even when inactive.
+   * Useful for preserving component state across tab switches.
+   */
+  forceMountContent?: true;
+  /**
+   * Array of tab items to render.
+   * Each item should have a unique `value` property.
+   */
+  items: T[];
+  /**
+   * Whether to disable the tabs component.
+   */
+  disabled?: boolean;
+  /**
+   * Render function for the content of the tab.
+   */
+  renderContent?: (props: { active: boolean; item: TabsOptionData }) => React.ReactNode;
+  /**
+   * Render function for the trigger of the tab.
+   */
+  renderTrigger?: (props: { active: boolean; item: TabsOptionData }) => React.ReactNode;
+  /**
+   * Props for the tabs list component.
+   */
+  listProps?: TabsListProps;
+  /**
+   * Props for the tabs trigger component.
+   */
+  triggerProps?: TabsTriggerProps;
+  /**
+   * Props for the tabs content component.
+   */
+  contentProps?: TabsContentProps;
+};

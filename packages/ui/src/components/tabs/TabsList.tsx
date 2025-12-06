@@ -9,7 +9,7 @@ import { tabsVariants } from './tabs-variants';
 import type { IndicatorStyle, TabsListProps } from './types';
 
 const TabsList = forwardRef<ComponentRef<typeof List>, TabsListProps>((props, ref) => {
-  const { children, className, classNames, dir, enableIndicator, orientation, size, value, ...rest } = props;
+  const { children, className, classNames, dir, enableIndicator, orientation, size, value, shape, ...rest } = props;
 
   const tabsListRef = useRef<HTMLDivElement>(null);
 
@@ -20,7 +20,7 @@ const TabsList = forwardRef<ComponentRef<typeof List>, TabsListProps>((props, re
 
   const mergedRef = useComposedRefs(ref, tabsListRef);
 
-  const { indicator, indicatorRoot, list } = tabsVariants({ orientation, size });
+  const { indicator, indicatorRoot, list } = tabsVariants({ orientation, size, shape });
 
   const mergedCls = cn(list(), className);
 
@@ -50,6 +50,7 @@ const TabsList = forwardRef<ComponentRef<typeof List>, TabsListProps>((props, re
 
   useEffect(() => {
     updateIndicatorStyle();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value, dir]);
   return (
     <List
@@ -65,8 +66,8 @@ const TabsList = forwardRef<ComponentRef<typeof List>, TabsListProps>((props, re
           className={mergedRootCls}
           style={
             {
-              '--soybean-tabs-indicator-position': `${indicatorStyle.position}px`,
-              '--soybean-tabs-indicator-size': `${indicatorStyle.size}px`
+              '--skyroc-tabs-indicator-position': `${indicatorStyle.position}px`,
+              '--skyroc-tabs-indicator-size': `${indicatorStyle.size}px`
             } as CSSProperties
           }
         >
