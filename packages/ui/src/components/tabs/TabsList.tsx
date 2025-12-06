@@ -9,7 +9,7 @@ import { tabsVariants } from './tabs-variants';
 import type { IndicatorStyle, TabsListProps } from './types';
 
 const TabsList = forwardRef<ComponentRef<typeof List>, TabsListProps>((props, ref) => {
-  const { children, className, classNames, dir, enableIndicator, orientation, size, value, shape, ...rest } = props;
+  const { children, className, classNames, dir, enableIndicator, orientation, size, value, shape, type, ...rest } = props;
 
   const tabsListRef = useRef<HTMLDivElement>(null);
 
@@ -20,7 +20,7 @@ const TabsList = forwardRef<ComponentRef<typeof List>, TabsListProps>((props, re
 
   const mergedRef = useComposedRefs(ref, tabsListRef);
 
-  const { indicator, indicatorRoot, list } = tabsVariants({ orientation, size, shape });
+  const { indicator, indicatorRoot, list } = tabsVariants({ orientation, size, shape, type });
 
   const mergedCls = cn(list(), className);
 

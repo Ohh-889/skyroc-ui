@@ -22,6 +22,7 @@ const TabsUI = forwardRef<ComponentRef<typeof Root>, TabsProps<TabsOptionData>>(
     renderContent,
     renderTrigger,
     size,
+    type,
     value,
     listProps,
     triggerProps,
@@ -47,6 +48,7 @@ const TabsUI = forwardRef<ComponentRef<typeof Root>, TabsProps<TabsOptionData>>(
         orientation={orientation}
         shape={shape}
         size={size}
+        type={type}
         value={value}
         classNames={{
           indicator: classNames?.indicator,
@@ -62,6 +64,7 @@ const TabsUI = forwardRef<ComponentRef<typeof Root>, TabsProps<TabsOptionData>>(
             enableIndicator={enableIndicator}
             key={item.value}
             size={size}
+            type={type}
             value={item.value}
             {...triggerProps}
           >

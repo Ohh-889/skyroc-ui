@@ -14,14 +14,19 @@ export const tabsVariants = tv({
     { class: { content: 'mt-3', indicatorRoot: 'py-1.25' }, orientation: 'horizontal', size: 'xl' },
     { class: { content: 'ml-3', indicatorRoot: 'px-1.25' }, orientation: 'vertical', size: 'xl' },
     { class: { content: 'mt-3.5', indicatorRoot: 'py-1.5' }, orientation: 'horizontal', size: '2xl' },
-    { class: { content: 'ml-3.5', indicatorRoot: 'px-1.5' }, orientation: 'vertical', size: '2xl' }
+    { class: { content: 'ml-3.5', indicatorRoot: 'px-1.5' }, orientation: 'vertical', size: '2xl' },
+    // Line type horizontal
+    { class: { indicator: '-bottom-[2px] h-[2px] w-full ', list: 'border-b-[2px] border-border bg-transparent rounded-none', trigger: 'rounded-none data-[state=active]:text-primary data-[state=active]:font-bold' }, orientation: 'horizontal', type: 'line' },
+    // Line type vertical
+    { class: { indicator: '-left-[2px] h-full w-[2px] ', list: 'border-l-[2px] border-border bg-transparent rounded-none', trigger: 'rounded-none data-[state=active]:text-primary data-[state=active]:font-bold' }, orientation: 'vertical', type: 'line' }
   ],
   defaultVariants: {
     size: 'md',
     orientation: 'horizontal',
     shape: 'square',
     fill: 'auto',
-    enableIndicator: true
+    enableIndicator: true,
+    type: 'pill'
   },
   slots: {
     content: `flex-grow self-stretch overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-background focus-visible:ring-primary`,
@@ -57,6 +62,12 @@ export const tabsVariants = tv({
       rounded: {
         list: 'rounded-full',
         indicator: 'rounded-full'
+      }
+    },
+    type: {
+      pill: {},
+      line: {
+        indicator: 'absolute  rounded-1 bg-primary '
       }
     },
     orientation: {
@@ -107,3 +118,4 @@ export const tabsVariants = tv({
 export type TabsSlots = keyof typeof tabsVariants.slots;
 export type TabsProps = VariantProps<typeof tabsVariants>;
 export type TabsFill = NonNullable<TabsProps['fill']>;
+export type TabsType = NonNullable<TabsProps['type']>;

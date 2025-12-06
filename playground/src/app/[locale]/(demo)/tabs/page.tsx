@@ -36,7 +36,7 @@ const TabsPage = () => {
 
       <Card
         split
-        title="Custom Style"
+        title="Line Type"
       >
         <Custom />
       </Card>

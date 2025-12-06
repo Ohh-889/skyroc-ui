@@ -5,7 +5,7 @@ import type {
   TabsTriggerProps as _TabsTriggerProps
 } from '@radix-ui/react-tabs';
 import type { StyledComponentProps, ClassValue, ThemeOrientation } from '@/types/shared';
-import type { TabsFill, TabsSlots } from './tabs-variants';
+import type { TabsFill, TabsSlots, TabsType } from './tabs-variants';
 
 export type TabsShape = 'square' | 'rounded';
 
@@ -93,18 +93,26 @@ export interface TabsListProps extends StyledComponentProps<_TabsListProps>, Pic
    * The shape of the tabs list.
    */
   shape?: TabsShape;
+  /**
+   * The visual style type of the tabs.
+   */
+  type?: TabsType;
 }
 
 /**
  * Props for the tabs trigger component.
  * Represents a single clickable tab button.
  */
-export interface TabsTriggerProps extends StyledComponentProps<Omit<_TabsTriggerProps, 'className'>> {
+export interface TabsTriggerProps extends StyledComponentProps<Omit<_TabsTriggerProps, 'className' | 'type'>> {
   /**
    * Whether to display an animated indicator under this trigger when active.
    * Overrides the list-level indicator setting if specified.
    */
   enableIndicator?: boolean;
+  /**
+   * The visual style type of the tabs.
+   */
+  type?: TabsType;
 }
 
 /**
@@ -183,7 +191,7 @@ export type TabsOptionData = Pick<TabsTriggerProps, 'disabled'> & {
  * />
  * ```
  */
-export interface TabsProps<T extends TabsOptionData = TabsOptionData> extends TabsRootProps, Pick<TabsListProps, 'enableIndicator' | 'orientation' | 'shape' | 'loop'> {
+export interface TabsProps<T extends TabsOptionData = TabsOptionData> extends TabsRootProps, Pick<TabsListProps, 'enableIndicator' | 'orientation' | 'shape' | 'loop' | 'type'> {
   /**
    * Class names for customizing different slots of the tabs component.
    */

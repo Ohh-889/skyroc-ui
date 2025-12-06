@@ -6,9 +6,9 @@ import { tabsVariants } from './tabs-variants';
 import type { TabsTriggerProps } from './types';
 
 const TabsTrigger = forwardRef<ComponentRef<typeof Trigger>, TabsTriggerProps>((props, ref) => {
-  const { className, enableIndicator = true, size, ...rest } = props;
+  const { className, enableIndicator = true, size, type, ...rest } = props;
 
-  const { trigger } = tabsVariants({ enableIndicator, size });
+  const { trigger } = tabsVariants({ enableIndicator, size, type });
 
   const mergedCls = cn(trigger(), className);
 

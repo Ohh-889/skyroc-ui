@@ -6,19 +6,19 @@ import { Tabs } from 'skyroc-ui';
 
 const tabs = [
   {
+    children: 'The Tab Content: Tab 1',
     label: 'Tab 1',
-    value: '1',
-    children: <div>Tab 1</div>
+    value: '1'
   },
   {
+    children: 'The Tab Content: Tab 2',
     label: 'Tab 2',
-    value: '2',
-    children: <div>Tab 2</div>
+    value: '2'
   },
   {
+    children: 'The Tab Content: Tab 3',
     label: 'Tab 3',
-    value: '3',
-    children: <div>Tab 3</div>
+    value: '3'
   }
 ] satisfies TabsOptionData[];
 
@@ -28,63 +28,37 @@ const Custom = () => {
 
   return (
     <div className="flex-c gap-8">
-      {/* Horizontal Custom Style */}
+      {/* Horizontal Line Type */}
       <div className="flex-c gap-4">
-        <h3 className="text-base font-semibold">Custom Style</h3>
+        <h3 className="text-base font-semibold">Line Type</h3>
 
         <div className="lt-sm:w-auto w-80">
           <Tabs
             fill="full"
             items={tabs}
+            type="line"
             value={value1}
             classNames={{
-              content: 'p-4 border border-border rounded-1',
-              indicator: 'absolute -bottom-[2px] h-[2px] w-full rounded-1 bg-primary',
-              list: 'border-border border-b-[2px] bg-transparent rounded-none'
+              content: 'p-4 border border-border rounded-1'
             }}
-            renderContent={({ item: { value } }) => (
-              <div>
-                The Tab Content:
-                {' '}
-                {value}
-              </div>
-            )}
-            renderTrigger={({ item: { label }, active }) => (
-              <div className={active ? 'text-primary font-bold' : ''}>
-                {label}
-              </div>
-            )}
             onValueChange={setValue1}
           />
         </div>
       </div>
 
-      {/* Vertical Custom Style */}
+      {/* Vertical Line Type */}
       <div className="flex-c gap-4">
-        <h3 className="text-base font-semibold">Custom Style Vertical</h3>
+        <h3 className="text-base font-semibold">Line Type Vertical</h3>
 
         <div className="lt-sm:w-auto w-80">
           <Tabs
             items={tabs}
             orientation="vertical"
+            type="line"
             value={value2}
             classNames={{
-              content: 'p-4 border border-border rounded-1',
-              indicator: 'absolute -left-[2px] h-full w-[2px] rounded-1 bg-primary',
-              list: 'border-border border-l-[2px] bg-transparent rounded-none'
+              content: 'p-4 border border-border rounded-1'
             }}
-            renderContent={({ item: { value } }) => (
-              <div>
-                The Tab Content:
-                {' '}
-                {value}
-              </div>
-            )}
-            renderTrigger={({ item: { label }, active }) => (
-              <div className={active ? 'text-primary font-bold' : ''}>
-                {label}
-              </div>
-            )}
             onValueChange={setValue2}
           />
         </div>
