@@ -29,15 +29,14 @@ const VirtualGridBasic = () => {
         gap={1}
         height={300}
         rowHeight={60}
-        width="100%"
+        width="50%"
         classNames={{
           root: 'border rounded-lg'
         }}
-        renderCell={(item, rowIndex, colIndex, style) => (
+        renderCell={(item, rowIndex, colIndex) => (
           <div
-            className="bg-accent/30 hover:bg-accent flex flex-col items-center justify-center border transition-colors"
+            className="bg-accent/30 hover:bg-accent flex  flex-col items-center justify-center border transition-colors"
             key={item.id}
-            style={style}
           >
             <span className="text-sm font-medium">{item.content}</span>
 

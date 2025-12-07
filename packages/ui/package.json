@@ -47,6 +47,11 @@
         "import": "./dist/components/*/index.js",
         "require": "./dist/components/*/index.js"
       },
+      "./virtualizer": {
+        "types": "./dist/components/virtualizer/index.d.ts",
+        "import": "./dist/components/virtualizer/index.js",
+        "require": "./dist/components/virtualizer/index.js"
+      },
       "./utils": {
         "types": "./dist/lib/index.d.ts",
         "import": "./dist/lib/index.js",
@@ -58,6 +63,9 @@
   "exports": {
     ".": {
       "import": "./src/index.ts"
+    },
+    "./virtualizer": {
+      "import": "./src/components/virtualizer/origin.ts"
     }
   },
   "main": "./src/index.ts",
@@ -108,7 +116,7 @@
     "@skyroc/form": "workspace:*",
     "@skyroc/tailwind-plugin": "workspace:*",
     "@skyroc/utils": "workspace:*",
-    "@skyroc/virtualizer": "workspace:*",
+    "@tanstack/react-virtual": "^3.13.12",
     "clsx": "catalog:",
     "cmdk": "1.1.1",
     "embla-carousel-react": "8.6.0",

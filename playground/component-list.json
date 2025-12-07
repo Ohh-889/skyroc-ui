@@ -255,6 +255,11 @@
     "value": "tooltip"
   },
   {
+    "name": "tree",
+    "label": "Tree",
+    "value": "tree"
+  },
+  {
     "name": "virtualizer",
     "label": "Virtualizer",
     "value": "virtualizer"

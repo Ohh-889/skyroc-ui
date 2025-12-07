@@ -1,49 +1,118 @@
-import type {
-  UseVirtualizerOptions as BaseUseVirtualizerOptions,
-  UseWindowVirtualizerOptions as BaseUseWindowVirtualizerOptions,
-  VirtualGridProps as BaseVirtualGridProps,
-  VirtualizerReturn as BaseVirtualizerReturn,
-  VirtualItem,
-  VirtualListProps as BaseVirtualListProps
-} from '@skyroc/virtualizer';
-import type { ClassValue } from '@/types/shared';
+import type { ComponentPropsWithoutRef, CSSProperties, ReactNode, Ref } from 'react';
+import type { VirtualizerOptions, Virtualizer, PartialKeys, VirtualItem } from '@tanstack/react-virtual';
+import type { ClassValue, StyledComponentProps } from '@/types/shared';
+import type { VirtualizerSlots } from './virtualizer-variants';
 
-/**
- * Slot names for the Virtualizer component
- */
-export type VirtualizerSlots = 'root' | 'inner' | 'item';
-
-/**
- * Class names for different slots in the virtualizer component
- */
 export type VirtualizerClassNames = Partial<Record<VirtualizerSlots, ClassValue>>;
 
-/**
- * Props for the VirtualList UI component
- */
-export interface VirtualListProps<T> extends Omit<BaseVirtualListProps<T>, 'className' | 'innerClassName'> {
+export interface VirtualizerList<TScrollElement extends HTMLDivElement = HTMLDivElement, TItemElement extends Element = Element>extends Virtualizer<TScrollElement, TItemElement> {
+  containerRef: TScrollElement;
+}
+
+export interface VirtualizerGrid<TScrollElement extends HTMLDivElement = HTMLDivElement, TItemElement extends Element = Element>extends Virtualizer<TScrollElement, TItemElement> {
+  containerRef: Ref<TScrollElement>;
+  rowVirtualizer: VirtualizerList<TScrollElement, TItemElement>;
+  columnVirtualizer: VirtualizerList<TScrollElement, TItemElement>;
+}
+
+export type VirtualizerBaseOptions<TScrollElement extends HTMLDivElement = HTMLDivElement, TItemElement extends Element = Element> = PartialKeys<VirtualizerOptions<TScrollElement, TItemElement>, 'observeElementRect' | 'observeElementOffset' | 'scrollToFn'>;
+
+export interface VirtualListItem<T, TScrollElement extends HTMLDivElement = HTMLDivElement, TItemElement extends Element = Element> {
+  item: T;
+  index: number;
+  virtualItem: VirtualItem;
+  virtualizer: Virtualizer<TScrollElement, TItemElement>;
+}
+
+export interface VirtualizerProps<T, TScrollElement extends HTMLDivElement, TItemElement extends Element> extends Omit<VirtualizerBaseOptions<TScrollElement, TItemElement>, 'count' | 'estimateSize' | 'getScrollElement'> {
   /**
    * Custom class names for component slots
    */
   classNames?: VirtualizerClassNames;
-}
-
-/**
- * Props for the VirtualGrid UI component
- */
-export interface VirtualGridProps<T> extends Omit<BaseVirtualGridProps<T>, 'className' | 'innerClassName'> {
   /**
-   * Custom class names for component slots
+   * Custom class name for the component
    */
-  classNames?: VirtualizerClassNames;
+  className?: ClassValue;
+  /**
+   * Data array to virtualize
+   */
+  data: T[];
+  /**
+   * Height of the container (for vertical lists)
+   */
+  height?: number | string;
+  /**
+   * Width of the container (for horizontal lists)
+   */
+  width?: number | string;
+
+  /**
+   * Props for the root <div>
+   */
+  containerProps?: StyledComponentProps<Omit<ComponentPropsWithoutRef<'div'>, 'style'>>;
+  /**
+   * Style for the container
+   */
+  style?: CSSProperties;
+  /**
+   * Callback when scroll position changes
+   */
+  onScroll?: (offset: number) => void;
+  /**
+   * Function to extract the key from the item
+   */
+  keyExtractor?: keyof T | ((item: T, index: number) => string);
 }
 
-/**
- * Re-export types from @skyroc/virtualizer for convenience
- */
-export type {
-  BaseUseVirtualizerOptions as UseVirtualizerOptions,
-  BaseUseWindowVirtualizerOptions as UseWindowVirtualizerOptions,
-  BaseVirtualizerReturn as VirtualizerReturn,
-  VirtualItem
-};
+export interface VirtualListProps<T, TScrollElement extends HTMLDivElement, TItemElement extends Element> extends VirtualizerProps<T, TScrollElement, TItemElement> {
+  /**
+   * Whether to use dynamic rendering
+   */
+  dynamic?: boolean;
+  /**
+   * Render function for each item
+   */
+  renderItem: (props: VirtualListItem<T, TScrollElement, TItemElement>) => ReactNode;
+  /**
+   * Reference to the virtualizer instance
+   */
+  ref?: Ref<VirtualizerList<TScrollElement, TItemElement> | null>;
+  /**
+   * Estimated item size
+   */
+  itemSize: number | ((index: number) => number);
+}
+
+export interface VirtualGridProps<T, TScrollElement extends HTMLDivElement, TItemElement extends Element> extends VirtualizerProps<T, TScrollElement, TItemElement> {
+  /**
+   * Render function for each grid cell
+   */
+  renderCell: (
+    item: T,
+    rowIndex: number,
+    colIndex: number
+  ) => ReactNode;
+  /**
+   * Number of columns per row
+   */
+  columns: number;
+
+  /**
+   * Row height: fixed value or function that calculates height per row
+   */
+  rowHeight: number | ((rowIndex: number) => number);
+
+  /**
+   * Column width: fixed value or function that calculates width per column
+   */
+  columnWidth: number | ((colIndex: number) => number);
+
+  /**
+   * Additional props for the column virtualizer
+   */
+  columnProps?: Omit<VirtualizerOptions<TScrollElement, TItemElement>, 'count' | 'estimateSize' | 'getScrollElement' | 'horizontal'>;
+  /**
+   * Reference to the virtualizer instance
+   */
+  ref?: Ref<VirtualizerGrid<TScrollElement, TItemElement> | null>;
+}

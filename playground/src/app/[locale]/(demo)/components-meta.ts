@@ -240,6 +240,11 @@ const componentsInfoEn: Record<string, ComponentInfo> = {
     description: 'Skyroc UI Tooltip Component - Text hint shown on hover.',
     keywords: ['tooltip', 'hint', 'tip', 'hover']
   },
+  'tree': {
+    title: 'Tree',
+    description: 'Skyroc UI Tree Component - Hierarchical tree structure with expand/collapse, selection, and virtual scrolling.',
+    keywords: ['tree', 'treeview', 'hierarchy', 'folder']
+  },
   'virtualizer': {
     title: 'Virtualizer',
     description: 'Skyroc UI Virtualizer Component - High-performance virtual list and grid for large data rendering.',
@@ -478,6 +483,11 @@ const componentsInfoZh: Record<string, ComponentInfo> = {
     title: 'Tooltip 提示',
     description: 'Skyroc UI Tooltip 组件 - 文字提示组件，鼠标悬停时显示。',
     keywords: ['tooltip', '提示', 'hint', 'tip']
+  },
+  'tree': {
+    title: 'Tree 树形控件',
+    description: 'Skyroc UI Tree 组件 - 层级树形结构组件，支持展开折叠、选择、虚拟滚动等功能。',
+    keywords: ['tree', '树形控件', '树视图', '层级结构', 'treeview']
   },
   'virtualizer': {
     title: 'Virtualizer 虚拟列表',

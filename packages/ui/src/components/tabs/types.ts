@@ -229,7 +229,7 @@ export interface TabsProps<T extends TabsOptionData = TabsOptionData> extends Ta
   /**
    * Props for the tabs trigger component.
    */
-  triggerProps?: TabsTriggerProps;
+  triggerProps?: Partial<TabsTriggerProps>;
   /**
    * Props for the tabs content component.
    */

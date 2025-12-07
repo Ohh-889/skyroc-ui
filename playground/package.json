@@ -34,6 +34,7 @@
     "worker:build": "opennextjs-cloudflare build"
   },
   "dependencies": {
+    "@faker-js/faker": "^10.1.0",
     "async-validator": "^4.2.5",
     "embla-carousel-autoplay": "8.6.0",
     "grapheme-splitter": "1.0.4",

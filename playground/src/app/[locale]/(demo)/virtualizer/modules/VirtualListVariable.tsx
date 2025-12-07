@@ -28,14 +28,14 @@ const VirtualListVariable = () => {
         data={data}
         height={300}
         itemSize={index => data[index].height}
+        keyExtractor="id"
+        width={500}
         classNames={{
           root: 'border rounded-lg'
         }}
-        renderItem={(item, index, style) => (
+        renderItem={({ index, item }) => (
           <div
             className="hover:bg-accent flex flex-col justify-center border-b px-4 transition-colors"
-            key={item.id}
-            style={style}
           >
             <div className="flex items-center justify-between">
               <span className="font-medium">
@@ -55,6 +55,7 @@ const VirtualListVariable = () => {
           </div>
         )}
       />
+
     </Card>
   );
 };

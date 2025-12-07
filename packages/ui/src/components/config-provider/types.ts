@@ -45,6 +45,7 @@ import type { TabsProps, TabsOptionData } from '../tabs/types';
 import type { TextareaProps } from '../textarea/types';
 import type { ToggleProps } from '../toggle/types';
 import type { TooltipProps } from '../tooltip/types';
+import type { TreeProps } from '../tree/types';
 import type { BottomSheetProps } from '../bottom-sheet';
 
 /**
@@ -328,6 +329,11 @@ export interface ComponentConfig {
    * Default configuration for tooltip components.
    */
   tooltip?: TooltipConfig;
+
+  /**
+   * Default configuration for tree components.
+   */
+  tree?: TreeConfig;
 }
 
 /**
@@ -736,3 +742,23 @@ export type PasswordConfig = Pick<PasswordProps, 'className' | 'classNames' | 's
  * Selects specific props that can be set globally for all toasters.
  */
 export type SonnerConfig = Pick<ToasterProps, 'expand' | 'position' | 'richColors'>;
+
+/**
+ * Configuration options for tree components.
+ * Selects specific props that can be set globally for all tree instances.
+ */
+export type TreeConfig = Pick<
+  TreeProps,
+  | 'className'
+  | 'classNames'
+  | 'dir'
+  | 'disabled'
+  | 'loop'
+  | 'multiple'
+  | 'selectionBehavior'
+  | 'toggleBehavior'
+  | 'propagateSelect'
+  | 'bubbleSelect'
+  | 'allowParentSelect'
+  | 'size'
+>;
