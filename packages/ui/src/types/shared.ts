@@ -29,6 +29,8 @@ export interface WithClassName {
 /** Props with value support */
 export type Value = string;
 
+export type MaybeArray<T> = T | Array<T>;
+
 /** HTML element tag types */
 export type HTMLTag
   = | 'a'
